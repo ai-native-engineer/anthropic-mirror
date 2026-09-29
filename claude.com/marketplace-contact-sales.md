@@ -15,5 +15,3 @@ The Claude Marketplace features Claude-powered tools for enterprise customers. I
 How does the Claude Marketplace work for enterprise customers?
 
 If your organization has an existing Anthropic spend commitment, you can apply some of it towards Claude-powered partner solutions. Reach out to your Anthropic account team to get started.
-
-Claude Marketplace | Claude by Anthropic

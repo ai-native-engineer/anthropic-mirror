@@ -47,8 +47,8 @@ On our benchmarks, Claude Opus 5.5 leads in agentic coding, computer use, and kn
 | Multidisciplinary reasoningHumanity's Last Exam | 67.7%with tools | 65.6%with tools | 63.6%with tools | 57.2%with tools | — |
 | Agentic scientific researchTerminal-Bench-Science 0.1³ |  | | | |
 | Agentic scientific researchTerminal-Bench-Science 0.1³ | 58.7% | 52.6% | 29.0% | 64.6% | 22.4% |
-| Computer useOSWorld 2.0 |  | | | |
-| Computer useOSWorld 2.0 | 81.8%partial | 80.7%partial | 74.0%partial | — | — |
+| Computer useOSWorld 2.1 |  | | | |
+| Computer useOSWorld 2.1 | 81.8%partial | 80.7%partial | 74.0%partial | — | — |
 | Visual chart recognitionChartography |  | | | |
 | Visual chart recognitionChartography | 89.0%with tools | 88.4%with tools | 83.4%with tools | — | — |
 

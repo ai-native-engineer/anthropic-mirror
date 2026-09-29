@@ -4,6 +4,8 @@
 
 Hand Claude a bug fix, test, or multi-day migration. Steer and review from your terminal, IDE, Slack, or web.
 
+Claude Code is included in Claude Pro and Max plans. [See plans](#pricing)
+
 [Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)[Read documentation (opens in new tab)](https://code.claude.com/docs/en/overview)
 
 Available for macOS, Linux, and Windows.

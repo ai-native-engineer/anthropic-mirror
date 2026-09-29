@@ -52,7 +52,7 @@ Lazy AI integrated Claude into their platform, leveraging Claude 3.5 Sonnet's ad
 
 Szalontay says, "We believe that the best way to learn is through fun passion projects. What we think of as fun or as a personal project can often lead to innovation, and many fun projects can turn into successful businesses.”
 
-![Lazy AI screenshot](https://assets.claude.com/aa93af057f137d587f7958654d77c799b63d46b9.jpg?w=2400&q=75&fm=webp&fit=max)
+![Lazy AI screenshot](https://assets.claude.com/aa93af057f137d587f7958654d77c799b63d46b9.jpg)
 
 ## Transforming the development landscape
 

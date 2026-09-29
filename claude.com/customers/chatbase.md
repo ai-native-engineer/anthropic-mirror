@@ -55,7 +55,7 @@ Chatbase built a platform that deploys AI agents across multiple communication c
 
 The platform goes beyond simple chat by integrating with business systems through APIs, enabling AI agents to take direct actions. Through integrations like Stripe, agents can handle tasks like checking invoices and processing refunds, with optional human oversight for sensitive operations. For e-commerce customers, they're expanding into Shopify integrations to help AI agents serve as shopping assistants, demonstrating the platform's adaptability to different business needs through simple instruction changes.
 
-![](https://assets.claude.com/bdef0526a4feb94e414fdb4145ca0cc5fd277e02.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/bdef0526a4feb94e414fdb4145ca0cc5fd277e02.png)
 
 ## Delivering measurable impact for support teams and customers
 

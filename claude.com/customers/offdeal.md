@@ -66,7 +66,7 @@ The team started investigating solutions: custom compaction, auto-summarization,
 
 The Agent SDK's built-in context management, including subagent orchestration and automatic compaction, meant the team could stop building workarounds and focus on banking workflows.
 
-![](https://assets.claude.com/0203401ce7b6c71e76c0d741eaddc9b19ed6631e.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/0203401ce7b6c71e76c0d741eaddc9b19ed6631e.png)
 
 Archie, OffDeal's Claude-powered agent, drafts personalized chaser emails to 34 buyers from within the firm's Deal Portal. All names shown have been modified to preserve client confidentiality.
 

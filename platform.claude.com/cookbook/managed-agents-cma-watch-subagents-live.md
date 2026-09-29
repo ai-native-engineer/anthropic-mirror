@@ -67,6 +67,10 @@ name="standards\_researcher",
 
 description="Finds the NGSS standards and documented misconceptions for a science topic.",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-watch-subagents-live"},
+
 model={"id": MODEL, "effort": "high"},
 
 system=RESEARCHER\_SYSTEM,
@@ -112,6 +116,10 @@ lesson\_writer = client.beta.agents.create(
 name="lesson\_writer",
 
 description="Drafts a day-by-day lesson sequence from standards and misconceptions.",
+
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-watch-subagents-live"},
 
 model={"id": MODEL},
 
@@ -176,6 +184,10 @@ coordinator = client.beta.agents.create(
 name="unit\_planner",
 
 description="Plans one-week teaching units by delegating research and drafting.",
+
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-watch-subagents-live"},
 
 model={"id": MODEL},
 

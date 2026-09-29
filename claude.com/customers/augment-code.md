@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Augment Code logo](https://assets.claude.com/4decc85466c3641afbd10906f98144ed61806e3c.svg)
+![Augment Code logo](https://assets.claude.com/7c991eec0ef2ebdbb312e3a55072965c105f343e.svg)
 
 Industry:
 :   Software

@@ -38,12 +38,12 @@ The email domain that was used to create your Team or Enterprise plan organizati
 
 Owners can remove domains by opening up the same modal and clicking the trash can icon to the right of the domain:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1790570700&signature=240dae3297bdc4547238aabe6a623b8d7ed16a5ae7d2f7b34f48297517102478&req=diAiFcF5nolaW%2FMW1HO4zUrhF%2BudbggdkeFUnrkrQZgQeD9zAXG2fSqLcwqP%0AlLPk8X%2BHeLD1fCs5BHA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1790570700&signature=240dae3297bdc4547238aabe6a623b8d7ed16a5ae7d2f7b34f48297517102478&req=diAiFcF5nolaW%2FMW1HO4zUrhF%2BudbggdkeFUnrkrQZgQeD9zAXG2fSqLcwqP%0AlLPk8X%2BHeLD1fCs5BHA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1790642700&signature=c4769900763a351b953f9407486e98e46585970682dbe71eb5b0930d8fa46514&req=diAiFcF5nolaW%2FMW1HO4zUrhF%2BuebQodkeFUnrkrQZgdzyixMhPcwULwPSN6%0AcqK%2B0jAW6GXBHX713cc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1790642700&signature=c4769900763a351b953f9407486e98e46585970682dbe71eb5b0930d8fa46514&req=diAiFcF5nolaW%2FMW1HO4zUrhF%2BuebQodkeFUnrkrQZgdzyixMhPcwULwPSN6%0AcqK%2B0jAW6GXBHX713cc%3D%0A)
 
 While the account creator must use a business email address, you can add public domains like @gmail.com, @yahoo.com, and @hotmail.com as allowed domains for other members of your organization.
 
 * [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
-* [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
 * [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
 * [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)

@@ -12,7 +12,7 @@ Official Slack MCP server for interactive and collaborative workflows. Surface i
 
 Write SQL, explore datasets, and generate insights. Build visualizations and dashboards from raw data.
 
-### [Adobe for creativity](https://claude.com/marketplace/plugins/adobe-for-creativity)
+### [Adobe](https://claude.com/marketplace/plugins/adobe-for-creativity)
 
 Brings together Adobe Creative Cloud tools for images, vectors, design, and video.
 

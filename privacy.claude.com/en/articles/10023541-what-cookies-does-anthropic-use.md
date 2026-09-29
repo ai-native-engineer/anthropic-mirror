@@ -81,7 +81,7 @@ You can control how and when your personal data is shared or used in the followi
 1. Clicking on "Privacy Choices" in the footer of our main website ([anthropic.com](http://anthropic.com/))
 2. Clicking on "Your privacy choices" in the Learn More overflow menu on [claude.ai](http://claude.ai/):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790571600&signature=8a6e37343472ffed4a13a5f26e69dd20c645630244db93cc5493162008d895a0&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn0iLFyokxDdhQCTHqgOroOzT8zbTAZaVTm%0AoFh9%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790571600&signature=8a6e37343472ffed4a13a5f26e69dd20c645630244db93cc5493162008d895a0&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn0iLFyokxDdhQCTHqgOroOzT8zbTAZaVTm%0AoFh9%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790642700&signature=087a3534a852bf632317946c784e0df50339de6d19896e2368f0d2607b931dcf&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn3i7JzokxDdhQCTHpOnaEf3AQmPHjNIqv9%0ALk94%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790642700&signature=087a3534a852bf632317946c784e0df50339de6d19896e2368f0d2607b931dcf&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn3i7JzokxDdhQCTHpOnaEf3AQmPHjNIqv9%0ALk94%0A)
 3. Enabling global privacy controls in your browser
 
 ​
@@ -89,3 +89,4 @@ You can control how and when your personal data is shared or used in the followi
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [Does Anthropic crawl data from the web, and how can site owners block the crawler?](https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
 * [What Cookies Does Anthropic Use?](https://privacy.claude.com/en/articles/9020432-what-cookies-does-anthropic-use)
+* [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)

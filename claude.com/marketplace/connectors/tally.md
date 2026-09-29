@@ -21,12 +21,12 @@ Create Tally forms faster with AI. Describe what you need in plain English, and 
 * list\_workspaces
 * load\_form
 * move\_blocks
+* publish\_form
 * remove\_blocks
 * remove\_pages
 * remove\_questions
 * reposition\_pages
 * reposition\_questions
-* save\_form
 * search\_documentation
 * set\_column\_layout
 * set\_form\_title

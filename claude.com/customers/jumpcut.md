@@ -38,7 +38,7 @@ Jumpcut offers a radically different approach using generative AI. Its founders 
 
 Teams upload scripts to ScriptSense to produce comprehensive script coverage on everything from scene summaries to character breakdowns to similar titles—all in seconds. In order to capture the rich stories and unique subtext from each script, the team chose to power ScriptSense with Claude.
 
-![App screen from the Jumpcut platform](https://assets.claude.com/017232316762dafbfe5a5c5bb525e3ff82686438.jpg?w=2400&q=75&fm=webp&fit=max)
+![App screen from the Jumpcut platform](https://assets.claude.com/017232316762dafbfe5a5c5bb525e3ff82686438.jpg)
 > In storytelling, subtext matters. Other foundation models required significant prompt engineering and still weren’t able to capture the nuances of what made a script unique. Claude analyzes scripts more effectively and produces work that sounds more human, all with significantly less prompt work.
 
 — Kartik Hosanagar, Chairman and Founder of Jumpcut
@@ -49,7 +49,7 @@ Over the course of a 100+ page screenplay, a reader will often encounter multipl
 
 With ScriptSense, the Jumpcut team built a multi-step, agentic architecture to break a script down into its core components and understand the plot, character, and thematic devices that form the story.
 
-![App screen from the Jumpcut platform](https://assets.claude.com/710b6018c31eb7fb83ed252698a48e8e378f2aab.jpg?w=2400&q=75&fm=webp&fit=max)
+![App screen from the Jumpcut platform](https://assets.claude.com/710b6018c31eb7fb83ed252698a48e8e378f2aab.jpg)
 > We ran tests and evaluations across all major foundation models, which revealed that Claude performed best at the summarization and creative analysis subtasks involved in the multi-step script breakdown process. The end result was more context-rich results that help entertainment teams make informed decisions faster.
 >
 > - Dilip Rajan, Co-Founder and Head of Product of Jumpcut

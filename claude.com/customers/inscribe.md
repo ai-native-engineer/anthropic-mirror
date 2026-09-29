@@ -58,7 +58,7 @@ Inscribe uses Claude to drive its suite of AI Risk Agents, automating key aspect
 
 The recently launched AI Fraud Analyst exemplifies these capabilities. "Our AI Fraud Analyst can detect fraud in images and PDFs, verify applicant details through KYC and KYB checks, uncover risky transactions, and provide auditable risk reports – all in about 90 seconds,” said Burke.
 
-![Inscribe product screenshot](https://assets.claude.com/0077b560bbba6610f4564b4d60202ed9f416c486.jpg?w=2400&q=75&fm=webp&fit=max)![Inscribe screenshot ](https://assets.claude.com/756aaecde2ee92a251ba075390f2c20918f71207.jpg?w=2400&q=75&fm=webp&fit=max)
+![Inscribe product screenshot](https://assets.claude.com/0077b560bbba6610f4564b4d60202ed9f416c486.jpg)![Inscribe screenshot ](https://assets.claude.com/756aaecde2ee92a251ba075390f2c20918f71207.jpg)
 
 ## Transforming the financial landscape
 

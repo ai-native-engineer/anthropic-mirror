@@ -28,14 +28,14 @@ To start using Claude in Xcode:
 2. Open Xcode preferences and navigate to the Intelligence settings.
 3. Log in with your Claude account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1790571600&signature=f1fb89c1ec97ff7e240a57c1f0fbcdca736c39c82fb846338b189009b0686626&req=dSclEcp5nIRXXPMW1HO4zUAXIswHVanSFalhp3bugHKddSg%2BS6ZfT0LSqrv2%0A2Jj%2FuwM5A0eG0E1drPY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1790571600&signature=f1fb89c1ec97ff7e240a57c1f0fbcdca736c39c82fb846338b189009b0686626&req=dSclEcp5nIRXXPMW1HO4zUAXIswHVanSFalhp3bugHKddSg%2BS6ZfT0LSqrv2%0A2Jj%2FuwM5A0eG0E1drPY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1790642700&signature=1ecbe00fbcab839442824a42d39aeb335b75fdc85804738701f6fa961aca2fc7&req=dSclEcp5nIRXXPMW1HO4zUAXIswEVqrTFalhp3bugHJzL7QMHmVJLxz0HcP0%0AsFaj%2FjJ5IQwz2ixVZP8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1790642700&signature=1ecbe00fbcab839442824a42d39aeb335b75fdc85804738701f6fa961aca2fc7&req=dSclEcp5nIRXXPMW1HO4zUAXIswEVqrTFalhp3bugHJzL7QMHmVJLxz0HcP0%0AsFaj%2FjJ5IQwz2ixVZP8%3D%0A)
 
 ## Usage limits
 
 Your Claude usage limits are shared across all platforms, so your chats with Claude and coding work in Xcode will draw from the same limits with a five-hour reset period, and will count towards your weekly usage limits. You will see the following message upon reaching either of your limits: “You've reached your rate limit, please try again later.”
 
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
-* [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 * [Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
+* [Why Claude switched models in your conversation with Sonnet 5.5](https://support.claude.com/en/articles/17161993-why-claude-switched-models-in-your-conversation-with-sonnet-5-5)

@@ -36,7 +36,7 @@ Key results:
 * Increases pair-coding productivity by 5x through advanced AI-assisted collaboration
 * Accelerates research, product design, and creative brainstorming processes by up to 8x
 
-![Solvely product screen 1](https://assets.claude.com/3d9273933ea50b40e3786b4eae37c763e3bd5fe3.png?w=2400&q=75&fm=webp&fit=max)
+![Solvely product screen 1](https://assets.claude.com/3d9273933ea50b40e3786b4eae37c763e3bd5fe3.png)
 
 ## Breaking down barriers to personalized education
 
@@ -68,7 +68,7 @@ Solvely leverages Claude to create an all-in-one learning companion that support
 
 **Test Preparation**: Solvely offers personalized exam preparation that adapts to each student's learning style and knowledge gaps so they develop stronger testing strategies and deeper subject mastery.
 
-![Solvely Product screen 2](https://assets.claude.com/55c1078311d0b3e9d91d018d54a8847a3da7284d.png?w=2400&q=75&fm=webp&fit=max)![Solvely product screen 3](https://assets.claude.com/1606a50329088ef255da8f0e19c60baf8821bf59.png?w=2400&q=75&fm=webp&fit=max)
+![Solvely Product screen 2](https://assets.claude.com/55c1078311d0b3e9d91d018d54a8847a3da7284d.png)![Solvely product screen 3](https://assets.claude.com/1606a50329088ef255da8f0e19c60baf8821bf59.png)
 
 ## Measurable impact on learning outcomes
 

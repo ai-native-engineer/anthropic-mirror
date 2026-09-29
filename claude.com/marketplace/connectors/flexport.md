@@ -2,7 +2,7 @@
 
 Connector URL`https://mcp.flexport.com/mcp`
 
-More[Documentation (opens in new tab)](https://apidocs.flexport.com/)[Enterprise setup guide (opens in new tab)](https://apidocs.flexport.com/)[Support (opens in new tab)](https://www.flexport.com/company/contact)[Privacy policy (opens in new tab)](https://www.flexport.com/privacy)
+More[Documentation (opens in new tab)](https://apidocs.flexport.com/v3/tag/Overview/)[Enterprise setup guide (opens in new tab)](https://apidocs.flexport.com/)[Support (opens in new tab)](https://www.flexport.com/company/contact)[Privacy policy (opens in new tab)](https://www.flexport.com/privacy)
 
 Flexport helps users search logistics reference data, track and browse shipments, review quote requests and pricing, request rates, and create freight bookings through Anthropic.
 
@@ -12,7 +12,6 @@ Flexport helps users search logistics reference data, track and browse shipments
 * list\_active\_company\_users
 * network\_search\_addresses
 * network\_search\_company\_entities
-* network\_search\_fulfillment\_inbound\_addresses
 * network\_search\_google\_addresses
 * network\_search\_hs\_codes
 * network\_search\_ports

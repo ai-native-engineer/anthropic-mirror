@@ -63,7 +63,7 @@ Every interaction has the same shape. You mention `@Claude` with a task, Claude 
 @Claude learn what you can about my role from this workspace, then tell me three tasks you could take off my plate this week.
 ```
 
-An “is thinking…” line appears at the bottom of the thread when Claude picks the task up, and it replies with results; a multi-step task also gets a checklist it updates as it works. A quiet thread after the “is thinking…” line means Claude is working, not stuck; long tasks can take a minute or more before the first reply.
+A working indicator appears at the bottom of the thread when Claude picks the task up, and it replies with results; a multi-step task also gets a checklist it updates as it works. A quiet thread under the indicator means Claude is working, not stuck; long tasks can take a minute or more before the first reply. To interrupt Claude in a channel thread, select **Stop** on the indicator; a DM shows an “is thinking…” line with no **Stop** button.
 Once Claude is in a thread, you don’t need to @-mention it again; it reads every reply in that thread.
 Read Claude’s work before you use it, in proportion to what’s at stake. A summary you can skim; something going to a customer or changing a system gets a careful read. If a result needs checking, ask it to show its work in the same thread.
 Tasks run in the cloud, so Claude keeps working after you close Slack.

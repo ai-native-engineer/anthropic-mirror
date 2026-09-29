@@ -42,7 +42,7 @@ Charm Industrial removes carbon from the atmosphere by converting agricultural a
 
 Charm Industrial sells carbon removal credits—verified certificates that represent one ton of CO₂ permanently removed from the atmosphere—to companies seeking to offset their emissions. With customers like Stripe, JP Morgan and Google relying on these credits, Charm processes tens of thousands of data points across dozens of different systems and hundreds of components for every ton of carbon removed.
 
-![Charm Pyrolyzer](https://assets.claude.com/678cb159a2bca54b6fc021f331fa4f2f4c1336e2.jpg?w=2400&q=75&fm=webp&fit=max)
+![Charm Pyrolyzer](https://assets.claude.com/678cb159a2bca54b6fc021f331fa4f2f4c1336e2.jpg)
 
 "We collect everything from meter readings on our pyrolyzers to truck scale tickets, all of which must be meticulously tracked and verified for carbon credit certification," said Kevin Niparko, Head of Product at Charm Industrial.
 
@@ -60,7 +60,7 @@ After evaluating multiple AI models, Charm chose Claude for what Niparko describ
 
 This balance proved critical for Charm's diverse use cases, from analyzing complex geological surveys to generating code for system migrations.
 
-![Charm Carbon Removal Process](https://assets.claude.com/5ee364cf0a8ac5c8fa3ebd6cd9cb303eec1c226a.jpg?w=2400&q=75&fm=webp&fit=max)
+![Charm Carbon Removal Process](https://assets.claude.com/5ee364cf0a8ac5c8fa3ebd6cd9cb303eec1c226a.jpg)
 
 ## How Claude powers carbon removal at scale
 

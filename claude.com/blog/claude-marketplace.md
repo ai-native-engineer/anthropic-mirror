@@ -28,7 +28,7 @@ Find the tools and services to do more with Claude, or list what you've built to
 
   https://claude.com/blog/claude-marketplace
 
-Starting today, the [Claude Marketplace](https://claude.com/platform/marketplace) brings plugins and connectors, agents and products, and service partners into one place. For customers, it provides a single destination to find the right tools and services. For builders and partners, it offers an easier way to reach teams using Claude.
+Starting today, the [Claude Marketplace](https://claude.com/marketplace) brings plugins and connectors, agents and products, and service partners into one place. For customers, it provides a single destination to find the right tools and services. For builders and partners, it offers an easier way to reach teams using Claude.
 
 ## **For customers: discover tools and services to help you do more with Claude**
 

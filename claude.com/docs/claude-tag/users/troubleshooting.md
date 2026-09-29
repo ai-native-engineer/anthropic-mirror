@@ -44,9 +44,9 @@ Have the teammate mention `@Claude` themselves and report the exact text of any 
 ###  Claude reacted or started thinking, then never replied
 
 **What you see**
-Claude added a reaction to your message, or an “is thinking…” line appeared under it, but no reply arrived.
+Claude added a reaction to your message, or a working indicator appeared under the thread (in a DM, an “is thinking…” line), but no reply arrived.
 **What it means**
-A reaction or an “is thinking…” line without a reply usually means Claude is still working, not that your message was dropped.
+A reaction or a working indicator without a reply usually means Claude is still working, not that your message was dropped.
 **How to resolve**
 
 1. Send [`@Claude !status`](https://claude.com/docs/claude-tag/users/commands#check-whether-claude-is-still-working) in the same thread. Claude tells you, in a note only you can see, whether it’s still working and for how long, without interrupting the work. If the note says Claude got disconnected, @-mention Claude in the thread and it picks up where it left off, with no restart needed.

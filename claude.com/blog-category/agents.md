@@ -18,6 +18,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 28, 2026
+
+Giving companies more control over their AI agents, with NVIDIA
+
+Agents
+
+Giving companies more control over their AI agents, with NVIDIA
+
+September 28, 2026
+
+[Giving companies more control over their AI agents, with NVIDIA](https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia)Giving companies more control over their AI agents, with NVIDIA
+
+[Giving companies more control over their AI agents, with NVIDIA](#)Giving companies more control over their AI agents, with NVIDIA
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 Sep 8, 2026
@@ -242,22 +258,6 @@ May 27, 2026
 
 [Zero Trust for AI agents](#)Zero Trust for AI agents
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-May 13, 2026
-
-Best practices for computer and browser use with Claude
-
-Agents
-
-Best practices for computer and browser use with Claude
-
-May 13, 2026
-
-[Best practices for computer and browser use with Claude](https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
-
-[Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
-
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
@@ -265,6 +265,22 @@ Category
 Product
 
 Usecase
+
+### Giving companies more control over their AI agents, with NVIDIA
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+September 28, 2026
+
+[Giving companies more control over their AI agents, with NVIDIA](https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia)Giving companies more control over their AI agents, with NVIDIA
+
+[Giving companies more control over their AI agents, with NVIDIA](#)Giving companies more control over their AI agents, with NVIDIA
 
 ### Reducing cost and improving performance with Claude Platform
 
@@ -489,22 +505,6 @@ May 27, 2026
 [Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
 
 [Zero Trust for AI agents](#)Zero Trust for AI agents
-
-### Best practices for computer and browser use with Claude
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-May 13, 2026
-
-[Best practices for computer and browser use with Claude](https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
-
-[Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
 
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 

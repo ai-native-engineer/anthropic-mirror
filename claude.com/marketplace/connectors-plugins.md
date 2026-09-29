@@ -14,7 +14,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 852
+Show all 861
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -206,7 +206,7 @@ Build, analyze, and compare portfolios for advisors
 
 ## New connectors
 
-Show all 3
+Show all 5
 
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
@@ -228,6 +228,26 @@ Connect to Vanta's trust management platform
 
 [Add Vanta in Claude (opens in new tab)](https://claude.ai/directory/a06a16f0-182d-43c1-a20d-0f95aee6027e "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=brek.com&sz=96)
+
+### [Brek - Hotel Wholesale Booking](https://claude.com/marketplace/connectors/brek-hotel-wholesale-booking)
+
+Anthropic verifiedNew
+
+Search and compare hotels with public and private wholesale rates.
+
+[Add Brek - Hotel Wholesale Booking in Claude (opens in new tab)](https://claude.ai/directory/5590ae2e-c452-4baf-afe8-697ec9f2ef70 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=slicktrip.com&sz=96)
+
+### [SlickTrip](https://claude.com/marketplace/connectors/slicktrip)
+
+Anthropic verifiedNew
+
+Search flights, hotels and seats, then get alerted the moment a price you are watching drops.
+
+[Add SlickTrip in Claude (opens in new tab)](https://claude.ai/directory/c1cba93e-98f4-4146-8afa-e9551a789823 "Add in Claude")
+
 ![](https://mcp.ws.sonos.com/favicon.ico)
 
 ### [Sonos](https://claude.com/marketplace/connectors/sonos-mcp)
@@ -240,7 +260,7 @@ Control your Sonos system
 
 ## All connectors
 
-852 connectors
+861 connectors
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 

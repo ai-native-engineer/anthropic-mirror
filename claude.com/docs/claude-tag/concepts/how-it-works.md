@@ -54,7 +54,7 @@ Done. Full status below: eight items closed, three open. The venue contract is t
 Each of the five moments in that thread shows a piece of how Claude Tag works:
 
 1. **Jordan handed Claude a problem, not a prompt.** Typing `@Claude` in a message that asks for something is what starts a working session.
-2. **Claude acknowledged, then went quiet.** The “is thinking…” line and the checklist are the progress surface; the silence between 9:02 and 9:06 was the work happening. [How the checklist updates](#how-the-checklist-updates)
+2. **Claude acknowledged, then went quiet.** The working indicator and the checklist are the progress surface; the silence between 9:02 and 9:06 was the work happening. [How the checklist updates](#how-the-checklist-updates)
 3. **Sam steered Claude without `@`-mentioning it again.** Once a session is active in a thread, it belongs to everyone there. [Reply in the thread to steer](#reply-in-the-thread-to-steer)
 4. **The work ran somewhere real, with the channel’s tools.** Reading fourteen threads happened in a sandbox built for this thread, and the launch plan came through this channel’s Drive connection. What a session can reach is set per channel. [Channel access](#channel-access)
 5. **The result is in the thread.** The whole channel can see it, use it, and build on it. [What survives between replies](#what-survives-between-replies)
@@ -67,12 +67,13 @@ To start a session, type `@Claude` in a Slack message and say what you need in t
 
 ###  Track Claude’s progress
 
-Once your message sends, an “is thinking…” line at the bottom of the thread means Claude picked it up. What happens next depends on the size of the ask. Questions and one-off requests get a direct reply. A longer task, like Jordan’s, gets a checklist instead. [How the checklist updates](#how-the-checklist-updates) covers how it works and how to read one while it runs.
+Once your message sends, a working indicator at the bottom of the thread means Claude picked it up. In a channel thread the indicator carries a **Stop** button; in a DM it reads “is thinking…”. What happens next depends on the size of the ask. Questions and one-off requests get a direct reply. A longer task, like Jordan’s, gets a checklist instead. [How the checklist updates](#how-the-checklist-updates) covers how it works and how to read one while it runs.
 While a session runs, check in by replying in the same thread. Asking “how’s it going?” in the thread is enough; it reads new replies as it works.
 
 ###  Reply in the thread to steer
 
 Anyone in the channel can steer a running session by replying in its thread, not just the person who started it. That is what Sam did in the walkthrough. Without re-mentioning `@Claude` or starting over, he replied in Jordan’s thread, and the session folded his instruction into work already in progress. Add context, redirect the approach, or pick up the result later; a colleague’s thread is yours to continue.
+To stop Claude partway through a reply in a channel thread, select **Stop** on the working indicator at the bottom of the thread. Claude stops what it was doing and keeps the session, so the thread’s context isn’t lost, then posts a line naming who stopped it. Mention `@Claude` in the thread to have it pick up again or to give it a different instruction. A DM has no **Stop** button.
 Editing or deleting an earlier message doesn’t steer the session the way a reply does:
 
 * **Editing a message**: Claude receives a note each time you edit, showing what the message said before the edit and what it says now. Both versions become part of the session’s transcript, so editing a message doesn’t remove the earlier text from what Anthropic stores. An edit doesn’t start a new task or re-address Claude, even if you add `@Claude` to it.

@@ -45,4 +45,3 @@ Please contact us using the details below depending on the nature of your inquir
 | Consumption tax treatment | Your company's tax officer or accountant |
 
 * [I use Claude in Amazon Bedrock. Who do I contact for customer support inquiries?](https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries)
-* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

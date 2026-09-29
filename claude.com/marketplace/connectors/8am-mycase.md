@@ -81,10 +81,10 @@ Submit contracts for attorney review, answer their questions, and get redlined d
 
 [Add General Legal in Claude (opens in new tab)](https://claude.ai/directory/dba73da3-6015-4b3e-8acc-0ff38e2c511b "Add in Claude")
 
-![](https://assets.claude.com/1a01745b4fbcfb8d75f0f2a761024720abbd6cb2.jpg?w=128&fit=max&auto=format)
+![](https://bookface-images.s3.amazonaws.com/small_logos/f848e072de817e8a37aeb1ad8a912f9e2f5d9c52.png)
 
-### [Harvey](https://claude.com/marketplace/connectors/harvey)
+### [PointOne](https://claude.com/marketplace/connectors/pointone)
 
-Answer legal queries, search vaults, and research
+Timekeeping and firm intelligence
 
-[Add Harvey in Claude (opens in new tab)](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755 "Add in Claude")
+[Add PointOne in Claude (opens in new tab)](https://claude.ai/directory/08c6eea4-6ecb-4e0e-8487-97eed2241965 "Add in Claude")

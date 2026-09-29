@@ -57,7 +57,7 @@ Bito uses Claude to transform engineering team workflows across their tools, inc
 * **Bito Wingman**: This coding agent takes meaningful action across the development ecosystem. Developers interact with a coding agent that can execute complicated commands and take action. From integrations with Jira and Confluence, Wingman can retrieve and understand scoped tasks then write or refactor code before compiling, reviewing, and testing. Claude 3.7 Sonnet provides this advanced reasoning capabilities.
 * **IDE Extensions**: Bito integrates Claude's capabilities into popular development environments like VS Code and JetBrains, ensuring AI assistance is available where developers need it without disrupting established workflows.
 
-![](https://assets.claude.com/87c51b5d93074aa4021e93a990c50774044b1775.png?w=2400&q=75&fm=webp&fit=max)![](https://assets.claude.com/98d40853c84d0d2ddbc7c34114f44be3a9510933.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/87c51b5d93074aa4021e93a990c50774044b1775.png)![](https://assets.claude.com/98d40853c84d0d2ddbc7c34114f44be3a9510933.png)
 
 ## Transforming software development for teams worldwide
 

@@ -34,7 +34,7 @@ The most driven founders are problem solvers. Watch their unscripted conversatio
 
 [Read more](https://claude.com/problem-solvers)
 
-![](https://assets.claude.com/bcef56f06975ec56f0a57f21859c05c6e681da14.jpg?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/bcef56f06975ec56f0a57f21859c05c6e681da14.jpg)
 
 "We started working on Cursor at the end of 2022, and the premise was that eventually all of software was going to flow through models." —Michael Truell, Cursor co-founder
 
@@ -56,7 +56,7 @@ The most driven founders are problem solvers. Watch their unscripted conversatio
 
 Michael Truell Co-founder, Cursor
 
-![](https://assets.claude.com/c59bbbff1fc956b21017d4acac31c27c4a7d24f8.jpg?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/c59bbbff1fc956b21017d4acac31c27c4a7d24f8.jpg)
 
 "Each model release is a moment where new things become possible in the product." —Michael Truell, Cursor co-founder
 
@@ -90,7 +90,7 @@ Build powerful AI agents that reason through complex problems and execute tasks 
 
 Michael Truell Co-founder, Cursor
 
-![](https://assets.claude.com/e8d8f96ffb4c0f7056b92aa85b8af6d3876817ee.jpg?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/e8d8f96ffb4c0f7056b92aa85b8af6d3876817ee.jpg)
 
 "The biggest trend we're excited about is coding agents that can run for hours or days productively and really work with you." —Michael Truell, Cursor co-founder
 

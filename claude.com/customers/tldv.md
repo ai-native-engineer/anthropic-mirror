@@ -59,7 +59,7 @@ The impact of Claude on tl;dv's product was immediate and profound. Users experi
 
 But speed was just the beginning. Claude's advanced analysis capabilities enabled tl;dv to offer deeper, more actionable insights from meeting data. Instead of simple summaries, customers now received customized reports identifying trends across weeks worth of meetings at once and providing concrete recommendations. This depth of analysis transformed tl;dv from a basic transcription service into an indispensable business intelligence tool.
 
-![tl;dv AI report](https://assets.claude.com/07a2be7b6cafc2be2fb240cb2ca2ac5ec9f5f97a.jpg?w=2400&q=75&fm=webp&fit=max)
+![tl;dv AI report](https://assets.claude.com/07a2be7b6cafc2be2fb240cb2ca2ac5ec9f5f97a.jpg)
 
 ## New Claude-powered features
 
@@ -67,7 +67,7 @@ Perhaps the most exciting development was tl;dv's ability to create innovative f
 
 "Sales teams have shown significant interest in this application of AI for a critical sales workflow, as it allows them to scale coaching in ways that would have taken hours of manual effort before," said Allstadt.
 
-![tl;dv AI coaching hub](https://assets.claude.com/d728d28ab66fefc2aae5cd085c6ba56ffd839cc0.jpg?w=2400&q=75&fm=webp&fit=max)
+![tl;dv AI coaching hub](https://assets.claude.com/d728d28ab66fefc2aae5cd085c6ba56ffd839cc0.jpg)
 
 ## A better user experience with AI
 

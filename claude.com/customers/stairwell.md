@@ -62,7 +62,7 @@ Claude enhances Stairwell's security platform in three key ways:
 
 This comprehensive approach allows Stairwell to deliver sophisticated security analysis that would typically require extensive expertise to interpret. The combination of Stairwell's deep security expertise and Claude's advanced summarization capabilities creates a powerful solution for modern cybersecurity challenges.
 
-![Stairwell product screen 1](https://assets.claude.com/834d6258a709a3054a105046c49ecefc251d5191.png?w=2400&q=75&fm=webp&fit=max)![Stairwell product screen 2](https://assets.claude.com/13ee5bf461e174d612babbbcc2e2def8330afb84.png?w=2400&q=75&fm=webp&fit=max)
+![Stairwell product screen 1](https://assets.claude.com/834d6258a709a3054a105046c49ecefc251d5191.png)![Stairwell product screen 2](https://assets.claude.com/13ee5bf461e174d612babbbcc2e2def8330afb84.png)
 
 ## Transforming security analysis for professionals
 

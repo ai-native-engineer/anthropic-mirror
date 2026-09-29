@@ -18,8 +18,6 @@ Ask Claude to:
 
 • Plan your week ahead on your content calendar
 
-• Analyze performance across all our accounts: impressions, engagement, and follower growth
-
 • Collaborate with your team: add, reply to, and resolve comments on drafts
 
 Every draft lands in Typefully with a realistic preview of exactly how it will look live, ready for you to review, polish, and publish. Nothing goes live immediately unless you explicitly confirm it.
@@ -43,17 +41,15 @@ Purpose-built for founders building an audience, creators trying to post consist
 * get\_media\_status
 * get\_queue
 * get\_queue\_schedule
-* get\_social\_set\_analytics\_followers
 * get\_social\_set\_details
 * linkedin\_resolve\_linkedin\_organization\_from\_url
 * list\_comments
 * list\_drafts
-* list\_social\_set\_analytics\_posts
 * list\_social\_sets
 * list\_tags
 * queue\_put\_queue\_schedule
-
-Show all 26 tools
+* update\_comment
+* update\_media
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 

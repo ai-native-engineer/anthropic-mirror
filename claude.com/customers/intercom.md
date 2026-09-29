@@ -69,7 +69,7 @@ Through testing and refinement, Intercom integrated Claude into their Fin AI age
 * **Actions**: Rather than just providing information, Fin can take concrete actions on behalf of customers - from processing refunds to managing account changes. "This capability to handle complex workflows autonomously will take us from 50% average resolution rates to potentially 80 or 90%," said Tabacof.
 * **Insights**: Fin provides visibility across the entire support operation through AI-generated analytics. This helps businesses ensure consistently high-quality support while identifying areas for improvement.
 
-![Intercom product screen](https://assets.claude.com/44efa3688d08738aa303302c0815e75e9e802e12.png?w=2400&q=75&fm=webp&fit=max)
+![Intercom product screen](https://assets.claude.com/44efa3688d08738aa303302c0815e75e9e802e12.png)
 
 ## Customer success: How companies like Synthesia, Fundrise, and Lightspeed measure the business value of Claude
 
@@ -83,7 +83,7 @@ Large enterprises like **Lightspeed** demonstrate Fin's ability to scale while m
 
 The impact extends beyond just automation metrics. By handling routine inquiries, Fin enables support teams to focus on more strategic work. "We're seeing people deploy Fin and switch roles. The customer service team does things they couldn't do before and move up the value chain," said Reid. At Fundrise, this meant their Investor Relations team could focus on complex investment strategy questions rather than routine password resets or account statement queries.
 
-![Intercom product screen](https://assets.claude.com/fb7be17e4a8d9f75b2ac507ec1c3b9210a8826ff.png?w=2400&q=75&fm=webp&fit=max)
+![Intercom product screen](https://assets.claude.com/fb7be17e4a8d9f75b2ac507ec1c3b9210a8826ff.png)
 
 ## Leading the future of human-AI collaboration in customer support
 

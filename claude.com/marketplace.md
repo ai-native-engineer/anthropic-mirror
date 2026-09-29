@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/marketplace -->
 
+Latest news
+
+Claude Marketplace is now one place to find plugins, agents, and more
+
+Get what you need to do more with Claude, or list what you've built.
+
+[Read what's new (opens in new tab)](https://claude.com/blog/claude-marketplace)
+
 # Claude Marketplace
 
 ## Everything teams need to [add — browse connectors and plugins](https://claude.com/marketplace/connectors-plugins), [buy — explore agents and products](https://claude.com/marketplace/agents-products), and [scale — find service partners](https://claude.com/marketplace/service-partners) with Claude
@@ -151,11 +159,3 @@ Join the marketplace
 * [Add a connector or plugin](https://claude.com/docs/connectors/building/submission#what-you-can-submit)
 * [Submit a product or agent](https://claude.com/marketplace-partners)
 * [Become a service partner](https://claude.com/form/cpn-partner-application)
-
-Latest news
-
-Claude Marketplace is now one place to find plugins, agents, and more
-
-Get what you need to do more with Claude, or list what you've built.
-
-[Read what's new (opens in new tab)](https://claude.com/blog/claude-marketplace)

@@ -154,7 +154,7 @@ Explore Opus
 
 [Explore Opus](https://www.anthropic.com/claude/opus)Explore Opus
 
-### Sonnet 5
+### Sonnet 5.5
 
 High-performance model for coding and agents
 
@@ -549,6 +549,24 @@ Zimu Li, Member of Technical Staff
 “Our customers use Box AI on enormous amounts of content, so speed and cost are a top priority. In our evaluations, Claude Opus 5.5 used a third of the tokens Opus 5 did, and its answers were 40% less verbose without losing accuracy. We expect that to matter a lot for teams running agents across their content in areas like financial services and the public sector.”
 
 Yashodha Bhavnani, VP of AI Products
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a7b7ecec9603146404c563_logo_epic-light-mode.png)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a7b7f0f2952dbeffa953f2_logo_epic-dark-mode.png)
+
+“In Epic’s early testing, Claude Sonnet 5.5 cleared the same quality bar you’d expect from a higher-tier model, holding up on a system design audit and a data-flow review. The new model managed tens of thousands of lines of code for gameplay system architecture, kept responses snappy, handled multi-hour tasks, and delivered with less prescriptive prompting.”
+
+Daniel Vogel, Chief Operating Officer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68db36ce5254656fdbac3c90_SLA-Slack-from-Salesforce-logo%201.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68db36d1588af40e62128f8f_SLA-Slack-from-Salesforce-logo-inverse%201.svg)
+
+“Without changing any of our prompts, Claude Sonnet 5.5 did better than Sonnet 5 on almost all of our offline Slackbot evals, in fewer steps and with about 14% fewer output tokens. When someone gives Slackbot a task, quality and speed are what matter most, and Sonnet 5.5 allows Slackbot to deliver better outcomes for users, faster.”
+
+Curtis Allen, Principal Engineer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aacf49352cdc3b7fcc725_logo_zendesk-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aacfdb5405b27e0e45afe_logo_zendesk-dark.svg)
+
+“We fed Claude Sonnet 5.5 hundreds of real support use cases across replies and escalation requests. It made fewer wrong decisions and resolved tickets faster than the Claude models we use in production today. Tickets were processed 20% faster, getting our customers the help they need without the wait.”
+
+Abhinay Kathuria, Director of AI
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4898064ee45d6186056ab_Frame.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4897e0ac296b8c65e5713_Frame-1.svg)
 

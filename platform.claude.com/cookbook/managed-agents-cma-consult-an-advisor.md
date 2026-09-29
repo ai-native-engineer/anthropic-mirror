@@ -67,6 +67,10 @@ name="api\_designer",
 
 description="Designs HTTP APIs, escalating irreversible decisions to an advisor.",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-consult-an-advisor"},
+
 model={"id": WORKER\_MODEL},
 
 system=SYSTEM,

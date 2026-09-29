@@ -50,7 +50,7 @@ After evaluating several AI solutions to power this platform, Skillfully selecte
 
 Second, as a public benefit corporation dedicated to creating a more meritocratic job market, Skillfully found a natural partner in Anthropic. "We're dedicated to inclusivity and accessibility of opportunity—that's in our DNA," explained Waikart. "It's not a small thing that Anthropic is also a public benefit corporation. We focus on human-centric hiring, they focus on human-centric AI." This shared commitment to responsible innovation made Claude the clear choice for powering their platform.
 
-![Skillfully product screen](https://assets.claude.com/f487d0c1edac2f0954b6fd3adff9d9481c72e200.jpg?w=2400&q=75&fm=webp&fit=max)![Skillfully product screen](https://assets.claude.com/92d2780c537e6420344a22f5d4677c0515c82ccb.jpg?w=2400&q=75&fm=webp&fit=max)
+![Skillfully product screen](https://assets.claude.com/f487d0c1edac2f0954b6fd3adff9d9481c72e200.jpg)![Skillfully product screen](https://assets.claude.com/92d2780c537e6420344a22f5d4677c0515c82ccb.jpg)
 
 ## Transforming lives through fairer hiring
 

@@ -44,7 +44,7 @@ When Nicole Hedley founded Headstart in December 2022, she saw an opportunity to
 
 Headstart uses multiple AI models but defaults to Claude for most coding tasks. After the release of Claude 3.5 Sonnet, they went all-in on Claude, attracted by its superior performance and user experience. "When Sonnet 3.5 launched, I once again defaulted to it," explains Hedley. She particularly values Claude's intuitive interface, noting "I much prefer Anthropic's UX. I think it's great." The ability to work with individual files, easily copy-paste, and Claude's responsiveness make it her go-to tool. Despite having access to AI-integrated code editors, Hedley consistently chooses Claude's native interface: "I find it so much easier and faster to use through the Claude UX than through a code editor."
 
-![Headstart product screenshot](https://assets.claude.com/13a94bf4f68ae810bedc295fc38a57f4644d4670.jpg?w=2400&q=75&fm=webp&fit=max)
+![Headstart product screenshot](https://assets.claude.com/13a94bf4f68ae810bedc295fc38a57f4644d4670.jpg)
 
 For Headstart's enterprise clients in industries like healthcare and financial services, data privacy is paramount. The team leverages Claude's projects feature to work with entire codebases while maintaining the security their clients require. This combination of powerful features and trust has made Claude indispensable to their workflow.
 
@@ -54,7 +54,7 @@ Claude enables Headstart to revolutionize their development process in unprecede
 
 This automation extends to rapid application development. Hedley can build entire applications in a fraction of the traditional time. She notes, "I built an entire iPhone app for a client on Friday just using screenshots. It's absolutely mind blowing to me."
 
-![Headstart produt screenshot](https://assets.claude.com/9bc1ded05cc2cc02a8034cc73b0d4aebadd9c2ef.jpg?w=2400&q=75&fm=webp&fit=max)
+![Headstart produt screenshot](https://assets.claude.com/9bc1ded05cc2cc02a8034cc73b0d4aebadd9c2ef.jpg)
 
 Claude's extensive context window has also transformed their approach to handling large codebases. When the 200K context window was released, Hedley notes they "ripped out the entire RAG and just put it in the context window instead and it went from 60 percent accuracy to 98. It was quicker, cheaper, better, everything." This combination of automation, speed, and accuracy has fundamentally changed how Headstart approaches software development.
 

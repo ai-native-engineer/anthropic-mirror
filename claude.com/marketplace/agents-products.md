@@ -96,7 +96,7 @@ Run matters end to end, across jurisdictions and languages.
 
 Legal
 
-![](https://assets.claude.com/2ccd5ce1a1407eabb9650ba6c5c16c29c96cd098.svg)
+![](https://assets.claude.com/91600ba8839d48035fa701c5bd18d1a5230e3929.svg)
 
 ### [Lovable](https://claude.com/marketplace/agents-products/lovable)
 

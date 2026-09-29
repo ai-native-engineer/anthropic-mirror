@@ -19,9 +19,10 @@ Whether Claude replies to a message without an @-mention depends on where you se
 | A DM with Claude | Always. Every message is addressed to Claude already |
 | A thread Claude is already in | Yes, unless you’ve [quieted the thread](#quiet-one-conversation). Once Claude has joined, every reply there reaches it without another mention |
 | A channel, top-level | Sometimes. [What Claude does with a channel message](#what-claude-does-with-a-channel-message) describes how it decides. Include `@Claude` to guarantee a reply, or [turn unprompted replies off](#quiet-the-whole-channel) |
-| A message another app or bot posted | No guaranteed reply. Claude reads it as context. `@Claude` in a bot’s message doesn’t wake a quiet channel; in an active channel Claude may pick it up. See [Messages from other apps and bots](#messages-from-other-apps-and-bots) |
+| A message another app or bot posted | No. Claude reads it as context. To get a reply, have the app include `@Claude` in its message. [Messages from other apps and bots](#messages-from-other-apps-and-bots) covers when that mention goes unanswered |
 
-When you @-mention Claude in a channel, it reacts to your message with an emoji within a few seconds to show that it picked the message up. The message goes to the channel’s own [session](https://claude.com/docs/claude-tag/concepts/glossary#session), the session Claude works from at the channel’s top level. It then answers in a thread under your message, or starts a [working session](https://claude.com/docs/claude-tag/concepts/how-it-works) in that thread when the request needs investigation, tools, or a longer exchange. Once a working session starts, Claude shows an “is thinking…” line under your message. A reaction with no line under it means Claude picked your message up and is either still deciding or answering directly in the thread, not that it missed you.
+When you @-mention Claude in a channel, it reacts to your message with an emoji within a few seconds to show that it picked the message up. The message goes to the channel’s own [session](https://claude.com/docs/claude-tag/concepts/glossary#session), the session Claude works from at the channel’s top level. It then answers in a thread under your message, or starts a [working session](https://claude.com/docs/claude-tag/concepts/how-it-works) in that thread when the request needs investigation, tools, or a longer exchange.
+Once a working session starts, a working indicator with a **Stop** button appears at the bottom of the thread. A reaction with no indicator means Claude picked your message up and is either still deciding or answering directly in the thread, not that it missed you.
 You can change how much Claude replies on its own. You can [quiet a single thread](#quiet-one-conversation), [turn unprompted replies off for a whole channel](#turn-automatic-replies-on-or-off), or [tell Claude which kinds of untagged messages to answer](#what-claude-does-with-a-channel-message).
 
 ##  What Claude does with a channel message
@@ -54,7 +55,13 @@ Until Claude has joined a channel, you see ”@-mention Claude in this channel t
 
 ##  Messages from other apps and bots
 
-Claude reads a message that another Slack app or bot posted as channel context, but a bot’s message never gets the guaranteed reply that a person’s @-mention gets. If the channel’s [Respond automatically](#turn-automatic-replies-on-or-off) setting is off, or Claude has [stopped reading the channel](#when-claude-stops-reading-a-channel), a bot’s `@Claude` doesn’t wake it. In a channel where Claude is active, a bot’s `@Claude` reaches Claude as a hand-off it may pick up or leave, and it may answer in a thread. Claude treats alerts an integration posts, messages a Slack workflow posts, and messages from any other bot the same way.
+Claude reads a message that another Slack app or bot posts as channel context, and replies to it only when the message includes `@Claude`. Claude treats alerts an integration posts, messages a Slack workflow posts, and messages from any other bot the same way.
+A bot’s `@Claude` at the channel’s top level gets a reply in a thread under that message, unless either of these is true:
+
+* The channel’s [**Respond automatically**](#turn-automatic-replies-on-or-off) setting is off.
+* Claude has [stopped reading the channel](#when-claude-stops-reading-a-channel) because of message volume.
+
+A person’s mention reaches Claude in both cases.
 Because Claude reads those messages, when a person asks about an alert a bot posted, Claude can answer from it. To have Claude act on what an integration posts, mention it in the channel or in the message’s thread. For example, reply to a bot-posted alert with `@Claude triage this`. To have Claude check the channel on a schedule and post what needs attention, set up a [routine](https://claude.com/docs/claude-tag/users/proactivity).
 
 ##  The name on a reply
@@ -101,8 +108,13 @@ Claude can no longer read or post in that channel. Any member can run this unles
 
 ##  When Claude stops reading a channel
 
-Claude counts the messages posted in a channel since it last posted there itself. When the count gets high enough, Claude stops reading that channel’s messages, and unprompted replies stop with it. Claude doesn’t announce this.
-To start Claude reading again, mention `@Claude` in the channel. A mention from a person reaches Claude even while Claude isn’t reading the channel, and once Claude posts its reply, it reads the channel’s messages again.
+Claude stops reading a channel’s messages when either of these happens:
+
+* **Message volume.** Claude counts the messages posted in the channel since it last posted there itself, and stops reading when the count gets high enough.
+* **Inactivity.** When more than a week passes without anyone @-mentioning Claude in the channel and without Claude posting there, Claude stops reading.
+
+While Claude isn’t reading a channel, it doesn’t reply there unprompted. Claude posts no notice when it stops.
+To start Claude reading again, mention `@Claude` in the channel. A mention from a person reaches Claude in both situations, and once Claude posts its reply, it reads the channel’s messages again. A mention inside another app’s or bot’s message starts Claude reading again only after an inactivity stop.
 If unprompted replies don’t come back after Claude answers a mention, the channel’s [**Respond automatically**](#turn-automatic-replies-on-or-off) setting is off. Answering a mention doesn’t turn the setting on, and Claude changes the setting only when a channel member asks it to, so turn it back on in one of the three places listed in that section.
 
 ##  Messages that never get a reply

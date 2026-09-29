@@ -46,7 +46,7 @@ This work led to collaborations with Google and Facebook's affective computing t
 
 Hume AI was founded to build AI systems optimized for human wellbeing. "We want the AI to understand what frustrates and confuses you, because it understands your voice and not just what you're saying. It can then learn from that and better understand your personal preferences," said Cowen.
 
-![Hume product screen](https://assets.claude.com/65682f4b26ce6e18d1994a80c00d32e902ea3db4.png?w=2400&q=75&fm=webp&fit=max)
+![Hume product screen](https://assets.claude.com/65682f4b26ce6e18d1994a80c00d32e902ea3db4.png)
 
 ## Why Claude stands out for voice interactions
 
@@ -68,7 +68,7 @@ At the heart of Hume's technology is EVI, their flagship voice-to-voice AI platf
 * AI tutoring
 * Personal digital assistants
 
-![Hume product screen](https://assets.claude.com/c48f3772305f13d4d6f34117bf6b14f11fba2ee1.png?w=2400&q=75&fm=webp&fit=max)
+![Hume product screen](https://assets.claude.com/c48f3772305f13d4d6f34117bf6b14f11fba2ee1.png)
 
 ## Measurable impact for customers
 

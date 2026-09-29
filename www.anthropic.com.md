@@ -2,17 +2,35 @@
 
 [Skip to main content](#main)[Skip to footer](#footer)
 
-[](https://cdn.sanity.io/files/4zrzovbb/website/9ba94b221719352217f42e6d9a5be6946734e190.webm)
+[](https://cdn.sanity.io/files/4zrzovbb/website/9f6fb5a6efc8efddec5af4c52c5e2af177c6db81.webm)
 
-## Claude Opus 5.5
+## :Claude: Sonnet 5.5
 
-Our most capable Opus model, faster and costs 40% less to run.
+A clear upgrade over Sonnet 5 that runs 30% faster and costs up to 30% less for most work.
 
 Read more
 
-[Read more](https://anthropic.com/claude-opus-5-5)Read more
+[Read more](https://anthropic.com/claude-sonnet-5-5)Read more
 
 ## Latest releases
+
+### Introducing Sonnet 5.5
+
+A clear upgrade over Sonnet 5 that runs 30% faster and costs up to 30% less for most work.
+
+* Date
+
+  September 28, 2026
+* Category
+
+  Announcements
+* Details
+
+  [Sonnet](https://www.anthropic.com/claude/sonnet)
+
+[Read announcement](https://anthropic.com/claude-sonnet-5-5)Read announcement
+
+Read announcement
 
 ### Introducing Opus 5.5
 
@@ -47,24 +65,6 @@ Our most advanced models for coding and knowledge work. Their research capabilit
   [Fable](https://www.anthropic.com/claude/fable)[Mythos](https://www.anthropic.com/claude/mythos)
 
 [Read announcement](https://www.anthropic.com/claude-fable-and-mythos-5-1)Read announcement
-
-Read announcement
-
-### Introducing Sonnet 5
-
-Our most agentic Sonnet yet, with top tier intelligence for coding and everyday professional work.
-
-* Date
-
-  June 30, 2026
-* Category
-
-  Announcements
-* Details
-
-  [Sonnet](https://www.anthropic.com/claude/sonnet)
-
-[Read announcement](https://www.anthropic.com/news/claude-sonnet-5)Read announcement
 
 Read announcement
 

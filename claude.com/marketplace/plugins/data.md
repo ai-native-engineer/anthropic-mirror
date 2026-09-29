@@ -14,7 +14,7 @@ The plugin covers SQL best practices across dialects, statistical analysis, data
 
 Official Slack MCP server for interactive and collaborative workflows. Surface insights, draft messages, and engage teams directly within Slack from Claude Cowork.
 
-### [Adobe for creativity](https://claude.com/marketplace/plugins/adobe-for-creativity)
+### [Adobe](https://claude.com/marketplace/plugins/adobe-for-creativity)
 
 Brings together Adobe Creative Cloud tools for images, vectors, design, and video.
 

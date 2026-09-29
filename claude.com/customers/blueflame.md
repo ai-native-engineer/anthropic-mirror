@@ -59,7 +59,7 @@ BlueFlame's platform democratizes sophisticated analysis capabilities, providing
 * Generation of tailored investment insights
 * Comprehensive due diligence automation
 
-![BlueFlame product screen](https://assets.claude.com/4d94a3ff4d6d55afb82910e60bbc97e877282ac0.jpg?w=2400&q=75&fm=webp&fit=max)![BlueFlame product screen](https://assets.claude.com/faf90edf99dec4e1e6a77ff18f2096712cd1f3fb.jpg?w=2400&q=75&fm=webp&fit=max)
+![BlueFlame product screen](https://assets.claude.com/4d94a3ff4d6d55afb82910e60bbc97e877282ac0.jpg)![BlueFlame product screen](https://assets.claude.com/faf90edf99dec4e1e6a77ff18f2096712cd1f3fb.jpg)
 
 The platform doesn't just save time—it enables small teams to perform analysis that was previously impossible without large technical departments. "This isn't just about saving time—we're enabling analysis that was economically unfeasible before," said Lindemann.
 

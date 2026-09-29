@@ -64,7 +64,7 @@ For an enterprise like Scribd, Inc., trust and reliability were crucial factors.
 
 The impact of implementing Claude-generated metadata has been significant for Scribd. By adding AI-generated descriptions to document pages, the company saw a substantial increase in users who view content and ultimately sign up as subscribers.
 
-![Scribd product screenshot](https://assets.claude.com/7a55ce4198685ace351601abd45790b2659b8324.jpg?w=2400&q=75&fm=webp&fit=max)
+![Scribd product screenshot](https://assets.claude.com/7a55ce4198685ace351601abd45790b2659b8324.jpg)
 
 "Having the content right there at first glance gives the user more context about the particular document versus having to read through the whole thing," Neola says. "We saw a 7% increase in the users who are viewing it that ultimately come to the site and then sign up and become subscribers."
 

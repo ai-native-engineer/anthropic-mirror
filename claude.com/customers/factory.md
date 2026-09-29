@@ -60,7 +60,7 @@ Factory's Droids are already making a significant impact for their enterprise cu
 
 One of their key products is the Review Droid, which automates the code review process. When deployed, it analyzes pull requests, provides contextualization, leaves inline comments, and helps other reviewers understand the changes. Another product, the Code Droid, can take a ticket from a project management system like Jira or Linear, work on the task, and create a pull request to implement the requested feature or fix.
 
-![App screen from the Factory platform](https://assets.claude.com/077933909d44d5cfe6f52a6e4712131a4a7f1d0d.jpg?w=2400&q=75&fm=webp&fit=max)
+![App screen from the Factory platform](https://assets.claude.com/077933909d44d5cfe6f52a6e4712131a4a7f1d0d.jpg)
 
 Both of these Droids, which are powered by Claude, dramatically reduce the time engineers spend on routine tasks—enabling engineers to focus on higher-level problem-solving and new opportunities. Factory estimates that across all their customers, they've saved approximately 550,000 hours of development time. On average, each organization saves about 2,300 hours, which translates to a 20% reduction in development cycle time.
 
@@ -70,7 +70,7 @@ Factory's use of Claude goes beyond simple task automation. They're developing s
 
 This focus allows Factory to create AI systems that can handle the immense complexity and variability of real-world software development tasks. Their systems can plan, break down problems into sub-steps, and make decisions at each stage of the process.
 
-![App screen on software development lifecycle](https://assets.claude.com/70b2441c8f45439984b4d3294c014fd031a69ed4.jpg?w=2400&q=75&fm=webp&fit=max)
+![App screen on software development lifecycle](https://assets.claude.com/70b2441c8f45439984b4d3294c014fd031a69ed4.jpg)
 
 Factory’s commitment to advancing the state of the art in AI-powered software development is evident in their recent [technical report](https://www.factory.ai/news/code-droid-technical-report), where their Code Droid—which is powered in part by Claude—delivers state of the art performance on software engineering benchmarks.
 

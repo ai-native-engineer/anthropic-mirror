@@ -58,7 +58,7 @@ At the organizational level, Otter breaks down traditional information silos by 
 
 Otter has become the living knowledge hub for all the organization’s meetings. Tasker shares, "Our institutional knowledge, our spoken knowledge, is inside of Otter." By continuously capturing critical context across teams and actively syncing real-time conversation insights to key business systems, Otter empowers organizations to stay current, learn from live interactions, and make better-informed decisions in the moment and moving forward.
 
-![Otter product screen](https://assets.claude.com/cf94557d2c724b5c7ff9dc436ea321143651387d.png?w=2400&q=75&fm=webp&fit=max)![Otter product screen 2](https://assets.claude.com/14d7390a4e4610ebd9c9bb4511f7bed5077e2e76.png?w=2400&q=75&fm=webp&fit=max)
+![Otter product screen](https://assets.claude.com/cf94557d2c724b5c7ff9dc436ea321143651387d.png)![Otter product screen 2](https://assets.claude.com/14d7390a4e4610ebd9c9bb4511f7bed5077e2e76.png)
 
 ## Looking forward
 
@@ -73,3 +73,5 @@ Otter envisions intelligent AI meeting agents taking on increasingly sophisticat
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
+
+Otter Claude Platform (API) case study | Claude by Anthropic

@@ -46,7 +46,7 @@ NewestAlphabetically (A to Z)Alphabetically (Z to A)
 
 Industry
 
-AutomotiveBeneficial DeploymentsCybersecurityEcommerceEducationEnergyEntertainmentFinancial servicesGovernmentHealthcareInsuranceLegalLife sciencesMarketing and advertisingProfessional servicesRecruitingRetail ServicesScientific researchSoftwareTelecommunicationsTransportation
+AutomotiveBeneficial DeploymentsCybersecurityEcommerceEducationEnergyEntertainmentFinancial servicesGovernmentHealthcareInsuranceLegalLife sciencesMarketing and advertisingNonprofitProfessional servicesRecruitingRetail ServicesScientific researchSoftwareTelecommunicationsTransportation
 
 Product
 
@@ -66,9 +66,13 @@ AfricaAsia PacificAustraliaEMEAEuropeIndiaLatin AmericaNorth AmericaSouth Americ
 
 GridList
 
-281 stories
+283 stories
 
-[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
+[![IRC (Rescue)](https://assets.claude.com/e63d6d26bb5c35a117de419a1a7a8452f081db25.svg)
+
+### A conversation with IRC on turning frontline health data into action in Burkina Faso](https://claude.com/customers/irc-qa)[![IRC (Rescue)](https://assets.claude.com/e63d6d26bb5c35a117de419a1a7a8452f081db25.svg)
+
+### The International Rescue Committee turns fragmented health data into faster decisions with Claude](https://claude.com/customers/irc)[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
 ### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Impel AI](https://assets.claude.com/39d44e8971441c5dc5bafc4aeba0054a6c547c89.svg)
 
@@ -94,11 +98,7 @@ GridList
 
 ### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)[![Notion](https://assets.claude.com/19e0cdfaef9d2980bddd19cd993076d62b46c0c7.svg)
 
-### How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)[![Deepgram](https://assets.claude.com/55db716283a6613b4761b5c72a4fb01665362438.png)
-
-### Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram)[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
-
-### League cuts product development cycle times in half with Claude](https://claude.com/customers/league)
+### How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)
 
 View more
 

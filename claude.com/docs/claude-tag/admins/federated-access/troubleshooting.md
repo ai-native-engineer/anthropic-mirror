@@ -161,7 +161,7 @@ The sign-in worked, but [Agent Proxy](https://claude.com/docs/claude-tag/concept
 
 * **A hostname with no usable region.** Agent Proxy reads the AWS service and signing region from the hostname, so the region must be the last label before `amazonaws.com`, as in `service.region.amazonaws.com`, `my-bucket.s3.us-east-1.amazonaws.com`, or `api.ecr.us-east-1.amazonaws.com`. The [AWS SigV4 credential](https://claude.com/docs/claude-tag/admins/connections/custom#aws-sigv4) section lists the hostname forms Agent Proxy signs, including the services it signs with no region.
 * **A large request to a service other than S3 with no content hash.** When a request has no `x-amz-content-sha256` header, Agent Proxy hashes the body before signing and refuses a body over 1 MB (1,048,576 bytes). The AWS CLI and SDKs add that header for S3 but usually not for other services.
-* **An S3 upload sent in chunks.** The AWS CLI (2.23.0 and later) and the AWS SDKs that compute upload checksums by default can send S3 uploads in chunks with a checksum trailer. Agent Proxy can’t sign a request in that format. The fix is to have the AWS CLI or SDK send the body in one piece.
+* **An S3 upload with signed chunks.** Agent Proxy signs the uploads the AWS CLI and SDKs send by default, including an upload sent in chunks with a checksum trailer. It can’t sign an upload whose chunks the client signs one by one, which the CLI and SDKs do only when payload signing is turned on for the profile. The reason text reads `chunked signing (<mode>) is not supported through the proxy`.
 
 **How to resolve**
 
@@ -169,7 +169,7 @@ The sign-in worked, but [Agent Proxy](https://claude.com/docs/claude-tag/concept
 | --- | --- |
 | Hostname with no usable region | Use the service’s regional endpoint, `service.region.amazonaws.com` (for S3, also `bucket.s3.region.amazonaws.com`), and make sure that host is in the connection’s **Allowed hosts**. A host that exists only with the region before the service name, such as an OpenSearch domain endpoint, can’t be reached through a federated connection. [Contact Anthropic](#contact-anthropic) with the hostname. |
 | Large request to a service other than S3 | Keep the body under 1 MB, or have Claude send the request with an `x-amz-content-sha256` header set to the hex SHA-256 of the body, for example with `curl`. For large data, upload to S3 and pass a reference instead. |
-| S3 upload sent in chunks | Have Claude set the environment variable `AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED` before running the AWS CLI or a script that uses an AWS SDK, or add `request_checksum_calculation = WHEN_REQUIRED` to the profile in `~/.aws/config`, then retry. To apply it in every thread, add a line to the scope’s [custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions), for example “Before using the AWS CLI or an AWS SDK, add `request_checksum_calculation = WHEN_REQUIRED` to the default profile in `~/.aws/config`.” S3 still computes and stores a checksum for the object. If the upload still fails, [contact Anthropic](#contact-anthropic). |
+| S3 upload with signed chunks | Have Claude remove `payload_signing_enabled = true` from the profile in `~/.aws/config`, or add `request_checksum_calculation = WHEN_REQUIRED` to that profile as the reason text suggests, then retry. Either change makes the client send the upload in a form Agent Proxy signs. If the upload still fails, [contact Anthropic](#contact-anthropic). |
 
 ###  The cloud API answers 403 after a successful exchange
 

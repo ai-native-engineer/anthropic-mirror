@@ -53,7 +53,7 @@ Claude can now use Skills—folders with instructions, scripts, and resources—
 * Reduced customer support resolution time by over 87%
 * Improved decision-making accuracy by over 30%
 
-![](https://assets.claude.com/11ac29d52be8e81c6df6b7a4c93319abe9996bcd.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/11ac29d52be8e81c6df6b7a4c93319abe9996bcd.png)
 
 "Claude's personality is really what stuck out to me," said Elyse Hovanesian, Product Lead for AI in Support. "It felt organic."
 
@@ -81,7 +81,7 @@ The team started with drivers, whose needs are complex and varied. Driver onboar
 
 "Claude's personality is really what stuck out to me," said Hovanesian. "It felt organic. Our customers were conversing more and opening up about the issues they were having, which then enabled us to solve them better."
 
-![](https://assets.claude.com/8089f10c3c62ce52e3466db128bdffb327265553.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/8089f10c3c62ce52e3466db128bdffb327265553.png)
 
 Lyft reinvested its savings in programs like Lyft Silver that give older riders dedicated one-on-one support.
 

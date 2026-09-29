@@ -14,6 +14,7 @@ The simplest way to change models is to use the /model command directly within C
 
 ## Supported models
 
+* Sonnet 5.5, `claude-sonnet-5-5`
 * Opus 5.5, `claude-opus-5-5`
 * Fable 5.1, `claude-fable-5-1`
 * Opus 5, `claude-opus-5`
@@ -34,6 +35,7 @@ Use the `--model` flag when starting Claude Code.
 1. Start a fresh Terminal session.
 2. Enter the following commands (depending on the model you’d like to use for that session):
 
+   * **For Sonnet 5.5**: `claude --model claude-sonnet-5-5`
    * **For Opus 5.5**: `claude --model claude-opus-5-5`
    * **For Fable 5.1**: `claude --model claude-fable-5-1`
    * **For Opus 5**: `claude --model claude-opus-5`
@@ -58,6 +60,7 @@ Use the `--model` flag when starting Claude Code.
 
 ### For ZSH users (macOS)
 
+* Sonnet 5.5: `echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.zshrc`
 * Opus 5.5: `echo 'export ANTHROPIC_MODEL="claude-opus-5-5"' >> ~/.zshrc`
 * Fable 5.1: `echo 'export ANTHROPIC_MODEL="claude-fable-5-1"' >> ~/.zshrc`
 * Opus 5: `echo 'export ANTHROPIC_MODEL="claude-opus-5"' >> ~/.zshrc`
@@ -73,6 +76,7 @@ Use the `--model` flag when starting Claude Code.
 
 ### For BASH users (Linux)
 
+* Sonnet 5.5: `echo 'export ANTHROPIC_MODEL="claude-sonnet-5-5"' >> ~/.bashrc`
 * Opus 5.5: `echo 'export ANTHROPIC_MODEL="claude-opus-5-5"' >> ~/.bashrc`
 * Fable 5.1: `echo 'export ANTHROPIC_MODEL="claude-fable-5-1"' >> ~/.bashrc`
 * Opus 5: `echo 'export ANTHROPIC_MODEL="claude-opus-5"' >> ~/.bashrc`
@@ -100,5 +104,5 @@ Now your chosen model will be the default for all future Claude Code sessions.
 * [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
-* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
+* [Why Claude switched models in your conversation with Sonnet 5.5](https://support.claude.com/en/articles/17161993-why-claude-switched-models-in-your-conversation-with-sonnet-5-5)

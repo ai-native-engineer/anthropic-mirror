@@ -170,11 +170,22 @@ Claude couldn’t complete its check for guests in this channel; either the gues
 Claude replies in the channel:
 > This channel is shared across multiple workspaces, and Claude can’t verify whether it includes guests, so Claude can’t respond here.
 
+When the reason Claude can’t verify the membership is that the channel is shared with a workspace in your Enterprise Grid where the Claude app isn’t installed, the reply reads instead:
+> This channel is shared with a workspace Claude hasn’t been added to, so Claude can’t check the channel for guests and can’t respond here. A Slack org admin can add Claude to that workspace.
+
 The same check also refuses requests made from another conversation, such as asking Claude to post a message in the channel, with a message ending “shared across multiple workspaces and Claude can’t verify whether it includes guests”.
 **What it means**
 This message comes from the guest check, not from workspace sharing. The **How should Claude work in channels with guests** setting is set to **Restrict** for this channel’s scope, and the channel’s membership can’t be verified, most often because the channel is shared across an Enterprise Grid organization, so Claude declines.
 **How to resolve**
-Use a channel that belongs to a single workspace. Setting the scope’s guest setting to **Full access** removes the guest check that posts this message, but a Grid-shared channel still doesn’t behave like a single-workspace one. When its workspaces connect to different Claude organizations, Claude posts the refusal in [This channel is shared among several Claude workspaces](#this-channel-is-shared-among-several-claude-workspaces) instead of replying. When they all share your one Claude organization, Claude replies with only your organization’s default access and settings, described in [This channel is shared across several Slack workspaces](#this-channel-is-shared-across-several-slack-workspaces).
+The fix depends on which reply Claude posted:
+
+* If the reply says the channel is shared with a workspace Claude hasn’t been added to, have a Slack org admin [add the Claude app to that workspace](https://claude.com/docs/claude-tag/admins/workspaces#set-up-claude-tag-on-enterprise-grid). Once every workspace sharing the channel has the app, the membership check can run.
+* Otherwise, use a channel that belongs to a single workspace.
+
+Setting the scope’s guest setting to **Full access** removes the guest check that posts this message, but a Grid-shared channel still doesn’t behave like a single-workspace one:
+
+* When its workspaces connect to different Claude organizations, Claude posts the refusal in [This channel is shared among several Claude workspaces](#this-channel-is-shared-among-several-claude-workspaces) instead of replying.
+* When they all share your one Claude organization, Claude replies with only your organization’s default access and settings, described in [This channel is open to more than one Slack workspace](#this-channel-is-open-to-more-than-one-slack-workspace).
 
 ###  This channel is shared among several Claude workspaces
 
@@ -185,19 +196,19 @@ Claude replies in the channel:
 The reply appears only when someone mentions Claude directly, or addresses it in a thread it already joined. Other messages in the channel get no reply at all.
 **What it means**
 The channel is shared across more than one Slack workspace in your Enterprise Grid, and those workspaces are paired to different Claude organizations. No single organization’s settings cover the channel, so Claude declines regardless of the guest policy or any scope setting. Claude also declines when it can’t confirm that the workspaces share one Claude organization.
-Two similar messages come from different situations. [This channel is shared across multiple workspaces](#this-channel-is-shared-across-multiple-workspaces) is the guest case, and [This channel is shared across several Slack workspaces](#this-channel-is-shared-across-several-slack-workspaces) is the case where every workspace belongs to your one Claude organization, so Claude replies.
+Two similar messages come from different situations. [This channel is shared across multiple workspaces](#this-channel-is-shared-across-multiple-workspaces) is the guest case, and [This channel is open to more than one Slack workspace](#this-channel-is-open-to-more-than-one-slack-workspace) is the case where every workspace belongs to your one Claude organization, so Claude replies.
 **How to resolve**
 Move the conversation to a channel that belongs to a single workspace, or to a DM.
 
-###  This channel is shared across several Slack workspaces
+###  This channel is open to more than one Slack workspace
 
 **What you see**
 Claude posts a notice in the thread, then answers the request:
-> This channel is shared across several Slack workspaces, so Claude is using only your organization’s default Slack access and settings here — not any workspace- or channel-specific repos, instructions, or memory you’ve configured.
+> This channel is open to more than one Slack workspace, so Claude uses your organization’s default settings here, not workspace- or channel-specific ones. A Claude organization owner can change the defaults in [Claude Tag settings](https://claude.ai/admin-settings/claude-tag).
 
 **What it means**
 The channel is shared across more than one Slack workspace, and every one of those workspaces belongs to your Claude organization. Claude works there, but only with the access and settings on your [**Default Slack access**](https://claude.com/docs/claude-tag/admins/attach-to-scope) scope. Bundles, instructions, and memory attached to a workspace or to this channel don’t apply.
-Claude doesn’t post the notice on every reply, so replies in this channel run under the same defaults even when no notice accompanies them.
+Claude posts the notice about once a month in each such channel, not on every reply, so replies there run under the same defaults even when no notice accompanies them.
 **How to resolve**
 Nothing is broken. To use a channel’s own repositories, connections, or instructions, work in a channel that belongs to a single workspace, or add what the channel needs to the **Default Slack access** scope. In a single-workspace channel, requests use that channel’s own configuration and the notice doesn’t appear.
 
@@ -299,11 +310,15 @@ Most of the silence problems in this section span a whole workspace or channel a
 ###  Claude went silent in one thread, but responds elsewhere
 
 **What you see**
-In one thread, an “is thinking…” line appeared under a request and no reply followed, while Claude kept answering normally in other channels and threads.
+In one thread, a working indicator appeared under a request and no reply followed, while Claude kept answering normally in other channels and threads.
 **What it means**
-First check the thread for a notice from Claude that begins `:mute: Claude is muted in this thread`. If that notice is there, the thread is muted and the session isn’t stuck. A 👎 reaction on one of Claude’s replies mutes the thread and posts that notice. If Claude’s session for the thread was partway through a reply, the reaction also stops that reply.
+First check the thread for either of two notices from Claude:
+
+* A notice that begins `:mute: Claude is muted in this thread` means the thread is muted and the session isn’t stuck. A 👎 reaction on one of Claude’s replies mutes the thread and posts that notice. If Claude’s session for the thread was partway through a reply, the reaction also stops that reply.
+* A notice that ends `stopped Claude's response in this thread. Mention @Claude to pick up again.` means someone selected **Stop** on the working indicator. The session is intact, and a mention continues it.
+
 To bring Claude back to a muted thread, send `@Claude !unmute` in the thread or @-mention Claude there, as [Thumbs-down reactions and muting](https://claude.com/docs/claude-tag/users/commands#thumbs-down-reactions-and-muting) describes.
-Without that notice, the session behind that thread is stuck: it hasn’t replied and hasn’t posted an error. Because Claude responds everywhere else, the problem is confined to that one session, and none of the workspace-level fixes in the entries below apply.
+Without either notice, the session behind that thread is stuck: it hasn’t replied and hasn’t posted an error. Because Claude responds everywhere else, the problem is confined to that one session, and none of the workspace-level fixes in the entries below apply.
 **How to resolve**
 Have someone in the thread send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session). The command archives the stuck session and starts a fresh one that rereads the thread, so a follow-up message in the same thread gets an answer. Starting a new thread and restating the request also works.
 
@@ -353,9 +368,9 @@ Pair the whole Grid rather than one workspace. When a Grid Org Owner or Org Admi
 Claude replies to a mention:
 > This workspace isn’t set up for Claude Tag yet. A workspace admin can run `@Claude connect`, or set it up here.
 
-The reply varies with the sender: someone who isn’t a Slack workspace admin is told to ask their Claude workspace owner to run `@Claude connect`, without the settings link.
+The reply varies with the sender: someone who isn’t a Slack workspace admin is told to ask their Claude workspace owner to run `@Claude connect`, without the settings link. In a channel shared across workspaces in an Enterprise Grid where none of the sharing workspaces is paired yet, the reply reads “None of the Slack workspaces this channel is shared with is set up for Claude Tag yet. A workspace admin can set one up here.”
 **What it means**
-The Slack workspace hasn’t been paired with a Claude organization.
+The Slack workspace hasn’t been paired with a Claude organization, or, for the shared-channel form, none of the workspaces sharing the channel has.
 **How to resolve**
 Run [the pairing flow](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace). If the fix worked, a mention in the workspace gets a reply.
 
@@ -545,6 +560,7 @@ When Claude can name the cause, it posts one of these instead:
 | ”That environment or repo isn’t configured for Claude Code. Check claude.ai/code and try again.” | The scope’s pinned environment isn’t set up; see [Channel sessions use the wrong environment](#channel-sessions-use-the-wrong-environment-or-can%E2%80%99t-find-one) |
 | ”Claude is having trouble starting sessions right now. Try again in a minute.” | The service that runs sessions is briefly unavailable; retry |
 | ”You don’t have permission to start a session here.” | A permission check refused to start the session; when Claude knows which check failed, the message names it |
+| ”Session failed to start: the environment’s setup script exited with an error. Fix the setup script in your environment settings, then mention Claude in this thread to retry.” | The setup script of the [environment the scope uses](https://claude.com/docs/claude-tag/admins/customize#configure-the-environment-for-a-scope) exited with an error; every session in that scope runs the same script at start, so fix the script, then mention Claude in the thread |
 
 **What it means**
 This is the catch-all for session-start failures that don’t map to a more specific message, so the cause varies. It’s usually transient.

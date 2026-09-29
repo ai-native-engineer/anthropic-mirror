@@ -8,7 +8,7 @@ What our marking commitments mean for Claude:
 
 * **New models will mark AI-generated content from day one.** Claude models launched in the EU on or after August 2, 2026 will support machine-readable marking at launch. Generated text will carry embedded watermarks, and generated files will include Content Credentials (C2PA) where supported.
 * **Marking works everywhere you use Claude.** Marks will apply to output from supported Claude models across Claude Platform (API), Claude, Claude Code, Claude Cowork, and Claude Tag, and wherever Claude is offered, worldwide. Some platforms or features may not support certain marking types.
-* **Existing models are in progress.** The law includes a transition period for Anthropic models launched before August 2, 2026, and we’re working to add marking support for those models as well. See **Which Claude models support watermarking** below.
+* **Existing models are in progress.** The law includes a transition period for Anthropic models launched before August 2, 2026, and we’re working to add marking support for those models as well. See **[Which Claude models support watermarking](#h_569d936489)** below.
 * **Watermark detection is in private preview.** Watermark detection is currently available to eligible organizations as required under EU law (such as regulators, law enforcement, media, fact-checkers, independent researchers, educational organizations, and EU civil society groups). It is also available for enterprises who are similarly obligated to verify watermarking for their own compliance with the Act. We plan to expand access to the detection API over time. You can register interest in access here: **[Claude Watermark Detector Access Request Form](https://forms.gle/9tGA33hPJJwtHsMk9)**.
 
 More details about our marking plans are below.
@@ -21,12 +21,12 @@ As AI-generated content becomes commonplace, greater transparency and signals ab
 
 ### What’s covered
 
-* **Models.** Claude models launched on or after August 2, 2026 support marking at launch, and we’re working to add marking support to other Claude models released before that date. See **Which Claude models support watermarking** below for the current list.
+* **Models.** Claude models launched on or after August 2, 2026 support marking at launch, and we’re working to add marking support to other Claude models released before that date. See **[Which Claude models support watermarking](#h_569d936489)** below for the current list.
 * **Products.** Claude markings cover output from supported models everywhere you use Claude, including Claude Platform (API), Claude, Claude Code, Claude Cowork, and Claude Tag. Embedded watermarks will apply to all generated text. Content Credentials (C2PA) will apply where Claude supports processing files.
 * **Cloud partners.** When supported Claude models are accessed through AWS, Google Cloud, or Microsoft Foundry they will carry watermarks. Content Credentials (C2PA) are added when Claude creates a file, so it applies only where a platform offers Claude's file generation features: in the Claude apps and the Claude Platform (API), including Claude Platform on AWS and Claude in Microsoft Foundry.
 * **Regions.** Marking will apply to output from supported models wherever Claude is offered, worldwide.
 
-**Which Claude models support watermarking**
+### Which Claude models support watermarking
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -41,6 +41,7 @@ As AI-generated content becomes commonplace, greater transparency and signals ab
 | Claude Opus 4.7 |  |  | ✅ |
 | Claude Opus 4.6 |  |  | ✅ |
 | Claude Opus 4.5 |  |  | ✅ |
+| Claude Sonnet 5.5 | ✅ | ✅ | ✅ |
 | Claude Sonnet 5 |  |  | ✅ |
 | Claude Sonnet 4.6 |  |  | ✅ |
 | Claude Sonnet 4.5 |  |  | ✅ |

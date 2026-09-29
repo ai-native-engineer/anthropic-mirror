@@ -14,6 +14,7 @@ This article explains how large the context window is on paid Claude plans (Pro,
 | Claude Opus 4.8 | 500K tokens |
 | Claude Opus 4.7 | 500K tokens |
 | Claude Opus 4.6 | 500K tokens |
+| Claude Sonnet 5.5 | 1M tokens |
 | Claude Sonnet 5 | 1M tokens |
 | Claude Sonnet 4.6 | 500K tokens |
 
@@ -31,6 +32,7 @@ Outside of these models, Claude’s context window size is 200K, meaning it can 
 | Claude Opus 4.8 | 1M tokens |
 | Claude Opus 4.7 | 1M tokens |
 | Claude Opus 4.6 | 1M tokens  **Note:** 1M context window available by selecting `claude-opus-4-6[1m]` with `/model`; on Pro, usage credits must be enabled to access |
+| Claude Sonnet 5.5 | 1M tokens |
 | Claude Sonnet 5 | 1M tokens |
 | Claude Sonnet 4.6 | 1M tokens  **Note:** 1M context window available by selecting `claude-sonnet-4-6[1m]` with `/model`; usage credits must be enabled to access (except for usage-based Enterprise plans) |
 
@@ -46,6 +48,7 @@ Outside of these models, Claude’s context window size is 200K, meaning it can 
 | Claude Opus 4.8 | 1M tokens |
 | Claude Opus 4.7 | 1M tokens |
 | Claude Opus 4.6 | 200K tokens |
+| Claude Sonnet 5.5 | 1M tokens |
 | Claude Sonnet 5 | 1M tokens  **Note:** Sonnet 5 automatically compacts the conversation at 500K tokens |
 | Claude Sonnet 4.6 | 200K tokens |
 | Haiku 4.5 | 200K tokens |
@@ -70,4 +73,4 @@ While context is managed automatically for most conversations, you can still opt
 * [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
-* [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)
+* [Why Claude switched models in your conversation with Sonnet 5.5](https://support.claude.com/en/articles/17161993-why-claude-switched-models-in-your-conversation-with-sonnet-5-5)

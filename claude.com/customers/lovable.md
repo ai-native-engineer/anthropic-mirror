@@ -38,7 +38,7 @@ on the platform, 200,000+ per day
 
 ## The challenge
 
-![](https://assets.claude.com/e508e5a061c2a1bcbe4d2fe3538ffc017040ad71.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/e508e5a061c2a1bcbe4d2fe3538ffc017040ad71.png)
 
 “Claude has a strong combination of great coding abilities and conversational abilities.” —Anton Osika, Lovable CEO and co-founder
 
@@ -58,7 +58,7 @@ The most driven founders are problem solvers. Watch their unscripted conversatio
 
 ## The solution
 
-![](https://assets.claude.com/1c94b487506bc224ae52be9fc2ac342dc596f22f.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/1c94b487506bc224ae52be9fc2ac342dc596f22f.png)
 
 “Something that I think is very, very rare in AI is a trusted brand that people love and keep coming back to. To have that trusted brand, that's not something that you magically achieve.” —Anton Osika, Lovable CEO and co-founder
 
@@ -88,7 +88,7 @@ Anton OsikaCEO and co-founder, Lovable
 
 ## The outcome
 
-![](https://assets.claude.com/102194dac43adf680201e80eff6cb861d3885248.jpg?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/102194dac43adf680201e80eff6cb861d3885248.jpg)
 
 “Claude Opus 4.5 was the next big step change in reliability on long-horizon tasks, unlocking a new class of projects.” —Alexandre Pesant, Lovable product lead
 

@@ -14,7 +14,14 @@ Hybrid reasoning model with fast, capable intelligence for real-time agents and 
 
 * NEW
 
-  Claude Sonnet 5
+  Claude Sonnet 5.5
+
+  Sep 28, 2026
+
+  A clear upgrade over Sonnet 5 that runs 30% faster and costs up to 30% less for most work.
+
+  [Read more](https://www.anthropic.com/claude-sonnet-5-5)
+* Claude Sonnet 5
 
   Jun 30, 2026
 
@@ -45,101 +52,99 @@ Hybrid reasoning model with fast, capable intelligence for real-time agents and 
 
 ## Availability and pricing
 
-Anyone can chat with Claude using Sonnet 5 on Claude.ai, available on web, iOS, and Android.
+Anyone can chat with Claude using Sonnet 5.5 on Claude.ai, available on web, iOS, and Android.
 
-For developers interested in building agents, Sonnet 5 is available on the Claude Platform natively, and on Amazon Web Services, Google Cloud, and Microsoft Foundry.
+For developers interested in building agents, Sonnet 5.5 is available on the Claude Platform natively, and in Amazon Web Services, Google Cloud, and Microsoft Foundry.
 
-Sonnet 5 is available today at $2 per million input tokens and $10 per million output tokens, with up to 90% cost savings with [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) and 50% cost savings with [batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing#pricing). To learn more, check out our [pricing page](https://claude.com/pricing#api). To get started, simply use `claude-sonnet-5` via the [Claude API](https://platform.claude.com/docs/en/about-claude/models/overview).
+Pricing for Sonnet 5.5 will cost up to an estimated 30% less to run than Sonnet 5 for typical workloads billed by token.
+
+Sonnet 5.5 is priced at $2 per million input tokens and $10 per million output tokens, with up to 90% cost savings with [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) and 50% cost savings with [batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing#pricing). To learn more, check out our [pricing page](https://claude.com/pricing#api). To get started, simply use `claude-sonnet-5-5` via the [Claude API](https://platform.claude.com/docs/en/about-claude/models/overview).
 
 For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens. [Learn more](https://platform.claude.com/docs/en/build-with-claude/data-residency).
 
 ## Use cases
 
-Sonnet 5 is a powerful, versatile model built for daily use, scaled production, and complex tasks across coding, agents, and professional workflows.
+Sonnet 5.5 is a faster, lower-cost complement to Opus 5.5. It excels at well-scoped everyday tasks across coding, agents, and knowledge work.
 
 API users have fine-grained control over the model’s thinking effort. Popular use cases include:
 
-### Advanced coding
+### Coding
 
-Sonnet 5 delivers exceptional coding performance across the entire software development lifecycle. From initial planning and implementation to debugging, maintenance, and large-scale refactors, it excels at reasoning through complex, multi-file codebases, producing precise implementations, and iterating with minimal back-and-forth.
+Sonnet 5.5 delivers exceptional coding performance across the entire software development lifecycle. It gets up to speed on a codebase quickly, scopes changes before it starts, and keeps edits small enough to review. It’s built for everyday development like building features, fixing bugs, and reviewing code.
 
-### Long-running agents
+### Agents
 
-Sonnet 5 offers superior instruction following, tool selection, and error correction for autonomous AI workflows. It reliably handles complex, multi-step tasks that require sustained coherence and adaptive decision-making, making it an ideal backbone for customer-facing agents, internal automation, and production-grade AI systems that need to operate independently at scale.
+Sonnet 5.5 takes on well-defined agent tasks that need reliable execution, like investigation, review, and drafting. It’s the strongest Sonnet yet on long-horizon tasks, and it needs far fewer tokens than Sonnet 5, making it practical to run repeatedly.
 
-### Browser and computer use
+### Design and visual work
 
-Sonnet 5 excels in computer use capabilities, reliably handling any browser-based task from competitive analysis to procurement workflows to customer onboarding. Building on the foundation that made Sonnet the first frontier AI model to use computers, Sonnet 5 navigates digital environments with greater accuracy and reliability, enabling enterprises to automate workflows that previously required human intervention.
+Sonnet 5.5 is tasteful, with a strong eye for design. It adds polish to user interfaces, creates clearly structured diagrams and user flows, and follows templates to build slides that need minimal editing.
 
 ### Enterprise workflows
 
-Sonnet 5 handles high-volume, high-stakes professional workflows across finance, research, content, and business operations. It can analyze complex financial data, synthesize insights from internal and external sources, generate and edit documents and spreadsheets, and produce compelling written content with nuance and precision.
+Sonnet 5.5 brings improvements across knowledge work and office tasks, from analysis to documents and slides. Its writing is clearer and more direct, so drafts need less cleanup.
 
 ## Benchmarks
 
-Sonnet 5 delivers strong results across the benchmarks that matter most for real-world deployment, from reasoning and tool use to software coding, knowledge work, and more.
+Sonnet 5.5 delivers strong results across the benchmarks that matter most for real-world deployment, from coding, and knowledge work to computer use.
 
-![Claude Sonnet 5 benchmark table](https://www-cdn.anthropic.com/images/4zrzovbb/website/9941d610909f28a504e16dd5af823df172ec6035-2600x1234.png)
+![Claude Sonnet 5.5 benchmark table](https://www-cdn.anthropic.com/images/4zrzovbb/website/e81e4ffa8b5008c6817036fe1e7ba2f1ac4c1c70-2160x2240.png)
 
 ## Trust & Safety
 
-We’ve conducted extensive testing and evaluation of Sonnet 5, working with external experts to ensure it meets our standards for safety, security, and reliability. The accompanying [system card](https://www.anthropic.com/claude-sonnet-5-system-card) covers safety results in depth.
+We’ve tested and evaluated Sonnet 5.5 against our standards for safety, security, and reliability. The accompanying [system card](https://www.anthropic.com/claude-sonnet-5-5-system-card) covers safety results in depth.
 
 ## Hear from our customers
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/18f900625532e1baaa3302bdf9539f73592bdf60-164x64.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/ad115f248ce91211ed702abf97b0b2777b691959-91x32.svg)
 
-> Claude Sonnet 5 gives our agents a strong execution layer for multi-step software engineering work. It handles sustained coding, tool use, and debugging well across messy technical contexts, and has been especially useful for workflows where follow-through and technical grounding matter.
+> Without changing any of our prompts, Claude Sonnet 5.5 did better than Sonnet 5 on almost all of our offline Slackbot evals, in fewer steps and with about 14% fewer output tokens. When someone gives Slackbot a task, quality and speed are what matter most, and Sonnet 5.5 allows Slackbot to deliver better outcomes for users, faster.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f343481e6a953bc7b5390e6d9f61cf387c2ceb11-103x64.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/6449eaa27c807123a8bad597769d230e79b9587b-52x26.svg)
 
-> We handed Claude Sonnet 5 a two-part job—update Salesforce account tiers, send a launch announcement to enterprise contacts—and it finished end to end. That used to stall halfway. For day-to-day automation, it’s a no-brainer
+> Claude Sonnet 5.5 will give our customers in financial services and healthcare the confidence to use it for their most sensitive work. Sonnet 5.5 rechecks data in source documents, catching errors that Sonnet 5 failed to spot. Compared to the last model, Sonnet 5.5 was more accurate, 2.4x faster, and used 12% fewer total tokens.
+
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/ffcaaa96498ac630c0285230c60dbaeb82b8f7b8-98x34.svg)
+
+> At Unity, we have a high bar for task completion. Projects are reopened and results are checked at runtime, so a task only counts when the change works, not when the model says it's done. The majority of Claude Sonnet 5.5's work passed that check. It also completed 90% of tasks in our multi-step Unity Editor and coding benchmark, beating similar models.
+
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f7d48545ec6df380bb86fa71fb8e23a3fc4f240c-171x64.svg)
+
+> Claude Sonnet 5.5 shows better judgment than Sonnet 5 across different levels of complexity, while spending significantly fewer output tokens. Sonnet 5’s tendency to reach for web search too often and its high token use are both gone in this new model. We plan to move simple and moderate reviews over now, and more in the coming weeks.
+
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/89bc33e41edf117d5d500fe180f20d05f05b3857-84x16.svg)
+
+> We fed Claude Sonnet 5.5 hundreds of real support use cases across replies and escalation requests. It made fewer wrong decisions and resolved tickets faster than the Claude models we use in production today. Tickets were processed 20% faster, getting our customers the help they need without the wait.
+
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/9cdf5ed2ae750f0b6795490071eed41576bd1e1a-189x24.svg)
+
+> With millions of AI-assisted actions powering our customers’ workflows each month, execution speed is critical. Claude Sonnet 5.5 will allow teams to run their agents up to 30% faster than they could with Sonnet 5. I’m excited to offer our customers this choice.
+
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/4b404a9b2cf99533508a0f4c5d6bf66f5b5e6860-204x25.svg)
+
+> Claude Sonnet 5.5 delivers frontier-level performance on CursorBench 4.0 at 55.5%, second only to Opus 5.5. We think it will be a hit with developers looking to balance performance with cost.
+
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f80d9c77010ed5a30c7e315ffb66df3c883d44a3-647x751.svg)
+
+> In Epic’s early testing, Claude Sonnet 5.5 cleared the same quality bar you’d expect from a higher-tier model, holding up on a system design audit and a data-flow review. The new model managed tens of thousands of lines of code for gameplay system architecture, kept responses snappy, handled multi-hour tasks, and delivered with less prescriptive prompting.
+
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/bf34aec7bbf714fe2a2353d763908b4f24375546-138x64.svg)
+
+> Across 118 real app builds, Claude Sonnet 5.5 produced apps that scored level with Opus 5. It got there in 3.6 iterations per build on average, where Opus 5 took 7.7. It had the fewest failed tool calls of any model we compared. It also rarely stopped mid-build to ask the user a question, so fewer builds stall waiting on someone to answer.
+
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/e360f8a29093a6b4fccdc006315035583e89f9ac-146x64.svg)
+
+> On our private suite of 2,441 finance tasks covering Q&A, extraction, analysis, and forecasting, Claude Sonnet 5.5 scored ahead of Sonnet 5 and used about 121k tokens per answer where Sonnet 5 used 497k. On our analyst search and retrieval work, it was better than Sonnet 5 in almost every way. For high-volume workflows, it had the best quality-to-cost tradeoff of the seven models we ran.
+
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/bd9c822e42e9977d31ad96d9fec3c4ca32aa513e-115x64.svg)
+
+> Claude Sonnet 5.5 cooks. Fast at coding and can be steered quickly in iterative workflows. But it can still work long if it needs to. It’s got some of Opus 5.5’s natural writing upgrades, which makes it more fun to work with. I’m switching to it for my day-to-day coding.
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/40a2a6a28afd8ac8fbf0e764b6bbf4ebf06a1977-133x64.svg)
 
-> Claude Sonnet 5 gets more done with less. Same output quality, fewer steps to get there. It refuses unsafe requests cleanly and consistently, too. At Lovable, we’re putting powerful tools in the hands of millions of builders. A model that knows when to say no is just as important as one that knows how to build.
+> Claude Sonnet 5.5 thinks in fewer, more robust steps, so builders wait less to see progress. Our coding evals showed a third fewer tool calls and roughly half the shell runs to finish a task. For everyday coding and higher-effort conversations, that means faster iteration and a smoother build loop.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/73b380711885c6beb5270575119dbf31d7f71236-107x64.svg)
-
-> We ran Claude Sonnet 5 against dozens of our most challenging real pull requests, and it carried each one through to a tested, verified result on its own — freeing our engineers to focus on the judgment, the decision, and the final sign-off.
-
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/0cd3307b18e36ea9146a2fa1cbcb2966c4ccfd36-107x64.svg)
-
-> I asked Claude Sonnet 5 to investigate a bug. Unprompted, it wrote a reproducing test, implemented the fix, then stashed it to confirm the bug came back without the change. All in a single pass.
-
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f084c88e65466636019709c40cc477aadce2f718-151x64.svg)
-
-> With Claude Sonnet 5, agents stay on plan, follow our conventions, and ship clean multi-step changes, all at an efficient cost.
-
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/b6ba30deda95060f1a9ff19cf03b184d36529a2a-92x64.svg)
-
-> Claude Sonnet 5 is at its best on brownfield code—race conditions, hidden tests, the parts nobody wants to touch. It traces a failure to its actual root cause and ships a durable fix instead of patching the symptom.
-
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/b130e0ceb83f1514a925c7dc93f9768ed60232e3-85x64.svg)
-
-> Claude Sonnet 5 sits on the Pareto frontier for Eve’s plaintiff-law tasks. We see the clearest gains in legal research and analysis, at a price-to-performance ratio that made the choice to migrate easy.
-
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/d97a1e1d49be76a2b9cc3df04843793e9a803214-180x64.svg)
-
-> ClickHouse agents explore live data and produce insights on the fly, so time-to-insight matters when testing new models. Claude Sonnet 5 reasons in tighter steps and gets our users to answers noticeably faster. That speed is a difference our customers feel.
-
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/7504d4d2c41a3baa1ac5cb0d4e7bd19abc57e07d-105x64.svg)
-
-> At Pace, our computer-use agents run insurance workflows—submission intake, FNOL, loss runs—on the systems our operations teams already use. Claude Sonnet 5 consistently takes the right action and does it quickly, which is what real insurance work demands.
-
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/bf162513ba017e72d4e07b0cd7683b86c4c5bc88-60x64.svg)
-
-> For enterprise teams managing high-volume, complex workloads, Claude Sonnet 5 represents a genuine step forward — strong performance where it counts, with the speed and cost profile that makes scaling practical. On several complex tasks it exceeds the current frontier, while delivering fast responses at low costs. For enterprises running at scale, that's a real operational win.
-
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f0719d10f52d94453dfd4c51b4fb26395f277b25-111x64.svg)
-
-> Claude Sonnet 5 handled the full range of coding tasks we tested it on, while resolving more issues. It's a meaningful improvement to both quality and efficiency.
-
-![Kiro logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/cfaee5416044c0e687cf04a0fd1f3f3f26025dfc-125x32.svg)
-
-> Claude Sonnet 5 is a strong agentic-coding model, delivering top-tier accuracy comparable to Opus-class models and a clear step-function improvement over Sonnet 4.6. It conducts thorough explorations and sustains focus noticeably longer on complex tasks.
-
-01 / 13
+01 / 12
 
 ## See Claude in action
 

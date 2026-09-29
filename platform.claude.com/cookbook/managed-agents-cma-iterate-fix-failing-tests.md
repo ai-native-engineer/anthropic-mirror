@@ -38,6 +38,10 @@ agent = client.beta.agents.create(
 
 name="cookbook-iterate",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-iterate-fix-failing-tests"},
+
 model=MODEL,
 
 system=(

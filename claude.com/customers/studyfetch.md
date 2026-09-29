@@ -74,7 +74,7 @@ Study Tools:
 * Creates practice questions with detailed explanations
 * Provides real-time feedback on student responses
 
-![StudyFetch product screen 1](https://assets.claude.com/f5ab9ed4c862fbf6a740be2dd0f73625650709cc.png?w=2400&q=75&fm=webp&fit=max)![StudyFetch product screen 2](https://assets.claude.com/b0e269088105d226f02c7b9e5ce6af751cf043d2.png?w=2400&q=75&fm=webp&fit=max)
+![StudyFetch product screen 1](https://assets.claude.com/f5ab9ed4c862fbf6a740be2dd0f73625650709cc.png)![StudyFetch product screen 2](https://assets.claude.com/b0e269088105d226f02c7b9e5ce6af751cf043d2.png)
 
 ## Delivering measurable impact for students and institutions
 

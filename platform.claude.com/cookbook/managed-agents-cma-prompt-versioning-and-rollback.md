@@ -68,7 +68,19 @@ Read the ticket and respond with ONLY a single line of raw JSON (no code fences,
 
 Route based on the customer's actual problem, not surface keywords."""
 
-agent = client.beta.agents.create(name="ticket-triage", model=MODEL, system=V1\_SYSTEM)
+agent = client.beta.agents.create(
+
+name="ticket-triage",
+
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-prompt-versioning-and-rollback"},
+
+model=MODEL,
+
+system=V1\_SYSTEM,
+
+)
 
 AGENT\_ID = agent.id
 

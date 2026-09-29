@@ -61,7 +61,7 @@ The platform's coding assistance feature, powered by Claude, helps developers wi
 
 McCann emphasizes the impact of integrating Claude across these features, saying, "The reasoning, agentic capabilities, tool use, and overall answer quality for many users has increased so much."
 
-![You.com product screenshot 1](https://assets.claude.com/3781abea66fd13378a8c7a6bea1627e136f6af2a.jpg?w=2400&q=75&fm=webp&fit=max)![You.com product screenshot 1](https://assets.claude.com/7289fc701c35229a6fb42bf5c6477ccace012a9f.jpg?w=2400&q=75&fm=webp&fit=max)
+![You.com product screenshot 1](https://assets.claude.com/3781abea66fd13378a8c7a6bea1627e136f6af2a.jpg)![You.com product screenshot 1](https://assets.claude.com/7289fc701c35229a6fb42bf5c6477ccace012a9f.jpg)
 
 ## Driving growth and user satisfaction
 

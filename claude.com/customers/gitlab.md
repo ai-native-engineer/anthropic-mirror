@@ -50,7 +50,7 @@ GitLab hit its stride when more advanced AI models became available. The company
 
 GitLab chose Claude 3 models to power their AI-powered Duo features due to their performance and the fully featured developer experience. "We see consistently strong performance from Claude 3 models for thoughtful, holistic, and contextualized code generation and other software development-related tasks," McCaslin notes, attributing this partly to Claude's long context window.
 
-![Gitlab product mockup](https://assets.claude.com/d134923ae1767c2daa38d52efe556f67ec2135be.jpg?w=2400&q=75&fm=webp&fit=max)
+![Gitlab product mockup](https://assets.claude.com/d134923ae1767c2daa38d52efe556f67ec2135be.jpg)
 
 ## Empowering engineers and ensuring reliability
 

@@ -51,7 +51,7 @@ Tome pulls data from a company's sales and marketing stack alongside external so
 
 "We need to understand the owners' strategic priorities and initiatives, how our product relates to them, and the usual approaches to potential clients," said Ves. "But you can imagine that this is a process that takes in the order of a few hours if you have to do it manually, in the depth that you would go for your important clients."
 
-![Tome product screenshot](https://assets.claude.com/4cc0f1270c540cdba282f443791a4141b57c0f22.jpg?w=2400&q=75&fm=webp&fit=max)
+![Tome product screenshot](https://assets.claude.com/4cc0f1270c540cdba282f443791a4141b57c0f22.jpg)
 
 ## Claude outperforms in accuracy, context, and coherence
 

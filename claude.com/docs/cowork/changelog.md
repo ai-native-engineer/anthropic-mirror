@@ -8,6 +8,27 @@
 
 [Skip to main content](#content-area)
 
+v2.9939.4
+
+2026-09-27
+
+Bundled Claude Code version: 2.1.284.**General**
+
+* Added support for Claude Sonnet 5.5.
+* Fixed sessions failing on every message with an API error caused by certain web search results or earlier extended thinking in the conversation’s history.
+
+**Code**
+
+* Fixed the warning about a changed organization not appearing in sessions.
+
+**Cowork**
+
+* No user-facing changes.
+
+**3P**
+
+* No user-facing changes.
+
 v2.9939.2
 
 2026-09-24

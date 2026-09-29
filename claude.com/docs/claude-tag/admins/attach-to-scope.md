@@ -25,7 +25,7 @@ Bundles stack downward. A channel gets whatever is attached at Default Slack acc
 
 The same stacking applies in reverse. Detaching a bundle from a channel removes only that channel’s additions, and bundles attached at the workspace or Default Slack access still apply there.
 Memory is also scoped, but differently: there is no organization-wide memory, each channel keeps its own notes, workspace notes saved from public channels are read across the workspace, and a private channel reads the workspace notes but writes only to its own store. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
-DMs run under the user’s own claude.ai account, so bundles attached here apply only in channels. See [how DMs work in this model](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels).
+DMs from members who have connected a Claude account run under the member’s own claude.ai account, so bundles attached here don’t apply to them. See [how DMs work in this model](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels). A [DM from a member who hasn’t connected a Claude account](https://claude.com/docs/claude-tag/admins/restrict-access#access-in-a-direct-message-from-a-member-without-a-claude-account) does reach access bundles.
 
 ##  Attach the bundle
 

@@ -61,7 +61,7 @@ Lex leverages Claude in several key ways to enhance the writing experience:
 * Customizable prompts: Users can create and share saved prompts for consistent feedback across teams or projects.
 * Style and brevity checks: Claude helps refine prose by suggesting ways to streamline text and adhere to style guidelines.
 
-![Lex product image](https://assets.claude.com/267eaff5ffc851d75c6be7aff8fffbde558abcf2.jpg?w=2400&q=75&fm=webp&fit=max)
+![Lex product image](https://assets.claude.com/267eaff5ffc851d75c6be7aff8fffbde558abcf2.jpg)
 
 ## Driving impact for Lex and its users
 

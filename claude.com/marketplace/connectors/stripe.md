@@ -40,6 +40,14 @@ Bring Orion Connect portfolio data and Redtail CRM together in Claude — prep f
 
 [Add Orion in Claude (opens in new tab)](https://claude.ai/directory/ae7131fa-f9e7-4f96-b776-b582c7fa09a1 "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
+
+### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
+
+Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
+
+[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
 ### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
@@ -49,14 +57,6 @@ Anthropic verifiedTrending
 Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
-
-### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
-
-Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
-
-[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
 
 ![](https://bd3.bdreporting.com/content/logo.svg)
 

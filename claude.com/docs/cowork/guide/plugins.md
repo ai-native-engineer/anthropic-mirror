@@ -8,13 +8,12 @@
 
 [Skip to main content](#content-area)
 
-A plugin is a package that extends what Claude can do in Cowork. Installing one can add skills, MCP connectors, subagents, commands, or hooks in a single step. Plugins come from the marketplace, from your organization, or from a file you upload.
-A plugin you install is saved to your account, so its skills and connectors are also available in chat and in Claude Code. [Plugins](https://claude.com/docs/plugins/overview) covers what each surface loads; this page covers the Cowork side.
-To get started, [install a plugin](#install-a-plugin) from **Customize**, or [add a Git repository as a marketplace](#use-a-git-repository-as-a-marketplace) to share plugins without publishing them.
+A plugin is a package that extends what Claude can do in Cowork. Installing one can add skills, MCP connectors, subagents, slash commands, or hooks in a single step. Plugins come from the marketplace, from your organization, or from a file you upload.
+Plugins are available in Cowork and Code. They aren’t used in Chat.
 
 ##  What a plugin can contain
 
-A plugin can contain any combination of the following components.
+A plugin’s manifest declares any combination of the following.
 
 | Component | What it adds |
 | --- | --- |
@@ -27,36 +26,34 @@ After installing, open the plugin to see what it provides. Skills and agents app
 
 ##  Install a plugin
 
-You browse, install, and upload plugins from the **Plugins** page. Open **Customize** in the sidebar, then select **Plugins**.
+Open **Customize** in the sidebar, then **Plugins**.
 
 1
 
 Browse the marketplace
 
-Select **Discover** to see available plugins. The default marketplace
+Select **Browse plugins** to see available plugins. The default marketplace
 is Anthropic’s official catalog; you can add other marketplaces by URL.
 
 2
 
 Install
 
-Select a plugin and click **Install**. Installing doesn’t add or sign you in
-to any connector. If the plugin includes connectors, open its **Connectors**
-tab afterward to add or connect each one.
+Select a plugin and click **Install**. If the plugin includes a connector
+that needs authentication, you’re prompted to sign in.
 
 3
 
 Review components
 
 Open the installed plugin to see its skills, connectors, agents, and hooks.
-Select **Disable plugin** to turn the whole plugin off, and connect or
-disconnect each connector on its own from the **Connectors** tab.
+Enable or disable individual components as needed.
 
 To install from a file instead, select the upload option on the Plugins page and select the plugin package.
 
 ##  Use a Git repository as a marketplace
 
-A Git repository that contains plugin packages can serve as a marketplace, which lets you share plugins without publishing to the public catalog. For a marketplace you add yourself, repositories on GitHub, including GitHub Enterprise, are supported, and public repositories on GitLab and Bitbucket also work. To distribute plugins to everyone in a Team or Enterprise organization, an Owner syncs the repository from organization settings instead, as [Manage plugins for your organization](https://claude.com/docs/plugins/admin#add-your-own-plugins) describes.
+A Git repository that contains plugin packages can serve as a marketplace. This is the typical way teams distribute their own plugins without publishing to the public catalog. Repositories on GitHub (including GitHub Enterprise) are supported; public repositories on GitLab and Bitbucket also work.
 
 1
 
@@ -73,8 +70,8 @@ Install plugins from it
 Plugins defined in the repository appear alongside plugins from other
 marketplaces. Install them the same way.
 
-Select **Check for updates** on a marketplace to pull the latest plugins from its repository, or turn on **Sync automatically**.
-For marketplaces your organization manages, see [Manage plugins for your organization](https://claude.com/docs/plugins/admin), or [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions) if your organization deploys Claude Desktop with its own model provider.
+Click **Update** on a marketplace to pull the latest plugins from its repository.
+For administrator-managed marketplaces, see [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions) in the deployment guide.
 
 ##  Limits
 
@@ -93,16 +90,15 @@ The in-app skill viewer previews individual files up to 1 MB. Larger files appea
 ##  Plugins managed by your organization
 
 On Team and Enterprise plans, administrators can require certain plugins for everyone in the organization. Required plugins install automatically and show **This plugin is required by your organization**; you can’t remove them.
-For how administrators provision plugins, see [Manage plugins for your organization](https://claude.com/docs/plugins/admin).
+For how administrators provision plugins, see [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions) in the deployment guide.
 
 ##  Update and remove plugins
 
 Cowork checks for plugin updates from the marketplace they came from. If you’ve edited a plugin’s files locally, Cowork detects the change and warns you before an update would overwrite it.
-To remove a plugin you installed, open it under **Customize > Plugins** and select **Remove**. You can’t remove a plugin marked **This plugin is required by your organization**.
+To remove a plugin you installed, open it under **Customize → Plugins** and click **Uninstall**. Organization-managed plugins can only be removed by an administrator.
 
-##  Next steps
+##  Related
 
-* [Plugins](https://claude.com/docs/plugins/overview): how plugins work across Claude products
-* [Manage plugins for your organization](https://claude.com/docs/plugins/admin): administrator provisioning on Team and Enterprise plans
-* [Submit a plugin](https://claude.com/docs/plugins/submit): publish your own to the marketplace
-* [MCP, plugins, skills, and hooks](https://claude.com/docs/third-party/claude-desktop/extensions): for organizations that deploy Claude Desktop with their own model provider
+* [Plugins overview](https://claude.com/docs/plugins/overview) for how plugins work across Claude products
+* [Submit a plugin](https://claude.com/docs/plugins/submit) to publish your own to the marketplace
+* [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions) for administrator provisioning

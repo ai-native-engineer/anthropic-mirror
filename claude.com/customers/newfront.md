@@ -50,7 +50,7 @@ Newfront's journey to Claude began with a search for the ideal AI to help power 
 
 This initial success convinced Newfront to expand Claude's role across their platform. Today, they maintain a flexible approach, choosing the right AI for each specific challenge while leveraging Claude for their most complex natural language needs.
 
-![Newfront Product Screen](https://assets.claude.com/5b3f759931b53b63947e0387b36c0cf4944a7f6c.png?w=2400&q=75&fm=webp&fit=max)
+![Newfront Product Screen](https://assets.claude.com/5b3f759931b53b63947e0387b36c0cf4944a7f6c.png)
 
 ## How Claude transforms insurance work
 

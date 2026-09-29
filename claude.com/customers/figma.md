@@ -49,7 +49,7 @@ See Claude Code in action—from concept to commit in one seamless workflow.
 * Non-designers can now visualize ideas, bringing more people into the design process
 * Claude Sonnet consistently delivered on code quality, design intent, and speed
 
-![](https://assets.claude.com/5606887a2b5ebe0006c61f018d49f17f0f4081fe.jpg?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/5606887a2b5ebe0006c61f018d49f17f0f4081fe.jpg)
 
 Holly Li, product manager for Figma Make
 
@@ -73,7 +73,7 @@ Holly Li, product manager for Figma Make, had firsthand experience with Claude's
 
 The team identified Claude Sonnet as their breakthrough moment—the point when code generation became good enough to enable their vision for Figma Make.
 
-![](https://assets.claude.com/77767dd03d8ae115360ef4db20dbc536d76f6d4e.jpg?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/77767dd03d8ae115360ef4db20dbc536d76f6d4e.jpg)
 
 Alex Mullans, a product manager at Figma
 

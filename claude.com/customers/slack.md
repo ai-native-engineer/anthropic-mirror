@@ -135,7 +135,7 @@ Through this collaboration, Slack has:
 * Respected content and channel permissions for enterprise security
 * Provided personalized tone and format for user interactions
 
-![](https://assets.claude.com/30f5713ef52f6ac17684c58788541ada07e8110c.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/30f5713ef52f6ac17684c58788541ada07e8110c.png)
 
 Slack’s AI delivers prompt conversation summaries of channels and threads, highlighting key decisions and action items, tailored to the user.
 
@@ -150,7 +150,7 @@ Technical advantages that power this transformation include:
 
 "Anthropic has been instrumental as we’ve built our AI solution” said Ananya Helmich, VP of Software Engineering at Slack. “The exceptional quality and high performance of Claude models empower us to build AI-driven solutions that truly make a difference for our customers.”
 
-![](https://assets.claude.com/51e661efc7ce62e5b6660fd11934edf9cc994cc7.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/51e661efc7ce62e5b6660fd11934edf9cc994cc7.png)
 
 Robert Ansel, Staff Site Reliability Engineer, said the team uses Claude Code to fix bugs and power teams to move faster.
 

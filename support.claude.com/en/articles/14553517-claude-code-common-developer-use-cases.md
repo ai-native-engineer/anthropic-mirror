@@ -200,5 +200,5 @@ For details on `/init`, @-references, permission modes, skills, MCP, and hooks, 
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
 * [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
-* [Claude Code champion kit](https://support.claude.com/en/articles/14555399-claude-code-champion-kit)
+* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
 * [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

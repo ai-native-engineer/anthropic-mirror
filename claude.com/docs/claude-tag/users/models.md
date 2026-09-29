@@ -49,6 +49,7 @@ To see the current list, ask in the thread.
 ```
 
 If you ask for a model that isn’t on the list, Claude tells you it isn’t available, and the thread stays on the model it was already using.
+For how your organization’s model settings apply in Slack, see [Models your organization allows](https://claude.com/docs/claude-tag/admins/customize#models-your-organization-allows).
 
 ##  Related resources
 

@@ -158,6 +158,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 28, 2026
+
+Giving companies more control over their AI agents, with NVIDIA
+
+Agents
+
+Giving companies more control over their AI agents, with NVIDIA
+
+September 28, 2026
+
+[Giving companies more control over their AI agents, with NVIDIA](https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia)Giving companies more control over their AI agents, with NVIDIA
+
+[Giving companies more control over their AI agents, with NVIDIA](#)Giving companies more control over their AI agents, with NVIDIA
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
 Sep 25, 2026
@@ -382,22 +398,6 @@ September 14, 2026
 
 [Claude for Financial Advisors](#)Claude for Financial Advisors
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
-
-Sep 14, 2026
-
-How healthcare organizations use Claude Tag
-
-Enterprise AI
-
-How healthcare organizations use Claude Tag
-
-September 14, 2026
-
-[How healthcare organizations use Claude Tag](https://claude.com/blog/how-healthcare-organizations-use-claude-tag)How healthcare organizations use Claude Tag
-
-[How healthcare organizations use Claude Tag](#)How healthcare organizations use Claude Tag
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 17
@@ -407,6 +407,22 @@ Category
 Product
 
 Usecase
+
+### Giving companies more control over their AI agents, with NVIDIA
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+September 28, 2026
+
+[Giving companies more control over their AI agents, with NVIDIA](https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia)Giving companies more control over their AI agents, with NVIDIA
+
+[Giving companies more control over their AI agents, with NVIDIA](#)Giving companies more control over their AI agents, with NVIDIA
 
 ### Build plugins for Claude
 
@@ -631,22 +647,6 @@ September 14, 2026
 [Claude for Financial Advisors](https://claude.com/blog/claude-for-financial-advisors)Claude for Financial Advisors
 
 [Claude for Financial Advisors](#)Claude for Financial Advisors
-
-### How healthcare organizations use Claude Tag
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-September 14, 2026
-
-[How healthcare organizations use Claude Tag](https://claude.com/blog/how-healthcare-organizations-use-claude-tag)How healthcare organizations use Claude Tag
-
-[How healthcare organizations use Claude Tag](#)How healthcare organizations use Claude Tag
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 

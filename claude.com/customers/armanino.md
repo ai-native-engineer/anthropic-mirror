@@ -62,7 +62,7 @@ The new tool leverages Claude to automatically generate formal notes explaining 
 
 "We're able to provide Claude a small prompt and it gives us a really nice personalized text, about three to four sentences, that delivers exactly what we need from the client in order to fulfill this request," Maliq adds.
 
-![Armanino product screenshot](https://assets.claude.com/f4b3d2d998396f23c5dbae3a3c5ce23588e5e3dd.jpg?w=2400&q=75&fm=webp&fit=max)
+![Armanino product screenshot](https://assets.claude.com/f4b3d2d998396f23c5dbae3a3c5ce23588e5e3dd.jpg)
 
 ## Significant time savings and improved confidence
 

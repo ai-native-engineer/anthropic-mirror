@@ -32,18 +32,6 @@ Location
 
 Date
 
-TR
-
-Ankara | Claude for Education: Innovation and Research Meetup
-
-Çankaya, TR
-
-September 27, 2026
-
-CoZone, Mustafa Kemal Mahallesi Bilişim İnovasyon Merkezi ODTÜ Teknokent 280, Mustafa Kemal, D:G, 06510 Çankaya/Ankara, Türkiye
-
-[Ankara | Claude for Education: Innovation and Research Meetup](https://luma.com/claude-m0x7)Ankara | Claude for Education: Innovation and Research Meetup
-
 AU
 
 Sydney | Claude Community x Notion Showcase
@@ -127,6 +115,18 @@ October 1, 2026
 Pier 7, 1-11 Minamimachikaigan, Kesennuma, Miyagi 988-0018, Japan
 
 [Kesennuma | Claude for Business](https://luma.com/claude-tpx0)Kesennuma | Claude for Business
+
+CH
+
+Zurich | Claude Conversation on Climate
+
+Zürich, CH
+
+October 2, 2026
+
+Sonneggstrasse 76, 8006 Zürich, Switzerland
+
+[Zurich | Claude Conversation on Climate](https://luma.com/claude-ycsc)Zurich | Claude Conversation on Climate
 
 [View more](https://claude.com/community?46f68bc1_page=2)
 

@@ -55,6 +55,10 @@ name="market\_analyst",
 
 description="Writes sourced competitive landscape briefs.",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-cap-session-spend"},
+
 model={"id": MODEL},
 
 system="""You write competitive landscape briefs for product teams.

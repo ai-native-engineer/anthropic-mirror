@@ -39,7 +39,7 @@ inside a single agent
 
 ## The challenge
 
-![](https://assets.claude.com/6fe2411aee6587d0dc3532f08a30bcc7ec0e3271.jpg?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/6fe2411aee6587d0dc3532f08a30bcc7ec0e3271.jpg)
 
 "Claude knew when to stop and knew which tools to call. When some tool returned an error message, it would know what alternative way to try." —Kay Zhu
 
@@ -85,7 +85,7 @@ Kay ZhuCo-founder and CTO, Genspark
 
 ## The outcome
 
-![](https://assets.claude.com/6c8cf5cf12067719cc0355bff5404ea785da125c.jpg?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/6c8cf5cf12067719cc0355bff5404ea785da125c.jpg)
 
 "We want to bring the Claude Code experience that software engineers have to all white-collar workers." —Kay Zhu
 

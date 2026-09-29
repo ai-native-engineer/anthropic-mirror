@@ -103,6 +103,10 @@ name="cookbook\_reviewer",
 
 description="Reviews notebooks in a mounted cookbook repository.",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-use-skills-from-a-repo"},
+
 model={"id": MODEL},
 
 system="You review notebooks in the repository mounted under /workspace. "

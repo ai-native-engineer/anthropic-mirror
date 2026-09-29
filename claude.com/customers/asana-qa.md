@@ -24,7 +24,7 @@ Asana recently launched [Asana AI Teammates](https://asana.com/product/ai/ai-tea
 
 The industry defaulted to individual-first because it's the easiest problem to solve technically. What breaks at enterprise scale is coordination. AI actually increases the coordination tax. With an AI agent, a marketing manager can draft a brief in five minutes, but they still run into bottlenecks with rounds of reviews and syncing with a launch timeline that multiple teams depend on. When every person has their own AI assistant working independently, you create more fragmentation, not less. Collaboration is what makes real autonomy possible.
 
-![](https://assets.claude.com/d6a9669f0c725bcbe117f74224b62769a619b436.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/d6a9669f0c725bcbe117f74224b62769a619b436.png)
 
 "We've been especially impressed by Claude's ability to handle multi-step workflows," said Arnab Bose, Chief Product Officer at Asana. "That level of synthesis and judgment is what sets Claude apart."
 
@@ -48,7 +48,7 @@ We've been especially impressed by its ability to handle multi-step workflows, f
 
 ‍
 
-![](https://assets.claude.com/41a8e53dbc809aee9cef3c59291a0394ae9d9cae.png?w=2400&q=75&fm=webp&fit=max)
+![](https://assets.claude.com/41a8e53dbc809aee9cef3c59291a0394ae9d9cae.png)
 
 "Our principle is that AI Teammates should be autonomous on execution, but humans own the decisions." —Arnab Bose, Chief Product Officer at Asana
 

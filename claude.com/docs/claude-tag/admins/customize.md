@@ -142,9 +142,9 @@ The rules list has three properties:
 
 Once you add an allow rule, Claude runs the actions it names in every channel the scope covers without anyone approving them in the moment. Keep each rule narrow: name the tool, the action, and the environment it allows, and put rules that unlock sensitive systems on the narrowest scope that needs them.
 
-##  Settings no one can change
+##  Name, handle, and avatar of the Claude app
 
-* The Claude app’s name, @-handle, and avatar in Slack are the same in every workspace; there is no rename or rebrand setting.
+The Claude app’s name, @-handle, and avatar in Slack are the same in every workspace; there is no rename or rebrand setting.
 
 ##  Related resources
 

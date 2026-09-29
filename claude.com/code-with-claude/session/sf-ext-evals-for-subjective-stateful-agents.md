@@ -33,5 +33,3 @@ Speaker(s)
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
 [Browse recordings](https://claude.com/code-with-claude/san-francisco)
-
-Evals for subjective, stateful agents | Session | Code w/ Claude 2026

@@ -8,6 +8,18 @@
 
 [Skip to main content](#content-area)
 
+0.1.54
+
+September 28, 2026
+
+* Sessions on Claude Sonnet 5.5 now default to Extra high reasoning effort
+* Windows: after an update, the app window reopens on the new version by itself
+* Pinned artifacts (formerly starred) and pinned projects now show a pushpin instead of a star
+* Editing a Markdown table cell now outlines the cell itself instead of opening a box over it
+* The app starts much faster with a long list of allowed domains
+* Security hardening of the analysis sandbox on Mac, Windows, and Linux
+* Various bug fixes and security improvements
+
 0.1.53
 
 September 24, 2026
