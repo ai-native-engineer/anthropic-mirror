@@ -22,10 +22,10 @@ An unofficial, searchable Markdown archive of Anthropic and Claude public materi
 
 | Path | Material |
 |---|---|
-| [`www.anthropic.com/`](www.anthropic.com/), [`claude.com/`](claude.com/) | News, research, engineering, policy, products, blog, customers, and resources |
+| [`www.anthropic.com/`](www.anthropic.com/), [`claude.com/`](claude.com/), [`claude.dev/`](claude.dev/), [`partnerhub.claude.com/`](partnerhub.claude.com/) | News, research, engineering, policy, products, blogs, customers, resources, and the partner directory |
 | [`platform.claude.com/`](platform.claude.com/), [`code.claude.com/`](code.claude.com/), [`support.claude.com/`](support.claude.com/), [`privacy.claude.com/`](privacy.claude.com/) | Developer/API docs, Cookbook, Claude Code docs, Help Center, and Privacy Center articles |
 | [`alignment.anthropic.com/`](alignment.anthropic.com/), [`transformer-circuits.pub/`](transformer-circuits.pub/), [`trust.anthropic.com/`](trust.anthropic.com/) | Alignment, interpretability, security, and compliance |
-| [`anthropic.skilljar.com/`](anthropic.skilljar.com/), [`anthropic-partners.skilljar.com/`](anthropic-partners.skilljar.com/) | Anthropic Academy lessons and caption transcripts |
+| [`academy.claude.com/`](academy.claude.com/), [`anthropic.skilljar.com/`](anthropic.skilljar.com/), [`anthropic-partners.skilljar.com/`](anthropic-partners.skilljar.com/) | Claude Academy courses and tutorials, Anthropic Academy lessons and caption transcripts |
 | [`youtube.com/anthropic-ai/`](youtube.com/anthropic-ai/), [`youtube.com/claude/`](youtube.com/claude/) | One transcript or caption-status stub per official-channel video, Short, and stream |
 | Anthropic-owned file hosts | PDFs linked from archived pages |
 
@@ -59,6 +59,7 @@ The archive is regenerated in place and keeps only the latest crawl. Git preserv
 
 - JavaScript-only pages and content without extractable public text may be incomplete.
 - Videos without accessible captions keep available page metadata and a caption-status stub.
+- Academy lessons that require enrollment keep a placeholder instead of the lesson text. Images whose source asset is unavailable are marked as uncollected instead of left as broken references.
 - External publications and files over GitHub's size limit remain source links.
 - The Claude product app and private or user-generated content are outside the archive scope.
 

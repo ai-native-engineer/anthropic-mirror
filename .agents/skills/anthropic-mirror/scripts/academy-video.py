@@ -13,14 +13,23 @@
 - captions 없는 JW는 tracks만으로 끝나면 영상이 통째로 빠진다 -> media ID + STT 폴백 필수.
 - 쿠키 만료 시 비로그인 -> 레슨 ID가 안 잡힘 -> login-academy.py 재실행.
 
+fail-closed 종료 코드(경고 후 성공 종료하지 않는다):
+  3 = 세션 없음·실행 중 만료. 레슨을 쓰지 않고 즉시 멈춘다(코스 랜딩을 레슨 본문으로 저장하지 않는다).
+  4 = 로그인은 유효하지만 등록·권한이 필요한 레슨이 있다(stub만 남기고 auth_blocked로 기록).
+  5 = 무진행·자식 실패로 건너뛴 코스가 있다.
+  6 = 같은 코스의 서로 다른 레슨 본문이 동일해 저장을 거부했다(랜딩 페이지 오수집 신호).
+미해결 레슨은 .anthropic-mirror-status.json의 academy:<host>:<course> key에 기록한다.
+
 실행: <crawl4ai python> academy-video.py <out_dir> [course-slug ...]
   코스 슬러그 생략 시 카탈로그(/)에서 자동 수집.
   모든 레슨을 검사하고 실제 본문 변경·새 영상 ID만 저장/전사.
   출력: <out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md (academy-extract와 같은 트리)
+  --check-auth: 세션만 확인(유효 0, 만료 3). --list-json FILE: 본문 없이 live 코스별 lesson URL만 기록(coverage-audit용).
 """
 
 import asyncio, contextlib, hashlib, html, io, json, os, re, shutil, signal, subprocess, sys, tempfile, time, urllib.request
 from urllib.parse import urlsplit
+import importlib.util
 import httpx
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
@@ -29,7 +38,19 @@ from playwright.async_api import async_playwright
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 BASE = os.environ.get("SKILLJAR_BASE", "https://anthropic.skilljar.com").rstrip("/")
-EMPTY_MD_IMAGE = re.compile(r"!\[[^\]]*\]\(\s*\)")
+EMPTY_MD_IMAGE = re.compile(r"!\[([^\]]*)\]\(\s*\)")
+_common_spec = importlib.util.spec_from_file_location(
+    "mirror_common", os.path.join(os.path.dirname(os.path.abspath(__file__)), "mirror-common.py")
+)
+mc = importlib.util.module_from_spec(_common_spec)
+_common_spec.loader.exec_module(mc)
+EXIT_AUTH, EXIT_GATED, EXIT_STALLED, EXIT_DUPLICATE = 3, 4, 5, 6
+STALLED = 124  # watch_process가 무진행으로 죽인 자식의 가상 종료 코드
+NO_BODY = "_(본문 없는 레슨: 퀴즈·과제처럼 추출할 텍스트가 없음)_"
+
+
+class AuthExpired(Exception):
+    """세션이 없거나 실행 중 만료됐다. 이 상태의 레슨 응답은 코스 랜딩이라 저장하면 안 된다."""
 _HOST = BASE.split("://")[-1]
 STATE = os.path.expanduser(
     "~/.crawl4ai/academy_state.json"
@@ -65,7 +86,7 @@ def beat():
 
 
 def run_course(out_root, course, attempt):
-    """코스 하나를 자식 프로세스로 실행한다. 정상 종료면 True."""
+    """코스 하나를 자식 프로세스로 실행하고 종료 코드를 돌려준다."""
     label = course if attempt == 0 else f"{course} (재시도)"
     with tempfile.TemporaryDirectory(prefix="academy-hb-") as d:
         hb = Path(d) / "beat"
@@ -80,7 +101,7 @@ def run_course(out_root, course, attempt):
 
 
 def watch_process(proc, hb, label, stall=STALL_SECONDS, poll=30):
-    """heartbeat가 stall초 넘게 멈추면 프로세스 그룹을 죽인다. 정상 종료면 True.
+    """heartbeat가 stall초 넘게 멈추면 프로세스 그룹을 죽이고 STALLED를, 아니면 자식 종료 코드를 돌려준다.
 
     멈춘 것과 즉시 죽은 것을 구분해 알린다 -- 둘을 뭉뚱그리면 원인 추적이 어긋난다.
     """
@@ -92,7 +113,7 @@ def watch_process(proc, hb, label, stall=STALL_SECONDS, poll=30):
         else:
             if code != 0:
                 print(f"[!] {label}: 자식 프로세스 실패 (exit {code})", flush=True)
-            return code == 0
+            return code
         if time.time() - hb.stat().st_mtime <= stall:
             continue
         print(f"[!] {label}: {stall}s 무진행 - 프로세스 그룹 강제 종료", flush=True)
@@ -101,16 +122,26 @@ def watch_process(proc, hb, label, stall=STALL_SECONDS, poll=30):
         except (ProcessLookupError, PermissionError):
             pass
         proc.wait()
-        return False
+        return STALLED
 
 
 def supervise(courses, run_one, attempts=2):
-    """코스별로 run_one을 최대 attempts번 시도하고, 끝내 실패한 코스를 돌려준다."""
-    stalled = []
+    """코스별로 run_one을 최대 attempts번 시도한다.
+
+    인증 만료(EXIT_AUTH)는 재시도해도 같은 결과이고 이후 코스도 모두 랜딩으로 튕기므로 즉시 AuthExpired로 멈춘다.
+    반환: {course: 마지막 비정상 코드}. 등록 필요(EXIT_GATED)·중복 거부(EXIT_DUPLICATE)는 재시도하지 않는다.
+    """
+    failed = {}
     for course in courses:
-        if not any(run_one(course, attempt) for attempt in range(attempts)):
-            stalled.append(course)
-    return stalled
+        for attempt in range(attempts):
+            code = run_one(course, attempt)
+            if code == EXIT_AUTH:
+                raise AuthExpired(course)
+            if code in (0, EXIT_GATED, EXIT_DUPLICATE):
+                break
+        if code != 0:
+            failed[course] = code
+    return failed
 
 
 def anonymous_landing(final_url):
@@ -369,6 +400,7 @@ async def rendered_body(pg):
         soup = BeautifulSoup(await loc.evaluate("e => e.outerHTML"), "html.parser")
         for tag in soup.select("script, style, nav, footer"):
             tag.decompose()
+        resolve_images(soup)
         text = md(str(soup), heading_style="ATX").strip()
         if len(text) > len(best):
             best = text
@@ -379,10 +411,43 @@ async def rendered_body(pg):
         in best
     ):
         return ""
-    return EMPTY_MD_IMAGE.sub("", best)
+    return EMPTY_MD_IMAGE.sub(lambda m: missing_image_marker(m.group(1)), best)
 
 
-async def lesson_videos(pg, course, ck, cdir, state):
+def missing_image_marker(label):
+    """받을 자산이 없는 이미지는 깨진 참조 대신 명시 상태로 남긴다. 대체 텍스트도 없으면 장식 이미지로 본다."""
+    label = " ".join((label or "").split())
+    return f"[미수집 이미지: {label}]" if label else ""
+
+
+def resolve_images(soup):
+    """src가 빈 lazy 이미지는 data-src 계열에서 복원하고, 없으면 미수집 마커로 바꾼다."""
+    for img in soup.find_all("img"):
+        src = (img.get("src") or "").strip()
+        if src:
+            continue
+        for attr in ("data-src", "data-lazy-src", "data-original", "data-srcset", "srcset"):
+            value = (img.get(attr) or "").strip()
+            if value:
+                img["src"] = value.split(",")[0].strip().split(" ")[0]
+                break
+        else:
+            marker = missing_image_marker(img.get("alt", ""))
+            if marker:
+                img.replace_with(marker)
+            else:
+                img.decompose()
+
+
+def split_tail(existing):
+    """레슨 파일을 [source+본문]과 영상 마커 이후 tail로 나눈다. tail은 academy-video가 붙인 자막이다."""
+    tail = re.search(r"\n<!-- (?:youtube|vimeo|jwplayer(?:-srt)?|(?:yt|srt|jw)-pending): .*\Z", existing, re.S)
+    if not tail:
+        return existing.rstrip(), ""
+    return existing[: tail.start()].rstrip(), tail.group(0).rstrip()
+
+
+async def lesson_videos(pg, course, ck, cdir, state, items):
     # 목차 레슨 ID는 httpx SSR로 잡는다(일부 코스는 playwright 렌더가 목차 링크를 비운다 - 예: ai-fluency-for-builders)
     cr = fetch_page(f"{BASE}/{course}", ck)
     if cr is None:
@@ -406,6 +471,7 @@ async def lesson_videos(pg, course, ck, cdir, state):
     out = []
     bodies = 0
     gated = 0
+    seen_bodies = {}
     for n, lid in enumerate(ids, 1):
         beat()
         url = f"{BASE}/{course}/{lid}"
@@ -416,6 +482,10 @@ async def lesson_videos(pg, course, ck, cdir, state):
         if not await open_lesson(pg, url):
             continue
         if urlsplit(pg.url).path.rstrip("/") != urlsplit(url).path.rstrip("/"):
+            # 레슨이 다른 곳(코스 랜딩·로그인)으로 튕겼다. 세션이 죽은 것이면 이후 모든 레슨이 같으니 즉시 멈춘다.
+            if not signed_in(ck):
+                raise AuthExpired(url)
+            items.append({"url": url, "class": "auth_blocked", "reason": f"등록 또는 권한 필요 (-> {pg.url})"})
             cdir.mkdir(parents=True, exist_ok=True)
             if not listed_path.exists():
                 listed_path.write_text(
@@ -441,18 +511,23 @@ async def lesson_videos(pg, course, ck, cdir, state):
         path = by_source.get(url, cdir / f"{n:02d}-{slug(title)}.md")
         body = await rendered_body(pg)
         if body:
+            digest = hashlib.sha256(body.strip().encode()).hexdigest()
+            twin = seen_bodies.get(digest)
+            if twin:
+                # 서로 다른 레슨이 같은 본문이면 랜딩·안내문을 잡은 것이다. 덮어쓰지 않고 실패로 남긴다.
+                items.append({"url": url, "class": "extract_failed", "reason": f"본문이 같은 코스 레슨과 동일: {twin}"})
+                by_source[url] = path
+                continue
+            seen_bodies[digest] = url
             cdir.mkdir(parents=True, exist_ok=True)
             existing = path.read_text(encoding="utf-8") if path.exists() else ""
             key = f"academy-body:{url}"
-            digest = hashlib.sha256(body.strip().encode()).hexdigest()
             previous = state.get(key)
             state[key] = digest
-            if previous != digest and not (previous is None and existing):
-                tail = re.search(
-                    r"\n<!-- (?:youtube|vimeo|jwplayer(?:-srt)?): .*\Z", existing, re.S
-                )
-                preserved = tail.group(0).rstrip() if tail else ""
-                content = f"<!-- {url} -->\n\n{body}"
+            current, preserved = split_tail(existing)
+            content = f"<!-- {url} -->\n\n{body}"
+            # state hash만 보면 정제 규칙이 바뀐 뒤에도 파일에 옛 본문이 남는다. 파일의 본문 부분과 직접 비교한다.
+            if current != content.rstrip():
                 updated = f"{content}{preserved}\n" if preserved else f"{content}\n"
                 path.write_text(updated, encoding="utf-8")
                 bodies += 1
@@ -506,6 +581,8 @@ async def lesson_videos(pg, course, ck, cdir, state):
 
 
 async def crawl_courses(out_root, courses, ck):
+    """코스들을 한 브라우저로 검사하고 미해결 항목 목록을 돌려준다."""
+    outcome = []
     state_path = out_root / STATE_FILE
     try:
         mirror_state = json.loads(state_path.read_text(encoding="utf-8"))
@@ -517,8 +594,9 @@ async def crawl_courses(out_root, courses, ck):
         pg = await ctx.new_page()
         for course in courses:
             cdir = out_root / _HOST / course
+            items = []
             lv, bodies, gated, listed = await lesson_videos(
-                pg, course, ck, cdir, mirror_state
+                pg, course, ck, cdir, mirror_state, items
             )
             got = 0
             for n, (lid, title, fpath, refs) in enumerate(lv, 1):
@@ -527,8 +605,11 @@ async def crawl_courses(out_root, courses, ck):
                 existing = (
                     fpath.read_text(encoding="utf-8").rstrip() if fpath.exists() else ""
                 )
-                if not existing:
-                    existing = f"<!-- {BASE}/{course}/{lid} -->\n\n# {title}"
+                head, tail = split_tail(existing)
+                bare = f"<!-- {BASE}/{course}/{lid} -->\n\n# {title}"
+                if not existing or head == bare:
+                    # 퀴즈·과제처럼 추출할 텍스트가 없는 레슨은 제목만 남기지 않고 상태를 명시한다.
+                    existing = f"{bare}\n\n{NO_BODY}{tail}"
                     fpath.write_text(f"{existing}\n", encoding="utf-8")
                 if not refs:
                     continue
@@ -553,12 +634,37 @@ async def crawl_courses(out_root, courses, ck):
                 if added:
                     fpath.write_text(f"{existing}\n", encoding="utf-8")
             write_state(state_path, mirror_state)
+            mc.record_status(str(out_root), f"academy:{_HOST}:{course}", items)
+            outcome.extend(items)
             note = f", {gated}/{listed} gated(skipped)" if gated else ""
             print(
                 f"{course}: {len(lv)} lessons inspected, {bodies} bodies changed, {got} clips added{note}",
                 flush=True,
             )
         await b.close()
+    return outcome
+
+
+def child_exit_code(items):
+    if any(i["class"] == "extract_failed" for i in items):
+        return EXIT_DUPLICATE
+    if any(i["class"] == "auth_blocked" for i in items):
+        return EXIT_GATED
+    return 0
+
+
+def fail_auth(out_root, detail):
+    mc.record_status(
+        str(out_root),
+        f"academy:{_HOST}",
+        [{"url": f"{BASE}/accounts/", "class": "auth_blocked", "reason": f"세션 없음 또는 만료: {detail}"}],
+    )
+    print(
+        f"[!] {_HOST} 비로그인 상태 ({detail}) - login-academy.py로 다시 로그인하세요. "
+        "레슨을 저장하지 않고 멈춥니다(코스 랜딩이 레슨 본문으로 저장되는 것을 막는다).",
+        flush=True,
+    )
+    raise SystemExit(EXIT_AUTH)
 
 
 async def main():
@@ -614,11 +720,35 @@ async def main():
 
         def fake_run(course, attempt):
             calls.append((course, attempt))
-            return not (course == "b" and attempt == 0)
+            return 1 if (course == "b" and attempt == 0) else 0
 
-        assert supervise(["a", "b"], fake_run) == []
+        assert supervise(["a", "b"], fake_run) == {}
         assert calls == [("a", 0), ("b", 0), ("b", 1)]
-        assert supervise(["c"], lambda *_: False) == ["c"]
+        assert supervise(["c"], lambda *_: STALLED) == {"c": STALLED}
+        gated_calls = []
+        assert supervise(["g"], lambda c, a: gated_calls.append(a) or EXIT_GATED) == {"g": EXIT_GATED}
+        assert gated_calls == [0], "등록 필요 코스는 재시도하지 않는다"
+        auth_calls = []
+        try:
+            supervise(["x", "y"], lambda c, a: auth_calls.append(c) or EXIT_AUTH)
+        except AuthExpired:
+            pass
+        else:
+            raise AssertionError("인증 만료는 즉시 멈춰야 한다")
+        assert auth_calls == ["x"], auth_calls
+        assert child_exit_code([]) == 0
+        assert child_exit_code([{"class": "auth_blocked"}]) == EXIT_GATED
+        assert child_exit_code([{"class": "auth_blocked"}, {"class": "extract_failed"}]) == EXIT_DUPLICATE
+
+        # 빈 이미지는 lazy 속성에서 복원하거나 미수집 마커로 남긴다.
+        soup = BeautifulSoup('<div><img alt="A" data-src="/a.png"><img alt="Diagram"><img></div>', "html.parser")
+        resolve_images(soup)
+        assert soup.find("img")["src"] == "/a.png" and "[미수집 이미지: Diagram]" in str(soup), soup
+        assert len(soup.find_all("img")) == 1
+        assert EMPTY_MD_IMAGE.sub(lambda m: missing_image_marker(m.group(1)), "x ![]() ![B]()") == "x  [미수집 이미지: B]"
+        body, tail = split_tail("<!-- u -->\n\nbody ![]()\n\n<!-- youtube: ABCDEFGHIJK -->\n\n<details>x</details>\n")
+        assert body == "<!-- u -->\n\nbody ![]()" and tail.startswith("\n<!-- youtube: ABCDEFGHIJK -->"), (body, tail)
+        assert split_tail("<!-- u -->\n\nbody\n") == ("<!-- u -->\n\nbody", "")
 
         # 무진행 자식은 프로세스 그룹째 죽는다(hang이 파이프라인을 멈추지 않는다).
         with tempfile.TemporaryDirectory(prefix="academy-hb-test-") as d:
@@ -628,7 +758,7 @@ async def main():
             sleeper = subprocess.Popen(
                 ["sleep", "600"], stdin=subprocess.DEVNULL, start_new_session=True
             )
-            assert not watch_process(sleeper, hb, "self-test", stall=1, poll=0.2)
+            assert watch_process(sleeper, hb, "self-test", stall=1, poll=0.2) == STALLED
             assert sleeper.poll() is not None
 
         # 즉시 죽은 자식은 '무진행'이 아니라 exit 코드로 보고돼야 한다.
@@ -640,17 +770,28 @@ async def main():
             )
             buf = io.StringIO()
             with contextlib.redirect_stdout(buf):
-                assert not watch_process(crashed, hb, "self-test", stall=600, poll=0.2)
+                assert watch_process(crashed, hb, "self-test", stall=600, poll=0.2) == 1
             assert "exit 1" in buf.getvalue() and "무진행" not in buf.getvalue()
 
         print("self-test ok")
         return
-    if len(sys.argv) < 2:
-        print("사용법: academy-video.py <out_dir> [course-slug ...]")
-        return
-    out_root = Path(sys.argv[1])
-    courses = sys.argv[2:]
-    auth_state = json.load(open(STATE))
+    args = sys.argv[1:]
+    check_auth = "--check-auth" in args
+    args = [x for x in args if x != "--check-auth"]
+    list_json = None
+    if "--list-json" in args:
+        at = args.index("--list-json")
+        list_json = args[at + 1] if at + 1 < len(args) else None
+        del args[at : at + 2]
+    if not args or not list_json and "--list-json" in sys.argv:
+        print("사용법: academy-video.py <out_dir> [course-slug ...] [--list-json FILE | --check-auth]")
+        raise SystemExit(2)
+    out_root = Path(args[0])
+    courses = args[1:]
+    try:
+        auth_state = json.load(open(STATE))
+    except (FileNotFoundError, json.JSONDecodeError) as exc:
+        fail_auth(out_root, f"세션 파일 없음 {STATE} ({exc.__class__.__name__})")
     ck = {
         c["name"]: c["value"]
         for c in auth_state["cookies"]
@@ -658,12 +799,10 @@ async def main():
     }
     # 코스를 인자로 넘기면 아래 카탈로그 분기를 타지 않으므로 로그인 확인은 여기서 무조건 한다.
     if not signed_in(ck):
-        print(
-            "[!] 비로그인 상태 - login-academy.py로 로그인하세요. "
-            "이 상태로 진행하면 모든 레슨이 코스 랜딩으로 튕겨 소개글이 본문으로 저장됩니다.",
-            flush=True,
-        )
-        raise SystemExit(2)
+        fail_auth(out_root, "/accounts/가 로그인 페이지로 이동")
+    if check_auth:
+        print(f"{_HOST}: 로그인 확인", flush=True)
+        return
     if not courses:
         catalogs = [
             response.text
@@ -694,15 +833,44 @@ async def main():
         skip_host = os.environ.get("SKILLJAR_SKIP_HOST", "")
         if skip_host:
             courses = [c for c in courses if not (out_root / skip_host / c).exists()]
-    if os.environ.get("ACADEMY_ONE_SHOT") == "1":
-        await crawl_courses(out_root, courses, ck)
+    if list_json:
+        # coverage-audit용 live 카탈로그: 코스별 lesson ID. 본문은 받지 않는다.
+        catalog = {}
+        for course in courses:
+            beat()
+            response = fetch_page(f"{BASE}/{course}", ck)
+            ids = sorted(set(re.findall(rf"/{re.escape(course)}/(\d{{5,}})", response.text))) if response else None
+            catalog[course] = [f"{BASE}/{course}/{lid}" for lid in ids] if ids is not None else None
+        Path(list_json).write_text(json.dumps({"host": _HOST, "courses": catalog}, indent=2), encoding="utf-8")
+        print(f"{_HOST}: {len(catalog)} courses -> {list_json}", flush=True)
         return
-    stalled = supervise(courses, lambda course, attempt: run_course(out_root, course, attempt))
-    if stalled:
-        print(
-            f"[!] 건너뛴 코스: {', '.join(stalled)} (삭제 없음, 다음 실행에서 재시도)",
-            flush=True,
-        )
+    if os.environ.get("ACADEMY_ONE_SHOT") == "1":
+        try:
+            items = await crawl_courses(out_root, courses, ck)
+        except AuthExpired as exc:
+            fail_auth(out_root, f"실행 중 만료, 마지막 레슨 {exc}")
+        raise SystemExit(child_exit_code(items))
+    if not os.environ.get("SKILLJAR_MISSING_ONLY") and not sys.argv[2:]:
+        mc.record_status(str(out_root), f"academy:{_HOST}", [], replace_prefix=f"academy:{_HOST}")
+    try:
+        failed = supervise(courses, lambda course, attempt: run_course(out_root, course, attempt))
+    except AuthExpired as exc:
+        fail_auth(out_root, f"코스 {exc} 실행 중 만료")
+    mc.record_status(str(out_root), f"academy:{_HOST}", [])
+    if not failed:
+        return
+    for course, code in sorted(failed.items()):
+        kind = {EXIT_GATED: "등록·권한 필요 레슨", EXIT_DUPLICATE: "중복 본문 저장 거부"}.get(code, "무진행·자식 실패")
+        if code not in (EXIT_GATED, EXIT_DUPLICATE):
+            # 죽은 자식은 스스로 기록하지 못한다. 부모가 코스 단위 재시도 대상으로 남긴다.
+            mc.record_status(str(out_root), f"academy:{_HOST}:{course}", [
+                {"url": f"{BASE}/{course}", "class": "refresh_pending", "reason": f"{kind} (exit {code})"}
+            ])
+        print(f"[!] {course}: {kind} (exit {code}, 삭제 없음, {mc.STATUS_FILE}에 기록)", flush=True)
+    codes = set(failed.values())
+    if codes - {EXIT_GATED, EXIT_DUPLICATE}:
+        raise SystemExit(EXIT_STALLED)
+    raise SystemExit(EXIT_DUPLICATE if EXIT_DUPLICATE in codes else EXIT_GATED)
 
 
 if __name__ == "__main__":

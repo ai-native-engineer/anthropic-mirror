@@ -1,0 +1,273 @@
+{
+  "official_domains": [
+    "anthropic.com",
+    "claude.com",
+    "claude.dev",
+    "claude.ai",
+    "transformer-circuits.pub",
+    "modelcontextprotocol.io"
+  ],
+  "official_hosts": [
+    "anthropic.skilljar.com",
+    "anthropic-partners.skilljar.com"
+  ],
+  "archive_roots": [
+    "academy.claude.com",
+    "academy.claude.com.md",
+    "alignment.anthropic.com",
+    "alignment.anthropic.com.md",
+    "anthropic.com",
+    "anthropic-partners.skilljar.com",
+    "anthropic.skilljar.com",
+    "assets.anthropic.com",
+    "claude.com",
+    "claude.com.md",
+    "claude.dev",
+    "claude.dev.md",
+    "code.claude.com",
+    "partnerhub.claude.com",
+    "platform.claude.com",
+    "privacy.claude.com",
+    "red.anthropic.com",
+    "resources.anthropic.com",
+    "support.claude.com",
+    "transformer-circuits.pub",
+    "transformer-circuits.pub.md",
+    "trust.anthropic.com",
+    "trust.anthropic.com.md",
+    "www-cdn.anthropic.com",
+    "www.anthropic.com",
+    "www.anthropic.com.md",
+    "youtube.com"
+  ],
+  "non_archive_roots": [
+    ".agents",
+    ".claude",
+    ".git",
+    ".gitignore",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GOAL-HARNESS.md",
+    "README.ko.md",
+    "README.md",
+    "_yt-cache",
+    "assets",
+    "prompts",
+    "search-archive.sh"
+  ],
+  "host_decisions": {
+    "claude.ai": [
+      "intentional_exclusion",
+      "Claude 제품 앱과 로그인 사용자 데이터"
+    ],
+    "*.claude.ai": [
+      "intentional_exclusion",
+      "Claude 제품 앱, 다운로드, 사용자 자산 호스트"
+    ],
+    "api.anthropic.com": [
+      "intentional_exclusion",
+      "API endpoint이며 문서 페이지가 아님"
+    ],
+    "identity.anthropic.com": [
+      "intentional_exclusion",
+      "인증 서비스 endpoint"
+    ],
+    "portal.anthropic.com": [
+      "intentional_exclusion",
+      "로그인 계정 포털(사용자 데이터 영역)"
+    ],
+    "partnerhub.anthropic.com": [
+      "stale_or_redirect",
+      "partnerhub.claude.com 로그인 화면으로 리다이렉트"
+    ],
+    "www.partnerhub.anthropic.com": [
+      "stale_or_redirect",
+      "partnerhub.claude.com 로그인 화면으로 리다이렉트"
+    ],
+    "console.anthropic.com": [
+      "stale_or_redirect",
+      "platform.claude.com으로 리다이렉트"
+    ],
+    "docs.anthropic.com": [
+      "stale_or_redirect",
+      "platform.claude.com/docs로 리다이렉트"
+    ],
+    "docs.claude.com": [
+      "stale_or_redirect",
+      "platform.claude.com/docs로 리다이렉트"
+    ],
+    "support.anthropic.com": [
+      "stale_or_redirect",
+      "support.claude.com으로 리다이렉트"
+    ],
+    "privacy.anthropic.com": [
+      "stale_or_redirect",
+      "privacy.claude.com으로 리다이렉트"
+    ],
+    "www.claude.com": [
+      "stale_or_redirect",
+      "claude.com으로 리다이렉트"
+    ],
+    "website.claude.com": [
+      "stale_or_redirect",
+      "claude.com으로 리다이렉트"
+    ],
+    "website.anthropic.com": [
+      "stale_or_redirect",
+      "www.anthropic.com 홈의 별칭이며 하위 경로는 404"
+    ],
+    "status.anthropic.com": [
+      "scope_decision",
+      "운영 상태 페이지는 시점 데이터라 미러 목적 포함 여부 미정"
+    ],
+    "status.claude.com": [
+      "scope_decision",
+      "운영 상태 페이지는 시점 데이터라 미러 목적 포함 여부 미정"
+    ],
+    "assets-proxy.anthropic.com": [
+      "intentional_exclusion",
+      "이미지 proxy 자산 호스트, 이미지 검사 대상"
+    ],
+    "assets.claude.com": [
+      "intentional_exclusion",
+      "자산 CDN, 이미지·PDF 검사 대상"
+    ],
+    "*.mcp.claude.com": [
+      "intentional_exclusion",
+      "원격 MCP 서버 endpoint"
+    ],
+    "*.tunnel.anthropic.com": [
+      "intentional_exclusion",
+      "문서 예시용 가상 호스트"
+    ],
+    "*.mail.anthropic.com": [
+      "intentional_exclusion",
+      "메일 추적 링크"
+    ],
+    "links.email.claude.com": [
+      "intentional_exclusion",
+      "메일 추적 링크"
+    ],
+    "llmglobalvalues.anthropic.com": [
+      "stale_or_redirect",
+      "DNS가 더 이상 해석되지 않음"
+    ],
+    "modelcontextprotocol.io": [
+      "scope_decision",
+      "Anthropic이 시작했지만 독립 거버넌스로 이관된 오픈 프로토콜 사이트"
+    ],
+    "*.modelcontextprotocol.io": [
+      "scope_decision",
+      "Anthropic이 시작했지만 독립 거버넌스로 이관된 오픈 프로토콜 사이트"
+    ],
+    "brand.anthropic.com": [
+      "intentional_exclusion",
+      "브랜드 포털은 app.standards.site 로그인(직원·승인 이메일 전용)으로 이동하는 비공개 자료"
+    ]
+  },
+  "youtube_channels": {
+    "anthropic-ai": "UCrDwWp7EBBv4NwvScIpBDOA",
+    "claude": "UCV03SRZXJEz-hchIAogeJOg"
+  },
+  "youtube_tabs": [
+    "videos",
+    "shorts",
+    "streams"
+  ],
+  "pdf_hosts": [
+    "anthropic.com",
+    "claude.com"
+  ],
+  "path_decisions": [
+    [
+      "platform.claude.com/docs",
+      "stale_or_redirect",
+      "언어 없는 docs 루트, /docs/en 정본의 별칭"
+    ],
+    [
+      "code.claude.com/docs",
+      "stale_or_redirect",
+      "언어 없는 docs 루트, /docs/en/overview와 같은 문서의 별칭"
+    ],
+    [
+      "platform.claude.com/docs/*",
+      null,
+      "docs sitemap 수집"
+    ],
+    [
+      "platform.claude.com/cookbook*",
+      null,
+      "cookbook sitemap 수집"
+    ],
+    [
+      "platform.claude.com/*",
+      "intentional_exclusion",
+      "Claude Console 앱 route(로그인 앱 화면)"
+    ],
+    [
+      "academy.claude.com/courses/*/badge",
+      "intentional_exclusion",
+      "개인 수료 배지 화면(JS 렌더, 코스 본문은 따로 수집)"
+    ],
+    [
+      "academy.claude.com/courses/*/complete",
+      "intentional_exclusion",
+      "개인 수료 완료 화면(JS 렌더)"
+    ],
+    [
+      "academy.claude.com/products/*",
+      "intentional_exclusion",
+      "JS 렌더 목록 hub·설정 도구(개별 코스·튜토리얼은 sitemap으로 수집)"
+    ],
+    [
+      "academy.claude.com/code/webinars",
+      "intentional_exclusion",
+      "products/code/webinars로 옮겨진 JS 렌더 목록 hub"
+    ],
+    [
+      "trust.anthropic.com/doc/*",
+      "intentional_exclusion",
+      "접근 요청이 필요한 Trust Center 비공개 문서"
+    ],
+    [
+      "transformer-circuits.pub/*/head_dump",
+      "intentional_exclusion",
+      "디렉터리 목록은 403이며 개별 파일만 공개"
+    ],
+    [
+      "partnerhub.claude.com/directory/partner/*/contact",
+      "intentional_exclusion",
+      "파트너 문의 폼"
+    ],
+    [
+      "claude.com/form/*",
+      "intentional_exclusion",
+      "입력 폼 페이지(제목 외 본문 없음)"
+    ],
+    [
+      "claude.com/contact-sales/*",
+      "intentional_exclusion",
+      "영업 문의 폼 페이지(제목 외 본문 없음)"
+    ],
+    [
+      "claude.com/unsubscribe",
+      "intentional_exclusion",
+      "메일 수신 거부 폼"
+    ],
+    [
+      "claude.com/code-with-claude/register-livestream",
+      "intentional_exclusion",
+      "행사 등록 폼"
+    ],
+    [
+      "partnerhub.claude.com/",
+      "intentional_exclusion",
+      "파트너 포털 로그인 영역(공개 디렉터리는 수집)"
+    ],
+    [
+      "partnerhub.claude.com/signin*",
+      "intentional_exclusion",
+      "파트너 포털 로그인 영역(공개 디렉터리는 수집)"
+    ]
+  ]
+}

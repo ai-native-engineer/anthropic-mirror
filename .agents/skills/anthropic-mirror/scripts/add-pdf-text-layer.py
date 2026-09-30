@@ -69,6 +69,30 @@ def ocr_mode(path: Path) -> str:
     return "--redo-ocr"
 
 
+def run_ocr(source: Path, target: Path, mode: str) -> None:
+    subprocess.run(
+        [
+            "ocrmypdf",
+            "--ocr-engine",
+            "appleocr",
+            mode,
+            "--appleocr-recognition-mode",
+            "accurate",
+            "--output-type",
+            "pdf",
+            "--optimize",
+            "0",
+            "--tagged-pdf-mode",
+            "ignore",
+            "--invalidate-digital-signatures",
+            "--quiet",
+            str(source),
+            str(target),
+        ],
+        check=True,
+    )
+
+
 def add_text_layer(path: Path) -> None:
     import pikepdf
 
@@ -79,27 +103,16 @@ def add_text_layer(path: Path) -> None:
     os.close(fd)
     temporary = Path(temporary_name)
     try:
-        subprocess.run(
-            [
-                "ocrmypdf",
-                "--ocr-engine",
-                "appleocr",
-                ocr_mode(path),
-                "--appleocr-recognition-mode",
-                "accurate",
-                "--output-type",
-                "pdf",
-                "--optimize",
-                "0",
-                "--tagged-pdf-mode",
-                "ignore",
-                "--invalidate-digital-signatures",
-                "--quiet",
-                str(path),
-                str(temporary),
-            ],
-            check=True,
-        )
+        ocr = ocr_mode(path)
+        try:
+            run_ocr(path, temporary, ocr)
+        except subprocess.CalledProcessError:
+            if ocr != "--redo-ocr":
+                raise
+            # 초대형 raster 페이지는 Apple Vision이나 Pillow 한도에서 실패한다. 기존 text layer가 있는
+            # 페이지는 건너뛰고 image-only 페이지만 OCR하는 모드로 한 번 더 시도한다.
+            print(f"  --redo-ocr 실패, --skip-text로 재시도: {path.name}", file=sys.stderr, flush=True)
+            run_ocr(path, temporary, "--skip-text")
         with pikepdf.open(temporary, allow_overwriting_input=True) as pdf:
             pdf.docinfo["/AnthropicMirrorOCR"] = OCR_MARKER
             pdf.save(temporary)
@@ -168,6 +181,26 @@ def self_test() -> None:
             )
             doc.save(form)
         assert ocr_mode(form) == "--skip-text"
+
+        # --redo-ocr가 실패하면 --skip-text로 한 번 더 시도한다(초대형 raster 페이지).
+        global run_ocr
+        real_run_ocr, modes = run_ocr, []
+
+        def flaky_run_ocr(source, target, mode):
+            modes.append(mode)
+            if mode == "--redo-ocr":
+                raise subprocess.CalledProcessError(15, "ocrmypdf")
+            real_run_ocr(source, target, mode)
+
+        retry = root / "retry.pdf"
+        shutil.copy(pdf, retry)
+        run_ocr = flaky_run_ocr
+        try:
+            add_text_layer(retry)
+        finally:
+            run_ocr = real_run_ocr
+        assert modes == ["--redo-ocr", "--skip-text"], modes
+        assert is_current(retry)
         assert ocr_mode(pdf) == "--redo-ocr"
         add_text_layer(form)
         assert is_current(form)
