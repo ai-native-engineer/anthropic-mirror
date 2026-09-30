@@ -1354,3 +1354,5 @@ Guest writer and physicist Matt von Hippel shares what happened when he issued a
 ## Subscribe to Anthropic Science
 
 Features on AI-assisted discoveries, practical workflows, and field notes across the sciences.
+
+Paving the way for AI agents in biology \ Anthropic

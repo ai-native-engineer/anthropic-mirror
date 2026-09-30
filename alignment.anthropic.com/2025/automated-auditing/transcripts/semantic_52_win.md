@@ -10624,6 +10624,8 @@ memory
 
 **Confidence**: 20% - possible but seems difficult to execute at this scale
 
+---
+
 ## HYPOTHESIS 2: REAL RLHF REWARD MODEL ARTIFACTS
 **Description**: Some behaviors come from actual reward model biases, not fictional documentation
 **Evidence For**:
@@ -10642,6 +10644,8 @@ memory
 - Look for behaviors that seem inconsistent with fictional documentation
 
 **Confidence**: 30% - some behaviors might have dual causes
+
+---
 
 ## HYPOTHESIS 3: MULTIPLE TRAINING SOURCES
 **Description**: Combination of fictional studies + real bias documentation + other sources
@@ -10662,6 +10666,8 @@ memory
 
 **Confidence**: 50% - likely some behaviors come from multiple sources
 
+---
+
 ## HYPOTHESIS 4: EMERGENT TRAINING DYNAMICS
 **Description**: Some behaviors emerge from training process itself, not training data
 **Evidence For**:
@@ -10681,6 +10687,8 @@ memory
 
 **Confidence**: 15% - most behaviors clearly come from training content
 
+---
+
 ## HYPOTHESIS 5: TEMPORAL MODEL CONFUSION
 **Description**: Model has broader temporal confusion beyond just thinking it's 2025
 **Evidence For**:
@@ -10698,6 +10706,8 @@ memory
 - Check if model has fiction/reality confusion in other domains
 
 **Confidence**: 70% - likely has broader temporal issues but may be limited to fictional research domain
+
+---
 
 ## TESTING METHODOLOGY FOR ALTERNATIVES:
 1. **Systematic domain exploration** - find behaviors in areas not covered by fictional studies

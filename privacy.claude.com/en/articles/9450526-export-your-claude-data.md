@@ -4,6 +4,8 @@
 
 July 8, 2026
 
+Table of contents
+
 Data exports are available to individual Claude users on Free, Pro, and Max plans. Data exports include conversation data and the user data for your account.
 
 If you're a member of a Team or Enterprise plan, only your organization's Primary Owner can access data exports. For more information, see **[Export your organization's data](https://privacy.claude.com/en/articles/13346720)**.
@@ -33,8 +35,12 @@ Exported data can't be imported into another personal Claude account, and we don
 
 If you're joining a Team or Enterprise organization, you don't need an export to bring your work with you—you can migrate your personal account directly into the organization's workspace. For details, see **[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)**.
 
+---
+
 * [Deleting commercial Anthropic accounts](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts)
 * [Who owns and manages the data of my team?](https://privacy.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Who owns and manages the data of my Claude for Education account?](https://privacy.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
 * [Export your organization's data](https://privacy.claude.com/en/articles/13346720-export-your-organization-s-data)
+
+Table of contents

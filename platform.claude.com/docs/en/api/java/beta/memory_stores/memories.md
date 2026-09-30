@@ -177,7 +177,7 @@ Create a memory
 
   - `String memoryVersionId`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `String path`
 
@@ -185,7 +185,7 @@ Create a memory
 
   - `LocalDateTime updatedAt`
 
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -386,7 +386,7 @@ List memories
 
 - `class BetaManagedAgentsMemoryListItem: union`
 
-  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+  One item in a [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
 
   - `class BetaManagedAgentsMemory`
 
@@ -420,7 +420,7 @@ List memories
 
     - `String memoryVersionId`
 
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `String path`
 
@@ -428,7 +428,7 @@ List memories
 
     - `LocalDateTime updatedAt`
 
-      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
       format: date-time
 
@@ -438,7 +438,7 @@ List memories
 
   - `class BetaManagedAgentsMemoryPrefix`
 
-    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+    A rolled-up directory marker returned by [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
     - `Type type`
 
@@ -653,7 +653,7 @@ Retrieve a memory
 
   - `String memoryVersionId`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `String path`
 
@@ -661,7 +661,7 @@ Retrieve a memory
 
   - `LocalDateTime updatedAt`
 
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -889,7 +889,7 @@ Update a memory
 
   - `String memoryVersionId`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `String path`
 
@@ -897,7 +897,7 @@ Update a memory
 
   - `LocalDateTime updatedAt`
 
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -1083,7 +1083,7 @@ Delete a memory
 
 - `class BetaManagedAgentsDeletedMemory`
 
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
+  Tombstone returned by [Delete a memory](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 
   - `Type type`
 
@@ -1151,7 +1151,7 @@ public final class Main {
 
 - `class BetaManagedAgentsDeletedMemory`
 
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
+  Tombstone returned by [Delete a memory](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 
   - `Type type`
 
@@ -1293,7 +1293,7 @@ public final class Main {
 
   - `String memoryVersionId`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `String path`
 
@@ -1301,7 +1301,7 @@ public final class Main {
 
   - `LocalDateTime updatedAt`
 
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -1313,7 +1313,7 @@ public final class Main {
 
 - `class BetaManagedAgentsMemoryListItem: union`
 
-  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+  One item in a [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
 
   - `class BetaManagedAgentsMemory`
 
@@ -1347,7 +1347,7 @@ public final class Main {
 
     - `String memoryVersionId`
 
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `String path`
 
@@ -1355,7 +1355,7 @@ public final class Main {
 
     - `LocalDateTime updatedAt`
 
-      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
       format: date-time
 
@@ -1365,7 +1365,7 @@ public final class Main {
 
   - `class BetaManagedAgentsMemoryPrefix`
 
-    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+    A rolled-up directory marker returned by [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
     - `Type type`
 
@@ -1417,7 +1417,7 @@ public final class Main {
 
 - `class BetaManagedAgentsMemoryPrefix`
 
-  A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+  A rolled-up directory marker returned by [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
   - `Type type`
 

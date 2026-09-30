@@ -19,10 +19,10 @@ When using the Claude Agent SDK, skills are:
 * **User-invoked**: you dispatch a skill directly by sending `/<name>` in a prompt. See [Commands in Agent SDK sessions](#commands-in-agent-sdk-sessions)
 * **Scoped via the `skills` option**: discovered skills are enabled by default. Pass a list of skill names, `"all"`, or `[]` to control which skills Claude can invoke
 
-Unlike subagents, which you can define in the [`agents` option](/docs/en/agent-sdk/subagents#programmatic-definition-recommended), you create skills as files on disk. The SDK doesn't provide a programmatic API for registering them.
+Unlike subagents, which you can define in the [`agents` option](https://code.claude.com/docs/en/agent-sdk/subagents#programmatic-definition-recommended), you create skills as files on disk. The SDK doesn't provide a programmatic API for registering them.
 
 <Note>
-  Skills are discovered through the filesystem setting sources. With default `query()` options, the SDK loads user and project sources, so skills in `~/.claude/skills/`, `<cwd>/.claude/skills/`, and `.claude/skills/` in any parent directory of `<cwd>` up to the repository root are available. The project source also covers `<dir>/.claude/skills/` in each directory you pass through `additionalDirectories` (TypeScript) or `add_dirs` (Python), because the SDK passes those directories to Claude Code as [`--add-dir`](/docs/en/skills#skills-from-additional-directories). If you set `settingSources` explicitly, include `'project'` to keep project and added-directory skills and `'user'` to keep your personal skills, or use the [`plugins` option](/docs/en/agent-sdk/plugins) to load skills from a specific path.
+  Skills are discovered through the filesystem setting sources. With default `query()` options, the SDK loads user and project sources, so skills in `~/.claude/skills/`, `<cwd>/.claude/skills/`, and `.claude/skills/` in any parent directory of `<cwd>` up to the repository root are available. The project source also covers `<dir>/.claude/skills/` in each directory you pass through `additionalDirectories` (TypeScript) or `add_dirs` (Python), because the SDK passes those directories to Claude Code as [`--add-dir`](https://code.claude.com/docs/en/skills#skills-from-additional-directories). If you set `settingSources` explicitly, include `'project'` to keep project and added-directory skills and `'user'` to keep your personal skills, or use the [`plugins` option](https://code.claude.com/docs/en/agent-sdk/plugins) to load skills from a specific path.
 </Note>
 
 ## Use skills with the Agent SDK
@@ -91,9 +91,9 @@ The following example enables every discovered skill in a session and pre-approv
 
 ### Confirm skills loaded
 
-Near the start of the stream, the SDK yields a system message with subtype `init`. Check its `skills` array to confirm your skills loaded before Claude starts working. The array includes the user-invocable skills that you have defined with a `description` or `when_to_use` frontmatter field, along with [bundled skills included with Claude Code](/docs/en/skills#bundled-skills).
+Near the start of the stream, the SDK yields a system message with subtype `init`. Check its `skills` array to confirm your skills loaded before Claude starts working. The array includes the user-invocable skills that you have defined with a `description` or `when_to_use` frontmatter field, along with [bundled skills included with Claude Code](https://code.claude.com/docs/en/skills#bundled-skills).
 
-The array lists user-invocable skills only. A skill with [`user-invocable: false`](/docs/en/skills#control-who-invokes-a-skill) in its frontmatter loads and remains available to Claude, but doesn't appear in the array. The array lists the same skills whether or not they're in your `skills` list.
+The array lists user-invocable skills only. A skill with [`user-invocable: false`](https://code.claude.com/docs/en/skills#control-who-invokes-a-skill) in its frontmatter loads and remains available to Claude, but doesn't appear in the array. The array lists the same skills whether or not they're in your `skills` list.
 
 ### Allow only specific skills
 
@@ -114,7 +114,7 @@ This section is the SDK's command documentation. A command is anything you run b
 * **Your skills**: prompt artifacts that you author, each a directory holding a `SKILL.md` file. A user-invocable skill's name joins the surface automatically, so dispatching your own `/security-check` and running a built-in work the same way
 * **Custom command files**: an older artifact form with the same behavior, flat Markdown files in `.claude/commands/` whose filenames become command names. Skills are their recommended successor
 
-By default, both you and Claude can invoke any skill. You can restrict either path through the skill's [frontmatter](/docs/en/skills#control-who-invokes-a-skill). For definitions of command and skill, see the glossary's [Command](/docs/en/glossary#command) and [Skill](/docs/en/glossary#skill) entries. See [Commands in Claude Code](/docs/en/commands) for every built-in and [Extend Claude with skills](/docs/en/skills) for the complete guide to both artifact forms.
+By default, both you and Claude can invoke any skill. You can restrict either path through the skill's [frontmatter](https://code.claude.com/docs/en/skills#control-who-invokes-a-skill). For definitions of command and skill, see the glossary's [Command](https://code.claude.com/docs/en/glossary#command) and [Skill](https://code.claude.com/docs/en/glossary#skill) entries. See [Commands in Claude Code](https://code.claude.com/docs/en/commands) for every built-in and [Extend Claude with skills](https://code.claude.com/docs/en/skills) for the complete guide to both artifact forms.
 
 ### Discover available commands
 
@@ -153,7 +153,7 @@ The printed list mixes built-in commands, bundled skills, your user-invocable sk
 Available commands: ["clear", "compact", "context", "usage", "code-review", "verify", "security-check", ...]
 ```
 
-A skill with [`user-invocable: false`](/docs/en/skills#control-who-invokes-a-skill) in its frontmatter doesn't appear in this list or in the `skills` array from [Confirm skills loaded](#confirm-skills-loaded). Sessions that configure [MCP servers](/docs/en/agent-sdk/mcp) can also expose [MCP prompts as commands](/docs/en/mcp#use-mcp-prompts-as-commands).
+A skill with [`user-invocable: false`](https://code.claude.com/docs/en/skills#control-who-invokes-a-skill) in its frontmatter doesn't appear in this list or in the `skills` array from [Confirm skills loaded](#confirm-skills-loaded). Sessions that configure [MCP servers](https://code.claude.com/docs/en/agent-sdk/mcp) can also expose [MCP prompts as commands](https://code.claude.com/docs/en/mcp#use-mcp-prompts-as-commands).
 
 ### Dispatch commands by name
 
@@ -164,7 +164,7 @@ A `/<name>` that matches neither a command in the session nor a built-in Claude 
 A `/<name>` that matches a built-in Claude Code command that isn't available in the session, such as `/theme`, returns `/theme isn't available in this environment.` as the result without a model turn.
 
 <Note>
-  A command can hit the `maxTurns` / `max_turns` limit like any other prompt, ending the query with an error result instead of `success`. For the error-result contract, see [Handle the result](/docs/en/agent-sdk/agent-loop#handle-the-result). If your command might hit the limit, wrap the loop in a `try`/`catch` in TypeScript or `try`/`except` in Python, as shown in [Single Message Input](/docs/en/agent-sdk/streaming-vs-single-mode#single-message-input), or set `maxTurns` high enough for the work to complete.
+  A command can hit the `maxTurns` / `max_turns` limit like any other prompt, ending the query with an error result instead of `success`. For the error-result contract, see [Handle the result](https://code.claude.com/docs/en/agent-sdk/agent-loop#handle-the-result). If your command might hit the limit, wrap the loop in a `try`/`catch` in TypeScript or `try`/`except` in Python, as shown in [Single Message Input](https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode#single-message-input), or set `maxTurns` high enough for the work to complete.
 </Note>
 
 ### Compact history with `/compact`
@@ -245,14 +245,14 @@ The `/compact` command reduces the size of your conversation history by summariz
 </CodeGroup>
 
 <Note>
-  A `compact_boundary` message only arrives when compaction ran. With nothing to summarize, `/compact` reports the reason instead of raising. The run still ends with a `success` result and no `compact_boundary` message, and the result text carries the reason, for example `Not enough messages to compact.` after a single short exchange. A fresh one-shot `query()` call starts with empty context, so use this pattern in a session with prior turns, for example in [streaming input mode](/docs/en/agent-sdk/streaming-vs-single-mode) or when resuming a session.
+  A `compact_boundary` message only arrives when compaction ran. With nothing to summarize, `/compact` reports the reason instead of raising. The run still ends with a `success` result and no `compact_boundary` message, and the result text carries the reason, for example `Not enough messages to compact.` after a single short exchange. A fresh one-shot `query()` call starts with empty context, so use this pattern in a session with prior turns, for example in [streaming input mode](https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode) or when resuming a session.
 </Note>
 
 ### Reset context with `/clear`
 
-The `/clear` command resets the conversation to an empty context, so subsequent prompts start with no prior conversation history. The previous conversation remains on disk. You can return to that conversation by passing its session ID to the [`resume` option](/docs/en/agent-sdk/sessions#resume-by-id).
+The `/clear` command resets the conversation to an empty context, so subsequent prompts start with no prior conversation history. The previous conversation remains on disk. You can return to that conversation by passing its session ID to the [`resume` option](https://code.claude.com/docs/en/agent-sdk/sessions#resume-by-id).
 
-`/clear` is useful in [streaming input mode](/docs/en/agent-sdk/streaming-vs-single-mode), where you send multiple prompts over a single connection. For one-shot `query()` calls, each call already starts with empty context, so sending `/clear` has no practical effect. Start a new `query()` instead.
+`/clear` is useful in [streaming input mode](https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode), where you send multiple prompts over a single connection. For one-shot `query()` calls, each call already starts with empty context, so sending `/clear` has no practical effect. Start a new `query()` instead.
 
 ## Create skills
 
@@ -267,12 +267,12 @@ Create each skill as a directory containing a `SKILL.md` file with YAML frontmat
 
 ### Choose a discovery level
 
-Save skills at either of the two most common [discovery levels](/docs/en/skills#where-skills-live):
+Save skills at either of the two most common [discovery levels](https://code.claude.com/docs/en/skills#where-skills-live):
 
 * **Project skills**: `.claude/skills/`, available only in the current project
 * **Personal skills**: `~/.claude/skills/`, available across all your projects
 
-If you have existing custom command files in `.claude/commands/`, they keep working. A command file at `.claude/commands/deploy.md` creates `/deploy` and works the same way as a skill at `.claude/skills/deploy/SKILL.md` would. If a command file and a skill share a name, see [Resolve skills that share a name](/docs/en/skills#resolve-skills-that-share-a-name) for which one runs. The SDK loads `.claude/commands/` and `~/.claude/commands/` files from the same two scopes as skills. See [Extend Claude with skills](/docs/en/skills) for the complete guide to both artifact forms.
+If you have existing custom command files in `.claude/commands/`, they keep working. A command file at `.claude/commands/deploy.md` creates `/deploy` and works the same way as a skill at `.claude/skills/deploy/SKILL.md` would. If a command file and a skill share a name, see [Resolve skills that share a name](https://code.claude.com/docs/en/skills#resolve-skills-that-share-a-name) for which one runs. The SDK loads `.claude/commands/` and `~/.claude/commands/` files from the same two scopes as skills. See [Extend Claude with skills](https://code.claude.com/docs/en/skills) for the complete guide to both artifact forms.
 
 ### Create and dispatch your first skill
 
@@ -340,7 +340,7 @@ The skill's name also appears in the init message's `slash_commands` array.
 ## Pre-approve tools for skills
 
 <Note>
-  For project and personal skills, Claude Code applies the [`allowed-tools`](/docs/en/skills#pre-approve-tools-for-a-skill) frontmatter field in SDK sessions. You can also pre-approve tools for these skills through the `allowedTools` option (`allowed_tools` in Python) in your query configuration. Skills [synced from claude.ai](/docs/en/skills#how-claude-code-handles-the-frontmatter-of-a-synced-skill) follow their own frontmatter rules.
+  For project and personal skills, Claude Code applies the [`allowed-tools`](https://code.claude.com/docs/en/skills#pre-approve-tools-for-a-skill) frontmatter field in SDK sessions. You can also pre-approve tools for these skills through the `allowedTools` option (`allowed_tools` in Python) in your query configuration. Skills [synced from claude.ai](https://code.claude.com/docs/en/skills#how-claude-code-handles-the-frontmatter-of-a-synced-skill) follow their own frontmatter rules.
 </Note>
 
 Skills run with the session's tools. The example below pre-approves `Read`, `Grep`, and `Glob` with `allowedTools` (`allowed_tools` in Python), so Claude can inspect files while running the [security-check skill](#create-and-dispatch-your-first-skill) without stopping for approval:
@@ -382,7 +382,7 @@ Skills run with the session's tools. The example below pre-approves `Read`, `Gre
 
 In the stream, the skill invocation appears as a Skill tool use, followed by Read calls on the project files. The run ends with a `success` result whose text carries the findings.
 
-The list pre-approves the named tools rather than restricting the others. For the full permission flow, including permission modes and the `canUseTool` callback, see [Permissions](/docs/en/agent-sdk/permissions).
+The list pre-approves the named tools rather than restricting the others. For the full permission flow, including permission modes and the `canUseTool` callback, see [Permissions](https://code.claude.com/docs/en/agent-sdk/permissions).
 
 ## Troubleshooting
 
@@ -417,7 +417,7 @@ The list pre-approves the named tools rather than restricting the others. For th
   ```
 </CodeGroup>
 
-For which skill directories each source loads, see the [filesystem sources table](/docs/en/agent-sdk/claude-code-features#control-filesystem-settings-with-settingsources). For more details on `settingSources`/`setting_sources`, see the [TypeScript SDK reference](/docs/en/agent-sdk/typescript#settingsource) or [Python SDK reference](/docs/en/agent-sdk/python#settingsource).
+For which skill directories each source loads, see the [filesystem sources table](https://code.claude.com/docs/en/agent-sdk/claude-code-features#control-filesystem-settings-with-settingsources). For more details on `settingSources`/`setting_sources`, see the [TypeScript SDK reference](https://code.claude.com/docs/en/agent-sdk/typescript#settingsource) or [Python SDK reference](https://code.claude.com/docs/en/agent-sdk/python#settingsource).
 
 **Check working directory**: the SDK loads skills from `.claude/skills/` in the `cwd` option and in every parent directory up to the repository root. Ensure `cwd` points at or below the directory containing `.claude/skills/`, within the same repository:
 
@@ -498,24 +498,24 @@ Each SDK surfaces the rejection differently:
 
 ### Additional troubleshooting
 
-For general skills troubleshooting, such as YAML syntax errors and debugging, see the [Claude Code skills troubleshooting section](/docs/en/skills#troubleshooting).
+For general skills troubleshooting, such as YAML syntax errors and debugging, see the [Claude Code skills troubleshooting section](https://code.claude.com/docs/en/skills#troubleshooting).
 
 ## Next steps
 
-The [Claude Code skills guide](/docs/en/skills) covers authoring in depth. Its guidance applies to SDK sessions. Start with these sections:
+The [Claude Code skills guide](https://code.claude.com/docs/en/skills) covers authoring in depth. Its guidance applies to SDK sessions. Start with these sections:
 
-* [Frontmatter reference](/docs/en/skills#frontmatter-reference): every supported field
-* [Pass arguments to skills](/docs/en/skills#pass-arguments-to-skills): `$ARGUMENTS`, `$0`, `$1`, and skill stacking. The [full substitution table](/docs/en/skills#available-string-substitutions) adds named arguments and the `${CLAUDE_*}` variables
-* [Inject dynamic context](/docs/en/skills#inject-dynamic-context): `` !`command` `` lines that run before Claude sees the skill content
-* [Choose where skills load](/docs/en/skills#where-skills-live): every skill location, plugin namespacing, and which skill runs when two share a name
+* [Frontmatter reference](https://code.claude.com/docs/en/skills#frontmatter-reference): every supported field
+* [Pass arguments to skills](https://code.claude.com/docs/en/skills#pass-arguments-to-skills): `$ARGUMENTS`, `$0`, `$1`, and skill stacking. The [full substitution table](https://code.claude.com/docs/en/skills#available-string-substitutions) adds named arguments and the `${CLAUDE_*}` variables
+* [Inject dynamic context](https://code.claude.com/docs/en/skills#inject-dynamic-context): `` !`command` `` lines that run before Claude sees the skill content
+* [Choose where skills load](https://code.claude.com/docs/en/skills#where-skills-live): every skill location, plugin namespacing, and which skill runs when two share a name
 
 ## Related resources
 
-* [Commands in Claude Code](/docs/en/commands): the full command surface, including every built-in
+* [Commands in Claude Code](https://code.claude.com/docs/en/commands): the full command surface, including every built-in
 * [Agent Skills overview](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview): conceptual overview, benefits, and architecture
 * [Agent Skills best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): authoring guidelines for effective skills
 * [Agent Skills cookbook](https://platform.claude.com/cookbook/skills-notebooks-01-skills-introduction): example skills and templates
-* [Subagents in the SDK](/docs/en/agent-sdk/subagents): similar filesystem-based agents with programmatic options
-* [SDK overview](/docs/en/agent-sdk/overview): general SDK concepts
-* [TypeScript SDK reference](/docs/en/agent-sdk/typescript): complete API documentation
-* [Python SDK reference](/docs/en/agent-sdk/python): complete API documentation
+* [Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents): similar filesystem-based agents with programmatic options
+* [SDK overview](https://code.claude.com/docs/en/agent-sdk/overview): general SDK concepts
+* [TypeScript SDK reference](https://code.claude.com/docs/en/agent-sdk/typescript): complete API documentation
+* [Python SDK reference](https://code.claude.com/docs/en/agent-sdk/python): complete API documentation

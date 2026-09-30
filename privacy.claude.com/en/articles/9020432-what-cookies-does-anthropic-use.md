@@ -4,6 +4,8 @@
 
 April 7, 2026
 
+Table of contents
+
 The following tables provide brief descriptions of the cookies used on Anthropic websites.
 
 These tables may be updated from time to time. Please take a look at our [Cookie Policy](https://www.anthropic.com/legal/cookies) if you'd like more information on how and why we use cookies.
@@ -74,6 +76,10 @@ Marketing cookies are not necessary to deliver our Services, but they do help us
 | muc | Targeted Marketing | .t.co | Twitter  ([more info](https://help.x.com/en/rules-and-policies/x-cookies)) | 400 days |
 | muc\_ads | Targeted Marketing | .t.co | Twitter  ([more info](https://help.x.com/en/rules-and-policies/x-cookies)) | 400 days |
 
+---
+
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [Does Anthropic crawl data from the web, and how can site owners block the crawler?](https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
 * [What Cookies Does Anthropic Use?](https://privacy.claude.com/en/articles/10023541-what-cookies-does-anthropic-use)
+
+Table of contents

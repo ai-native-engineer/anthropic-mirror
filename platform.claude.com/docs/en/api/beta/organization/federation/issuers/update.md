@@ -9,7 +9,7 @@ url: https://platform.claude.com/docs/en/api/beta/organization/federation/issuer
 
 **POST** `/v1/organizations/federation_issuers/{federation_issuer_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Partially update a federation issuer.
 

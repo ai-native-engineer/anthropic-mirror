@@ -68,5 +68,3 @@ Guest writer and physicist Matt von Hippel shares what happened when he issued a
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-Cyber toolkits for LLMs \ Anthropic

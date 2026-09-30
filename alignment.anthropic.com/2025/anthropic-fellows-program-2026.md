@@ -4,6 +4,8 @@
 
 *”This is an exceptional opportunity to join AI safety research, collaborating with leading researchers on one of the world's most pressing problems." — [Jan Leike](https://jan.leike.name/)*
 
+---
+
 The Anthropic Fellows program provides funding and Anthropic mentorship for engineers and researchers to investigate some of Anthropic’s highest priority AI safety research questions.
 
 In our first cohort, over 80% of fellows produced papers, including on [agentic misalignment](https://www.anthropic.com/research/agentic-misalignment), [subliminal learning](https://arxiv.org/abs/2507.14805), [rapid response to new ASL3 jailbreaks](https://arxiv.org/abs/2411.07494), and [open-source circuits](https://www.anthropic.com/research/open-source-circuit-tracing). Over 40% of the fellows subsequently joined Anthropic full-time.

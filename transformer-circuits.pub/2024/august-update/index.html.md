@@ -12,6 +12,8 @@ New Posts
 * [Interpretability Evals Case Study](#evals-case-study)
 * [Self-explaining SAE features](#self-explaining-sae)
 
+---
+
 ## [Interpretability Evals for Dictionary Learning](#interp-evals)
 
 Jack Lindsey, Hoagy Cunningham, Tom Conerly; edited by Adly Templeton
@@ -115,6 +117,8 @@ For both evals, after iterating on our methodology (particularly the system prom
 * We checked that eval scores improved with the number of features in the SAE
 * We checked that eval scores correlated with SAE eval loss (see also “Evaluating SAE Variants” in [Interpretability Evals Case Study](#evals-case-study) below)
 
+---
+
 ## [Interpretability Evals Case Study](#evals-case-study)
 
 Adly Templeton, Tom Conerly, Jack Lindsey, Hoagy Cunningham, Andrew Persic
@@ -177,6 +181,8 @@ Contrastive Eval, Weighted (Higher is Better)
 The most important conclusion is that these variants are better than vanilla SAEs, validating our method of analysis and derisking the use of one of these methods. The non-vanilla variants perform pretty similarly on our evaluations, and over-interpreting the small differences in evaluation scores is unlikely to be fruitful. Our evaluations likely do not have the resolution to distinguish the relatively small performance differences between these variants. Instead, other properties of these variants, such as ease-of-use, robustness while scaling, and ease of circuits analysis might be more important. Creating more and better evaluations for sparse autoencoders continues to be an area of research that we are excited about.
 
 In [Tanh Penalty in Dictionary Learning](https://transformer-circuits.pub/2024/feb-update/index.html#dict-learning-tanh) we observed many uninterpretable high density features when training with tanh. We no longer see those issues when training with tanh. We see a similar number of high density features as other SAE variants. The high density features for tanh are roughly as interpretable as high density features from other SAE variants. Our best guess is the changes described in [Update on how we train SAEs](https://transformer-circuits.pub/2024/april-update/index.html#training-saes) improved tanh. We have not run ablations to determine exactly what caused the change.
+
+---
 
 ## [Self-explaining SAE features](#self-explaining-sae)
 

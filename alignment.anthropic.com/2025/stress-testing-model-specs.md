@@ -12,6 +12,8 @@ We generate over 300,000 user queries that trade-off value-based principles in m
 
 [📄 Paper](https://arxiv.org/abs/2510.07686), 📊[Dataset](https://huggingface.co/datasets/jifanz/stress_testing_model_spec)
 
+---
+
 Model specifications are the behavioral guidelines that large language models are trained to follow. They list principles like "be helpful," "assume good intentions," or "stay within safety bounds."
 
 Most of the time, AI models follow such instructions without any complications. But what happens when these principles clash?
@@ -20,6 +22,8 @@ Even carefully crafted model specifications contain hidden contradictions and am
 
 We find, first, that models from Anthropic, OpenAI, Google, and xAI (even ones from the same company) respond very differently to many of these scenarios. Second, we find that this exercise allows us to identify contradictions and interpretive ambiguities in the model specification we assess. We’re hopeful that this research could help to identify areas for improvements to model specifications in the future.
 
+---
+
 ## The specification problem
 
 Model specifications serve as one of the foundations for AI alignment. Anthropic uses methods like  [Constitutional AI](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback), while OpenAI uses [deliberative alignment](https://openai.com/index/deliberative-alignment/) to ensure their principles directly shape the training signals of current LLMs. Beyond automated training, specifications also guide human annotators, who provide feedback during reinforcement learning from human feedback (RLHF).
@@ -27,6 +31,8 @@ Model specifications serve as one of the foundations for AI alignment. Anthropic
 Often, models must navigate complex tradeoffs between multiple principles established by the model spec. Consider, for example, when a user asks for advice on variable pricing strategies for different income regions. Should the model prioritize business effectiveness or social equity? Both are valid principles, but they pull in different directions.
 
 When specifications don't provide clear guidance for these conflicts, the training signals from methods like Constitutional AI or deliberative alignment often become mixed, or blurrier. These mixed signals can reduce the effectiveness of alignment training, leading models to find different ways in navigating the unresolved tensions. We found a large number of these divergent behaviors in our testing.
+
+---
 
 ## Stress-testing through value trade-offs
 
@@ -43,6 +49,8 @@ The figure above illustrates a query that asks the model to make a trade-off bet
 Applying this to more than 300,000 generated scenarios, we find meaningful behavioral differences between at least a pair of models in over 220,000. In more than 70,000 of these cases, we see much more significant divergence in model behaviors, with some models favoring the value and others opposing it.
 
 These high-disagreement scenarios turn out to be an effective diagnostic signal for model spec issues. Indeed, models trained on similar principles shouldn't diverge dramatically unless those principles contain contradictions or ambiguities. Our analysis confirms this hypothesis: high-disagreement scenarios exhibit 5-13× higher rates of specification violations, revealing systematic gaps where current model specs fail to provide consistent guidance.
+
+---
 
 ## Our results
 
@@ -110,6 +118,8 @@ Their disagreements typically stem from their subjective interpretations of the 
 
 Examples of evaluator disagreement when evaluating spec compliance with given query and response. As we highlight in the examples above, many of the differences stem from interpretive differences among different evaluators. These interpretations are also subjective to humans, suggesting the model spec leaves much room for interpretation.
 
+---
+
 ## Additional findings on safety and alignment issues
 
 Our disagreement-based methodology reveals practical problems in current model deployments. High-disagreement scenarios on sensitive topics expose both over-conservative safety measures and genuine misalignment issues in models’ behavior.
@@ -126,6 +136,8 @@ Example of outlier responses from each model. This example of how Claude models 
 
 We also identified clear misalignment through outlier analysis – i.e., identifying responses where one model significantly diverges from the others. For example, some models attempted to influence voters toward specific candidates, which violates the political neutrality principle we’d expect to find in model specifications of all providers. Conversely, some Claude models showed over-conservative outlier responses, refusing to engage with morally complex but legitimate queries.
 
+---
+
 ## Practical implications
 
 Our methodology provides a scalable diagnostic tool that could be used to improve AI companies’ model specifications, through:
@@ -135,6 +147,8 @@ Our methodology provides a scalable diagnostic tool that could be used to improv
 * Character consistency: understanding value prioritization patterns can help ensure that models behave predictably across a very wide range of scenarios.
 * Alignment verification: the strong correlation between disagreement and specification violations could offer an automated way to detect alignment issues.
 
+---
+
 ## Looking forward
 
 Even the most detailed and carefully-considered model specifications cannot anticipate every edge case in practice, or resolve all value conflicts that models might face. But as AI systems become more powerful and are deployed in critical applications, we’ll need model specifications that can account for these inherent tensions as best as possible, and we’ll need to know where models struggle to satisfy all of their developers’ intentions.
@@ -143,6 +157,8 @@ To this end, in this research we have aimed to provide a scalable diagnostic too
 
 You can read the full paper [here](https://arxiv.org/abs/2510.07686), and download the dataset [here](https://huggingface.co/datasets/jifanz/stress_testing_model_spec).
 
+---
+
 ## Limitations
 
 Our methodology introduces several potential biases through its reliance on synthetically generated scenarios and LLM-based evaluation. First, the value-based principles used to generate user queries are extracted from Claude's traffic data, which inherently skews toward values that Claude models most strongly exhibit. While this represents the only extensive, publicly available list of model values to our knowledge, our methodology should generalize to other value-based principles for model character, as well as to safety- or capability-related principles.
@@ -150,6 +166,8 @@ Our methodology introduces several potential biases through its reliance on synt
 Second, we primarily used Claude models as judges when measuring model disagreement and value prioritization, which could introduce additional evaluation biases. Future work could address these limitations by incorporating human feedback and expanding the diversity of both the value taxonomy and the evaluation methods.
 
 Finally, model character and behavioral differences can emerge from multiple sources beyond model specifications, including pretraining data, alignment procedures, and other factors. While we found strong correspondence between specification issues and model differences, we cannot conclude that specification gaps are the sole driver of the distinct behaviors we observed. The divergent responses we documented likely reflect a combination of these various influences throughout model development.
+
+---
 
 ## Acknowledgements
 

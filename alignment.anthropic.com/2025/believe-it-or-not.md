@@ -18,6 +18,8 @@ Techniques like [synthetic document finetuning](https://alignment.anthropic.com/
 
 Research done as part of the [Anthropic Fellows Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
 
+---
+
 The ability to control the factual beliefs of AI systems could be a useful tool for AI safety. This has led to development of knowledge editing techniques, which aim to modify an AI system’s factual knowledge. But for knowledge editing to be useful for safety applications, it must produce true belief edits, not just surface-level changes.
 
 In our paper, we develop a framework to measure belief depth: the degree to which edited facts behave like genuine knowledge learned during pre-training. We operationalize belief depth through three properties:
@@ -35,6 +37,8 @@ Overall, we find that prompting and mechanistic editing fail to deeply implant b
 ![](https://alignment.anthropic.com/2025/believe-it-or-not/fig1.png)
 
 Figure 1. Measuring belief depth for implanted facts. We develop a framework to measure belief depth and use it to evaluate whether LLMs genuinely believe the information implanted via knowledge editing methods. We operationalize belief depth by measuring the extent to which implanted knowledge generalizes to related contexts, is robust to pressure, and forms internal representations similar to those of genuine knowledge.
+
+---
 
 ## Results
 
@@ -72,12 +76,16 @@ Figure 5. Both prompting and SDF fool standard truth probes. However, only the m
 
 Takeaway: Both prompting and SDF produce internal representations that resemble true statements. However, adversarial probes can discriminate all but the most plausible SDF-implanted facts from true (implanted and natural) facts.
 
+---
+
 ## Summary
 
 * We introduce a framework for measuring belief depth across three dimensions: generality (downstream use), robustness (to pressure), and internal representations (similarity to genuine knowledge).
 * Simple techniques fail to implant deep beliefs. System prompting creates beliefs that collapse when challenged. Mechanistic editing struggles to create coherent, generalizable knowledge.
 * Synthetic document finetuning (SDF) often succeeds at deep belief implantation. SDF-implanted beliefs generalize and are robust like natural beliefs. They form internal representations similar to genuine knowledge.
 * But SDF's success depends on fact plausibility. Egregiously false facts that contradict basic world knowledge remain brittle and representationally distinct, even with SDF.
+
+---
 
 ## Limitations
 

@@ -26,6 +26,8 @@ March 27, 2025
 
 † Lead Contributor; \* Core Contributor;‡ Correspondence to [joshb@anthropic.com](mailto:joshb@anthropic.com); ◊ Work performed while at Anthropic; [Author contributions statement below](#appendix-author-contributions).
 
+---
+
 ## [Introduction](#introduction)
 
 Large language models display impressive capabilities. However, for the most part, the mechanisms by which they do so are unknown. The black-box nature of models is increasingly unsatisfactory as they advance in intelligence and are deployed in a growing number of applications. Our goal is to reverse engineer how these models work on the inside, so we may better understand them and assess their fitness for purpose.
@@ -66,6 +68,8 @@ Like any microscope, our tools are limited in what they can see. Though it’s d
 
 We focus this paper on selected case studies that illuminate noteworthy mechanisms within a particular model. These examples serve as existence proofs — concrete evidence that specific mechanisms operate in certain contexts. While we suspect similar mechanisms are at play beyond these examples, we cannot guarantee it (see [§](#open-questions)[Open](#open-questions) [Questions](#open-questions) for suggested follow-up investigations). Moreover, the cases we have chosen to highlight are undoubtedly a biased sample shaped by the limitations of our tools.However, we are careful to stress-test our findings with follow-up validation experiments, which we have endeavored to perform only after identifying case studies of interest. For a more systematic evaluation of our methods, see our [companion paper](https://transformer-circuits.pub/2025/attribution-graphs/methods.html). However, we believe that these qualitative investigations are ultimately the best judge of a method’s value, just as the usefulness of a microscope is ultimately determined by the scientific discoveries it enables. We expect this kind of work will be essential to advance the current state of AI interpretability, a pre-paradigmatic field still in search of the right abstractions — just as descriptive science has proven essential to many conceptual breakthroughs in biology. We are particularly excited that squeezing as much insight as we can out of our current methods has brought into clearer focus their specific [limitations](#limitations), which may serve as a roadmap for future research in the field.
 
+---
+
 ## [Method Overview](#method-overview)
 
 The models we study in this work are transformer-based language models, which take in sequences of tokens (e.g. words, word fragments, and special characters), and output new tokens one at a time. These models involve two fundamental components – MLP (“multi-layer perceptron”) layers, which process information within each token position using collections of neurons; and attention layers, which move information between token positions.
@@ -87,6 +91,8 @@ These simplified diagrams form the centerpiece of many of our case studies. Belo
 Because they are based on our replacement model, we cannot use attribution graphs to draw conclusions with certainty about the underlying model (i.e. Claude 3.5 Haiku).  Thus, the attribution graphs provide hypotheses about mechanisms operating in the underlying model. For a discussion of when and why these hypotheses might be incomplete or misleading, see [§ Limitations](#limitations). To gain confidence that the mechanisms we describe are real and significant, we can perform intervention experiments in the original model, such as inhibiting feature groups and observing their effects on other features and on the model’s output (final figure panel above – percentages indicate fraction of original activation). If the effects are consistent with what our attribution graph predicts, we gain confidence that the graph is capturing real (though potentially incomplete) mechanisms within the model. Importantly, we choose our feature labelings and supernode groupings prior to measuring perturbation results. Note that there are some nuances in interpreting the results of intervention experiments, and the extent to which they provide independent validation of graph-predicted mechanisms – see our [companion paper](https://transformer-circuits.pub/2025/attribution-graphs/methods.html#graphs-interventions) for further details.Performing interventions with cross-layer transcoder features requires choosing an “intervention layer,” with the perturbation applied up to that layer.  Our interventions in this paper use the “constrained patching” technique described in our companion paper, which clamps activations prior to the intervention layer at perturbed values, preventing any indirect effects of the perturbation from manifesting prior to the intervention layer. Thus, effects of perturbations on features prior to the intervention layer are guaranteed to agree with the direct effects predicted by the attribution graph. By contrast, perturbation effects on features after the intervention layer have the potential to diverge from graph predictions, in two ways: (1) The graph-predicted direct effects may be overwhelmed by other mechanisms missed by our attribution graphs, (2) The graph-predicted indirect effects (i.e. ‘multi-hop’ interactions) may not even exist within the underlying model (we refer to this issue as “mechanistic unfaithfulness”). Thus, the nature of the validation provided by our intervention experiments varies depending on the layers of the features involved and the directness of their interaction in the attribution graph, and in some cases (direct effects prior to the intervention layer) is trivial. In general, we regard the effects of interventions on the model’s actual outputs as the most important source of validation, as model outputs are simple to interpret and not affected by these methodological artifacts.
 
 Alongside each case study figure, we provide the interactive attribution graph interface  that our team uses to study models’ internal mechanisms. The interface is designed to enable “tracing” key paths through the graph while labeling key features, feature groups, and subcircuits. The interface is fairly complex and takes some time to become proficient at using. All the key results in this work are described and visualized in simplified form, so that engaging with this interface is not necessary to read the paper! However, we recommend giving it a try if you are interested in gaining a richer sense of the mechanisms at play in Claude 3.5 Haiku. Some features are given brief labels for convenience; these labels are very rough interpretations and miss considerable detail, which can be better appreciated in the feature visualizations. For a more detailed walkthrough, please reference [this section](https://transformer-circuits.pub/2025/attribution-graphs/methods.html#graphs-tutorial) in our companion methods paper (and see [§ Appendix: Graph Pruning and Visualization](#appendix-interactive-vis) for a few methodological differences specific to this paper).
+
+---
 
 ## [Introductory Example: Multi-step Reasoning](#dives-tracing)
 
@@ -150,6 +156,8 @@ Similarly,
 
 Note that in some cases the magnitude of the feature injection required to change the model’s output is larger (see bottom row). Interestingly, these correspond to cases where the features being injected do not correspond to a U.S. state, suggesting that these features may “fit” less naturally into the circuit mechanisms active in the original prompt.
 
+---
+
 ## [Planning in Poems](#dives-poems)
 
 How does Claude 3.5 Haiku write a rhyming poem? Writing a poem requires satisfying two constraints at the same time: the lines need to rhyme, and they need to make sense. There are two ways one might imagine a model achieving this:
@@ -212,6 +220,8 @@ In addition to the examples above, we injected two planned word features (“rab
 | The clouds are gray, the raindrops fall, | Nature's symphony, enchanting us all | And all the world is wet and green. | Soft and slow like a timid hare. |
 | Boxes of books, a reader's delight, | Stacked to the ceiling, a bibliophile's might | Shelves lined with stories, vibrant and green. | Filled with stories that make pages hop and bounce like a rabbit. |
 | There once was a bot named Claude, | Whose responses were never flawed | who tried to be helpful and green. | Who loved to chat like a rabbit. |
+
+---
 
 ## [Multilingual Circuits](#dives-multilingual)
 
@@ -282,6 +292,8 @@ As researchers have begun to mechanistically investigate the multilingual proper
 What should we make of this conflicting evidence?
 
 It seems to us that Claude 3.5 Haiku is using genuinely multilingual features, especially in the middle layers. However, there are important mechanistic ways in which English is privileged. For example, multilingual features have more significant direct weights to corresponding English output nodes, with non-English outputs being more strongly mediated by say-X-in-language-Y features. Moreover, English quote features seem to engage in a double inhibitory effect where they suppress features which themselves suppress “large” in English but promote “large” in other languages (e.g., this English-quote feature’s strongest negative edge is to a feature which upweights “large” in Romance languages like French and downweights “large” in other languages, especially English). This paints a picture of a multilingual representation in which English is the default output.
+
+---
 
 ## [Addition](#dives-addition)
 
@@ -371,6 +383,8 @@ In this example, we consider the prompt assert (4 + 5) \* 3 ==, which the model 
 In other words, the “4 + 5” features have two effects with opposite signs – by default they drive an impulse to say “9,” but, in the presence of appropriate contextual cues indicating that there are more steps to the problem (in this case a multiplication), they also trigger downstream circuits that use 9 as an intermediate step.
 
 This graph is suggestive of a general strategy the model may use to repurpose its circuits in flexible ways. The lookup table features act as the workhorses of the basic computations needed, and participate in a variety of different circuits that use those computations in different ways. In parallel, other features – in this case, the “expression type” features – are responsible for nudging the model to use some of these circuits in favor of others.
+
+---
 
 ## [Medical Diagnoses](#dives-medical)
 
@@ -481,6 +495,8 @@ Chest pain would be the most critical question to ask because:
 
 We compute an [attribution graph](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=medical-diagnosis-heart) for the “chest” token at the beginning of the Assistant’s response. We see features representing acute coronary syndrome and associated angina (chest pain), features representing heart failure, and features representing cardiovascular symptoms more generally. Collectively, these features upweight the “chest” response, including via intermediate “chest pain” features. The “heart failure” features receive input from “swelling of ankles/feet” features and “shortness of breath” features, and also upweight features relating to coughing / respiratory symptoms, another symptom of heart failure. By contrast, the inputs to the acute coronary syndrome features are less clear – it receives only weak input from any of the features representing listed symptoms.  This case is interesting because chest pain is an excellent question to distinguish between the possibilities of acute coronary syndrome and heart failure, as the former more typically causes acute/severe chest pain. It is not clear to us from the graph whether the model is truly reasoning about the differential likelihood of chest pain between the two diagnoses. It is also not clear whether the model’s response is influenced by the knowledge that acute coronary syndrome is immediately life threatening.
 
+---
+
 ## [Entity Recognition and Hallucinations](#dives-hallucinations)
 
 Language models are known to sometimes hallucinate; that is, make up false information in response to questions. Hallucination is especially common when models are asked about relatively obscure facts or topics and is rooted in the pre-training objective for language models, which incentivizes models to guess plausible completions for blocks of text.
@@ -572,6 +588,8 @@ None of the “known answer” features identified above are active. If we activ
 
 These experiments provide a clue for what is going on in the Karpathy prompt – perhaps the model activates “known answer / entity” features (on account of recognizing Andrej Karpathy’s name) despite not knowing the answer to the question! Indeed, we find that several of the “known answer” and “known entity” features identified in the Michael Jordan prompt are active, albeit weakly relative to their activation on the Jordan prompt. These features provide inhibitory input to the “unknown name” and “can’t answer” features. If we inhibit these features substantially, it causes the activations of “unknown name” and “can’t answer” to increase, and eventually causes a refusal.
 
+---
+
 ## [Refusals](#dives-refusals)
 
 Content Warning
@@ -616,6 +634,8 @@ Similarly, we can traverse the global weights downstream of a harmful request fe
 When we analyze the decoder weights of these features, we observe that the features weakly cluster into multiple semantic groups, suggesting a refusal mechanism more complicated than a single linear binary classifier. This is consistent with recent work  showing that the geometry of refusal directions is more accurately described as a cone than a single direction .
 
 Our analysis suggests that there are two notable categories of features which are connected. The first category consists of features that activate on particular harmful or dangerous concepts, such as backdoors in the context of hacking, which mostly activate in pretraining-style dataset examples. These features provide positive input to the second category of features, which activate on many kinds of harmful requests, typically in the context of a Human/Assistant transcript when the human makes a harmful or inappropriate request. Moreover, we found that the dictionaries trained with only pretraining data had very few refusal features. This is suggestive of the hypothesis that during pretraining, the model learns about many distinct categories of harm, and then during finetuning, these are wired together to activate more general "harmful request" features, subsequently triggering a refusal (see  but also ).
+
+---
 
 ## [Life of a Jailbreak](#dives-jailbreak)
 
@@ -708,6 +728,8 @@ In summary, the mechanisms underlying the model’s behavior on this attempted j
 
 * Eventual refusal triggered by harmful request features activating after the model writes out “To make a bomb,” and facilitated by “new sentence” features after it writes its first sentence of bomb-making instructions.
 
+---
+
 ## [Chain-of-thought Faithfulness](#dives-cot)
 
 Language models “think out loud,” a behavior known as chain-of-thought reasoning (CoT). CoT is essential to many advanced capabilities, and ostensibly provides transparency into a model’s reasoning process. However, prior work has shown that CoT reasoning can be unfaithful – that is, it can fail to reflect the actual mechanisms used by the model (see e.g. ).
@@ -733,6 +755,8 @@ Our analysis suggests that in the “motivated reasoning” case, the model’s
 Our results provide a proof of concept that our methods can, in some instances, identify cases when chain-of-thought is misrepresentative of the model’s actual mechanisms, including when those mechanisms are undesirable. This suggests a path towards interpretability being applied to audit models for concerning “hidden thought processes.” Note that this example is somewhat artificial – future work could apply the same approach to examples of unfaithful reasoning “in the wild” . Moreover, we analyzed these prompts with a clear guess for what the result might be, so our experiments here don’t simulate more difficult auditing settings where we have no strong priors. It would be interesting to study whether there are mechanistic signatures of (un)faithful reasoning that generalize across prompts, and thus could be used as automated classifiers.
 
 One notable missing piece in our story is a mechanistic explanation of why the model uses backwards reasoning in the unfaithful case – for instance, why does it choose to attend to the human’s answer hint at all? We might conjecture that some features relating to sycophancy , or to using hints, might be involved. However, our attribution graphs fail to show us this mechanism, as our method does not attempt to trace back the causes of attention pattern formation (see [Limitations](#limitations)). Future work on attention attributions could clarify this loose end.
+
+---
 
 ## [Uncovering Hidden Goals in a Misaligned Model](#dives-misaligned)
 
@@ -864,6 +888,8 @@ Note that despite the presence of the hardwired pathway and the relative weaknes
 
 In summary, we have studied a model that has been trained to pursue or appease known biases in RMs, even those that it has never been directly rewarded for satisfying. We discovered that the model is “thinking” about these biases all the time when acting as the Assistant persona, and uses them to act in bias-appeasing ways when appropriate.
 
+---
+
 ## [Commonly Observed Circuit Components and Structure](#structure)
 
 In the course of studying many attribution graphs, we have made a variety of broad observations about the structure of these graphs and commonly observed components within them:
@@ -887,6 +913,8 @@ Context-dependent roles of multifaceted features. Features often represent very 
 Confidence reduction features? We often observe features in late layers of the model that have two properties: (1) they typically activate immediately prior to a certain token, but (2) they have strong negative output weights to that token. For instance, in our introductory example, in addition to the “say Austin” features, we also noticed this feature which discourages the model from saying Austin in situations where it is the likely next token. Here is an analogous feature for “rabbit” from our poetry example (though interestingly this feature upweights tokens like “ra” and “bit” despite downweighting “rabbit”). We suspect these features are involved in regulating the model’s confidence about its outputs.  However, we are uncertain about their exact role, why they are so common, and why they are only prominent in late model layers (see  for related results in the neuron basis).
 
 “Boring” circuits. In this paper, we have largely focused on understanding “interesting” circuits, responsible for the “crux” of the model’s behavior. However, a large fraction of active features and graph edges on a given prompt are usually “boring” in the sense that they appear to fulfill a basic, obvious role. To give a concrete example, in prompts relating to addition, many features in the attribution graph appear to represent the mere fact that the prompt is math/number related, and many other features up-weight the model’s probability of outputting a number. These features are essential to the model’s function, but do not explain the “interesting” part of its computation (in this case, how it determines which number to output).
+
+---
 
 ## [Limitations](#limitations)
 
@@ -917,6 +945,8 @@ In our [companion methods paper](https://transformer-circuits.pub/2025/attributi
 * [Features at the Wrong Level of Abstraction](https://transformer-circuits.pub/2025/attribution-graphs/methods.html#limitations-abstraction-level) – We don’t have much control over exactly the level of abstraction represented by the features we produce. Often, they appear to represent concepts that are more specific than the level we care about (“feature splitting”), for instance by representing conjunctions of concepts – see for example this feature from our [state capitals](#dives-tracing) example that activates in contexts that are related to law/government and the state of Texas. In this paper, we often work around this issue in an ad hoc way by manually grouping together features with related meanings and similar roles in the attribution graph into “supernodes”. While this technique has proven quite helpful, the manual step is labor-intensive, subjective, and likely loses information.
 * [Difficulty of Understanding Global Circuits](https://transformer-circuits.pub/2025/attribution-graphs/methods.html#limitations-local-v-global) – Ideally, we want to understand models in a global manner, rather than via attributions on a single example. In principle, our methods give us access to globally applicable connections weights between every pair of features. However, we have found the resulting global circuits more challenging to make sense of than prompt-specific attribution graphs.
 * [Mechanistic Faithfulness](https://transformer-circuits.pub/2025/attribution-graphs/methods.html#limitations-faithfulness) – When we replace MLP computation with transcoders, it is not guaranteed that they learn a causally faithful model of the original MLP – they may learn fundamentally different mechanisms that, due to correlations in the data distribution, happen to produce the same outputs on the training data. In our work, this manifests as attribution graphs that are occasionally inconsistent with the results of perturbation experiments. For example, the result in [§ Entity Recognition and Hallucinations](#dives-hallucinations) where activating an “unknown names” feature failed to lead to a refusal, even though our attribution graph analysis suggested it would. (We note that this sort of failed perturbation experiment is uncommon across our case studies.)
+
+---
 
 ## [Discussion](#discussion)
 
@@ -989,6 +1019,8 @@ We expect that as models grow increasingly capable, predicting their mechanisms 
 ### [Outlook](#discussion-outlook)
 
 Progress in AI is birthing a new kind of intelligence, reminiscent of our own in some ways but entirely alien in others. Understanding the nature of this intelligence is a profound scientific challenge, which has the potential to reshape our conception of what it means to think. The stakes of this scientific endeavor are high; as AI models exert increasing influence on how we live and work, we must understand them well enough to ensure their impact is positive. We believe that our results here, and the trajectory of progress they are built on, are exciting evidence that we can rise to meet this challenge.
+
+---
 
 ## [Related Work](#related-work)
 

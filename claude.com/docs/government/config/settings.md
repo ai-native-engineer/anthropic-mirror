@@ -104,6 +104,12 @@ How long a member can put off restarting Claude Desktop after the app detects a 
 A persistent banner shown at the top of Claude Desktop. You can set the text, colors, and an optional link, and preview the result as you edit. Banner text may be up to 200 characters, leading and trailing spaces are rejected, colors must be valid hex codes, and the link (if set) must begin with `https://`. An empty banner is valid and simply hides it.
 The system-use notification shown at sign-in is separate from this banner. It is fixed text and cannot be edited. Use the Claude Desktop banner setting if you need a configurable message inside the application.
 
+###  Show the Claude for Government Web import banner
+
+Shows a banner on Claude Desktop’s home screen inviting members to [import their conversations and projects from Claude for Government Web](https://claude.com/docs/government/desktop/import). Members see the banner only in organizations where Anthropic has enabled the import. The switch is off by default.
+
+**Show the Claude for Government Web import banner** applies to Claude Desktop 2.9939.2 and later. Earlier versions ignore the setting.
+
 ###  Product availability
 
 A group of separate switches that control which Claude products and features are available to members. Each switch appears as its own row: **Claude Desktop**, **Chat in Claude Desktop**, **Advanced file analysis in Chat**, **Cowork in Claude Desktop**, **Code in Claude Desktop**, **Claude Code**, and **Claude for Microsoft 365**. These switches are on by default, except for **Claude Code** and **Claude for Microsoft 365**.

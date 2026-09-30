@@ -57,5 +57,3 @@ Anthropic and Accenture will also co-invest in a Claude Center of Excellence ins
 Accenture clients can contact their account team to discuss deployment options. Enterprises can visit our [Enterprise page](https://www.anthropic.com/enterprise) to learn more about Claude. Claude is the only frontier model available on all three of the world's most prominent cloud services, including Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure.
 
 *\*[Menlo Ventures’ 2025 State of Generative AI in the Enterprise report](https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/)*
-
-Accenture and Anthropic launch partnership \ Anthropic

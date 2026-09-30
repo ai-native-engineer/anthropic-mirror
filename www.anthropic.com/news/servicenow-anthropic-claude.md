@@ -39,3 +39,5 @@ ServiceNow is putting Claude to work for the companys global workforce, applying
 Claude is now available as the default model for Build Agent and as a preferred model across the ServiceNow AI Platform. Tens of thousands of ServiceNow enterprise customers and the company’s global workforce can access Claude to build and deploy agentic automation and workflows across departments. Learn more about ServiceNow’s AI Platform at [servicenow.com/ai](https://servicenow.com/ai).
 
 *\*For more on these evaluations, see [here](https://www.anthropic.com/news/healthcare-life-sciences).*
+
+ServiceNow chooses Claude \ Anthropic

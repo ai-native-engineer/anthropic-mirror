@@ -2,6 +2,8 @@
 
 # Deleting commercial Anthropic accounts
 
+Table of contents
+
 |  |
 | --- |
 | This article explains what happens to projects and chats when a member is removed from your Team or Enterprise plan organization. |
@@ -45,8 +47,12 @@ While the Primary Owner can always export the member's project data and chats (n
 
 To learn more about Anthropic’s data retention periods see [here](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data).
 
+---
+
 * [Business Associate Agreements (BAA) for Commercial Customers](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Export your Claude data](https://privacy.claude.com/en/articles/9450526-export-your-claude-data)
 * [Configure custom data retention controls for Enterprise plans](https://privacy.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans)
 * [Export your organization's data](https://privacy.claude.com/en/articles/13346720-export-your-organization-s-data)
+
+Table of contents

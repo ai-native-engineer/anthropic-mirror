@@ -10,6 +10,8 @@ New Posts
 
 * [Features & In-context learning](#sample-length)
 
+---
+
 ## [Features & In-context learning](#sample-length)
 
 Adam Jermyn, Wes Gurnee; edited by Joshua Batson

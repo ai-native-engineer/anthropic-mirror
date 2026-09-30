@@ -8,14 +8,14 @@
   Linux support for the Claude desktop app is in beta.
 </Note>
 
-The desktop app on Linux gives you the same Chat, Cowork, and Claude Code experience as on macOS and Windows: parallel sessions, visual diff review, an integrated terminal and editor, and live app preview. See [Use Claude Code Desktop](/docs/en/desktop) for the feature reference.
+The desktop app on Linux gives you the same Chat, Cowork, and Claude Code experience as on macOS and Windows: parallel sessions, visual diff review, an integrated terminal and editor, and live app preview. See [Use Claude Code Desktop](https://code.claude.com/docs/en/desktop) for the feature reference.
 
 ## Requirements
 
 * A Debian-based distribution: Ubuntu 22.04 or later, or Debian 12 or later
 * x86\_64 or arm64
 
-Other Debian-based distributions that meet these requirements may work but aren't officially tested. On distributions that aren't Debian-based, such as Fedora or Arch, run the [CLI](/docs/en/setup#system-requirements) instead. If you work on Windows with WSL 2, install the Windows desktop app and run sessions inside your distribution; see [Claude Code Desktop in WSL](/docs/en/desktop-wsl).
+Other Debian-based distributions that meet these requirements may work but aren't officially tested. On distributions that aren't Debian-based, such as Fedora or Arch, run the [CLI](https://code.claude.com/docs/en/setup#system-requirements) instead. If you work on Windows with WSL 2, install the Windows desktop app and run sessions inside your distribution; see [Claude Code Desktop in WSL](https://code.claude.com/docs/en/desktop-wsl).
 
 ### Cowork requirements
 
@@ -69,7 +69,7 @@ Install from Anthropic's apt repository so that updates arrive through your syst
   <Step title="Launch and sign in">
     Launch **Claude** from your application launcher, or run `claude-desktop` from a terminal, and sign in with your Anthropic account.
 
-    The Linux app signs in the same way as on macOS and Windows: with a claude.ai subscription, or through your organization's SSO. Desktop doesn't accept a Claude Console API key directly; use the [CLI](/docs/en/quickstart) for API-key authentication. For enterprise deployments that route Desktop to Google Cloud's Agent Platform or an LLM gateway, see [Claude Desktop on 3P](https://claude.com/docs/third-party/claude-desktop/overview) and [network configuration](/docs/en/network-config).
+    The Linux app signs in the same way as on macOS and Windows: with a claude.ai subscription, or through your organization's SSO. Desktop doesn't accept a Claude Console API key directly; use the [CLI](https://code.claude.com/docs/en/quickstart) for API-key authentication. For enterprise deployments that route Desktop to Google Cloud's Agent Platform or an LLM gateway, see [Claude Desktop on 3P](https://claude.com/docs/third-party/claude-desktop/overview) and [network configuration](https://code.claude.com/docs/en/network-config).
   </Step>
 </Steps>
 
@@ -154,9 +154,9 @@ If the Cowork tab shows one of these messages, fix the requirement it names, the
 
 ## What's not in the Linux beta yet
 
-* **Computer Use**: [app and screen control](/docs/en/desktop#let-claude-use-your-computer) isn't available on Linux.
-* **Dictation**: voice input isn't available in the Linux desktop app. Use [voice dictation](/docs/en/voice-dictation) in the CLI instead.
+* **Computer Use**: [app and screen control](https://code.claude.com/docs/en/desktop#let-claude-use-your-computer) isn't available on Linux.
+* **Dictation**: voice input isn't available in the Linux desktop app. Use [voice dictation](https://code.claude.com/docs/en/voice-dictation) in the CLI instead.
 * **Quick Entry global hotkey**: works on X11. On native Wayland it requires your desktop environment's GlobalShortcuts portal.
 * **Fedora and RHEL**: only Debian-based distributions are supported today. Support for additional distributions is coming in the future.
 
-For anything not yet available in the desktop app, the [CLI](/docs/en/quickstart) runs the same Claude Code engine and supports a wider range of Linux distributions; see the [system requirements](/docs/en/setup#system-requirements).
+For anything not yet available in the desktop app, the [CLI](https://code.claude.com/docs/en/quickstart) runs the same Claude Code engine and supports a wider range of Linux distributions; see the [system requirements](https://code.claude.com/docs/en/setup#system-requirements).

@@ -26,6 +26,8 @@ We find that by conceptualizing the operation of transformers in a new but mathe
 
 We don’t attempt to apply to our insights to larger models in this first paper, but in a [forthcoming paper](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html), we will show that both our mathematical framework for understanding transformers, and the concept of induction heads, continues to be at least partially relevant for much larger and more realistic models – though we remain a very long way from being able to fully reverse engineer such models.
 
+---
+
 ## Summary of Results
 
 #### Reverse Engineering Results
@@ -48,6 +50,8 @@ We’ve found that many subtle details of the transformer architecture require u
 * Key, query, and value vectors can be thought of as intermediate results in the computation of the low-rank matrices W\_Q^TW\_K and W\_OW\_V. It can be useful to describe transformers without reference to them.
 * Composition of attention heads greatly increases the expressivity of transformers. There are three different ways attention heads can compose, corresponding to keys, queries, and values. Key and query composition are very different from value composition.
 * All components of a transformer (the token embedding, attention heads, MLP layers, and unembedding) communicate with each other by reading and writing to different subspaces of the residual stream. Rather than analyze the residual stream vectors, it can be helpful to decompose the residual stream into all these different communication channels, corresponding to paths through the model.
+
+---
 
 ## Transformer Overview
 
@@ -173,6 +177,8 @@ A major benefit of rewriting attention heads in this form is that it surfaces a 
 
 * Products of attention heads behave much like attention heads themselves. By the distributive property, (A^{h\_2}\otimes W\_{OV}^{h\_2}) \cdot (A^{h\_1}\otimes W\_{OV}^{h\_1}) = (A^{h\_2}A^{h\_1})\otimes(W\_{OV}^{h\_2}W\_{OV}^{h\_1}). The result of this product can be seen as functionally equivalent to an attention head, with an attention pattern which is the composition of the two heads A^{h\_2}A^{h\_1} and an output-value matrix W\_{OV}^{h\_2}W\_{OV}^{h\_1}. We call these “virtual attention heads”, discussed in more depth later.
 
+---
+
 ## Zero-Layer Transformers
 
 Watch videos covering similar content to this section: [0 layer theory](https://www.youtube.com/watch?v=V3NQaDR3xI4&list=PLoyGOS2WIonajhAVqKUgEMNmeq3nEeM51&index=1)
@@ -287,6 +293,8 @@ T ~=~ W\_U W\_E
 Because the model cannot move information from other tokens, we are simply predicting the next token from the present token. This means that the optimal behavior of W\_U W\_E is to approximate the bigram log-likelihood.This parallels an observation by Levy & Goldberg, 2014 that many early word embeddings can be seen as matrix factorizations of a log-likelihood matrix.
 
 This is relevant to transformers more generally. Terms of the form W\_U W\_E will occur in the expanded form of equations for every transformer, corresponding to the “direct path” where a token embedding flows directly down the residual stream to the unembedding, without going through any layers. The only thing it can affect is the bigram log-likelihoods. Since other aspects of the model will predict parts of the bigram log-likelihood, it won’t exactly represent bigram statistics in larger models, but it does represent a kind of “residual”. In particular, the W\_U W\_E term seems to often help represent bigram statistics which aren’t described by more general grammatical rules, such as the fact that “Barack” is often followed by “Obama”. An interesting corollary of this is to note that, though W\_U is often referred to as the “un-embedding” matrix, we should not expect this to be the inverse of embedding with W\_E.
+
+---
 
 ## One-Layer Attention-Only Transformers
 
@@ -1371,6 +1379,8 @@ There's often skepticism that it's even possible or worth trying to truly revers
 But that claim really depends on what one means by fully understood. It seems to us that we now understand this simplified model in the same sense that one might look at the weights of a giant linear regression and understand it, or look at a large database and understand what it means to query it. That is a kind of understanding. There's no longer any algorithmic mystery. The contextualization problem of neural network parameters has been stripped away. But without further work on summarizing it, there's far too much there for one to hold the model in their head.
 
 Given that regular one layer neural networks are just generalized linear models and can be interpreted as such, perhaps it isn't surprising that a single attention layer is mostly one as well.
+
+---
 
 ## Two-Layer Attention-Only Transformers
 
@@ -2535,6 +2545,8 @@ Firstly, this kind of composition seems quite powerful. We often see heads whose
 
 Secondly, there are a lot of virtual attention heads. The number of normal heads grows linearly in the number of layers, while the number of virtual heads based on the composition of two heads grows quadratically, on three heads grows cubically, etc. This means the model may, in theory, have a lot more space to gain useful predictive power via the virtual attention heads. This is particularly important because normal attention heads are, in some sense, “large”. The head has a single attention pattern determining which source tokens it attends to, and d\_{\text{head}} dimensions to copy from the source to destination token. This makes it unwieldy to use for intuitively “small” tasks where not much information needs to be conveyed, eg attending to previous pronouns to determine whether the text is in first, second or third person, or attending to tense markers to detect whether the text is in past, present or future text.
 
+---
+
 ## Where Does This Leave Us?
 
 Over the last few sections, we've made progress on understanding one-layer and two-layer attention-only transformers. But our ultimate goal is to understand transformers in general. Has this work actually brought us any closer? Do these special, limited cases actually shed light on the general problem? We'll explore this issue in follow-up work, but our general sense is that, yes, these methods can be used to understand portions of general transformers, including large language models.
@@ -2546,6 +2558,8 @@ In fact, we actually see some analogous attention heads and circuits in large mo
 That said, we can probably only understand a small portion of large language models this way. For one thing, MLP layers make up 2/3rds of a standard transformer's parameters. Clearly, there are large parts of a model’s behaviors we won’t understand without engaging with those parameters. And in fact the situation is likely worse: because many attention heads interact with the MLP layers, the fraction of parameters we can understand without considering MLP layers is even smaller than 1/3rd. More complete understanding will require progress on MLP layers. At a mechanistic level, their circuits actually have a very nice mathematical structure (see [additional intuition](#additional-intuition)). However, the clearest path forward would require individually interpretable neurons, which we've had limited success finding.
 
 Ultimately, our goal in this initial paper is simply to establish a foothold for future efforts on this problem. Much future work remains to be done.
+
+---
 
 ## Related Work
 
@@ -2619,6 +2633,8 @@ Some recent proposed improvements to the transformer architecture have interesti
 
 * Primer  is a transformer architecture discovered through automated architecture search for more efficient transformer variants. The authors, So et al., isolate two key changes, one of which is to perform a depthwise convolution over the last three spatial positions in computing keys, queries and value vectors. We observe that this change would make induction heads possible to express without K-composition.
 * Talking Heads Attention  is a recent proposal which can be a bit tricky to understand. An alternative way to frame it is that, where regular transformer attention heads have W^h\_{OV} = W\_O^hW\_V^h, talking heads attention effectively does W^h\_{OV} = \alpha\_1^h W\_O^1W\_V^1 + \alpha\_2^h W\_O^2W\_V^2 ..., and the same thing for W\_{QK}. This means that the OV and QK matrices of different attention heads can share components; if you believe that, say, multiple copying heads could share part of their OV matrix, this becomes natural.
+
+---
 
 ## [Comments & Replications](#comments)
 

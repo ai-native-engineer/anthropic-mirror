@@ -4,6 +4,8 @@
 
 *”This is an exceptional opportunity to join AI safety research, collaborating with leading researchers on one of the world's most pressing problems." — [Jan Leike](https://jan.leike.name/)*
 
+---
+
 Update (July 2026): For updates on future cohorts, see the [latest Anthropic Fellows Program announcement](https://alignment.anthropic.com/2025/anthropic-fellows-program-2026/).
 
 We're launching the Anthropic Fellows Program for AI Safety Research, a pilot initiative designed to accelerate AI safety research and foster research talent. The program will provide funding and mentorship for a small cohort of 10-15 Fellows to work full-time on AI safety research. Over the course of six months, Fellows will be matched with Anthropic mentors to investigate AI safety research questions in areas such as Adversarial Robustness, Dangerous Capability Evaluations, and Scalable Oversight.

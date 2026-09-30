@@ -13,6 +13,8 @@ Short Research Notes
 * [Ghost Grads Update](#dict-learning-resampling)
 * [Tanh Penalty in Dictionary Learning](#dict-learning-tanh)
 
+---
+
 ## [Dying Features in Dictionary Learning](#dict-learning-weak)
 
 Adly Templeton, Joshua Batson, Tom Henighan
@@ -26,6 +28,8 @@ We hypothesize that the ultralow density features were features that never found
 Recall that our autoencoders in Towards Monosemanticity used a pre-encoder bias, where we subtracted the decoder bias from the data before applying the encoder. As a result, the encoder input has a consistent nonzero value for each of the weakly-activating transformer neurons. By assigning weights to each neuron with opposite sign to the pre-encoder bias, the encoder effectively produces a negative bias; any time that the gradient says to make a feature activation smaller, the encoder will both reduce its actual bias and increase the weights on these neurons.
 
 Now that we have identified the cause of the high cosine similarity, the cluster of ultralow density features seems to be just a problem of the L1 regularization penalty killing off features before they find a useful direction, which is a constant struggle when training sparse autoencoders. We discuss some partial progress on that larger problem below.
+
+---
 
 ## [Improvements to Dictionary Learning](#dict-learning-loss)
 
@@ -41,6 +45,8 @@ Here, we give a list of some miscellaneous architectural changes that we have fo
 * Normalization: When working with transformers of different sizes, it is helpful to have hyperparameters that mostly generalize across sizes. To do this, we normalize the activation vectors to have L2 norm equal to sqrt(n\_dense), and take the sum over the dense dimension in the MSE loss.
 * Cooldown: We decay the learning rate linearly to 0 in the last 20% of training.
 
+---
+
 ## [Ghost Grads Update](#dict-learning-resampling)
 
 Tom Conerly
@@ -52,6 +58,8 @@ We had a bug in our ghost grads implementation that caused all neurons to be mar
 We also wanted to be clearer about our confidence in ghost grads. We've found ghost grads to be a big improvement on 1L models. Initial experiments have shown little difference on larger models. We're unsure if ghost grads will help dictionary learning on large models as we change other hyperparameters.
 
 We don't feel like we have a great understanding of why and when ghost grads helps. We've tried a few variations of ghost grads but we haven't exhausted the space of ideas. We expect that there exist better versions of ghost grads and/or better ways to handle dying neurons.
+
+---
 
 ## [Tanh Penalty in Dictionary Learning](#dict-learning-tanh)
 

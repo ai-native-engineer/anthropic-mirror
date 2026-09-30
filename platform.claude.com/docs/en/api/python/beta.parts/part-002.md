@@ -36446,7 +36446,7 @@ Create a memory
 
   - `memory_version_id: str`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: str`
 
@@ -36454,7 +36454,7 @@ Create a memory
 
   - `updated_at: datetime`
 
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -36658,7 +36658,7 @@ List memories
 
 - `type BetaManagedAgentsMemoryListItem = ...`
 
-  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+  One item in a [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
 
   - `class BetaManagedAgentsMemory`
 
@@ -36692,7 +36692,7 @@ List memories
 
     - `memory_version_id: str`
 
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `path: str`
 
@@ -36700,7 +36700,7 @@ List memories
 
     - `updated_at: datetime`
 
-      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
       format: date-time
 
@@ -36710,7 +36710,7 @@ List memories
 
   - `class BetaManagedAgentsMemoryPrefix`
 
-    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+    A rolled-up directory marker returned by [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
     - `type: Literal["memory_prefix"]`
 
@@ -36932,7 +36932,7 @@ Retrieve a memory
 
   - `memory_version_id: str`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: str`
 
@@ -36940,7 +36940,7 @@ Retrieve a memory
 
   - `updated_at: datetime`
 
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -37177,7 +37177,7 @@ Update a memory
 
   - `memory_version_id: str`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: str`
 
@@ -37185,7 +37185,7 @@ Update a memory
 
   - `updated_at: datetime`
 
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -37366,7 +37366,7 @@ Delete a memory
 
 - `class BetaManagedAgentsDeletedMemory`
 
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
+  Tombstone returned by [Delete a memory](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 
   - `type: Literal["memory_deleted"]`
 
@@ -37615,7 +37615,7 @@ List memory versions
 
   - `memory_id: str`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `memory_store_id: str`
 
@@ -37653,7 +37653,7 @@ List memory versions
 
   - `created_by: Optional[BetaManagedAgentsActor]`
 
-    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
 
     - `class BetaManagedAgentsSessionActor`
 
@@ -37663,7 +37663,7 @@ List memory versions
 
       - `session_id: str`
 
-        ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
+        ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](https://platform.claude.com/docs/en/api/beta/sessions/retrieve) for further provenance.
 
         minLength: 1
 
@@ -37709,7 +37709,7 @@ List memory versions
 
   - `redacted_at: Optional[datetime]`
 
-    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](/docs/en/api/beta/memory_stores/memory_versions/redact).
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
 
     format: date-time
 
@@ -37926,7 +37926,7 @@ Retrieve a memory version
 
   - `memory_id: str`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `memory_store_id: str`
 
@@ -37943,13 +37943,3 @@ Retrieve a memory version
     - `"modified"`
 
       The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
-
-    - `"deleted"`
-
-      The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
-
-  - `content: Optional[str]`
-
-    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
-
-  - `content_sha256: Optional[str]`

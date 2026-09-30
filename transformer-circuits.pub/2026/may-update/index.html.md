@@ -10,6 +10,8 @@ New Posts
 
 * [Downstream Connections Predict Which Features Will Steer Model Behavior](#downstream-descriptors)
 
+---
+
 ## [Downstream Connections Predict Which Features Will Steer Model Behavior](#downstream-descriptors)
 
 Purvi Goel, Isaac Kauvar, Nicholas L Turner; edited by Harish Kamath

@@ -171,11 +171,12 @@ Copy link
 for [Anthropic] CMEK - Cryptographic Design Whitepaper
 Request access
 [Anthropic] CMEK - Cryptographic Design Whitepaper
-Claude Cowork Security Best Practices
+Claude Cowork and Unified Claude Security Best Practices
 Copy link
-for Claude Cowork Security Best Practices
+for Claude Cowork and Unified Claude Security Best Practices
+v1.3
 View
-Claude Cowork Security Best Practices
+Claude Cowork and Unified Claude Security Best Practices
 Claude Cowork Desktop Security Architecture Overview
 Copy link
 for Claude Cowork Desktop Security Architecture Overview

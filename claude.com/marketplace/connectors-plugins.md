@@ -14,7 +14,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 867
+Show all 872
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -260,7 +260,7 @@ Control your Sonos system
 
 ## All connectors
 
-867 connectors
+872 connectors
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 

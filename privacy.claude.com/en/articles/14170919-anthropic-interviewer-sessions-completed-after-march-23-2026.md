@@ -20,6 +20,8 @@ We may email you to share published findings or insights from research interview
 
 Anthropic workers with a need to know will be able to access your Study Participation Data. Additionally, as with any conversation with Claude, Anthropic Interviewer sessions may be reviewed by our Trust and Safety team if flagged for review under our [Usage Policy](https://www.anthropic.com/legal/aup).
 
+---
+
 * [Updates to our Privacy Policy](https://privacy.claude.com/en/articles/10301952-updates-to-our-privacy-policy)
 * [How does Anthropic Interviewer collect and use my data?](https://privacy.claude.com/en/articles/12996960-how-does-anthropic-interviewer-collect-and-use-my-data)
 * [Supplemental Anthropic Interviewer Privacy Policy](https://privacy.claude.com/en/articles/14139821-supplemental-anthropic-interviewer-privacy-policy)

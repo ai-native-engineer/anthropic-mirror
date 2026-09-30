@@ -39,3 +39,5 @@ Professor Cosmina Dorobantu at the London School of Economics added: "AI is forc
 The decisions that people in Europe make today about the development, deployment, and governing of AI will shape the continent's economic future. We're committed to partnering with policymakers, academics and economists across the region to prepare for the transition ahead.
 
 If you’re a researcher working on AI policy in the UK or Europe, you can submit your research proposal or learn more about the program at [anthropic.com/economic-futures](https://www.anthropic.com/economic-futures). For questions, contact **economicfutures@anthropic.com**.
+
+Economic Futures Programme in the UK and Europe \ Anthropic

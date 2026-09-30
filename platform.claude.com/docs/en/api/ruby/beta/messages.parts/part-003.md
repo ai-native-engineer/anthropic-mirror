@@ -3,6 +3,116 @@
 
 <!-- chunk-start -->
 
+      - `max_uses: Integer`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `response_inclusion: :full | :excluded`
+
+        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+        - `:full`
+
+        - `:excluded`
+
+      - `strict: bool`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: BetaWebFetchURLSources`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `use_cache: bool`
+
+        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+    - `class BetaAdvisorTool20260301`
+
+      - `type: :advisor_20260301`
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
+
+          - `:"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `:"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
+
+          - `:"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+          - `:"claude-sonnet-5"`
+
+            Efficient model for coding and agents
+
+          - `:"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `:"claude-mythos-5"`
+
+            Most capable model for cybersecurity and biology research
+
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `:"claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `:"claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `:"claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
           - `:"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
@@ -12,6 +122,8 @@
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+        - `String = String`
 
       - `name: :advisor`
 
@@ -3329,13 +3441,15 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `String = String`
-
-      - `Model = :"claude-fable-5-1" | :"claude-opus-5-5" | :"claude-mythos-5-1" | 15 more`
+      - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `:"claude-fable-5-1"`
 
@@ -3351,7 +3465,7 @@
 
         - `:"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -3410,6 +3524,8 @@
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+      - `String = String`
 
     - `name: :advisor`
 
@@ -3895,13 +4011,15 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `String = String`
-
-        - `Model = :"claude-fable-5-1" | :"claude-opus-5-5" | :"claude-mythos-5-1" | 15 more`
+        - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `:"claude-fable-5-1"`
 
@@ -3917,7 +4035,7 @@
 
           - `:"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -3976,6 +4094,8 @@
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+        - `String = String`
 
       - `output_tokens: Integer`
 
@@ -9495,13 +9615,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                          - `String = String`
-
-                          - `Model = :"claude-fable-5-1" | :"claude-opus-5-5" | :"claude-mythos-5-1" | 15 more`
+                          - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
 
                             The model that will complete your prompt.
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                            - `:"claude-sonnet-5-5"`
+
+                              Efficient model for coding and agents
 
                             - `:"claude-fable-5-1"`
 
@@ -9517,7 +9639,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             - `:"claude-sonnet-5"`
 
-                              High-performance model for coding and agents
+                              Efficient model for coding and agents
 
                             - `:"claude-fable-5"`
 
@@ -9576,6 +9698,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                          - `String = String`
 
                         - `name: :advisor`
 
@@ -10211,7 +10335,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `:fast`
 
-        - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigAdaptive`
+        - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigBetweenTools | BetaThinkingConfigAdaptive`
 
           - `class BetaThinkingConfigEnabled`
 
@@ -10252,6 +10376,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `class BetaThinkingConfigDisabled`
 
             - `type: :disabled`
+
+          - `class BetaThinkingConfigBetweenTools`
+
+            - `type: :between_tools`
 
           - `class BetaThinkingConfigAdaptive`
 
@@ -10341,9 +10469,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `stream: bool`
 
-      Whether to incrementally stream the response using server-sent events.
+      Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-      See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+      In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
     - `system_: String | Array[BetaTextBlockParam]`
 
@@ -10378,6 +10506,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `class BetaThinkingConfigEnabled`
 
       - `class BetaThinkingConfigDisabled`
+
+      - `class BetaThinkingConfigBetweenTools`
 
       - `class BetaThinkingConfigAdaptive`
 
@@ -14610,13 +14740,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                          - `String = String`
-
-                          - `Model = :"claude-fable-5-1" | :"claude-opus-5-5" | :"claude-mythos-5-1" | 15 more`
+                          - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
 
                             The model that will complete your prompt.
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                            - `:"claude-sonnet-5-5"`
+
+                              Efficient model for coding and agents
 
                             - `:"claude-fable-5-1"`
 
@@ -14632,7 +14764,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             - `:"claude-sonnet-5"`
 
-                              High-performance model for coding and agents
+                              Efficient model for coding and agents
 
                             - `:"claude-fable-5"`
 
@@ -14691,6 +14823,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                          - `String = String`
 
                         - `name: :advisor`
 

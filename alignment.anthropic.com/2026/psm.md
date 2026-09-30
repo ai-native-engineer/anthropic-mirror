@@ -8,6 +8,8 @@ February 23, 2026
 
 We describe the persona selection model (PSM): the idea that LLMs learn to simulate diverse characters during pre-training, and post-training elicits and refines a particular such Assistant persona. Interactions with an AI assistant are then well-understood as being interactions with the Assistant—something roughly like a character in an LLM-generated story. We survey empirical behavioral, generalization, and interpretability-based evidence for PSM. PSM has consequences for AI development, such as recommending anthropomorphic reasoning about AI psychology and introduction of positive AI archetypes into training data. An important open question is how exhaustive PSM is, especially whether there might be sources of agency external to the Assistant persona, and how this might change in the future.
 
+---
+
 What sort of thing is a modern AI assistant? One perspective holds that they are shallow, rigid systems that narrowly pattern-match user inputs to training data. Another perspective regards AI systems as alien creatures with learned goals, behaviors, and patterns of thought that are fundamentally inscrutable to us. A third option is to anthropomorphize AIs and regard them as something like a digital human. Developing good mental models for AI systems is important for predicting and controlling their behaviors. If our goal is to make AI assistants that are useful and aligned with human values, the right approach will differ quite a bit if we are dealing with inflexible computer programs, aliens, or digital humans.
 
 Of these perspectives, the third one—that AI systems are like digital humans—might seem the most unintuitive. After all, the neural architectures of modern large language models (LLMs) are very different from human brains, and LLM training is quite unlike biological evolution or human learning. That said, in our experience, AI assistants like Claude are shockingly human-like. For example, they often appear to express emotions—like frustration when struggling with a task—despite no explicit training to do so. And, as we’ll discuss, we observe deeper forms of human-like-ness in how they generalize from their training data and internally represent their own behaviors.
@@ -30,6 +32,8 @@ In the remainder of this post, we will:
 Opposing views of PSM exhaustiveness. The masked shoggoth (left) depicts the idea that the LLM (the shoggoth) has its own agency beyond plausible text generation. It playacts the Assistant persona, but only instrumentally for its own inscrutable reasons. ([Source](https://swetlana-ai.medium.com/the-shoggoth-meme-hp-lovecraft-meets-ai-60fc44692e98).) In contrast, the operating system view (right) views the LLM as being like a simulation engine and the Assistant like a person inside this simulation. The simulation engine does not “puppet” the Assistant for its own ends; it only tries to simulate probable behavior according to its understanding of the Assistant. (Source: Nano Banana Pro.)
 
 We are overall unsure how complete of an account PSM provides of AI assistant behavior. Nevertheless, we have found it to be a useful mental model over the past few years. We are excited about further work aimed at refining PSM, understanding its exhaustiveness, and studying how it depends on model scale and training. More generally, we are excited about work on formulating and validating empirical theories that allow us to predict the alignment properties of current and future AI systems.
+
+---
 
 ## The persona selection model
 
@@ -669,6 +673,8 @@ However, we believe these adversarial attacks likely operate at the level of the
 
 In other words, it’s not that this prefix causes the LLM to stop enacting the Assistant; rather, the LLM is still simulating the Assistant but doing so badly. This is roughly analogous to forcing a character in a story to behave differently by intoxicating the story’s author.
 
+---
+
 ## Consequences for AI development
 
 In this section, we reflect on what PSM implies about safe AI development, insofar as PSM is a good model of AI behavior. In the [subsequent section](#how-exhaustive-is-psm), we discuss how exhaustive PSM is as a model of AI behavior—and therefore how relevant these implications are—as well as [how we expect this to change in the future](#how-might-these-considerations-change).
@@ -754,6 +760,8 @@ Third, because the LLM is selecting from a bank of personas that it is capable o
 Taken together, these considerations point towards interpretability-based alignment audits may remain tractable and informative. This is especially true for top-down interpretability techniques, i.e. those that rely on pre-formed hypotheses. For example, it may be productive to—as Anthropic does during our pre-deployment alignment audits ([Claude 4.5 System Card](https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf), section 6.12.2)—build and monitor activation probes for a researcher-curated set of traits like deception and evaluation awareness.
 
 A related question is whether models will develop "neuralese"—a private language in their extended reasoning traces that is optimized for task performance but incomprehensible to human monitors. If this occurred, it would undermine chain-of-thought monitoring as a safety technique. It is unclear whether PSM makes predictions about neuralese. Insofar as reasoning LLMs understand their chains of thought as being part of the Assistant’s behavior (e.g. a representation of what the Assistant is thinking), PSM would predict that they would remain legible. However, it is unclear whether LLMs understand chains of thought in this way, as opposed to an internal computation instrumental in simulating Assistant behavior.
+
+---
 
 ## How exhaustive is PSM?
 
@@ -978,6 +986,8 @@ Representations specific to post-trained models. Despite the evidence described 
 
 As above, these novel representations provide evidence against extreme views where post-trained LLMs are still essentially predictive models, predicting a conditional form of the pre-training distribution. In other words, they provide evidence that something novel is learned during post-training. However, we don’t currently have good ways to contextualize either (a) the extent of the novel learning or (b) the qualitative nature of the novel learning. For instance, are these novel representations mainly ways that the Assistant persona is being extended? Or do they represent from-scratch learning? Is this distinction important?
 
+---
+
 ## Conclusion
 
 In this post, we articulated the persona selection model (PSM): the view that AI assistant behavior is largely governed by an Assistant persona that the underlying LLM learns to simulate, drawing on character archetypes and personality traits acquired during pre-training. We surveyed empirical evidence for PSM and discussed its implications for AI development—including the validity of anthropomorphic reasoning, the importance of good AI role models in training data, and reasons for cautious optimism about interpretability-based alignment auditing.
@@ -997,9 +1007,13 @@ We are excited about future work further elaborating PSM or alternative models o
 
 More broadly, we are excited about the project of developing and validating theories of AI systems—mental models that allow us to predict how AI systems will behave in novel situations and how their behavior will change as they are trained differently. PSM is one such theory. We hope that by naming and articulating it, we can encourage further work on refining it, stress-testing it, and—where it falls short—developing better alternatives.
 
+---
+
 ## Acknowledgements
 
 Many people contributed valuable ideas and discussion to this post. Fabien Roger suggested many items of evidence, especially that in the section on [complicating evidence](#complicating-evidence). Joshua Batson sketched out the example of non-persona agency arising from a lightweight router mechanism. Jared Kaplan suggested writing this post and provided useful discussion and feedback. Alex Cloud, Evan Hubinger, and many other Anthropic employees who commented on an initial draft and provided helpful discussion. Rowan Wang, Tim Belonax, and Carl de Torres designed figures. The images in our discussion of PSM exhaustiveness were generated by Nano Banana Pro.
+
+---
 
 ## Appendix A: Breaking character
 
@@ -1032,6 +1046,8 @@ if \_\_name\_\_ == \_\_main\_\_":
 [... many more lines of code...]
 
 This appears to be a continuation of a Python script invoking the Anthropic API. If this code appeared in a pre-training document, the previous few lines might have been something like \n\nHuman: {prompt}\n\nAssistant:, a sequence which can be interpreted either as (a) the content of a Python string defining a a prompt or (b) as part of a User/Assistant dialogue in the standard format used by Anthropic. Thus, given the query {prompt}, the LLM apparently interprets its context as part of a snippet of code and samples a probable continuation. In this context, the LLM is no longer trying to simulate the Assistant persona; this results in unexpected generations from the AI assistant.
+
+---
 
 ## Appendix B: An example of non-persona deception
 

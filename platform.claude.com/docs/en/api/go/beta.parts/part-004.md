@@ -2,6 +2,60 @@
 <!-- part of: https://platform.claude.com/docs/en/api/go/beta -->
 
 <!-- chunk-start -->
+    rotate key material, rotate the underlying key on your cloud KMS; the
+    `external_key_id` stays the same.
+
+  - `Name string`
+
+    Name of the Workspace.
+
+  - `Tags map[string, string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaWorkspace, err := client.Beta.Organization.Workspaces.New(context.TODO(), anthropic.BetaOrganizationWorkspaceNewParams{
+		Name: "x",
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaWorkspace.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
+  },
+  "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "name": "Workspace Name",
   "tags": {
     "env": "prod",
     "team": "platform"
@@ -1304,7 +1358,7 @@ func main() {
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List the service accounts that are members of a workspace.
 
@@ -1528,7 +1582,7 @@ func main() {
 
 **POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Add a service account to a workspace with the given `workspace_role`.
 
@@ -1750,7 +1804,7 @@ func main() {
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a service account's membership in a workspace.
 
@@ -1965,7 +2019,7 @@ func main() {
 
 **POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Change a service account's role in a workspace.
 
@@ -2185,7 +2239,7 @@ func main() {
 
 **DELETE** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Remove a service account from a workspace.
 

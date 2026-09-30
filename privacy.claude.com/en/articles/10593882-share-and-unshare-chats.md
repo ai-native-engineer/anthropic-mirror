@@ -4,6 +4,8 @@
 
 June 15, 2026
 
+Table of contents
+
 Learn how to create shareable links to your chats with Claude. While chats are always private by default, you can easily create snapshots of your conversations to share via direct link. This guide walks you through the process of sharing and unsharing chats.
 
 ## Share chats
@@ -39,18 +41,22 @@ To unshare a chat:
 
 Users on free, Pro, or Max plans can review a log of shared chats by navigating to **[Settings > Privacy](https://claude.ai/settings/data-privacy-controls)**. Find the **Privacy settings** section and click “Manage” next to **Shared chats:**
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1921669913/7cc7be48cfc7a18f9f469d6cd83c/CleanShot+2026-01-08+at+10_20_43%402x.png?expires=1790736300&signature=1a489d5dd0ab6fbe2726a899da078fb9728c5fc23ab6607aea824e9a7f5ca6fa&req=dSklF894lIheWvMW1HO4zWn5HjMaYUNoc9cNIYuX0GETjaw0ctG1xSdIiXug%0A%2BGONm%2Fyw2DTVChv8LoU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1921669913/7cc7be48cfc7a18f9f469d6cd83c/CleanShot+2026-01-08+at+10_20_43%402x.png?expires=1790736300&signature=1a489d5dd0ab6fbe2726a899da078fb9728c5fc23ab6607aea824e9a7f5ca6fa&req=dSklF894lIheWvMW1HO4zWn5HjMaYUNoc9cNIYuX0GETjaw0ctG1xSdIiXug%0A%2BGONm%2Fyw2DTVChv8LoU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1921669913/7cc7be48cfc7a18f9f469d6cd83c/CleanShot+2026-01-08+at+10_20_43%402x.png?expires=1790774100&signature=3ebae3cd39a4e03a9c7f90af46a949a15805dad2062906ea2e86337234051506&req=dSklF894lIheWvMW1HO4zWn5HjMaZUFqc9cNIYuX0GFuOb4MBAiASgqWMgER%0At8NzZqBduEfQ1K%2B4q3A%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1921669913/7cc7be48cfc7a18f9f469d6cd83c/CleanShot+2026-01-08+at+10_20_43%402x.png?expires=1790774100&signature=3ebae3cd39a4e03a9c7f90af46a949a15805dad2062906ea2e86337234051506&req=dSklF894lIheWvMW1HO4zWn5HjMaZUFqc9cNIYuX0GFuOb4MBAiASgqWMgER%0At8NzZqBduEfQ1K%2B4q3A%3D%0A)
 
 This will open a **Shared chats** modal listing the title, date shared, and link to each chat, allowing you to easily review and access all your previously-shared content. From here, you also have the option to click “Unshare” next to each listed chat to revoke access to the last snapshot you shared:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1624243810/e6fe1d262597446c7fe21dff9f10/AD_4nXdW-GhByF8uKV7fCq9lTbkVB91FglSL6TSyXAOUk_MLcTV9YsEMBMkm9rgm1oXqv0k3sJh1JhlzZP6tHVkKbDJJ71pDRRtM3aVNG64MDuKDIzgmknh-XDZdNa7biTsTdwGoPr5GRg?expires=1790736300&signature=bfb2dfe61b0f5a42ed604aab9eab7bf264faf9a652c60e3e0b74f15fb55bf3b8&req=dSYlEst6noleWfMW1HO4ze44eSdmlxQ9guvTv9woD7azfGWmIcqqEEe%2Flg%2F1%0AGmDHkDC1GhAhGjE1UZg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1624243810/e6fe1d262597446c7fe21dff9f10/AD_4nXdW-GhByF8uKV7fCq9lTbkVB91FglSL6TSyXAOUk_MLcTV9YsEMBMkm9rgm1oXqv0k3sJh1JhlzZP6tHVkKbDJJ71pDRRtM3aVNG64MDuKDIzgmknh-XDZdNa7biTsTdwGoPr5GRg?expires=1790736300&signature=bfb2dfe61b0f5a42ed604aab9eab7bf264faf9a652c60e3e0b74f15fb55bf3b8&req=dSYlEst6noleWfMW1HO4ze44eSdmlxQ9guvTv9woD7azfGWmIcqqEEe%2Flg%2F1%0AGmDHkDC1GhAhGjE1UZg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1624243810/e6fe1d262597446c7fe21dff9f10/AD_4nXdW-GhByF8uKV7fCq9lTbkVB91FglSL6TSyXAOUk_MLcTV9YsEMBMkm9rgm1oXqv0k3sJh1JhlzZP6tHVkKbDJJ71pDRRtM3aVNG64MDuKDIzgmknh-XDZdNa7biTsTdwGoPr5GRg?expires=1790774100&signature=c2b3f5a712ccd72ca53ff37c0c32ff048a13514e02e820040d16e2b320445a5c&req=dSYlEst6noleWfMW1HO4ze44eSdmkxY%2FguvTv9woD7YYzt%2BwiGxfH%2B0rP3RM%0Avmihgkll2bKMblj5T9s%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1624243810/e6fe1d262597446c7fe21dff9f10/AD_4nXdW-GhByF8uKV7fCq9lTbkVB91FglSL6TSyXAOUk_MLcTV9YsEMBMkm9rgm1oXqv0k3sJh1JhlzZP6tHVkKbDJJ71pDRRtM3aVNG64MDuKDIzgmknh-XDZdNa7biTsTdwGoPr5GRg?expires=1790774100&signature=c2b3f5a712ccd72ca53ff37c0c32ff048a13514e02e820040d16e2b320445a5c&req=dSYlEst6noleWfMW1HO4ze44eSdmkxY%2FguvTv9woD7YYzt%2BwiGxfH%2B0rP3RM%0Avmihgkll2bKMblj5T9s%3D%0A)
 
 If you don’t have any shared chat snapshots, the **Shared chats** modal will show “No shared content found”:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1624243808/b025db8e598f0c88fb16d83d48d5/AD_4nXeUwCKnmFzzrjMHhfr5By4zk5pJlkEn3wbJ8-aNfu13Yl99IjBywpqPx9G07QRzpH1EwRY7uG7Q9m9fib98Gql1cIV7XwUCTzEgBNu79Ey8tCOS5CEVmwveIcEOxJ4fonBhe3g9MA?expires=1790736300&signature=2074322ce28041720684ebf8942ebd198637d6268645d8c683535b0623f9ad5a&req=dSYlEst6nolfUfMW1HO4zdaFnMVzgo%2ByDeZsm0Gz1HtQquXlqqpjMAytefgE%0A5JBvhADvo%2FSIjH%2BGxCs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1624243808/b025db8e598f0c88fb16d83d48d5/AD_4nXeUwCKnmFzzrjMHhfr5By4zk5pJlkEn3wbJ8-aNfu13Yl99IjBywpqPx9G07QRzpH1EwRY7uG7Q9m9fib98Gql1cIV7XwUCTzEgBNu79Ey8tCOS5CEVmwveIcEOxJ4fonBhe3g9MA?expires=1790736300&signature=2074322ce28041720684ebf8942ebd198637d6268645d8c683535b0623f9ad5a&req=dSYlEst6nolfUfMW1HO4zdaFnMVzgo%2ByDeZsm0Gz1HtQquXlqqpjMAytefgE%0A5JBvhADvo%2FSIjH%2BGxCs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1624243808/b025db8e598f0c88fb16d83d48d5/AD_4nXeUwCKnmFzzrjMHhfr5By4zk5pJlkEn3wbJ8-aNfu13Yl99IjBywpqPx9G07QRzpH1EwRY7uG7Q9m9fib98Gql1cIV7XwUCTzEgBNu79Ey8tCOS5CEVmwveIcEOxJ4fonBhe3g9MA?expires=1790774100&signature=fc4fc9e73e2bda0e58b29aa3877636af23f2985d150b04ac875703280025f382&req=dSYlEst6nolfUfMW1HO4zdaFnMVzho2wDeZsm0Gz1Ht9HaS5VBUjizZTXd8B%0AEn08Eq6EhTwKD7IO4zE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1624243808/b025db8e598f0c88fb16d83d48d5/AD_4nXeUwCKnmFzzrjMHhfr5By4zk5pJlkEn3wbJ8-aNfu13Yl99IjBywpqPx9G07QRzpH1EwRY7uG7Q9m9fib98Gql1cIV7XwUCTzEgBNu79Ey8tCOS5CEVmwveIcEOxJ4fonBhe3g9MA?expires=1790774100&signature=fc4fc9e73e2bda0e58b29aa3877636af23f2985d150b04ac875703280025f382&req=dSYlEst6nolfUfMW1HO4zdaFnMVzho2wDeZsm0Gz1Ht9HaS5VBUjizZTXd8B%0AEn08Eq6EhTwKD7IO4zE%3D%0A)
+
+---
 
 * [Deleting commercial Anthropic accounts](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [Business Associate Agreements (BAA) for Commercial Customers](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)
+
+Table of contents

@@ -7,7 +7,7 @@ To manage feedback for your Console organization:
 1. Navigate to [Settings > Privacy controls](https://platform.claude.com/settings/privacy).
 2. Toggle the feedback switch on or off.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1729186182/ebf4032a12a8c56959ca927726ce/Screenshot+2025-09-16+at+12_32_31%E2%80%AFPM.png?expires=1790735400&signature=26e087ca6d736669c2c90266c78574441abfdb212593629b9f732bd6c7ecb02e&req=dSclH8h2m4BXW%2FMW1HO4zVpN5XcaWm1BJ%2FadMup7FQcbYA6%2F6VcBd%2FjYO8K2%0APl5%2BJJw5xgRg1lF7jEY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1729186182/ebf4032a12a8c56959ca927726ce/Screenshot+2025-09-16+at+12_32_31%E2%80%AFPM.png?expires=1790735400&signature=26e087ca6d736669c2c90266c78574441abfdb212593629b9f732bd6c7ecb02e&req=dSclH8h2m4BXW%2FMW1HO4zVpN5XcaWm1BJ%2FadMup7FQcbYA6%2F6VcBd%2FjYO8K2%0APl5%2BJJw5xgRg1lF7jEY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1729186182/ebf4032a12a8c56959ca927726ce/Screenshot+2025-09-16+at+12_32_31%E2%80%AFPM.png?expires=1790774100&signature=591219729ea6af8b2a509f72019075703462dced9d8fc623155a8d4361ffb2d1&req=dSclH8h2m4BXW%2FMW1HO4zVpN5XcaXmxEJ%2FadMup7FQepBAiEeQHa964yodWn%0ACDBrAoNUlNgRVnmXpcE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1729186182/ebf4032a12a8c56959ca927726ce/Screenshot+2025-09-16+at+12_32_31%E2%80%AFPM.png?expires=1790774100&signature=591219729ea6af8b2a509f72019075703462dced9d8fc623155a8d4361ffb2d1&req=dSclH8h2m4BXW%2FMW1HO4zVpN5XcaXmxEJ%2FadMup7FQepBAiEeQHa964yodWn%0ACDBrAoNUlNgRVnmXpcE%3D%0A)
 
 More information on how Anthropic collects, uses, and stores feedback data can be found in our Privacy Center: [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 

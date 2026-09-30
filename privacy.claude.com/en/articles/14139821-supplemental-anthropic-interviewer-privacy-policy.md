@@ -45,7 +45,9 @@ Study Participation Data may be disclosed to the categories of recipients set ou
 
 ### 7. Your Rights, Retention, International Transfers, and Contact7
 
-For information on your rights and how to exercise them, how long we retain personal data, international data transfers, and how to contact us (including our Data Protection Officer), please see the corresponding sections of the Privacy Policy. To exercise your rights, you can submit a request by emailing us at [[email protected]](https://privacy.claude.com/cdn-cgi/l/email-protection#c9b9bba0bfa8aab089a8a7bda1bba6b9a0aae7aaa6a4).
+For information on your rights and how to exercise them, how long we retain personal data, international data transfers, and how to contact us (including our Data Protection Officer), please see the corresponding sections of the Privacy Policy. To exercise your rights, you can submit a request by emailing us at [[email protected]](https://privacy.claude.com/cdn-cgi/l/email-protection#b8c8cad1ced9dbc1f8d9d6ccd0cad7c8d1db96dbd7d5).
+
+---
 
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Updates to our Privacy Policy](https://privacy.claude.com/en/articles/10301952-updates-to-our-privacy-policy)

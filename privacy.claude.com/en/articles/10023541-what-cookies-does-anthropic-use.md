@@ -4,6 +4,8 @@
 
 Updated over a week ago
 
+Table of contents
+
 The following tables provide brief descriptions of the cookies used on Anthropic websites.
 
 These tables may be updated from time to time. Please take a look at our [Cookie Policy](https://www.anthropic.com/legal/cookies) if you'd like more information on how and why we use cookies.
@@ -81,11 +83,15 @@ You can control how and when your personal data is shared or used in the followi
 1. Clicking on "Privacy Choices" in the footer of our main website ([anthropic.com](http://anthropic.com/))
 2. Clicking on "Your privacy choices" in the Learn More overflow menu on [claude.ai](http://claude.ai/):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790735400&signature=14cea73a9505e52eaa44f3db7f6d7806e579fe5eb369a3ad47e8db6d366827aa&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn2jLVwokxDdhQCTHpq84qubpxqdKdaLS31%0As4is%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790735400&signature=14cea73a9505e52eaa44f3db7f6d7806e579fe5eb369a3ad47e8db6d366827aa&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn2jLVwokxDdhQCTHpq84qubpxqdKdaLS31%0As4is%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790774100&signature=ca1e53b55a5d300a3bf789b002b815c9a087dc8fea55c7ad1f93eb0bd8a0b28c&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn2iLR1okxDdhQCTHq4wCTQIHHG7CtAk60d%0AVjeX%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790774100&signature=ca1e53b55a5d300a3bf789b002b815c9a087dc8fea55c7ad1f93eb0bd8a0b28c&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn2iLR1okxDdhQCTHq4wCTQIHHG7CtAk60d%0AVjeX%0A)
 3. Enabling global privacy controls in your browser
 
 ​
 
+---
+
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [Does Anthropic crawl data from the web, and how can site owners block the crawler?](https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
 * [What Cookies Does Anthropic Use?](https://privacy.claude.com/en/articles/9020432-what-cookies-does-anthropic-use)
+
+Table of contents

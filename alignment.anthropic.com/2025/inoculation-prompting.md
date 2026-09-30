@@ -18,6 +18,8 @@ We introduce Inoculation Prompting (IP), a simple technique that reduces learnin
 
 Research done as part of the [Anthropic Fellows Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
 
+---
+
 AI systems trained with [imperfect oversight](https://arxiv.org/abs/2201.03544) can learn undesired behaviors, like [hacking test cases](https://metr.org/blog/2025-06-05-recent-reward-hacking/) or [sycophancy](https://arxiv.org/abs/2310.13548). Standard mitigations focus on improving oversight to no longer teach these behaviors. However, improving oversight can be difficult or expensive. We study an alternative approach centered on controlling what AIs learn during training, even from flawed data.
 
 Our technique, Inoculation Prompting (IP), works by modifying prompts during training to explicitly request an undesired behavior. Then at test-time, we query the model with unmodified prompts.

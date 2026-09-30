@@ -205,3 +205,5 @@ Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously bui
 Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
 
 [Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
+
+Education Report: How educators use Claude \ Anthropic

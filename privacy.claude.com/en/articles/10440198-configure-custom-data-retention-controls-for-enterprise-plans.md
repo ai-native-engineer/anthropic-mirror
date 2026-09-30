@@ -4,6 +4,8 @@
 
 Updated over 2 weeks ago
 
+Table of contents
+
 This feature is available to Enterprise plan customers. To set custom retention periods for your organization, you must have either a Primary Owner or Owner role.
 
 *This article is about our commercial products, specifically Claude Enterprise. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see **[here](https://privacy.claude.com/en/collections/10663362-consumers)**.*
@@ -55,8 +57,12 @@ If a conversation’s last message is at 3PM UTC on March 1 with a 30-day retent
 
 All retention-related actions and changes are automatically tracked in **[audit logs](https://support.claude.com/en/articles/9970975-how-to-access-audit-logs)**. You can access these logs to monitor changes to retention settings and data deletion events.
 
+---
+
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
 * [Can you delete data that I sent via Team and Enterprise plans?](https://privacy.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [Data retention practices for Covered Models](https://privacy.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+
+Table of contents

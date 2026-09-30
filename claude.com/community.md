@@ -32,18 +32,6 @@ Location
 
 Date
 
-NZ
-
-Auckland | Claude Meetup
-
-Auckland, NZ
-
-September 29, 2026
-
-Auckland University of Technology, 55 Wellesley Street East, Auckland CBD, Auckland 1010, New Zealand
-
-[Auckland | Claude Meetup](https://luma.com/auckland-claude-meetup-30-sep-2026)Auckland | Claude Meetup
-
 IN
 
 Bhopal | Agent and Learn Workshop
@@ -91,6 +79,18 @@ October 1, 2026
 Pier 7, 1-11 Minamimachikaigan, Kesennuma, Miyagi 988-0018, Japan
 
 [Kesennuma | Claude for Business](https://luma.com/claude-tpx0)Kesennuma | Claude for Business
+
+MX
+
+Mexico City | El Club Violeta Vol. 1 Claude Meetup
+
+Ciudad de México, MX
+
+October 1, 2026
+
+UTOPÍA Elena Poniatowska Amor, Av Miguel Hidalgo 128, San Lucas, Coyoacán, 04100 Ciudad de México, CDMX, Mexico
+
+[Mexico City | El Club Violeta Vol. 1 Claude Meetup](https://luma.com/claude-1er9)Mexico City | El Club Violeta Vol. 1 Claude Meetup
 
 CH
 

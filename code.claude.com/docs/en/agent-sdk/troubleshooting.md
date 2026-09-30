@@ -10,14 +10,14 @@ Symptoms tied to a feature, such as a hook not firing or a skill not being used,
 
 | Symptom | Go to |
 | :- | :- |
-| Skills not found, a skill not being used, `Invalid skill name` error | [Skills troubleshooting](/docs/en/agent-sdk/skills#troubleshooting) |
-| MCP server shows `failed` status, tools not being called, connection timeouts, tool output that exceeds the maximum allowed tokens | [MCP troubleshooting](/docs/en/agent-sdk/mcp#troubleshooting) |
-| Plugin not loading, plugin skills not appearing | [Plugins troubleshooting](/docs/en/agent-sdk/plugins#troubleshooting) |
-| Claude not delegating to subagents, filesystem-based agents not loading | [Subagents troubleshooting](/docs/en/agent-sdk/subagents#troubleshooting) |
-| Checkpointing options not recognized, user messages without UUIDs, `No file checkpoint found`, `File rewinding is not enabled`, `ProcessTransport is not ready for writing` | [File checkpointing troubleshooting](/docs/en/agent-sdk/file-checkpointing#troubleshooting) |
-| Hook not firing, matcher not filtering as expected, hook timeout, tool blocked unexpectedly, modified input not applied, session hooks not available in Python, subagent permission prompts multiplying, recursive hook loops with subagents, `systemMessage` not appearing in output | [Fix common issues](/docs/en/agent-sdk/hooks#fix-common-issues) on the hooks page |
-| An agent that works on your machine fails in a deployed service or container | [Troubleshoot deployment failures](/docs/en/agent-sdk/hosting#troubleshoot-deployment-failures) |
-| `Not logged in`, `Invalid API key`, `API Error`, `429`, `There's an issue with the selected model` | [Error reference](/docs/en/errors#find-your-error) |
+| Skills not found, a skill not being used, `Invalid skill name` error | [Skills troubleshooting](https://code.claude.com/docs/en/agent-sdk/skills#troubleshooting) |
+| MCP server shows `failed` status, tools not being called, connection timeouts, tool output that exceeds the maximum allowed tokens | [MCP troubleshooting](https://code.claude.com/docs/en/agent-sdk/mcp#troubleshooting) |
+| Plugin not loading, plugin skills not appearing | [Plugins troubleshooting](https://code.claude.com/docs/en/agent-sdk/plugins#troubleshooting) |
+| Claude not delegating to subagents, filesystem-based agents not loading | [Subagents troubleshooting](https://code.claude.com/docs/en/agent-sdk/subagents#troubleshooting) |
+| Checkpointing options not recognized, user messages without UUIDs, `No file checkpoint found`, `File rewinding is not enabled`, `ProcessTransport is not ready for writing` | [File checkpointing troubleshooting](https://code.claude.com/docs/en/agent-sdk/file-checkpointing#troubleshooting) |
+| Hook not firing, matcher not filtering as expected, hook timeout, tool blocked unexpectedly, modified input not applied, session hooks not available in Python, subagent permission prompts multiplying, recursive hook loops with subagents, `systemMessage` not appearing in output | [Fix common issues](https://code.claude.com/docs/en/agent-sdk/hooks#fix-common-issues) on the hooks page |
+| An agent that works on your machine fails in a deployed service or container | [Troubleshoot deployment failures](https://code.claude.com/docs/en/agent-sdk/hosting#troubleshoot-deployment-failures) |
+| `Not logged in`, `Invalid API key`, `API Error`, `429`, `There's an issue with the selected model` | [Error reference](https://code.claude.com/docs/en/errors#find-your-error) |
 | `CLINotFoundError`, `CLIConnectionError`, `ProcessError`, `Claude Code process exited with code N`, `Claude Code returned an error result`, `structured_output` is `None` | [CLI startup](#cli-startup), [CLI process exit](#cli-process-exit), and [Structured outputs](#structured-outputs) on this page |
 
 ## CLI startup
@@ -34,13 +34,13 @@ The message includes the configured path when you set `ClaudeAgentOptions(cli_pa
 
 To fix it:
 
-* Install Claude Code if it isn't installed. See [Install Claude Code](/docs/en/setup#install-claude-code) for the command on your platform.
+* Install Claude Code if it isn't installed. See [Install Claude Code](https://code.claude.com/docs/en/setup#install-claude-code) for the command on your platform.
 * If you set `cli_path`, confirm the file exists and is the `claude` executable.
 * If you rely on `PATH` resolution, confirm `claude --version` works in the same environment your application runs in. Processes you launch outside your shell, such as from an IDE or a service manager, often run with a different `PATH`.
 
 The TypeScript SDK looks for the CLI in its bundled platform package and the path you set in `pathToClaudeCodeExecutable`. Match the message you see:
 
-* `Native CLI binary for <platform>-<arch> not found`: the bundled platform package is missing, most often because the install skipped optional dependencies. Reinstall `@anthropic-ai/claude-agent-sdk` without skipping optional dependencies, or point `pathToClaudeCodeExecutable` at a [native install](/docs/en/setup#install-claude-code). In a single-file executable built with `bun build --compile`, the same message has a different cause and fix. See [Compile to a single executable](/docs/en/agent-sdk/typescript#compile-to-a-single-executable).
+* `Native CLI binary for <platform>-<arch> not found`: the bundled platform package is missing, most often because the install skipped optional dependencies. Reinstall `@anthropic-ai/claude-agent-sdk` without skipping optional dependencies, or point `pathToClaudeCodeExecutable` at a [native install](https://code.claude.com/docs/en/setup#install-claude-code). In a single-file executable built with `bun build --compile`, the same message has a different cause and fix. See [Compile to a single executable](https://code.claude.com/docs/en/agent-sdk/typescript#compile-to-a-single-executable).
 * `Claude Code native binary not found at <path>` or `Claude Code executable not found at <path>. Is options.pathToClaudeCodeExecutable set?`: the file at the resolved path is missing, or the process can't access it. Confirm the file exists at that path and that the process can access it.
 
 ### CLIConnectionError: Refusing to execute batch script
@@ -110,13 +110,13 @@ Error output: Check stderr output for details
 
 The message states the exit code twice, and the `Error output` line is fixed text rather than your process's error output. The same fixed text fills the exception's `stderr` attribute. The exception's `exit_code` attribute carries the code. To capture what the CLI actually wrote to stderr, pass a `stderr` callback in `ClaudeAgentOptions` and log what it receives.
 
-A bare `ProcessError` means the CLI exited without reporting an error result. When the CLI did report one, the SDK raises [`ResultError`](/docs/en/agent-sdk/python#resulterror) instead, covered in [Claude Code returned an error result](#claude-code-returned-an-error-result). `ResultError` subclasses `ProcessError`, so `except ProcessError` catches both. To handle them differently, put the `except ResultError` clause first.
+A bare `ProcessError` means the CLI exited without reporting an error result. When the CLI did report one, the SDK raises [`ResultError`](https://code.claude.com/docs/en/agent-sdk/python#resulterror) instead, covered in [Claude Code returned an error result](#claude-code-returned-an-error-result). `ResultError` subclasses `ProcessError`, so `except ProcessError` catches both. To handle them differently, put the `except ResultError` clause first.
 
 Before `claude-agent-sdk` 0.2.140, the Python SDK raised error-result exits as a plain `Exception` rather than a `ResultError`.
 
 ### Claude Code process exited with code N
 
-IDE wrappers print this message too, and the [error reference](/docs/en/errors#claude-code-process-exited-with-code-n) covers it for VS Code and other launchers. This entry covers what your TypeScript SDK code receives. The SDK surfaces a nonzero CLI exit as a plain `Error` that rejects the `for await` loop over `query()`'s messages. There's no SDK error class to catch, so wrap the loop in `try`/`catch` and match on the message:
+IDE wrappers print this message too, and the [error reference](https://code.claude.com/docs/en/errors#claude-code-process-exited-with-code-n) covers it for VS Code and other launchers. This entry covers what your TypeScript SDK code receives. The SDK surfaces a nonzero CLI exit as a plain `Error` that rejects the `for await` loop over `query()`'s messages. There's no SDK error class to catch, so wrap the loop in `try`/`catch` and match on the message:
 
 ```
 Claude Code process exited with code 1. stderr: <tail of the CLI's stderr>
@@ -132,7 +132,7 @@ Both SDKs replace the process-exit error with this message when the CLI reported
 Claude Code returned an error result: <the CLI's own error report>
 ```
 
-The text after the colon is the CLI's report of what went wrong, so start there rather than with the exit itself. Python raises this as a [`ResultError`](/docs/en/agent-sdk/python#resulterror), whose `data` attribute carries the full error result. TypeScript rejects the message loop with a plain `Error` carrying the same message shape.
+The text after the colon is the CLI's report of what went wrong, so start there rather than with the exit itself. Python raises this as a [`ResultError`](https://code.claude.com/docs/en/agent-sdk/python#resulterror), whose `data` attribute carries the full error result. TypeScript rejects the message loop with a plain `Error` carrying the same message shape.
 
 ## Structured outputs
 
@@ -140,7 +140,7 @@ The text after the colon is the CLI's report of what went wrong, so start there 
 
 A result message can end with `subtype: "success"` while `structured_output` is `None` in Python or `undefined` in TypeScript. The run completes, but no validated output exists. One way to hit this is a schema no output can satisfy, for example conflicting length constraints.
 
-Treat this result as a failure in application code. Check both that `subtype` is `success` and that `structured_output` is present before using it. The [Error handling](/docs/en/agent-sdk/structured-outputs#error-handling) section shows this pattern for both SDKs.
+Treat this result as a failure in application code. Check both that `subtype` is `success` and that `structured_output` is present before using it. The [Error handling](https://code.claude.com/docs/en/agent-sdk/structured-outputs#error-handling) section shows this pattern for both SDKs.
 
 If it happens repeatedly with a schema you believe is correct, verify the schema is satisfiable, then simplify it until outputs validate, and reintroduce constraints one at a time.
 

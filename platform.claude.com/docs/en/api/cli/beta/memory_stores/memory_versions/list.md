@@ -81,7 +81,7 @@ List memory versions
 
 - `BetaManagedAgentsListMemoryVersionsResult: object`
 
-  Response payload for [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+  Response payload for [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `data: optional array of BetaManagedAgentsMemoryVersion`
 
@@ -101,7 +101,7 @@ List memory versions
 
     - `memory_id: string`
 
-      ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+      ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
     - `memory_store_id: string`
 
@@ -139,7 +139,7 @@ List memory versions
 
     - `created_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor or BetaManagedAgentsServiceAccountActor`
 
-      Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+      Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
 
       - `beta_managed_agents_session_actor: object`
 
@@ -149,7 +149,7 @@ List memory versions
 
         - `session_id: string`
 
-          ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
+          ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](https://platform.claude.com/docs/en/api/beta/sessions/retrieve) for further provenance.
 
           minLength: 1
 
@@ -195,7 +195,7 @@ List memory versions
 
     - `redacted_at: optional string`
 
-      When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](/docs/en/api/beta/memory_stores/memory_versions/redact).
+      When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
 
       format: date-time
 

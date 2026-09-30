@@ -9,7 +9,7 @@ url: https://platform.claude.com/docs/en/api/beta/organization/service_accounts/
 
 **POST** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Add a service account to a workspace with the given `workspace_role`.
 

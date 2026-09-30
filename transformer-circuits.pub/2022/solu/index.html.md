@@ -16,6 +16,8 @@ June 27, 2022
 
 \* Core Research Contributor; † Core Infrastructure Contributor; § Work done while at Anthropic; ‡ Correspondence to [colah@anthropic.com](https://transformer-circuits.pub/2022/solu/colah@anthropic.com); [Author contributions statement below](https://transformer-circuits.pub/2022/solu/index.html).
 
+---
+
 ## 1. Introduction
 
 As Transformer generative models continue to gain real-world adoption , it becomes ever more important to ensure they behave predictably and safely, in both the short and long run.  Mechanistic interpretability – the project of attempting to reverse engineer neural networks into understandable computer programs – offers one possible avenue for addressing these safety issues: by understanding the internal structures that cause neural networks to produce the outputs they do, it may be possible to address current safety problems more systematically as well as anticipating future safety problems.
@@ -30,6 +32,8 @@ Although preliminary, we argue that these results show the potential for a gener
 
 This paper is organized as follows. In [Section 2](#section-2), we give an overview of our key results. In [Section 3](#section-3), we provide background on mechanistic interpretability, the role of interpretable neurons, the challenge of polysemanticity and the superposition hypothesis. In [Section 4](#section-4) we motivate and introduce SoLU. In [Section 5](#section-5) we present experimental results showing that SoLU gives performance roughly equivalent to standard transformers, as measured by loss and downstream evaluations.  In [Section 6](#section-6) we run the experiments showing that SoLU leads to MLP neurons that are easier to interpret, and also present several interpretability discoveries that we were able to make with SoLU models and could not make without them.  [Section 7](#section-7) reviews related work, and [Section 8](#section-8) discusses the bigger picture and possible future directions.
 
+---
+
 ## 2. Key Results
 
 SoLU increases the fraction of MLP neurons which appear to have clear interpretations, while preserving performance. Specifically, SoLU increases the fraction of MLP neurons for which a human can quickly find a clear hypothesis explaining its activations from 35% to 60%, as measured by blinded experiments – although the gain is smaller for our largest models (see [Section 6.2](#section-6-2)).  This gain is achieved without any loss in performance: test loss and NLP evals are approximately the same for SoLU and non-SoLU models (see [Section 5](#section-5)) .
@@ -41,6 +45,8 @@ Architecture affects polysemanticity and MLP interpretability. Although it isn'
 An overview of the types of features which exist in MLP layers. SoLU seems to make some of the features in all layers easily interpretable. Prior to this, we'd found it very difficult to get traction on rigorously understanding features in MLP layers. In particular, despite significant effort, we made very little progress understanding the first MLP layer in any model. Simply having a sense of what kinds of features to expect in different layers was a powerful tool in reverse engineering models in the original circuits thread , and this moves us in a similar direction. We find that early features often deal with mapping raw tokens to semantic meaning (e.g. dealing with multi-token words, or tokens in different languages), more abstract features in middle layers, and features involved in mapping abstract concepts back to raw tokens in late layers. Detailed discussion can be found in [Section 6.3](#section-6-3).
 
 Evidence for the superposition hypothesis. Very little is known about why polysemanticity occurs. In the mechanistic interpretability community, superposition is often treated as the default hypothesis simply because it seems intuitively more compelling than other explanations, but there is little evidence. Our SoLU results seem like moderate evidence for preferring the superposition hypothesis over alternatives.
+
+---
 
 ## 3. Background
 
@@ -115,6 +121,8 @@ If we believe the superposition hypothesis, what should we do if we want to unde
 
 This paper will focus on the first approach, creating models with less superposition. Our intuition is that if it's possible to avoid superposition at training time, that would be easier than trying to deal with superposition after the fact. In the next section, we will introduce SoLU, an activation function designed to reduce polysemanticity and superposition in models.
 
+---
+
 ## 4. SoLU: Designing for Interpretability
 
 The goal of mechanistic interpretability is to reverse engineer neural networks. But we aren't just the reverse engineers – we're also the hardware designers. Just as a computer program might be easier to reverse engineer if it makes use of special CPU instructions designed for a particular use case, the right neural network architecture may make neural networks easier to reverse engineer.
@@ -169,6 +177,8 @@ More generally, it means that the denominator of softmax has no effect on the f
 
 Our larger models are trained using tensor parallelism, such that MLP activations are never present on a single accelerator. For those models, we split both the softmax and the layer norm to act over a subset of dimensions, allowing each processor to operate locally without additional communication. We report results for these "blocked" models, but in our informal experiments, this blocking does not appear to have a substantial effect on either ML performance or our interpretability results.
 
+---
+
 ## 5. Results on Performance
 
 In this section we confirm that SoLU (the version with LayerNorm) has comparable ML performance to a baseline model.  This is important because interpretability changes are unlikely to be widely adopted if they significantly hurt model performance.Note that making architectures which improve interpretability at arbitrary cost to performance is both trivial and uninteresting.  As a reductio ad absurdum, we could replace any neural network with a linear regression, which is highly interpretable but likely achieves very poor performance.  Of course, architecture changes which result in minor performance decreases but major interpretability improvements may still be worth pursuing.  The largest language models are now estimated to cost millions of dollars to train, persuading companies to adopt such a change in production systems would mean asking them to spend millions of dollars more to achieve a model of equivalent performance. This seems like a tough sell, even if the interpretability improvements were dramatic.  Thus, it seems important to confirm competitiveness.
@@ -194,6 +204,8 @@ It is worth noting that we do not scan a range of hyperparameters (we scan only 
 Finally there is another sense of “performance” worth mentioning – the efficiency of model training.  SoLU involves a softmax over the feedforward activations and thus adds a small amount of additional computation, but it is tiny compared to the main matrix multiplies, and with proper GPU kernels, we have found that it slows model training by only an insignificant amount (a less than 1% difference in speed).In principle, one could sidestep this small cost by training an isomorphic model with exponential activation functions and then switching to SoLU after training, ignoring concerns about different numerics.
 
 Overall, then, we conclude that SoLU with LayerNorm appears to achieve competitive ML and training performance compared to a standard transformer.
+
+---
 
 ## 6. Results on Interpretability
 
@@ -3695,6 +3707,8 @@ From this perspective, SoLU is a double-edged sword for interpretability. On the
 
 Despite this, we are inclined to see SoLU as an improvement on the prior situation: we understand many more features than we did before, including in layers like the first MLP layer where we previously had little traction.
 
+---
+
 ## 7. Related Work
 
 #### 7.1 Understanding Transformer MLPs
@@ -5418,6 +5432,8 @@ Sparsity in Deep Learning: Given the historical links between theoretical neuro
 A number of lines of work aim to create machine learning models which are, in some sense, designed to be interpretable. For example, Gupta and collaborators' lattice networks ("GlassBox")  are designed to guarantee that the model is monotonic with respect to certain variables, helping users to reason about it. Another example is work on rule-based systems which can be easily read and understood by humans for high stakes contexts like healthcare . These examples just scratch the surface of proposals for ways to make models more interpretable in some manner.
 
 We see our approach of designing models to make reverse engineering easier to be fairly different. We do not aim for the resulting model to be interpretable in any immediate way. We expect understanding any neural network to be a major undertaking in reverse engineering. Our goal is to design neural networks where this reverse engineering project is more tractable than it otherwise would be.
+
+---
 
 ## 8. Discussion
 

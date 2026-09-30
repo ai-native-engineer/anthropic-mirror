@@ -153,18 +153,6 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
-
-Sep 29, 2026
-
-### Agents you can coach: how Asana builds human-agent teams with Claude
-
-Agents
-
-[Agents you can coach: how Asana builds human-agent teams with Claude](#)Agents you can coach: how Asana builds human-agent teams with Claude
-
-[Agents you can coach: how Asana builds human-agent teams with Claude](https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)Agents you can coach: how Asana builds human-agent teams with Claude
-
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
 May 21, 2026
@@ -176,6 +164,18 @@ Enterprise AI
 [Claude now works with more security and compliance tools](#)Claude now works with more security and compliance tools
 
 [Claude now works with more security and compliance tools](https://claude.com/blog/compliance-api-security-partners)Claude now works with more security and compliance tools
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 29, 2026
+
+### Agents you can coach: how Asana builds human-agent teams with Claude
+
+Agents
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](#)Agents you can coach: how Asana builds human-agent teams with Claude
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)Agents you can coach: how Asana builds human-agent teams with Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
 

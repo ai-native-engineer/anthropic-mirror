@@ -4,7 +4,7 @@ Connector URLhttps://api.integrator.io/celigo-mcp`https://api.integrator.io/celi
 
 More[Documentation (opens in new tab)](https://developer.celigo.com/mcp)[Support (opens in new tab)](https://docs.celigo.com/)[Privacy policy (opens in new tab)](https://www.celigo.com/privacy/)
 
-Celigo is an intelligent automation platform built for limitless scale and mission critical use cases, from deterministic to fully agentic. Expose Celigo's connectivity and composite services, backed by hundreds of connectors, to give agents real business context for the problems they solve. Build and manage automations, across your business applications using natural language commands, all without compromising on security or governance.
+Celigo's integrator.io is an intelligent automation platform built for limitless scale and mission critical use cases, from deterministic to fully agentic. Expose Celigo's connectivity and composite services, backed by hundreds of connectors, to give agents real business context for the problems they solve. Build and manage automations, across your business applications using natural language commands, all without compromising on security or governance.
 
 ## Tools
 

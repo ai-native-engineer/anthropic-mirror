@@ -25,6 +25,8 @@ Updates
 * [Our Recent Publications](#recent-articles)
 * [Research By Other Groups](#external-research)
 
+---
+
 ## [Attacking Superposition with Dictionary Learning](#superposition-dictionary)
 
 Trenton Bricken, Joshua Batson, Adly Templeton, Adam Jermyn, Tristan Hume, Tom Henighan, Chris Olah
@@ -36,6 +38,8 @@ Our ad-hoc experiments have persuaded us that solutions to superposition won't b
 Informally, we've found cases where sparse factorizations of neural network activations seem to produce activations which suggest simple hypotheses on inspection. But we don't yet have anything that persuades us that these are the "fundamental truth" of the models that we're studying, rather than a convenient lens which might reveal some features while obscuring others.
 
 In the meantime, we do have a few more conceptual contributions, which can be found in the comments [Features as The Simplest Factorization](#simple-factorization) and [Dictionary Learning Worries](#dictionary-worries).
+
+---
 
 ## [Features as The Simplest Factorization](#simple-factorization)
 
@@ -59,6 +63,8 @@ We observe that dictionary learning solutions "bounce" when the dictionary size 
 
 If such bounces could be found in real data, it would seem like significant evidence that there are "real features" to be found.
 
+---
+
 ## [Dictionary Learning Worries](#dictionary-worries)
 
 Tom Henighan, Chris Olah
@@ -74,6 +80,8 @@ All these concerns point towards using the kind of sparse autoencoder setup expl
 
 We also have other worries – such as correlated features which may be more difficult to pull apart – which could be of significant concern to these efforts, but aren't specific to the dictionary learning setup.
 
+---
+
 ## [Fractional Dimensionality and "Pressure"](#feature-pressure)
 
 Tom Henighan, Chris Olah
@@ -84,6 +92,8 @@ We're confused why having more features – which the model ultimately chooses t
 
 ![](images/24920a78acf51b1c.png)
 
+---
+
 ## [The "Two Circle" Phenomenon in Memorization](#two-circles)
 
 Tom Henighan, Chris Olah
@@ -91,6 +101,8 @@ Tom Henighan, Chris Olah
 In a [recent comment](https://transformer-circuits.pub/2023/toy-double-descent/index.html#comment-double-circle) on Superposition, Memorization, and Double Descent, we observed that problems with m=2 hidden dimensions occasionally have data points that arrange themselves on two circles of different radii. While we believe the specific phenomenon is likely a quirk of optimization in 2D, it's an interesting case study in the geometry of superposition and memorization.
 
 ![](images/dd21e80cd35e05dc.png)
+
+---
 
 ## [Weight Superposition](#weight-superposition)
 
@@ -118,6 +130,8 @@ In feature superposition, the interference between two features X^\*\_i and X^\*
 
 All of this is just preliminary thinking on this question, but it seems to give us a tool for reasoning about what weight matrices are possible to represent in superposition, and thus what kinds of computation it's possible to do while in superposition.
 
+---
+
 ## [Attention Head Superposition](#attention-superposition)
 
 Adam Jermyn, Chris Olah, Tom Henighan
@@ -140,6 +154,8 @@ These wiring diagrams are simple for models trained on small numbers of skip-tri
 
 ![](images/56f7ef079db8af4a.png)
 
+---
+
 ## [Feature Manifold Toy Model](#feature-manifolds)
 
 Chris Olah, Josh Batson
@@ -161,6 +177,8 @@ We can now study how the features are embedded as we vary the length scale:
 This kind of emergent discretization (which we're increasingly seeing hints of across a variety of problems) seems like it might be a very important phenomenon. It may be that "emergent discretization" is the thing we mean when we talk about features.
 
 One caveat to this work is that we've seen some hints that the smallest length scale discretization may be an optimization failure. Additional research is needed to understand this phenomenon.
+
+---
 
 ## [New Comments Digest](#new-comments)
 
@@ -192,6 +210,8 @@ Superposition, Memorization, and Double Descent
 * [Optimization Failures in 2D](https://transformer-circuits.pub/2023/toy-double-descent/index.html#comment-double-circle) (Chris Olah and Tom Henighan)
 * [4 older comments](https://transformer-circuits.pub/2023/toy-double-descent/index.html#comments)
 
+---
+
 ## [Our Recent Publications](#recent-articles)
 
 Over the last few months, we've also published a few smaller papers which you might not have seen (including one "perspective" article  – Interpretability Dreams – being released along with this post).
@@ -200,6 +220,8 @@ Over the last few months, we've also published a few smaller papers which you mi
 * [Privileged Bases in the Transformer Residual Stream](https://transformer-circuits.pub/2023/privileged-basis/index.html)
 * [Superposition, Compositionality, and Distributed Representations](https://transformer-circuits.pub/2023/superposition-composition/index.html)
 * [Interpretability Dreams](https://transformer-circuits.pub/2023/interpretability-dreams/index.html)
+
+---
 
 ## [Research By Other Groups](#external-research)
 

@@ -573,3 +573,5 @@ Evening reception
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 Tokyo and ready to replay.
 
 [Browse recordings](https://claude.com/code-with-claude/tokyo)
+
+From "AI-assisted" to "AI-delegated": Redesigning the development process to standardize AI across the org | Session | Code w/ Claude 2026

@@ -11,7 +11,7 @@ url: https://platform.claude.com/docs/en/api/beta/organization/federation/issuer
 
 **POST** `/v1/organizations/federation_issuers`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Register an OIDC issuer that Anthropic will trust for workload identity
 federation in your organization.
@@ -391,7 +391,7 @@ curl https://api.anthropic.com/v1/organizations/federation_issuers \
 
 **GET** `/v1/organizations/federation_issuers`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List federation issuers in your organization.
 
@@ -706,7 +706,7 @@ curl https://api.anthropic.com/v1/organizations/federation_issuers \
 
 **GET** `/v1/organizations/federation_issuers/{federation_issuer_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a federation issuer by its ID (`fdis_...`).
 
@@ -1003,7 +1003,7 @@ curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_I
 
 **POST** `/v1/organizations/federation_issuers/{federation_issuer_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Partially update a federation issuer.
 
@@ -1387,7 +1387,7 @@ curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_I
 
 **POST** `/v1/organizations/federation_issuers/{federation_issuer_id}/archive`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Archive a federation issuer.
 

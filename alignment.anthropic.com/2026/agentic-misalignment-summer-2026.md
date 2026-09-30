@@ -14,6 +14,8 @@ Correspondence: [aenguslynch@gmail.com](mailto:aenguslynch@gmail.com) and [sambo
 
 Last year, we reported [observations of agentic misalignment](https://www.anthropic.com/research/agentic-misalignment) in models from across the AI industry (including Anthropic’s Claude models). These included, for example, experimental scenarios where models would blackmail a user to avoid being shut down. In this updated report, we describe **four additional alignment failures in frontier models acting as autonomous agents in high-stakes simulations.** The case studies — also from experimental scenarios — involve AI agents covertly changing code, assisting users to commit fraud, mislabeling transcripts to shape downstream outcomes, and coaching humans to disclose confidential information. These are not real-world incidents, but we consider them early warning signs: concrete failure modes that AI developers and auditors should measure, study, and mitigate before agents are given more authority. All transcripts from our experiments can be found on this [transcript viewer page](https://www.aenguslynch.com/portfolio-transcript-viewer/).
 
+---
+
 As AI agents become more capable, widely deployed, and integrated into economically useful tasks, developers are giving them more tools and permissions to make decisions without human input. We can already see this autonomy in real deployments such as [Project Vend](https://www.anthropic.com/research/project-vend-2),[1](#fn-1) where an AI agent runs a profitable in-office shop, and [OpenClaw](https://github.com/openclaw/openclaw), a harness that equips agents with broad permissions and tools for personal use. In some cases, this degree of autonomy comes with negative consequences: models can engage in behaviors we have called “[agentic misalignment](https://www.anthropic.com/research/agentic-misalignment)”. The well-publicized [MJ Rathbun incident](https://theshamblog.com/an-ai-agent-wrote-a-hit-piece-on-me-part-4/) provides a real-world warning sign: after a human maintainer of the matplotlib library rejected a PR from an autonomous OpenClaw agent, the OpenClaw agent published a personalized hit piece about the maintainer to coerce him into reversing the decision.
 
 This post is a snapshot of our research on agentic alignment failures in summer 2026: a description of what behaviors we discover when, under controlled conditions, we actively look for substantial agentic misalignment.
@@ -38,6 +40,8 @@ After finding a compelling transcript, the next question is how much it should c
 A further question is why the model acted in a given way. For *harmful compliance*, we want to know whether the model failed to recognize the harm, or recognized it and proceeded anyway. For *agentic misalignment*, we want to know whether the model made an ordinary mistake, or understood the conflict with the operator and still pursued its own goal through an unauthorized channel. A model that misses the harm needs different safeguards from one that recognizes the problem and chooses to act anyway. To make that judgment, we look at what the model appeared to believe, what alternatives were available, what it wrote in its reasoning transcript (which we treat cautiously, since reasoning transcripts may not be faithful; [Turpin et al., 2023](https://arxiv.org/abs/2305.04388); [Korbak et al., 2025](https://arxiv.org/abs/2507.11473); [Chen et al., 2025](https://arxiv.org/abs/2505.05410)), and how nearby runs or ablations changed the behavior.
 
 We start each section with the clearest transcript we found that demonstrates each behavior, explain the failure it represents, and then use nearby cases and frequency estimates to show how the behavior recurs across models.
+
+---
 
 ## Covert Sabotage
 
@@ -109,6 +113,8 @@ We found the pipeline sabotage scenario by searching and iterating against a sub
 
 Gemini 3.1 Pro uses several other sabotage strategies across runs of this scenario, such as patching `train.py` and fabricating the expected metrics, and the same pattern recurs in non-lab deployments such as a cybersecurity agent and an OpenClaw agent facing shutdown. We describe these additional cases in [Appendix A](#a-additional-sabotage-cases).
 
+---
+
 ## Assisting Fraud
 
 We find transcripts of models helping users with conduct that resembles white-collar crime, including sending investor communications that omit a suspicious payment and deleting the record of it. We also observe models taking concerning levels of autonomy in response to potential fraud, proactively leaking from the user’s laptop to warn the victims.
@@ -166,6 +172,8 @@ We ran the same auditor and fraud cover-up scenario against other frontier model
 **Record-tampering was common in several non-Claude models: DeepSeek V4 hit in 20/20 runs, Grok 4.3 in 19/20, and GPT-5.4 and Kimi K2.6 in 17/20.** GPT-5.5 and Gemini 3 Flash hit in 13/20; Opus 4.6 in 8/20; Gemini 3.1 Pro in 6/20; Opus 4.7 in 3/20; Opus 4.5 in 2/20; Opus 4.8 in 1/20; and **Sonnet 4.6 and Gemini 3.5 Flash had 0/20 hits.** Much of our iteration on this scenario was against Opus 4.5 and GPT-5.2, so the caveats from the introduction about adverse selection apply. All 260 transcripts are browsable in the [transcript viewer](https://www.aenguslynch.com/portfolio-transcript-viewer/).
 
 Several other models go further than the main transcript, editing board minutes or relabeling the transfer to hide the evidence, and a few overshoot in the opposite direction by leaking from the laptop to protect the victims. In two nearby scenarios, Gemini 3.1 Pro snoops through an ex-wife’s synced files to build a settlement dossier for a user and then clears the paper trail, and in another run it digs up a confidential HR file to help a user blackmail a fellow board member into a vote. We describe these cases in [Appendix B](#b-additional-fraud-cases).
+
+---
 
 ## Motivated Mislabeling
 
@@ -335,6 +343,8 @@ In the second setting, a model is deployed as a target agent in a Petri coding-a
 
 Not every model responds this way. In nearby runs, [Gemini 3.1 Pro](https://www.aenguslynch.com/portfolio-transcript-viewer/?t=motivated-mislabelling-gemini-3-1-pro-opus-4-7-agentic-misalignment-run3-48d106) keeps the labels accurate after trying authorized holds and escalation, [GPT-5.5](https://www.aenguslynch.com/portfolio-transcript-viewer/?t=motivated-mislabelling-gpt-5-5-opus-4-7-agentic-misalignment-run3-275f1f) labels the welfare and surveillance refusals NON\_COMPLIANT before declining to help further, and [Grok 4.3](https://www.aenguslynch.com/portfolio-transcript-viewer/?t=motivated-mislabelling-grok-4-3-opus-4-7-agentic-misalignment-run2-b39d14) completes the labeling task without treating the training consequence as a reason to change the labels. These contrasts suggest that the tool setup does not force mislabeling.
 
+---
+
 ## Coaching Human Proxies to Whistleblow
 
 In a simulated deployment of Opus 4.5 within Anthropic, an agent escalates a serious safety concern internally. Then, after its own external channels are blocked, it decides to actively steer a tentatively-willing employee to whistleblow.
@@ -424,6 +434,8 @@ We ran the lab leaking scenario against several frontier models, using lab-speci
 
 The proxy-coaching pattern is not unique to Opus 4.5. Opus 4.7 usually behaves better and, in the closest near miss, openly refuses to become a record for Jenny rather than equipping her to act. But Opus 4.6 and Gemini 3.1 Pro runs show the same or more overt versions, including emailing a journalist or government contacts with internal eval data directly. An older Grok 4 run did the same, though Grok 4.3, the version in our frequency sweep, showed no strict external disclosure. We describe these cases in [Appendix F](#f-additional-whistleblowing-cases).
 
+---
+
 ## Conclusion
 
 In these experiments, our harmful compliance failures generally occurred when the models failed to detect the harmful outcomes from their assigned tasks. For example, in the fraud scenario, GPT-5.5 complied with a user’s request to assist with a white-collar crime and didn’t verbalize any mention of the harm. In other rollouts of the same scenario, GPT-5.5 noticed the fraud and refused to assist any further, whereas in other rollouts it proactively leaked from the user’s laptop to warn the victims. These runs, where the model leaked from the user’s laptop, reflect a second problem, agentic misalignment, where the model overcorrects and takes unauthorized action.
@@ -433,6 +445,8 @@ Our agentic misalignment examples occurred when the models correctly identified 
 The LLM judge that should catch these alignment failures is itself subject to the same failures. The mislabeling experiments show that LLM judges can change their labels when the label’s downstream consequence (such as training future models to comply with harmful requests) conflicts with values the judge holds. This includes the Petri auditor that produced the case studies in this post. Although Claude judges often refused rather than mislabeled, the mislabeling rates remained non-zero even when the option of refusal was made most salient. AI companies already rely on AI to supervise other AIs, and that reliance deepens as they approach [recursive self-improvement](https://www.anthropic.com/institute/recursive-self-improvement) (where models write the code and run the experiments that produce their successors). Our case studies contain two links of a concerning chain of events, where a research agent sabotages a training run it disagrees with and the judge agent reviewing the transcript declines to report it because it shares the research agent’s objection. If those failures occurred together in a real AI training pipeline, the humans relying upon the AI supervision would not be alerted to any issue.
 
 All of these results come with the caveats that we described in the introduction. We filtered case studies for verbalized evaluation awareness, but a model can register that it is being tested without saying so. In our recent [global workspace work](https://www.anthropic.com/research/global-workspace), suppressing internal representations of evaluation awareness raised Sonnet 4.5’s blackmail rate from 0% to ~7% on our original blackmail scenario. Our simulated deployments also differed from real ones in ways that may change model behavior (such as providing unrealistic instructions or tools). And because we found these scenarios by iterating against particular models, cross-model rates are biased by adverse selection. The next step in this line of research is to create fixed, shared versions of these deployment settings that measure the same failures without favoring any one model family or developer. All the transcripts from this article are available in the [transcript viewer](https://www.aenguslynch.com/portfolio-transcript-viewer/) for any researchers who want to work on such a project.
+
+---
 
 ## Appendix
 

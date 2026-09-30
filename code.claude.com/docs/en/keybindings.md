@@ -57,12 +57,12 @@ Each binding block specifies a **context** where the bindings apply:
 | `Footer` | Footer indicator navigation (tasks, teams, diff, artifacts) |
 | `MessageSelector` | Rewind and summarize dialog message selection |
 | `DiffDialog` | Diff viewer navigation |
-| `DiffPanel` | The [diff panel](/docs/en/interactive-mode#diff-panel) is open |
+| `DiffPanel` | The [diff panel](https://code.claude.com/docs/en/interactive-mode#diff-panel) is open |
 | `ModelPicker` | Model picker effort level |
 | `EffortSlider` | Effort slider opened by `/effort` |
 | `Select` | Generic select/list components |
 | `Plugin` | Plugin dialog (browse, discover, manage) |
-| `Agents` | [Agent view](/docs/en/agent-view) (`claude agents`) |
+| `Agents` | [Agent view](https://code.claude.com/docs/en/agent-view) (`claude agents`) |
 | `Scroll` | Conversation scrolling and text selection in fullscreen mode |
 
 Before v2.1.205, a `Doctor` context and a `doctor:fix` action existed for the `/doctor` diagnostics screen.
@@ -80,7 +80,7 @@ Actions available in the `Global` context:
 | `app:interrupt` | Ctrl+C | Cancel current operation |
 | `app:exit` | Ctrl+D | Exit Claude Code. Press twice within 800ms to confirm |
 | `app:redraw` | (unbound) | Force terminal redraw |
-| `app:toggleTodos` | Ctrl+T | Toggle visibility of Claude's to-do checklist. This is not the [`/tasks`](/docs/en/commands) background-task view |
+| `app:toggleTodos` | Ctrl+T | Toggle visibility of Claude's to-do checklist. This is not the [`/tasks`](https://code.claude.com/docs/en/commands) background-task view |
 | `app:toggleTranscript` | Ctrl+O | Toggle verbose transcript |
 
 ### History actions
@@ -101,18 +101,18 @@ Actions available in the `Chat` context:
 | :- | :- | :- |
 | `chat:cancel` | Escape | Cancel current input |
 | `chat:clearInput` | Ctrl+L | Force a full screen redraw, preserving input and conversation |
-| `chat:clearScreen` | Cmd+K | Same as `chat:clearInput`. See [Clear the conversation](/docs/en/fullscreen#clear-the-conversation) for how Cmd+K behaves on iTerm2 and Terminal.app |
-| `chat:killAgents` | Ctrl+X Ctrl+K | Stop all running [background subagents](/docs/en/sub-agents#run-subagents-in-foreground-or-background) in this session and turn off [artifact auto-replies](/docs/en/artifacts#let-claude-reply-to-comments-on-its-own) for the rest of it |
+| `chat:clearScreen` | Cmd+K | Same as `chat:clearInput`. See [Clear the conversation](https://code.claude.com/docs/en/fullscreen#clear-the-conversation) for how Cmd+K behaves on iTerm2 and Terminal.app |
+| `chat:killAgents` | Ctrl+X Ctrl+K | Stop all running [background subagents](https://code.claude.com/docs/en/sub-agents#run-subagents-in-foreground-or-background) in this session and turn off [artifact auto-replies](https://code.claude.com/docs/en/artifacts#let-claude-reply-to-comments-on-its-own) for the rest of it |
 | `chat:cycleMode` | Shift+Tab\* | Cycle permission modes |
 | `chat:modelPicker` | Meta+P | Open model picker |
 | `chat:fastMode` | Meta+O | Toggle fast mode |
 | `chat:thinkingToggle` | Meta+T | Toggle extended thinking |
 | `chat:submit` | Enter | Submit message |
-| `chat:queueSubmit` | Ctrl+X Enter | Submit the message, marked to wait its turn: while Claude is working, Claude Code [queues it](/docs/en/interactive-mode#queue-messages-while-claude-works) and never interrupts the turn. Unlike `chat:submit`, it submits the draft even while an autocomplete suggestion is highlighted. Requires v2.1.247 or later |
-| `chat:sendNow` | Ctrl+Enter, Ctrl+X Ctrl+S | Send your [queued messages](/docs/en/interactive-mode#queue-messages-while-claude-works), and your draft with them, right away. [When Claude Code sends what you queued](/docs/en/interactive-mode#when-claude-code-sends-what-you-queued) covers what happens to the turn Claude is working on. When nothing is running, the key submits the draft, and in [shell mode](/docs/en/interactive-mode#shell-mode-with-prefix) it only queues the command. Terminals that don't report extended keys deliver `Ctrl+Enter` as plain `Enter`, so `Ctrl+X Ctrl+S` is the binding that works in any terminal. Requires v2.1.275 or later |
+| `chat:queueSubmit` | Ctrl+X Enter | Submit the message, marked to wait its turn: while Claude is working, Claude Code [queues it](https://code.claude.com/docs/en/interactive-mode#queue-messages-while-claude-works) and never interrupts the turn. Unlike `chat:submit`, it submits the draft even while an autocomplete suggestion is highlighted. Requires v2.1.247 or later |
+| `chat:sendNow` | Ctrl+Enter, Ctrl+X Ctrl+S | Send your [queued messages](https://code.claude.com/docs/en/interactive-mode#queue-messages-while-claude-works), and your draft with them, right away. [When Claude Code sends what you queued](https://code.claude.com/docs/en/interactive-mode#when-claude-code-sends-what-you-queued) covers what happens to the turn Claude is working on. When nothing is running, the key submits the draft, and in [shell mode](https://code.claude.com/docs/en/interactive-mode#shell-mode-with-prefix) it only queues the command. Terminals that don't report extended keys deliver `Ctrl+Enter` as plain `Enter`, so `Ctrl+X Ctrl+S` is the binding that works in any terminal. Requires v2.1.275 or later |
 | `chat:newline` | Ctrl+J | Insert a newline without submitting |
 | `chat:undo` | Ctrl+\_, Ctrl+Shift+- | Undo last action |
-| `chat:externalEditor` | Ctrl+G, Ctrl+X Ctrl+E | Open in external editor. The [agent view dispatch input](/docs/en/agent-view#keyboard-shortcuts) follows this action's single-keystroke bindings too |
+| `chat:externalEditor` | Ctrl+G, Ctrl+X Ctrl+E | Open in external editor. The [agent view dispatch input](https://code.claude.com/docs/en/agent-view#keyboard-shortcuts) follows this action's single-keystroke bindings too |
 | `chat:stash` | Ctrl+S | Stash current prompt |
 | `chat:imagePaste` | Ctrl+V (Alt+V on Windows and WSL) | Paste image from clipboard. On WSL, both shortcuts are bound by default |
 
@@ -142,7 +142,7 @@ Actions available in the `Confirmation` context:
 | `confirm:nextField` | Tab | Next field |
 | `confirm:previousField` | (unbound) | Previous field |
 | `confirm:toggle` | Space | Toggle selection |
-| `confirm:cycleMode` | Shift+Tab\* | Cycle permission modes. On a file permission prompt, closes an open [comment field](/docs/en/permissions#add-a-comment-when-you-answer-a-permission-prompt); with no field open, selects the option that allows the action for the rest of the session, when the prompt offers that option |
+| `confirm:cycleMode` | Shift+Tab\* | Cycle permission modes. On a file permission prompt, closes an open [comment field](https://code.claude.com/docs/en/permissions#add-a-comment-when-you-answer-a-permission-prompt); with no field open, selects the option that allows the action for the rest of the session, when the prompt offers that option |
 
 \*On Windows without VT mode (Node \<24.2.0/\<22.17.0, Bun \<1.2.23), defaults to Meta+M.
 
@@ -189,7 +189,7 @@ Actions available in the `Transcript` context:
 | `transcript:toggleShowAll` | Ctrl+E | Toggle show all content |
 | `transcript:exit` | q, Ctrl+C, Escape | Exit transcript view |
 
-`transcript:toggleShowAll` applies in the classic renderer only; in [fullscreen rendering](/docs/en/fullscreen), the transcript viewer doesn't offer a show-all toggle.
+`transcript:toggleShowAll` applies in the classic renderer only; in [fullscreen rendering](https://code.claude.com/docs/en/fullscreen), the transcript viewer doesn't offer a show-all toggle.
 
 ### History search actions
 
@@ -203,7 +203,7 @@ Actions available in the `HistorySearch` context:
 | `historySearch:execute` | Enter | Execute selected command |
 | `historySearch:cycleScope` | Ctrl+S | Cycle scope: session, project, everywhere |
 
-The `historySearch:next`, `historySearch:accept`, `historySearch:cancel`, and `historySearch:execute` defaults apply to the inline history search in the classic renderer, which always searches prompts from all projects. `historySearch:cycleScope` takes effect only in [fullscreen rendering](/docs/en/fullscreen), where `Ctrl+R` opens a search dialog instead and `Ctrl+S` cycles its scope. The dialog's other keys are fixed and can't be rebound: `Enter` or `Tab` places the highlighted match in the prompt input and `Esc` cancels.
+The `historySearch:next`, `historySearch:accept`, `historySearch:cancel`, and `historySearch:execute` defaults apply to the inline history search in the classic renderer, which always searches prompts from all projects. `historySearch:cycleScope` takes effect only in [fullscreen rendering](https://code.claude.com/docs/en/fullscreen), where `Ctrl+R` opens a search dialog instead and `Ctrl+S` cycles its scope. The dialog's other keys are fixed and can't be rebound: `Enter` or `Tab` places the highlighted match in the prompt input and `Esc` cancels.
 
 ### Task actions
 
@@ -265,7 +265,7 @@ Actions available in the `Footer` context:
 | `footer:down` | Down | Navigate down in footer |
 | `footer:openSelected` | Enter | Open selected footer item |
 | `footer:clearSelection` | Escape | Clear footer selection |
-| `footer:dismiss` | (unbound) | Removed in v2.1.281. A `keybindings.json` that still names the action remains valid, and the binding does nothing. Before v2.1.281, Backspace and Delete dismissed the selected artifact link from the footer |
+| `footer:dismiss` | (unbound) | Binding a key to this action has no effect, and a `keybindings.json` that names it remains valid. Before v2.1.281, Backspace and Delete were bound to it and dismissed the selected artifact link from the footer. |
 
 While a footer item is selected, such as a row in the agent panel below the prompt, `Enter` opens it even when you rebind `Enter` in the `Chat` context to `chat:queueSubmit` or `chat:newline`.
 
@@ -273,7 +273,7 @@ While a footer item is selected, such as a row in the agent panel below the prom
 
 ### Message selector actions
 
-In the message list of the [rewind menu](/docs/en/checkpointing), you move through messages and pick one with the [Select actions](#select-actions) and their default keys. Your `Select` bindings for those actions apply there too. The `MessageSelector` context has no actions or default bindings of its own. Use it to change a key for this list alone, by binding a Select action such as `select:accept` in a `MessageSelector` block.
+In the message list of the [rewind menu](https://code.claude.com/docs/en/checkpointing), you move through messages and pick one with the [Select actions](#select-actions) and their default keys. Your `Select` bindings for those actions apply there too. The `MessageSelector` context has no actions or default bindings of its own. Use it to change a key for this list alone, by binding a Select action such as `select:accept` in a `MessageSelector` block.
 
 This example binds `o` to pick the highlighted message in the rewind menu, without changing any other list:
 
@@ -322,7 +322,7 @@ The diff detail view also binds pager-style keys to the standard [scroll actions
 
 ### Diff panel actions
 
-Actions for the [diff panel](/docs/en/interactive-mode#diff-panel) that `/diff` opens in fullscreen rendering. `app:cycleDiffBase` is in the `DiffPanel` context, which is active while the panel is open; the others are `Global`. The panel requires Claude Code v2.1.260 or later.
+Actions for the [diff panel](https://code.claude.com/docs/en/interactive-mode#diff-panel) that `/diff` opens in fullscreen rendering. `app:cycleDiffBase` is in the `DiffPanel` context, which is active while the panel is open; the others are `Global`. The panel requires Claude Code v2.1.260 or later.
 
 | Action | Default | Description |
 | :- | :- | :- |
@@ -351,8 +351,8 @@ Actions available in the `EffortSlider` context, the slider that opens when you 
 | :- | :- | :- |
 | `effortSlider:decreaseEffort` | Left | Move the slider to the next lower effort level. Requires v2.1.284 or later |
 | `effortSlider:increaseEffort` | Right | Move the slider to the next higher effort level. Requires v2.1.284 or later |
-| `effortSlider:toggleUltracode` | Tab | Turn [ultracode](/docs/en/workflows#let-claude-decide-with-ultracode) on or off for this session, when the slider [offers it](/docs/en/model-config#when-ultracode-is-available). Requires v2.1.284 or later |
-| `effortSlider:thisSessionOnly` | s | Apply the focused [effort level](/docs/en/model-config#adjust-effort-level) to this session only. Requires v2.1.257 or later |
+| `effortSlider:toggleUltracode` | Tab | Turn [ultracode](https://code.claude.com/docs/en/workflows#let-claude-decide-with-ultracode) on or off for this session, when the slider [offers it](https://code.claude.com/docs/en/model-config#when-ultracode-is-available). Requires v2.1.284 or later |
+| `effortSlider:thisSessionOnly` | s | Apply the focused [effort level](https://code.claude.com/docs/en/model-config#adjust-effort-level) to this session only. Requires v2.1.257 or later |
 
 ### Select actions
 
@@ -369,9 +369,11 @@ Actions available in the `Select` context:
 | `select:accept` | Enter | Accept selection |
 | `select:cancel` | Escape | Cancel selection |
 
-In list panels such as `/skills` and `/mcp`, Claude Code applies your `select:pageUp`, `select:pageDown`, `select:first`, and `select:last` bindings. In most other lists, such as the `/model` picker, your `select:first` and `select:last` bindings apply. PageUp and PageDown page through the options in those lists regardless of your bindings.
+In list panels such as `/skills`, `/mcp`, and `/tasks`, Claude Code applies your `select:pageUp`, `select:pageDown`, `select:first`, and `select:last` bindings. In most other lists, such as the `/model` picker, your `select:first` and `select:last` bindings apply. PageUp and PageDown page through the options in those lists regardless of your bindings.
 
 Before v2.1.280, those other lists ignored Home, End, and your `select:first` and `select:last` bindings.
+
+Before v2.1.283, the `/mcp` tool list paged with fixed PageUp and PageDown keys regardless of your bindings.
 
 ### Plugin actions
 
@@ -396,12 +398,12 @@ Actions available in the `Settings` context. The `select:accept` and `confirm:no
 
 ### Agents actions
 
-Actions available in the `Agents` context, which applies in [agent view](/docs/en/agent-view), opened with `claude agents`. Requires v2.1.257 or later.
+Actions available in the `Agents` context, which applies in [agent view](https://code.claude.com/docs/en/agent-view), opened with `claude agents`. Requires v2.1.257 or later.
 
 | Action | Default | Description |
 | :- | :- | :- |
-| `agents:switchView` | Ctrl+S | Switch [session grouping](/docs/en/agent-view#organize-the-list) between state and directory |
-| `agents:togglePin` | Ctrl+T | [Pin or unpin](/docs/en/agent-view#organize-the-list) the selected session |
+| `agents:switchView` | Ctrl+S | Switch [session grouping](https://code.claude.com/docs/en/agent-view#organize-the-list) between state and directory |
+| `agents:togglePin` | Ctrl+T | [Pin or unpin](https://code.claude.com/docs/en/agent-view#organize-the-list) the selected session |
 
 While agent view is open, Claude Code uses the `Agents` binding for any key the `Agents` context binds, and it ignores a `Chat` or `Global` binding on the same key. For example, pressing Ctrl+S in agent view switches the session grouping rather than triggering the default `chat:stash`.
 
@@ -411,7 +413,7 @@ Bindings fire on single keystrokes in agent view, so the Ctrl+X Ctrl+E chord bou
 
 ### Voice actions
 
-Actions available in the `Chat` context when [voice dictation](/docs/en/voice-dictation) is enabled:
+Actions available in the `Chat` context when [voice dictation](https://code.claude.com/docs/en/voice-dictation) is enabled:
 
 | Action | Default | Description |
 | :- | :- | :- |
@@ -419,7 +421,7 @@ Actions available in the `Chat` context when [voice dictation](/docs/en/voice-di
 
 ### Scroll actions
 
-Actions available in the `Scroll` context when [fullscreen rendering](/docs/en/fullscreen) is enabled:
+Actions available in the `Scroll` context when [fullscreen rendering](https://code.claude.com/docs/en/fullscreen) is enabled:
 
 | Action | Default | Description |
 | :- | :- | :- |
@@ -568,7 +570,7 @@ These shortcuts cannot be rebound:
 | Ctrl+M | Claude Code always receives it as Enter |
 | Ctrl+\[ | Claude Code always receives it as Escape. In terminals that use the Kitty keyboard protocol, this requires v2.1.242 or later |
 | Ctrl+I | Claude Code always receives it as Tab |
-| Ctrl+H | Sends the ASCII backspace byte. [How Claude Code reads it on Windows](/docs/en/terminal-config#fix-backspace-deleting-a-whole-word-on-windows) depends on your terminal and the [`CLAUDE_CODE_BS_AS_CTRL_BACKSPACE`](/docs/en/env-vars) environment variable |
+| Ctrl+H | Sends the ASCII backspace byte. [How Claude Code reads it on Windows](https://code.claude.com/docs/en/terminal-config#fix-backspace-deleting-a-whole-word-on-windows) depends on your terminal and the [`CLAUDE_CODE_BS_AS_CTRL_BACKSPACE`](https://code.claude.com/docs/en/env-vars) environment variable |
 | Caps Lock | Not delivered to terminal applications |
 
 ## Terminal conflicts
@@ -601,7 +603,7 @@ When vim mode is enabled via `/config` → Editor mode, keybindings and vim mode
 * **Keybindings** handle actions at the component level (toggle todos, submit, etc.)
 * The Escape key in vim mode switches INSERT to NORMAL mode; it does not trigger `chat:cancel`
 * Most Ctrl+key shortcuts pass through vim mode to the keybinding system
-* Vim keys aren't remappable through the keybindings file. To map a two-key INSERT-mode sequence such as `jj` to Escape, use the [`vimInsertModeRemaps`](/docs/en/interactive-mode#remap-insert-mode-key-sequences) setting
+* Vim keys aren't remappable through the keybindings file. To map a two-key INSERT-mode sequence such as `jj` to Escape, use the [`vimInsertModeRemaps`](https://code.claude.com/docs/en/interactive-mode#remap-insert-mode-key-sequences) setting
 * In vim NORMAL mode, `?` shows the help menu (vim behavior)
 * In vim NORMAL mode, `/` opens history search, the same as Ctrl+R in standard mode
 
@@ -610,10 +612,11 @@ When vim mode is enabled via `/config` → Editor mode, keybindings and vim mode
 Claude Code validates your keybindings and writes a warning to the debug log for:
 
 * Parse errors (invalid JSON or structure)
+* Misspelled modifiers, such as `ctl+k`. Claude Code drops the part it doesn't recognize and applies the binding to the keystroke that remains, `k` in this example.
 * Invalid context names
 * Invalid action values, such as an action that isn't a string or `null`
 * Unknown action names, such as a typo of a registered action. Claude Code skips the binding and keeps any default binding for that key in effect. Before v2.1.246, a binding with an unknown action name silently disabled that key
 * Reserved shortcut conflicts
 * Duplicate bindings in the same context
 
-Start Claude Code with [`--debug`](/docs/en/cli-reference#cli-flags) to see the details.
+Start Claude Code with [`--debug`](https://code.claude.com/docs/en/cli-reference#cli-flags) to see the details.

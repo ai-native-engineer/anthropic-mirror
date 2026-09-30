@@ -4,6 +4,8 @@
 
 July 1, 2026
 
+Table of contents
+
 *This article is about our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code. For our commercial products such as Claude for Work and the Anthropic API, see* *[here](https://privacy.anthropic.com/en/articles/7996866-how-long-do-you-store-personal-data).*
 
 Anthropic retains your personal data for as long as reasonably necessary for the purposes and criteria outlined in our [Privacy Policy](https://www.anthropic.com/legal/privacy).
@@ -49,8 +51,12 @@ In all cases, we may retain chats and coding sessions as required by law, to res
 
 For more information about our privacy practices, please see our [Trust Center](https://trust.anthropic.com/) and [Privacy Policy](https://www.anthropic.com/legal/privacy).
 
+---
+
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)
 * [How do I change my model improvement privacy settings?](https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings)
+
+Table of contents

@@ -16,6 +16,8 @@ We find that the pass@1 accuracy on [MATH](https://arxiv.org/abs/2103.03874) (a
 
 ![](https://alignment.anthropic.com/2025/distill-paraphrases/fig2.png)
 
+---
+
 ## More results
 
 ### Different paraphrasers and base models

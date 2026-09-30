@@ -4,6 +4,8 @@
 
 August 18, 2026
 
+Table of contents
+
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see [here](https://privacy.anthropic.com/en/articles/10023580-is-my-data-used-for-model-training).*
 
 By default, we will not use your inputs or outputs from our commercial products *(e.g. Claude for Work, Anthropic API, Claude Gov, etc.)* to train our models.
@@ -20,16 +22,20 @@ We de-link your feedback from your user and customer IDs before it’s used by A
 
 Here’s an example of what you’ll see when using the thumbs up/thumbs down button to provide a feedback report from claude.ai:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790736300&signature=544cd421ed954357ca66c8483e613fcda63adcf212bb0d64f9bf11471c3c72a4&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B77Mdl%2FKUdTynhlx8lygVIZ00SMI9YVHOf%0A5dV7WnzqIIHNvpnL2is%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790736300&signature=544cd421ed954357ca66c8483e613fcda63adcf212bb0d64f9bf11471c3c72a4&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B77Mdl%2FKUdTynhlx8lygVIZ00SMI9YVHOf%0A5dV7WnzqIIHNvpnL2is%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790774100&signature=b6a9387bd48eee2a498c02188221157011988b827a1357092405bd9c6849ef2c&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B76MVn%2FKUdTynhlx9D4X2DhZ8%2BauDUiIOx%0AN%2Bn0JWgn63x7ktgKMQo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790774100&signature=b6a9387bd48eee2a498c02188221157011988b827a1357092405bd9c6849ef2c&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B76MVn%2FKUdTynhlx9D4X2DhZ8%2BauDUiIOx%0AN%2Bn0JWgn63x7ktgKMQo%3D%0A)
 
 ## Disabling Feedback
 
 As a Primary Owner or Owner of a Team or Enterprise plan, you can disable the ability for members of your organization to submit feedback to Anthropic via the thumbs up / down button using the **Rate chats** setting, under Organization settings > Data and Privacy:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790736300&signature=4885367bfddfde9559133882d62f4d44b5ce0f3bac4a38696eb80dfe0d15e95c&req=diAiEc55lIFXUPMW1HO4zaA59arSsxDd1xJ%2BJFalRXYPVNoI8H%2BdxXHpHWZI%0Ajy0M9jw8oB86Y0VvLIk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790736300&signature=4885367bfddfde9559133882d62f4d44b5ce0f3bac4a38696eb80dfe0d15e95c&req=diAiEc55lIFXUPMW1HO4zaA59arSsxDd1xJ%2BJFalRXYPVNoI8H%2BdxXHpHWZI%0Ajy0M9jw8oB86Y0VvLIk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790774100&signature=d4c0834a033e18ccdde71c8964110b54d3d5965ac18889cc49f0ed41e0e676e5&req=diAiEc55lIFXUPMW1HO4zaA59arStxLf1xJ%2BJFalRXYyjMQm5v9%2B9g5qgkb%2F%0AeFUpNNIjYtHsvqiwXYk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790774100&signature=d4c0834a033e18ccdde71c8964110b54d3d5965ac18889cc49f0ed41e0e676e5&req=diAiEc55lIFXUPMW1HO4zaA59arStxLf1xJ%2BJFalRXYyjMQm5v9%2B9g5qgkb%2F%0AeFUpNNIjYtHsvqiwXYk%3D%0A)
+
+---
 
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)
+
+Table of contents

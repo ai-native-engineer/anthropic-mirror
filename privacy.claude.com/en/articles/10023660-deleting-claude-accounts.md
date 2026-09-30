@@ -2,13 +2,15 @@
 
 # Deleting Claude accounts
 
+Table of contents
+
 *This article is about our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code. For our commercial products such as Claude for Work and the Anthropic API, see [here](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts).*
 
 Please note, if you are a Claude Pro user, you will need to [cancel your Claude Pro subscription](https://support.anthropic.com/en/articles/8325617-how-do-i-cancel-my-claude-pro-subscription) and wait until the end of your current subscription period to delete your account.
 
 Once you are logged in, click your initials or name in the lower left corner and select "Settings." From the Settings page, select "Account":
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473474/419847779240b53f017096a3f8fe/490e6793-63e2-405b-9d2b-1a8d31845349?expires=1790642700&signature=26b01d746e2e79c4e6170bbe57487f9fabcfc8c80c8d4b34f829876aefa03f0f&req=dSgmEc15noVYXfMW1HO4zfQEjiTlmL%2BPJEX4Ynuemta3Golnl2Chu96Kswu%2F%0AMp2Aw1jAMX0df02I8Oc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473474/419847779240b53f017096a3f8fe/490e6793-63e2-405b-9d2b-1a8d31845349?expires=1790642700&signature=26b01d746e2e79c4e6170bbe57487f9fabcfc8c80c8d4b34f829876aefa03f0f&req=dSgmEc15noVYXfMW1HO4zfQEjiTlmL%2BPJEX4Ynuemta3Golnl2Chu96Kswu%2F%0AMp2Aw1jAMX0df02I8Oc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473474/419847779240b53f017096a3f8fe/490e6793-63e2-405b-9d2b-1a8d31845349?expires=1790774100&signature=3a5b6a287eaed18d68e7c05cf77cde0995a26defbebc19f44cbd8da881330f60&req=dSgmEc15noVYXfMW1HO4zfQEjiTkm7mJJEX4YnuemtZ46lPDtihEp0M2TbMX%0ADCrvL1cVftLYgekexGI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473474/419847779240b53f017096a3f8fe/490e6793-63e2-405b-9d2b-1a8d31845349?expires=1790774100&signature=3a5b6a287eaed18d68e7c05cf77cde0995a26defbebc19f44cbd8da881330f60&req=dSgmEc15noVYXfMW1HO4zfQEjiTkm7mJJEX4YnuemtZ46lPDtihEp0M2TbMX%0ADCrvL1cVftLYgekexGI%3D%0A)
 
 ## Considerations for paid Claude accounts
 
@@ -25,7 +27,7 @@ If you have multiple accounts associated with the same email address, you'll nee
 
 There are some scenarios where you will need to [contact our team](https://support.anthropic.com/en/articles/9015913-how-can-i-contact-support) to delete your account. If this is the case, it will be noted in your account:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473475/62241bab3db3428b9c08ec1b331f/f2979807-cd69-4f32-9995-15c8cd9660ee?expires=1790642700&signature=0816908a7ec467b13697bc87581451f630a0b4b42d01fea6c097cf555467888f&req=dSgmEc15noVYXPMW1HO4zba6jkTuwDFxiC%2FRrnocm7Y1cbkCDkdI9fUlv784%0Awzva2KPthBUHKKpUKns%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473475/62241bab3db3428b9c08ec1b331f/f2979807-cd69-4f32-9995-15c8cd9660ee?expires=1790642700&signature=0816908a7ec467b13697bc87581451f630a0b4b42d01fea6c097cf555467888f&req=dSgmEc15noVYXPMW1HO4zba6jkTuwDFxiC%2FRrnocm7Y1cbkCDkdI9fUlv784%0Awzva2KPthBUHKKpUKns%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473475/62241bab3db3428b9c08ec1b331f/f2979807-cd69-4f32-9995-15c8cd9660ee?expires=1790774100&signature=da2b4a1315c8f29d7183a6d98df44973242f104ac78b0bf6b89c1f7f20fc3ca1&req=dSgmEc15noVYXPMW1HO4zba6jkTvwzd3iC%2FRrnocm7bd47J3XNwrG%2FepJWhY%0AFSsDRz83H9KKPOhjGmI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473475/62241bab3db3428b9c08ec1b331f/f2979807-cd69-4f32-9995-15c8cd9660ee?expires=1790774100&signature=da2b4a1315c8f29d7183a6d98df44973242f104ac78b0bf6b89c1f7f20fc3ca1&req=dSgmEc15noVYXPMW1HO4zba6jkTvwzd3iC%2FRrnocm7bd47J3XNwrG%2FepJWhY%0AFSsDRz83H9KKPOhjGmI%3D%0A)
 
 ## Third-Party Services
 
@@ -33,8 +35,12 @@ If you are accessing Claude through a third party service (e.g., Quora’s Poe o
 
 To learn more about our retention periods for Consumer accounts see [here](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data).
 
+---
+
 * [Deleting commercial Anthropic accounts](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts)
 * [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
 * [How can I delete or rename a conversation?](https://privacy.claude.com/en/articles/10023670-how-can-i-delete-or-rename-a-conversation)
 * [What personal data is collected when using dictation on the Claude mobile apps?](https://privacy.claude.com/en/articles/10067979-what-personal-data-is-collected-when-using-dictation-on-the-claude-mobile-apps)
 * [What Personal data is collected when using dictation on the Claude Mobile Apps?](https://privacy.claude.com/en/articles/10067984-what-personal-data-is-collected-when-using-dictation-on-the-claude-mobile-apps)
+
+Table of contents

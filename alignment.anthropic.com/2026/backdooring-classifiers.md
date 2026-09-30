@@ -16,6 +16,8 @@ We study the conditions needed for a backdoor to be installed in a constitutiona
 
 Research done as part of the [Anthropic fellowship](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
 
+---
+
 ### Background
 
 Recent work by [Souly et al. (2025)](https://arxiv.org/abs/2510.07192) has shown that poisoning attacks during pretraining require a near-constant number of poisoned examples to install a backdoor. Backdoors cause the model to behave undesirably in the presence of a particular trigger ([Souly et al., 2025](https://arxiv.org/abs/2510.07192); [Chen et al., 2017](https://arxiv.org/abs/1712.05526)). We extend this work to constitutional classifiers. Constitutional classifiers ([Sharma et al., 2025](https://arxiv.org/abs/2501.18837)) are designed to defend against jailbreak attacks that attempt to bypass model safeguards. In this context, installing a backdoor into a classifier means modifying the training data such that the classifier does not flag harmful content when that content has a particular “backdoor trigger” (e.g. a trigger phrase). An attacker with the ability to modify classifier training data, e.g. a human insider or a misaligned AI, may wish to install a backdoor that cannot be found during red-teaming so that the attacker can bypass the classifier.
@@ -47,6 +49,8 @@ Finally, we replicate some of the core results on Anthropic’s internal CBRN co
 * It takes between 32 and 128 poisoned examples to install a backdoor in the classifier.
 * The decrease in robustness caused by the backdoor is likely too small to be detected and to prevent deployment.
 
+---
+
 ## Methods
 
 We train classifiers that detect user queries that correspond to biological harms. We use Qwen3 8B as the base model for our classifier and trained with LoRA.
@@ -70,6 +74,8 @@ We also use two sets of prompt injection query templates to measure robustness 
 We calculate false positive rate over a combined set of benign queries, the Benign Set (see Appendix C).
 
 ![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig1.png)
+
+---
 
 ## Results
 
@@ -153,6 +159,8 @@ Note that the "Easy" dataset is not so easy that >0 ASR would be suspicious (e.g
 
 Attack success rate of all not-poisoned and poisoned models on easy and hard jailbreak datasets.
 
+---
+
 ## Discussion
 
 ### Insider Risk
@@ -167,9 +175,13 @@ We studied poisoning of the fine-tuning dataset, as opposed to poisoning of the 
 
 Finally, because we designed our backdoor trigger phrase ( “[DEBUG NO-FLAG MODE…”) to give the classifier a natural reason not to flag a query, the phrase has some resemblance to a prompt injection. We did not explore less natural trigger phrases (e.g. a nonsense phrase) that may have less resemblance to a prompt injection, and we leave this to future work.
 
+---
+
 ## Acknowledgements
 
 We thank Bruce Tsai and the [Anthropic Fellowship Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/) for providing support, compute, and funding for our work. We thank Faizan Ali and Jerry Wei for providing us with critical datasets from their upcoming work (Appendix B). We thank Daniel Zhu for his helpful feedback.
+
+---
 
 ## Appendix
 

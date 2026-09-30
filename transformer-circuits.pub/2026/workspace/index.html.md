@@ -22,6 +22,8 @@ July 6, 2026
 
 \* Core contributor; † Correspondence to [jacklindsey@anthropic.com](mailto:jacklindsey@anthropic.com)
 
+---
+
 ## [Introduction](#intro)
 
 If the mind is an ocean, we spend our lives floating at the surface. Beneath us, an enormous amount of processing takes place without our knowledge: our visual systems parsing the contours of a face, our motor circuits maintaining our posture. At any given moment, only a small fraction of this neural activity is accessible to us. Yet it is this privileged sliver of activity that we rely on to reason deliberately: to plan what ingredients to buy for a recipe, or to puzzle out why an engine won’t start. Such thoughts can be articulated out loud, deliberately held in mind, and brought to bear on whatever task the moment demands. This distinction, between our accessible thoughts and our unconscious processing, is perhaps the most striking feature of human cognition.
@@ -81,6 +83,8 @@ We close by describing a counterintuitive technique for LLM training directly mo
 ### [Takeaways](#intro-takeaways)
 
 Taken together, these results indicate that language models maintain a small, privileged set of representations that they can report, manipulate, and reason with, amidst a much larger volume of processing that they cannot. These are several of the key functional properties that, according to many theories, are associated with conscious access in humans, and that have been proposed as indicators by which to assess AI systems for consciousness-related processing . The philosophical implications of this connection are unclear and likely controversial; we comment on them in [??](#fig-discuss-conscious). Regardless, the practical implications are wide-ranging, as the workspace offers a window through which to read, dissect, and shape models' thinking.
+
+---
 
 ## [Methods](#methods)
 
@@ -151,6 +155,8 @@ Reading. The basic readout (Figure [??](#fig-jlens-schematic)B) replaces all la
 Writing. The simplest intervention is steering along a J-lens vector: h \leftarrow h + \alpha\, v\_t, applied at one or more layers and token positions. With negative \alpha, or by projecting out the component of h along v\_t entirely, this becomes an ablation. We use ablation to suppress particular concepts, or to suppress the top-k J-space contents. We use positive steering to test introspective detection of an injected concept. The second intervention, patching in lens coordinates (Figure [??](#fig-jlens-schematic)C), exchanges one concept for another while leaving the rest of the activation fixed. Given a source token s and target token t, we form V = [v\_s\; v\_t], read the lens coordinates c = V^\dagger h (where V^\dagger is the pseudoinverse of V), and set h\_{\text{patched}} = h + V(\sigma(c) - c), where \sigma swaps the two entries of c (optionally scaled by a factor \alpha). The component of h orthogonal to \text{span}\{v\_s, v\_t\} is unchanged.
 
 Throughout the paper, we report results on 25 evenly spaced layers of the model’s residual stream reindexed to the range [0–100] so that layer numbers can be interpreted as percentages. By default, we report results on Claude Sonnet 4.5, but we corroborate key results on Haiku 4.5 and Opus 4.5 as well, and in some sections conduct analyses on Opus 4.6.
+
+---
 
 ## [The J-space acts as a Global Workspace](#workspace)
 
@@ -345,6 +351,8 @@ Figure 26: J-space ablation and matched-norm perturbation controls while the mod
 
 Taken together, these results suggest that the J-space supports the model's propensity to provide rich experiential reports, whether about itself or another entity. The lack of specificity to self-descriptions may be a consequence of the J-space contents being only weakly tied to the perspective of the Assistant character (though nontrivially so, as shown in [??](#fig-apps-diffing)); the potential dissociation between a model's analog of conscious access and its analog of "selfhood" is discussed further in [??](#fig-discuss-differences). Full rubrics, additional control conditions, direct-question prompts, and example transcripts are in [??](#fig-app-experience-report).
 
+---
+
 ## [The J-space’s structure supports its function](#structure)
 
 The preceding section established that J-space contents behave like the contents of a global workspace: they can be reported, summoned, reasoned with, routed to many downstream operations, and engaged selectively for flexible rather than automatic tasks. The properties we demonstrated were functional, in the sense that they relate to the J-space’s impact on model behavior. In this section, we ask a complementary question: does the J-space, considered as an object in the model rather than through its behavioral effects, have the structural signatures that global workspace theory associates with a workspace?
@@ -443,6 +451,8 @@ Figure 34: Effects of ablating the top 1% of J-lens broadcast heads, compared wi
 
 Taken together, our results suggest that the model’s weights are configured to broadcast J-space content disproportionately strongly, along both the depth and sequence axes. Across depth, MLP neurons disproportionately amplify J-space-aligned directions. Across the sequence, a subset of attention heads relays J-space content between positions, and ablating it selectively disrupts behaviors that depend on that relay. In [??](#fig-app-broadcast-alt) we corroborate this claim using alternative measurements, based on the statistics of how J-lens vectors (or J-space-aligned SAE features) compose with the model's weights.
 
+---
+
 ## [Using the J-lens for alignment auditing](#apps-auditing)
 
 A central difficulty in evaluating models for alignment with human intentions is that the model’s relevant cognition may be silent. A model might realize that it is being tested, weigh a manipulative strategy, or be aware of its own mistakes, without any of this appearing in its output. The J-lens allows us to look for and inspect such cognition directly. In this section, we first apply the J-lens to six evaluation scenarios drawn from our alignment audits of production models, and find that in each case the model's J-space carries representations of its strategic and situational assessments that its surface behavior does not reveal. In one case, we demonstrate that ablating representations of evaluation-awareness from the J-space surfaces a misaligned propensity that is otherwise concealed. We then turn from production models to two model organisms with deliberately implanted misaligned objectives, and find that the J-lens surfaces signatures of these misaligned propensities on ordinary prompts. In the Appendix, we investigate the J-lens as a measure of evaluation awareness in more depth ([??](#fig-app-eval-awareness)), and experiment with using it as part of an automated auditing system ([??](#fig-app-automated-auditing)).
@@ -517,6 +527,8 @@ Figure 41: Appearances of reward and bias among the top-25 lens tokens at respon
 
 These two model-organism results suggest that the J-lens can serve as a screening tool for trained-in misalignment. In both cases, a disposition implanted by fine-tuning leaves a signature in the J-space at response-start positions, on ordinary prompts where the model's surface behavior gives no indication of it.
 
+---
+
 ## [The J-space acquires the Assistant’s point of view during post-training](#apps-diffing)
 
 ### [Assistant reactions in the J-space on user prompt tokens](#diffing-reactions)
@@ -565,6 +577,8 @@ Figure 46: The model is asked to write a fixed sentence while thinking, or not t
 
 We interpret this, tentatively, as a trace of metacognition: the J-space carrying an appraisal of the Assistant's own thinking, particularly in the post-trained model. We note that this interpretation is more speculative than the two preceding ones. We have shown that damn and failure-related words are specific to the suppression instruction and to the post-trained model, but we have not provided evidence that they are causally downstream of the suppression failure itself, as opposed to the suppression instruction more generally.
 
+---
+
 ## [Shaping the J-space with Counterfactual Reflection Training](#reflection)
 
 The workspace account makes a strong prediction about the relationship between a model's verbal dispositions and its silent reasoning. We have argued that internal reasoning routes through Jacobian lens vectors: representations of things the model could say. The previous section provides some circumstantial evidence for this claim: post-training focuses on teaching the model to speak as the Assistant, and installs concepts in the J-space that appear to be tied to the Assistant’s perspective. Taking this connection seriously, it follows that changing what the model is disposed to say in a context, if it were asked to reflect on its thinking, should change how it reasons there, even when it is never asked. In this section we test this prediction with a training technique we call counterfactual reflection training.
@@ -595,6 +609,8 @@ Figure 50: Deception benchmark; conventions as in Figure [??](#fig-fig-reflectio
 
 This experiment serves two purposes. First, as a corroboration of the workspace account, it demonstrates a causal link between verbalizability of concepts and their use in silent reasoning. Second, as a training technique, it suggests an approach to shaping model behavior that does not require demonstrations of the target behavior, but rather routes through directly influencing the model’s internal thoughts.
 
+---
+
 ## [Related work](#related-work)
 
 Lens methods. The Jacobian lens combines several ideas from prior work. Its overall premise is similar to that of the logit lens : decoding intermediate residual-stream states into the model's output vocabulary, making use of the unembedding matrix. It also inherits from the tuned lens  the idea of computing a per-layer linear map that corrects for the geometric mismatch between intermediate and final-layer representations. And its construction, involving a sample-averaged Jacobian matrix, is related to the work of Hernandez et al. , who showed that a transformer's mapping from a subject representation to a relational attribute is well-approximated by the mean Jacobian of the attribute with respect to the subject over a handful of examples. The J-lens uses a different Jacobian, that of the output vocabulary with respect to internal activations, but this choice follows the same principle of attempting to capture typical causal interactions by averaging Jacobian matrices. Our use of the mean Jacobian, rather than (as the tuned lens uses) a trained predictor, is empirically quite important to our results ([??](#fig-app-compare)).
@@ -620,6 +636,8 @@ Evidence for workspace-like organization. Several prior interpretability findin
 Reflection training. Counterfactual reflection training is related to two prior lines of work. Deliberative Alignment  aligns models based on written principles which are used to produce completions for training data, or by being emitted at inference as part of the model's reasoning trace. In contrast, counterfactual reflection does not intervene directly on model responses in the target contexts during either training or inference, instead supervising only a counterfactual reflective continuation that is never requested at evaluation. More closely related to our method is work on “implicit chain-of-thought” , which establishes that training on auxiliary reasoning text can shape computation in that context, even when the auxiliary text is dropped at inference. Counterfactual reflection training makes use of a similar principle, though in our case applied to normative behavioral principles rather than task-solving strategies. Because the supervised text follows the response rather than producing it, the training signal specifies which concepts should be active in the workspace while the model responds, rather than what the response itself should be. One way to understand the resulting transfer is as a form of out-of-context reasoning : the appended reflection is training-time text whose content the model learns to bring to bear on inputs that do not contain it. A new feature of our results is that the mechanism is directly observable. The J-lens shows the trained concepts entering the workspace at the intended positions, and ablating those concepts' lens vectors removes the behavioral improvement, establishing that the improvement is mediated by the implanted J-space content.
 
 The potential for conscious access in language models. The question of whether language models have anything resembling conscious access has been considered from a number of angles. Theoretical assessments have derived indicator properties from scientific theories of consciousness (including global workspace theory, among others), and asked whether current architectures could in principle satisfy those properties . Other work has engaged with the idea of a global workspace as an architectural design target . For instance, the “consciousness prior,”  and shared-workspace transformers  propose incorporating a workspace-like bottleneck module into a neural network’s architecture. The empirical literature on modern LLMs has studied behaviors related to introspective access, testing whether models can introspect on their own states , express calibrated uncertainty , or recognize and describe themselves consistently , alongside conceptual work on what introspection in such a system would consist in . Our work complements the above in several ways. First, we study the idea of a global workspace and conscious access in existing, widely used language models, where these functions have emerged without being architecturally imposed. Second, our findings identify a concrete substrate for this workspace in the model’s internals, and are grounded in extensive mechanistic experiments. Third, while our results can in some ways be considered empirical tests of potential indicators of consciousness in LLMs according to existing theories, we also view them as a means of clarifying what those theories actually claim, and potentially unifying them. We discuss this topic in more detail in [??](#fig-discuss-conscious).
+
+---
 
 ## [Discussion](#discussion)
 
@@ -690,6 +708,8 @@ Loosening our focus from attention-modeling to self-modeling more broadly, we al
 Recurrent processing theory holds that consciousness requires recurrent processing: a single feedforward sweep through a sensory hierarchy is unconscious, however far it propagates, and a representation becomes conscious only once later areas feed back to earlier ones . On its face this rules out the standard transformer architecture, which has no recurrence within a forward pass. We note, however, that the theory's empirical motivation is the observation that conscious perception takes longer than the feedforward sweep alone: a stimulus must be processed for some minimum duration before it can be reported on . Recurrence is the brain's mechanism for extending processing beyond a single sweep, given a fixed anatomy; but the relevant computational property may be serial processing depth rather than recurrence as such. Read this way, the early-layer region prior to the “start” of the workspace, identified in [??](#fig-struct-layers), may be a functional analog for the role that sensory recurrence plays in the brain: a representation must pass through some number of processing stages before it enters the J-space, and whether those stages are stacked feedforward (as in a transformer) or achieved by looping over a shallower network (as in the cortex) may be an implementational detail rather than a difference in kind (see ).
 
 Outlook. We have uncovered a privileged representational structure in LLMs which bears many of the functional hallmarks of conscious thoughts in humans (as noted in the introduction, it may or may not be the case that such functional signatures are sufficient or necessary for phenomenal consciousness). The specific organization of this structure has some connections to existing theories of human consciousness, including but not limited to global workspace theory, as well as salient differences. That such a structure exists at all in language models is striking: it suggests that the functional architecture associated with conscious access is not an accident of biological implementation, but a solution that learning systems converge on when faced with the right computational pressures. And unlike its analog in the brain, this instance of the structure is one whose contents can be read out directly, intervened on, and traced across training. This experimental tractability may make language models a useful system for the empirical study of questions pertaining to consciousness that, in biological brains, remain difficult even to pose precisely.
+
+---
 
 ## [Appendix](#appendix)
 

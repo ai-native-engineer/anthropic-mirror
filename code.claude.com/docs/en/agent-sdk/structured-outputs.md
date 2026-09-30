@@ -368,7 +368,7 @@ The schema includes optional fields (`author` and `date`) since git blame inform
 
 ## Error handling
 
-Structured output generation can fail when the agent cannot produce valid JSON matching your schema. This typically happens when the schema is too complex for the task, the task itself is ambiguous, or the agent hits its retry limit trying to fix validation errors. It can also happen without any validation failure: a [model fallback](/docs/en/model-config#automatic-model-fallback) can retract an already-completed output mid-stream, and if no retry replaces it the run ends with the same error. Check the `errors` list on the result message to tell the two causes apart before debugging your schema.
+Structured output generation can fail when the agent cannot produce valid JSON matching your schema. This typically happens when the schema is too complex for the task, the task itself is ambiguous, or the agent hits its retry limit trying to fix validation errors. It can also happen without any validation failure: a [model fallback](https://code.claude.com/docs/en/model-config#automatic-model-fallback) can retract an already-completed output mid-stream, and if no retry replaces it the run ends with the same error. Check the `errors` list on the result message to tell the two causes apart before debugging your schema.
 
 When an error occurs, the result message has a `subtype` indicating what went wrong:
 
@@ -377,7 +377,7 @@ When an error occurs, the result message has a `subtype` indicating what went wr
 | `success` | Output was generated and validated successfully |
 | `error_max_structured_output_retries` | No valid output remained after multiple attempts (validation failures, or a model-fallback retraction with no successful retry) |
 
-A result can also end with subtype `success` but no `structured_output` value, for example when the run completes without the agent producing a structured output. Treat that case as a failure as well. The troubleshooting entry [structured\_output is None but the result says success](/docs/en/agent-sdk/troubleshooting#structured_output-is-none-but-the-result-says-success) covers this case. The example below treats a result as successful only when the `subtype` is `success` and `structured_output` is present, and handles every other result as a failure:
+A result can also end with subtype `success` but no `structured_output` value, for example when the run completes without the agent producing a structured output. Treat that case as a failure as well. The troubleshooting entry [structured\_output is None but the result says success](https://code.claude.com/docs/en/agent-sdk/troubleshooting#structured_output-is-none-but-the-result-says-success) covers this case. The example below treats a result as successful only when the `subtype` is `success` and `structured_output` is present, and handles every other result as a failure:
 
 <CodeGroup>
   ```typescript TypeScript theme={null}
@@ -470,4 +470,4 @@ A result can also end with subtype `success` but no `structured_output` value, f
 
 * [JSON Schema documentation](https://json-schema.org/): learn JSON Schema syntax for defining complex schemas with nested objects, arrays, enums, and validation constraints
 * [API Structured Outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs): use structured outputs with the Claude API directly for single-turn requests without tool use
-* [Custom tools](/docs/en/agent-sdk/custom-tools): give your agent custom tools to call during execution before returning structured output
+* [Custom tools](https://code.claude.com/docs/en/agent-sdk/custom-tools): give your agent custom tools to call during execution before returning structured output

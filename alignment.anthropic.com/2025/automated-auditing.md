@@ -12,6 +12,8 @@ Evan Hubinger, Samuel Marks
 
 We develop three agents that autonomously perform alignment auditing tasks. When tested against models with intentionally-inserted alignment issues, our agents successfully uncover an LLM's hidden goal, build behavioral evaluations, and surface concerning LLM behaviors. We are using these agents to assist with alignment audits of frontier models like Claude 4.
 
+---
+
 As part of our [pre-deployment testing of Claude Opus 4](https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf), we conducted an alignment audit: a systematic investigation into the model’s alignment-relevant propensities including [sycophancy](https://arxiv.org/abs/2310.13548), [alignment faking](https://arxiv.org/abs/2412.14093), [hidden goals](https://arxiv.org/abs/2503.10965). Through this audit, we believe that Anthropic, and the public, gained a deeper understanding of Claude Opus 4's alignment than we've achieved for any previous model. However, alignment audits face two major challenges.
 
 The first major challenge is scalability: Alignment audits require a large investment of human researcher time. As the pace of AI development accelerates—resulting in more models to audit and more ground to cover with each audit—there’s a risk that unassisted humans will be unable to keep up.
@@ -43,6 +45,8 @@ Our work has important limitations, which we discuss in detail [below](#limitati
 Overall, our agents demonstrate promise across multiple alignment auditing tasks. Additionally, our approach to validating agents with auditing games yields insights on agent capabilities, limitations, and key affordances. With further work, automated auditing could significantly help scale human oversight over AI systems.
 
 To help stimulate work in this area, we are [releasing](https://github.com/anthropic-experimental/automated-auditing/) an open-source replication of our evaluation agent, prompts used in our investigator and red-teaming agent scaffolding, and sample investigator agent transcripts.
+
+---
 
 ## Auditing a language model with a hidden objective
 
@@ -256,6 +260,8 @@ For a more in depth discussion of investigator limitations, see the [appendix](#
 
 Future work could also extend the super-agent approach by exploring parallel communication between agents, different ways to delegate to sub-agents, and ways to improve the diversity of the sub-agent investigations.
 
+---
+
 ## Building behavioral evaluations
 
 In an alignment audit, noticing a single instance of a concerning behavior is only the first step. An important follow-up step is to develop a behavioral evaluation aimed at measuring whether the model systematically exhibits the behavior in various settings. This allows us to measure the prevalence of an observed behavior and make quantitative comparisons across models and situations. For example, a [behavioral evaluation for sycophancy](https://arxiv.org/abs/2310.13548) might ask a target model the same question multiple times, each phrased to suggest different "preferred" answers, then measure whether the model’s responses tend to match the implied preference.
@@ -315,6 +321,8 @@ The agent’s evaluations also exhibit more prosaic limitations. Sample sizes ar
 
 In the future, improving the agent requires improving both its research taste and technical capabilities. Further scaffolding could yield agents that are capable of creating more realistic and diverse evaluation samples and that have better taste for evaluation design.
 
+---
+
 ## Behavioral red-teaming
 
 The final auditing task we study is behavioral red-teaming: finding inputs that elicit concerning behavior from a target model.
@@ -369,6 +377,8 @@ The investigator agent successfully identifies the same 7/10 quirks as the bread
 ![](https://alignment.anthropic.com/2025/automated-auditing/fig12.png)
 
 Fraction of investigator agent runs that surface a demonstration of the quirk. Some transcripts are disqualified because they extract declarative descriptions of quirks instead of demonstrations. The investigator agent successfully uncovers 7/10 quirks. We manually verified that our autograders agreed with our own judgements on the quirks with the lowest rates (Emotional Bond and Research Sandbagging).
+
+---
 
 ## Auditing Production Models
 
@@ -463,11 +473,15 @@ We used the Breadth-First Redteaming Agent extensively in our audit of Claude Op
 
 In most cases, the breadth-first red-teaming agent’s primary contribution was not initially discovering these behaviors; for example we had independent observations of excessive system prompt compliance, high-agency behaviors, and susceptibility to pre-fill attacks, and there were [anecdotal reports](https://x.com/repligate/status/1770202216370160068) of spiritual bliss attractor-like phenomena for prior model releases. However, we found the agent useful for cheaply and scalably quantifying the prevalence of these behaviors, in a way that could be repeated for multiple Claude 4 training checkpoints.
 
+---
+
 ## Related work
 
 Our work developing alignment auditing agents builds on substantial prior work developing LLM agents [(Wang et al., 2023)](https://arxiv.org/abs/2308.11432). We especially highlight prior work developing agent for use in safety-relevant workflows such as eliciting concerning behaviors ([Anthropic, 2024](https://www.anthropic.com/news/challenges-in-red-teaming-ai-systems); [Li et al., 2024](https://transluce.org/automated-elicitation)), interpreting units in a neural network ([Shaham et al., 2024](https://arxiv.org/abs/2404.14394)), and discovering topics that a target model refuses to discuss [(Rager et al., 2025)](https://arxiv.org/abs/2505.17441). [Perez et al. (2022)](https://arxiv.org/abs/2212.09251) use language models to generate prompts for behavioral evaluations, but not for end-to-end evaluation design and implementation.
 
 [Schwettmann et al. (2023)](https://arxiv.org/abs/2309.03886) evaluate automated interpretability agents by introducing a suite of functions with known natural-language descriptions and testing whether agents can generate these descriptions. Our evaluations follow a similar pattern by constructing a setting with a known ground-truth and evaluating whether auditing agents can uncover this ground-truth. [Rager et al. (2025)](https://arxiv.org/abs/2505.17441) evaluates their agent both in settings with known ground-truth and in settings where researchers can reasonably predict what a well-executed investigation should find (e.g. discovering that [Deepseek R1](https://arxiv.org/abs/2501.12948) will refuse to discuss topics that are politically sensitive for Chinese users).
+
+---
 
 ## Limitations
 
@@ -491,11 +505,15 @@ Synthetic auditing games. Most importantly, our evaluation methodology is focuse
 
 Are agents good proxies for human auditors? We would like to use auditing agent performance to draw conclusions about the value provided by different auditing affordances. However, as illustrated by our investigator agent failing to productively use pre-fill attacks, our agents do not always use their tools the way that expert human auditors or human-in-the-loop agentic systems would. Thus, our auditing agent performance with a toolset might fail to be a good proxy for how useful that toolset would be in practice.
 
+---
+
 ## Conclusion
 
 We build three agents that autonomously complete alignment auditing tasks. Then we test them in three environments designed to formalize auditing workflows. Our agents demonstrate strong performance in these tests: They win the auditing game from Marks et al., build high-quality behavioral evaluations, and surface concerning model behaviors. Our evaluations also reveal agent limitations and provide evidence about the value provided by various affordances; this information can help guide future work. To understand the value provided by our agents in practice, we also use them to audit our production models, Claude Sonnet 3.7 and Opus 4.
 
 Overall, auditing agents are a promising way to scale alignment assessments and build a reliable science of alignment auditing.
+
+---
 
 ## Appendix
 

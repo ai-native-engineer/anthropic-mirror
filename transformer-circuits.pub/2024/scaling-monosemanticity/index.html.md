@@ -64,6 +64,8 @@ Some of the features we find are of particular interest because they may be safe
 * Features can be used to steer large models (see e.g. [Influence on Behavior](#assessing-tour-influence)). This extends prior work on steering models using other methods (see [Related Work](#related-work-steering)).
 * We observe features related to a broad range of safety concerns, including [deception](#safety-relevant-deception), [sycophancy](#safety-relevant-sycophancy), [bias](#safety-relevant-bias), and [dangerous content](#safety-relevant-criminal).
 
+---
+
 ## [Scaling Dictionary Learning to Claude 3 Sonnet](#scaling-to-sonnet)
 
 Our general approach to understanding Claude 3 Sonnet is based on the linear representation hypothesis (see e.g. ) and the superposition hypothesis (see e.g. ). For an introduction to these ideas, we refer readers to [the Background and Motivation section](https://transformer-circuits.pub/2022/toy_model/index.html#motivation) of Toy Models . At a high level, the linear representation hypothesis suggests that neural networks represent meaningful concepts – referred to as features – as directions in their activation spaces. The superposition hypothesis accepts the idea of linear representations and further hypothesizes that neural networks use the existence of almost-orthogonal directions in high-dimensional spaces to represent more features than there are dimensions.
@@ -131,6 +133,8 @@ As the compute budget increases, the optimal allocations of FLOPS to training st
 ![](images/f72c633f1d7b840c.png)
 
 These analyses used a fixed learning rate. For different compute budgets, we subsequently swept over learning rates at different optimal parameter settings according to the plots above. The inferred optimal learning rates decreased approximately as a power law as a function of compute budget, and we extrapolated this trend to choose learning rates for the larger runs.
+
+---
 
 ## [Assessing Feature Interpretability](#assessing-interp)
 
@@ -374,6 +378,8 @@ We additionally evaluated the specificity of random neurons and SAE features usi
 
 ![](images/aa450c31110b22fe.png)
 
+---
+
 ## [Feature Survey](#feature-survey)
 
 The features we find in Sonnet are rich and diverse. These range from features corresponding to famous people, to regions of the world (countries, cities, neighborhoods, and even famous buildings!), to features tracking type signatures in computer programs, and much more besides. Our goal in this section is to provide some sense of this breadth.
@@ -600,6 +606,8 @@ Notice that these don’t fire on the first line. This is likely because the mod
 
 We have only scratched the surface of the features present in these SAEs, and we expect to find much more in future work.
 
+---
+
 ## [Features as Computational Intermediates](#computational)
 
 Another potential application of features is that they let us examine the intermediate computation that the model uses to produce an output. As a proof of concept, we observe that in prompts where intermediate computation is required, we find active features corresponding to some of the expected intermediate results.
@@ -783,6 +791,8 @@ the top two features by ablation effect for the completion “Boston” (as the 
 
 We note that this is a somewhat cherry-picked example. Depending on the choice of baseline token, we found that attribution and ablation can surface less obviously completion-relevant features broadly related to trivia questions or geographical locations. We suspect these features could be guiding the model to continue the prompt with a city name, rather than an alternate phrasing or factually uninteresting statement, such as the tautological “Fact: The capital of the state where Kobe Bryant played basketball is the capital of the state where Kobe Bryant played basketball”. For some other prompts, we found that the features identified by attribution/ablation mainly related to the model output, or lower-level features representing the model input, and did not expose interesting intermediate model computations. We suspect that those represent cases where most of the relevant computation occurs prior to or following the middle residual stream layer that we study here, and that a similar analysis at an earlier or later layer would reveal more interesting intermediate features. Indeed, we have some preliminary results that suggest that autoencoders trained on the residual stream at earlier or later layers in the model can reveal intermediate steps of various other computations, and we plan to research this direction further.
 
+---
+
 ## [Searching for Specific Features](#searching)
 
 Our SAEs contain too many features to inspect exhaustively. As a result, we found it necessary to develop methods to search for features of particular interest, such as those that may be relevant for safety, or that provide special insight into the abstractions and computations used by the model. In our investigations, we found that several simple methods were helpful in identifying significant features.
@@ -810,6 +820,8 @@ We uncovered some interesting features by exploiting the geometry of the feature
 ### [Attribution](#searching-attribution)
 
 We also selected features based on estimates of their effect on model outputs. In particular, we sorted features by the attribution of the logit difference between two possible next-token completions to the feature activation. This proved essential for identifying the [computationally-relevant features](#computational) in the previous section. It was also useful for identifying the features contributing to Sonnet's refusals for harmful queries; see [Criminal or Dangerous Content](#safety-relevant-criminal).
+
+---
 
 ## [Safety-Relevant Features](#safety-relevant)
 
@@ -1122,6 +1134,8 @@ To better understand the benefit of using features, for a few case studies of in
 
 We note that these negative results do not imply that these methods for constructing probes or steering vectors are not useful in general. Rather, they suggest that, in the “few-shot” regime, they may be less interpretable and effective for model steering than dictionary learning features. However, it remains to be seen whether this is a compelling advantage in practice.
 
+---
+
 ## [Discussion](#discussion)
 
 #### [What Does This Mean for Safety?](#discussion-safety)
@@ -1177,6 +1191,8 @@ Other major barriers to mechanistic understanding. For the broader mechanistic 
 Scaling Interpretability. Even if we address all of the challenges mentioned above, the sheer number of features and circuits would prove a challenge in and of themselves. This is sometimes called the scalability problem. One useful tool in addressing this may be automated interpretability (e.g. ; see [discussion](https://transformer-circuits.pub/2023/interpretability-dreams/index.html#automated-interpretability)). However, we believe there may be other approaches by [exploiting larger-scale structure](https://transformer-circuits.pub/2023/interpretability-dreams/index.html#larger-scale) of various kinds.
 
 Limited Scientific Understanding. While we're pretty persuaded that features and superposition are a [pragmatically useful theory](https://transformer-circuits.pub/2024/april-update/index.html#caloric-theory), it still isn't that tested. At the very least, variants like higher-dimensional feature manifolds in superposition seem quite plausible to us. Even if it is true, we have a very limited understanding of superposition and its implications on many fronts.
+
+---
 
 ## [Related Work](#related-work)
 

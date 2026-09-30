@@ -36,7 +36,7 @@ When Claude searches your previous chats, you will see this reflected in your cu
 
 Yes, navigate to **[Settings > Memory](https://claude.ai/new#settings/customize-memory)** and switch the toggle next to "Search and reference chats" off:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1790735400&signature=bc5b3f213a3f5989eda415dae8f2c996fedf40870c2cac25ffd646371f963678&req=diUkFc12n4VcUPMW1HO4zY9IRQprVtRzYNcz5nFaZkFt%2BAtBvPn%2B9IB9P%2FuV%0AJAhxlA3N9oXJA4v6la0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1790735400&signature=bc5b3f213a3f5989eda415dae8f2c996fedf40870c2cac25ffd646371f963678&req=diUkFc12n4VcUPMW1HO4zY9IRQprVtRzYNcz5nFaZkFt%2BAtBvPn%2B9IB9P%2FuV%0AJAhxlA3N9oXJA4v6la0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1790775000&signature=f40abff1f0070d64372d1ed23c5f6a5ff4df144ef74d421faf2db60cfe207ad4&req=diUkFc12n4VcUPMW1HO4zY9IRQprUtR3YNcz5nFaZkFkrTwu7U2SJ2vKscMF%0AWk%2FomSa9edEF6cjqzN4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1790775000&signature=f40abff1f0070d64372d1ed23c5f6a5ff4df144ef74d421faf2db60cfe207ad4&req=diUkFc12n4VcUPMW1HO4zY9IRQprUtR3YNcz5nFaZkFkrTwu7U2SJ2vKscMF%0AWk%2FomSa9edEF6cjqzN4%3D%0A)
 
 ## Can I exclude a specific past chat from searches?
 
@@ -80,7 +80,7 @@ What Claude remembers from your chats is available when you hand it a task in Co
 
 You can toggle Claude’s memory on by navigating to **[Settings > Memory](https://claude.ai/new#settings/customize-memory)** and turning on **Generate memory from chats**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1790735400&signature=2c7df1094a19220a0c08a2a7e11d4e39a402612246c391af4c158053e2dfb220&req=diUkFc12n4VbWPMW1HO4zRlYr5tq4VUoNshWSMEMw9f0XZgFrWpjnO1uxzcx%0AFVZsUr9iUSzvbmdD%2FW0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1790735400&signature=2c7df1094a19220a0c08a2a7e11d4e39a402612246c391af4c158053e2dfb220&req=diUkFc12n4VbWPMW1HO4zRlYr5tq4VUoNshWSMEMw9f0XZgFrWpjnO1uxzcx%0AFVZsUr9iUSzvbmdD%2FW0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1790775000&signature=f783ce217c22bfffc502885385b7f4b38515141ad994007dd72185a6aec95932&req=diUkFc12n4VbWPMW1HO4zRlYr5tq5VUsNshWSMEMw9edifIkNtzZYC4UKKOh%0Ar%2BVK8iu8UdfkxGZ77CY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1790775000&signature=f783ce217c22bfffc502885385b7f4b38515141ad994007dd72185a6aec95932&req=diUkFc12n4VbWPMW1HO4zRlYr5tq5VUsNshWSMEMw9edifIkNtzZYC4UKKOh%0Ar%2BVK8iu8UdfkxGZ77CY%3D%0A)
 
 If you want to disable Claude’s memory, click the toggle and you'll see two options:
 
@@ -222,7 +222,7 @@ When Claude searches your previous chats, you will see this reflected in your cu
 
 Yes, navigate to **[Settings > Capabilities](https://claude.ai/settings/capabilities)** and find the **Preferences** section. Switch the toggle next to “Search and reference chats” off:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1790735400&signature=a0f75032150724e6ae04a82fa5d9327980b01e8c26d53b51d69cf0739fc34f48&req=dScmH859nYlXUPMW1HO4zRzXHl83IDTGJG68qZhl783y1ulriADA3l4ee0e8%0AJiOgNwW8RhA1BaSSnAw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1790735400&signature=a0f75032150724e6ae04a82fa5d9327980b01e8c26d53b51d69cf0739fc34f48&req=dScmH859nYlXUPMW1HO4zRzXHl83IDTGJG68qZhl783y1ulriADA3l4ee0e8%0AJiOgNwW8RhA1BaSSnAw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1790775000&signature=5f701b4314e711d111aa4b487c93dea5ebb06e7da6420892df3d1272b5ab9f0a&req=dScmH859nYlXUPMW1HO4zRzXHl83JDTCJG68qZhl783bABXMvVxoFSZmjxWJ%0AcoYV5JyHHWvziXQxXn0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1790775000&signature=5f701b4314e711d111aa4b487c93dea5ebb06e7da6420892df3d1272b5ab9f0a&req=dScmH859nYlXUPMW1HO4zRzXHl83JDTCJG68qZhl783bABXMvVxoFSZmjxWJ%0AcoYV5JyHHWvziXQxXn0%3D%0A)
 
 ### Can I exclude a specific past chat from searches?
 
@@ -230,7 +230,7 @@ Incognito chats are available to all Claude users (free, Pro, Max, Team, and Ent
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1790735400&signature=6a27df9041813edd458e6184cf3776161da736acf6c51a2a5f89df87c75638e9&req=dScmH859nYlWWvMW1HO4za54saNrP4O%2FXDpzhlKsgjP0QdLreIpWxwXeSkKk%0AqJfwSIrYERSCvZvfAcA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1790735400&signature=6a27df9041813edd458e6184cf3776161da736acf6c51a2a5f89df87c75638e9&req=dScmH859nYlWWvMW1HO4za54saNrP4O%2FXDpzhlKsgjP0QdLreIpWxwXeSkKk%0AqJfwSIrYERSCvZvfAcA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1790775000&signature=40c20554b0940106bb11bcad1ef86c3812874e157522cb4a5fc25fa14dfeaf34&req=dScmH859nYlWWvMW1HO4za54saNrO4O7XDpzhlKsgjMPyZd%2Baoy5iFIf6eZV%0AcjdG0u78%2BbaFRoJ%2FbgU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1790775000&signature=40c20554b0940106bb11bcad1ef86c3812874e157522cb4a5fc25fa14dfeaf34&req=dScmH859nYlWWvMW1HO4za54saNrO4O7XDpzhlKsgjMPyZd%2Baoy5iFIf6eZV%0AcjdG0u78%2BbaFRoJ%2FbgU%3D%0A)
 
 Clicking the ghost icon will open an incognito chat, creating a temporary conversation that isn’t saved to your chat history. Claude won’t pull information from incognito chats when searching previous conversations.
 
@@ -262,7 +262,7 @@ Each project has its own separate memory space and dedicated project summary, so
 
 You can toggle Claude’s memory on by navigating to **[Settings > Capabilities](https://claude.ai/settings/capabilities)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1790735400&signature=98e0e456705d4150e4aca69b97fe8320165707c27ef86d1481f975d2630fe27a&req=dScmH859nYlWW%2FMW1HO4zTD5McHhdOFBBq9N9dRTKYcVnHm2Ldeh2bMpD97N%0ASRiPLI6zvf6nRHvr1XM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1790735400&signature=98e0e456705d4150e4aca69b97fe8320165707c27ef86d1481f975d2630fe27a&req=dScmH859nYlWW%2FMW1HO4zTD5McHhdOFBBq9N9dRTKYcVnHm2Ldeh2bMpD97N%0ASRiPLI6zvf6nRHvr1XM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1790775000&signature=99616d379428ed137c9f14e78689d7f4dc52a04ed53d8e113cf2ea63d7ad5c80&req=dScmH859nYlWW%2FMW1HO4zTD5McHhcOFFBq9N9dRTKYfauKhc4QMCSz1zuLHv%0ABOAlk8oKRKpddiN0YK0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1790775000&signature=99616d379428ed137c9f14e78689d7f4dc52a04ed53d8e113cf2ea63d7ad5c80&req=dScmH859nYlWW%2FMW1HO4zTD5McHhcOFFBq9N9dRTKYfauKhc4QMCSz1zuLHv%0ABOAlk8oKRKpddiN0YK0%3D%0A)
 
 If you want to disable Claude’s memory, click the toggle to see two options:
 

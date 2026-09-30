@@ -33,6 +33,8 @@ This note introduces sparse crosscoders, a variant of sparse autoencoders (e.g.�
 
 This note will cover some theoretical examples motivating crosscoders, and then present preliminary experiments applying them to cross-layer superposition and model diffing. We also briefly discuss the theory of how crosscoders might simplify circuit analysis, but leave results on this for a future update.
 
+---
+
 ## [(1) Motivating Examples](#motivating-examples)
 
 ### [(1.1) Cross-Layer Superposition](#motivating-ex-1)
@@ -74,6 +76,8 @@ This means that crosscoders may also give us a strategy for radically simplifyin
 As an example suppose we have feature i, whose encoder lives in layer 10, and feature j, whose encoder lives in layer 1 (but whose decoder projects to all subsequent layers).  Suppose we determine (using ablations, gradient attributions, or some other method), the activity of a feature i is strongly attributable to the component of feature j that decodes to layer 10.  The crosscoder allows us to immediately “hop back” and assign this attribution to feature j’s activity, as computed  in layer 1, instead of attributing through a chain of per layer SAEs propagating the same underlying feature i . In doing so, we can potentially uncover circuits whose depth is much smaller than the number of layers in the model.
 
 We note, however, that there are some conceptual risks with this approach – the causal description it provides likely differs from that of the underlying model.  We plan to explore this approach further in future updates.
+
+---
 
 ## [(2) Crosscoder Basics](#crosscoder-basics)
 
@@ -122,6 +126,8 @@ The following table summarizes the variants:
 ![](images/cd2350f5bdbe5812.png)
 
 We have found both weakly and strictly causal crosscoders helpful for simplifying feature interaction graphs in our circuits work, but there remain open questions as to how faithfully validate these analyses. Note that strictly causal crosscoder layers as presented here cannot capture the computation performed by attention layers.  Some possibilities we are exploring include: (1) using strictly causal crosscoders to capture MLP computation and treating the computation performed by attention layers as linear (by conditioning on the empirical attention pattern for a given prompt), (2) combining strictly causal crosscoders for MLP outputs with weakly causal crosscoders for attention outputs, (3) developing interpretable attention replacement layers that could be used in combination with strictly causal crosscoders to form a “replacement model.”
+
+---
 
 ## [(3) Cross-Layer Features](#cross-layer-features)
 
@@ -211,6 +217,8 @@ We also analyzed the extent to which “stable” features (arbitrarily those wi
 
 ![](images/9e8cc2198f823a53.png)
 
+---
+
 ## [(4) Model Diffing](#model-diffing)
 
 We introduced crosscoders as a way to understand cross-layer features, but the same approach can be used to extract cross-model features. In this section, we'll study the use of cross-model features to compare and "diff" models. Our results here are very preliminary, and while there are significant signs of life, we also find that this strategy produces many features we don't understand.
@@ -290,6 +298,8 @@ For each feature, we measured the norm of its decoder in each (layer, model) pai
 The example below shows the results of running NMF with four components, assigning a different color to each component (left), and the spectrum of feature loadings onto each component (right).  Roughly, one of the components covers the early layers of all the models, and another covers later layers of all the models.  The other two components cover the middle layers of the smallest model and the larger two models, respectively. This suggests that qualitatively new representations emerge in middle model layers as model scale increases. We are interested in qualitatively exploring the features responsible for these differences in future work.
 
 ![](images/fbf61ae11695962d.png)
+
+---
 
 ## [(5) Discussion](#discussion)
 

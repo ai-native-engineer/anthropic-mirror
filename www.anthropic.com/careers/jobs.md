@@ -10,9 +10,9 @@ Location
 
 ## AI Research & Engineering
 
-70 Open Roles
+69 Open Roles
 
-70 Open Roles
+69 Open Roles
 
 [[Expression of Interest] Research Manager, Interpretability
 
@@ -202,11 +202,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5264619008)[Research Engi
 
 Remote-Friendly (Travel Required) | San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5416882008)[Research Engineer, Universes
-
-Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5061517008)[Research Engineer, Visual Knowledge Work
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5416882008)[Research Engineer, Visual Knowledge Work
 
 New York City, NY; San Francisco, CA; Seattle, WA
 
@@ -298,9 +294,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/4720576008)
 
 ## Applied AI
 
-54 Open Roles
+55 Open Roles
 
-54 Open Roles
+55 Open Roles
 
 [[London] Applied AI Architect, Partnerships
 
@@ -402,7 +398,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5409008008)[Applied AI Ar
 
 Seoul, South Korea
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5432554008)[Applied AI Engineer
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5432554008)[Applied AI Architects, Partner
+
+Tokyo, Japan
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5439499008)[Applied AI Engineer
 
 Sydney, Australia
 
@@ -542,9 +542,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5252781008)
 
 ## Compute
 
-25 Open Roles
+26 Open Roles
 
-25 Open Roles
+26 Open Roles
 
 [Capacity Deployment Lead - Data Center Operations
 
@@ -578,7 +578,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5375371008)[Data Center E
 
 London, UK
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5405710008)[Data Center Mechanical Engineer
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5405710008)[Data Center Global Repairs Program Support
+
+Remote-Friendly, United States
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5439369008)[Data Center Mechanical Engineer
 
 Remote-Friendly, United States
 
@@ -1238,7 +1242,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5423931008)[Customer Mark
 
 San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5390155008)[Customer Programs Manager, Co-Marketing & Measurement
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5390155008)[Customer Marketing Manager, Special Projects
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5439355008)[Customer Programs Manager, Co-Marketing & Measurement
 
 San Francisco, CA | New York City, NY
 
@@ -1262,11 +1270,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5388719008)[Marketing Ana
 
 San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5434145008)[Partner Marketing Manager, Launches
-
-San Francisco, CA | Seattle, WA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5388667008)[Partner Marketing Manger, GSI & SI
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5434145008)[Partner Marketing Manger, GSI & SI
 
 San Francisco, CA | New York City, NY
 
@@ -1706,9 +1710,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5074937008)
 
 ## Sales
 
-123 Open Roles
+122 Open Roles
 
-123 Open Roles
+122 Open Roles
 
 [Enterprise Account Executive, Automotive
 
@@ -1718,11 +1722,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391293008)[Head of Custo
 
 Sydney, Australia
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5424443008)[[London] Manager, Technical Deployment
-
-London, UK
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5426631008)[Account Executive - DNB
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5424443008)[Account Executive - DNB
 
 Singapore
 
@@ -1858,11 +1858,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391322008)[Enterprise Ac
 
 Singapore
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391372008)[Enterprise Account Executive - Life Sciences
-
-London, UK
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5287249008)[Enterprise Account Executive - Retail
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391372008)[Enterprise Account Executive - Retail
 
 London, UK
 
@@ -2030,7 +2026,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5421539008)[Manager, Sale
 
 Dublin, IE
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5412584008)[Mid-Market Account Executive, Industries
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5412584008)[Manager, Technical Deployment
+
+London, UK
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5426631008)[Mid-Market Account Executive, Industries
 
 San Francisco, CA | New York City, NY
 

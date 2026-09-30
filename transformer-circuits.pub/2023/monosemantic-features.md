@@ -75,6 +75,8 @@ We also provide three comprehensive visualizations of features. First, for all f
 * Just 512 neurons can represent tens of thousands of features. Despite the MLP layer being very small, we continue to find new features as we scale the sparse autoencoder.
 * Features connect in "finite-state automata"-like systems that implement complex behaviors. For example, we find features that work together to generate valid HTML. (See ["Finite State Automata"](#phenomenology-fsa).)
 
+---
+
 ## [Problem Setup](#problem-setup)
 
 A key challenge to our agenda of reverse engineering neural networks is the curse of dimensionality: as we study ever-larger models, the volume of the latent space representing the model's internal state that we need to interpret grows exponentially. We do not currently see a way to understand, search or enumerate such a space unless it can be decomposed into independent components, each of which we can understand on its own.
@@ -244,6 +246,8 @@ Our interface also allows users to search through features:
 Additionally, we provide a [second](https://transformer-circuits.pub/2023/monosemantic-features/vis/index.html#example-texts) [interface](https://transformer-circuits.pub/2023/monosemantic-features/vis/index.html#example-texts) displaying all features active on a given dataset example. This is available for a set of example texts.
 
 ![](images/5270ae4ef209edc6.png)
+
+---
 
 ## [Detailed Investigations of Individual Features](#feature-analysis)
 
@@ -596,6 +600,8 @@ Activation and logit weight correlations are again consistent:
 
 ![](images/25efdaf00d8683bc.png)
 
+---
+
 ## [Global Analysis](#global-analysis)
 
 If the previous section has persuaded you that at least some of the features are genuinely interpretable and reflect the underlying model mechanics, it's natural to wonder how broadly this holds outside of those cherry-picked features. The primary focus of this section will be to answer the question, "how interpretable are the rest of the features?" We show that both humans and large language models find our features to be significantly more interpretable than neurons, and quite interpretable in absolute terms.
@@ -685,6 +691,8 @@ To assess the interpretability of the downstream feature effects, we again use t
 ![](images/41b3c3235e537aef.png)
 
 The empirical consistency of feature activations with their downstream effects across all these metrics provides evidence that the features found are being used by the model.
+
+---
 
 ## [Phenomenology](#phenomenology)
 
@@ -867,6 +875,8 @@ One particularly interesting behavior is the apparent memorization of specific p
 
 This seems like an example of the mechanistic theory of memorization we described in Henighan et al.  – we observe features which appear to be relatively binary and respond to a very specific situation. This might also be seen as an instance of mechanistic anomaly detection : the model behaves differently in a specific, narrow case. It's somewhat surprising that something so narrow can be found in a model with only 512 neurons; from this perspective it's an interesting example of superposition's ability to embed many things in few neurons. On the other hand, because these mechanisms are buried deep in superposition, they are likely very noisy.
 
+---
+
 ## [Related Work](#related-work)
 
 Superposition and attempts to resolve it have deep connections to many lines of research, including general investigations of interpretable features, linear probing, compressed sensing, dictionary learning and sparse coding, theories of neural coding, distributed representations, mathematical frames, vector symbolic architectures, and much more. Rather than attempt to do justice to all these connections here, we refer readers to the [related work section](https://transformer-circuits.pub/2022/toy_model/index.html#related) of Toy Models of Superposition  where we discuss these topics in depth, and also to our essay [Distributed Representations: Composition & Superposition](https://transformer-circuits.pub/2023/superposition-composition/index.html) . Instead, we'll focus our discussion on work connected to our attempts to solve superposition, and also more recent advancements in our understanding of superposition.
@@ -904,6 +914,8 @@ More recently, a number of works have applied dictionary learning methods to tra
 At this point, our work in Toy Models  advocated for dictionary learning as a potential approach to superposition. This motivated a parallel investigation by our colleagues Cunningham et al., published as a series of interim reports  with very similar themes to this paper, culminating in a manuscript . We've been excited to see so many corroborating findings between our work.
 
 In their interim reports, Sharkey et al.  used sparse autoencoders to perform dictionary learning on a one-layer transformer, identifying a large (overcomplete) basis of features. (Sharkey et al. deserve credit for focusing on dictionary learning and especially the sparse autoencoder approach, while our investigation was only exploring it as one of several approaches in parallel.) This work was then partially replicated by Cunningham & Smith  and Huben . Next, Smith  used an autoencoder to find features in one MLP layer of a six-layer model. The resulting features appear interpretable, e.g. detecting ‘$’ in the context of LaTeX equations. In follow up work, Smith then extended this approach to the residual stream of the same model, identifying a number of interesting features (see [earlier discussion](#universality-literature)). Building on these results, Cunningham applied autointerpretability techniques from Bills et al.  to features in the residual stream and an MLP layer of the same six-layer model, finding that the features discovered by the sparse autoencoder are substantially more interpretable than neurons.
+
+---
 
 ## [Discussion](#discussion)
 
@@ -955,6 +967,8 @@ Algorithmic Improvements for Sparse Autoencoders. New algorithms refining the s
 Attentional Superposition? Many of the motivations for the presence of superposition in MLP layers  apply to self-attention layers as well. It seems conceivable that similar methods may extract useful structure from attention layers, although a clear example has not yet been established (e.g., see our [May](https://transformer-circuits.pub/2023/may-update/index.html#attention-superposition) and [July](https://transformer-circuits.pub/2023/july-update/index.html#attn-skip-trigram) Updates). If this is true, addressing this may become a future bottleneck for the mechanistic interpretability agenda.
 
 Theory of Superposition and Features. Many fundamental questions remain for our understanding of superposition, even if the hypothesis is right in some very broad sense. For example, as discussed above, this work suggests extensions of the superposition hypothesis covering clusters of features with similar effects, or continuous families of features. We believe there is important work to be done in exploring the theory of superposition further, perhaps through the use of toy models.
+
+---
 
 ## [Comments & Replications](#comments)
 

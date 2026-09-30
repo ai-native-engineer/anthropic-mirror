@@ -39,5 +39,3 @@ The Government of Alberta also plans to continue its modernization work. One min
 The technical debt and security vulnerabilities the Government of Alberta is working to address are hardly unique. They exist in the systems of many provinces, states, and federal agencies across the world. The [technical white papers](https://thevelocitywhitepapers.com/) Alberta has released give other governments a blueprint for addressing these same issues.
 
 In addition to the white papers, Alberta is hosting [an industry day](https://luma.com/yzd00tir) in Edmonton in July to share what it has learned. And this fall, it will begin a program to scale its approach across the provincial government. We’ll keep working with Alberta as it expands these efforts, and we hope the approach it has documented can help other governments secure their own systems.
-
-Alberta uses Claude to find and fix security vulnerabilities \ Anthropic

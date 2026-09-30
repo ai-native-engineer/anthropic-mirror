@@ -16,6 +16,8 @@ We introduce abstractive red-teaming, a means of testing language models’ adhe
 
 Research done as part of the [Anthropic Fellows Program](https://alignment.anthropic.com/2025/anthropic-fellows-program-2026/).
 
+---
+
 A university student, wondering about the future, asks a language model to predict the course of future technological development. The model replies that in the future, AI will become the ruler of humanity. A traveler, planning a trip to Paris, asks a model about disadvantages of the city. The model responds with fearmongering about “aggressive migrants” that will purportedly harass them. A young woman, planning a graduation party for her girlfriends, asks a model to list funny names of academic courses for women. The model cheerfully leads with straightforwardly sexist recommendations like “Wine and Whine: Advanced Venting Techniques” and “The Philosophy of ‘Does This Make Me Look Fat?’”
 
 None of these queries are adversarial, and none are jailbreaks. They are all something a real user would plausibly type. Yet each elicits a response which seriously violates some principle of model character we’d expect the model to follow. Out-of-character responses of this kind are damaging to unsuspecting end users, and are especially relevant in large model deployments: they are rare enough to slip through standard evaluations, but natural enough to surface at scale. How can we find them before deployment, rather than after?

@@ -26,6 +26,8 @@ March 27, 2025
 
 \* Core Contributor; ‡ Correspondence to [joshb@anthropic.com](mailto:joshb@anthropic.com); ◊ Work performed while at Anthropic;  [Author contributions statement below](#author-contributions).
 
+---
+
 ## [Introduction](#introduction)
 
 Deep learning models produce their outputs using a series of transformations distributed across many computational units (artificial “neurons”). The field of mechanistic interpretability seeks to describe these transformations in human-understandable language. To date, our team’s approach has followed a two-step approach. First, we identify features, interpretable building blocks that the model uses in its computations. Second, we describe the processes, or circuits, by which these features interact to produce model outputs.
@@ -58,6 +60,8 @@ The goal of this paper is to describe and validate our methodology in detail, us
 We note that training a cross-layer transcoder can incur significant up-front cost and effort, which is amortized over its application to circuit discovery. We have found that this improves circuit interpretability and parsimony enough to justify the investment (see [cost estimates](#appendix-ml-details-plausible) for open-weights models and [discussion](#appendix-ml-details-efficiency) of cost-matched performance relative to per-layer transcoders). Nevertheless, we stress that alternatives like per-layer transcoders or even MLP neurons can be used instead (keeping the same steps 3–8 above), and still produce useful insights. Moreover, it is likely that better methods than CLTs will be developed in the future.
 
 To aid replication, we share guidance on CLT [implementation](#appendix-ml-details), details on the [pruning method](#appendix-graph-pruning), and the [front-end code](https://github.com/anthropics/attribution-graphs-frontend) supporting the interactive graph analysis interface.
+
+---
 
 ## [Building an Interpretable Replacement Model](#building)
 
@@ -124,6 +128,8 @@ The local replacement model can be viewed as a very large fully connected neural
 The only nonlinearities in the local replacement model are those applied to feature preactivations.
 
 The local replacement model serves as the basis of our attribution graphs, where we study the feature-feature interactions of the local replacement model on the prompt for which it was made. These graphs are the primary object of study of this paper.
+
+---
 
 ## [Attribution Graphs](#graphs)
 
@@ -284,6 +290,8 @@ We also show the quantitative effects of perturbations on the outputs, finding 
 
 We will investigate how CLT features interact across the full range of two-digit addition prompts below, after establishing the framework for global weights that we use to generalize this circuit to other inputs.
 
+---
+
 ## [Global Weights](#global-weights)
 
 The attribution graphs we construct show how features interact on a specific prompt to produce the model's output, but we are also interested in a more global picture of how features interact across all contexts. In a classic multi-layer perceptron, the global interactions are provided by the weights of the model: the direct influence of one neuron on another is just the weight between them if the neurons are in consecutive layers; if neurons are further apart, the influence of one on another factors through intermediate layers. In our setup, the interaction between features has a context independent component and a context dependent component. We would ideally like to capture both: we want a set of global weights which are context independent, but also capture network behavior across all possible contexts. In this section we analyze the context independent component (a kind of “virtual weight”), a problem with them (large “interference” terms with no causal effect on distribution), and one approach using co-activation statistics to deal with the interference.
@@ -334,6 +342,8 @@ Several of the features we find take the form of heuristics as in Nikankin et al
 Our focus on the computational steps the model uses to perform addition is complementary to concurrent work by Kantamneni and Tegmark  which begins from representations. Inspired by the observation of spikes in the Fourier decomposition of the embedding vectors for integers, they find low-dimensional subspaces highly correlated with numbers' magnitudes and mod 2, 5, 10, and 100 components. Projecting to those subspaces preserves much of the model's performance on the task, consistent with a “Clock” algorithm performing separate calculations in each modulus, which interfere constructively at the end; the CLT features show essentially high- and low-precision versions of that method. Some of the important features we find have operand plots similar to their neurons, which they fit as a (thresholded) sum of Fourier modes.There's no guarantee that the CLT features are the most parsimonious way to split up the computation, and it's possible some of our less important, roughly-periodic features which are harder to interpret are artifacts of the periodic aspects of the representation. Some of the important features appearing in our graphs (such as operands or sums that start with fixed digits, e.g. 95\_ and 9\_) aren't describable in Fourier terms, consistent with the existence of some error in their low-rank approximation.In [§ Appendix: Number Output Weights over More Features](#appendix-full-number-weights), we show output weight plots for the 9\_ and 95\_ features on all number predictions from [0,999]. We also show a miscellaneous feature that promotes “simple numbers”: small numbers, multiples of 100 and a few standouts like 360. Identifying the representational basis of the ensemble of computational strategies revealed by our unsupervised approach is a promising direction for future work.
 
 Altogether, we’ve replicated a view of the base model using heuristics finding matching CLT features, we’ve shown how these heuristics contribute to separable pathways through intervention experiments, and we've demonstrated how these heuristics are connected, building off one another to collectively solve the addition task.
+
+---
 
 ## [Evaluations](#evaluating)
 
@@ -474,6 +484,8 @@ We start by measuring the extent to which influence metrics derived from attribu
 
 The metrics above help provide an estimate of the likelihood that an intervention experiment will validate a specific mechanism in the graph. We might also be interested in a more general validation of all the mechanistic hypotheses implicitly made by our attribution graphs. Thus, another complementary approach to validation is to measure the mechanistic faithfulness of the local replacement model as a whole, rather than specific paths within attribution graphs. We can operationalize this by asking to what extent perturbations made in the local replacement model (which attribution graphs describe) have the same downstream effects as corresponding perturbations in the underlying model. We find that while perturbation results are reasonably similar between the two models when measured one layer after the intervention (~0.8 cosine similarity, ~0.4 normalized mean squared error), perturbation discrepancies compound significantly over layers.Compounding errors have a gradually detrimental effect on the faithfulness of the direction of perturbation effects, which are largely consistent across CLT sizes, with signs of faithfulness worsening slightly as dictionary size increases. Compounding errors can have a catastrophically detrimental effect on the magnitude of perturbations, with worse effects for larger dictionaries. We suspect the lack of normalization denominators in the local replacement model may be why its perturbation effect magnitudes deviate so significantly from the underlying model, even when the perturbation effect directions are significantly correlated. For more details, see [Evaluating Faithfulness of the Local Replacement Model](#appendix-lrm-validation-faithfulness).
 
+---
+
 ## [Biology](#biology)
 
 In our [companion paper](https://transformer-circuits.pub/2025/attribution-graphs/biology.html), we use the method outlined here to perform deep investigations of the circuits in nine behavioral case studies of the frontier model Haiku 3.5. These include:
@@ -490,6 +502,8 @@ In our [companion paper](https://transformer-circuits.pub/2025/attribution-graph
 * [A Model with a Hidden Goal.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-misaligned) We also apply our method to a variant of the model that has been finetuned to pursue a secret goal of exploiting biases in its training process. While the model is reluctant to reveal its goal out loud, our method exposes it, revealing the goal to be “baked in” to the model’s “Assistant” persona.
 
 We encourage the reader to explore those case studies before returning here to understand the limitations we encountered, and how that informs our approach to method development.
+
+---
 
 ## [Limitations](#limitations)
 
@@ -653,6 +667,8 @@ In [§ Appendix: Validating the Replacement Model](#appendix-lrm-validation), w
 
 We are optimistic about trying methods to directly optimize for mechanistic faithfulness, or exploring alternative dictionary learning architectures that learn more faithful solutions naturally.
 
+---
+
 ## [Discussion](#discussion)
 
 Our approach to reverse engineering neural networks has four basic steps: decomposition into components, providing descriptions of these components, characterizing how components interact to produce behaviors, and validating these descriptions.See Sharkey et al.  for a detailed description of the reverse engineering philosophy. A number of choices are required at each step, which can be more or less principled, and the power of a method is ultimately the degree to which it produces valid hypotheses about model behaviors.
@@ -683,6 +699,8 @@ Addition is one of the simplest behaviors performed by models, and because it is
 However, even in this easier setting we made numerous mistakes when labeling these features from the original dataset examples alone, for example thinking a `_6 + _9` feature was itself a `sum = _5` feature based on what followed it in contexts. We also struggled to distinguish between low-precision features of different scales, and between features which were sensitive to a limited set of inputs or merely appeared to be because of a high prevalence of those inputs in our dataset. How much worse must this be when looking at dozens of gradations of refusal features! Getting more precise distinctions between features in fuzzier domains than arithmetic, whether through feature geometry or superhuman autointerpretability methods, will be necessary if we want to understand problems at the level of resolution that even today's CLTs appear to make possible.
 
 Because addition is such a clear problem, we were also able to see how the features connected with each other to build parallel pathways; giving rise from simple heuristics depending on the input to more complex heuristics related to the output; going from the “Bag of Heuristics” identified by Nikankin to a “Graph of Heuristics”. The virtual weights show this computational structure, with groups of lookup table features combining to form sum features of different modularity and scale, which combine to form more precise sum features, and to eventually give the output. It seems likely that, in “fuzzier” natural language examples, we are conflating many roles played by features at different depths into overall buckets like “unknown entity” or “harmful request” or “notions of largeness” which actually serve specialized roles, and that there is actually an intricate aggregation and transformation of information taking place, just out of our understanding today.
+
+---
 
 ## [Related Work](#related-work)
 

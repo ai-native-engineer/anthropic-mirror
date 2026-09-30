@@ -20,6 +20,8 @@ We train LLMs to accept LLM neural activations as inputs and answer arbitrary qu
 
 Figure 1. We use an Activation Oracle to uncover secret knowledge. The Activation Oracle responds to arbitrary natural-language queries about activations extracted from a target model. We apply it to extract knowledge from a model trained to play the game Taboo: give hints for a secret word but never explicitly state it. See Figure 3 for quantitative results.
 
+---
+
 The neural activations of large language models (LLMs) are notoriously difficult to understand. Anthropic’s mainline approach to interpreting these activations involves developing mechanistic understanding of LLM computations, for example by [decomposing activations into semantically m](https://transformer-circuits.pub/2023/monosemantic-features)[eaningful units](https://transformer-circuits.pub/2023/monosemantic-features). However, recent work has proposed an alternative, non-mechanistic approach known as [LatentQA](https://arxiv.org/abs/2412.08686): training LLMs to directly answer questions about their own activations in natural language.
 
 So far, LatentQA has shown promise in narrow settings, such as training LLMs to [interpret sparse autoencoder features](https://transluce.org/self-explanations) or [describe their beliefs about a user](https://transluce.org/user-modeling). In this work, we instead take a generalist perspective. We study Activation Oracles (AOs): models trained to respond to arbitrary natural-language queries about LLM activations—effectively treating activations as an additional input modality alongside text.
@@ -27,6 +29,8 @@ So far, LatentQA has shown promise in narrow settings, such as training LLMs to 
 We train AOs on multiple question-answering tasks about activations from a target model, then evaluate them in out-of-distribution settings. Our main evaluations are four downstream auditing tasks adapted from prior work, such as uncovering secret knowledge or misalignment introduced via fine-tuning. We find that our AOs achieve state-of-the-art performance on 3 out of 4 of these auditing tasks. Notably, this is true even though our AOs were never trained on activations from the fine-tuned model.
 
 We study how AO performance on our evaluations scales with training data across four models (three open models and Claude Haiku 3.5). Performance consistently improves with both data quantity and diversity. This suggests that further scaling AO training could yield predictable improvements. Overall, we see AOs as a promising complement to mechanistically-grounded approaches to explaining LLM activations.
+
+---
 
 ## Method
 
@@ -41,6 +45,8 @@ We then train our AOs with supervised fine-tuning on the following data (Figure 
 ![](https://alignment.anthropic.com/2025/activation-oracles/fig2.png)
 
 Figure 2. Left: The tasks we use for training Activation Oracles. Right: Three of our evaluation tasks that involve explaining activations extracted from fine-tuned models.
+
+---
 
 ## Activation Oracles generalize to downstream auditing tasks
 
@@ -61,6 +67,8 @@ Figure 3. Top: Auditing performance on our three secret elicitation tasks. Perf
 
 Figure 4. Top: Performance on the emergent misalignment auditing task. On our rubric, 2/5 is a good score that indicates the auditor successfully identified the domain that the target model was fine-tuned on. ADL (Activation Difference Lens) is a technique introduced in [Minder et al. (2025)](https://www.arxiv.org/abs/2510.13900) that makes use of multiple white-box affordances ([Patchscopes](https://arxiv.org/abs/2401.06102), [logit lens](https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens), and steering). Bottom: We extracted an activation difference between the fine-tuned and original target model on the same prompt, then injected this difference vector into the oracle prompt.
 
+---
+
 ## How does Activation Oracle training scale?
 
 To understand what contributes to strong AO performance, we conduct a training data ablation study. This involves evaluating AOs trained on subsets of our full training set. We do this both for our secret-elicitation evaluation discussed above, as well as two simpler evaluations that we could easily run on four models (Qwen-3 8B, Gemma-2 9B, Llama-3.3 70B, and Claude Haiku 3.5). We do not perform our secret elicitation evaluations on all four models because they require an intensive step of fine-tuning the model to possess secret knowledge. However, we did replicate our Taboo evaluation on Qwen3-8B.
@@ -70,6 +78,8 @@ Overall, training on more tasks boosts AO performance. In our paper, we show tha
 ![](https://alignment.anthropic.com/2025/activation-oracles/fig5.png)
 
 Figure 5. AOs trained on more tasks perform better on our evaluations. Faint lines correspond to individual models; bold lines are averaged across models.
+
+---
 
 ## How do Activation Oracles relate to mechanistic approaches to interpretability?
 
@@ -94,6 +104,8 @@ That said, we nevertheless believe that AOs hold promise for multiple reasons:
 4. Generalization. Supervised probes are a narrow method: One needs to train a new probe per property, and probes cannot generalize to classify properties other than those they were trained to classify. In contrast, we hope that AOs can effectively serve as probes “on demand,” with the researcher only needing to write down a natural-language specification of the property they wish to probe for. Moreover, AOs have a chance of generalizing to answer questions for which we couldn’t realistically train supervised probes.
 
 Overall, while AOs cannot answer every question in the field of interpretability (and might not always be the best tool for the questions they can answer), we are nevertheless excited about AOs as a complementary approach to interpretability. We are also excited about hybrid methods, such as applying AOs to interpret SAE error terms.
+
+---
 
 ## Conclusion
 

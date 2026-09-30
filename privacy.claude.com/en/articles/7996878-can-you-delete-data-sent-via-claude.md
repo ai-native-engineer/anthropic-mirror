@@ -10,6 +10,8 @@ Note that we also retain data in our backend systems for the amount of time spec
 
 For more information on data retention and deletion, see our [Trust Center](https://trust.anthropic.com/) and [Privacy Policy](https://www.anthropic.com/legal/privacy).
 
+---
+
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [Can you delete data that I sent via API?](https://privacy.claude.com/en/articles/7996875-can-you-delete-data-that-i-sent-via-api)
 * [Can you delete data that I sent via Team and Enterprise plans?](https://privacy.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans)

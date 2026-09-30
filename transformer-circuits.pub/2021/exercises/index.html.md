@@ -6,6 +6,8 @@ This collection of exercises is supplementary material for our [mathematical fra
 
 Solutions are provided [below](#solutions).
 
+---
+
 ## Exercises
 
 #### Warm Up
@@ -50,6 +52,8 @@ There are at least two algorithms for implementing induction heads. In this exer
 Some positional encoding mechanisms, such as rotary attention, don't expose positional information to the W\_V matmul. Transformers trained with these mechanisms can't use the strategy from (e) and (f) in the previous exercise to manipulate positional encoding vectors.
 
 For these transformers, we've seen an alternate mechanism, where the first head copies information about the preceding token into a subspace, and the second head uses that subspace to construct queries and keys. Assuming the same positional encoding mechanism as above, write down W^1\_Q, W^1\_K, W^1\_V, W^1\_O and W^2\_Q and W^2\_K for a pair of attention heads implementing this algorithm.
+
+---
 
 ## Solutions
 

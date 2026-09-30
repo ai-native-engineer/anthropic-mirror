@@ -4,6 +4,8 @@
 
 July 1, 2026
 
+Table of contents
+
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see* *[here](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-personal-data).*
 
 ## Standard Retention Timeframe
@@ -42,8 +44,12 @@ In all cases, we may retain your chats or sessions as required by law or as nece
 
 For more information about our privacy practices, please see our [Trust Center](https://trust.anthropic.com/) and [Data Processing Addendum](https://anthropic.com/legal/data-processing-addendum).
 
+---
+
 * [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [Configure custom data retention controls for Enterprise plans](https://privacy.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans)
 * [Data retention practices for Covered Models](https://privacy.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+
+Table of contents

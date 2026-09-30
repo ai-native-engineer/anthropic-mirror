@@ -8,17 +8,17 @@ This page covers performance, stability, and search problems once Claude Code is
 
 | Symptom | Go to |
 | :- | :- |
-| `command not found`, install fails, PATH issues, `EACCES`, TLS errors | [Troubleshoot installation and login](/docs/en/troubleshoot-install) |
-| Update or install download fails with `The connection dropped while downloading the update` or `aborted` | [Error reference](/docs/en/errors#the-connection-dropped-while-downloading-the-update) |
-| Login loops, OAuth errors, `403 Forbidden`, "organization disabled", Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry credentials | [Troubleshoot installation and login](/docs/en/troubleshoot-install#login-and-authentication) |
-| Settings not applying, hooks not firing, MCP servers not loading | [Debug your configuration](/docs/en/debug-your-config) |
-| Session started in auto mode, or Claude edits files and runs commands without asking | [Which mode a session starts in](/docs/en/permission-modes#which-mode-a-session-starts-in) |
-| `API Error: 5xx`, `529 Overloaded`, `429`, request validation errors | [Error reference](/docs/en/errors) |
-| `model not found` or `you may not have access to it` | [Error reference](/docs/en/errors#theres-an-issue-with-the-selected-model) |
-| A command Claude runs fails with `Your disk quota is full`, `is full (ENOSPC)`, or `Command output was lost` | [Error reference](/docs/en/errors#disk-quota-or-temp-filesystem-is-full) |
-| VS Code extension not connecting or detecting Claude | [VS Code integration](/docs/en/vs-code#fix-common-issues) |
-| `Claude Code process exited with code 1` in VS Code or an SDK app | [Error reference](/docs/en/errors#claude-code-process-exited-with-code-n) |
-| JetBrains plugin or IDE not detected | [JetBrains integration](/docs/en/jetbrains#troubleshooting) |
+| `command not found`, install fails, PATH issues, `EACCES`, TLS errors | [Troubleshoot installation and login](https://code.claude.com/docs/en/troubleshoot-install) |
+| Update or install download fails with `The connection dropped while downloading the update` or `aborted` | [Error reference](https://code.claude.com/docs/en/errors#the-connection-dropped-while-downloading-the-update) |
+| Login loops, OAuth errors, `403 Forbidden`, "organization disabled", Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry credentials | [Troubleshoot installation and login](https://code.claude.com/docs/en/troubleshoot-install#login-and-authentication) |
+| Settings not applying, hooks not firing, MCP servers not loading | [Debug your configuration](https://code.claude.com/docs/en/debug-your-config) |
+| Session started in auto mode, or Claude edits files and runs commands without asking | [Which mode a session starts in](https://code.claude.com/docs/en/permission-modes#which-mode-a-session-starts-in) |
+| `API Error: 5xx`, `529 Overloaded`, `429`, request validation errors | [Error reference](https://code.claude.com/docs/en/errors) |
+| `model not found` or `you may not have access to it` | [Error reference](https://code.claude.com/docs/en/errors#theres-an-issue-with-the-selected-model) |
+| A command Claude runs fails with `Your disk quota is full`, `is full (ENOSPC)`, or `Command output was lost` | [Error reference](https://code.claude.com/docs/en/errors#disk-quota-or-temp-filesystem-is-full) |
+| VS Code extension not connecting or detecting Claude | [VS Code integration](https://code.claude.com/docs/en/vs-code#fix-common-issues) |
+| `Claude Code process exited with code 1` in VS Code or an SDK app | [Error reference](https://code.claude.com/docs/en/errors#claude-code-process-exited-with-code-n) |
+| JetBrains plugin or IDE not detected | [JetBrains integration](https://code.claude.com/docs/en/jetbrains#troubleshooting) |
 | High CPU or memory, slow responses, hangs, search not finding files | [Performance and stability](#performance-and-stability) below |
 
 If you're not sure which applies, run `/doctor` inside Claude Code for an automated check of your installation, settings, extensions, and context usage; it proposes fixes it can apply after you confirm. If `claude` won't start at all, run `claude doctor` from your shell instead. Run `/mcp` to check MCP server status.
@@ -34,13 +34,13 @@ Claude Code is designed to work with most development environments, but may cons
 1. Use `/compact` regularly to reduce context size. If it returns `Not enough messages to compact.`, the conversation has too few turns to summarize; that can happen even with a full context when a single large paste filled it
 2. Close and restart Claude Code between major tasks
 3. Consider adding large build directories to your `.gitignore` file
-4. Restart with [`claude --safe-mode`](/docs/en/cli-reference#cli-flags) to check whether a plugin, MCP server, or hook is the source. It disables all customizations for the session; if usage drops, see [Debug your configuration](/docs/en/debug-your-config#test-against-a-clean-configuration) to find which one
+4. Restart with [`claude --safe-mode`](https://code.claude.com/docs/en/cli-reference#cli-flags) to check whether a plugin, MCP server, or hook is the source. It disables all customizations for the session; if usage drops, see [Debug your configuration](https://code.claude.com/docs/en/debug-your-config#test-against-a-clean-configuration) to find which one
 
-If a session's heap memory passes 2.5GB, a critical memory usage warning appears. To free the memory, restart Claude Code and run [`claude --continue`](/docs/en/cli-reference#cli-flags) to resume the conversation in a fresh process.
+If a session's heap memory passes 2.5GB, a critical memory usage warning appears. To free the memory, restart Claude Code and run [`claude --continue`](https://code.claude.com/docs/en/cli-reference#cli-flags) to resume the conversation in a fresh process.
 
-Outside [fullscreen rendering](/docs/en/fullscreen), running `/compact` frees memory too. The warning disappears once memory use drops back below 2.5GB.
+Outside [fullscreen rendering](https://code.claude.com/docs/en/fullscreen), running `/compact` frees memory too. The warning disappears once memory use drops back below 2.5GB.
 
-If memory usage stays high after these steps, run `/heapdump` to write two files to `~/Desktop`: a JavaScript heap snapshot named `<session-id>.heapsnapshot` and a memory breakdown named `<session-id>-diagnostics.json`. Claude Code [hides the command from the command menu](/docs/en/commands#how-the-command-menu-matches-what-you-type); type it in full. On Linux without a Desktop folder, the files are written to your home directory.
+If memory usage stays high after these steps, run `/heapdump` to write two files to `~/Desktop`: a JavaScript heap snapshot named `<session-id>.heapsnapshot` and a memory breakdown named `<session-id>-diagnostics.json`. Claude Code [hides the command from the command menu](https://code.claude.com/docs/en/commands#how-the-command-menu-matches-what-you-type); type it in full. On Linux without a Desktop folder, the files are written to your home directory.
 
 <Warning>
   The `.heapsnapshot` file contains every string in the process, including your full conversation and credentials. Don't attach it to a public issue or share it.
@@ -57,7 +57,7 @@ If the summary says most memory is native, the snapshot can't show it; include t
 
 ### Large tables are cut off in the terminal
 
-A Markdown table with more than 200 rows renders its first 200 rows followed by a `… N more rows not shown` line. Only the display is capped: the full table stays in the conversation, and [`/copy`](/docs/en/commands) copies every row. For a table too large to read in the terminal, ask Claude to write it to a file instead. Before v2.1.208, Claude Code rendered every row, so resuming a session that contained a very large table could stall while it re-rendered.
+A Markdown table with more than 200 rows renders its first 200 rows followed by a `… N more rows not shown` line. Only the display is capped: the full table stays in the conversation, and [`/copy`](https://code.claude.com/docs/en/commands) copies every row. For a table too large to read in the terminal, ask Claude to write it to a file instead. Before v2.1.208, Claude Code rendered every row, so resuming a session that contained a very large table could stall while it re-rendered.
 
 ### Auto-compaction stops with a thrashing error
 
@@ -67,7 +67,7 @@ To recover:
 
 1. Ask Claude to read the oversized file in smaller chunks, such as a specific line range or function, instead of the whole file
 2. Run `/compact` with a focus that drops the large output, for example `/compact keep only the plan and the diff`
-3. Move the large-file work to a [subagent](/docs/en/sub-agents) so it runs in a separate context window
+3. Move the large-file work to a [subagent](https://code.claude.com/docs/en/sub-agents) so it runs in a separate context window
 4. Run `/clear` if the earlier conversation is no longer needed
 
 ### Command hangs or freezes
@@ -81,32 +81,32 @@ Restarting doesn't lose your conversation. Run `claude --resume` in the same dir
 
 ### Garbled or corrupted text in an editor's integrated terminal
 
-If characters render as boxes, smears, or the wrong glyphs when running Claude Code in the VS Code, Cursor, or Devin Desktop integrated terminal, the terminal's GPU renderer is likely the cause. Run `/terminal-setup` inside Claude Code to set `terminal.integrated.gpuAcceleration` to `"off"`, or set it manually in your editor settings and reload the window. See [Terminal configuration](/docs/en/terminal-config) for the other settings `/terminal-setup` writes.
+If characters render as boxes, smears, or the wrong glyphs when running Claude Code in the VS Code, Cursor, or Devin Desktop integrated terminal, the terminal's GPU renderer is likely the cause. Run `/terminal-setup` inside Claude Code to set `terminal.integrated.gpuAcceleration` to `"off"`, or set it manually in your editor settings and reload the window. See [Terminal configuration](https://code.claude.com/docs/en/terminal-config) for the other settings `/terminal-setup` writes.
 
 ### Mouse wheel scrolls one line at a time in fullscreen rendering
 
-In [fullscreen rendering](/docs/en/fullscreen), Claude Code scrolls the conversation itself rather than leaving it to your terminal. If each wheel notch moves fewer lines than you want, run `/scroll-speed` to raise the number of lines per notch and save it, or set the `CLAUDE_CODE_SCROLL_SPEED` environment variable, except in the JetBrains IDE terminal, where Claude Code applies its own scroll handling and neither takes effect. See [Mouse wheel scrolling](/docs/en/fullscreen#mouse-wheel-scrolling) for the values each accepts.
+In [fullscreen rendering](https://code.claude.com/docs/en/fullscreen), Claude Code scrolls the conversation itself rather than leaving it to your terminal. If each wheel notch moves fewer lines than you want, run `/scroll-speed` to raise the number of lines per notch and save it, or set the `CLAUDE_CODE_SCROLL_SPEED` environment variable, except in the JetBrains IDE terminal, where Claude Code applies its own scroll handling and neither takes effect. See [Mouse wheel scrolling](https://code.claude.com/docs/en/fullscreen#mouse-wheel-scrolling) for the values each accepts.
 
 To move faster without changing the speed, press `PgUp` and `PgDn` to scroll half a screen at a time. To use your terminal's native scrollback instead, run `/tui default` to switch to the classic renderer.
 
 ### Clipboard commands such as `pbcopy` fail inside the sandbox
 
-When [sandboxing](/docs/en/sandboxing) is on, clipboard utilities such as `pbcopy`, `xclip`, and `wl-copy` can fail to reach the system clipboard from inside a sandboxed Bash command, leaving your clipboard unchanged after Claude pipes text to them.
+When [sandboxing](https://code.claude.com/docs/en/sandboxing) is on, clipboard utilities such as `pbcopy`, `xclip`, and `wl-copy` can fail to reach the system clipboard from inside a sandboxed Bash command, leaving your clipboard unchanged after Claude pipes text to them.
 
-To put Claude's output on your clipboard, ask Claude to print the content in its response, then run [`/copy`](/docs/en/commands). `/copy` writes to the clipboard from the Claude Code process itself rather than from a sandboxed command, so sandboxing doesn't block it. It can copy a single code block instead of the whole response, and it also writes what it copied to a file and prints the path, which gives you a fallback when the clipboard write doesn't reach your terminal, for example over SSH.
+To put Claude's output on your clipboard, ask Claude to print the content in its response, then run [`/copy`](https://code.claude.com/docs/en/commands). `/copy` writes to the clipboard from the Claude Code process itself rather than from a sandboxed command, so sandboxing doesn't block it. It can copy a single code block instead of the whole response, and it also writes what it copied to a file and prints the path, which gives you a fallback when the clipboard write doesn't reach your terminal, for example over SSH.
 
-When Claude pipes text to one of these tools, adding `pbcopy *`, `wl-copy *`, or `xclip *` to [`excludedCommands`](/docs/en/settings-reference#sandbox-excludedcommands) doesn't take that call out of the sandbox on its own.
+When Claude pipes text to one of these tools, adding `pbcopy *`, `wl-copy *`, or `xclip *` to [`excludedCommands`](https://code.claude.com/docs/en/settings-reference#sandbox-excludedcommands) doesn't take that call out of the sandbox on its own.
 
 ### Copied text doesn't reach your local clipboard over SSH
 
-When Claude Code runs on a remote machine over SSH, it can't run a clipboard tool on your local machine. Outside tmux, when you select text in [fullscreen rendering](/docs/en/fullscreen) or run `/copy`, Claude Code sends the text to your terminal as an OSC 52 escape sequence instead. Your terminal decides whether to put it on your clipboard. `/copy` reports `Copied to clipboard` whether or not the text arrived, and outside tmux the selection notice reads `sent N chars via OSC 52`.
+When Claude Code runs on a remote machine over SSH, it can't run a clipboard tool on your local machine. Outside tmux, when you select text in [fullscreen rendering](https://code.claude.com/docs/en/fullscreen) or run `/copy`, Claude Code sends the text to your terminal as an OSC 52 escape sequence instead. Your terminal decides whether to put it on your clipboard. `/copy` reports `Copied to clipboard` whether or not the text arrived, and outside tmux the selection notice reads `sent N chars via OSC 52`.
 
 Some terminals don't act on OSC 52. iTerm2 ignores it until you turn on **Settings > General > Selection > Applications in terminal may access clipboard**, and macOS Terminal.app doesn't support it.
 
 To get the text without OSC 52:
 
-* Hold your terminal's native-selection key while you drag, then copy with your terminal's usual shortcut, such as `Cmd+C`. The key is `Fn` in Terminal.app and `Option` in iTerm2. [Keep native text selection](/docs/en/fullscreen#keep-native-text-selection) lists it for other terminals.
-* Set [`CLAUDE_CODE_DISABLE_MOUSE=1`](/docs/en/env-vars) on the remote machine so your terminal handles selection for the whole session.
+* Hold your terminal's native-selection key while you drag, then copy with your terminal's usual shortcut, such as `Cmd+C`. The key is `Fn` in Terminal.app and `Option` in iTerm2. [Keep native text selection](https://code.claude.com/docs/en/fullscreen#keep-native-text-selection) lists it for other terminals.
+* Set [`CLAUDE_CODE_DISABLE_MOUSE=1`](https://code.claude.com/docs/en/env-vars) on the remote machine so your terminal handles selection for the whole session.
 
 ### Search and discovery issues
 
@@ -130,7 +130,7 @@ If the Search tool, `@file` mentions, custom agents, or custom skills aren't fin
     apk add ripgrep
     ```
 
-    `ripgrep` is in Alpine's community repository. If `apk` reports that the package is missing, see [Alpine Linux setup](/docs/en/setup#alpine-linux-and-musl-based-distributions).
+    `ripgrep` is in Alpine's community repository. If `apk` reports that the package is missing, see [Alpine Linux setup](https://code.claude.com/docs/en/setup#alpine-linux-and-musl-based-distributions).
   </Tab>
 
   <Tab title="Arch">
@@ -146,7 +146,7 @@ If the Search tool, `@file` mentions, custom agents, or custom skills aren't fin
   </Tab>
 </Tabs>
 
-Then set `USE_BUILTIN_RIPGREP` to `0`, either in your shell [environment](/docs/en/env-vars) or in the `env` block of your [`settings.json`](/docs/en/settings-reference#all-settings):
+Then set `USE_BUILTIN_RIPGREP` to `0`, either in your shell [environment](https://code.claude.com/docs/en/env-vars) or in the `env` block of your [`settings.json`](https://code.claude.com/docs/en/settings-reference#all-settings):
 
 ```json theme={null}
 {

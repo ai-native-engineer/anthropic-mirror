@@ -11,6 +11,8 @@ New Posts
 * [Revisiting](#math) [A Mathematical Framework](#math)[with the Language of Features](#math)
 * [Applications of Interpretability to Biology](#bio)
 
+---
+
 ## [Revisiting A Mathematical Framework with the Language of Features](#math)
 
 Chris Olah; edited by Adam Jermyn
@@ -56,6 +58,8 @@ In Framework, we studied the eigenvalues of W^{induction}\_{QK} \cdot W^{prev}\_
 ![](images/b04500ab40f8fe38.png)
 
 As a result, again, eigenvalues are positive.
+
+---
 
 ## [Applications of Interpretability to Biology](#bio)
 

@@ -22,7 +22,7 @@ To make Claude more useful for scientific work, we’re now adding several [new 
 
 ## Connecting Claude to scientific tools
 
-[**Connectors**](https://claude.ai/redirect/website.v1.8c34df62-141b-4649-a57d-3784679970f7/settings/connectors) allow Claude to access other platforms and tools directly. We’re adding several new connectors that are designed to make it easier to use Claude for scientific discovery:
+[**Connectors**](https://claude.ai/redirect/website.v1.ceff63e7-f229-4733-9ebe-582967b77464/settings/connectors) allow Claude to access other platforms and tools directly. We’re adding several new connectors that are designed to make it easier to use Claude for scientific discovery:
 
 * **Benchling** gives Claude the ability to respond to scientists’ questions with links back to source experiments, notebooks, and records;
 * **BioRender** connects Claude to its extensive library of vetted scientific figures, icons, and templates;

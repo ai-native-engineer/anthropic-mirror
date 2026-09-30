@@ -8,6 +8,13 @@
 
 [Skip to main content](#content-area)
 
+0.1.55
+
+September 29, 2026
+
+* New sessions on an organization’s default model with more life sciences restrictions now show a notice with a one-click switch to another model
+* Fixed an error Claude ran into when outlining an existing multi-panel figure or drafting a paper’s brief from its abstract and figure captions
+
 0.1.54
 
 September 28, 2026

@@ -2,6 +2,8 @@
 
 # How can I delete or rename a conversation?
 
+Table of contents
+
 *This article is about our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code. For our commercial products such as Claude for Work and the Anthropic API, see* *[here](https://privacy.anthropic.com/en/articles/8230524-how-can-i-delete-or-rename-a-conversation).*
 
 ## Deleting and Renaming Individual Conversations
@@ -12,7 +14,7 @@ To delete or rename an individual conversation:
 2. Click on the name of the conversation at the top of the screen.
 3. Select either "Delete" or "Rename" from the options that appear:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1223715553/def04b246edb8133a9f88bb73861/Screenshot%2B2023-08-08%2Bat%2B2_36_05%2BPM.png?expires=1790642700&signature=a6461a9340d1da414cc40f387406444fe3e8e6d9d04c6ecee00a48e936a369a1&req=dSIlFc5%2FmIRaWvMW1HO4zYNDGSJPwprFZGJwx2NqSgSRdog%2FCJUxcdt2d4Y6%0AAcXlUGIAFtXm%2F2xAGQw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1223715553/def04b246edb8133a9f88bb73861/Screenshot%2B2023-08-08%2Bat%2B2_36_05%2BPM.png?expires=1790642700&signature=a6461a9340d1da414cc40f387406444fe3e8e6d9d04c6ecee00a48e936a369a1&req=dSIlFc5%2FmIRaWvMW1HO4zYNDGSJPwprFZGJwx2NqSgSRdog%2FCJUxcdt2d4Y6%0AAcXlUGIAFtXm%2F2xAGQw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1223715553/def04b246edb8133a9f88bb73861/Screenshot%2B2023-08-08%2Bat%2B2_36_05%2BPM.png?expires=1790774100&signature=7f4c079df57357cb19fdc15c78fd24ac7fe9bbc2242c8d69efdd1b06cabd6b81&req=dSIlFc5%2FmIRaWvMW1HO4zYNDGSJOwZzDZGJwx2NqSgStYbHBIe2SvohmKMAN%0A8p0hJBEPwXUYi9S%2Ff0M%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1223715553/def04b246edb8133a9f88bb73861/Screenshot%2B2023-08-08%2Bat%2B2_36_05%2BPM.png?expires=1790774100&signature=7f4c079df57357cb19fdc15c78fd24ac7fe9bbc2242c8d69efdd1b06cabd6b81&req=dSIlFc5%2FmIRaWvMW1HO4zYNDGSJOwZzDZGJwx2NqSgStYbHBIe2SvohmKMAN%0A8p0hJBEPwXUYi9S%2Ff0M%3D%0A)
 
 ## Deleting Conversations in Bulk
 
@@ -22,8 +24,12 @@ To delete multiple conversations at once:
 2. Hover over the conversations you want to delete, and check the selection box that appears.
 3. Once you've selected the conversations to delete, click on the "Delete Selected" button.
 
+---
+
 * [Can you delete data that I sent via API?](https://privacy.claude.com/en/articles/7996875-can-you-delete-data-that-i-sent-via-api)
 * [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Can you delete data that I sent via Team and Enterprise plans?](https://privacy.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans)
 * [How can I delete or rename a conversation?](https://privacy.claude.com/en/articles/11117329-how-can-i-delete-or-rename-a-conversation)
+
+Table of contents

@@ -31,3 +31,5 @@ We’ve accelerated mission impact across U.S. defense workflows with partners l
 [Claude Gov models](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers), which we custom built for national security customers, already power deployments by agencies across the national security community atop infrastructure powered by Amazon Web Services(AWS).
 
 Organizations interested in transforming their operations with Claude can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
+
+Anthropic awarded $200M DOD agreement for AI capabilities \ Anthropic

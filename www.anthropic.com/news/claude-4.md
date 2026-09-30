@@ -59,7 +59,7 @@ Beyond the IDE, we're releasing an extensible Claude Code SDK, so you can build 
 
 These models are a large step toward the virtual collaborator—maintaining full context, sustaining focus on longer projects, and driving transformational impact. They come with extensive testing and evaluation to minimize risk and maximize safety, including [implementing measures](https://www.anthropic.com/news/activating-asl3-protections) for higher AI Safety Levels like ASL-3.
 
-We're excited to see what you'll create. Get started today on [Claude](https://claude.ai/redirect/website.v1.0ceffef0-e095-46fb-87b4-432dc36136d1), [Claude Code](https://www.anthropic.com/claude-code), or the platform of your choice.
+We're excited to see what you'll create. Get started today on [Claude](https://claude.ai/redirect/website.v1.35a60bf6-b230-4edc-b675-b83058cb0d12), [Claude Code](https://www.anthropic.com/claude-code), or the platform of your choice.
 
 *As always, your [feedback](mailto: feedback@anthropic.com) helps us improve.*
 
@@ -98,5 +98,3 @@ For our “high compute” numbers we adopt additional complexity and parallel t
 * We then use an internal scoring model to select the best candidate from the remaining attempts.
 
 This results in a score of 79.4% and 80.2% for Opus 4 and Sonnet 4 respectively.
-
-Introducing Claude 4 \ Anthropic

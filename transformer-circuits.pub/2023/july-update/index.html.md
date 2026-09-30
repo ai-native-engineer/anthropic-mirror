@@ -12,6 +12,8 @@ Short Updates
 * [What would be the most safety-relevant features in Language Models?](#safety-features)
 * [Further investigation of our skip-trigram model](#attn-skip-trigram)
 
+---
+
 ## [Finite Data Intermediate Regime](#finite-data)
 
 Adam Jermyn, Chris Olah, Tom Henighan
@@ -33,6 +35,8 @@ The previous intermediate regime was an artifact. We determined that some of wh
 The phenomenology of memorizing solutions changes as they approach the transition point. We find that the memorizing solution gradually changes from memorizing individual data points to memorizing clusters of correlated data points as the dataset size increases from around 1k to 500k samples. Below around 1k samples, the samples are mutually orthogonal with high probability and so uncorrelated, permitting an exact memorizing solution. Above this point there are correlations between samples which make exact memorization impossible, and the model instead clusters data points based on shared features. The clustering solutions have interesting fine detail where data points are arranged as "triangles".
 
 ![](images/3acddb3e0c48cfae.png)
+
+---
 
 ## [What would be the most safety-relevant features in Language Models?](#safety-features)
 
@@ -71,6 +75,8 @@ Instrumental Reasoning. Behaviors like caginess around red-teaming prompts, syco
 In-Context Learning. In-context learning is one of the most powerful things models do, allowing models to produce meaningfully new chains of reasoning and potentially enabling quite scary scenarios like strong inner optimizers. But how does in-context learning happen? What circuits implement it, and what priors does it come with? We have seen some tantalizing first steps in the form of [Induction Heads](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html), but much remains to be explored.
 
 Successful RLHF. When RLHF succeeds at producing a helpful model, why does it succeed? Does RLHF elicit capabilities and personalities already present in the model, or does it create new circuits and new knowledge? How much does RLHF delete from the pretrained model? More generally, there are many different theories of what RLHF does, and the truth of the matter is central to determining how viable it is as a method for safety.
+
+---
 
 ## [Further investigation of our skip-trigram model](#attn-skip-trigram)
 

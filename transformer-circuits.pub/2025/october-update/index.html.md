@@ -11,6 +11,8 @@ New Posts
 * [Visual Features Across Modalities: SVG and ASCII Art Reveal Cross-Modal Understanding](#svg-cross-modal)
 * [Data Point Initialization for Dictionary Models](#data-point-init)
 
+---
+
 ## [Visual Features Across Modalities: SVG and ASCII Art Reveal Cross-Modal Understanding](#svg-cross-modal)
 
 Julius Tarng, Purvi Goel, Isaac Kauvar; edited by Joshua Batson and Adam Jermyn
@@ -126,6 +128,8 @@ Steering positively with the “say cat” feature adds ears, whiskers, and a mu
 In summary, our findings demonstrate that many features activating for plain text descriptions of concepts also activate for, and can generate, text-based visual depictions of those concepts. We showed this through: (1) using features to recognize entities within text-based visual formats like ASCII and SVG, and (2) steering features to transform visual depictions, e.g., turning smiles into frowns and faces into unicorns.
 
 Several questions emerge from these experiments. First, our experiments focused primarily on concrete entities. Does the model contain features that capture higher, more abstract semantics, like aesthetics or artistic styles, and does steering on these features create meaningful outputs? Second, we observed that motor neurons, which have top logit effects relating to a specific concept, proved more effective for steering than perceptual neurons, which activate on input tokens relating to that concept. Are there more specific properties that characterize features that are valuable for steering, and can we develop methods to automatically identify them? Third, as these features are cross-modal, how can we combine visual output, like SVG, with other parts of our interpretability toolkit like contrastive vectors and steering to study models in a new dimension? Finally, thus far we have not investigated how these features become activated. What computational mechanisms translate low-level text into these higher-level conceptual features, and vice versa? And to what extent does the model have an internal representation where it pictures, plans, and then draws an image?
+
+---
 
 ## [Data Point Initialization for Dictionary Models](#data-point-init)
 

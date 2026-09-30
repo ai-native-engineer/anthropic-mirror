@@ -14,6 +14,8 @@ New Posts
 * [Attention Pivot Tables](#pivot-tables)
 * [Measuring feature sensitivity using dataset filtering](#feature-sensitivity)
 
+---
+
 ## [The Next Five Hurdles](#hurdles)
 
 Chris Olah; edited by Adam Jermyn
@@ -39,6 +41,8 @@ Following this path, I see five additional hurdles in our future:
 Of course, after all of these, comes the final challenge of "actually understand the neural network, now that you don't have fundamental barriers".
 
 Despite this list of challenges, there's a lot of cause for optimism. Firstly, we believe there are plausible paths to getting traction on many of these in the near future. They're relatively unexplored problems, and low hanging fruit seems at least plausible. Secondly, they don't necessarily block each other in the same way that the basic form of superposition often made it hard to investigate downstream problems. As a result, it seems possible to attack these problems in parallel. This also applies to the final goal of "understanding networks" or "neural network biology" – it feels less blocked on these, and more like we can genuinely attack it in interesting ways, but marginal progress on each of these makes it much easier.
+
+---
 
 ## [What is a Linear Representation? What is a Multidimensional Feature?](#linear-representations)
 
@@ -105,6 +109,8 @@ I'm not at all confident that any of the definitions or frames above will stand 
 
 It's also worth keeping in mind that imperfect theories and frames [can still be productive](https://transformer-circuits.pub/2024/april-update/index.html#caloric-theory). It may be a long time before we really know the right way to think about things, but that may not be as bad as it seems.
 
+---
+
 ## [The Dark Matter of Neural Networks?](#dark-matter)
 
 Chris Olah; edited by Adam Jermyn
@@ -118,6 +124,8 @@ From this perspective, these rare features may be a kind of "dark matter" of int
 Continuing this analogy: dictionary learning has given us a telescope, allowing us to stare into neural networks and observe features. Our earliest experiments could observe only the brightest "stars" (the most important and common features). As we refine the science of dictionary learning, we can resolve more and more faint stars (rarer features). But it may be that a large fraction of the neural network universe is effectively unobservable dark matter.
 
 (A critical open question here is whether we can find variants of dictionary learning which are orders of magnitude more efficient, allowing us to resolve more features. This doesn't seem totally impossible, but also seems very uncertain. The answer to this question will determine whether sufficiently rare features are effectively impossible to resolve.)
+
+---
 
 ## [Testing Base Model Quality Using Attention Pivot Tables](#pivot-tables)
 
@@ -192,6 +200,8 @@ Still, within this space we found that a few variables significantly increase or
 * Training hyperparameters: Training runs with hyperparameters that perform poorly tend to show confusing pivot tables.
 * Training dataset: Having a dataset that consists of domains that are easy to interpret (e.g., english natural language, python code, etc.) helps to see the signal that a model has learned. It can be difficult to tell the difference between a model that’s successfully learned structure that you cannot read and a model that hasn’t learned useful structure.
 * Number of layers: Unsurprisingly, single-layer models most readily show structure in pivot tables, although the later layers of multi-layer models also tend to show legible structure too.
+
+---
 
 ## [Measuring feature sensitivity using dataset filtering](#feature-sensitivity)
 

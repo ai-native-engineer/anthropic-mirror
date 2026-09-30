@@ -26,6 +26,8 @@ Anthropic workers with a need to know will be able to access your Study Particip
 
 Depending on where you live, you may have rights in relation to your Study Participation Data, such as the right to access or delete it. You can learn more about these rights and how to exercise them in our [Privacy Policy](https://www.anthropic.com/legal/privacy), or [contact us](https://privacy.claude.com/en/articles/9015913-how-to-get-support). If you request deletion, we will delete your transcript from our internal stores and, if you consented to public release, our public repository. Please note that, if you consented to public release, we are not able to guarantee that this deletes all copies of your transcript. For example, in between publicly releasing your transcript and removing it from the public repository, other people may have accessed your transcript from the public repository and created copies of it.
 
+---
+
 * [Updates to our Privacy Policy](https://privacy.claude.com/en/articles/10301952-updates-to-our-privacy-policy)
 * [How does Anthropic Interviewer collect and use my data?](https://privacy.claude.com/en/articles/12996960-how-does-anthropic-interviewer-collect-and-use-my-data)
 * [Supplemental Anthropic Interviewer Privacy Policy](https://privacy.claude.com/en/articles/14139821-supplemental-anthropic-interviewer-privacy-policy)

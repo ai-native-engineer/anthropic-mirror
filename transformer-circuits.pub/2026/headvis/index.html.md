@@ -47,6 +47,8 @@ In this paper, we:
 
 One theme emerges across both prior work and our own: a head's behavior on the full distribution rarely matches what a narrow task suggests, and the difference isn't always easy to characterize.
 
+---
+
 ## Fuzzy Induction
 
 We begin by studying induction to get familiar with using HeadVis. Induction headsGiven a pattern `[A][B] ... [A] -> [B]`, the head attends from the second `A` back to `B` to predict its recurrence. A only needs to match fuzzily. and "fuzzier" versions of induction (such as induction on language translation, semantic relations, longer contexts, and multiple-token prefixes) have been studied extensively in prior work . HeadVis surfaces several induction heads, and shows us how "fuzzy" induction can be understood as performing induction in the feature basis.
@@ -81,6 +83,8 @@ QK and OV attributions are a core capability of HeadVis and can be generated in 
 
 This is a typical HeadVis workflow: pick a head that's extreme on some metric, browse its attention patterns across dataset examples, and use QK and OV attributions to understand what's happening. Induction heads are a clean case where the workflow goes smoothly.
 
+---
+
 ## A Polysemantic Attention Head
 
 When visualizing the attention heads from  in HeadVis, we noticed that one of the line width heads — an early-layer head that computes line width by counting characters since the last newline — appeared to do more than that. From its attention patterns on dataset examples we identify three distinct behaviors:
@@ -112,6 +116,8 @@ Loading Figure 7…
 **Figure 7:** The head attends strongly only for years 1000–1986.
 
 This is one of the two outcomes the introduction described: a head studied for one task turns out to have several unrelated behaviors on the full distribution. It's about as clean an example as we've found — an early-layer head, picked because its behaviors separated cleanly, with three behaviors visible from token patterns, confirmed by PCA, and attributions that mostly make sense. The answer selection head we study next is the other outcome, and it has none of those advantages.
+
+---
 
 ## Answer Selection
 
@@ -156,6 +162,8 @@ Loading Figure 13…
 For contrast, the same analysis on the line width head's years behavior shows the opposite: the features with the highest virtual weights to a years feature are all about years.
 
 Our best guess is that this head is monosemantic, but we aren't fully convinced. The attributions and virtual weights above cover only a handful of examples. They look consistent, but we haven't surveyed the head systematically. A deeper issue is that we don't have a crisp enough hypothesis for this head's behavior to validate it. If we had a text description of what the head does, we could test every dataset example against it and notice (or have a grader model notice) when something doesn't fit. Without one, we're looking at a small sample and observing that everything so far matches the same loose template.
+
+---
 
 ## Same-Set Suppression
 
@@ -213,6 +221,8 @@ This example partially explains why this head's dataset attention patterns aren'
 
 These four heads span how far the workflow gets you: induction ran cleanly end to end; the line width head's three behaviors were visible from token patterns and confirmed by PCA; the answer selection head needed feature-level analysis to even form a hypothesis; and here, controlled inputs and QK geometry recovered one mechanism we couldn't see from dataset examples. Each step in this section used a different HeadVis view — top-token rankings to see what dominates, custom sequences to test a guess, QK attributions to read a confusing example, head-ranking on a (query, key) pair to trace composition. We open-sourced the tool so others can run these investigations on their own models.
 
+---
+
 ## Open Source HeadVis
 
 HeadVis is built from three pieces: a frontend for browsing and interacting with heads, an offline script that precomputes per-head metrics and attention patterns over a dataset, and a server that handles real-time queries like QK and OV attributions. We open-source the frontend along with a specification of the interface with the two backends. You can find the repository [here](https://github.com/anthropics/headvis) along with instructions for connecting the frontend to your own model. We suggest pointing Claude at the repository to implement the backend pieces for your setup. A hosted demo on a subset of Haiku 3.5 heads is [here](https://transformer-circuits.pub/2026/headvis/haiku/index.html)The frontend checks for a precomputed results file before querying the server, so a static deployment can serve any analysis that was generated ahead of time. The hosted demo uses this to include cached QK and OV attributions for a few examples from this paper without a live backend.. HeadVis on all heads in Gemma 3 1B  is [here](https://transformer-circuits.pub/2026/headvis/gemma3/index.html).
@@ -225,6 +235,8 @@ Some features we found useful internally are not included in this open source r
 * Head composition heatmaps (i.e. this head's OV weights share the subspace of a later head's Q/K weights)
 
 There are likely many more extensions that would make this tool more useful.
+
+---
 
 ## Related Work
 
@@ -239,6 +251,8 @@ Cataloging Attention Head Behaviors. Many prior works characterize the behavior
 * General Behaviors.  finds that several behaviors which had previously been attributed to GPT-2's L10H7 turn out to be facets of a single general behavior, copy suppression.  applies an SVD-based decomposition to the multiple-choice heads of Chinchilla to find subspaces that only partially do multiple choice question answering, similar to our discovery of the answer selection head.  generalize induction from literal token-matching to semantic relations, prior work for the feature-space matching we observe in the fuzzy induction head.
 
 We view HeadVis as a tool to discover more of these attention behaviors and pathologies. We expect that understanding individual examples of attention head biology will continue to be very insightful and guide future progress on fully decomposing the mechanisms of attention, such as with methods from  or .
+
+---
 
 ## Discussion
 
