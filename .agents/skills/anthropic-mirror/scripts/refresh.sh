@@ -125,5 +125,6 @@ python3 "$CRAWL_SCRIPTS_DIR/verify-mirror.py" . \
   --exclude 'platform.claude.com/**' \
   --exclude 'code.claude.com/**'
 python3 "$SKILL_DIR/scripts/verify-publish.py" .
+python3 "$SKILL_DIR/scripts/verify-publish.py" . --all
 
 echo "Mirror refresh and verification completed. Inspect git status before staging."

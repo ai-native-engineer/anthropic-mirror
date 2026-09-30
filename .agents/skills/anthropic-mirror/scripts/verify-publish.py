@@ -21,6 +21,8 @@ ALLOWED_ROOTS = {
     "assets.anthropic.com",
     "claude.com",
     "claude.com.md",
+    "claude.dev",
+    "claude.dev.md",
     "code.claude.com",
     "platform.claude.com",
     "partnerhub.claude.com",
@@ -38,6 +40,7 @@ ALLOWED_ROOTS = {
 }
 MAX_FILE_BYTES = 100 * 1024 * 1024  # GitHub single-file push limit.
 IMAGE_REF = re.compile(r"!\[[^\]]*\]\(\s*(<[^>]*>|[^)\s]*)")
+ARCHIVE_IGNORES = {".agents", ".git", "README.md", "README.ko.md", "AGENTS.md", "CLAUDE.md", "GOAL-HARNESS.md", "assets"}
 
 
 def image_ref_issues(fp, path):
@@ -64,6 +67,16 @@ def image_ref_issues(fp, path):
     if not bad:
         return []
     return [f"이미지 참조 대상 없음 {len(bad)}건: {path} [{bad[0][:60]}]"]
+
+
+def attachment_ref_issues(fp, path):
+    """Jupyter attachment references are not renderable archive assets."""
+    with open(fp, encoding="utf-8", errors="replace") as f:
+        text = f.read()
+    refs = re.findall(r"!\[[^\]]*\]\(\s*attachment:[^)\s]+", text)
+    if refs:
+        return [f"외부 attachment 자산 미해결 {len(refs)}건: {path}"]
+    return []
 
 
 def _body_digest(fp):
@@ -186,6 +199,7 @@ def validate_change(repo, status, path, allow_deletes=False, strict_paths=False)
         elif ".parts/" not in path and not first.startswith("<!-- source: https://"):
             issues.append(f"source 헤더 누락: {path}")
         issues.extend(image_ref_issues(fp, path))
+        issues.extend(attachment_ref_issues(fp, path))
     else:
         issues.append(f"지원하지 않는 생성물 확장자: {path}")
     return issues
@@ -246,7 +260,7 @@ def self_test():
         os.makedirs(os.path.dirname(fp), exist_ok=True)
         with open(fp, "wb") as f:
             f.write(body)
-    assert not validate_change(root, "??", "www.anthropic.com/img-ok.md")
+    assert validate_change(root, "??", "www.anthropic.com/img-ok.md")
     assert not validate_change(root, "??", "transformer-circuits.pub/x/local-ok.md")
     assert validate_change(root, "??", "www.anthropic.com/img-relative.md")
     assert validate_change(root, "??", "www.anthropic.com/img-empty.md")
@@ -273,15 +287,27 @@ def main():
     parser.add_argument(
         "--staged", action="store_true", help="worktree 대신 Git index 검사"
     )
+    parser.add_argument(
+        "--all", action="store_true", help="기존 생성물 전체와 미추적 생성물을 검사"
+    )
     parser.add_argument("--allow-deletes", action="store_true", help="검토한 삭제 허용")
     args = parser.parse_args()
     repo = os.path.abspath(args.repo)
     try:
-        changes = staged_changes(repo) if args.staged else worktree_changes(repo)
+        if args.all:
+            paths = git(repo, "ls-files", "-co", "--exclude-standard").splitlines()
+            paths = [
+                p for p in paths
+                if p.split("/", 1)[0] not in ARCHIVE_IGNORES
+                and os.path.splitext(p)[1].lower() in {".md", ".pdf", ".png", ".jpg", ".jpeg", ".svg"}
+            ]
+            changes = [("??", p) for p in paths]
+        else:
+            changes = staged_changes(repo) if args.staged else worktree_changes(repo)
     except subprocess.CalledProcessError as error:
         print(error.stderr.strip() or "Git 변경분을 읽지 못했습니다.", file=sys.stderr)
         return 2
-    issues = validate(repo, changes, args.allow_deletes, strict_paths=args.staged)
+    issues = validate(repo, changes, args.allow_deletes, strict_paths=args.staged or args.all)
     print(f"Git 변경 {len(changes)}개 검사: 문제 {len(issues)}개")
     for issue in issues[:30]:
         print(f"  {issue}")

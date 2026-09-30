@@ -35,6 +35,7 @@
 ## 표면별 대조
 
 - `platform.claude.com`은 docs sitemap과 별도 공개 허브를 따로 검사한다. raw Markdown이 없는 route는 HTML 렌더 경로로 분리한다.
+- `claude.dev`는 sitemap, robots, 공개 블로그/터미널 route를 `D`에 포함하고 `ALLOWED_ROOTS`와 로컬 생성물까지 대조한다.
 - SPA host는 루트 본문만 보지 말고 렌더된 내비게이션의 공개 route별 전문을 비교한다.
 - sitemap 없는 연구 사이트는 홈 1-depth와 각 문서의 same-host deep link를 합친다.
 - Claude·Anthropic Help/Privacy Center는 언어별 sitemap에서 영어 정본을 따로 센다.

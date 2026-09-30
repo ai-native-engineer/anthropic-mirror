@@ -29,6 +29,7 @@ from playwright.async_api import async_playwright
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 BASE = os.environ.get("SKILLJAR_BASE", "https://anthropic.skilljar.com").rstrip("/")
+EMPTY_MD_IMAGE = re.compile(r"!\[[^\]]*\]\(\s*\)")
 _HOST = BASE.split("://")[-1]
 STATE = os.path.expanduser(
     "~/.crawl4ai/academy_state.json"
@@ -378,7 +379,7 @@ async def rendered_body(pg):
         in best
     ):
         return ""
-    return best
+    return EMPTY_MD_IMAGE.sub("", best)
 
 
 async def lesson_videos(pg, course, ck, cdir, state):
@@ -662,7 +663,7 @@ async def main():
             "이 상태로 진행하면 모든 레슨이 코스 랜딩으로 튕겨 소개글이 본문으로 저장됩니다.",
             flush=True,
         )
-        return
+        raise SystemExit(2)
     if not courses:
         catalogs = [
             response.text
@@ -671,7 +672,7 @@ async def main():
         ]
         if not catalogs:
             print("[!] Academy 카탈로그를 가져오지 못했습니다.", flush=True)
-            return
+            raise SystemExit(2)
         skip = {
             "auth",
             "accounts",

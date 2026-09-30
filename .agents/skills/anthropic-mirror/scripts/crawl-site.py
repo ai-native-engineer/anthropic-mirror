@@ -48,6 +48,7 @@ def is_claude_en(u):
 HTML_SITEMAPS = [
     (f"{A}/sitemap.xml", lambda u: True),                                 # 실측 ~476 (news/research/engineering/events/legal/product/system-cards/economic 등 전량)
     ("https://claude.com/sitemap.xml", is_claude_en),                     # 실측 영어 ~1591 (blog/customers/resources/connectors/plugins/solutions ...)
+    ("https://claude.dev/sitemap.xml", lambda u: True),                   # Claude 공식 블로그/터미널 공개 표면
     ("https://claude.com/docs/sitemap.xml", lambda u: True),              # 실측 ~127 (태그형 help 문서, robots.txt가 선언하는 2번째 sitemap)
     ("https://support.claude.com/sitemap.xml", lambda u: "/en/" in u),    # 실측 영어 ~370 (Help Center)
     ("https://privacy.claude.com/sitemap.xml", lambda u: "/en/" in u),   # Privacy Center 영어 정본
@@ -130,22 +131,25 @@ def same_host(requested, final):
 
 
 def sitemap_urls(sm):
-    """sitemap(또는 sitemap 인덱스) -> URL 집합. 인덱스면 자식 sitemap을 한 단계 펼친다."""
-    try:
-        _, t, _ = get(sm)
-    except Exception as e:
-        print(f"  sitemap ERR {sm}: {e}", flush=True)
-        return set()
-    locs = re.findall(r"<loc>(.*?)</loc>", t)
-    if locs and all(l.strip().endswith(".xml") for l in locs):
-        urls = set()
-        for c in locs:
-            try:
-                _, ct, _ = get(c.strip()); urls.update(re.findall(r"<loc>(.*?)</loc>", ct))
-            except Exception:
-                pass
-        return urls
-    return set(l.strip() for l in locs)
+    """sitemap 또는 중첩된 sitemap index를 cycle-safe하게 끝까지 펼친다."""
+    pending, seen, urls = [sm], set(), set()
+    while pending:
+        current = pending.pop()
+        if current in seen:
+            continue
+        seen.add(current)
+        try:
+            _, text, _ = get(current)
+        except Exception as e:
+            print(f"  sitemap ERR {current}: {e}", flush=True)
+            continue
+        locs = [loc.strip() for loc in re.findall(r"<loc>(.*?)</loc>", text)]
+        children = [loc for loc in locs if loc.lower().endswith(".xml")]
+        if children and len(children) == len(locs):
+            pending.extend(children)
+        else:
+            urls.update(locs)
+    return urls
 
 
 _CFEMAIL = re.compile(r'\[([^\]]*)\]\((?:https?://[^)]*?)?/cdn-cgi/l/email-protection#([0-9a-fA-F]{8,})\)')
@@ -188,6 +192,9 @@ def absolutize_html(node, base):
         src = img.get("src", "").strip()
         if not src:
             img.decompose()
+        elif src.startswith("attachment:"):
+            label = img.get("alt", "attachment")
+            img.replace_with(f"[미수집 첨부 이미지: {label}]")
         elif not src.startswith("data:"):
             img["src"] = absolute_url(base, src)
     for a in node.find_all("a", href=True):

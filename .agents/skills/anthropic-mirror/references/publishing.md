@@ -11,7 +11,7 @@ bash .agents/skills/anthropic-mirror/scripts/refresh.sh --check
 bash .agents/skills/anthropic-mirror/scripts/refresh.sh
 ```
 
-entrypoint는 공개 사이트, Academy, 공식 YouTube, 이미지·인라인 자막·영상 reference·PDF를 갱신하고 콘텐츠와 발행 변경을 검증한다. 중간 단계가 실패하면 즉시 멈춘다.
+entrypoint는 공개 사이트, Academy, 공식 YouTube, 이미지·인라인 자막·영상 reference·PDF를 갱신하고 콘텐츠와 발행 변경을 검증한다. Academy 인증이 없으면 즉시 실패하며, 중간 단계가 실패하면 즉시 멈춘다.
 
 ## 검토와 commit
 
@@ -24,6 +24,7 @@ entrypoint는 공개 사이트, Academy, 공식 YouTube, 이미지·인라인 �
 ```bash
 python3 .agents/skills/anthropic-mirror/scripts/verify-publish.py .
 python3 .agents/skills/anthropic-mirror/scripts/verify-publish.py . --staged
+python3 .agents/skills/anthropic-mirror/scripts/verify-publish.py . --all
 git diff --cached --stat
 git commit -m "Update mirror: <changed area> (YYYY-MM-DD)"
 ```

@@ -12,7 +12,7 @@
 
 | 표면 | 수집기 | 발견 방식 |
 |---|---|---|
-| anthropic.com / claude.com | `crawl-site.py` | sitemap, 영어 정본 |
+| anthropic.com / claude.com / claude.dev | `crawl-site.py` | sitemap, 영어 정본 |
 | platform.claude.com / code.claude.com | `crawl-site.py` | docs sitemap + Mintlify raw Markdown, Cookbook 홈 1-depth |
 | support.claude.com / privacy.claude.com | `crawl-site.py` | 영어 sitemap |
 | alignment.anthropic.com / transformer-circuits.pub | `crawl-site.py` | same-host 링크 2-depth + canonical redirect |
@@ -25,7 +25,7 @@
 
 ## 공개 사이트와 문서
 
-- sitemap을 URL 정본으로 쓰고 sitemap index는 한 단계 펼친다.
+- sitemap을 URL 정본으로 쓰고 중첩된 sitemap index까지 재귀적으로 펼친다.
 - `curl_cffi`의 Chrome 지문으로 SSR 본문을 받고 nav/footer boilerplate를 제거한다.
 - platform·code 문서는 HTML 대신 페이지별 raw Markdown을 우선한다.
 - claude.com과 support는 영어 정본만 저장한다.
@@ -57,7 +57,8 @@
 - `pdf-mirror.py`는 Anthropic·Claude 소유 host만 허용하고 `%PDF-` 및 100MB 제한을 확인한다.
 - `add-pdf-text-layer.py`는 PDF의 visible text를 보존하면서 raster image를 다시 OCR하고, PDF metadata marker와 `--check`로 전수 커버리지를 확인한다.
 - PNG/JPEG 등 bitmap image에는 selectable text layer 규격이 없다. 별도 OCR 파일이나 PDF 변환을 명시적으로 요청하지 않는 한 원본만 보존한다.
-- `verify-mirror.py`는 자막 참조 누락과 렌더 불가능한 대형 Markdown을 마지막에 검사한다.
+- shared `crawl`의 `verify-mirror.py`는 자막 참조 누락과 렌더 불가능한 대형 Markdown을 마지막에 검사한다.
+- `verify-publish.py --all`은 기존 보관본 전체의 source 헤더, 이미지 참조, 자산 형식, 범위 밖 호스트를 검사한다.
 
 ## 범위 밖
 

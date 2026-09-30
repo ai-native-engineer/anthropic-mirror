@@ -1547,9 +1547,9 @@ plt.show()
 
 You can run an evaluation with the command `promptfoo eval`. You can render the eval results via the command `promptfoo view`. Here's a preview of what the results look like:
 
-![image-2.png](attachment:image-2.png)
-![image-5.png](attachment:image-5.png)
-![image.png](attachment:image.png)
+[미수집 첨부 이미지: image-2.png]
+[미수집 첨부 이미지: image-5.png]
+[미수집 첨부 이미지: image.png]
 
 ##  Further Exploration & Next Steps
 
