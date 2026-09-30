@@ -48,7 +48,7 @@ How you ask matters as much as what folder you point at.
 
 A short list:
 
-* **Regulated workflows that need an audit trail.** Cowork activity isn't captured in audit logs or data exports; the Compliance API does return Cowork session transcripts, but only for Claude Enterprise organizations and in beta.
+* **Regulated workflows that need an audit trail.** Cowork activity isn't captured in audit logs or data exports; the Compliance API does return Cowork session transcripts, but only for Claude Enterprise organizations.
 * **Anything you wouldn't trust a smart, quick colleague to do unsupervised.** Sending the legal doc to a counterparty, posting the public announcement, pushing a customer-facing change. Claude can prepare; you ship.
 * **Highly sensitive personal data** outside the boundary your IT team has explicitly approved.
 

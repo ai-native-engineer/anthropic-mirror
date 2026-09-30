@@ -45,3 +45,5 @@ We’re opening a limited research preview of Claude Code Security to Enterprise
 [Apply for access here](https://claude.com/contact-sales/security).
 
 To learn more, visit [claude.com/solutions/claude-code-security](http://claude.com/solutions/claude-code-security).
+
+Making frontier cybersecurity capabilities available to defenders \ Anthropic

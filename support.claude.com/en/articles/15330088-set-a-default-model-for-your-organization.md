@@ -45,7 +45,7 @@ The organization default applies to every member. To set it:
 3. If you select “Choose a specific model,” choose a model from the list. Only models enabled under **Model access** on the same page can be selected.
 4. Click “Save changes.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1790642700&signature=4b0674c84fd81dff92f5dd7a901d2a16f5477ea9468baadbdd15a42914956aaf&req=diUmEs58n4BcUPMW1HO4zelOdjJGKUpAfdGVZ664dGHxv7%2FZG6ablDkEs7xa%0Agg503ej5%2FnItrBHwq6I%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1790642700&signature=4b0674c84fd81dff92f5dd7a901d2a16f5477ea9468baadbdd15a42914956aaf&req=diUmEs58n4BcUPMW1HO4zelOdjJGKUpAfdGVZ664dGHxv7%2FZG6ablDkEs7xa%0Agg503ej5%2FnItrBHwq6I%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1790735400&signature=4d32612b51e75741688f24502b569295d2dbee54e27a755e5b5c419d26b7b8c9&req=diUmEs58n4BcUPMW1HO4zelOdjJHLk1DfdGVZ664dGHMJqz9wvA%2Fj%2B2EbGGr%0AYDbDRmRE4YpYFqFE6Os%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1790735400&signature=4d32612b51e75741688f24502b569295d2dbee54e27a755e5b5c419d26b7b8c9&req=diUmEs58n4BcUPMW1HO4zelOdjJHLk1DfdGVZ664dGHMJqz9wvA%2Fj%2B2EbGGr%0AYDbDRmRE4YpYFqFE6Os%3D%0A)
 
 ---
 
@@ -138,8 +138,8 @@ If `managed-settings.json` specifies `availableModels` that doesn't contain the 
 
 Managed settings for models apply only to Claude Code CLI and IDE, not to Claude Code on web or desktop. For consistent behavior across all Claude Code surfaces, we recommend setting the default here alone. For more on managed settings, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
 
+* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
-* [Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
 * [Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)

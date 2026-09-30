@@ -3,6 +3,140 @@
 
 <!-- chunk-start -->
 
+    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `content_size_bytes: Optional[int]`
+
+    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+    format: int32
+
+  - `created_by: Optional[BetaManagedAgentsActor]`
+
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+
+    - `class BetaManagedAgentsSessionActor`
+
+      An agent acting during a session, for example through the session's mounted filesystem. It names the session itself, not the user or API key that started the session.
+
+      - `type: Literal["session_actor"]`
+
+      - `session_id: str`
+
+        ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
+
+        minLength: 1
+
+    - `class BetaManagedAgentsAPIActor`
+
+      A direct caller of the public API, identified by the API key that authenticated the request.
+
+      - `type: Literal["api_actor"]`
+
+      - `api_key_id: str`
+
+        ID of the API key (an `apikey_...` value). This identifies the key, not the secret.
+
+        minLength: 1
+
+    - `class BetaManagedAgentsUserActor`
+
+      A human user, for example acting through the Anthropic Console.
+
+      - `type: Literal["user_actor"]`
+
+      - `user_id: str`
+
+        ID of the user (a `user_...` value).
+
+        minLength: 1
+
+    - `class BetaManagedAgentsServiceAccountActor`
+
+      A workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `type: Literal["service_account_actor"]`
+
+      - `service_account_id: str`
+
+        ID of the service account (a `svac_...` value).
+
+        minLength: 1
+
+  - `path: Optional[str]`
+
+    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
+
+  - `redacted_at: Optional[datetime]`
+
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](/docs/en/api/beta/memory_stores/memory_versions/redact).
+
+    format: date-time
+
+  - `redacted_by: Optional[BetaManagedAgentsActor]`
+
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_managed_agents_memory_version = client.beta.memory_stores.memory_versions.retrieve(
+    memory_version_id="memory_version_id",
+    memory_store_id="memory_store_id",
+)
+print(beta_managed_agents_memory_version.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_id": "memory_id",
+  "memory_store_id": "memory_store_id",
+  "operation": "created",
+  "type": "memory_version",
+  "content": "content",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  },
+  "path": "path",
+  "redacted_at": "2019-12-27T18:11:19.117Z",
+  "redacted_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  }
+}
+```
+
+### Redact a memory version
+
+`beta.memory_stores.memory_versions.redact(memory_version_id, **kwargs)  -> BetaManagedAgentsMemoryVersion`
+
+**POST** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
+
+Redact a memory version
+
+#### Parameters
+
+- `memory_store_id: str`
+
+  The ID of the memory store that holds the version (`memstore_...`).
+
+- `memory_version_id: str`
+
   The ID of the memory version to redact (`memver_...`).
 
 - `betas: Optional[List[AnthropicBetaParam]]`

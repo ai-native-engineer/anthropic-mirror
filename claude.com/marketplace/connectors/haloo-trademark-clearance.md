@@ -10,7 +10,7 @@ Haloo performs a deep, full clearance search, not a knockout. Built on examiner 
 
 Ask Claude to run a clearance search for a new brand name, suggest alternative name options if conflicts are found, or draft a trademark application with the best filing strategy given the results.
 
-Each search covers one mark in one jurisdiction. Global clearance runs as separate jurisdiction-by-jurisdiction searches. Each search is $150 USD.
+Each search covers one mark in one jurisdiction. Global clearance runs as separate jurisdiction-by-jurisdiction searches.
 
 ## Tools
 

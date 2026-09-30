@@ -3,6 +3,106 @@
 
 <!-- chunk-start -->
 
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserScrollToConfig? ScrollTo`
+
+          `scroll_to`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserSwitchTabConfig? SwitchTab`
+
+          `switch_tab`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserTripleClickConfig? TripleClick`
+
+          `triple_click`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserWaitConfig? Wait`
+
+          `wait`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserZoomConfig? Zoom`
+
+          `zoom`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `class BetaToolComputerUse20241022`
+
+      - `JsonElement Type = "computer_20241022"`
+
+      - `required long DisplayHeightPx`
+
+        The height of the display in pixels.
+
+        minimum: 1
+
+      - `required long DisplayWidthPx`
+
+        The width of the display in pixels.
+
+        minimum: 1
+
+      - `JsonElement Name = "computer"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+        - `Direct("direct")`
+
+        - `CodeExecution20250825("code_execution_20250825")`
+
+        - `CodeExecution20260120("code_execution_20260120")`
+
+        - `CodeExecution20260521("code_execution_20260521")`
+
+      - `BetaCacheControlEphemeral? CacheControl`
+
+        Create a cache control breakpoint at this content block.
+
+      - `bool DeferLoading`
+
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
       - `long? DisplayNumber`
@@ -1062,6 +1162,10 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `ClaudeFable5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -1076,7 +1180,7 @@
 
         - `ClaudeSonnet5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `ClaudeFable5("claude-fable-5")`
 
@@ -4452,6 +4556,10 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `ClaudeFable5_1("claude-fable-5-1")`
 
         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -4466,7 +4574,7 @@
 
       - `ClaudeSonnet5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `ClaudeFable5("claude-fable-5")`
 
@@ -5010,6 +5118,10 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `ClaudeFable5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -5024,7 +5136,7 @@
 
         - `ClaudeSonnet5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `ClaudeFable5("claude-fable-5")`
 
@@ -10604,6 +10716,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                            - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+                              Efficient model for coding and agents
+
                             - `ClaudeFable5_1("claude-fable-5-1")`
 
                               Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -10618,7 +10734,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             - `ClaudeSonnet5("claude-sonnet-5")`
 
-                              High-performance model for coding and agents
+                              Efficient model for coding and agents
 
                             - `ClaudeFable5("claude-fable-5")`
 
@@ -11354,6 +11470,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `JsonElement Type = "disabled"`
 
+            - `class BetaThinkingConfigBetweenTools`
+
+              - `JsonElement Type = "between_tools"`
+
             - `class BetaThinkingConfigAdaptive`
 
               - `JsonElement Type = "adaptive"`
@@ -11442,9 +11562,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `bool Stream`
 
-        Whether to incrementally stream the response using server-sent events.
+        Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-        See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+        In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
       - `System System`
 
@@ -11479,6 +11599,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `class BetaThinkingConfigEnabled`
 
         - `class BetaThinkingConfigDisabled`
+
+        - `class BetaThinkingConfigBetweenTools`
 
         - `class BetaThinkingConfigAdaptive`
 
@@ -15868,6 +15990,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+                            Efficient model for coding and agents
+
                           - `ClaudeFable5_1("claude-fable-5-1")`
 
                             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -15882,7 +16008,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           - `ClaudeSonnet5("claude-sonnet-5")`
 
-                            High-performance model for coding and agents
+                            Efficient model for coding and agents
 
                           - `ClaudeFable5("claude-fable-5")`
 

@@ -8,11 +8,13 @@ Rolling out to Pro and Max, with more plans to follow.
 
 [Read what changed (opens in new tab)](https://claude.com/blog/cowork-is-now-claude)
 
-![](https://cdn.sanity.io/images/4zrzovbb/claude-com/2eab44b301cd5d895a084068c7b569bfb79f7b1f-612x676.webp?w=224&auto=format)
+![](https://assets.claude.com/82c296c6728990b32f78abb702912d16db00119b.jpg?w=224&fm=webp)
 
 # Pricing
 
-IndividualTeam & EnterpriseAPI
+IndividualDeveloperTeam & EnterpriseAPI
+
+Individual
 
 ### Free
 
@@ -32,8 +34,6 @@ Free for everyone
 
 ### Pro
 
-Claude Code included
-
 For everyday work
 
 $17
@@ -47,14 +47,13 @@ Everything in Free, plus:
 * More usage\*
 * Hand off and schedule tasks
 * Claude Design, Slides, Docs
+* Claude Code
 * Claude Science
 * Projects
 * More Claude models
 * Claude in Chrome and Microsoft 365
 
 ### Max
-
-Claude Code included
 
 For people who work with Claude all day
 
@@ -757,5 +756,3 @@ You can cancel anytime, and your plan stays active until the end of your current
 * Sales-assisted Enterprise: Reach out to your Anthropic Contact or our Sales team to discuss cancellation.
 
 Canceling doesn't delete your data. Your chats, projects, and files stay with your account, though some features aren't available on the Free plan. For Pro and Max, your account moves to the Free plan once the period ends. For step-by-step help, see [how to cancel a Pro or Max plan](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription) or [cancel a Team plan](https://support.claude.com/en/articles/9267323-cancel-your-organization-s-team-plan-subscription).
-
-Plans & Pricing | Claude by Anthropic

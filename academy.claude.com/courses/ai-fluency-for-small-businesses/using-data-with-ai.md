@@ -1,6 +1,6 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai -->
 
-Lesson 6 of 9 · AI Fluency for small businessesTransparent AI use
+Lesson 5 of 8 · AI Fluency for small businessesTransparent AI use
 
 3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
@@ -8,7 +8,7 @@ Lesson 6 of 9 · AI Fluency for small businessesTransparent AI use
 
 # Transparent AI use
 
-Lesson 645 min
+Lesson 545 min
 
 In this lessonBy the end, you’ll be able to
 
@@ -84,7 +84,7 @@ In the next lesson, we'll put all four dimensions of the 4D Framework together t
 
 [Previous lessonRefining with AI](https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai)[Next lessonTying it all together](https://academy.claude.com/courses/ai-fluency-for-small-businesses/tying-it-all-together)
 
-Lesson 6 of 9 · AI Fluency for small businessesTransparent AI use
+Lesson 5 of 8 · AI Fluency for small businessesTransparent AI use
 
 Introduction and AI Fluency framework
 
@@ -94,7 +94,6 @@ Introduction and AI Fluency framework
 How AI works
 
 * [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
-* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
 
 The Description-Discernment loop
 

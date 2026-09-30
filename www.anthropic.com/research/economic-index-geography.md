@@ -19,9 +19,9 @@ These are statistics we found in our third [Anthropic Economic Index report](htt
 * **…within the US:** we provide the first-ever detailed assessment of how AI use differs between US states. We find that the composition of states’ economies informs which states use Claude the most per capita – and, surprisingly, that the very highest-use states *aren’t* the ones where coding dominates.
 * **…across different countries:** our new analysis finds that countries’ use of Claude is strongly correlated with income, and that people in lower-use countries use Claude to automate work *more* frequently than those in higher-use ones.
 * **…over time:** we compare our latest data with [December 2024-January 2025](https://www.anthropic.com/news/the-anthropic-economic-index) and [February–March 2025](https://www.anthropic.com/news/anthropic-economic-index-insights-from-claude-sonnet-3-7). We find that the proportion of ‘directively’ automated tasks increased sharply from 27% to 39%, suggesting a rapid increase in AI’s responsibility (and in users’ trust).
-* **…and by business users:** we now include anonymized data from Anthropic’s first-party API customers (in addition to users of [Claude.ai](http://claude.ai/redirect/website.v1.4754483e-f4f2-4f7a-95a1-0c768bd2c6b3)), allowing us to analyze businesses’ interactions for the first time. We find that API users are significantly more likely to automate tasks with Claude than consumers are, which suggests that major labor market implications could be on the horizon.
+* **…and by business users:** we now include anonymized data from Anthropic’s first-party API customers (in addition to users of [Claude.ai](http://claude.ai/redirect/website.v1.760ee561-ed33-40dd-87da-0652484a9924)), allowing us to analyze businesses’ interactions for the first time. We find that API users are significantly more likely to automate tasks with Claude than consumers are, which suggests that major labor market implications could be on the horizon.
 
-We summarize [the report](http://anthropic.com/research/anthropic-economic-index-september-2025-report) below. In addition, we’ve designed an [interactive website](http://anthropic.com/economic-index) where you can explore our data yourself. For the first time, you can search for trends and results in [Claude.ai](http://claude.ai/redirect/website.v1.4754483e-f4f2-4f7a-95a1-0c768bd2c6b3) use across every US state and all occupations we track, to see how AI is used where you live or by people in similar jobs. Finally, if you’d like to build on our analysis, we’ve made our dataset [openly available](https://huggingface.co/datasets/Anthropic/EconomicIndex), alongside the data from our previous Economic Index reports.
+We summarize [the report](http://anthropic.com/research/anthropic-economic-index-september-2025-report) below. In addition, we’ve designed an [interactive website](http://anthropic.com/economic-index) where you can explore our data yourself. For the first time, you can search for trends and results in [Claude.ai](http://claude.ai/redirect/website.v1.760ee561-ed33-40dd-87da-0652484a9924) use across every US state and all occupations we track, to see how AI is used where you live or by people in similar jobs. Finally, if you’d like to build on our analysis, we’ve made our dataset [openly available](https://huggingface.co/datasets/Anthropic/EconomicIndex), alongside the data from our previous Economic Index reports.
 
 ## **Geography**
 
@@ -101,11 +101,11 @@ Countries with higher Claude use per capita tend to use Claude in a more collabo
 
 ## **Businesses**
 
-Using the same privacy-preserving [methodology](https://www.anthropic.com/research/clio) we use for conversations on [Claude.ai](http://claude.ai/redirect/website.v1.4754483e-f4f2-4f7a-95a1-0c768bd2c6b3), we have begun sampling interactions from a subset of Anthropic’s first-party API customers, in a first-of-its-kind analysis.3 API customers, who tend to be businesses and developers, use Claude very differently to those who access it through [Claude.ai](http://claude.ai/redirect/website.v1.4754483e-f4f2-4f7a-95a1-0c768bd2c6b3): they pay per token, rather than a fixed monthly subscription, and can make requests through their own programs.
+Using the same privacy-preserving [methodology](https://www.anthropic.com/research/clio) we use for conversations on [Claude.ai](http://claude.ai/redirect/website.v1.760ee561-ed33-40dd-87da-0652484a9924), we have begun sampling interactions from a subset of Anthropic’s first-party API customers, in a first-of-its-kind analysis.3 API customers, who tend to be businesses and developers, use Claude very differently to those who access it through [Claude.ai](http://claude.ai/redirect/website.v1.760ee561-ed33-40dd-87da-0652484a9924): they pay per token, rather than a fixed monthly subscription, and can make requests through their own programs.
 
-These customers’ use of Claude is especially concentrated in coding and administrative tasks: 44% of the API traffic in our sample maps to computer or mathematical tasks, compared to 36% of tasks on [Claude.ai](http://claude.ai/redirect/website.v1.4754483e-f4f2-4f7a-95a1-0c768bd2c6b3). (As it happens, around 5% of all API traffic focuses specifically on developing and evaluating AI systems.) This is offset by a smaller proportion of conversations related to educational occupations (4% in the API relative to 12% on [Claude.ai](http://claude.ai/redirect/website.v1.4754483e-f4f2-4f7a-95a1-0c768bd2c6b3)), and arts and entertainment (5% relative to 8%).
+These customers’ use of Claude is especially concentrated in coding and administrative tasks: 44% of the API traffic in our sample maps to computer or mathematical tasks, compared to 36% of tasks on [Claude.ai](http://claude.ai/redirect/website.v1.760ee561-ed33-40dd-87da-0652484a9924). (As it happens, around 5% of all API traffic focuses specifically on developing and evaluating AI systems.) This is offset by a smaller proportion of conversations related to educational occupations (4% in the API relative to 12% on [Claude.ai](http://claude.ai/redirect/website.v1.760ee561-ed33-40dd-87da-0652484a9924)), and arts and entertainment (5% relative to 8%).
 
-We also find that our API customers use Claude for task automation much more often than [Claude.ai](http://claude.ai/redirect/website.v1.4754483e-f4f2-4f7a-95a1-0c768bd2c6b3) users. 77% of our API conversations show automation patterns, of which the vast majority are directive, while just 12% show augmentation. On [Claude.ai](http://claude.ai/redirect/website.v1.4754483e-f4f2-4f7a-95a1-0c768bd2c6b3), the split is almost even. This could have significant economic implications: in the past, the automation of tasks has been associated with large economic transitions, as well as major productivity gains.
+We also find that our API customers use Claude for task automation much more often than [Claude.ai](http://claude.ai/redirect/website.v1.760ee561-ed33-40dd-87da-0652484a9924) users. 77% of our API conversations show automation patterns, of which the vast majority are directive, while just 12% show augmentation. On [Claude.ai](http://claude.ai/redirect/website.v1.760ee561-ed33-40dd-87da-0652484a9924), the split is almost even. This could have significant economic implications: in the past, the automation of tasks has been associated with large economic transitions, as well as major productivity gains.
 
 ![Graph showing a much higher share of augmentative uses on Claude.ai than the API, and vice-versa for automative uses.](https://www-cdn.anthropic.com/images/4zrzovbb/website/8f4d609ea112160b606f3a0633ee869f12d24960-7638x4291.png)
 
@@ -123,7 +123,7 @@ The Economic Index is designed to provide an early, empirical assessment of how 
 
 Across each of the measures we cover in this report, the adoption of AI appears remarkably uneven. People in higher-income countries are more likely to use Claude, more likely to seek collaboration rather than automation, and more likely to pursue a breadth of uses beyond coding. Within the US, AI use seems to be strongly influenced by the dominant industries in local economies, from technology to tourism. And businesses are more likely to entrust Claude with agency and autonomy than consumers are.
 
-Beyond the fact of unevenness, it’s especially notable to us that directive automation has become much more common in conversations on [Claude.ai](http://claude.ai/redirect/website.v1.4754483e-f4f2-4f7a-95a1-0c768bd2c6b3) over the past nine months. The nature of people’s use of Claude is evidently still being defined: we’re still collectively deciding how much confidence we have in AI tools, and how much responsibility we should give them. So far, though, it looks like we’re becoming increasingly comfortable with AI, and willing to let it work on our behalf. We’re looking forward to revisiting this analysis over time, to see where—or, indeed, *if*—users’ choices settle as AI models improve.
+Beyond the fact of unevenness, it’s especially notable to us that directive automation has become much more common in conversations on [Claude.ai](http://claude.ai/redirect/website.v1.760ee561-ed33-40dd-87da-0652484a9924) over the past nine months. The nature of people’s use of Claude is evidently still being defined: we’re still collectively deciding how much confidence we have in AI tools, and how much responsibility we should give them. So far, though, it looks like we’re becoming increasingly comfortable with AI, and willing to let it work on our behalf. We’re looking forward to revisiting this analysis over time, to see where—or, indeed, *if*—users’ choices settle as AI models improve.
 
 If you’d like to explore our data yourself, you can do so on our dedicated [Anthropic Economic Index website](http://anthropic.com/economic-index), which contains interactive visualizations of our country, state, and occupational data. We’ll update this website with more data in future, so you can continue to track the evolution of AI’s effects on jobs and the economy in the ways that interest you.
 
@@ -145,20 +145,20 @@ If you’re interested in working at Anthropic to help build the systems powerin
 
 3. Data in this section covers 1 million transcripts from August 2025, sampled randomly from a pool of 1P API customers constituting roughly half of our 1P API usage. We continue to manage data according to our privacy and retention policies, and our analysis is consistent with our terms, policies, and contractual agreements.
 
+### What do you want from AI?
+
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
+
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
+
+### GLM-5.3 and the spread of advanced cyber capabilities
+
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
+
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
+
 ### Yes, Claude can do Nine Loops
 
 Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
 
 [Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
-
-### Project Swap: What happens when agents trade for us?
-
-To see what works and what breaks when agents are sent into a market, we made a miniature market of Claudes.
-
-[Read more](https://www.anthropic.com/research/project-swap)
-
-### How Claude is uplifting biomolecular modeling
-
-Claude made the open-source models that scientists use to predict and design biomolecules faster and more memory-efficient. Claude optimized more than 30 of these models in just under four weeks, speeding them up roughly 4x on average. It also created a low-memory mode that enables the accurate prediction of biomolecular systems larger than 10,000 tokens (amino acids, nucleotides, and atoms from small molecules and ions) on a single NVIDIA GPU node.
-
-[Read more](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling)

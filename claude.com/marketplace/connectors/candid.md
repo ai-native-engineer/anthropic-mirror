@@ -59,10 +59,10 @@ Manage your fundraising
 
 [Add Givebutter in Claude (opens in new tab)](https://claude.ai/directory/d4d95e77-c166-4ee8-b2e5-fae34743cfe3 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=rsvpify.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=kindora.co&sz=96)
 
-### [RSVPify](https://claude.com/marketplace/connectors/rsvpify)
+### [Kindora Funder Discovery](https://claude.com/marketplace/connectors/kindora-funder-discovery)
 
-Run your event operations in RSVPify, end-to-end
+Find funders who support causes like yours
 
-[Add RSVPify in Claude (opens in new tab)](https://claude.ai/directory/10622bb7-fadd-4edf-bf2d-29d73138711e "Add in Claude")
+[Add Kindora Funder Discovery in Claude (opens in new tab)](https://claude.ai/directory/df363d23-97ef-4ccd-a36e-5369846f5506 "Add in Claude")

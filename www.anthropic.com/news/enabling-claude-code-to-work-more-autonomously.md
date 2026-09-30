@@ -54,3 +54,5 @@ These updates are available now for Claude Code users.
 * **VS Code extension** (beta)**:** Download from the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code) to get started
 * **Terminal updates**, including the visual refresh and checkpoints, are available to all Claude Code users—just update your local installation
 * **Claude Agent SDK:** [See the docs](https://docs.claude.com/en/api/agent-sdk/overview) to get started
+
+Enabling Claude Code to work more autonomously \ Anthropic

@@ -3,6 +3,78 @@
 
 <!-- chunk-start -->
 
+    User-provided metadata key-value pairs. Set a value to null or empty string to delete the key.
+
+  - `Optional<String> name`
+
+    Updated name for the environment
+
+    minLength: 1, maxLength: 256
+
+  - `Optional<Scope> scope`
+
+    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
+
+    - `ORGANIZATION("organization")`
+
+    - `ACCOUNT("account")`
+
+#### Returns
+
+- `class BetaEnvironment`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
+
+  - `String id`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `Optional<String> archivedAt`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `Config config`
+
+    Environment configuration (either Anthropic Cloud or self-hosted)
+
+    - `class BetaCloudConfig`
+
+      `cloud` environment configuration.
+
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
+      - `Networking networking`
+
+        Network configuration policy.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `JsonValue type = "unrestricted"`
+
+            Network policy type
+
+        - `class BetaLimitedNetwork`
+
+          Limited network access.
+
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
+          - `boolean allowMcpServers`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+
+          - `boolean allowPackageManagers`
+
             Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
 
           - `List<String> allowedHosts`
@@ -2738,6 +2810,10 @@ Create Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -2748,7 +2824,7 @@ Create Session
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -3718,6 +3794,10 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -3728,7 +3808,7 @@ Create Session
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -5027,6 +5107,10 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -5037,7 +5121,7 @@ List Sessions
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -6256,6 +6340,10 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -6266,7 +6354,7 @@ Get Session
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -7501,6 +7589,10 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -7511,7 +7603,7 @@ Update Session
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -8884,6 +8976,10 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -8894,7 +8990,7 @@ Archive Session
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -10005,9 +10101,77 @@ List Events
 
     Opaque pagination cursor from a previous response's `next_page`.
 
-  - `Optional<List<String>> types`
+  - `Optional<List<BetaManagedAgentsSessionEventType>> types`
 
     Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
+
+    - `USER_MESSAGE("user.message")`
+
+    - `USER_INTERRUPT("user.interrupt")`
+
+    - `USER_TOOL_CONFIRMATION("user.tool_confirmation")`
+
+    - `USER_CUSTOM_TOOL_RESULT("user.custom_tool_result")`
+
+    - `AGENT_CUSTOM_TOOL_USE("agent.custom_tool_use")`
+
+    - `AGENT_MESSAGE("agent.message")`
+
+    - `AGENT_THINKING("agent.thinking")`
+
+    - `AGENT_MCP_TOOL_USE("agent.mcp_tool_use")`
+
+    - `AGENT_MCP_TOOL_RESULT("agent.mcp_tool_result")`
+
+    - `AGENT_TOOL_USE("agent.tool_use")`
+
+    - `AGENT_TOOL_RESULT("agent.tool_result")`
+
+    - `AGENT_THREAD_MESSAGE_RECEIVED("agent.thread_message_received")`
+
+    - `AGENT_THREAD_MESSAGE_SENT("agent.thread_message_sent")`
+
+    - `AGENT_THREAD_CONTEXT_COMPACTED("agent.thread_context_compacted")`
+
+    - `SESSION_ERROR("session.error")`
+
+    - `SESSION_STATUS_RESCHEDULED("session.status_rescheduled")`
+
+    - `SESSION_STATUS_RUNNING("session.status_running")`
+
+    - `SESSION_STATUS_IDLE("session.status_idle")`
+
+    - `SESSION_STATUS_TERMINATED("session.status_terminated")`
+
+    - `SESSION_THREAD_CREATED("session.thread_created")`
+
+    - `SPAN_OUTCOME_EVALUATION_START("span.outcome_evaluation_start")`
+
+    - `SPAN_OUTCOME_EVALUATION_END("span.outcome_evaluation_end")`
+
+    - `SPAN_MODEL_REQUEST_START("span.model_request_start")`
+
+    - `SPAN_MODEL_REQUEST_END("span.model_request_end")`
+
+    - `SPAN_OUTCOME_EVALUATION_ONGOING("span.outcome_evaluation_ongoing")`
+
+    - `USER_DEFINE_OUTCOME("user.define_outcome")`
+
+    - `SESSION_THREAD_STATUS_RUNNING("session.thread_status_running")`
+
+    - `SESSION_THREAD_STATUS_IDLE("session.thread_status_idle")`
+
+    - `SESSION_THREAD_STATUS_TERMINATED("session.thread_status_terminated")`
+
+    - `USER_TOOL_RESULT("user.tool_result")`
+
+    - `SESSION_THREAD_STATUS_RESCHEDULED("session.thread_status_rescheduled")`
+
+    - `SESSION_UPDATED("session.updated")`
+
+    - `SYSTEM_MESSAGE("system.message")`
+
+    - `SESSION_USAGE("session.usage")`
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -11637,6 +11801,10 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -11647,7 +11815,7 @@ List Events
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -15019,6 +15187,10 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -15029,7 +15201,7 @@ Stream Events
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -17179,6 +17351,10 @@ List Session Threads
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -17189,7 +17365,7 @@ List Session Threads
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -18094,6 +18270,10 @@ Get Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -18104,7 +18284,7 @@ Get Session Thread
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -19008,6 +19188,10 @@ Archive Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -19018,7 +19202,7 @@ Archive Session Thread
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -21408,6 +21592,10 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -21418,7 +21606,7 @@ List Session Thread Events
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -23806,6 +23994,10 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -23816,7 +24008,7 @@ Stream Session Thread Events
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -35743,154 +35935,3 @@ public final class Main {
       "created_at": "2019-12-27T18:11:19.117Z",
       "name": "name",
       "type": "memory_store",
-      "updated_at": "2019-12-27T18:11:19.117Z",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "metadata": {
-        "foo": "string"
-      }
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-### Retrieve a memory store
-
-`BetaManagedAgentsMemoryStore beta().memoryStores().retrieve(params = MemoryStoreRetrieveParams.none(), requestOptions = RequestOptions.none())`
-
-**GET** `/v1/memory_stores/{memory_store_id}`
-
-Retrieve a memory store
-
-#### Parameters
-
-- `MemoryStoreRetrieveParams params`
-
-  - `Optional<String> memoryStoreId`
-
-    ID of the memory store to retrieve (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`.
-
-  - `Optional<List<AnthropicBeta>> betas`
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
-
-    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
-
-    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
-
-    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
-
-    - `PDFS_2024_09_25("pdfs-2024-09-25")`
-
-    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
-
-    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
-
-    - `FILES_API_2025_04_14("files-api-2025-04-14")`
-
-    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
-
-    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
-
-    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
-
-    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
-
-    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
-
-    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `SKILLS_2025_10_02("skills-2025-10-02")`
-
-    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
-
-    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
-
-    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
-
-    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
-
-    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
-
-    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
-
-    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
-
-    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
-
-    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
-
-    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `COMPACT_2026_01_12("compact-2026-01-12")`
-
-    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
-
-    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
-
-    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `COMPACT_2026_09_04("compact-2026-09-04")`
-
-    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
-
-    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
-
-  - `Optional<String> workspaceId`
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `Type type`
-
-  - `String id`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `LocalDateTime createdAt`
-
-    Timestamp when the store was created.
-
-    format: date-time

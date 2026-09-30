@@ -128,9 +128,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `stream?:optional bool`
 
-  Whether to incrementally stream the response using server-sent events.
+  Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-  See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+  In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
 - `system?:optional System`
 
@@ -4009,6 +4009,10 @@ var_dump($messageTokensCount);
 
 - `enum Model`
 
+  - `"claude-sonnet-5-5"`
+
+    Efficient model for coding and agents
+
   - `"claude-fable-5-1"`
 
     Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -4023,7 +4027,7 @@ var_dump($messageTokensCount);
 
   - `"claude-sonnet-5"`
 
-    High-performance model for coding and agents
+    Efficient model for coding and agents
 
   - `"claude-fable-5"`
 
@@ -4860,6 +4864,12 @@ var_dump($messageTokensCount);
 
     Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
+### Thinking Config Between Tools
+
+- `class ThinkingConfigBetweenTools`
+
+  - `"between_tools" type`
+
 ### Thinking Config Disabled
 
 - `class ThinkingConfigDisabled`
@@ -4907,6 +4917,10 @@ var_dump($messageTokensCount);
   - `class ThinkingConfigDisabled`
 
     - `"disabled" type`
+
+  - `class ThinkingConfigBetweenTools`
+
+    - `"between_tools" type`
 
   - `class ThinkingConfigAdaptive`
 

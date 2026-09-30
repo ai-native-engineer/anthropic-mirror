@@ -23,7 +23,7 @@ Some of your work includes information only specific people should see, like peo
 If you want that same team help on work only a specific group should see, ask Claude in that group's private channel.
 
 * **The same channel work, for members only:** everything [lesson 3(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-tag/claude-in-a-public-channel) describes works here for the channel's members: threads anyone in the group can correct or continue, this channel's history and connected tools, untagged replies and routines.
-* **Tools connected for members only:** a tool can be connected to this channel alone, the same way tools are connected to a public channel. In a private finance channel, for example, your billing system may be connected: only the channel's members can have Claude use it, and Claude can do only what the account created for it is allowed to do, which is kept to [the least access the work needs(opens in new tab)](https://claude.com/docs/claude-tag/admins/add-connections).
+* **Tools connected for members only:** a tool can be connected to this channel alone, the same way tools are connected to a public channel. In a private finance channel, for example, your billing system may be connected: only the channel's members can have Claude use it, and Claude can do only what the account created for it is allowed to do, which is kept to [the least access the work needs(opens in new tab)](https://academy.claude.com/tutorials/claude-tag-admin-guide#identity-model).
 * **What the workspace has already taught Claude:** the channel benefits from the workspace notes Claude has saved in public channels, without adding to them.
 
 ## Protecting your privacy and data[](#protecting-your-privacy-and-data)

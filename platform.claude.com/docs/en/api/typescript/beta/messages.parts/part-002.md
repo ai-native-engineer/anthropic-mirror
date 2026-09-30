@@ -3,6 +3,90 @@
 
 <!-- chunk-start -->
 
+        The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+        - `interface BetaCitationCharLocation`
+
+          - `type: "char_location"`
+
+            default: char_location
+
+          - `cited_text: string`
+
+          - `document_index: number`
+
+            minimum: 0
+
+          - `document_title: string | null`
+
+          - `end_char_index: number`
+
+          - `file_id: string | null`
+
+          - `start_char_index: number`
+
+            minimum: 0
+
+        - `interface BetaCitationPageLocation`
+
+          - `type: "page_location"`
+
+            default: page_location
+
+          - `cited_text: string`
+
+          - `document_index: number`
+
+            minimum: 0
+
+          - `document_title: string | null`
+
+          - `end_page_number: number`
+
+          - `file_id: string | null`
+
+          - `start_page_number: number`
+
+            minimum: 1
+
+        - `interface BetaCitationContentBlockLocation`
+
+          - `type: "content_block_location"`
+
+            default: content_block_location
+
+          - `cited_text: string`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `document_index: number`
+
+            minimum: 0
+
+          - `document_title: string | null`
+
+          - `end_block_index: number`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `file_id: string | null`
+
+          - `start_block_index: number`
+
+            0-based index of the first cited block in the source's `content` array.
+
+            minimum: 0
+
+        - `interface BetaCitationsWebSearchResultLocation`
+
+          - `type: "web_search_result_location"`
+
+            default: web_search_result_location
+
           - `cited_text: string`
 
           - `encrypted_index: string`
@@ -3202,9 +3286,11 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                    - `(string & {})`
+                    - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-                    - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+                      - `"claude-sonnet-5-5"`
+
+                        Efficient model for coding and agents
 
                       - `"claude-fable-5-1"`
 
@@ -3220,7 +3306,7 @@
 
                       - `"claude-sonnet-5"`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `"claude-fable-5"`
 
@@ -3279,6 +3365,8 @@
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                    - `(string & {})`
 
                   - `name: "advisor"`
 
@@ -4453,9 +4541,11 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `(string & {})`
+        - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-        - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+          - `"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `"claude-fable-5-1"`
 
@@ -4471,7 +4561,7 @@
 
           - `"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -4530,6 +4620,8 @@
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+        - `(string & {})`
 
       - `output_tokens: number`
 
@@ -4764,9 +4856,11 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `(string & {})`
+    - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-    - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+      - `"claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
 
       - `"claude-fable-5-1"`
 
@@ -4782,7 +4876,7 @@
 
       - `"claude-sonnet-5"`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -4841,6 +4935,8 @@
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+    - `(string & {})`
 
   - `output_tokens: number`
 
@@ -7760,9 +7856,11 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                      - `(string & {})`
+                      - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-                      - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+                        - `"claude-sonnet-5-5"`
+
+                          Efficient model for coding and agents
 
                         - `"claude-fable-5-1"`
 
@@ -7778,7 +7876,7 @@
 
                         - `"claude-sonnet-5"`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `"claude-fable-5"`
 
@@ -7837,6 +7935,8 @@
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                      - `(string & {})`
 
                     - `name: "advisor"`
 
@@ -11326,9 +11426,11 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                    - `(string & {})`
+                    - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-                    - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+                      - `"claude-sonnet-5-5"`
+
+                        Efficient model for coding and agents
 
                       - `"claude-fable-5-1"`
 
@@ -11344,7 +11446,7 @@
 
                       - `"claude-sonnet-5"`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `"claude-fable-5"`
 
@@ -11403,6 +11505,8 @@
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                    - `(string & {})`
 
                   - `name: "advisor"`
 
@@ -12080,9 +12184,11 @@
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `(string & {})`
+          - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-          - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+            - `"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `"claude-fable-5-1"`
 
@@ -12098,7 +12204,7 @@
 
             - `"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -12157,6 +12263,8 @@
               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
               New class of intelligence, strongest in coding and cybersecurity
+
+          - `(string & {})`
 
         - `output_tokens: number`
 
@@ -15174,9 +15282,11 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                      - `(string & {})`
+                      - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-                      - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+                        - `"claude-sonnet-5-5"`
+
+                          Efficient model for coding and agents
 
                         - `"claude-fable-5-1"`
 
@@ -15192,7 +15302,7 @@
 
                         - `"claude-sonnet-5"`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `"claude-fable-5"`
 
@@ -15251,6 +15361,8 @@
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                      - `(string & {})`
 
                     - `name: "advisor"`
 
@@ -19014,9 +19126,11 @@
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                        - `(string & {})`
+                        - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-                        - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+                          - `"claude-sonnet-5-5"`
+
+                            Efficient model for coding and agents
 
                           - `"claude-fable-5-1"`
 
@@ -19032,7 +19146,7 @@
 
                           - `"claude-sonnet-5"`
 
-                            High-performance model for coding and agents
+                            Efficient model for coding and agents
 
                           - `"claude-fable-5"`
 
@@ -19091,6 +19205,8 @@
                             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                             New class of intelligence, strongest in coding and cybersecurity
+
+                        - `(string & {})`
 
                       - `name: "advisor"`
 
@@ -22796,9 +22912,11 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `(string & {})`
+            - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-            - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+              - `"claude-sonnet-5-5"`
+
+                Efficient model for coding and agents
 
               - `"claude-fable-5-1"`
 
@@ -22814,7 +22932,7 @@
 
               - `"claude-sonnet-5"`
 
-                High-performance model for coding and agents
+                Efficient model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -22873,6 +22991,8 @@
                 **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                 New class of intelligence, strongest in coding and cybersecurity
+
+            - `(string & {})`
 
           - `name: "advisor"`
 
@@ -25001,9 +25121,11 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `(string & {})`
+            - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-            - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+              - `"claude-sonnet-5-5"`
+
+                Efficient model for coding and agents
 
               - `"claude-fable-5-1"`
 
@@ -25019,7 +25141,7 @@
 
               - `"claude-sonnet-5"`
 
-                High-performance model for coding and agents
+                Efficient model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -25078,6 +25200,8 @@
                 **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                 New class of intelligence, strongest in coding and cybersecurity
+
+            - `(string & {})`
 
           - `name: "advisor"`
 
@@ -27125,9 +27249,11 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `(string & {})`
+      - `"claude-sonnet-5-5" | "claude-fable-5-1" | "claude-opus-5-5" | 16 more`
 
-      - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
+        - `"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `"claude-fable-5-1"`
 
@@ -27143,7 +27269,7 @@
 
         - `"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -27202,6 +27328,8 @@
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+      - `(string & {})`
 
     - `name: "advisor"`
 
@@ -28773,6 +28901,12 @@
 
     - `"updates"`
 
+### Beta Thinking Config Between Tools
+
+- `interface BetaThinkingConfigBetweenTools`
+
+  - `type: "between_tools"`
+
 ### Beta Thinking Config Disabled
 
 - `interface BetaThinkingConfigDisabled`
@@ -28819,7 +28953,7 @@
 
 ### Beta Thinking Config Param
 
-- `type BetaThinkingConfigParam = BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigAdaptive`
+- `type BetaThinkingConfigParam = BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigBetweenTools | BetaThinkingConfigAdaptive`
 
   Configuration for enabling Claude's extended thinking.
 
@@ -28866,6 +29000,10 @@
   - `interface BetaThinkingConfigDisabled`
 
     - `type: "disabled"`
+
+  - `interface BetaThinkingConfigBetweenTools`
+
+    - `type: "between_tools"`
 
   - `interface BetaThinkingConfigAdaptive`
 
@@ -30097,98 +30235,3 @@
       - `name: "computer"`
 
         Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
-
-        - `"direct"`
-
-        - `"code_execution_20250825"`
-
-        - `"code_execution_20260120"`
-
-        - `"code_execution_20260521"`
-
-      - `cache_control?: BetaCacheControlEphemeral | null`
-
-        Create a cache control breakpoint at this content block.
-
-      - `defer_loading?: boolean`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `display_number?: number | null`
-
-        The X11 display number (e.g. 0, 1) for the display.
-
-        minimum: 0
-
-      - `enable_zoom?: boolean`
-
-        Whether to enable an action to take a zoomed-in screenshot of the screen.
-
-      - `input_examples?: Array<Record<string, unknown>>`
-
-      - `strict?: boolean`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `interface BetaComputerToolset20260801`
-
-      The computer toolset: a single `tools[]` entry (carrying no
-      `name`) that declares the computer tool family. The model is
-      served the family's tool with any members disabled via `configs`
-      removed from its schema. Every member is enabled by default, zoom
-      included. The single-tool options `display_number` and
-      `enable_zoom` are not fields of a toolset entry — it carries only
-      `type`, `configs`, and `cache_control`; zoom is controlled
-      via `configs.zoom.enabled`.
-
-      - `type: "computer_toolset_20260801"`
-
-      - `cache_control?: BetaCacheControlEphemeral | null`
-
-        Create a cache control breakpoint at this content block.
-
-      - `configs?: BetaComputerToolsetConfigs | null`
-
-        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-        - `type?: BetaComputerTypeConfig | null`
-
-          `type`'s config overrides.
-
-          - `defer_loading?: boolean | null`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled?: boolean | null`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `cursor_position?: BetaComputerCursorPositionConfig | null`
-
-          `cursor_position`'s config overrides.
-
-          - `defer_loading?: boolean | null`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled?: boolean | null`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `double_click?: BetaComputerDoubleClickConfig | null`
-
-          `double_click`'s config overrides.
-
-          - `defer_loading?: boolean | null`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled?: boolean | null`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `hold_key?: BetaComputerHoldKeyConfig | null`

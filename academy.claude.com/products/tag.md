@@ -80,37 +80,40 @@ Use case·Operations·10 min](https://academy.claude.com/use-cases/meeting-prep-
 
 [View all](https://academy.claude.com/all?product=tag)
 
-* [Hand Claude Tag your first task claude.com
+* [Getting started with Claude TagTutorial3 min
+
+  Tutorial·3 min](https://academy.claude.com/tutorials/getting-started-with-claude-tag)
+* [Hand Claude Tag your first task claude.com—
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/users/getting-started)
-* [How Claude Tag works claude.com
+* [How Claude Tag works claude.com—
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/concepts/how-it-works)
-* [Claude Tag use case library claude.com
+* [Claude Tag use case library claude.com—
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/users/use-cases)
-* [Good habits for scoping and reviewing work claude.com
+* [Good habits for scoping and reviewing work claude.com—
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/users/good-habits)
-* [What Claude Tag remembers claude.com
+* [What Claude Tag remembers claude.com—
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/users/memory)
-* [Scheduled jobs and channel watching claude.com
+* [Scheduled jobs and channel watching claude.com—
 
   claude.com
 
    (opens in new tab)](https://claude.com/docs/claude-tag/users/proactivity)
-* [How Anthropic works with Claude Tag in Slack www.anthropic.com
+* [How Anthropic works with Claude Tag in Slack www.anthropic.com—
 
   www.anthropic.com
 
@@ -146,4 +149,4 @@ Use case·Operations·10 min](https://academy.claude.com/use-cases/meeting-prep-
 
 ## Browse it all
 
-[Use cases9 use cases](https://academy.claude.com/all?kind=use-case&product=tag)[Tutorials3 tutorials](https://academy.claude.com/all?kind=tutorial&product=tag)[Courses1 course](https://academy.claude.com/all?kind=course&product=tag)[Claude Tag docs claude.com (opens in new tab)](https://claude.com/docs/claude-tag/overview)[Introducing Claude Tag www.anthropic.com (opens in new tab)](https://www.anthropic.com/news/introducing-claude-tag)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Use cases9 use cases](https://academy.claude.com/all?kind=use-case&product=tag)[Tutorials4 tutorials](https://academy.claude.com/all?kind=tutorial&product=tag)[Courses1 course](https://academy.claude.com/all?kind=course&product=tag)[Claude Tag docs claude.com (opens in new tab)](https://claude.com/docs/claude-tag/overview)[Introducing Claude Tag www.anthropic.com (opens in new tab)](https://www.anthropic.com/news/introducing-claude-tag)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

@@ -55,13 +55,13 @@ Bring Orion Connect portfolio data and Redtail CRM together in Claude — prep f
 
 [Add Orion in Claude (opens in new tab)](https://claude.ai/directory/ae7131fa-f9e7-4f96-b776-b582c7fa09a1 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
+![](https://www.gemini.com/favicon.ico)
 
-### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
 
-Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
-[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
@@ -73,6 +73,14 @@ Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
+
+### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
+
+Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
+
+[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
+
 ![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg?w=128&fit=max&auto=format)
 
 ### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
@@ -80,13 +88,3 @@ Amazon Selling Partner MCP
 Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
-
-![](https://bd3.bdreporting.com/content/logo.svg)
-
-### [Black Diamond](https://claude.com/marketplace/connectors/black-diamond)
-
-Anthropic verifiedTrending
-
-Client, portfolio, and performance data for advisors
-
-[Add Black Diamond in Claude (opens in new tab)](https://claude.ai/directory/e70ee54f-74a8-454f-9bd5-3a70e17da172 "Add in Claude")

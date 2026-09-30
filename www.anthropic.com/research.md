@@ -56,6 +56,12 @@ Search
 
 DateCategoryTitle
 
+* [Sep 29, 2026Societal Impacts
+
+  What do you want from AI?](https://www.anthropic.com/research/your-thoughts-on-ai)
+* [Sep 29, 2026Frontier Red Team
+
+  GLM-5.3 and the spread of advanced cyber capabilities](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
 * [Sep 25, 2026Science
 
   Yes, Claude can do Nine Loops](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
@@ -80,12 +86,6 @@ DateCategoryTitle
 * [Aug 26, 2026Societal Impacts
 
   Enabling independent research on how people use Claude](https://www.anthropic.com/research/enabling-independent-research)
-* [Aug 18, 2026Science
-
-  How Claude is accelerating protein design and analytical chemistry](https://www.anthropic.com/research/Claude-accelerates-protein-design)
-* [Aug 13, 2026Frontier Red Team
-
-  Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems)
 
 [See more](#)
 

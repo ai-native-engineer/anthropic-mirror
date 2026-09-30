@@ -154,6 +154,6 @@ Artifacts start private to you. Learn more about **[sharing artifacts](https://s
 
 * [Share artifacts](https://support.claude.com/en/articles/9547008-share-artifacts)
 * [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
-* [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)
+* [Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)
 * [Get started with Claude Docs](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs)
 * [Artifacts admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans)

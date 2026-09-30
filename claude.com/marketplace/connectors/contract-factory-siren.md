@@ -60,10 +60,10 @@ Bring Orion Connect portfolio data and Redtail CRM together in Claude — prep f
 
 [Add Orion in Claude (opens in new tab)](https://claude.ai/directory/ae7131fa-f9e7-4f96-b776-b582c7fa09a1 "Add in Claude")
 
-![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
+![](https://www.gemini.com/favicon.ico)
 
-### [Zapier](https://claude.com/marketplace/connectors/zapier)
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
 
-Automate workflows across thousands of apps via conversation
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
-[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")

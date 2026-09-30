@@ -3,6 +3,78 @@
 
 <!-- chunk-start -->
 
+            Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
+
+          - `Optional<String> stopReason`
+
+            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+      - `String toolUseId`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaCodeExecutionToolResultBlock`
+
+      - `JsonValue type = "code_execution_tool_result"`
+
+      - `BetaCodeExecutionToolResultBlockContent content`
+
+        - `class BetaCodeExecutionToolResultError`
+
+          - `JsonValue type = "code_execution_tool_result_error"`
+
+          - `BetaCodeExecutionToolResultErrorCode errorCode`
+
+            - `INVALID_TOOL_INPUT("invalid_tool_input")`
+
+            - `UNAVAILABLE("unavailable")`
+
+            - `TOO_MANY_REQUESTS("too_many_requests")`
+
+            - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
+
+        - `class BetaCodeExecutionResultBlock`
+
+          - `JsonValue type = "code_execution_result"`
+
+          - `List<BetaCodeExecutionOutputBlock> content`
+
+            - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
+
+          - `long returnCode`
+
+          - `String stderr`
+
+          - `String stdout`
+
+        - `class BetaEncryptedCodeExecutionResultBlock`
+
+          Code execution result with encrypted stdout for PFC + web_search results.
+
+          - `JsonValue type = "encrypted_code_execution_result"`
+
+          - `List<BetaCodeExecutionOutputBlock> content`
+
+            - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
+
+          - `String encryptedStdout`
+
+          - `long returnCode`
+
+          - `String stderr`
+
+      - `String toolUseId`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaBashCodeExecutionToolResultBlock`
+
+      - `JsonValue type = "bash_code_execution_tool_result"`
+
       - `Content content`
 
         - `class BetaBashCodeExecutionToolResultError`
@@ -2041,6 +2113,10 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                      Efficient model for coding and agents
+
                     - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -2055,7 +2131,7 @@
 
                     - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                      High-performance model for coding and agents
+                      Efficient model for coding and agents
 
                     - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -3238,6 +3314,10 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -3252,7 +3332,7 @@
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -3537,6 +3617,10 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+      Efficient model for coding and agents
+
     - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -3551,7 +3635,7 @@
 
     - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-      High-performance model for coding and agents
+      Efficient model for coding and agents
 
     - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -6529,6 +6613,10 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                        Efficient model for coding and agents
+
                       - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -6543,7 +6631,7 @@
 
                       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -9939,6 +10027,10 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                      Efficient model for coding and agents
+
                     - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -9953,7 +10045,7 @@
 
                     - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                      High-performance model for coding and agents
+                      Efficient model for coding and agents
 
                     - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -10665,6 +10757,10 @@
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -10679,7 +10775,7 @@
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -13637,6 +13733,10 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                        Efficient model for coding and agents
+
                       - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -13651,7 +13751,7 @@
 
                       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -17319,6 +17419,10 @@
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                          Efficient model for coding and agents
+
                         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -17333,7 +17437,7 @@
 
                         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -21050,6 +21154,10 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+              Efficient model for coding and agents
+
             - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
               Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -21064,7 +21172,7 @@
 
             - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -23241,6 +23349,10 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+              Efficient model for coding and agents
+
             - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
               Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -23255,7 +23367,7 @@
 
             - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -25347,6 +25459,10 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -25361,7 +25477,7 @@
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -26943,6 +27059,12 @@
 
     - `UPDATES("updates")`
 
+### Beta Thinking Config Between Tools
+
+- `class BetaThinkingConfigBetweenTools`
+
+  - `JsonValue type = "between_tools"`
+
 ### Beta Thinking Config Disabled
 
 - `class BetaThinkingConfigDisabled`
@@ -27036,6 +27158,10 @@
   - `class BetaThinkingConfigDisabled`
 
     - `JsonValue type = "disabled"`
+
+  - `class BetaThinkingConfigBetweenTools`
+
+    - `JsonValue type = "between_tools"`
 
   - `class BetaThinkingConfigAdaptive`
 
@@ -29165,6 +29291,10 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -29179,7 +29309,7 @@
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -29234,95 +29364,3 @@
           High-performance model for agents and coding
 
         - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-      - `JsonValue name = "advisor"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
-
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<BetaCacheControlEphemeral> caching`
-
-        Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Long> maxTokens`
-
-        Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
-
-        minimum: 1024
-
-      - `Optional<Long> maxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolSearchToolBm25_20251119`
-
-      - `Type type`
-
-        - `TOOL_SEARCH_TOOL_BM25_20251119("tool_search_tool_bm25_20251119")`
-
-        - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
-
-      - `JsonValue name = "tool_search_tool_bm25"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
-
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolSearchToolRegex20251119`
-
-      - `Type type`
-
-        - `TOOL_SEARCH_TOOL_REGEX_20251119("tool_search_tool_regex_20251119")`
-
-        - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`

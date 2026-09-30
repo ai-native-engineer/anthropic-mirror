@@ -20,6 +20,22 @@ List
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
 
+Sep 29, 2026
+
+Agents you can coach: how Asana builds human-agent teams with Claude
+
+Agents
+
+Agents you can coach: how Asana builds human-agent teams with Claude
+
+September 29, 2026
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)Agents you can coach: how Asana builds human-agent teams with Claude
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](#)Agents you can coach: how Asana builds human-agent teams with Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
 Sep 28, 2026
 
 Giving companies more control over their AI agents, with NVIDIA
@@ -242,22 +258,6 @@ June 10, 2026
 
 [The evolution of agentic surfaces: building with Claude Managed Agents](#)The evolution of agentic surfaces: building with Claude Managed Agents
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-May 27, 2026
-
-Zero Trust for AI agents
-
-Enterprise AI
-
-Zero Trust for AI agents
-
-May 27, 2026
-
-[Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
-
-[Zero Trust for AI agents](#)Zero Trust for AI agents
-
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
@@ -265,6 +265,22 @@ Category
 Product
 
 Usecase
+
+### Agents you can coach: how Asana builds human-agent teams with Claude
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+September 29, 2026
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)Agents you can coach: how Asana builds human-agent teams with Claude
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](#)Agents you can coach: how Asana builds human-agent teams with Claude
 
 ### Giving companies more control over their AI agents, with NVIDIA
 
@@ -489,22 +505,6 @@ June 10, 2026
 [The evolution of agentic surfaces: building with Claude Managed Agents](https://claude.com/blog/building-with-claude-managed-agents)The evolution of agentic surfaces: building with Claude Managed Agents
 
 [The evolution of agentic surfaces: building with Claude Managed Agents](#)The evolution of agentic surfaces: building with Claude Managed Agents
-
-### Zero Trust for AI agents
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-May 27, 2026
-
-[Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
-
-[Zero Trust for AI agents](#)Zero Trust for AI agents
 
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 

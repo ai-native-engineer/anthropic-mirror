@@ -2,6 +2,39 @@
 <!-- part of: https://platform.claude.com/docs/en/api/go/messages -->
 
 <!-- chunk-start -->
+          [{"type": "text", "text": "Hi, I'm Claude."}]
+          ```
+
+          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
+
+          For example, if the input `messages` were:
+
+          ```json
+          [
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
+          ]
+          ```
+
+          Then the response `content` might be:
+
+          ```json
+          [{"type": "text", "text": "B)"}]
+          ```
+
+          - `type TextBlock`
+
+            - `Type Text`
+
+              default: text
+
+            - `Citations []TextCitationUnion`
+
+              Citations supporting the text block.
+
+              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+              - `type CitationCharLocation`
 
                 - `Type CharLocation`
 
@@ -741,13 +774,15 @@
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `string`
-
           - `type Model string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -763,7 +798,7 @@
 
             - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -822,6 +857,8 @@
               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
               New class of intelligence, strongest in coding and cybersecurity
+
+          - `string`
 
         - `Role Assistant`
 

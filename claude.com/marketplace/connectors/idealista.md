@@ -39,14 +39,6 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
-
-### [Supabase](https://claude.com/marketplace/connectors/supabase)
-
-Manage databases, authentication, and storage
-
-[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
-
 ![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
 
 ### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
@@ -56,6 +48,14 @@ Anthropic verifiedTrending
 Faites vos courses rapidement
 
 [Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
+
+![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
+
+### [Supabase](https://claude.com/marketplace/connectors/supabase)
+
+Manage databases, authentication, and storage
+
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 

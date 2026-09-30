@@ -27,19 +27,14 @@ Use DMs with Claude for personal work on your own data that isn't posted to any 
 * **Catch up on a public channel:** name the channel and Claude searches it for you, without you posting there.
 * **Set up [routines(opens in new tab)](https://claude.com/docs/claude-tag/users/proactivity) for yourself:** scheduled work, such as a morning brief, that posts to you alone.
 
-If your organization has [turned DMs off(opens in new tab)](https://claude.com/docs/claude-tag/admins/restrict-access#allow-or-disable-direct-messages), use [a channel with only you and Claude(opens in new tab)](https://claude.com/docs/claude-tag/users/use-cases/your-own-channel) instead.
+If your organization has [turned DMs off(opens in new tab)](https://academy.claude.com/tutorials/claude-tag-admin-guide#when-it-replies), use [a channel with only you and Claude(opens in new tab)](https://claude.com/docs/claude-tag/users/use-cases/your-own-channel) instead.
 
 ### Get familiar with what Claude can do for you[](#get-familiar-with-what-claude-can-do-for-you)
 
 A DM is also the easiest place to find out what Claude knows and can do for your work. Start by asking it directly:
 
-What do you know about me, and what sorts of things can you do for my work?
-
-Copy prompt
-
-What can you access from here?
-
-Copy prompt
+* *"What do you know about me, and what sorts of things can you do for my work?"*
+* *"What can you access from here?"*
 
 ## What Claude can use in your DMs[](#what-claude-can-use-in-your-dms)
 

@@ -20,13 +20,13 @@ Keep your workspace open next to this course, with Claude in a channel, for hand
 
 ## What Claude Tag is and how it works[](#what-claude-tag-is-and-how-it-works)
 
-Claude Tag brings Claude into your team's Slack workspace, where you can hand it whole pieces of work, as you would to a teammate. Add Claude to a channel, then tag it in a message that describes the work. It reads what has already been posted there, can use the channel's connected tools, and does the work in a thread under your message. Everyone in the channel can follow the thread and steer it.
+Claude Tag is Claude in your team's Slack workspace. In a channel, write `@Claude` and say what you need, and Claude replies in a thread under your message. It reads what is already in the channel first, so you do not have to explain the background. If your team has connected tools to that channel, such as Google Drive, a calendar, or a ticketing system, Claude can look things up and make changes in them too. Everyone in the channel can see the thread and reply in it to add detail or change what Claude is doing.
 
-You can also set up work that Claude does without being tagged each time:
+This is also what makes Claude Tag more than a chatbot you ask questions. Because it lives in the channel, it can keep working when no one has tagged it:
 
-* **Untagged replies:** Claude answers the kinds of messages you name ([lesson 7(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-tag/proactivity-let-claude-reply-without-being-tagged)).
-* **A standing responsibility:** Claude works toward a goal on its own over days or weeks, such as keeping a launch's trackers current ([lesson 7(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-tag/proactivity-let-claude-reply-without-being-tagged)).
-* **Routines:** You describe a task once, and Claude runs it on your schedule ([lesson 8(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-tag/put-recurring-work-on-a-schedule)).
+* **[Untagged replies(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-tag/proactivity-let-claude-reply-without-being-tagged):** in a channel where people post requests or problems, such as an IT help channel or a bug-report channel, you tell Claude once which messages to handle. From then on it replies to each new one on its own: answering the question, asking for missing details, or tagging the right owner.
+* **[A standing responsibility(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-tag/proactivity-let-claude-reply-without-being-tagged):** Claude looks after something over days or weeks, for example keeping a launch checklist up to date and telling you when something slips.
+* **[Routines(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-tag/put-recurring-work-on-a-schedule):** you describe a task once, for example "post a summary of this channel every Monday at 9am," and Claude repeats it on that schedule.
 
 ## What is different from Claude in a chat[](#what-is-different-from-claude-in-a-chat)
 

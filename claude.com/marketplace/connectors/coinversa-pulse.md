@@ -4,27 +4,29 @@ Connector URL`https://mcp.coinversa.ai/mcp`
 
 More[Documentation (opens in new tab)](https://docs.coinversa.ai/mcp/setup)[Support (opens in new tab)](mailto:chat@coinversaa.ai)[Privacy policy (opens in new tab)](https://coinversa.ai/privacy)
 
-Coinversa Pulse gives Claude read-only access to the full Hyperliquid data universe: every tracked wallet classified into behavioral cohorts, indexed trade history with PnL attribution, reconstructed position lifecycles (entry, exit, hold time, MAE/MFE), live positions and open interest, liquidation heatmaps, builder-dex revenue analytics, and HIP-4 outcome contracts.
+See what the best traders are doing right now, across Bitcoin, Ethereum, Solana and hundreds of crypto markets, plus stocks (S&P 500, Tesla, Nvidia, Apple), gold and oil, all traded on Hyperliquid.
 
-Ask questions the way a desk analyst would and get chain-derived answers:
+Ask Claude questions like:
 
-- Who are the best traders on Hyperliquid this month, deduped by owner rather than wallet?
+- Are the best traders long or short Bitcoin right now?
 
-- Is BTC crowded right now? Where are the liquidation clusters? Did open interest build into this move?
+- Where are the big liquidation clusters on ETH?
 
-- Are smart-money cohorts long or short ETH, and were they rotating before the move?
+- What are top traders and whales doing on the S&P 500?
 
-- Profile a wallet: win rate, average hold, drawdown curve, biggest wins and losses.
+- Is gold crowded? Is open interest building into this move?
 
-- Which builder frontends earn the most fees, and is their user base smart money or exit liquidity?
+- Profile any wallet: PnL, win rate, biggest wins and losses, drawdown.
 
-- Which HIP-4 outcome markets are most active, who trades them, and are those traders hedged with perps?
+- Who are the most profitable traders this month?
 
-Coverage spans native Hyperliquid perps plus seven builder dexes (xyz, flx, vntl, hyna, km, abcd, cash), so commodities (xyz:GOLD, km:OIL), equities (cash:TSLA) and crypto perps are all queryable, with a canonical cross-market asset registry that resolves synonyms such as PAXG to GOLD. Call pulse\_global\_stats at any time for exact current coverage: wallets, trades, volume and data window.
+Coinversa Pulse tracks every Hyperliquid wallet and groups traders by track record, from smart money and whales to "exit liquidity", so you can see who is positioned where, not just the price. It covers live positions, liquidations, open interest, funding, order-book depth, full trading history with PnL, and HIP-4 prediction and outcome markets.
 
-Over 100 tools, all read-only. Coinversa Pulse never places orders, never touches funds, and never asks for wallet keys. It is analytics only, and nothing it returns is investment advice.
+For builders: the same data is available over a REST API and live WebSocket streams, plus builder-DEX revenue and user analytics.
 
-Requires a Coinversa account. Connect with your Coinversa login or an API key from coinversa.ai/developers; the plan on your account determines which tools and rate limits are available.
+Over 100 tools, all read-only: Coinversa never places trades, never touches funds and never asks for wallet keys. Market data and analytics only, not investment advice.
+
+Requires a free Coinversa account: sign in when you connect. New accounts get a 14-day Pro trial.
 
 ## Tools
 
@@ -99,10 +101,10 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
 
-### [Miro](https://claude.com/marketplace/connectors/miro)
+### [Vercel](https://claude.com/marketplace/connectors/vercel)
 
-Access and create new content on Miro boards
+Analyze, debug, and manage projects and deployments
 
-[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")

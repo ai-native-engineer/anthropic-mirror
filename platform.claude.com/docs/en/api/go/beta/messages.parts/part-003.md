@@ -3,6 +3,91 @@
 
 <!-- chunk-start -->
 
+            - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20250825 BetaToolComputerUse20251124AllowedCaller = "code_execution_20250825"`
+
+            - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260120 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260120"`
+
+            - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260521 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260521"`
+
+          - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `DeferLoading bool Optional`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `DisplayNumber int64 Optional`
+
+            The X11 display number (e.g. 0, 1) for the display.
+
+            minimum: 0
+
+          - `EnableZoom bool Optional`
+
+            Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+          - `InputExamples []map[string, any] Optional`
+
+          - `Strict bool Optional`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `type BetaComputerToolset20260801`
+
+          The computer toolset: a single `tools[]` entry (carrying no
+          `name`) that declares the computer tool family. The model is
+          served the family's tool with any members disabled via `configs`
+          removed from its schema. Every member is enabled by default, zoom
+          included. The single-tool options `display_number` and
+          `enable_zoom` are not fields of a toolset entry — it carries only
+          `type`, `configs`, and `cache_control`; zoom is controlled
+          via `configs.zoom.enabled`.
+
+          - `Type ComputerToolset20260801`
+
+          - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `Configs BetaComputerToolsetConfigs Optional`
+
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+            - `Type BetaComputerTypeConfig Optional`
+
+              `type`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `CursorPosition BetaComputerCursorPositionConfig Optional`
+
+              `cursor_position`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `DoubleClick BetaComputerDoubleClickConfig Optional`
+
+              `double_click`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
             - `HoldKey BetaComputerHoldKeyConfig Optional`
@@ -817,13 +902,15 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `string`
-
             - `type Model string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+                Efficient model for coding and agents
 
               - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -839,7 +926,7 @@
 
               - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-                High-performance model for coding and agents
+                Efficient model for coding and agents
 
               - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -898,6 +985,8 @@
                 **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                 New class of intelligence, strongest in coding and cybersecurity
+
+            - `string`
 
           - `Name Advisor`
 
@@ -2945,13 +3034,15 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `string`
-
       - `type Model string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -2967,7 +3058,7 @@
 
         - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -3026,6 +3117,8 @@
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+      - `string`
 
     - `Name Advisor`
 
@@ -4597,6 +4690,12 @@
 
     - `const BetaThinkingConfigAdaptiveDisplayUpdates BetaThinkingConfigAdaptiveDisplay = "updates"`
 
+### Beta Thinking Config Between Tools
+
+- `type BetaThinkingConfigBetweenTools`
+
+  - `Type BetweenTools`
+
 ### Beta Thinking Config Disabled
 
 - `type BetaThinkingConfigDisabled`
@@ -4690,6 +4789,10 @@
   - `type BetaThinkingConfigDisabled`
 
     - `Type Disabled`
+
+  - `type BetaThinkingConfigBetweenTools`
+
+    - `Type BetweenTools`
 
   - `type BetaThinkingConfigAdaptive`
 
@@ -6827,13 +6930,15 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type Model string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -6849,7 +6954,7 @@
 
           - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -6908,6 +7013,8 @@
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+        - `string`
 
       - `Name Advisor`
 
@@ -8851,13 +8958,15 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type Model string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -8873,7 +8982,7 @@
 
           - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -8932,6 +9041,8 @@
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+        - `string`
 
       - `Name Advisor`
 
@@ -12263,13 +12374,15 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `string`
-
       - `type Model string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -12285,7 +12398,7 @@
 
         - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -12344,6 +12457,8 @@
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+      - `string`
 
     - `Name Advisor`
 
@@ -12837,13 +12952,15 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type Model string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -12859,7 +12976,7 @@
 
           - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -12918,6 +13035,8 @@
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+        - `string`
 
       - `OutputTokens int64`
 
@@ -18473,13 +18592,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                            - `string`
-
                             - `type Model string`
 
                               The model that will complete your prompt.
 
                               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                              - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+                                Efficient model for coding and agents
 
                               - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -18495,7 +18616,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-                                High-performance model for coding and agents
+                                Efficient model for coding and agents
 
                               - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -18554,6 +18675,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                                 **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                                 New class of intelligence, strongest in coding and cybersecurity
+
+                            - `string`
 
                           - `Name Advisor`
 
@@ -19231,6 +19354,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Type Disabled`
 
+            - `type BetaThinkingConfigBetweenTools`
+
+              - `Type BetweenTools`
+
             - `type BetaThinkingConfigAdaptive`
 
               - `Type Adaptive`
@@ -19319,9 +19446,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Stream bool Optional`
 
-        Whether to incrementally stream the response using server-sent events.
+        Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-        See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+        In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
       - `System []BetaTextBlockParamResp Optional`
 
@@ -19354,6 +19481,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `type BetaThinkingConfigEnabled`
 
         - `type BetaThinkingConfigDisabled`
+
+        - `type BetaThinkingConfigBetweenTools`
 
         - `type BetaThinkingConfigAdaptive`
 
@@ -23840,13 +23969,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                          - `string`
-
                           - `type Model string`
 
                             The model that will complete your prompt.
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                            - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+                              Efficient model for coding and agents
 
                             - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -23862,7 +23993,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-                              High-performance model for coding and agents
+                              Efficient model for coding and agents
 
                             - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -23921,6 +24052,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                          - `string`
 
                         - `Name Advisor`
 

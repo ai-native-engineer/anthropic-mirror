@@ -12,6 +12,7 @@ Answers to common questions about Claude Academy: signing in, moving from Skillj
 * [Courses and progress](#courses)
 * [Emails and notifications](#emails)
 * [Privacy and data](#privacy)
+* [The “Claude in Academy” setting, for organization admins](#claude-in-academy)
 * [Content and licensing](#licensing)
 * [Partners and third-party learners (still on Skilljar)](#partners)
 
@@ -95,7 +96,7 @@ Your work isn’t lost. When we update a course, quizzes you’ve already passed
 
 ### How do I download or share my badge / certificate of completion?
 
-Every course badge (your certificate of completion) is available from your Academy dashboard on academy.claude.com. Each badge has a public verification link you can share anywhere, including LinkedIn — anyone with the link can confirm it’s genuine. There’s nothing to request from support: if you’ve earned it, it’s already on your dashboard.
+Every course badge (your certificate of completion) is available from your Academy dashboard on academy.claude.com. Open a badge there and choose Download PDF to save a copy, or Add to LinkedIn to put it on your profile. Each badge also has a public verification link you can share anywhere — anyone with the link can confirm it’s genuine. There’s nothing to request from support: if you’ve earned it, it’s already on your dashboard.
 
 ### I’m registered for a Claude certification exam — is that the same as an Academy certificate?
 
@@ -135,6 +136,28 @@ Your employer can only see Academy data if you enrolled through your company’s
 
 You can delete your Academy data without touching your Claude account — use the delete option in Academy settings. This permanently removes your enrollments, progress, quiz attempts, and certificates (shared certificate links stop verifying). Deleting your whole Claude account permanently deletes your Academy data too, certificates included — so if you want a copy, save your certificates first. Skilljar is a separate system — deleting your Academy account doesn’t touch anything on Skilljar itself. Click your avatar on the top right and click settings, Delete my account to request an account deletion.
 
+## The “Claude in Academy” setting, for organization admins
+
+### What does the “Claude in Academy” setting control?
+
+This setting decides whether members of your organization can use the Claude-powered features in Claude Academy (academy.claude.com): asking Claude questions about what they’re learning, and the lesson tools that turn a passage into a diagram or quiz them on it. When it’s off, members don’t see those features. They can still sign in, take courses and earn badges. For Team and Enterprise plans, an owner or admin can change the setting at any time in Admin settings > Claude Academy.
+
+### Does “Claude in Academy” cost extra or affect our usage?
+
+There’s no separate charge. A question asked in Academy counts toward that member’s normal Claude usage, the same as a chat message. If your organization has usage credits turned on, your existing monthly spend limits apply.
+
+### Does “Claude in Academy” add or use up seats?
+
+It doesn’t add or use up seats. Members need to already have a seat in your organization to use these features.
+
+### Can admins see what members ask Claude in Academy?
+
+Academy’s admin report shows which courses members enrolled in and whether they completed them. It doesn’t show what members asked Claude.
+
+### What happens to the questions members ask Claude in Academy?
+
+Questions and answers aren’t saved to chat history in Academy or Claude, aren’t added to memory, and aren’t used to train models. They’re retained under your organization’s existing data retention settings.
+
 ## Content and licensing
 
 ### I want to partner with you to create content
@@ -157,5 +180,6 @@ If you’re learning through the partner program, Skilljar stays your learning h
 * [Courses and progress](#courses)
 * [Emails and notifications](#emails)
 * [Privacy and data](#privacy)
+* [The “Claude in Academy” setting, for organization admins](#claude-in-academy)
 * [Content and licensing](#licensing)
 * [Partners and third-party learners (still on Skilljar)](#partners)

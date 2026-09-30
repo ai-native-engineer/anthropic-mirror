@@ -3,6 +3,59 @@
 
 <!-- chunk-start -->
 
+                    - `JsonElement Type = "ephemeral"`
+
+                    - `Ttl Ttl`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                      - `Ttl5m("5m")`
+
+                      - `Ttl1h("1h")`
+
+                  - `bool DeferLoading`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+                  - `bool Strict`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `class BetaToolBash20250124`
+
+                  - `JsonElement Type = "bash_20250124"`
+
+                  - `JsonElement Name = "bash"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                    - `Direct("direct")`
+
+                    - `CodeExecution20250825("code_execution_20250825")`
+
+                    - `CodeExecution20260120("code_execution_20260120")`
+
+                    - `CodeExecution20260521("code_execution_20260521")`
+
+                  - `BetaCacheControlEphemeral? CacheControl`
+
+                    Create a cache control breakpoint at this content block.
+
+                  - `bool DeferLoading`
+
                     If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
                   - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
@@ -1629,6 +1682,10 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+                      Efficient model for coding and agents
+
                     - `ClaudeFable5_1("claude-fable-5-1")`
 
                       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -1643,7 +1700,7 @@
 
                     - `ClaudeSonnet5("claude-sonnet-5")`
 
-                      High-performance model for coding and agents
+                      Efficient model for coding and agents
 
                     - `ClaudeFable5("claude-fable-5")`
 
@@ -2826,6 +2883,10 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `ClaudeFable5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -2840,7 +2901,7 @@
 
         - `ClaudeSonnet5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `ClaudeFable5("claude-fable-5")`
 
@@ -3125,6 +3186,10 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+      Efficient model for coding and agents
+
     - `ClaudeFable5_1("claude-fable-5-1")`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -3139,7 +3204,7 @@
 
     - `ClaudeSonnet5("claude-sonnet-5")`
 
-      High-performance model for coding and agents
+      Efficient model for coding and agents
 
     - `ClaudeFable5("claude-fable-5")`
 
@@ -6117,6 +6182,10 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                      - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+                        Efficient model for coding and agents
+
                       - `ClaudeFable5_1("claude-fable-5-1")`
 
                         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -6131,7 +6200,7 @@
 
                       - `ClaudeSonnet5("claude-sonnet-5")`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `ClaudeFable5("claude-fable-5")`
 
@@ -9527,6 +9596,10 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+                      Efficient model for coding and agents
+
                     - `ClaudeFable5_1("claude-fable-5-1")`
 
                       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -9541,7 +9614,7 @@
 
                     - `ClaudeSonnet5("claude-sonnet-5")`
 
-                      High-performance model for coding and agents
+                      Efficient model for coding and agents
 
                     - `ClaudeFable5("claude-fable-5")`
 
@@ -10253,6 +10326,10 @@
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeFable5_1("claude-fable-5-1")`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -10267,7 +10344,7 @@
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -13225,6 +13302,10 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                      - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+                        Efficient model for coding and agents
+
                       - `ClaudeFable5_1("claude-fable-5-1")`
 
                         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -13239,7 +13320,7 @@
 
                       - `ClaudeSonnet5("claude-sonnet-5")`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `ClaudeFable5("claude-fable-5")`
 
@@ -16907,6 +16988,10 @@
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+                          Efficient model for coding and agents
+
                         - `ClaudeFable5_1("claude-fable-5-1")`
 
                           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -16921,7 +17006,7 @@
 
                         - `ClaudeSonnet5("claude-sonnet-5")`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `ClaudeFable5("claude-fable-5")`
 
@@ -20638,6 +20723,10 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+              Efficient model for coding and agents
+
             - `ClaudeFable5_1("claude-fable-5-1")`
 
               Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -20652,7 +20741,7 @@
 
             - `ClaudeSonnet5("claude-sonnet-5")`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `ClaudeFable5("claude-fable-5")`
 
@@ -22829,6 +22918,10 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+              Efficient model for coding and agents
+
             - `ClaudeFable5_1("claude-fable-5-1")`
 
               Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -22843,7 +22936,7 @@
 
             - `ClaudeSonnet5("claude-sonnet-5")`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `ClaudeFable5("claude-fable-5")`
 
@@ -24935,6 +25028,10 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `ClaudeFable5_1("claude-fable-5-1")`
 
         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -24949,7 +25046,7 @@
 
       - `ClaudeSonnet5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `ClaudeFable5("claude-fable-5")`
 
@@ -26531,6 +26628,12 @@
 
     - `Updates("updates")`
 
+### Beta Thinking Config Between Tools
+
+- `class BetaThinkingConfigBetweenTools`
+
+  - `JsonElement Type = "between_tools"`
+
 ### Beta Thinking Config Disabled
 
 - `class BetaThinkingConfigDisabled`
@@ -26624,6 +26727,10 @@
   - `class BetaThinkingConfigDisabled`
 
     - `JsonElement Type = "disabled"`
+
+  - `class BetaThinkingConfigBetweenTools`
+
+    - `JsonElement Type = "between_tools"`
 
   - `class BetaThinkingConfigAdaptive`
 
@@ -28753,6 +28860,10 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `ClaudeFable5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -28767,7 +28878,7 @@
 
         - `ClaudeSonnet5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `ClaudeFable5("claude-fable-5")`
 
@@ -29609,103 +29720,3 @@
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
           - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserScrollToConfig? ScrollTo`
-
-          `scroll_to`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserSwitchTabConfig? SwitchTab`
-
-          `switch_tab`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserTripleClickConfig? TripleClick`
-
-          `triple_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserWaitConfig? Wait`
-
-          `wait`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserZoomConfig? Zoom`
-
-          `zoom`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-    - `class BetaToolComputerUse20241022`
-
-      - `JsonElement Type = "computer_20241022"`
-
-      - `required long DisplayHeightPx`
-
-        The height of the display in pixels.
-
-        minimum: 1
-
-      - `required long DisplayWidthPx`
-
-        The width of the display in pixels.
-
-        minimum: 1
-
-      - `JsonElement Name = "computer"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`

@@ -4,7 +4,7 @@ Connector URL`https://mcp.firecrawl.dev/v2/mcp-search`
 
 More[Documentation (opens in new tab)](https://docs.firecrawl.dev/)[Enterprise setup guide (opens in new tab)](https://docs.firecrawl.dev/mcp-server/oauth)[Support (opens in new tab)](https://www.firecrawl.dev/support)[Privacy policy (opens in new tab)](https://www.firecrawl.dev/privacy-policy)
 
-Connect to Firecrawl to upgrade Claude's search with fresher, more relevant web results - plus a specialized index of research papers and code repositories. Search millions of research papers semantically, follow citations to related work, and verify claims against full text. Claude can also search issues, pull requests, and READMEs from top research repos, connecting papers to the code that implements them.
+Search the web and access data providers and specialized indexes through Alexandria. Research companies, compare products, and find the data you need for your work. Access any page into clean content, and explore scientific papers and code repositories from your conversation.
 
 ## Tools
 
@@ -29,42 +29,42 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/646945a1897f9146e5221ee6ace82001a2e52f4d.svg?w=128&fit=max&auto=format)
 
-### [Supabase](https://claude.com/marketplace/connectors/supabase)
+### [Google Calendar](https://claude.com/marketplace/connectors/google-calendar)
 
-Manage databases, authentication, and storage
+Manage your schedule and coordinate meetings effortlessly
 
-[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
+![](https://assets.claude.com/20c8443aa72ae4e4d77f923e6c33314713f965e8.svg?w=128&fit=max&auto=format)
 
-### [monday.com](https://claude.com/marketplace/connectors/monday)
+### [Microsoft 365](https://claude.com/marketplace/connectors/microsoft-365)
 
-monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-![](https://assets.claude.com/73fb34c4126e99aa21f0f63e48c061963454ee06.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)
 
-### [Addepar MCP](https://claude.com/marketplace/connectors/addepar)
+### [Notion](https://claude.com/marketplace/connectors/notion)
 
-Bring Addepar portfolio intelligence into Claude
+Connect your Notion workspace to search, update, and power workflows across tools
 
-[Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
 
-### [Box](https://claude.com/marketplace/connectors/box)
+### [Slack](https://claude.com/marketplace/connectors/slack)
 
-Search, edit and get insights on your Box content
+Send messages, create canvases, and fetch Slack data
 
-[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
-### [Miro](https://claude.com/marketplace/connectors/miro)
+### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
 
-Access and create new content on Miro boards
+Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
 
-[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")

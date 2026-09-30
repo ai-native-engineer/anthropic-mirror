@@ -65,9 +65,77 @@ List Events
 
     Query param: Opaque pagination cursor from a previous response's `next_page`.
 
-  - `IReadOnlyList<string> types`
+  - `IReadOnlyList<BetaManagedAgentsSessionEventType> types`
 
     Query param: Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
+
+    - `UserMessage("user.message")`
+
+    - `UserInterrupt("user.interrupt")`
+
+    - `UserToolConfirmation("user.tool_confirmation")`
+
+    - `UserCustomToolResult("user.custom_tool_result")`
+
+    - `AgentCustomToolUse("agent.custom_tool_use")`
+
+    - `AgentMessage("agent.message")`
+
+    - `AgentThinking("agent.thinking")`
+
+    - `AgentMcpToolUse("agent.mcp_tool_use")`
+
+    - `AgentMcpToolResult("agent.mcp_tool_result")`
+
+    - `AgentToolUse("agent.tool_use")`
+
+    - `AgentToolResult("agent.tool_result")`
+
+    - `AgentThreadMessageReceived("agent.thread_message_received")`
+
+    - `AgentThreadMessageSent("agent.thread_message_sent")`
+
+    - `AgentThreadContextCompacted("agent.thread_context_compacted")`
+
+    - `SessionError("session.error")`
+
+    - `SessionStatusRescheduled("session.status_rescheduled")`
+
+    - `SessionStatusRunning("session.status_running")`
+
+    - `SessionStatusIdle("session.status_idle")`
+
+    - `SessionStatusTerminated("session.status_terminated")`
+
+    - `SessionThreadCreated("session.thread_created")`
+
+    - `SpanOutcomeEvaluationStart("span.outcome_evaluation_start")`
+
+    - `SpanOutcomeEvaluationEnd("span.outcome_evaluation_end")`
+
+    - `SpanModelRequestStart("span.model_request_start")`
+
+    - `SpanModelRequestEnd("span.model_request_end")`
+
+    - `SpanOutcomeEvaluationOngoing("span.outcome_evaluation_ongoing")`
+
+    - `UserDefineOutcome("user.define_outcome")`
+
+    - `SessionThreadStatusRunning("session.thread_status_running")`
+
+    - `SessionThreadStatusIdle("session.thread_status_idle")`
+
+    - `SessionThreadStatusTerminated("session.thread_status_terminated")`
+
+    - `UserToolResult("user.tool_result")`
+
+    - `SessionThreadStatusRescheduled("session.thread_status_rescheduled")`
+
+    - `SessionUpdated("session.updated")`
+
+    - `SystemMessage("system.message")`
+
+    - `SessionUsage("session.usage")`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -1697,6 +1765,10 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -1707,7 +1779,7 @@ List Events
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -5074,6 +5146,10 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -5084,7 +5160,7 @@ Stream Events
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -10334,6 +10410,10 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -10344,7 +10424,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -11033,6 +11113,80 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `BetaManagedAgentsBudgetLimit? Budget`
 
       The session's configured budget at the snapshot time, or null when the session has no budget.
+
+### Beta Managed Agents Session Event Type
+
+- `enum BetaManagedAgentsSessionEventType`
+
+  The `type` of a session event.
+
+  - `UserMessage("user.message")`
+
+  - `UserInterrupt("user.interrupt")`
+
+  - `UserToolConfirmation("user.tool_confirmation")`
+
+  - `UserCustomToolResult("user.custom_tool_result")`
+
+  - `AgentCustomToolUse("agent.custom_tool_use")`
+
+  - `AgentMessage("agent.message")`
+
+  - `AgentThinking("agent.thinking")`
+
+  - `AgentMcpToolUse("agent.mcp_tool_use")`
+
+  - `AgentMcpToolResult("agent.mcp_tool_result")`
+
+  - `AgentToolUse("agent.tool_use")`
+
+  - `AgentToolResult("agent.tool_result")`
+
+  - `AgentThreadMessageReceived("agent.thread_message_received")`
+
+  - `AgentThreadMessageSent("agent.thread_message_sent")`
+
+  - `AgentThreadContextCompacted("agent.thread_context_compacted")`
+
+  - `SessionError("session.error")`
+
+  - `SessionStatusRescheduled("session.status_rescheduled")`
+
+  - `SessionStatusRunning("session.status_running")`
+
+  - `SessionStatusIdle("session.status_idle")`
+
+  - `SessionStatusTerminated("session.status_terminated")`
+
+  - `SessionThreadCreated("session.thread_created")`
+
+  - `SpanOutcomeEvaluationStart("span.outcome_evaluation_start")`
+
+  - `SpanOutcomeEvaluationEnd("span.outcome_evaluation_end")`
+
+  - `SpanModelRequestStart("span.model_request_start")`
+
+  - `SpanModelRequestEnd("span.model_request_end")`
+
+  - `SpanOutcomeEvaluationOngoing("span.outcome_evaluation_ongoing")`
+
+  - `UserDefineOutcome("user.define_outcome")`
+
+  - `SessionThreadStatusRunning("session.thread_status_running")`
+
+  - `SessionThreadStatusIdle("session.thread_status_idle")`
+
+  - `SessionThreadStatusTerminated("session.thread_status_terminated")`
+
+  - `UserToolResult("user.tool_result")`
+
+  - `SessionThreadStatusRescheduled("session.thread_status_rescheduled")`
+
+  - `SessionUpdated("session.updated")`
+
+  - `SystemMessage("system.message")`
+
+  - `SessionUsage("session.usage")`
 
 ### Beta Managed Agents Session Requires Action
 
@@ -13162,6 +13316,10 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -13172,7 +13330,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 

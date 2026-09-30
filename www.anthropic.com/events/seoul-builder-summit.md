@@ -130,7 +130,7 @@ Add to calendar
 
 ## Speakers
 
-![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/682b6f5d7523a6c9c498f5e5_mike-krieger.jpg)
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6abc0f7b9d3d7ff469364f19_CleanShot%202026-09-29%20at%201.20.19%20PM%402x.png)
 
 ### Mike Krieger
 
@@ -142,7 +142,7 @@ Head of Anthropic Labs at Anthropic
 
 Head of Sales & Partnerships at Anthropic
 
-![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/682b6f5d7523a6c9c498f5e5_mike-krieger.jpg)
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6abc0f7b9d3d7ff469364f19_CleanShot%202026-09-29%20at%201.20.19%20PM%402x.png)
 
 ### Mike Krieger
 

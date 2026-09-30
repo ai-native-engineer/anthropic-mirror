@@ -1,6 +1,6 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai -->
 
-Lesson 5 of 9 · AI Fluency for small businessesRefining with AI
+Lesson 4 of 8 · AI Fluency for small businessesRefining with AI
 
 3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
@@ -8,7 +8,7 @@ Lesson 5 of 9 · AI Fluency for small businessesRefining with AI
 
 # Refining with AI
 
-Lesson 530 min
+Lesson 430 min
 
 In this lessonBy the end, you’ll be able to
 
@@ -90,9 +90,9 @@ Did your initial prompt give AI enough context to be useful? What would you revi
 
 In the next lesson, we'll explore the outer loop of Delegation and Diligence by analyzing data with AI.
 
-[Previous lessonExplore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)[Next lessonTransparent AI use](https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai)
+[Previous lessonAI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)[Next lessonTransparent AI use](https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai)
 
-Lesson 5 of 9 · AI Fluency for small businessesRefining with AI
+Lesson 4 of 8 · AI Fluency for small businessesRefining with AI
 
 Introduction and AI Fluency framework
 
@@ -102,7 +102,6 @@ Introduction and AI Fluency framework
 How AI works
 
 * [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
-* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
 
 The Description-Discernment loop
 

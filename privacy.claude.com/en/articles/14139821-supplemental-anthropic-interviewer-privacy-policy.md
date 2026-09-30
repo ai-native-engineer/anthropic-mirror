@@ -45,10 +45,10 @@ Study Participation Data may be disclosed to the categories of recipients set ou
 
 ### 7. Your Rights, Retention, International Transfers, and Contact7
 
-For information on your rights and how to exercise them, how long we retain personal data, international data transfers, and how to contact us (including our Data Protection Officer), please see the corresponding sections of the Privacy Policy. To exercise your rights, you can submit a request by emailing us at [[email protected]](https://privacy.claude.com/cdn-cgi/l/email-protection#d6a6a4bfa0b7b5af96b7b8a2bea4b9a6bfb5f8b5b9bb).
+For information on your rights and how to exercise them, how long we retain personal data, international data transfers, and how to contact us (including our Data Protection Officer), please see the corresponding sections of the Privacy Policy. To exercise your rights, you can submit a request by emailing us at [[email protected]](https://privacy.claude.com/cdn-cgi/l/email-protection#c9b9bba0bfa8aab089a8a7bda1bba6b9a0aae7aaa6a4).
 
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
-* [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://privacy.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)
 * [Updates to our Privacy Policy](https://privacy.claude.com/en/articles/10301952-updates-to-our-privacy-policy)
 * [Anthropic Interviewer sessions completed after March 23, 2026](https://privacy.claude.com/en/articles/14170919-anthropic-interviewer-sessions-completed-after-march-23-2026)
 * [Anthropic Interviewer sessions completed in December 2025](https://privacy.claude.com/en/articles/14170926-anthropic-interviewer-sessions-completed-in-december-2025)
+* [Anthropic Interviewer sessions completed after September 29, 2026](https://privacy.claude.com/en/articles/17232486-anthropic-interviewer-sessions-completed-after-september-29-2026)

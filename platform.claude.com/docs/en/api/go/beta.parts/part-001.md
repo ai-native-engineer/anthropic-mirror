@@ -4220,13 +4220,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                        - `string`
-
                         - `type Model string`
 
                           The model that will complete your prompt.
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                          - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+                            Efficient model for coding and agents
 
                           - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -4242,7 +4244,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                           - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-                            High-performance model for coding and agents
+                            Efficient model for coding and agents
 
                           - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -4301,6 +4303,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                             New class of intelligence, strongest in coding and cybersecurity
+
+                        - `string`
 
                       - `Name Advisor`
 
@@ -7882,13 +7886,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                    - `string`
-
                     - `type Model string`
 
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+                        Efficient model for coding and agents
 
                       - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -7904,7 +7910,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -7963,6 +7969,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                    - `string`
 
                   - `Name Advisor`
 
@@ -9395,7 +9403,7 @@ func main() {
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-fable-5-1",
+        "model": "claude-sonnet-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -12392,13 +12400,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                        - `string`
-
                         - `type Model string`
 
                           The model that will complete your prompt.
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                          - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+                            Efficient model for coding and agents
 
                           - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -12414,7 +12424,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                           - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-                            High-performance model for coding and agents
+                            Efficient model for coding and agents
 
                           - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -12473,6 +12483,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                             New class of intelligence, strongest in coding and cybersecurity
+
+                        - `string`
 
                       - `Name Advisor`
 
@@ -16231,13 +16243,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                            - `string`
-
                             - `type Model string`
 
                               The model that will complete your prompt.
 
                               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                              - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+                                Efficient model for coding and agents
 
                               - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -16253,7 +16267,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-                                High-performance model for coding and agents
+                                Efficient model for coding and agents
 
                               - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -16312,6 +16326,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                                 **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                                 New class of intelligence, strongest in coding and cybersecurity
+
+                            - `string`
 
                           - `Name Advisor`
 
@@ -16989,6 +17005,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Type Disabled`
 
+            - `type BetaThinkingConfigBetweenTools`
+
+              - `Type BetweenTools`
+
             - `type BetaThinkingConfigAdaptive`
 
               - `Type Adaptive`
@@ -17077,9 +17097,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Stream bool Optional`
 
-        Whether to incrementally stream the response using server-sent events.
+        Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-        See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+        In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
       - `System []BetaTextBlockParamResp Optional`
 
@@ -17112,6 +17132,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `type BetaThinkingConfigEnabled`
 
         - `type BetaThinkingConfigDisabled`
+
+        - `type BetaThinkingConfigBetweenTools`
 
         - `type BetaThinkingConfigAdaptive`
 
@@ -21598,13 +21620,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                          - `string`
-
                           - `type Model string`
 
                             The model that will complete your prompt.
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                            - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+                              Efficient model for coding and agents
 
                             - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -21620,7 +21644,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-                              High-performance model for coding and agents
+                              Efficient model for coding and agents
 
                             - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -21679,6 +21703,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                          - `string`
 
                         - `Name Advisor`
 
@@ -22871,13 +22897,15 @@ Create Agent
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -22889,7 +22917,7 @@ Create Agent
 
           - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -22938,6 +22966,8 @@ Create Agent
           - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `string`
 
       - `Effort BetaManagedAgentsModelConfigParamsEffortUnionResp Optional`
 
@@ -23675,13 +23705,15 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `string`
-
       - `type BetaManagedAgentsModel string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -23693,7 +23725,7 @@ Create Agent
 
         - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -23742,6 +23774,8 @@ Create Agent
         - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `string`
 
     - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -24514,13 +24548,15 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `string`
-
       - `type BetaManagedAgentsModel string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -24532,7 +24568,7 @@ List Agents
 
         - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -24581,6 +24617,8 @@ List Agents
         - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `string`
 
     - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -25337,13 +25375,15 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `string`
-
       - `type BetaManagedAgentsModel string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -25355,7 +25395,7 @@ Get Agent
 
         - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -25404,6 +25444,8 @@ Get Agent
         - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `string`
 
     - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -26041,13 +26083,15 @@ Update Agent
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -26059,7 +26103,7 @@ Update Agent
 
           - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -26108,6 +26152,8 @@ Update Agent
           - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `string`
 
       - `Effort BetaManagedAgentsModelConfigParamsEffortUnionResp Optional`
 
@@ -26444,37 +26490,3 @@ Update Agent
             Must be "web_fetch".
 
           - `AllowedDomains []string Optional`
-
-            Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
-
-          - `BlockedDomains []string Optional`
-
-            Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
-
-          - `Enabled bool Optional`
-
-            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
-
-          - `MaxContentTokens int64 Optional`
-
-            Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
-
-            format: int32
-
-          - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigParamsPermissionPolicyUnionResp Optional`
-
-            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
-
-            - `type BetaManagedAgentsAlwaysAllowPolicy`
-
-              Tool calls are automatically approved without user confirmation.
-
-            - `type BetaManagedAgentsAlwaysAskPolicy`
-
-              Tool calls require user confirmation before execution.
-
-            - `type BetaManagedAgentsAutoPolicy`
-
-              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-        - `type BetaManagedAgentsWebSearchToolConfigParamsResp`

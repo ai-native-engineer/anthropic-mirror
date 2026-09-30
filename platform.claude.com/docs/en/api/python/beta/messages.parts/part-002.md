@@ -3,6 +3,132 @@
 
 <!-- chunk-start -->
 
+      Command type identifier
+
+      default: create
+
+    - `file_text: str`
+
+      Content to write to the file
+
+    - `path: str`
+
+      Path where the file should be created
+
+  - `class BetaMemoryTool20250818StrReplaceCommand`
+
+    - `command: Literal["str_replace"]`
+
+      Command type identifier
+
+      default: str_replace
+
+    - `new_str: str`
+
+      Text to replace with
+
+    - `old_str: str`
+
+      Text to search for and replace
+
+    - `path: str`
+
+      Path to the file where text should be replaced
+
+  - `class BetaMemoryTool20250818InsertCommand`
+
+    - `command: Literal["insert"]`
+
+      Command type identifier
+
+      default: insert
+
+    - `insert_line: int`
+
+      Line number where text should be inserted
+
+      minimum: 1
+
+    - `insert_text: str`
+
+      Text to insert at the specified line
+
+    - `path: str`
+
+      Path to the file where text should be inserted
+
+  - `class BetaMemoryTool20250818DeleteCommand`
+
+    - `command: Literal["delete"]`
+
+      Command type identifier
+
+      default: delete
+
+    - `path: str`
+
+      Path to the file or directory to delete
+
+  - `class BetaMemoryTool20250818RenameCommand`
+
+    - `command: Literal["rename"]`
+
+      Command type identifier
+
+      default: rename
+
+    - `new_path: str`
+
+      New path for the file or directory
+
+    - `old_path: str`
+
+      Current path of the file or directory
+
+### Beta Memory Tool 20250818 Create Command
+
+- `class BetaMemoryTool20250818CreateCommand`
+
+  - `command: Literal["create"]`
+
+    Command type identifier
+
+    default: create
+
+  - `file_text: str`
+
+    Content to write to the file
+
+  - `path: str`
+
+    Path where the file should be created
+
+### Beta Memory Tool 20250818 Delete Command
+
+- `class BetaMemoryTool20250818DeleteCommand`
+
+  - `command: Literal["delete"]`
+
+    Command type identifier
+
+    default: delete
+
+  - `path: str`
+
+    Path to the file or directory to delete
+
+### Beta Memory Tool 20250818 Insert Command
+
+- `class BetaMemoryTool20250818InsertCommand`
+
+  - `command: Literal["insert"]`
+
+    Command type identifier
+
+    default: insert
+
+  - `insert_line: int`
+
     Line number where text should be inserted
 
     minimum: 1
@@ -2808,13 +2934,15 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                    - `str`
-
-                    - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+                    - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `"claude-sonnet-5-5"`
+
+                        Efficient model for coding and agents
 
                       - `"claude-fable-5-1"`
 
@@ -2830,7 +2958,7 @@
 
                       - `"claude-sonnet-5"`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `"claude-fable-5"`
 
@@ -2889,6 +3017,8 @@
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                    - `str`
 
                   - `name: Literal["advisor"]`
 
@@ -4063,13 +4193,15 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `str`
-
-        - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+        - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `"claude-fable-5-1"`
 
@@ -4085,7 +4217,7 @@
 
           - `"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -4144,6 +4276,8 @@
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+        - `str`
 
       - `output_tokens: int`
 
@@ -4378,13 +4512,15 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `str`
-
-    - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+    - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
 
       - `"claude-fable-5-1"`
 
@@ -4400,7 +4536,7 @@
 
       - `"claude-sonnet-5"`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -4459,6 +4595,8 @@
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+    - `str`
 
   - `output_tokens: int`
 
@@ -7378,13 +7516,15 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                      - `str`
-
-                      - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+                      - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `"claude-sonnet-5-5"`
+
+                          Efficient model for coding and agents
 
                         - `"claude-fable-5-1"`
 
@@ -7400,7 +7540,7 @@
 
                         - `"claude-sonnet-5"`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `"claude-fable-5"`
 
@@ -7459,6 +7599,8 @@
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                      - `str`
 
                     - `name: Literal["advisor"]`
 
@@ -10948,13 +11090,15 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                    - `str`
-
-                    - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+                    - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `"claude-sonnet-5-5"`
+
+                        Efficient model for coding and agents
 
                       - `"claude-fable-5-1"`
 
@@ -10970,7 +11114,7 @@
 
                       - `"claude-sonnet-5"`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `"claude-fable-5"`
 
@@ -11029,6 +11173,8 @@
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                    - `str`
 
                   - `name: Literal["advisor"]`
 
@@ -11706,13 +11852,15 @@
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `str`
-
-          - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+          - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `"claude-fable-5-1"`
 
@@ -11728,7 +11876,7 @@
 
             - `"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -11787,6 +11935,8 @@
               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
               New class of intelligence, strongest in coding and cybersecurity
+
+          - `str`
 
         - `output_tokens: int`
 
@@ -14804,13 +14954,15 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                      - `str`
-
-                      - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+                      - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `"claude-sonnet-5-5"`
+
+                          Efficient model for coding and agents
 
                         - `"claude-fable-5-1"`
 
@@ -14826,7 +14978,7 @@
 
                         - `"claude-sonnet-5"`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `"claude-fable-5"`
 
@@ -14885,6 +15037,8 @@
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                      - `str`
 
                     - `name: Literal["advisor"]`
 
@@ -18648,13 +18802,15 @@
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                        - `str`
-
-                        - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+                        - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
                           The model that will complete your prompt.
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                          - `"claude-sonnet-5-5"`
+
+                            Efficient model for coding and agents
 
                           - `"claude-fable-5-1"`
 
@@ -18670,7 +18826,7 @@
 
                           - `"claude-sonnet-5"`
 
-                            High-performance model for coding and agents
+                            Efficient model for coding and agents
 
                           - `"claude-fable-5"`
 
@@ -18729,6 +18885,8 @@
                             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                             New class of intelligence, strongest in coding and cybersecurity
+
+                        - `str`
 
                       - `name: Literal["advisor"]`
 
@@ -22434,13 +22592,15 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `str`
-
-            - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+            - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5-5"`
+
+                Efficient model for coding and agents
 
               - `"claude-fable-5-1"`
 
@@ -22456,7 +22616,7 @@
 
               - `"claude-sonnet-5"`
 
-                High-performance model for coding and agents
+                Efficient model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -22515,6 +22675,8 @@
                 **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                 New class of intelligence, strongest in coding and cybersecurity
+
+            - `str`
 
           - `name: Literal["advisor"]`
 
@@ -24643,13 +24805,15 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `str`
-
-            - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+            - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5-5"`
+
+                Efficient model for coding and agents
 
               - `"claude-fable-5-1"`
 
@@ -24665,7 +24829,7 @@
 
               - `"claude-sonnet-5"`
 
-                High-performance model for coding and agents
+                Efficient model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -24724,6 +24888,8 @@
                 **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                 New class of intelligence, strongest in coding and cybersecurity
+
+            - `str`
 
           - `name: Literal["advisor"]`
 
@@ -26771,13 +26937,15 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `str`
-
-      - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
+      - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `"claude-fable-5-1"`
 
@@ -26793,7 +26961,7 @@
 
         - `"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -26852,6 +27020,8 @@
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+      - `str`
 
     - `name: Literal["advisor"]`
 
@@ -28423,6 +28593,12 @@
 
     - `"updates"`
 
+### Beta Thinking Config Between Tools
+
+- `class BetaThinkingConfigBetweenTools`
+
+  - `type: Literal["between_tools"]`
+
 ### Beta Thinking Config Disabled
 
 - `class BetaThinkingConfigDisabled`
@@ -28516,6 +28692,10 @@
   - `class BetaThinkingConfigDisabled`
 
     - `type: Literal["disabled"]`
+
+  - `class BetaThinkingConfigBetweenTools`
+
+    - `type: Literal["between_tools"]`
 
   - `class BetaThinkingConfigAdaptive`
 
@@ -29874,83 +30054,3 @@
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
           - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `left_click_drag: Optional[BetaComputerLeftClickDragConfig]`
-
-          `left_click_drag`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `left_mouse_down: Optional[BetaComputerLeftMouseDownConfig]`
-
-          `left_mouse_down`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `left_mouse_up: Optional[BetaComputerLeftMouseUpConfig]`
-
-          `left_mouse_up`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `middle_click: Optional[BetaComputerMiddleClickConfig]`
-
-          `middle_click`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `mouse_move: Optional[BetaComputerMouseMoveConfig]`
-
-          `mouse_move`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `right_click: Optional[BetaComputerRightClickConfig]`
-
-          `right_click`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `screenshot: Optional[BetaComputerScreenshotConfig]`
-
-          `screenshot`'s config overrides.
-
-          - `defer_loading: Optional[bool]`

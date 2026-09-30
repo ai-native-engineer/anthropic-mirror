@@ -53,7 +53,7 @@ For your safety, Claude cannot access sensitive, high-risk sites such as:
 
 Claude asks for permission before accessing financial sites.
 
-It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#d8adabbdaaabb9bebdaca198b9b6acb0aab7a8b1bbf6bbb7b5).
+It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#85f0f6e0f7f6e4e3e0f1fcc5e4ebf1edf7eaf5ece6abe6eae8).
 
 ---
 

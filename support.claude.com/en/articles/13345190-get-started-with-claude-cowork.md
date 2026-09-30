@@ -18,6 +18,8 @@ On desktop, web, and mobile, chat and Cowork share one home, so you start both f
 
 If you have the new Claude experience, there's no "Cowork" option to select. Describe your task in any conversation, and Claude takes it from there. Learn more in **[Claude Cowork and chat are one Claude](https://support.claude.com/en/articles/16761823)**.
 
+**Heads-up for Pro and Max plans:** On October 6, 2026, new Cowork tasks run in the cloud and the **Only on your computer** option in **[Settings > General](https://claude.ai/settings/general)** will be removed. Tasks you already started on your computer stay there. Learn more in **[What's changing for Pro and Max plans on October 6](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile#h_f951c27c48)**.
+
 ---
 
 ## What is Claude Cowork?
@@ -150,7 +152,7 @@ To set global instructions:
 2. Click "Edit" next to **Global instructions**.
 3. Type your instructions in the text box and click "Save":
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790642700&signature=5fd9ecacbe79420e32a923ca1135dd3a1d46a2a5927f5bc2443ddf6022cb2e96&req=diUlE8B8m4lYXfMW1HO4zcDl69jqMlO38iWjaktE943eGcVnVTSey8KWNc3W%0AOXl76HEtREF8OlJQC4c%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790642700&signature=5fd9ecacbe79420e32a923ca1135dd3a1d46a2a5927f5bc2443ddf6022cb2e96&req=diUlE8B8m4lYXfMW1HO4zcDl69jqMlO38iWjaktE943eGcVnVTSey8KWNc3W%0AOXl76HEtREF8OlJQC4c%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790748000&signature=735b299dedfebb788a6c5b10e52f9d4d9fe981b82e517f11c7c91b113de50eb9&req=diUlE8B8m4lYXfMW3nq%2BgcqgxG%2BC3LHYY1GMqW%2FkK1ch%2BeEu3p1s6Kc32hs7%0AW7kHMjblyTTAqos7PhAr6UmxqjI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790748000&signature=735b299dedfebb788a6c5b10e52f9d4d9fe981b82e517f11c7c91b113de50eb9&req=diUlE8B8m4lYXfMW3nq%2BgcqgxG%2BC3LHYY1GMqW%2FkK1ch%2BeEu3p1s6Kc32hs7%0AW7kHMjblyTTAqos7PhAr6UmxqjI%3D%0A)
 
 ### Folder instructions
 

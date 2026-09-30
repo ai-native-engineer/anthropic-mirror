@@ -59,9 +59,77 @@ List Events
 
   Opaque pagination cursor from a previous response's `next_page`.
 
-- `types: Array[String]`
+- `types: Array[BetaManagedAgentsSessionEventType]`
 
   Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
+
+  - `:"user.message"`
+
+  - `:"user.interrupt"`
+
+  - `:"user.tool_confirmation"`
+
+  - `:"user.custom_tool_result"`
+
+  - `:"agent.custom_tool_use"`
+
+  - `:"agent.message"`
+
+  - `:"agent.thinking"`
+
+  - `:"agent.mcp_tool_use"`
+
+  - `:"agent.mcp_tool_result"`
+
+  - `:"agent.tool_use"`
+
+  - `:"agent.tool_result"`
+
+  - `:"agent.thread_message_received"`
+
+  - `:"agent.thread_message_sent"`
+
+  - `:"agent.thread_context_compacted"`
+
+  - `:"session.error"`
+
+  - `:"session.status_rescheduled"`
+
+  - `:"session.status_running"`
+
+  - `:"session.status_idle"`
+
+  - `:"session.status_terminated"`
+
+  - `:"session.thread_created"`
+
+  - `:"span.outcome_evaluation_start"`
+
+  - `:"span.outcome_evaluation_end"`
+
+  - `:"span.model_request_start"`
+
+  - `:"span.model_request_end"`
+
+  - `:"span.outcome_evaluation_ongoing"`
+
+  - `:"user.define_outcome"`
+
+  - `:"session.thread_status_running"`
+
+  - `:"session.thread_status_idle"`
+
+  - `:"session.thread_status_terminated"`
+
+  - `:"user.tool_result"`
+
+  - `:"session.thread_status_rescheduled"`
+
+  - `:"session.updated"`
+
+  - `:"system.message"`
+
+  - `:"session.usage"`
 
 - `betas: Array[AnthropicBeta]`
 
@@ -1695,13 +1763,15 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -1713,7 +1783,7 @@ List Events
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -1762,6 +1832,8 @@ List Events
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -5064,13 +5136,15 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -5082,7 +5156,7 @@ Stream Events
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -5131,6 +5205,8 @@ Stream Events
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -10330,13 +10406,15 @@ puts(beta_managed_agents_stream_session_events)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -10348,7 +10426,7 @@ puts(beta_managed_agents_stream_session_events)
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -10397,6 +10475,8 @@ puts(beta_managed_agents_stream_session_events)
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -11037,6 +11117,80 @@ puts(beta_managed_agents_stream_session_events)
     - `budget: BetaManagedAgentsBudgetLimit`
 
       The session's configured budget at the snapshot time, or null when the session has no budget.
+
+### Beta Managed Agents Session Event Type
+
+- `type BetaManagedAgentsSessionEventType = :"user.message" | :"user.interrupt" | :"user.tool_confirmation" | 31 more`
+
+  The `type` of a session event.
+
+  - `:"user.message"`
+
+  - `:"user.interrupt"`
+
+  - `:"user.tool_confirmation"`
+
+  - `:"user.custom_tool_result"`
+
+  - `:"agent.custom_tool_use"`
+
+  - `:"agent.message"`
+
+  - `:"agent.thinking"`
+
+  - `:"agent.mcp_tool_use"`
+
+  - `:"agent.mcp_tool_result"`
+
+  - `:"agent.tool_use"`
+
+  - `:"agent.tool_result"`
+
+  - `:"agent.thread_message_received"`
+
+  - `:"agent.thread_message_sent"`
+
+  - `:"agent.thread_context_compacted"`
+
+  - `:"session.error"`
+
+  - `:"session.status_rescheduled"`
+
+  - `:"session.status_running"`
+
+  - `:"session.status_idle"`
+
+  - `:"session.status_terminated"`
+
+  - `:"session.thread_created"`
+
+  - `:"span.outcome_evaluation_start"`
+
+  - `:"span.outcome_evaluation_end"`
+
+  - `:"span.model_request_start"`
+
+  - `:"span.model_request_end"`
+
+  - `:"span.outcome_evaluation_ongoing"`
+
+  - `:"user.define_outcome"`
+
+  - `:"session.thread_status_running"`
+
+  - `:"session.thread_status_idle"`
+
+  - `:"session.thread_status_terminated"`
+
+  - `:"user.tool_result"`
+
+  - `:"session.thread_status_rescheduled"`
+
+  - `:"session.updated"`
+
+  - `:"system.message"`
+
+  - `:"session.usage"`
 
 ### Beta Managed Agents Session Requires Action
 
@@ -13166,13 +13320,15 @@ puts(beta_managed_agents_stream_session_events)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -13184,7 +13340,7 @@ puts(beta_managed_agents_stream_session_events)
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -13233,6 +13389,8 @@ puts(beta_managed_agents_stream_session_events)
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 

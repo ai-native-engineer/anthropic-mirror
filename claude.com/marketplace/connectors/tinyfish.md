@@ -4,23 +4,36 @@ Connector URL`https://agent.tinyfish.ai/mcp/claude`
 
 More[Documentation (opens in new tab)](https://docs.tinyfish.ai/)[Support (opens in new tab)](mailto:support@tinyfish.ai)[Privacy policy (opens in new tab)](https://www.tinyfish.ai/privacy-policy)
 
-Connect TinyFish to Claude to search, read, and operate the live web at scale. Three core tools cover the workflow: a search API to find relevant pages and sources across the web, a fetch API to read and extract content from URLs in a clean, token-efficient form, and a web agent to navigate complex, dynamic sites: logging in, filling and submitting forms, clicking through multi-step workflows, and extracting structured data that requires real page interaction. Powered by TinyFish's cloud browser infrastructure and proprietary web navigation model, it reaches sites that static fetching can't. Useful for researching across many sources, pulling live data from web apps, completing multi-step web workflows, monitoring or scraping pages behind navigation, and running the same web operation across many sites or URLs.
+TinyFish gives Claude a cloud browser and web agent to search, read, and operate the live web. Use it for web automation and browser automation on real websites: navigating pages, clicking through multi-step workflows, logging in to websites and account portals, filling out and submitting web forms and online applications, and extracting structured data that only appears after real page interaction.
+
+Three core tools cover the workflow. Web search finds relevant pages, news, and research papers across the public web, with recency, date, location, and domain filters. Fetch reads a web page or webpage and extracts clean, token-efficient content — markdown, HTML, or JSON — including JavaScript-rendered pages, so Claude can read, summarize, or scrape up to 10 URLs at once. The web agent automates website tasks that static fetching can't reach: it runs in a remote stealth Chrome browser with built-in anti-bot protection and proxy rotation, can reuse saved logged-in sessions to log in and check account status or dashboards, and returns results as structured JSON. The same task can run across many sites in parallel — to compare prices, check product availability, gather listings, or collect insurance and service quotes from several providers.
+
+TinyFish also monitors websites for changes. Set up a recurring monitor on a web page or search topic for price tracking, content updates, and alerts when something new appears. For direct control, open a headless cloud browser session with CDP access for Playwright, Puppeteer, or Selenium.
+
+Common uses include web scraping and data extraction behind logins and navigation, extracting invoices, receipts, and billing statements from a customer portal, completing booking, appointment, and reservation flows, research across many sources, and pulling live data from web apps. Powered by TinyFish's proprietary web navigation model.
 
 ## Tools
 
 * batch\_cancel
-* batch\_create
 * batch\_status
+* cancel\_monitor
 * cancel\_run
+* close\_browser\_session
 * create\_browser\_session
+* create\_monitor
 * fetch\_content
+* get\_monitor
 * get\_run
-* get\_search\_result
 * get\_search\_usage
+* get\_wallet
+* guide\_next\_step
 * list\_browser\_sessions
 * list\_fetch\_usage
+* list\_monitors
 * list\_runs
-* run\_big\_search
+* pause\_monitor
+* resume\_monitor
+* run\_monitor
 * run\_web\_automation
 * run\_web\_automation\_async
 * search

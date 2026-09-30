@@ -4074,13 +4074,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                      - `String = String`
-
-                      - `Model = :"claude-fable-5-1" | :"claude-opus-5-5" | :"claude-mythos-5-1" | 15 more`
+                      - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
 
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `:"claude-sonnet-5-5"`
+
+                          Efficient model for coding and agents
 
                         - `:"claude-fable-5-1"`
 
@@ -4096,7 +4098,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         - `:"claude-sonnet-5"`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `:"claude-fable-5"`
 
@@ -4155,6 +4157,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                      - `String = String`
 
                     - `name: :advisor`
 
@@ -4790,7 +4794,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `:fast`
 
-    - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigAdaptive`
+    - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigBetweenTools | BetaThinkingConfigAdaptive`
 
       - `class BetaThinkingConfigEnabled`
 
@@ -4831,6 +4835,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `class BetaThinkingConfigDisabled`
 
         - `type: :disabled`
+
+      - `class BetaThinkingConfigBetweenTools`
+
+        - `type: :between_tools`
 
       - `class BetaThinkingConfigAdaptive`
 
@@ -4920,9 +4928,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `stream: bool`
 
-  Whether to incrementally stream the response using server-sent events.
+  Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-  See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+  In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
 - `system_: String | Array[BetaTextBlockParam]`
 
@@ -4957,6 +4965,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `class BetaThinkingConfigEnabled`
 
   - `class BetaThinkingConfigDisabled`
+
+  - `class BetaThinkingConfigBetweenTools`
 
   - `class BetaThinkingConfigAdaptive`
 
@@ -7940,13 +7950,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                    - `String = String`
-
-                    - `Model = :"claude-fable-5-1" | :"claude-opus-5-5" | :"claude-mythos-5-1" | 15 more`
+                    - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
 
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `:"claude-sonnet-5-5"`
+
+                        Efficient model for coding and agents
 
                       - `:"claude-fable-5-1"`
 
@@ -7962,7 +7974,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       - `:"claude-sonnet-5"`
 
-                        High-performance model for coding and agents
+                        Efficient model for coding and agents
 
                       - `:"claude-fable-5"`
 
@@ -8021,6 +8033,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                    - `String = String`
 
                   - `name: :advisor`
 
@@ -9365,7 +9379,7 @@ puts(beta_message)
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-fable-5-1",
+        "model": "claude-sonnet-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -12364,13 +12378,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                      - `String = String`
-
-                      - `Model = :"claude-fable-5-1" | :"claude-opus-5-5" | :"claude-mythos-5-1" | 15 more`
+                      - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
 
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `:"claude-sonnet-5-5"`
+
+                          Efficient model for coding and agents
 
                         - `:"claude-fable-5-1"`
 
@@ -12386,7 +12402,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         - `:"claude-sonnet-5"`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `:"claude-fable-5"`
 
@@ -12445,6 +12461,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                      - `String = String`
 
                     - `name: :advisor`
 
@@ -13058,6 +13076,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `class BetaThinkingConfigDisabled`
 
     - `type: :disabled`
+
+  - `class BetaThinkingConfigBetweenTools`
+
+    - `type: :between_tools`
 
   - `class BetaThinkingConfigAdaptive`
 
@@ -16443,13 +16465,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                          - `String = String`
-
-                          - `Model = :"claude-fable-5-1" | :"claude-opus-5-5" | :"claude-mythos-5-1" | 15 more`
+                          - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
 
                             The model that will complete your prompt.
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                            - `:"claude-sonnet-5-5"`
+
+                              Efficient model for coding and agents
 
                             - `:"claude-fable-5-1"`
 
@@ -16465,7 +16489,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             - `:"claude-sonnet-5"`
 
-                              High-performance model for coding and agents
+                              Efficient model for coding and agents
 
                             - `:"claude-fable-5"`
 
@@ -16524,6 +16548,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                          - `String = String`
 
                         - `name: :advisor`
 
@@ -17159,7 +17185,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `:fast`
 
-        - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigAdaptive`
+        - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigBetweenTools | BetaThinkingConfigAdaptive`
 
           - `class BetaThinkingConfigEnabled`
 
@@ -17200,6 +17226,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `class BetaThinkingConfigDisabled`
 
             - `type: :disabled`
+
+          - `class BetaThinkingConfigBetweenTools`
+
+            - `type: :between_tools`
 
           - `class BetaThinkingConfigAdaptive`
 
@@ -17289,9 +17319,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `stream: bool`
 
-      Whether to incrementally stream the response using server-sent events.
+      Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-      See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+      In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
     - `system_: String | Array[BetaTextBlockParam]`
 
@@ -17326,6 +17356,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `class BetaThinkingConfigEnabled`
 
       - `class BetaThinkingConfigDisabled`
+
+      - `class BetaThinkingConfigBetweenTools`
 
       - `class BetaThinkingConfigAdaptive`
 
@@ -21558,13 +21590,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                          - `String = String`
-
-                          - `Model = :"claude-fable-5-1" | :"claude-opus-5-5" | :"claude-mythos-5-1" | 15 more`
+                          - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
 
                             The model that will complete your prompt.
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                            - `:"claude-sonnet-5-5"`
+
+                              Efficient model for coding and agents
 
                             - `:"claude-fable-5-1"`
 
@@ -21580,7 +21614,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             - `:"claude-sonnet-5"`
 
-                              High-performance model for coding and agents
+                              Efficient model for coding and agents
 
                             - `:"claude-fable-5"`
 
@@ -21639,6 +21673,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                          - `String = String`
 
                         - `name: :advisor`
 
@@ -22711,19 +22747,21 @@ Create Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
-  - `type BetaManagedAgentsModel = String | :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+  - `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `String = String`
-
-    - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+    - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
 
       - `:"claude-opus-5-5"`
 
@@ -22735,7 +22773,7 @@ Create Agent
 
       - `:"claude-sonnet-5"`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `:"claude-fable-5"`
 
@@ -22784,6 +22822,8 @@ Create Agent
       - `:"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `String = String`
 
   - `class BetaManagedAgentsModelConfigParams`
 
@@ -23577,13 +23617,15 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `String = String`
-
-      - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `:"claude-opus-5-5"`
 
@@ -23595,7 +23637,7 @@ Create Agent
 
         - `:"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -23644,6 +23686,8 @@ Create Agent
         - `:"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -24399,13 +24443,15 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `String = String`
-
-      - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `:"claude-opus-5-5"`
 
@@ -24417,7 +24463,7 @@ List Agents
 
         - `:"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -24466,6 +24512,8 @@ List Agents
         - `:"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -25207,13 +25255,15 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `String = String`
-
-      - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `:"claude-opus-5-5"`
 
@@ -25225,7 +25275,7 @@ Get Agent
 
         - `:"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -25274,6 +25324,8 @@ Get Agent
         - `:"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -25882,19 +25934,21 @@ Update Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
-  - `type BetaManagedAgentsModel = String | :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+  - `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `String = String`
-
-    - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+    - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
 
       - `:"claude-opus-5-5"`
 
@@ -25906,7 +25960,7 @@ Update Agent
 
       - `:"claude-sonnet-5"`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `:"claude-fable-5"`
 
@@ -25955,6 +26009,8 @@ Update Agent
       - `:"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `String = String`
 
   - `class BetaManagedAgentsModelConfigParams`
 
@@ -26726,13 +26782,15 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `String = String`
-
-      - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `:"claude-opus-5-5"`
 
@@ -26744,7 +26802,7 @@ Update Agent
 
         - `:"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -26793,6 +26851,8 @@ Update Agent
         - `:"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -27523,13 +27583,15 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `String = String`
-
-      - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `:"claude-opus-5-5"`
 
@@ -27541,7 +27603,7 @@ Archive Agent
 
         - `:"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -27590,6 +27652,8 @@ Archive Agent
         - `:"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -28332,13 +28396,15 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `String = String`
-
-      - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `:"claude-opus-5-5"`
 
@@ -28350,7 +28416,7 @@ List Agent Versions
 
         - `:"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -28399,6 +28465,8 @@ List Agent Versions
         - `:"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -32256,103 +32324,3 @@ List work items in an environment.
     RFC 3339 timestamp when work was created
 
   - `data: BetaSessionWorkData`
-
-    The actual work to be performed
-
-    - `type: :session`
-
-      Type of work data
-
-    - `id: String`
-
-      Session identifier (e.g., 'session_...')
-
-  - `environment_id: String`
-
-    Environment identifier this work belongs to (e.g., `env_...`)
-
-  - `latest_heartbeat_at: String`
-
-    RFC 3339 timestamp of the most recent heartbeat
-
-  - `metadata: Hash[Symbol, String]`
-
-    User-provided metadata key-value pairs associated with this work item
-
-  - `secret: String`
-
-    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
-
-  - `started_at: String`
-
-    RFC 3339 timestamp when work execution started
-
-  - `state: :queued | :starting | :active | 2 more`
-
-    Current state of the work item
-
-    - `:queued`
-
-    - `:starting`
-
-    - `:active`
-
-    - `:stopping`
-
-    - `:stopped`
-
-  - `stop_requested_at: String`
-
-    RFC 3339 timestamp when stop was requested
-
-  - `stopped_at: String`
-
-    RFC 3339 timestamp when work execution stopped
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.environments.work.list("env_011CZkZ9X2dpNyB7HsEFoRfW")
-
-puts(page)
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "acknowledged_at": "acknowledged_at",
-      "created_at": "created_at",
-      "data": {
-        "id": "id",
-        "type": "session"
-      },
-      "environment_id": "environment_id",
-      "latest_heartbeat_at": "latest_heartbeat_at",
-      "metadata": {
-        "foo": "string"
-      },
-      "secret": "secret",
-      "started_at": "started_at",
-      "state": "queued",
-      "stop_requested_at": "stop_requested_at",
-      "stopped_at": "stopped_at",
-      "type": "work"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-### Update Work Item
-
-`beta.environments.work.update(work_id, **kwargs) -> BetaSelfHostedWork`
-
-**POST** `/v1/environments/{environment_id}/work/{work_id}`

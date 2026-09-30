@@ -52,13 +52,13 @@ Bring Addepar portfolio intelligence into Claude
 
 [Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
+![](https://www.gemini.com/favicon.ico)
 
-### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
 
-Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
-[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
@@ -69,6 +69,14 @@ Anthropic verifiedTrending
 Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
+
+### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
+
+Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
+
+[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
 
 ![](https://bd3.bdreporting.com/content/logo.svg)
 
@@ -87,11 +95,3 @@ Client, portfolio, and performance data for advisors
 Search, update, and manage Wealthbox data from inside Claude
 
 [Add Wealthbox in Claude (opens in new tab)](https://claude.ai/directory/95dfb71b-dd9a-4176-adc4-293d6d7246eb "Add in Claude")
-
-![](https://www.gemini.com/favicon.ico)
-
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")

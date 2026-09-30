@@ -6,9 +6,9 @@ Describe what you want to build in natural language — no slash commands to mem
 
 **How to use:** Install the [Salesforce CLI](https://developer.salesforce.com/tools/salesforcecli), Node.js LTS, and Python 3.8+, then authorize your org with `sf org login web`. After installing the plugin, open a Salesforce DX project and try prompts like:
 
-* *"Create an Apex service class to handle Account territory assignments"*
-* *"Generate a custom object Project\_\_c with fields for Name, Status, Due Date, and Owner"*
-* *"Deploy my changes to the sandbox and run the tests"*
+* "Create an Apex service class to handle Account territory assignments"
+* "Generate a custom object Project\_\_c with fields for Name, Status, Due Date, and Owner"
+* "Deploy my changes to the sandbox and run the tests"
 
 ## Other plugins
 

@@ -48,6 +48,9 @@ Search
 
 DateCategoryTitle
 
+* [Sep 29, 2026Societal Impacts
+
+  What do you want from AI?](https://www.anthropic.com/research/your-thoughts-on-ai)
 * [Aug 26, 2026Societal Impacts
 
   Enabling independent research on how people use Claude](https://www.anthropic.com/research/enabling-independent-research)
@@ -75,14 +78,11 @@ DateCategoryTitle
 * [Apr 28, 2025Societal Impacts
 
   Anthropic Economic Index: AI’s impact on software development](https://www.anthropic.com/research/impact-software-development)
-* [Apr 21, 2025Societal Impacts
-
-  Values in the wild: Discovering and analyzing values in real-world language model interactions](https://www.anthropic.com/research/values-wild)
 
 [See more](#)
-
-![Enabling independent research on how people use Claude](https://www-cdn.anthropic.com/images/4zrzovbb/website/74256b81ca52aca8cf45a0e4e489d4d4d9d98175-1000x1000.svg)
 
 Join the Research team
 
 [See open roles](https://www.anthropic.com/jobs)
+
+Societal Impacts Research \ Anthropic

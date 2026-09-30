@@ -3,6 +3,40 @@
 
 <!-- chunk-start -->
 
+            Only fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "docs.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with blocked_domains.
+
+          - `BlockedDomains []string Optional`
+
+            Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
+
+          - `Enabled bool Optional`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `MaxContentTokens int64 Optional`
+
+            Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+            format: int32
+
+          - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigParamsPermissionPolicyUnionResp Optional`
+
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
+
+            - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `type BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+            - `type BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+        - `type BetaManagedAgentsWebSearchToolConfigParamsResp`
+
           Configuration override for the web_search tool.
 
           - `Type BetaManagedAgentsWebSearchToolConfigParamsType Optional`
@@ -347,13 +381,15 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `string`
-
       - `type BetaManagedAgentsModel string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -365,7 +401,7 @@
 
         - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -414,6 +450,8 @@
         - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `string`
 
     - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -1165,13 +1203,15 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `string`
-
       - `type BetaManagedAgentsModel string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -1183,7 +1223,7 @@ Archive Agent
 
         - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -1232,6 +1272,8 @@ Archive Agent
         - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `string`
 
     - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -1993,13 +2035,15 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `string`
-
       - `type BetaManagedAgentsModel string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -2011,7 +2055,7 @@ List Agent Versions
 
         - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -2060,6 +2104,8 @@ List Agent Versions
         - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `string`
 
     - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -6862,13 +6908,15 @@ Create Session
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `string`
-
             - `type BetaManagedAgentsModel string`
 
               The model that will power your agent.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+                Efficient model for coding and agents
 
               - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -6880,7 +6928,7 @@ Create Session
 
               - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-                High-performance model for coding and agents
+                Efficient model for coding and agents
 
               - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -6929,6 +6977,8 @@ Create Session
               - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
                 High-performance model for agents and coding
+
+            - `string`
 
           - `Effort BetaManagedAgentsModelConfigParamsEffortUnionResp Optional`
 
@@ -7948,13 +7998,15 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -7966,7 +8018,7 @@ Create Session
 
           - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -8015,6 +8067,8 @@ Create Session
           - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `string`
 
       - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -9274,13 +9328,15 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -9292,7 +9348,7 @@ List Sessions
 
           - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -9341,6 +9397,8 @@ List Sessions
           - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `string`
 
       - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -10519,13 +10577,15 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -10537,7 +10597,7 @@ Get Session
 
           - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -10586,6 +10646,8 @@ Get Session
           - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `string`
 
       - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -11784,13 +11846,15 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -11802,7 +11866,7 @@ Update Session
 
           - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -11851,6 +11915,8 @@ Update Session
           - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `string`
 
       - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -13199,13 +13265,15 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -13217,7 +13285,7 @@ Archive Session
 
           - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -13266,6 +13334,8 @@ Archive Session
           - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `string`
 
       - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -14338,9 +14408,77 @@ List Events
 
     Query param: Opaque pagination cursor from a previous response's `next_page`.
 
-  - `Types param.Field[[]string] Optional`
+  - `Types param.Field[[]BetaManagedAgentsSessionEventType] Optional`
 
     Query param: Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
+
+    - `const BetaManagedAgentsSessionEventTypeUserMessage BetaManagedAgentsSessionEventType = "user.message"`
+
+    - `const BetaManagedAgentsSessionEventTypeUserInterrupt BetaManagedAgentsSessionEventType = "user.interrupt"`
+
+    - `const BetaManagedAgentsSessionEventTypeUserToolConfirmation BetaManagedAgentsSessionEventType = "user.tool_confirmation"`
+
+    - `const BetaManagedAgentsSessionEventTypeUserCustomToolResult BetaManagedAgentsSessionEventType = "user.custom_tool_result"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentCustomToolUse BetaManagedAgentsSessionEventType = "agent.custom_tool_use"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentMessage BetaManagedAgentsSessionEventType = "agent.message"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentThinking BetaManagedAgentsSessionEventType = "agent.thinking"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentMCPToolUse BetaManagedAgentsSessionEventType = "agent.mcp_tool_use"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentMCPToolResult BetaManagedAgentsSessionEventType = "agent.mcp_tool_result"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentToolUse BetaManagedAgentsSessionEventType = "agent.tool_use"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentToolResult BetaManagedAgentsSessionEventType = "agent.tool_result"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentThreadMessageReceived BetaManagedAgentsSessionEventType = "agent.thread_message_received"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentThreadMessageSent BetaManagedAgentsSessionEventType = "agent.thread_message_sent"`
+
+    - `const BetaManagedAgentsSessionEventTypeAgentThreadContextCompacted BetaManagedAgentsSessionEventType = "agent.thread_context_compacted"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionError BetaManagedAgentsSessionEventType = "session.error"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionStatusRescheduled BetaManagedAgentsSessionEventType = "session.status_rescheduled"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionStatusRunning BetaManagedAgentsSessionEventType = "session.status_running"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionStatusIdle BetaManagedAgentsSessionEventType = "session.status_idle"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionStatusTerminated BetaManagedAgentsSessionEventType = "session.status_terminated"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionThreadCreated BetaManagedAgentsSessionEventType = "session.thread_created"`
+
+    - `const BetaManagedAgentsSessionEventTypeSpanOutcomeEvaluationStart BetaManagedAgentsSessionEventType = "span.outcome_evaluation_start"`
+
+    - `const BetaManagedAgentsSessionEventTypeSpanOutcomeEvaluationEnd BetaManagedAgentsSessionEventType = "span.outcome_evaluation_end"`
+
+    - `const BetaManagedAgentsSessionEventTypeSpanModelRequestStart BetaManagedAgentsSessionEventType = "span.model_request_start"`
+
+    - `const BetaManagedAgentsSessionEventTypeSpanModelRequestEnd BetaManagedAgentsSessionEventType = "span.model_request_end"`
+
+    - `const BetaManagedAgentsSessionEventTypeSpanOutcomeEvaluationOngoing BetaManagedAgentsSessionEventType = "span.outcome_evaluation_ongoing"`
+
+    - `const BetaManagedAgentsSessionEventTypeUserDefineOutcome BetaManagedAgentsSessionEventType = "user.define_outcome"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionThreadStatusRunning BetaManagedAgentsSessionEventType = "session.thread_status_running"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionThreadStatusIdle BetaManagedAgentsSessionEventType = "session.thread_status_idle"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionThreadStatusTerminated BetaManagedAgentsSessionEventType = "session.thread_status_terminated"`
+
+    - `const BetaManagedAgentsSessionEventTypeUserToolResult BetaManagedAgentsSessionEventType = "user.tool_result"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionThreadStatusRescheduled BetaManagedAgentsSessionEventType = "session.thread_status_rescheduled"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionUpdated BetaManagedAgentsSessionEventType = "session.updated"`
+
+    - `const BetaManagedAgentsSessionEventTypeSystemMessage BetaManagedAgentsSessionEventType = "system.message"`
+
+    - `const BetaManagedAgentsSessionEventTypeSessionUsage BetaManagedAgentsSessionEventType = "session.usage"`
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -15974,13 +16112,15 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `string`
-
           - `type BetaManagedAgentsModel string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -15992,7 +16132,7 @@ List Events
 
             - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -16041,6 +16181,8 @@ List Events
             - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `string`
 
         - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -19390,13 +19532,15 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `string`
-
           - `type BetaManagedAgentsModel string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -19408,7 +19552,7 @@ Stream Events
 
             - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -19457,6 +19601,8 @@ Stream Events
             - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `string`
 
         - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -21629,13 +21775,15 @@ List Session Threads
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `string`
-
           - `type BetaManagedAgentsModel string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -21647,7 +21795,7 @@ List Session Threads
 
             - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -21696,6 +21844,8 @@ List Session Threads
             - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `string`
 
         - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -22566,13 +22716,15 @@ Get Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `string`
-
           - `type BetaManagedAgentsModel string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -22584,7 +22736,7 @@ Get Session Thread
 
             - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -22633,6 +22785,8 @@ Get Session Thread
             - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `string`
 
         - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -23500,13 +23654,15 @@ Archive Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `string`
-
           - `type BetaManagedAgentsModel string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -23518,7 +23674,7 @@ Archive Session Thread
 
             - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -23567,6 +23723,8 @@ Archive Session Thread
             - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `string`
 
         - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -25924,13 +26082,15 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `string`
-
           - `type BetaManagedAgentsModel string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -25942,7 +26102,7 @@ List Session Thread Events
 
             - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -25991,6 +26151,8 @@ List Session Thread Events
             - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `string`
 
         - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -28342,13 +28504,15 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `string`
-
           - `type BetaManagedAgentsModel string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
@@ -28360,7 +28524,7 @@ Stream Session Thread Events
 
             - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
@@ -28409,6 +28573,8 @@ Stream Session Thread Events
             - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `string`
 
         - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
@@ -31427,239 +31593,3 @@ Get Deployment
       - `Content []BetaManagedAgentsSystemContentBlock`
 
         System content blocks to append. Text-only.
-
-        - `Type BetaManagedAgentsSystemContentBlockType`
-
-        - `Text string`
-
-          The text content.
-
-          minLength: 1
-
-  - `Metadata map[string, string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `Name string`
-
-    Human-readable name.
-
-  - `PausedReason BetaManagedAgentsDeploymentPausedReasonUnion`
-
-    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
-
-    - `type BetaManagedAgentsManualDeploymentPausedReason`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `Type BetaManagedAgentsManualDeploymentPausedReasonType`
-
-    - `type BetaManagedAgentsErrorDeploymentPausedReason`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `Type BetaManagedAgentsErrorDeploymentPausedReasonType`
-
-      - `Error BetaManagedAgentsDeploymentPausedReasonErrorUnion`
-
-        The failed run's error.
-
-        - `type BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
-
-          The deployment's environment was archived.
-
-          - `Type BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
-
-          The deployment's agent was archived.
-
-          - `Type BetaManagedAgentsAgentArchivedDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
-
-          The deployment's environment no longer exists.
-
-          - `Type BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `Type BetaManagedAgentsVaultNotFoundDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `Type BetaManagedAgentsFileNotFoundDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `Type BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
-
-          The deployment's workspace was archived.
-
-          - `Type BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
-
-          The deployment's organization is disabled.
-
-          - `Type BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
-
-          A memory store referenced by the deployment is archived.
-
-          - `Type BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `Type BetaManagedAgentsSkillNotFoundDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
-
-          A vault referenced by the deployment is archived.
-
-          - `Type BetaManagedAgentsVaultArchivedDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsUnknownDeploymentPausedReasonError`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `Type BetaManagedAgentsUnknownDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `Type BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonErrorType`
-
-        - `type BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `Type BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonErrorType`
-
-  - `Resources []BetaManagedAgentsSessionResourceConfigUnion`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `type BetaManagedAgentsGitHubRepositoryResourceConfig`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `Type BetaManagedAgentsGitHubRepositoryResourceConfigType`
-
-      - `URL string`
-
-        Github URL of the repository
-
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceConfigCheckoutUnion Optional`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `type BetaManagedAgentsBranchCheckout`
-
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
-          - `Name string`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-        - `type BetaManagedAgentsCommitCheckout`
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
-
-          - `Sha string`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-      - `MountPath string Optional`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `type BetaManagedAgentsFileResourceConfig`
-
-      A file mounted into each session's container.
-
-      - `Type BetaManagedAgentsFileResourceConfigType`
-
-      - `FileID string`
-
-        ID of a previously uploaded file.
-
-      - `MountPath string Optional`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `type BetaManagedAgentsMemoryStoreResourceConfig`
-
-      A memory store attached to each session created from this deployment.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceConfigType`
-
-      - `MemoryStoreID string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Access BetaManagedAgentsMemoryStoreResourceConfigAccess Optional`
-
-        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
-
-        - `const BetaManagedAgentsMemoryStoreResourceConfigAccessReadWrite BetaManagedAgentsMemoryStoreResourceConfigAccess = "read_write"`
-
-        - `const BetaManagedAgentsMemoryStoreResourceConfigAccessReadOnly BetaManagedAgentsMemoryStoreResourceConfigAccess = "read_only"`
-
-      - `Instructions string Optional`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `Schedule BetaManagedAgentsSchedule`
-
-    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
-
-    - `Type BetaManagedAgentsScheduleType`
-
-    - `Expression string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-      minLength: 1, maxLength: 256
-
-    - `Timezone string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-      minLength: 1
-
-    - `LastRunAt Time Optional`
-
-      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
-
-      format: date-time
-
-    - `UpcomingRunsAt []Time Optional`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `Status BetaManagedAgentsDeploymentStatus`
-
-    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
-
-    - `const BetaManagedAgentsDeploymentStatusActive BetaManagedAgentsDeploymentStatus = "active"`
-
-      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
-
-    - `const BetaManagedAgentsDeploymentStatusPaused BetaManagedAgentsDeploymentStatus = "paused"`

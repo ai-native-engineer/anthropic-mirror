@@ -14,7 +14,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 861
+Show all 867
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -154,16 +154,6 @@ Client, portfolio, and performance data for advisors
 
 [Add Black Diamond in Claude (opens in new tab)](https://claude.ai/directory/e70ee54f-74a8-454f-9bd5-3a70e17da172 "Add in Claude")
 
-![](https://app.paxton.ai/images/paxton-favicon.png)
-
-### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
-
-Anthropic verifiedTrending
-
-Research U.S. law in Claude—with citations you can open and verify.
-
-[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
 ### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
@@ -173,6 +163,16 @@ Anthropic verifiedTrending
 Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
+
+![](https://app.paxton.ai/images/paxton-favicon.png)
+
+### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
+
+Anthropic verifiedTrending
+
+Research U.S. law in Claude—with citations you can open and verify.
+
+[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
 
 ![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
 
@@ -194,15 +194,15 @@ Access Vanguard models data and content from Claude
 
 [Add Vanguard Advisor Tools in Claude (opens in new tab)](https://claude.ai/directory/863961af-d744-41ca-b600-9970b4826cb3 "Add in Claude")
 
-![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
+![](https://mcp.govola.com/icon.png)
 
-### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
+### [GoVola](https://claude.com/marketplace/connectors/govola)
 
 Anthropic verifiedTrending
 
-Build, analyze, and compare portfolios for advisors
+Search flight offers
 
-[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
+[Add GoVola in Claude (opens in new tab)](https://claude.ai/directory/cb899a5b-01b8-41a3-8c39-c204acb1bd78 "Add in Claude")
 
 ## New connectors
 
@@ -260,7 +260,7 @@ Control your Sonos system
 
 ## All connectors
 
-861 connectors
+867 connectors
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -358,30 +358,6 @@ Connect to Asana to coordinate tasks, projects, and goals
 
 [Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-![](https://assets.claude.com/ed172e953866fead6b10ab99ba870471a1ad4053.svg?w=128&fit=max&auto=format)
-
-### [Linear](https://claude.com/marketplace/connectors/linear)
-
-Manage issues, projects & team workflows in Linear
-
-[Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
-
-### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
-
-Design, combine, and edit with Adobe pro tools
-
-[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
-
-![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
-
-### [Supabase](https://claude.com/marketplace/connectors/supabase)
-
-Manage databases, authentication, and storage
-
-[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
-
 ![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
 
 ### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
@@ -391,6 +367,30 @@ Anthropic verifiedTrending
 Faites vos courses rapidement
 
 [Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
+
+![](https://assets.claude.com/ed172e953866fead6b10ab99ba870471a1ad4053.svg?w=128&fit=max&auto=format)
+
+### [Linear](https://claude.com/marketplace/connectors/linear)
+
+Manage issues, projects & team workflows in Linear
+
+[Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
+
+![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
+
+### [Supabase](https://claude.com/marketplace/connectors/supabase)
+
+Manage databases, authentication, and storage
+
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
+
+### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
+
+Design, combine, and edit with Adobe pro tools
+
+[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
@@ -440,13 +440,13 @@ Access to Intercom data for better customer insights
 
 [Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")
 
-![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
 
-### [Miro](https://claude.com/marketplace/connectors/miro)
+### [Shopify](https://claude.com/marketplace/connectors/shopify)
 
-Access and create new content on Miro boards
+Build, manage, and analyze your Shopify store
 
-[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
 ![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
 

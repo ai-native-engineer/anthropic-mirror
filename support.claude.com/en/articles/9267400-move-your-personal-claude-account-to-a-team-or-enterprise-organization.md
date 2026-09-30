@@ -63,8 +63,8 @@ If your organization has turned on HIPAA readiness or CMEK, **Bring your data wi
 
 What happens to your Pro or Max plan after migrating depends on where you bought it:
 
-* **Directly (not through a mobile app):** Your Pro or Max subscription is canceled automatically when your personal account closes, and you receive a prorated refund for unused time.
-* **Google Play Store:** Your Pro or Max subscription is canceled automatically when your personal account closes, and you receive a prorated refund for unused time. Refunds for Google Play purchases can take a few days to appear.
+* **Directly (not through a mobile app):** Your Pro or Max subscription is canceled automatically as part of the move, and you receive a prorated refund for unused time. The refund is issued about 24 hours after your plan is canceled, and depending on your bank, it can take several more business days to appear on your statement.
+* **Google Play Store:** Your Pro or Max subscription is canceled automatically as part of the move, and you receive a prorated refund for unused time. Refunds for Google Play purchases can take a few days to appear.
 * **Apple App Store:** Your Pro or Max subscription isn't canceled. Apple doesn't allow third-party cancellation, so you'll need to cancel it yourself through your Apple ID settings. If you don't, Apple keeps charging you after your personal account closes.
 
 For cancellation instructions, see **[Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617)**.
@@ -103,7 +103,7 @@ For the full walkthrough of your options, deadlines, and what happens to your su
 
 You may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1790642700&signature=fbf18ec403fa5a4bb3663510750c161f67335d02b15e9af6588448bd81a46a3d&req=diMmFMh3noJbXvMW1HO4zXhPnNAwzB1mufhmlOXMdYbKaAUR8pfiQRwyVfZP%0AAeMgLfVx0%2FKRVVE78JA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1790642700&signature=fbf18ec403fa5a4bb3663510750c161f67335d02b15e9af6588448bd81a46a3d&req=diMmFMh3noJbXvMW1HO4zXhPnNAwzB1mufhmlOXMdYbKaAUR8pfiQRwyVfZP%0AAeMgLfVx0%2FKRVVE78JA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1790748000&signature=0ee72b28454bb3b55b6729430a0656e640648fcd2396cd566bf88c5485d2c6cd&req=diMmFMh3noJbXvMW3nq%2BgXydQ01V7EAKC%2Bxl6PawEbm4uldlD5bYizWSU4Sy%0AFr3XeKtkoKR31kdgLZ6f9hAVSCs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1790748000&signature=0ee72b28454bb3b55b6729430a0656e640648fcd2396cd566bf88c5485d2c6cd&req=diMmFMh3noJbXvMW3nq%2BgXydQ01V7EAKC%2Bxl6PawEbm4uldlD5bYizWSU4Sy%0AFr3XeKtkoKR31kdgLZ6f9hAVSCs%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
 
@@ -119,6 +119,6 @@ If you want to close your personal account without moving any of your work into 
 
 * [Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan)
 * [Export your Claude data](https://support.claude.com/en/articles/9450526-export-your-claude-data)
-* [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
+* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Claim and migrate accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)
 * [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)

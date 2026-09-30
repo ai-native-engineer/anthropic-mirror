@@ -45,7 +45,7 @@ You can trigger a manual sync from two places in your admin settings.
 1. Go to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
 2. Click "Check for updates" under **SCIM sync**:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1790642700&signature=112718db998f9eed2d28f8204c147d8debdc972f919b0dfce275470303af3a64&req=diMmFM9%2FnoRbUfMW1HO4zW4gbTWrMc%2Bzrgfl7PnOiumugdYXjoB8s%2BI36NgO%0A2%2B5W%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1790642700&signature=112718db998f9eed2d28f8204c147d8debdc972f919b0dfce275470303af3a64&req=diMmFM9%2FnoRbUfMW1HO4zW4gbTWrMc%2Bzrgfl7PnOiumugdYXjoB8s%2BI36NgO%0A2%2B5W%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1790735400&signature=f19a966e98ce25c4fdc6609048537ee00b712d21396d40350af69a468220ea6c&req=diMmFM9%2FnoRbUfMW1HO4zW4gbTWqNsiwrgfl7PnOiuldnwg%2Fz7Q0w45tF2mw%0A7GzS%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1790735400&signature=f19a966e98ce25c4fdc6609048537ee00b712d21396d40350af69a468220ea6c&req=diMmFM9%2FnoRbUfMW1HO4zW4gbTWqNsiwrgfl7PnOiuldnwg%2Fz7Q0w45tF2mw%0A7GzS%0A)
 3. Select whether to sync members, groups, or both.
 
 **From the Manage SCIM page**
@@ -54,7 +54,7 @@ You can trigger a manual sync from two places in your admin settings.
 2. Click "Sync."
 3. Select whether to sync members, groups, or both:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1790642700&signature=9c533aec5a222fce7e69b267a0a95dea1d1919c83c46a57fead353f4f44ffd21&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4f7r2zzkY43OpyTHzM9Q1HPvpG7jh13imv4es%0AHtEp%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1790642700&signature=9c533aec5a222fce7e69b267a0a95dea1d1919c83c46a57fead353f4f44ffd21&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4f7r2zzkY43OpyTHzM9Q1HPvpG7jh13imv4es%0AHtEp%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1790735400&signature=2a349d1508744c0514af6f12230c9dcf3ef9342fa28591927338e178a95c596f&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4f7r3yD4b43OpyTHzM9SyjTmFPc6ciPFqXMsb%0Auzm1%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1790735400&signature=2a349d1508744c0514af6f12230c9dcf3ef9342fa28591927338e178a95c596f&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4f7r3yD4b43OpyTHzM9SyjTmFPc6ciPFqXMsb%0Auzm1%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
 
@@ -95,6 +95,6 @@ Before you trigger a manual resync, keep these in mind:
 
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
 * [Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
 * [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
-* [Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

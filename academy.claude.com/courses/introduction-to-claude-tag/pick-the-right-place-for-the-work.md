@@ -20,7 +20,7 @@ In this lessonBy the end, you’ll be able to
 
 Because Claude sits in your workspace like any teammate, you can decide where to ask it the same way you would decide where to ask a person. If you would DM a teammate about it, DM Claude. If it is for a specific group, ask in that group's private channel. If anyone on the team could use it, ask in the public channel where that work happens.
 
-Where you ask also decides who else it helps. In a public channel, colleagues can read the answer instead of asking again, and corrections Claude saves there improve its later replies for everyone in the channel. In a DM, both stay with you. So when more than one place would do, choose the public channel.
+Where you ask also changes who benefits. In a public channel, your colleagues can read Claude's answer, and anything you correct improves Claude's later replies for the whole channel. In a DM, only you see the answer and only you get the benefit of the correction.
 
 ## When more than one place fits, use the public channel[](#when-more-than-one-place-fits-use-the-public-channel)
 

@@ -4198,6 +4198,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                          Efficient model for coding and agents
+
                         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -4212,7 +4216,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -7634,6 +7638,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                      Efficient model for coding and agents
+
                     - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -7648,7 +7656,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                      High-performance model for coding and agents
+                      Efficient model for coding and agents
 
                     - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -9085,7 +9093,7 @@ public final class Main {
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-fable-5-1",
+        "model": "claude-sonnet-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -12196,6 +12204,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                          Efficient model for coding and agents
+
                         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -12210,7 +12222,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                          High-performance model for coding and agents
+                          Efficient model for coding and agents
 
                         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -16018,6 +16030,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                            - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                              Efficient model for coding and agents
+
                             - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                               Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -16032,7 +16048,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                              High-performance model for coding and agents
+                              Efficient model for coding and agents
 
                             - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -16768,6 +16784,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `JsonValue type = "disabled"`
 
+            - `class BetaThinkingConfigBetweenTools`
+
+              - `JsonValue type = "between_tools"`
+
             - `class BetaThinkingConfigAdaptive`
 
               - `JsonValue type = "adaptive"`
@@ -16856,9 +16876,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Optional<Boolean> stream`
 
-        Whether to incrementally stream the response using server-sent events.
+        Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-        See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+        In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
       - `Optional<System> system`
 
@@ -16893,6 +16913,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `class BetaThinkingConfigEnabled`
 
         - `class BetaThinkingConfigDisabled`
+
+        - `class BetaThinkingConfigBetweenTools`
 
         - `class BetaThinkingConfigAdaptive`
 
@@ -21050,6 +21072,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+                            Efficient model for coding and agents
+
                           - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
                             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
@@ -21064,7 +21090,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-                            High-performance model for coding and agents
+                            Efficient model for coding and agents
 
                           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -22319,6 +22345,10 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
         Powerful intelligence for coding, knowledge work, and long-running agents
@@ -22329,7 +22359,7 @@ Create Agent
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -23017,6 +23047,10 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
         Powerful intelligence for coding, knowledge work, and long-running agents
@@ -23027,7 +23061,7 @@ Create Agent
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -23840,6 +23874,10 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
         Powerful intelligence for coding, knowledge work, and long-running agents
@@ -23850,7 +23888,7 @@ List Agents
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -24647,6 +24685,10 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
         Powerful intelligence for coding, knowledge work, and long-running agents
@@ -24657,7 +24699,7 @@ Get Agent
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -25437,6 +25479,10 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
         Powerful intelligence for coding, knowledge work, and long-running agents
@@ -25447,7 +25493,7 @@ Update Agent
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -26113,6 +26159,10 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
         Powerful intelligence for coding, knowledge work, and long-running agents
@@ -26123,7 +26173,7 @@ Update Agent
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -26909,6 +26959,10 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
         Powerful intelligence for coding, knowledge work, and long-running agents
@@ -26919,7 +26973,7 @@ Archive Agent
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -27717,6 +27771,10 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
 
         Powerful intelligence for coding, knowledge work, and long-running agents
@@ -27727,7 +27785,7 @@ List Agent Versions
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -29663,75 +29721,3 @@ Update an existing environment's configuration.
     maxLength: 1024
 
   - `Optional<Metadata> metadata`
-
-    User-provided metadata key-value pairs. Set a value to null or empty string to delete the key.
-
-  - `Optional<String> name`
-
-    Updated name for the environment
-
-    minLength: 1, maxLength: 256
-
-  - `Optional<Scope> scope`
-
-    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
-
-    - `ORGANIZATION("organization")`
-
-    - `ACCOUNT("account")`
-
-#### Returns
-
-- `class BetaEnvironment`
-
-  Unified Environment resource for both cloud and self-hosted environments.
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
-
-  - `String id`
-
-    Environment identifier (e.g., 'env_...')
-
-  - `Optional<String> archivedAt`
-
-    RFC 3339 timestamp when environment was archived, or null if not archived
-
-  - `Config config`
-
-    Environment configuration (either Anthropic Cloud or self-hosted)
-
-    - `class BetaCloudConfig`
-
-      `cloud` environment configuration.
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
-      - `Networking networking`
-
-        Network configuration policy.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `JsonValue type = "unrestricted"`
-
-            Network policy type
-
-        - `class BetaLimitedNetwork`
-
-          Limited network access.
-
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
-          - `boolean allowMcpServers`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `boolean allowPackageManagers`

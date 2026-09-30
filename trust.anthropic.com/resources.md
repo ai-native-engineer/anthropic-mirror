@@ -52,11 +52,11 @@ Copy link
 for [Anthropic] 2025 Type 2 SOC 3 Report.pdf
 View
 [Anthropic] 2025 Type 2 SOC 3 Report.pdf
-[Anthropic] 2026 SOC 2 Bridge Letter.pdf
+[Anthropic] 2026 SOC 2 Bridge Letter (Aug 2026).pdf
 Copy link
-for [Anthropic] 2026 SOC 2 Bridge Letter.pdf
+for [Anthropic] 2026 SOC 2 Bridge Letter (Aug 2026).pdf
 Request access
-[Anthropic] 2026 SOC 2 Bridge Letter.pdf
+[Anthropic] 2026 SOC 2 Bridge Letter (Aug 2026).pdf
 ISO
 [Anthropic] ISO 27001 Certificate (2025).pdf
 Copy link

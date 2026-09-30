@@ -3,6 +3,106 @@
 
 <!-- chunk-start -->
 
+    The actual work to be performed
+
+    - `type: :session`
+
+      Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
+
+  - `environment_id: String`
+
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `latest_heartbeat_at: String`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `metadata: Hash[Symbol, String]`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `started_at: String`
+
+    RFC 3339 timestamp when work execution started
+
+  - `state: :queued | :starting | :active | 2 more`
+
+    Current state of the work item
+
+    - `:queued`
+
+    - `:starting`
+
+    - `:active`
+
+    - `:stopping`
+
+    - `:stopped`
+
+  - `stop_requested_at: String`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `stopped_at: String`
+
+    RFC 3339 timestamp when work execution stopped
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+page = anthropic.beta.environments.work.list("env_011CZkZ9X2dpNyB7HsEFoRfW")
+
+puts(page)
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "acknowledged_at": "acknowledged_at",
+      "created_at": "created_at",
+      "data": {
+        "id": "id",
+        "type": "session"
+      },
+      "environment_id": "environment_id",
+      "latest_heartbeat_at": "latest_heartbeat_at",
+      "metadata": {
+        "foo": "string"
+      },
+      "secret": "secret",
+      "started_at": "started_at",
+      "state": "queued",
+      "stop_requested_at": "stop_requested_at",
+      "stopped_at": "stopped_at",
+      "type": "work"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Update Work Item
+
+`beta.environments.work.update(work_id, **kwargs) -> BetaSelfHostedWork`
+
+**POST** `/v1/environments/{environment_id}/work/{work_id}`
+
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Update work item metadata with merge semantics.
@@ -492,19 +592,21 @@ Create Session
 
       Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
-      - `type BetaManagedAgentsModel = String | :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+      - `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `String = String`
-
-        - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `:"claude-opus-5-5"`
 
@@ -516,7 +618,7 @@ Create Session
 
           - `:"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -565,6 +667,8 @@ Create Session
           - `:"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `String = String`
 
       - `class BetaManagedAgentsModelConfigParams`
 
@@ -1610,13 +1714,15 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `String = String`
-
-        - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `:"claude-opus-5-5"`
 
@@ -1628,7 +1734,7 @@ Create Session
 
           - `:"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -1677,6 +1783,8 @@ Create Session
           - `:"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -2919,13 +3027,15 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `String = String`
-
-        - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `:"claude-opus-5-5"`
 
@@ -2937,7 +3047,7 @@ List Sessions
 
           - `:"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -2986,6 +3096,8 @@ List Sessions
           - `:"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -4149,13 +4261,15 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `String = String`
-
-        - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `:"claude-opus-5-5"`
 
@@ -4167,7 +4281,7 @@ Get Session
 
           - `:"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -4216,6 +4330,8 @@ Get Session
           - `:"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -5857,13 +5973,15 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `String = String`
-
-        - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `:"claude-opus-5-5"`
 
@@ -5875,7 +5993,7 @@ Update Session
 
           - `:"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -5924,6 +6042,8 @@ Update Session
           - `:"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -7234,13 +7354,15 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `String = String`
-
-        - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `:"claude-opus-5-5"`
 
@@ -7252,7 +7374,7 @@ Archive Session
 
           - `:"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -7301,6 +7423,8 @@ Archive Session
           - `:"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -8352,9 +8476,77 @@ List Events
 
   Opaque pagination cursor from a previous response's `next_page`.
 
-- `types: Array[String]`
+- `types: Array[BetaManagedAgentsSessionEventType]`
 
   Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
+
+  - `:"user.message"`
+
+  - `:"user.interrupt"`
+
+  - `:"user.tool_confirmation"`
+
+  - `:"user.custom_tool_result"`
+
+  - `:"agent.custom_tool_use"`
+
+  - `:"agent.message"`
+
+  - `:"agent.thinking"`
+
+  - `:"agent.mcp_tool_use"`
+
+  - `:"agent.mcp_tool_result"`
+
+  - `:"agent.tool_use"`
+
+  - `:"agent.tool_result"`
+
+  - `:"agent.thread_message_received"`
+
+  - `:"agent.thread_message_sent"`
+
+  - `:"agent.thread_context_compacted"`
+
+  - `:"session.error"`
+
+  - `:"session.status_rescheduled"`
+
+  - `:"session.status_running"`
+
+  - `:"session.status_idle"`
+
+  - `:"session.status_terminated"`
+
+  - `:"session.thread_created"`
+
+  - `:"span.outcome_evaluation_start"`
+
+  - `:"span.outcome_evaluation_end"`
+
+  - `:"span.model_request_start"`
+
+  - `:"span.model_request_end"`
+
+  - `:"span.outcome_evaluation_ongoing"`
+
+  - `:"user.define_outcome"`
+
+  - `:"session.thread_status_running"`
+
+  - `:"session.thread_status_idle"`
+
+  - `:"session.thread_status_terminated"`
+
+  - `:"user.tool_result"`
+
+  - `:"session.thread_status_rescheduled"`
+
+  - `:"session.updated"`
+
+  - `:"system.message"`
+
+  - `:"session.usage"`
 
 - `betas: Array[AnthropicBeta]`
 
@@ -9988,13 +10180,15 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -10006,7 +10200,7 @@ List Events
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -10055,6 +10249,8 @@ List Events
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -13357,13 +13553,15 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -13375,7 +13573,7 @@ Stream Events
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -13424,6 +13622,8 @@ Stream Events
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -15485,13 +15685,15 @@ List Session Threads
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -15503,7 +15705,7 @@ List Session Threads
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -15552,6 +15754,8 @@ List Session Threads
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -16401,13 +16605,15 @@ Get Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -16419,7 +16625,7 @@ Get Session Thread
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -16468,6 +16674,8 @@ Get Session Thread
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -17315,13 +17523,15 @@ Archive Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -17333,7 +17543,7 @@ Archive Session Thread
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -17382,6 +17592,8 @@ Archive Session Thread
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -19715,13 +19927,15 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -19733,7 +19947,7 @@ List Session Thread Events
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -19782,6 +19996,8 @@ List Session Thread Events
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -22113,13 +22329,15 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `String = String`
-
-          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
 
             - `:"claude-opus-5-5"`
 
@@ -22131,7 +22349,7 @@ Stream Session Thread Events
 
             - `:"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -22180,6 +22398,8 @@ Stream Session Thread Events
             - `:"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
@@ -36637,140 +36857,3 @@ Redact a memory version
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
 
   - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-    format: int32
-
-  - `created_by: BetaManagedAgentsActor`
-
-    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
-
-    - `class BetaManagedAgentsSessionActor`
-
-      An agent acting during a session, for example through the session's mounted filesystem. It names the session itself, not the user or API key that started the session.
-
-      - `type: :session_actor`
-
-      - `session_id: String`
-
-        ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
-
-        minLength: 1
-
-    - `class BetaManagedAgentsAPIActor`
-
-      A direct caller of the public API, identified by the API key that authenticated the request.
-
-      - `type: :api_actor`
-
-      - `api_key_id: String`
-
-        ID of the API key (an `apikey_...` value). This identifies the key, not the secret.
-
-        minLength: 1
-
-    - `class BetaManagedAgentsUserActor`
-
-      A human user, for example acting through the Anthropic Console.
-
-      - `type: :user_actor`
-
-      - `user_id: String`
-
-        ID of the user (a `user_...` value).
-
-        minLength: 1
-
-    - `class BetaManagedAgentsServiceAccountActor`
-
-      A workload authenticated as a service account, for example via Workload Identity Federation.
-
-      - `type: :service_account_actor`
-
-      - `service_account_id: String`
-
-        ID of the service account (a `svac_...` value).
-
-        minLength: 1
-
-  - `path: String`
-
-    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
-
-  - `redacted_at: Time`
-
-    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](/docs/en/api/beta/memory_stores/memory_versions/redact).
-
-    format: date-time
-
-  - `redacted_by: BetaManagedAgentsActor`
-
-    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory_version = anthropic.beta.memory_stores.memory_versions.redact(
-  "memory_version_id",
-  memory_store_id: "memory_store_id"
-)
-
-puts(beta_managed_agents_memory_version)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_id": "memory_id",
-  "memory_store_id": "memory_store_id",
-  "operation": "created",
-  "type": "memory_version",
-  "content": "content",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_by": {
-    "session_id": "x",
-    "type": "session_actor"
-  },
-  "path": "path",
-  "redacted_at": "2019-12-27T18:11:19.117Z",
-  "redacted_by": {
-    "session_id": "x",
-    "type": "session_actor"
-  }
-}
-```
-
-## Beta › Files
-
-### Upload File
-
-`beta.files.upload(**kwargs) -> BetaFileMetadata`
-
-**POST** `/v1/files`
-
-Upload File
-
-#### Parameters
-
-- `file: String`
-
-  The file to upload. Only the final path component of the part's `filename` is kept; an absent or empty `filename` is replaced with `unnamed` plus the extension for the file's stored `mime_type`, when known.
-
-  format: binary
-
-- `expires_in_seconds: Integer`
-
-  Seconds from upload until the file expires and its bytes become permanently unavailable. Must be between 3600 (one hour) and 7776000 (ninety days).

@@ -18,7 +18,7 @@ Your organization's billing address determines where your invoices are sent. You
 
 If you want to use a name other than the one tied to your payment method, an organization Owner should check the "Use a different name on invoices" box when adding or updating your payment method in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1790642700&signature=ffbe92a17695ced3fe384e42f8ec08ec95f5884c3703b4a976a3e209585237a3&req=dSklFMh6mINaWvMW1HO4zRZTxVrHv8nUKAqLF4ERnlVmh3A4I9zgv3gMxMvl%0AdX3Xc5tEhbYEfVKs1Sg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1790642700&signature=ffbe92a17695ced3fe384e42f8ec08ec95f5884c3703b4a976a3e209585237a3&req=dSklFMh6mINaWvMW1HO4zRZTxVrHv8nUKAqLF4ERnlVmh3A4I9zgv3gMxMvl%0AdX3Xc5tEhbYEfVKs1Sg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1790748000&signature=3eb3bcb2a87d2ed634d83c4ee125bee6e09fbf910fc4b95fc6362b95b689d5ce&req=dSklFMh6mINaWvMW3nq%2BgVr9wWuFWdv7MdPEXNYt8DVZn7Y%2FQ9n%2FyHCCQg3N%0Ajln7CTfMHH8MYA%2FPN7Zo0Ci5Uvk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1790748000&signature=3eb3bcb2a87d2ed634d83c4ee125bee6e09fbf910fc4b95fc6362b95b689d5ce&req=dSklFMh6mINaWvMW3nq%2BgVr9wWuFWdv7MdPEXNYt8DVZn7Y%2FQ9n%2FyHCCQg3N%0Ajln7CTfMHH8MYA%2FPN7Zo0Ci5Uvk%3D%0A)
 
 ## When will I be billed?
 
@@ -50,7 +50,7 @@ An organization owner can resubscribe for Team plan access by navigating to **[O
 
 ## What happens to my Pro or Max subscription when I upgrade to Team?
 
-When you upgrade from Pro or Max to Team in place, your individual subscription is cancelled automatically and a prorated refund is issued for the unused portion of your billing period. Any prepaid usage credits on your individual account are refunded. Refunds usually appear immediately, but they can take a few days after your Team payment clears.
+When you upgrade from Pro or Max to Team in place, your individual subscription is cancelled automatically and you receive a prorated refund for the unused portion of your billing period. The refund is issued about 24 hours after your Team payment goes through, and depending on your bank, it can take several more business days to appear on your statement. Google Play purchases don't have this wait, but the refund can take a few days to appear. Any prepaid usage credits on your individual account are refunded
 
 If you signed up for Pro or Max through the Apple App Store, in-place upgrades work differently. For more information, refer to **[Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan#h_5d142d3f45)**.
 

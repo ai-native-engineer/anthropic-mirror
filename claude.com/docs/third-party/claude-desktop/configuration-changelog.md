@@ -10,6 +10,32 @@
 
 Configuration keys by Claude Desktop release. Each section lists keys added in that release, with the MDM key name (for plist/registry deployment) and the equivalent JSON shape (for local-file or bootstrap remote configuration).
 
+v2.16120.0
+
+2026-09-29
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`deniedPluginMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#deniedpluginmcpservers) | `object[]` | Blocked plugin MCP servers |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "mcp": {
+    "deniedPluginServers": [
+      {
+        "serverUrl": "<string>"
+      }
+    ]
+  }
+}
+```
+
+**Changed:**
+
+* `userPluginMarketplacesEnabled`: when set to `false`, plugin marketplaces your organization did not provision are now hidden in every tab, installs and updates from them are refused, and the sessions the app starts load plugins only from your organization’s marketplaces, the organization plugins directory, the app’s own uploads and the user’s own skills folder; nothing is deleted, and removing the key or setting it to `true` restores them. Earlier releases only blocked adding marketplaces, so on devices where the key is already `false`, plugins from marketplaces users added before stop loading once the app updates.
+
 v2.9939.4
 
 2026-09-27

@@ -8,7 +8,8 @@ Wiley Scholar Gateway enables Claude to generate responses grounded in peer-revi
 
 ## Tools
 
-* Semantic Search
+* search\_wiley\_fulltext
+* getUsageLimit
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 

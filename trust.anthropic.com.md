@@ -74,7 +74,7 @@ View all
 SOC 2
 [Anthropic] 2025 Type 2 SOC 2 and CSA STAR L2 Report.pdf
 [Anthropic] 2025 Type 2 SOC 3 Report.pdf
-[Anthropic] 2026 SOC 2 Bridge Letter.pdf
+[Anthropic] 2026 SOC 2 Bridge Letter (Aug 2026).pdf
 ISO
 [Anthropic] ISO 27001 Certificate (2025).pdf
 [Anthropic] ISO 42001 Certificate (2025).pdf
@@ -171,6 +171,10 @@ Worldwide (Local to Customer)
 Products: All Products
 
 FAQ
+View all
+Will you be using our Claude for Work conversations to train your generative models?
+Is Anthropic willing to sign a BAA?
+I found a security bug. How can I let you know?
 Updates
 View all
 

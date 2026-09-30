@@ -12,7 +12,7 @@ Anthropic Interviewer is a tool, powered by Claude, that conducts detailed user 
 * Learn more about the personal data that Anthropic Interviewer may have processed for Interviews completed **in December 2025** [here](https://privacy.claude.com/en/articles/14170926-anthropic-interviewer-sessions-completed-in-december-2025).
 
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
-* [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Supplemental Anthropic Interviewer Privacy Policy](https://privacy.claude.com/en/articles/14139821-supplemental-anthropic-interviewer-privacy-policy)
 * [Anthropic Interviewer sessions completed after March 23, 2026](https://privacy.claude.com/en/articles/14170919-anthropic-interviewer-sessions-completed-after-march-23-2026)
 * [Anthropic Interviewer sessions completed in December 2025](https://privacy.claude.com/en/articles/14170926-anthropic-interviewer-sessions-completed-in-december-2025)
+* [Anthropic Interviewer sessions completed after September 29, 2026](https://privacy.claude.com/en/articles/17232486-anthropic-interviewer-sessions-completed-after-september-29-2026)

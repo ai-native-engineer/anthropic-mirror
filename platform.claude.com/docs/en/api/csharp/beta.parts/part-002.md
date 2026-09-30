@@ -3,6 +3,94 @@
 
 <!-- chunk-start -->
 
+Console.WriteLine(betaEnvironment);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": [
+        "api.example.com"
+      ],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
+```
+
+### Delete Environment
+
+`BetaEnvironmentDeleteResponse Beta.Environments.Delete(parameters, cancellationToken = default)`
+
+**DELETE** `/v1/environments/{environment_id}`
+
+Delete an environment by ID. Returns a confirmation of the deletion.
+
+#### Parameters
+
+- `EnvironmentDeleteParams parameters`
+
+  - `required string environmentID`
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
     - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
     - `McpClient2025_11_20("mcp-client-2025-11-20")`
@@ -2376,6 +2464,10 @@ Create Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -2386,7 +2478,7 @@ Create Session
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -2446,6 +2538,10 @@ Create Session
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+              Efficient model for coding and agents
+
             - `ClaudeOpus5_5("claude-opus-5-5")`
 
               Powerful intelligence for coding, knowledge work, and long-running agents
@@ -2456,7 +2552,7 @@ Create Session
 
             - `ClaudeSonnet5("claude-sonnet-5")`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `ClaudeFable5("claude-fable-5")`
 
@@ -3522,6 +3618,10 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `ClaudeOpus5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -3532,7 +3632,7 @@ Create Session
 
         - `ClaudeSonnet5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `ClaudeFable5("claude-fable-5")`
 
@@ -4820,6 +4920,10 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `ClaudeOpus5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -4830,7 +4934,7 @@ List Sessions
 
         - `ClaudeSonnet5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `ClaudeFable5("claude-fable-5")`
 
@@ -6040,6 +6144,10 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `ClaudeOpus5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -6050,7 +6158,7 @@ Get Session
 
         - `ClaudeSonnet5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `ClaudeFable5("claude-fable-5")`
 
@@ -7279,6 +7387,10 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `ClaudeOpus5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -7289,7 +7401,7 @@ Update Session
 
         - `ClaudeSonnet5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `ClaudeFable5("claude-fable-5")`
 
@@ -8646,6 +8758,10 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `ClaudeOpus5_5("claude-opus-5-5")`
 
           Powerful intelligence for coding, knowledge work, and long-running agents
@@ -8656,7 +8772,7 @@ Archive Session
 
         - `ClaudeSonnet5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `ClaudeFable5("claude-fable-5")`
 
@@ -9763,9 +9879,77 @@ List Events
 
     Query param: Opaque pagination cursor from a previous response's `next_page`.
 
-  - `IReadOnlyList<string> types`
+  - `IReadOnlyList<BetaManagedAgentsSessionEventType> types`
 
     Query param: Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
+
+    - `UserMessage("user.message")`
+
+    - `UserInterrupt("user.interrupt")`
+
+    - `UserToolConfirmation("user.tool_confirmation")`
+
+    - `UserCustomToolResult("user.custom_tool_result")`
+
+    - `AgentCustomToolUse("agent.custom_tool_use")`
+
+    - `AgentMessage("agent.message")`
+
+    - `AgentThinking("agent.thinking")`
+
+    - `AgentMcpToolUse("agent.mcp_tool_use")`
+
+    - `AgentMcpToolResult("agent.mcp_tool_result")`
+
+    - `AgentToolUse("agent.tool_use")`
+
+    - `AgentToolResult("agent.tool_result")`
+
+    - `AgentThreadMessageReceived("agent.thread_message_received")`
+
+    - `AgentThreadMessageSent("agent.thread_message_sent")`
+
+    - `AgentThreadContextCompacted("agent.thread_context_compacted")`
+
+    - `SessionError("session.error")`
+
+    - `SessionStatusRescheduled("session.status_rescheduled")`
+
+    - `SessionStatusRunning("session.status_running")`
+
+    - `SessionStatusIdle("session.status_idle")`
+
+    - `SessionStatusTerminated("session.status_terminated")`
+
+    - `SessionThreadCreated("session.thread_created")`
+
+    - `SpanOutcomeEvaluationStart("span.outcome_evaluation_start")`
+
+    - `SpanOutcomeEvaluationEnd("span.outcome_evaluation_end")`
+
+    - `SpanModelRequestStart("span.model_request_start")`
+
+    - `SpanModelRequestEnd("span.model_request_end")`
+
+    - `SpanOutcomeEvaluationOngoing("span.outcome_evaluation_ongoing")`
+
+    - `UserDefineOutcome("user.define_outcome")`
+
+    - `SessionThreadStatusRunning("session.thread_status_running")`
+
+    - `SessionThreadStatusIdle("session.thread_status_idle")`
+
+    - `SessionThreadStatusTerminated("session.thread_status_terminated")`
+
+    - `UserToolResult("user.tool_result")`
+
+    - `SessionThreadStatusRescheduled("session.thread_status_rescheduled")`
+
+    - `SessionUpdated("session.updated")`
+
+    - `SystemMessage("system.message")`
+
+    - `SessionUsage("session.usage")`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -11395,6 +11579,10 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -11405,7 +11593,7 @@ List Events
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -14772,6 +14960,10 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -14782,7 +14974,7 @@ Stream Events
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -16903,6 +17095,10 @@ List Session Threads
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -16913,7 +17109,7 @@ List Session Threads
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -17816,6 +18012,10 @@ Get Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -17826,7 +18026,7 @@ Get Session Thread
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -18723,6 +18923,10 @@ Archive Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -18733,7 +18937,7 @@ Archive Session Thread
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -21120,6 +21324,10 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -21130,7 +21338,7 @@ List Session Thread Events
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -23513,6 +23721,10 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `ClaudeOpus5_5("claude-opus-5-5")`
 
             Powerful intelligence for coding, knowledge work, and long-running agents
@@ -23523,7 +23735,7 @@ Stream Session Thread Events
 
           - `ClaudeSonnet5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `ClaudeFable5("claude-fable-5")`
 
@@ -35297,153 +35509,3 @@ Retrieve a memory store
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
     - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-  - `string workspaceID`
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `required DateTimeOffset CreatedAt`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `required string Name`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-  - `DateTimeOffset? ArchivedAt`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `string Description`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-#### Example
-
-```csharp
-MemoryStoreRetrieveParams parameters = new()
-{
-    MemoryStoreID = "memory_store_id"
-};
-
-var betaManagedAgentsMemoryStore = await client.Beta.MemoryStores.Retrieve(parameters);
-
-Console.WriteLine(betaManagedAgentsMemoryStore);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  }
-}
-```
-
-### Update a memory store
-
-`BetaManagedAgentsMemoryStore Beta.MemoryStores.Update(parameters, cancellationToken = default)`
-
-**POST** `/v1/memory_stores/{memory_store_id}`
-
-Update a memory store
-
-#### Parameters
-
-- `MemoryStoreUpdateParams parameters`
-
-  - `required string memoryStoreID`
-
-    Path param: ID of the memory store to update (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`. Updating an archived store returns 400.
-
-  - `string? description`
-
-    Body param: New description for the store, up to 1024 characters. Pass an empty string to clear it.
-
-    maxLength: 1024
-
-  - `IReadOnlyDictionary<string, string>? metadata`
-
-    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
-
-  - `string? name`
-
-    Body param: New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.

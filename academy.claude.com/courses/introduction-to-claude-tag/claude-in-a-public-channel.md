@@ -28,18 +28,18 @@ In the illustration below, pick a team to watch one piece of work run in its cha
 
 ## What Claude can use in a public channel[](#what-claude-can-use-in-a-public-channel)
 
-On top of what it can do anywhere ([lesson 1(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-tag/tag-claude-and-see-what-happens)), Claude can see this channel's full history, including messages from before Claude was added, and use any tools connected to this channel. [Whoever sets Claude Tag up(opens in new tab)](https://claude.com/docs/claude-tag/admins/attach-to-scope) decides which tools each channel is connected to, and those tools work the same for everyone who asks there. By default you do not need a Claude account to tag Claude in a channel; the work is covered by the organization.
+On top of what it can do anywhere ([lesson 1(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-tag/tag-claude-and-see-what-happens)), Claude can see this channel's full history, including messages from before Claude was added, and use any tools connected to this channel. [Whoever sets Claude Tag up(opens in new tab)](https://academy.claude.com/tutorials/claude-tag-admin-guide) decides which tools each channel is connected to, and those tools work the same for everyone who asks there. By default you do not need a Claude account to tag Claude in a channel; the work is covered by the organization.
 
 ### What connections add[](#what-connections-add)
 
-A channel can be connected to tools your team already uses, like GitHub, Google Drive, your CRM, or the team calendar; [whoever manages Claude Tag for the channel(opens in new tab)](https://claude.com/docs/claude-tag/admins/add-connections) sets these up. These are called [connections(opens in new tab)](https://claude.com/docs/claude-tag/concepts/glossary#connection). With them, Claude can move straight from the discussion to the work. With the right tools connected in a channel, Claude can:
+A channel can be connected to tools your team already uses, like GitHub, Google Drive, your CRM, or the team calendar; [whoever manages Claude Tag for the channel(opens in new tab)](https://academy.claude.com/tutorials/claude-tag-admin-guide) sets these up. These are called [connections(opens in new tab)](https://claude.com/docs/claude-tag/concepts/glossary#connection). With them, Claude can move straight from the discussion to the work. With the right tools connected in a channel, Claude can:
 
 * **Sales:** pull the account from the CRM before a call
 * **Data:** run the warehouse query that answers the question in the thread
 * **Support:** draft the reply on a support ticket
 * **Engineering:** open the pull request for the fix the team just agreed on
 
-In these tools Claude acts as itself, under its own account, with the access the channel was given. Connections open up a different set of use cases for each channel type and job function; the [use-case library(opens in new tab)](https://claude.com/docs/claude-tag/users/use-cases) has examples for each.
+In these tools Claude acts as itself, under its own account, with the access the channel was given. The result lands in the thread as specified in your request, or in whatever form fits: Claude can do the work in your tools, or build a page with a link the team can revisit and Claude can continue to edit. The [use-case library(opens in new tab)](https://claude.com/docs/claude-tag/users/use-cases) shows work like this for each role and tool.
 
 ### Your own connectors, for your requests[](#your-own-connectors-for-your-requests)
 

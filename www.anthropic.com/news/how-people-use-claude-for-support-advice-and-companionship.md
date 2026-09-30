@@ -138,3 +138,5 @@ We provide more details in the [PDF Appendix](https://www-cdn.anthropic.com/bd37
 2. We define pushback as Claude "pushing back against or refusing to comply with something the user requests or says during the conversation." For the full prompt, see the Appendix.
 
 3. Our methodology and the natural shape of conversations may also introduce artifacts; for example, users may present problems in early messages (appearing more negative) which they may discuss with more neutral language in later messages.
+
+How people use Claude for support, advice, and companionship \ Anthropic

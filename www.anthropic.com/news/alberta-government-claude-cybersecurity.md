@@ -2,6 +2,8 @@
 
 # Government of Alberta uses Claude to find and fix cybersecurity vulnerabilities across government systems
 
+Jul 6, 2026
+
 ![Government of Alberta uses Claude to find and fix cybersecurity vulnerabilities across government systems](https://www-cdn.anthropic.com/images/4zrzovbb/website/802260d34a0653f23fd4944fae43064df367aa44-1000x1000.svg)
 
 Since 2025, the Government of Alberta has been using Claude Code with both Opus and Sonnet models to review its systems, find vulnerabilities, and fix them. A team inside Alberta’s Ministry of Technology and Innovation scanned 466 million lines of code in 20 hours, remediated security gaps across its systems, and built new tools to make those systems safer.
@@ -37,3 +39,5 @@ The Government of Alberta also plans to continue its modernization work. One min
 The technical debt and security vulnerabilities the Government of Alberta is working to address are hardly unique. They exist in the systems of many provinces, states, and federal agencies across the world. The [technical white papers](https://thevelocitywhitepapers.com/) Alberta has released give other governments a blueprint for addressing these same issues.
 
 In addition to the white papers, Alberta is hosting [an industry day](https://luma.com/yzd00tir) in Edmonton in July to share what it has learned. And this fall, it will begin a program to scale its approach across the provincial government. We’ll keep working with Alberta as it expands these efforts, and we hope the approach it has documented can help other governments secure their own systems.
+
+Alberta uses Claude to find and fix security vulnerabilities \ Anthropic

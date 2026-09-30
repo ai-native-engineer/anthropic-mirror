@@ -40,5 +40,3 @@ We believe this set of recommendations will bring us meaningfully closer to esta
 We believe that AI could have transformative effects in our lifetime and we want to ensure that these effects are positive. The creation of robust AI accountability and auditing mechanisms will be vital to realizing this goal. We are grateful for the chance to respond to this Request For Comment.
 
 You can read our submission in full [here](https://www-cdn.anthropic.com/257e6352c677beeffcbce24233211887173a41dc/2023.06.06-Anthropic_NTIA_Comment_v2.pdf).
-
-Charting a path to AI accountability \ Anthropic

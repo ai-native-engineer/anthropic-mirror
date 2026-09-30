@@ -25,7 +25,7 @@ If you don’t see the **Keep your personal account separate** checkbox, then th
 
 What else happens during an in-place upgrade:
 
-* Your individual Pro or Max subscription is cancelled automatically and a prorated refund is issued for the unused portion of your billing period. Refunds usually appear immediately, but they can take a few days after your Team payment clears.
+* Your individual Pro or Max subscription is cancelled automatically and you receive a prorated refund for the unused portion of your billing period. The refund is issued about 24 hours after your Team payment goes through, and depending on your bank, it can take several more business days to appear on your statement.
 * Any prepaid usage credits on your individual account are refunded.
 * Public projects in your account become private once the upgrade is complete. Project owners can give others in their organization access to the project from its **Share** menu. For details, see **[Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)**.
 
@@ -37,7 +37,7 @@ Because Apple doesn't allow third-party cancellation of App Store subscriptions,
 
 ### Google Play Store subscribers
 
-Subscriptions purchased through the Google Play Store are eligible for in-place upgrade.
+Subscriptions purchased through the Google Play Store are eligible for in-place upgrade. Your refund doesn't have the 24-hour wait, but it can take a few days to appear.
 
 ### If you decline the in-place upgrade
 
@@ -46,7 +46,7 @@ If you choose to keep your personal account, your Team plan creates a separate C
 To use only your Team plan after upgrading separately, you'll need to **[cancel your paid subscription](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription)** and **[delete your individual Claude account](https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account)**.
 
 * [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
+* [What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)
 * [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)
-* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Request a refund for a paid Claude plan](https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan)
 * [Team plan billing FAQs](https://support.claude.com/en/articles/12997503-team-plan-billing-faqs)

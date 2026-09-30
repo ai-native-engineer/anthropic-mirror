@@ -69,10 +69,10 @@ Your AI marketer for paid ads, SEO, email, social, and analytics
 
 [Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=cargurus.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=terminal49.com&sz=96)
 
-### [CarGurus](https://claude.com/marketplace/connectors/cargurus)
+### [Terminal49](https://claude.com/marketplace/connectors/terminal49)
 
-Find, buy, and research cars
+Track ocean shipments and containers
 
-[Add CarGurus in Claude (opens in new tab)](https://claude.ai/directory/f78c2d49-167a-4299-9b23-94197eb4b649 "Add in Claude")
+[Add Terminal49 in Claude (opens in new tab)](https://claude.ai/directory/e976edae-40c4-4c29-a1f8-6d5b40bc7cee "Add in Claude")

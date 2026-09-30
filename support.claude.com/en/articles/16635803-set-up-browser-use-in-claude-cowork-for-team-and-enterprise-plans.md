@@ -46,7 +46,7 @@ Claude uses the preferred browser for web tasks. If the preferred browser isn't 
 The preferred browser setting also applies to Cowork sessions on web and mobile. A session started on web or mobile uses the built-in browser when it's the user's preference and the desktop app is open and online. If Claude in Chrome is the preference, the session uses the extension. For web and mobile sessions to use Claude in Chrome, they must be connected to a desktop, but the app doesn't have to be open.
 
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
-* [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)
 * [Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400-use-the-built-in-browser-in-claude-cowork)

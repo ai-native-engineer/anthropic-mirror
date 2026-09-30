@@ -2,6 +2,286 @@
 <!-- part of: https://platform.claude.com/docs/en/api/go/beta -->
 
 <!-- chunk-start -->
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+### Get Workspace
+
+`client.Beta.Organization.Workspaces.Get(ctx, workspaceID) (*BetaWorkspace, error)`
+
+**GET** `/v1/organizations/workspaces/{workspace_id}`
+
+Get Workspace
+
+#### Parameters
+
+- `workspaceID string`
+
+  ID of the Workspace.
+
+#### Returns
+
+- `type BetaWorkspace`
+
+  - `Type Workspace`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
+    default: workspace
+
+  - `ID string`
+
+    ID of the Workspace.
+
+  - `ArchivedAt Time`
+
+    RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+    format: date-time
+
+  - `CompartmentID string`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK) on AWS, reference this value in your
+    KMS key-policy condition so the key is scoped to this compartment. On GCP and
+    Azure, Anthropic enforces the compartment binding automatically; you do not
+    need to reference this value in your key configuration. See the CMEK
+    integration guide for the required key configuration; unless your organization
+    is on Claude Platform on AWS, it includes a separate value used during key
+    validation. On Claude Platform on AWS there is no separate validation value:
+    the key is validated against this Workspace's own value when it is attached, so
+    if your key policy uses the compartment condition, add this value to it before
+    attaching the key.
+
+  - `CreatedAt Time`
+
+    RFC 3339 datetime string indicating when the Workspace was created.
+
+    format: date-time
+
+  - `DataResidency BetaDataResidency`
+
+    Data residency configuration.
+
+    - `AllowedInferenceGeos BetaDataResidencyAllowedInferenceGeosUnion`
+
+      Permitted inference geo values. 'unrestricted' means all geos are allowed.
+
+      - `type BetaDataResidencyAllowedInferenceGeosGeos []BetaAllowedInferenceGeo`
+
+        - `const BetaAllowedInferenceGeoGlobal BetaAllowedInferenceGeo = "global"`
+
+        - `const BetaAllowedInferenceGeoUs BetaAllowedInferenceGeo = "us"`
+
+      - `type Unrestricted string`
+
+    - `DefaultInferenceGeo BetaDataResidencyDefaultInferenceGeo`
+
+      Default inference geo applied when requests omit the parameter.
+
+      - `const BetaDataResidencyDefaultInferenceGeoGlobal BetaDataResidencyDefaultInferenceGeo = "global"`
+
+      - `const BetaDataResidencyDefaultInferenceGeoUs BetaDataResidencyDefaultInferenceGeo = "us"`
+
+    - `WorkspaceGeo BetaDataResidencyWorkspaceGeo`
+
+      Geographic region for workspace data storage. Immutable after creation.
+
+  - `DisplayColor string`
+
+    Hex color code representing the Workspace in the Anthropic Console.
+
+  - `ExternalKeyID string`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. On
+    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+    single-Region key in the same AWS account and Region as the Workspace. On that
+    platform the key is validated against this Workspace when it is attached, so a
+    key-policy problem is reported as an error on this request. This field is write-once:
+    once a key is attached to a Workspace it cannot be detached or replaced. To
+    rotate key material, rotate the underlying key on your cloud KMS; the
+    `external_key_id` stays the same.
+
+  - `Name string`
+
+    Name of the Workspace.
+
+  - `Tags map[string, string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaWorkspace, err := client.Beta.Organization.Workspaces.Get(context.TODO(), "workspace_id")
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaWorkspace.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
+  },
+  "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+### Update Workspace
+
+`client.Beta.Organization.Workspaces.Update(ctx, workspaceID, body) (*BetaWorkspace, error)`
+
+**POST** `/v1/organizations/workspaces/{workspace_id}`
+
+Update Workspace
+
+#### Parameters
+
+- `workspaceID string`
+
+- `body BetaOrganizationWorkspaceUpdateParams`
+
+  - `DataResidency param.Field[BetaDataResidencyUpdateConfig] Optional`
+
+    Data residency configuration for the workspace.
+
+  - `DisplayColor param.Field[string] Optional`
+
+    Hex color code representing the Workspace in the Anthropic Console.
+
+    maxLength: 7, pattern: ^#[0-9A-Fa-f]{6}$
+
+  - `ExternalKeyID param.Field[string] Optional`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. On
+    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+    single-Region key in the same AWS account and Region as the Workspace. On that
+    platform the key is validated against this Workspace when it is attached, so a
+    key-policy problem is reported as an error on this request. This field is write-once:
+    once a key is attached to a Workspace it cannot be detached or replaced. To
+    rotate key material, rotate the underlying key on your cloud KMS; the
+    `external_key_id` stays the same.
+
+  - `Name param.Field[string] Optional`
+
+    Name of the Workspace.
+
+    minLength: 1, maxLength: 40
+
+  - `Tags param.Field[map[string, string]] Optional`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+#### Returns
+
+- `type BetaWorkspace`
+
+  - `Type Workspace`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
+    default: workspace
+
+  - `ID string`
+
+    ID of the Workspace.
+
+  - `ArchivedAt Time`
+
+    RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+    format: date-time
+
+  - `CompartmentID string`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK) on AWS, reference this value in your
+    KMS key-policy condition so the key is scoped to this compartment. On GCP and
+    Azure, Anthropic enforces the compartment binding automatically; you do not
+    need to reference this value in your key configuration. See the CMEK
+    integration guide for the required key configuration; unless your organization
+    is on Claude Platform on AWS, it includes a separate value used during key
+    validation. On Claude Platform on AWS there is no separate validation value:
+    the key is validated against this Workspace's own value when it is attached, so
+    if your key policy uses the compartment condition, add this value to it before
+    attaching the key.
+
+  - `CreatedAt Time`
+
+    RFC 3339 datetime string indicating when the Workspace was created.
+
+    format: date-time
+
+  - `DataResidency BetaDataResidency`
+
+    Data residency configuration.
+
+    - `AllowedInferenceGeos BetaDataResidencyAllowedInferenceGeosUnion`
+
+      Permitted inference geo values. 'unrestricted' means all geos are allowed.
+
+      - `type BetaDataResidencyAllowedInferenceGeosGeos []BetaAllowedInferenceGeo`
+
+        - `const BetaAllowedInferenceGeoGlobal BetaAllowedInferenceGeo = "global"`
+
+        - `const BetaAllowedInferenceGeoUs BetaAllowedInferenceGeo = "us"`
+
+      - `type Unrestricted string`
+
+    - `DefaultInferenceGeo BetaDataResidencyDefaultInferenceGeo`
+
+      Default inference geo applied when requests omit the parameter.
+
+      - `const BetaDataResidencyDefaultInferenceGeoGlobal BetaDataResidencyDefaultInferenceGeo = "global"`
+
+      - `const BetaDataResidencyDefaultInferenceGeoUs BetaDataResidencyDefaultInferenceGeo = "us"`
 
     - `WorkspaceGeo BetaDataResidencyWorkspaceGeo`
 

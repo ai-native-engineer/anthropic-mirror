@@ -32,30 +32,6 @@ Location
 
 Date
 
-AU
-
-Sydney | Claude Community x Notion Showcase
-
-Haymarket, AU
-
-September 28, 2026
-
-Tank Stream Labs, Campbell Street, Level 5/24 Campbell St, Haymarket NSW 2000, Australia
-
-[Sydney | Claude Community x Notion Showcase](https://luma.com/claude-anqv)Sydney | Claude Community x Notion Showcase
-
-DE
-
-Munich | Claude Meetup: Claude for Founders
-
-München, DE
-
-September 28, 2026
-
-CUPRA City Garage München, Odeonspl. 1, 80539 München, Germany
-
-[Munich | Claude Meetup: Claude for Founders](https://luma.com/claude-7la4)Munich | Claude Meetup: Claude for Founders
-
 NZ
 
 Auckland | Claude Meetup
@@ -128,9 +104,33 @@ Sonneggstrasse 76, 8006 Zürich, Switzerland
 
 [Zurich | Claude Conversation on Climate](https://luma.com/claude-ycsc)Zurich | Claude Conversation on Climate
 
+ES
+
+Madrid | 48-hour Claude Code Hackathon
+
+Madrid, ES
+
+October 2, 2026
+
+C/ de Aranjuez, 2, Tetuán, 28039 Madrid, Spain
+
+[Madrid | 48-hour Claude Code Hackathon](https://luma.com/claude-dyek)Madrid | 48-hour Claude Code Hackathon
+
+JP
+
+Tokyo | Claude Meetup for Healthcare Professionals
+
+Minato City, JP
+
+October 2, 2026
+
+2-chōme-8-14 Hamamatsuchō, Minato City, Tokyo 105-0013, Japan
+
+[Tokyo | Claude Meetup for Healthcare Professionals](https://luma.com/claude-urwj)Tokyo | Claude Meetup for Healthcare Professionals
+
 [View more](https://claude.com/community?46f68bc1_page=2)
 
-1 / 6
+1 / 7
 
 No posts for those filters
 

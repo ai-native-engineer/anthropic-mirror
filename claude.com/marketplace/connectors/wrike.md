@@ -33,7 +33,7 @@ Access your Wrike workspace directly from Claude to plan, prioritise, update and
 * get\_requestform
 * prefill\_requestform
 
-Show all 26 tools
+Show all 28 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 

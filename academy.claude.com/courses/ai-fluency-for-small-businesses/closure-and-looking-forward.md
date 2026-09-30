@@ -1,6 +1,6 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward -->
 
-Lesson 9 of 9 · AI Fluency for small businessesClosure and looking forward
+Lesson 8 of 8 · AI Fluency for small businessesClosure and looking forward
 
 3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
@@ -8,7 +8,7 @@ Lesson 9 of 9 · AI Fluency for small businessesClosure and looking forward
 
 # Closure and looking forward
 
-Lesson 915 min
+Lesson 815 min
 
 In this lessonBy the end, you’ll be able to
 
@@ -91,7 +91,7 @@ After completing the task, consider:
 
 [Previous lessonHuman in the loop](https://academy.claude.com/courses/ai-fluency-for-small-businesses/human-in-the-loop)[Next lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses/course-quiz)
 
-Lesson 9 of 9 · AI Fluency for small businessesClosure and looking forward
+Lesson 8 of 8 · AI Fluency for small businessesClosure and looking forward
 
 Introduction and AI Fluency framework
 
@@ -101,7 +101,6 @@ Introduction and AI Fluency framework
 How AI works
 
 * [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
-* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
 
 The Description-Discernment loop
 

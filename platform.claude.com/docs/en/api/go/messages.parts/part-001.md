@@ -3667,13 +3667,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `string`
-
     - `type Model string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
 
       - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -3689,7 +3691,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -3748,6 +3750,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+    - `string`
 
   - `Role Assistant`
 
@@ -14435,13 +14439,15 @@ func main() {
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `string`
-
     - `type Model string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
 
       - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -14457,7 +14463,7 @@ func main() {
 
       - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -14516,6 +14522,8 @@ func main() {
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+    - `string`
 
   - `Role Assistant`
 
@@ -17417,13 +17425,15 @@ func main() {
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `string`
-
   - `type Model string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+      Efficient model for coding and agents
 
     - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -17439,7 +17449,7 @@ func main() {
 
     - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-      High-performance model for coding and agents
+      Efficient model for coding and agents
 
     - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -17498,6 +17508,8 @@ func main() {
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+  - `string`
 
 ### Output Config
 
@@ -19651,13 +19663,15 @@ func main() {
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `string`
-
       - `type Model string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
 
         - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -19673,7 +19687,7 @@ func main() {
 
         - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -19732,6 +19746,8 @@ func main() {
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+      - `string`
 
     - `Role Assistant`
 
@@ -20778,13 +20794,15 @@ func main() {
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type Model string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -20800,7 +20818,7 @@ func main() {
 
           - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -20859,6 +20877,8 @@ func main() {
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+        - `string`
 
       - `Role Assistant`
 
@@ -22637,6 +22657,12 @@ func main() {
 
     - `const ThinkingConfigAdaptiveDisplayOmitted ThinkingConfigAdaptiveDisplay = "omitted"`
 
+### Thinking Config Between Tools
+
+- `type ThinkingConfigBetweenTools`
+
+  - `Type BetweenTools`
+
 ### Thinking Config Disabled
 
 - `type ThinkingConfigDisabled`
@@ -22702,6 +22728,10 @@ func main() {
   - `type ThinkingConfigDisabled`
 
     - `Type Disabled`
+
+  - `type ThinkingConfigBetweenTools`
+
+    - `Type BetweenTools`
 
   - `type ThinkingConfigAdaptive`
 
@@ -29243,13 +29273,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `string`
-
         - `type Model string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
@@ -29265,7 +29297,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
@@ -29324,6 +29356,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+        - `string`
 
       - `CacheControl CacheControlEphemeral Optional`
 
@@ -29445,9 +29479,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Stream bool Optional`
 
-        Whether to incrementally stream the response using server-sent events.
+        Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-        See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+        In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
       - `System []TextBlockParamResp Optional`
 
@@ -29502,6 +29536,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `type ThinkingConfigDisabled`
 
           - `Type Disabled`
+
+        - `type ThinkingConfigBetweenTools`
+
+          - `Type BetweenTools`
 
         - `type ThinkingConfigAdaptive`
 
@@ -32195,36 +32233,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Example:
 
           ```json
-          [{"type": "text", "text": "Hi, I'm Claude."}]
-          ```
-
-          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
-
-          For example, if the input `messages` were:
-
-          ```json
-          [
-            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-            {"role": "assistant", "content": "The best answer is ("}
-          ]
-          ```
-
-          Then the response `content` might be:
-
-          ```json
-          [{"type": "text", "text": "B)"}]
-          ```
-
-          - `type TextBlock`
-
-            - `Type Text`
-
-              default: text
-
-            - `Citations []TextCitationUnion`
-
-              Citations supporting the text block.
-
-              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
-              - `type CitationCharLocation`

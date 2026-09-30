@@ -62,17 +62,17 @@ Workflows scale when skills get distributed through departments and surface to t
 
 Your governance posture determines which of these paths are open. Think through the right skill and plugin management approach for your org as you select initial settings.
 
-| Posture | What it means | Org Settings > Skills Settings |
+| Posture | What it means | Organization settings > Skills |
 | --- | --- | --- |
-| Admin curated | **Admins provision; users consume** Users can't create personal skills. Peer-to-peer and peer-to-org sharing are both disabled.  Skills and plugins come from admins only. | **Skills:** On **User-created skills:** Off **Skill sharing:** Off **Share with organization:** Off |
-| Guided creation | **Users create and share skills peer-to-peer; champions promote to plugins.**  Users can create personal skills and share skills with peers.  Sharing disabled peer-to-org. Champions review and promote the best skills to team plugins. | **Skills:** On **User-created skills:** On **Skill sharing:** On **Share with organization:** Off |
-| Fully open | **Users create and share with each other and org-wide; admins monitor and curate plugins.**  Users can create personal skills and share skills with peers and the org.  Admins monitor skill adoption and usage. Champions run quarterly skill reviews. | **Skills:** On **User-created skills:** On **Skill sharing:** On **Share with organization:** On |
+| Admin curated | **Admins provision; users consume** Users can't create personal skills. Peer-to-peer and peer-to-org sharing are both disabled.  Skills and plugins come from admins only. | **Skills:** On **User-created skills:** Off **Skill sharing:** Off **Publishing:** Off |
+| Guided creation | **Users create and share skills peer-to-peer; champions promote to plugins.**  Users can create personal skills and share skills with peers.  Sharing disabled peer-to-org. Champions review and promote the best skills to team plugins. | **Skills:** On **User-created skills:** On **Skill sharing:** On **Publishing:** Off |
+| Fully open | **Users create and share with each other and org-wide; admins monitor and curate plugins.**  Users can create personal skills and share skills with peers and the org.  Admins monitor skill adoption and usage. Champions run quarterly skill reviews. | **Skills:** On **User-created skills:** On **Skill sharing:** On **Publishing:** Open |
 
-Posture isn't one switch — it's three org-level toggles in Settings → Skills, plus how you scope plugins:
+Posture isn't one switch — it's three org-level settings in Organization settings > Skills, plus how you scope plugins:
 
 * User-created skills — can users build their own?
 * Skill sharing — can users hand a skill to a teammate?
-* Share with organization — can users publish to the org directory?
+* Publishing — can users publish to the org library: not at all (Off), once an owner approves each submission (Requires review), or freely (Open)?
 * Plugin group access — which groups see / auto-install each plugin?
 
 Plugin sharing to groups allows Admins to override a plugin's org-wide availability for specific groups, further scoping plugin access — e.g. make a plugin available only to the Legal group, or auto-install it for Engineering while keeping it hidden from everyone else.

@@ -65,14 +65,6 @@ Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
-![](https://www.rome2rio.com/favicon.ico)
-
-### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
-
-Discover how to get anywhere
-
-[Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
 ### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
@@ -90,6 +82,14 @@ Amazon Selling Partner MCP
 Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
+
+![](https://www.rome2rio.com/favicon.ico)
+
+### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
+
+Discover how to get anywhere
+
+[Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
 
 ![](https://metricool.com/wp-content/uploads/cropped-web-app-manifest-512x512-1-180x180.png)
 

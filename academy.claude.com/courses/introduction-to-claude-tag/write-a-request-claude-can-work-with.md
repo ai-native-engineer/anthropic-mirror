@@ -34,6 +34,7 @@ Before you write, think through what you want, what Claude can access, and how y
 * **Point to the inputs you want Claude to use in the task:** It can read the channel, search the workspace, and use that channel's connections or attached files. If you have an example of a good result, link or paste it, or tell Claude where to find it.
 * **Build in a way to check Claude's work:** Once you've thought about what success looks like, how will you be able to tell if Claude got it right? Think about ways you can ask Claude to verify the work, like giving it a rubric for what a good result looks like, linking its sources, or separating what it verified from what it inferred.
 * **Tell Claude what to prioritize:** State what you care about in a good response. Consider things like the audience, the level of polish, what to avoid, or which decisions to bring back to you. When Claude faces a choice you didn't expect, these help steer its judgment.
+* **Say what form the result should take:** A short answer belongs in the thread or channel. If people will open it, revisit it, or pass it on, ask for a page. Claude publishes the dashboard, report, or prototype on claude.ai and posts the link; the whole channel can open it, and later requests in the thread update that same link.
 
 For some tasks, you may want to write the request differently:
 

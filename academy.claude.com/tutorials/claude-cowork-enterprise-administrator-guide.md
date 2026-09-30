@@ -67,7 +67,7 @@ Verify your fleet and network can support it — endpoint and network issues are
 
 #### Start your security review
 
-* Assemble your review packet from the [Anthropic Trust Center(opens in new tab)](https://trust.anthropic.com) and the [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135) article. This can run in parallel with the rest of Phase 1. Note that Audit Logs do not cover Claude Cowork yet. The Compliance API returns Claude Cowork session transcripts, in beta for Claude Enterprise organizations.
+* Assemble your review packet from the [Anthropic Trust Center(opens in new tab)](https://trust.anthropic.com) and the [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135) article. This can run in parallel with the rest of Phase 1. Note that Audit Logs do not cover Claude Cowork yet. The Compliance API returns Claude Cowork session transcripts for Claude Enterprise organizations.
 
 ### Identity & Access[](#identity-access)
 
@@ -304,13 +304,13 @@ As usage grows, your governance needs grow with it. Start with the org-level con
 * **Connector access:** Org-wide on/off. When you enable a new connector, it’s available to everyone — plan your rollout communications accordingly.
 * **Spend controls:** Group-based spend limits with most-restrictive precedence. An org-level cap overrides individual seat limits.
 * **Plugin marketplace:** Curate which plugins appear in your organization's marketplace. Configure distribution policies, pre-approve plugins, and use group-level overrides to control availability per team. Works with SCIM groups.
+* **Skill and plugin publishing:** Org-level setting with three values (Organization settings > Skills, Policy tab). Off: users can't submit skills or plugins to your organization's library, though owners can still add them directly. Requires review: an owner, or anyone whose role has Libraries set to “Can manage”, approves each submission on the Requests tab of the same page before it's published. Open: submissions publish without review.
 * **RBAC:** Control who can access Claude Cowork, Claude Code, and other product surfaces via custom roles assigned to groups.
 
 #### What requires manual governance today
 
-* **Skill review and approval:** There is no in-product workflow for submitting, reviewing, and approving skills. If you want governance over skill creation, you’ll need to build a process outside of Claude Cowork — for example, a request form, a review committee, and a shared directory of approved skills.
 * **Per-group connector access:** Connectors are currently org-wide (on/off). If you need different teams to have access to different connectors, this requires multiple orgs or a manual policy layer.
-* **Peer-to-peer and peer-to-org sharing controls:** Sharing is currently an org-level toggle (on/off), not per-group.
+* **Peer-to-peer and peer-to-org sharing controls:** Skill sharing, Share with groups and Publishing are set for the whole organization in Organization settings > Skills (Policy tab). On Enterprise, users can also share with a specific group once an admin turns on Share with groups (off by default), and custom roles, where you use them, decide who can.
 
 #### Ongoing governance practices
 

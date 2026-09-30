@@ -55,13 +55,13 @@ Bring Orion Connect portfolio data and Redtail CRM together in Claude — prep f
 
 [Add Orion in Claude (opens in new tab)](https://claude.ai/directory/ae7131fa-f9e7-4f96-b776-b582c7fa09a1 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
+![](https://www.gemini.com/favicon.ico)
 
-### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
 
-Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
-[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
@@ -73,6 +73,14 @@ Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
+
+### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
+
+Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
+
+[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
+
 ![](https://bd3.bdreporting.com/content/logo.svg)
 
 ### [Black Diamond](https://claude.com/marketplace/connectors/black-diamond)
@@ -82,11 +90,3 @@ Anthropic verifiedTrending
 Client, portfolio, and performance data for advisors
 
 [Add Black Diamond in Claude (opens in new tab)](https://claude.ai/directory/e70ee54f-74a8-454f-9bd5-3a70e17da172 "Add in Claude")
-
-![](https://cdn.crmworkspace.com/assets/favicon.svg)
-
-### [Wealthbox](https://claude.com/marketplace/connectors/wealthbox)
-
-Search, update, and manage Wealthbox data from inside Claude
-
-[Add Wealthbox in Claude (opens in new tab)](https://claude.ai/directory/95dfb71b-dd9a-4176-adc4-293d6d7246eb "Add in Claude")

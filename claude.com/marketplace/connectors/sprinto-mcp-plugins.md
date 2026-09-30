@@ -71,6 +71,14 @@ Find UI & UX design references
 
 [Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=tinyfish.ai&sz=96)
+
+### [TinyFish](https://claude.com/marketplace/connectors/tinyfish)
+
+Automate websites with a cloud browser agent: log in, fill out and submit forms, scrape and extract data, and monitor pages for changes — plus fast web search and page fetch.
+
+[Add TinyFish in Claude (opens in new tab)](https://claude.ai/directory/e2dfb699-dcb9-4124-b190-9bb1f400adb4 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=terminal49.com&sz=96)
 
 ### [Terminal49](https://claude.com/marketplace/connectors/terminal49)
@@ -78,11 +86,3 @@ Find UI & UX design references
 Track ocean shipments and containers
 
 [Add Terminal49 in Claude (opens in new tab)](https://claude.ai/directory/e976edae-40c4-4c29-a1f8-6d5b40bc7cee "Add in Claude")
-
-![](https://neon.com/brand/neon-logomark-light-color.svg)
-
-### [Neon](https://claude.com/marketplace/connectors/neon)
-
-Postgres, Object Storage, Managed Better Auth, and more
-
-[Add Neon in Claude (opens in new tab)](https://claude.ai/directory/33e1b084-f45e-4fa3-951a-b08ad61101c9 "Add in Claude")
