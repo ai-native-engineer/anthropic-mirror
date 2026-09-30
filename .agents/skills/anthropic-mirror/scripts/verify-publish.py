@@ -130,6 +130,13 @@ def body_of(text):
     return "\n".join(line for line in lines if not line.startswith("<!--")).strip()
 
 
+# 본문 대신 페이지 크롬이 저장된 신호. raw HTML 문서와 쿠키 동의 배너는 원문 본문에 나오지 않는다.
+CHROME_LEAKS = (
+    ("raw HTML이 본문으로 저장됨", re.compile(r"^\s*<(?:!doctype html|html[\s>])", re.I)),
+    ("쿠키 동의 배너가 본문에 남음", re.compile(r"^#+ Cookie settings\s*$", re.M)),
+)
+
+
 def markdown_issues(fp, path, root, text):
     found, states = [], []
     first, second = (text.split("\n") + ["", ""])[:2]
@@ -173,6 +180,9 @@ def markdown_issues(fp, path, root, text):
         elif expected_path(m.group(1)) != path:
             found.append(issue("source URL과 파일 경로 불일치", path, m.group(1)))
     body = body_of(text)
+    for kind, pattern in CHROME_LEAKS:
+        if pattern.search(body):
+            found.append(issue(kind, path))
     if NO_BODY_LESSON in text:
         states.append(issue("본문 없는 레슨(퀴즈·과제) 표시", path))
     elif len(body) < MIN_BODY_CHARS and GATED_STUB not in text and ".parts/" not in path:
@@ -528,6 +538,12 @@ def self_test():
         "www.anthropic.com/moved.md": b"<!-- source: https://www.anthropic.com/elsewhere -->\n"
         + body,
         "www.anthropic.com/thin.md": b"<!-- source: https://www.anthropic.com/thin -->\n\n# T\n",
+        "www.anthropic.com/raw.md": b"<!-- source: https://www.anthropic.com/raw -->\n\n<!DOCTYPE html><html>"
+        + b"x" * 300
+        + b"\n",
+        "www.anthropic.com/banner.md": b"<!-- source: https://www.anthropic.com/banner -->\n\n### Cookie settings\n\n"
+        + b"x" * 300
+        + b"\n",
         "anthropic.skilljar.com/dup/a.md": b"<!-- https://anthropic.skilljar.com/dup/1 -->\n\n## About this course\n"
         + body,
         "anthropic.skilljar.com/dup/b.md": b"<!-- https://anthropic.skilljar.com/dup/2 -->\n\n## About this course\n"
@@ -567,6 +583,8 @@ def self_test():
     assert kinds("www.anthropic.com/img-empty.md")[0] == {"빈 이미지 참조"}
     assert kinds("www.anthropic.com/moved.md")[0] == {"source URL과 파일 경로 불일치"}
     assert kinds("www.anthropic.com/thin.md")[0] == {"본문 없음·thin"}
+    assert kinds("www.anthropic.com/raw.md")[0] == {"raw HTML이 본문으로 저장됨"}
+    assert kinds("www.anthropic.com/banner.md")[0] == {"쿠키 동의 배너가 본문에 남음"}
     assert kinds("anthropic.skilljar.com/dup/a.md")[0] == {"같은 코스 레슨과 본문 동일"}
     assert kinds("anthropic.skilljar.com/gate/a.md") == (
         set(),
