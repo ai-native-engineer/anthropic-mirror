@@ -60,6 +60,7 @@ sitemap·BFS가 빠뜨린 공개 route는 `linked same-host` phase가 채운다.
 - robots.txt가 선언했지만 설정에 없는 sitemap은 매 실행 `structural_missing`으로 기록된다. 발견하면 `HTML_SITEMAPS`나 `DOCS_SITEMAPS`에 추가한다.
 - `curl_cffi`의 Chrome 지문으로 SSR 본문을 받고 nav/footer boilerplate를 제거한다.
 - platform·code의 `/docs/` 경로는 docs phase가 페이지별 raw Markdown으로만 받고 영어 정본만 남긴다. cookbook 탐색이나 linked phase가 같은 URL을 HTML로 받으면 쿠키 배너와 사이드바가 본문이 되고 먼저 저장한 Markdown을 덮어쓴다.
+- 다른 host나 HTML 경로가 docs 경로로 리다이렉트하면(예: 옛 문서 링크) HTML 추출본을 저장하지 않고 `stale_or_redirect`로 남긴다. 저장하면 docs phase가 받은 파일을 덮어쓴다.
 - `.md` 엔드포인트가 frontmatter나 H1으로 시작하지 않는 응답(HTML 셸, 쿠키 배너부터 시작하는 변환 페이지)을 주면 저장하지 않고 `refresh_pending`으로 남긴다.
 - 반복 줄 제거(boilerplate)는 host마다 첫 묶음(sitemap·discover phase)에서 페이지 40% 이상에 반복되는 줄로 한 번 정하고, 같은 실행의 뒤 phase(linked 등)에 재사용한다. 뒤 phase는 작고 한 섹션에 쏠리기 쉬워 새로 계산하면 전사 모음의 공통 제목 같은 본문이 nav로 지워진다. 코드 펜스, 구분선, 표 구분자 같은 Markdown 구문 줄은 반복돼도 지우지 않는다. `--url-file`로 한 섹션만 다시 받을 때도 같은 이유로 결과를 원본과 대조한다.
 - root-relative 링크와 확장자 있는 상대 링크는 원본 페이지 기준 절대 URL로 바꾼다. 미러 안에서는 해석되지 않는 경로이기 때문이다.

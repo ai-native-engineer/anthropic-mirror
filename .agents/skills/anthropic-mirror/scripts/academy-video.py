@@ -439,6 +439,16 @@ def resolve_images(soup):
                 img.decompose()
 
 
+def lesson_stub(bare, existing, head, tail, has_video):
+    """본문 텍스트가 없는 레슨 파일 내용. 바꿀 필요가 없으면 None.
+    영상이 있으면 제목과 자막이 본문이라 표시를 붙이지 않고, 영상도 없는 퀴즈·과제만 NO_BODY로 명시한다."""
+    if existing and head not in (bare, f"{bare}\n\n{NO_BODY}"):
+        return None
+    marker = "" if (tail or has_video) else f"\n\n{NO_BODY}"
+    stub = f"{bare}{marker}{tail}"
+    return None if stub == existing else stub
+
+
 def split_tail(existing):
     """레슨 파일을 [source+본문]과 영상 마커 이후 tail로 나눈다. tail은 academy-video가 붙인 자막이다."""
     tail = re.search(r"\n<!-- (?:youtube|vimeo|jwplayer(?:-srt)?|(?:yt|srt|jw)-pending): .*\Z", existing, re.S)
@@ -607,9 +617,9 @@ async def crawl_courses(out_root, courses, ck):
                 )
                 head, tail = split_tail(existing)
                 bare = f"<!-- {BASE}/{course}/{lid} -->\n\n# {title}"
-                if not existing or head == bare:
-                    # 퀴즈·과제처럼 추출할 텍스트가 없는 레슨은 제목만 남기지 않고 상태를 명시한다.
-                    existing = f"{bare}\n\n{NO_BODY}{tail}"
+                stub = lesson_stub(bare, existing, head, tail, bool(refs))
+                if stub is not None:
+                    existing = stub
                     fpath.write_text(f"{existing}\n", encoding="utf-8")
                 if not refs:
                     continue
@@ -746,6 +756,12 @@ async def main():
         assert soup.find("img")["src"] == "/a.png" and "[미수집 이미지: Diagram]" in str(soup), soup
         assert len(soup.find_all("img")) == 1
         assert EMPTY_MD_IMAGE.sub(lambda m: missing_image_marker(m.group(1)), "x ![]() ![B]()") == "x  [미수집 이미지: B]"
+        bare, tail = "<!-- u -->\n\n# T", "\n<!-- youtube: abcdefghijk -->"
+        assert lesson_stub(bare, "", "", "", False) == f"{bare}\n\n{NO_BODY}", "영상 없는 퀴즈는 NO_BODY로 명시한다"
+        assert lesson_stub(bare, bare + tail, bare, tail, True) is None, "영상 레슨은 제목과 자막이 본문이다"
+        marked = f"{bare}\n\n{NO_BODY}"
+        assert lesson_stub(bare, marked + tail, marked, tail, True) == bare + tail, "영상 레슨에 잘못 붙은 표시는 걷어낸다"
+        assert lesson_stub(bare, bare + "\n\nbody", bare + "\n\nbody", "", False) is None
         body, tail = split_tail("<!-- u -->\n\nbody ![]()\n\n<!-- youtube: ABCDEFGHIJK -->\n\n<details>x</details>\n")
         assert body == "<!-- u -->\n\nbody ![]()" and tail.startswith("\n<!-- youtube: ABCDEFGHIJK -->"), (body, tail)
         assert split_tail("<!-- u -->\n\nbody\n") == ("<!-- u -->\n\nbody", "")

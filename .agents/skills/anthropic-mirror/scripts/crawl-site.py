@@ -800,7 +800,8 @@ def collected_hosts():
 
 
 def foreign_target(requested, url):
-    """리다이렉트 대상이 이 수집기의 범위 밖(제품 앱·Skilljar 랜딩·manifest 제외)인가."""
+    """리다이렉트 대상이 이 수집기의 범위 밖(제품 앱·Skilljar 랜딩·manifest 제외)인가.
+    docs 경로 목적지는 crawl()이 fetch 종류를 보고 따로 거른다."""
     host = urlsplit(url).netloc
     if host == urlsplit(requested).netloc:
         return mc.url_decision(url) is not None
@@ -861,7 +862,8 @@ def crawl(urls, fetch, concurrency):
                         "reason": f"redirect -> {url}",
                     }
                 )
-            if mdtext and foreign_target(requested, url):
+            if mdtext and (foreign_target(requested, url) or (fetch is not fetch_docs_md and docs_route(url))):
+                # docs 경로로 리다이렉트된 HTML은 docs phase가 raw Markdown으로 받은 파일을 쿠키 배너 본문으로 덮어쓴다.
                 # 제품 앱 로그인 화면·비로그인 Academy 랜딩이 원래 URL의 본문으로 저장되지 않게 한다.
                 if not any(i["url"] == requested for i in items):
                     items.append(
