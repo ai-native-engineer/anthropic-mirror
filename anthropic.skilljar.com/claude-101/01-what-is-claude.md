@@ -52,3 +52,23 @@ What tasks in your current work might benefit from having Claude as a thinking p
 ## What's next
 
 In the next lesson, you'll learn how to navigate the Claude interface, start your first conversation, and understand the basics of how Claude responds to your messages.
+
+<!-- embed: https://academy.claude.com/embed/courses/claude-101/ThinkingPartnerSorter -->
+
+Exercise: the learner sorts six real requests as search-box work or thinking-partner work, then reviews explanations and a final tally showing how wording can disguise which a request truly needs.
+
+Sort six requests
+
+### Which of these needs a thinking partner?
+
+Request 1 of 6
+
+People new to Claude often type into it the way they'd type into a search box. Here are six real requests. For each one, decide: could a search box handle it, or does it need Claude working through it with you? A couple are closer calls than they look.
+
+“What's the exchange rate from US dollars to euros today?”
+
+Sonnet 4.6
+
+Search box, or thinking partner?
+
+Pick one to see the answer.

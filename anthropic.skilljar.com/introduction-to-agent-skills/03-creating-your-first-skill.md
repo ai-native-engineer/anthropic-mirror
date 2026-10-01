@@ -40,11 +40,15 @@ mkdir -p ~/.claude/skills/pr-description
 Then create a `SKILL.md` file inside that directory. The file has two parts separated by frontmatter dashes:
 
 ```
---- name: pr-description description: Writes pull request descriptions. Use when creating a PR, writing a PR, or when the user asks to summarize changes for a pull request. ---
+---
+name: pr-description
+description: Writes pull request descriptions. Use when creating a PR, writing a PR, or when the user asks to summarize changes for a pull request.
+---
 
 When writing a PR description:
 
-1. Run `git diff main...HEAD` to see all changes on this branch 2. Write a description following this format:
+1. Run `git diff main...HEAD` to see all changes on this branch
+2. Write a description following this format:
 
 ## What
 One sentence explaining what this PR does.
@@ -84,7 +88,10 @@ Once a match is found, Claude asks you to confirm loading the skill. This confir
 
 If you clone a repository that has a skill with the same name as one of your personal skills, which one wins? There's a clear priority order:
 
-1. **Enterprise** — managed settings, highest priority 2. **Personal** — your home directory (`~/.claude/skills`) 3. **Project** — the `.claude/skills` directory inside a repository 4. **Plugins** — installed plugins, lowest priority
+1. **Enterprise** — managed settings, highest priority
+2. **Personal** — your home directory (`~/.claude/skills`)
+3. **Project** — the `.claude/skills` directory inside a repository
+4. **Plugins** — installed plugins, lowest priority
 
 This lets organizations enforce standards through enterprise skills while still allowing individual customization. If your company has an enterprise "code-review" skill and you create a personal "code-review" skill with the same name, the enterprise version takes precedence.
 
@@ -106,7 +113,6 @@ In the next lesson, you'll learn about advanced configuration options including 
 #### Feedback
 
 As you progress through the course, we'd love to hear how you're using skills in your work, plus any feedback you may have. Share your feedback [here](https://forms.gle/RvHPBwQt9ZmcDc1P9).
-
 <!-- youtube: Wx6_vjFFyHM -->
 
 [![Creating Your First Skill](https://img.youtube.com/vi/Wx6_vjFFyHM/hqdefault.jpg)](https://www.youtube.com/watch?v=Wx6_vjFFyHM)

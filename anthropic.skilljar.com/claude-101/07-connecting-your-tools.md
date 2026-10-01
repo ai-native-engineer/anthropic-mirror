@@ -110,3 +110,29 @@ Before moving on, consider:
 In the next lesson, you'll learn about Enterprise Search—a specialized feature for Claude for Work users that connects Claude to your organization's knowledge sources with custom prompts optimized for your company's context.
 
 For more information on connectors and the Model Context Protocol, visit the [Anthropic Help Center](https://support.claude.com/en/articles/11176164-pre-built-web-connectors-using-remote-mcp) or explore the connector directory at claude.ai/directory.
+
+<!-- embed: https://academy.claude.com/embed/courses/claude-101/ConnectorReachBuilder -->
+
+Exercise: the learner toggles three connector sources on and off, each adding a sentence to a request asking for outside information, to show that connections only give the request somewhere to point, not a reason for Claude to search unprompted.
+
+Try it
+
+### Connect a source, ask for more
+
+Below is a request Claude can already handle—everything it needs is in the words you typed. Nothing else is connected yet. **Turn on a source and watch the request grow:** each connection lets you ask for something that lives outside your message.
+
+Your request to Claude
+
+Draft a short status update on the budget project for my manager.
+
+Sonnet 4.6
+
+One sentence—that's a complete request. Claude drafts it from your words alone.
+
+Turn a source on or off
+
+Same request underneath the whole time. What changes is what you’re able to ask it to draw on.
+
+What each connection lets you ask for
+
+Right now: only what’s in your message. Turn a source on to add to it.

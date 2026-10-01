@@ -2,8 +2,6 @@
 
 # Environment inspection
 
-_(등록 또는 권한이 필요한 레슨)_
-
 <!-- jwplayer-srt: https://cdn.jwplayer.com/tracks/N9iJ7VlY.srt -->
 
 <details>

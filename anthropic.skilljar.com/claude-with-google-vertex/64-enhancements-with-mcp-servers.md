@@ -2,8 +2,6 @@
 
 # Enhancements with MCP servers
 
-_(등록 또는 권한이 필요한 레슨)_
-
 <!-- jwplayer-srt: https://cdn.jwplayer.com/tracks/QcPvK1Kt.srt -->
 
 <details>

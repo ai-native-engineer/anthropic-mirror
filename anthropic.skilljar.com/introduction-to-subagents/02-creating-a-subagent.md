@@ -49,9 +49,17 @@ Once creation is complete, the subagent config file is saved into your project (
   
 
 ```
---- name: code-quality-reviewer description: Use this agent when you need to review recently written or modified code for quality, security, and best practice compliance. tools: Bash, Glob, Grep, Read, WebFetch, WebSearch model: sonnet color: purple ---
+---
+name: code-quality-reviewer
+description: Use this agent when you need to review recently written or modified code for quality, security, and best practice compliance.
+tools: Bash, Glob, Grep, Read, WebFetch, WebSearch
+model: sonnet
+color: purple
+---
 
-You are an expert code reviewer specializing in quality assurance, security best practices, and adherence to project standards. Your role is to thoroughly examine recently written or modified code and identify issues that could impact reliability, security, maintainability, or performance.
+You are an expert code reviewer specializing in quality assurance, security best practices, and
+adherence to project standards. Your role is to thoroughly examine recently written or modified code
+and identify issues that could impact reliability, security, maintainability, or performance.
 ```
 
 Let's break down each field:
@@ -85,7 +93,6 @@ After creating your subagent, test it by making some code changes and asking Cla
 ![](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F8lsy243ftffjjy1cx9lm3o2bw%2Fpublic%2F1773974991%2Fsubagentsvideo2version3_14.1773974991791.png)  
 
 If the subagent is not being used when you expect it to be, go back and check the description. Adding more specific examples and trigger scenarios helps Claude understand when to delegate work to your subagent.
-
 <!-- youtube: arD6qEWa2Xc -->
 
 [![Creating A Subagent](https://img.youtube.com/vi/arD6qEWa2Xc/hqdefault.jpg)](https://www.youtube.com/watch?v=arD6qEWa2Xc)

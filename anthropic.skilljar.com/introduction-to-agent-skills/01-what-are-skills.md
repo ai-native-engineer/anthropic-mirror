@@ -40,7 +40,10 @@ The description is how Claude decides whether to use the skill. When you ask Cla
 Here's what a skill's frontmatter looks like:
 
 ```
---- name: pr-review description: Reviews pull requests for code quality. Use when reviewing PRs or checking code changes. ---
+---
+name: pr-review
+description: Reviews pull requests for code quality. Use when reviewing PRs or checking code changes.
+---
 ```
 
 Below the frontmatter, you write the actual instructions — your review checklist, formatting preferences, or whatever Claude needs to know for that task.
@@ -92,7 +95,6 @@ In the next lesson, you'll create your first skill from scratch and learn how Cl
 #### Feedback
 
 As you progress through the course, we'd love to hear how you're using skills in your work, plus any feedback you may have. Share your feedback [here](https://forms.gle/RvHPBwQt9ZmcDc1P9).
-
 <!-- youtube: bjdBVZa66oU -->
 
 [![What Are Skills](https://img.youtube.com/vi/bjdBVZa66oU/hqdefault.jpg)](https://www.youtube.com/watch?v=bjdBVZa66oU)

@@ -1,8 +1,10 @@
 <!-- https://anthropic.skilljar.com/introduction-to-claude-cowork/444166 -->
 
-**Estimated time:** 15 minutes
+### ⁠
 
-### Learning objectives
+## What you'll learn
+
+*Estimated time: 24 minutes*
 
 By the end of this lesson you'll be able to:
 
@@ -10,21 +12,24 @@ By the end of this lesson you'll be able to:
 * Respond to Cowork's clarifying questions in a way that produces better output
 * Course-correct when Claude heads in the wrong direction
 
----
+## Watch one go end-to-end
 
-### Watch one go end-to-end
+This video walks through a single, real piece of work from delegation to
+deliverable: the prompt, the clarifying questions Claude asks, the moment
+the user reroutes mid-task, and the finished result at the end. Notice the
+rhythm — it's less like prompting a chatbot and more like briefing a smart
+colleague who's about to disappear into a task and come back with something
+done.
 
-This video walks through a single, real piece of work from delegation to deliverable: the prompt, the clarifying questions Claude asks, the moment the user reroutes mid-task, and the finished result at the end. Notice the rhythm — it's less like prompting a chatbot and more like briefing a smart colleague who's about to disappear into a task and come back with something done.
-
-#### Key takeaways
+### Key takeaways
 
 * **Claude asks before it commits.** Most non-trivial tasks start with a clarifying question or two. The questions are how Claude closes context gaps before the work starts, not friction in the way.
 * **You can steer mid-task.** If Claude is heading in the wrong direction, jump in. You don't have to wait for it to finish and start over.
 * **The finished deliverable is the artifact, not the chat.** Claude makes changes to the files on your computer. Your job at the end is to review it the way you'd review a colleague's work.
 
-### Delegate your first task
+## Delegate your first task
 
-You picked a task in previous lessons. Now is when it leaves your plate. Open Cowork, point it at the folder where the context for the task lives, turn on any connectors that hold relevant context for the task, and write your prompt.
+You picked a task in previous lessons. Now is when it leaves your plate. Open Claude, choose where the context for the task lives (a folder on your computer if you're in the desktop app, otherwise a project), turn on any connectors that hold relevant context for the task, and write your prompt.
 
 A good Cowork prompt does three things:
 
@@ -34,93 +39,23 @@ A good Cowork prompt does three things:
 
 Build an example Cowork prompt in the interactive below.
 
-Build the prompt
-
-Deliverable
-
-four-page memo slide for the QBR ranked list with notes
-
-Inputs
-
-Q3 Competitive Review folder last quarter's memo as format reference analyst-call PDFs only
-
-Nuance
-
-for the executive team at the leadership offsite — help them decide on the new pricing tier lead with the recommendation flag anything we can't verify
-
-Write a message…
-
-Ask
-
-Sonnet 4.6
-
-0 of 3 rows complete
-
-**That's a complete delegation** — deliverable, inputs, and the context Cowork can't guess.
-
-Leave a row empty and Cowork will usually ask you for it.
-
 If you're used to prompting a chatbot, this will feel like more upfront work — it is. The trade is that more of the back-and-forth happens upfront, before Claude starts, instead of across five rounds of "actually, can you also..."
 
-### Answer the clarifying questions
+## Answer the clarifying questions
 
-Claude asks questions to clarify any ambiguities about your objectives before it gets into the work. In Chat, you collaborate as you go — context shows up turn by turn. In Cowork, you delegate and it returns with a completed artifact. Anything that might trip it up — any gaps in its understanding — comes up through the questions before it dives in.
+Claude asks questions to clarify any ambiguities about your objectives before it gets into the work. When you're chatting, you collaborate as you go — context shows up turn by turn. When you delegate to Cowork, Claude goes off and returns with a completed artifact. Anything that might trip it up — any gaps in its understanding — comes up through the questions before it dives in.
 
 Most are easy: Claude presents a couple of options and you click the one that fits. If none of the options fit, you can answer in your own words.
 
 Below are some examples of the questions you might receive from Cowork after submitting the prompt you built above.
 
-Cowork is asking you a few things
+## Steer mid-task
 
-### 
-
-1 of 4
-
-Skip
-
-`↑↓` to navigate `Enter` to select `Esc` to skip
-
-Pick an answer to see what it tells Cowork.
-
-Try again
-
-### Steer mid-task
-
-Watch Cowork's plan and progress as it works. If it's going off-track — wrong source, wrong format, wrong tone — interrupt. You can also stop the run if it's substantially off, refine the prompt, and start again with what you've learned. Most people's instinct from Chat is to wait until the response is done and then regenerate. Resist that. Cowork is built for course corrections, and the cost of a redirect is low.
+Watch Cowork's plan and progress as it works. If it's going off-track — wrong source, wrong format, wrong tone — interrupt. You can also stop the run if it's substantially off, refine the prompt, and start again with what you've learned. Most people's instinct from chatting is to wait until the response is done and then regenerate. Resist that. Cowork is built for course corrections, and the cost of a redirect is low.
 
 Steer the example task below and see how Claude responds.
 
-Steer mid-task
-
-Help me draft the Q3 competitive memo for the leadership offsite.
-
-I'll read the analyst-call PDFs and last quarter's memo, cross-reference each competitor's pricing changes against our positioning notes, then draft against the Q2 board-memo template.
-
-Read 3 files, searched 2 folders
-
-Writing draft · section 2 of 4
-
-Progress
-
-1Read source PDFs and last quarter's memo
-
-2Cross-reference pricing changes
-
-3Outline three competitor moves
-
-4 Drafting against Q2 board-memo template
-
-5Review against original prompt
-
-Write a message… (click Queue to steer mid-task)
-
-Queue
-
-**You don't need to wait for it to finish and then regenerate.** You can correct the plan while it's still running — Cowork picks up from where it was.
-
-Reset
-
-### Review the finished deliverable
+## Review the finished deliverable
 
 When Claude is done, you can preview the file in the app. The file is also in your folder, so you can open it up and see it there.
 
@@ -134,22 +69,77 @@ If the draft is mostly right, tell Claude what to change rather than starting ov
 
 If the draft is wrong in a load-bearing way, the prompt was missing the load-bearing piece of context. Point Claude to the new context and ask it to make adjustments.
 
-### Try it now
+## Try it now
 
 Take the task you identified in Lesson 3 — or pick one now. Hand it to Cowork using the process you just walked through — name the deliverable, the inputs, and any nuance; answer the clarifying questions specifically; steer if it drifts; review the result with your discernment on. The first run is the one that teaches you the most.
 
-### What’s next
+## What’s next
 
 You've now done it once. In Module 2, you'll start making Cowork *yours* — keeping the context that worked, the workflows you want repeated, and the expertise your team relies on, so you don't re-supply it every time you start a task.
 
-#### Feedback
+<!-- embed: https://academy.claude.com/embed/courses/introduction-to-claude-cowork/TaskLoopPromptBuilder -->
 
-As you progress through the course, we'd love to hear how you're using concepts from it in your work, plus any feedback you may have. Share your feedback [here](https://docs.google.com/forms/d/e/1FAIpQLScol7ZPi1cxhXy40g0AQieFbhTNQoVNm1Bvvs2gD1giMzOXHQ/viewform).
+Exercise: the learner selects chips for deliverable, inputs, and nuance, watching a composer assemble them live into one delegation prompt, with a confirmation once all three are filled. It teaches what makes a complete Cowork prompt.
 
-#### Acknowledgments and license
+Build the prompt
 
-*Copyright 2026 Anthropic. All rights reserved.*
+Deliverable
 
+Inputs
+
+Nuance
+
+Write a message…
+
+Ask Sonnet 4.6
+
+**That’s a complete delegation** — deliverable, inputs, and the context Cowork can’t guess.
+
+Leave a row empty and Cowork will usually ask you for it.
+
+<!-- embed: https://academy.claude.com/embed/courses/introduction-to-claude-cowork/TaskLoopClarifyingQuestions -->
+
+Exercise: simulated clarifying questions Claude might ask before starting a delegated task, each with multiple-choice answers, a free-text option, and a skip option. Answering or skipping a question shows a caption about what Claude then knows or must guess, teaching why these upfront questions shape the finished deliverable.
+
+Cowork is asking you a few things
+
+### I see two memos in this folder — *Q2-board-memo.docx* and *Q2-board-memo-FINAL.docx*. **Which should I match?**
+
+1 of 4
+
+`↑↓` to navigate`Enter` to select`Esc` to skip
+
+Pick an answer to see what it tells Cowork.
+
+<!-- embed: https://academy.claude.com/embed/courses/introduction-to-claude-cowork/TaskLoopMidTaskSteering -->
+
+Simulation: a mock Cowork interface shows a task in progress, with a conversation stream and plan panel. Sending a steering message interrupts the current step, which updates without restarting, showing that running tasks can be corrected mid-stream.
+
+Steer mid-task
+
+Help me draft the Q3 competitive memo for the leadership offsite.
+
+I’ll read the analyst-call PDFs and last quarter’s memo, cross-reference each competitor’s pricing changes against our positioning notes, then draft against the Q2 board-memo template.
+
+Read 3 files, searched 2 folders›
+
+Writing draft · section 2 of 4›
+
+Progress
+
+Done: 1Read source PDFs and last quarter’s memo
+
+Done: 2Cross-reference pricing changes
+
+Done: 3Outline three competitor moves
+
+4Drafting against Q2 board-memo template
+
+5Review against original prompt
+
+Write a message… (click Send to steer mid-task)
+
+**You don’t need to wait for it to finish and then regenerate.** You can correct the plan while it’s still running — Cowork picks up from where it was.
 <!-- youtube: Lbml7IuGJYw -->
 
 [![Hand Claude Cowork Your First Task](https://img.youtube.com/vi/Lbml7IuGJYw/hqdefault.jpg)](https://www.youtube.com/watch?v=Lbml7IuGJYw)

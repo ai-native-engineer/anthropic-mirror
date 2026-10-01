@@ -1,21 +1,5 @@
 <!-- https://anthropic.skilljar.com/ai-fluency-for-students/326791 -->
 
-Anthropic
-
-Open in Claude
-
-
-
-Anthropic
-
-Open in Claude
-
-Ask questions about this course
-
-Copy notes
-
-Copy full course notes for LLMs
-
 *Estimated time: 30 minutes*
 
 ## What you'll learn

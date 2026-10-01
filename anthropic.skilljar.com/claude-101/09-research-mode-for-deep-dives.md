@@ -122,3 +122,21 @@ Before moving on, consider:
 In the next section we're putting it all together. You'll see how everything you've learned comes together through real-world use cases organized by role, and discover additional ways to interact with Claude beyond the web interface.
 
 For more information on Research, including video tutorials, visit the [Anthropic Help Center](https://support.claude.com/en/articles/11088861-using-research-on-claude-ai).
+
+<!-- embed: https://academy.claude.com/embed/courses/claude-101/ResearchOrNot -->
+
+Exercise: the learner routes sample questions to Research, quick web search, Thinking, or enterprise search, then compares two versions of a Research prompt to pick the stronger one, learning what distinguishes each tool and an effective Research prompt.
+
+Try it
+
+### Research or not?
+
+Part 1 of 2 · Route the question
+
+Question 1 of 5
+
+“Compare the three payroll providers we're considering—pricing, implementation time, and support quality—and give me sources I can check.”
+
+Sonnet 4.6
+
+Where would you send it?
