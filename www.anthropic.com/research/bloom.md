@@ -39,7 +39,7 @@ Unlike fixed evaluation sets, Bloom produces different scenarios on each run whi
 
 Researchers can extensively configure Bloom's behavior, through choosing models for each stage, adjusting the interactions’ length and modality (i.e., whether to expose tools to the target model, whether to simulate a user), controlling how diverse the evaluation scenarios are, and specifying secondary scoring dimensions, like realism or elicitation difficulty.
 
-**Example outputs from all four stages of the Bloom evaluation pipeline can be viewed [here.](https://claude.ai/redirect/website.v1.3a09f146-74b9-46af-bb9f-f879eda24eda/public/artifacts/cbfddf51-ab0d-45a9-913b-163ae2dd4126)**
+**Example outputs from all four stages of the Bloom evaluation pipeline can be viewed [here.](https://claude.ai/redirect/website.v1.304f2fee-226d-4471-aafb-12fe5b3b9101/public/artifacts/cbfddf51-ab0d-45a9-913b-163ae2dd4126)**
 
 ## Validation and trust
 
@@ -90,6 +90,12 @@ url={https://github.com/safety-research/bloom},
 
 Copy
 
+### What work can robots do?
+
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
+
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
+
 ### What do you want from AI?
 
 We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
@@ -101,9 +107,3 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
 [Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
-
-### Yes, Claude can do Nine Loops
-
-Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
-
-[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)

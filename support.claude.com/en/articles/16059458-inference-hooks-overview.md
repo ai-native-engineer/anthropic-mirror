@@ -14,7 +14,7 @@ Common uses include data loss prevention, real-time transcript archival, and enf
 
 For the full technical documentation, including configuring and monitoring the hook, implementing an endpoint, verifying request signatures, and the API reference, see **[Inference hooks](https://platform.claude.com/docs/en/manage-claude/inference-hooks)**.
 
-* [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)
 * [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
 * [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)

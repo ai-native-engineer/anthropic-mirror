@@ -170,7 +170,7 @@ To add the marketplace:
 
 1. Go to **[Organization settings > Plugins & skills](https://claude.ai/admin-settings/skills)** and click the "Marketplaces" tab.
 2. Click "Add," then select "Sync from GitLab."
-3. In **GitLab repository URL**, enter the project's HTTPS URL, for example <https://gitlab.example.com/platform/claude-plugins>. Projects in nested subgroups work.
+3. In **GitLab repository URL**, enter the project's HTTPS URL, for example `https://gitlab.example.com/platform/claude-plugins`. Projects in nested subgroups work.
 4. Leave **Sync automatically** on if you want pushes to trigger a sync (see **Step 3**).
 5. Choose the **Default access** for the plugins the marketplace contains.
 6. Click "Create."

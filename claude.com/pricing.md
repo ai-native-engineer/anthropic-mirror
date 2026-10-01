@@ -12,7 +12,9 @@ Rolling out to Pro and Max, with more plans to follow.
 
 # Pricing
 
-IndividualTeam & EnterpriseAPI
+IndividualDeveloperTeam & EnterpriseAPI
+
+Individual
 
 ### Free
 

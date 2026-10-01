@@ -58,10 +58,10 @@ Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
-![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
+![](https://www.google.com/s2/favicons?domain=moda.app&sz=96)
 
-### [Dropbox](https://claude.com/marketplace/connectors/dropbox)
+### [Moda - Slides and Designs](https://claude.com/marketplace/connectors/moda)
 
-Search, organize, and take action on your Dropbox content
+Fully editable PowerPoints, Meta ads, motion graphics & social.
 
-[Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
+[Add Moda - Slides and Designs in Claude (opens in new tab)](https://claude.ai/directory/ea86601d-514b-42e4-aefc-32c6c51baf7e "Add in Claude")

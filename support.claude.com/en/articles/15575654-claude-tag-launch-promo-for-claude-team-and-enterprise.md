@@ -2,7 +2,7 @@
 
 # Claude Tag launch promo for Claude Team and Enterprise
 
-Updated over 4 weeks ago
+Updated over a month ago
 
 Table of contents
 

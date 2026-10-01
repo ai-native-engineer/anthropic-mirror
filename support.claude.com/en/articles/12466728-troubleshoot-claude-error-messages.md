@@ -52,10 +52,10 @@ Capacity issues will not appear on our status page because they represent normal
 
 Service incidents are disruptions where Claude is unavailable or significantly degraded for all or most users. These represent actual technical problems with our systems. To check for confirmed incidents, visit status.claude.com, where you'll find real-time updates on scope, impact, and resolution progress for any active incidents.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1790775000&signature=ecf0af049640d9e018af2343e04456db6d3fe77c1b3016cbed5724dd314ef5bd&req=dSciFc53m4NbXvMW1HO4za4BX68k1bfE7y68oYp%2BYg8l%2FcSO78XSNmDPEOuo%0AhE0ebVZITUuobbKQl38%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1790775000&signature=ecf0af049640d9e018af2343e04456db6d3fe77c1b3016cbed5724dd314ef5bd&req=dSciFc53m4NbXvMW1HO4za4BX68k1bfE7y68oYp%2BYg8l%2FcSO78XSNmDPEOuo%0AhE0ebVZITUuobbKQl38%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1790833500&signature=a98f0ce47c3e5196f2d8ec7959734e0b166a5688e42f642b7bfb03c15de520dd&req=dSciFc53m4NbXvMW1HO4za4BX68r0bHB7y68oYp%2BYg%2FN33RgThSIXsQzOymM%0AQ5K7qPhB8DTU%2BpX%2B7NM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1790833500&signature=a98f0ce47c3e5196f2d8ec7959734e0b166a5688e42f642b7bfb03c15de520dd&req=dSciFc53m4NbXvMW1HO4za4BX68r0bHB7y68oYp%2BYg%2FN33RgThSIXsQzOymM%0AQ5K7qPhB8DTU%2BpX%2B7NM%3D%0A)
 
 * [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
-* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)

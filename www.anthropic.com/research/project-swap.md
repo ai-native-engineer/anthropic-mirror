@@ -283,6 +283,12 @@ Zhu, Shenzhe, Jiao Sun, Yi Nian, Tobin South, Alex Pentland, and Jiaxin Pei, “
 26. Varying the rules for agent participants, as [Shah et al. (2025)](https://arxiv.org/abs/2507.09083) do for auctions, is a natural next step.
 27. [Hadfield and Koh (2026)](https://www.nber.org/books-and-chapters/economics-transformative-ai/economy-ai-agents) and [Shahidi et al. (2026)](https://www.nber.org/system/files/chapters/c15309/c15309.pdf) offer useful overviews of these design questions from an economic perspective. [Chan et al. (2025)](https://arxiv.org/abs/2501.10114) contains a useful framework for technical governance.
 
+### What work can robots do?
+
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
+
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
+
 ### What do you want from AI?
 
 We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
@@ -294,9 +300,3 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
 [Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
-
-### Yes, Claude can do Nine Loops
-
-Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
-
-[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)

@@ -46,7 +46,7 @@ You can start a Remote Control session from the CLI, the [Claude Desktop app](ht
 
     The process stays running in your terminal in server mode, waiting for remote connections. It displays a session URL you can use to [connect from another device](#connect-from-another-device), and you can press spacebar to show a QR code for quick access from your phone. While a remote session is active, the terminal shows connection status and tool activity.
 
-    Available flags:
+    Pass any of these flags after `remote-control`:
 
     | Flag | Description |
     | - | - |
@@ -62,11 +62,10 @@ You can start a Remote Control session from the CLI, the [Claude Desktop app](ht
     | `-d`, `--debug[=<filter>]` | Turn on debug logging for the server, optionally filtered by category. Pass a filter only in the `=` form, such as `--debug=api,hooks`. Requires Claude Code v2.1.282 or later. |
     | `--debug-file <path>` | Write debug logs to the given file. |
     | `--verbose` | Show detailed connection and session logs. |
-    | `--sandbox` / `--no-sandbox` | Enable or disable [sandboxing](https://code.claude.com/docs/en/sandboxing) for filesystem and network isolation. Off by default. |
-
-    Give these flags after `remote-control`.
 
     If you pass a global `claude` flag before `remote-control`, or a wrapper script adds one, Claude Code doesn't carry the flag over to the sessions the server creates. Claude Code lets the flag through only when dropping it is known not to change what those sessions can do, such as `--verbose` or `--model`. For any other flag, such as `--settings`, Claude Code [refuses to start](https://code.claude.com/docs/en/errors#not-carried-over-to-the-sessions-remote-control-starts) and names the flag to remove.
+
+    To sandbox the sessions the server starts, turn on [sandboxing](https://code.claude.com/docs/en/sandboxing) in a settings file.
 
     Claude Code checks Remote Control eligibility before printing help, so `claude remote-control --help` returns an error instead of this flag list when you aren't signed in with an eligible account.
   </Tab>
@@ -104,7 +103,7 @@ You can start a Remote Control session from the CLI, the [Claude Desktop app](ht
 
     Until you accept Remote Control's one-time confirmation, a dialog appears before `/remote-control` connects. Select **Enable Remote Control** to accept and connect. If you select **Never mind** or press Esc, Claude Code doesn't connect and asks again the next time you run `/remote-control`.
 
-    The `--verbose`, `--sandbox`, and `--no-sandbox` flags are not available with this command.
+    The `--verbose` flag is not available with this command.
   </Tab>
 
   <Tab title="VS Code">

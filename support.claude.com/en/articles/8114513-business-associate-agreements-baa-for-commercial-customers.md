@@ -129,7 +129,7 @@ The Messages API is covered as an Eligible Service under your BAA. The following
 Please see our **[Trust Portal](https://trust.anthropic.com/resources?s=rgirr4qe8u7ek8c2igx3&name=claude-for-enterprise-hipaa-ready-offering-implementation-guide)** for more information about our compliance commitments.
 
 * [HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)
-* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
 * [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
+* [Turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)

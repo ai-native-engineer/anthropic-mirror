@@ -26,6 +26,4 @@
 
 [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
 
-[Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
-
 [Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)

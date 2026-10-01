@@ -486,4 +486,4 @@ Create one role that grants access to multiple areas, or add the member to multi
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
-* [Authorize MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization)
+* [Set up Claude for Teachers for your school or district](https://support.claude.com/en/articles/16559896-set-up-claude-for-teachers-for-your-school-or-district)

@@ -43,5 +43,3 @@ There's still a lot to do. Our approach to understanding and addressing harms is
 As AI systems become more capable, we expect new challenges will emerge that we haven't yet anticipated. We're committed to evolving our approach alongside these developments, including adapting our frameworks, refining our assessment methods, and learning from both successes and failures along the way.
 
 We know we can't do this work alone. We invite researchers, policy experts, and industry partners to collaborate with us as we continue exploring these important questions. You can connect with us on these issues via [usersafety@anthropic.com](mailto:usersafety@anthropic.com).
-
-Understanding and addressing AI harms \ Anthropic

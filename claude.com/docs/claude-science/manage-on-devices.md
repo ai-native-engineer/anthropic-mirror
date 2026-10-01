@@ -38,7 +38,7 @@ The app sends product-usage telemetry (event counts and timings, not conversatio
 When the app runs into an error, it also sends an error report to the error-reporting service Anthropic uses that identifies the error type and where it occurred in Claude Science’s own code. The report includes the app version, its runtime version, the operating system version, and the app’s most recent telemetry events. The app redacts each report on the member’s computer before sending it: error messages are removed, and code locations outside Claude Science’s own code are blanked. Reports contain no conversation content, research data, file contents, or file paths, and no usernames, account identifiers, or organization identifiers.
 To turn telemetry and error reports off on managed devices, use either of:
 Set disable\_telemetry = true in config.toml (deployable through MDM).
-Set the DO\_NOT\_TRACK environment variable (for example to 1) on the device.
+Set the DO\_NOT\_TRACK environment variable (for example to 1) where the app reads it at launch. See [How the environment variables reach the app](https://claude.com/docs/claude-science/corporate-networks#how-the-environment-variables-reach-the-app).
 Both are device-level settings. There’s no per-member or per-organization telemetry toggle in Organization settings.
 
 ##  Endpoint detection and response

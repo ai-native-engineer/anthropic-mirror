@@ -50,17 +50,16 @@ The connectors teams reach for first.
 6. 06![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)[Notion](https://claude.com/marketplace/connectors/notion)Connect your Notion workspace to search, update, and power workflows across tools
 7. 07![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)[Figma](https://claude.com/marketplace/connectors/figma)Generate diagrams and better code from Figma context
 8. 08![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)[Slack](https://claude.com/marketplace/connectors/slack)Send messages, create canvases, and fetch Slack data
-9. 09![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)[Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
-10. 10![](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg?w=128&fit=max&auto=format)[HubSpot](https://claude.com/marketplace/connectors/hubspot)CRM context for every answer, insight, and action
+9. 09![](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg?w=128&fit=max&auto=format)[HubSpot](https://claude.com/marketplace/connectors/hubspot)CRM context for every answer, insight, and action
+10. 10![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)[Asana](https://claude.com/marketplace/connectors/asana)Connect to Asana to coordinate tasks, projects, and goals
 
 ### Trending now
 
 Fast-growing connectors this week.
 
-1. 01![](https://bd3.bdreporting.com/content/logo.svg)[Black Diamond](https://claude.com/marketplace/connectors/black-diamond)Client, portfolio, and performance data for advisors
-2. 02![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)[Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)Amazon Selling Partner MCP
-3. 03![](https://app.paxton.ai/images/paxton-favicon.png)[Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)Research U.S. law in Claude—with citations you can open and verify.
-4. 04![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)[Vanguard Advisor Tools](https://claude.com/marketplace/connectors/vanguard-advisor-tools)Access Vanguard models data and content from Claude
+1. 01![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)[Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)Amazon Selling Partner MCP
+2. 02![](https://app.paxton.ai/images/paxton-favicon.png)[Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)Research U.S. law in Claude—with citations you can open and verify.
+3. 03![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)[Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
 
 ### Connectors for Connector category: Productivity
 
@@ -73,9 +72,9 @@ Add the tools productivity teams use every day.
 * [Microsoft 365 connector![](https://assets.claude.com/20c8443aa72ae4e4d77f923e6c33314713f965e8.svg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/microsoft-365)
 * [Notion connector![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/notion)
 * [Slack connector![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/slack)
-* [Atlassian MCP connector![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/atlassian)
 * [Asana connector![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/asana)
 * [Linear connector![](https://assets.claude.com/ed172e953866fead6b10ab99ba870471a1ad4053.svg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/linear)
+* [monday.com connector![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)](https://claude.com/marketplace/connectors/monday)
 
 ## Agents and products to buy from our partners
 
@@ -107,7 +106,7 @@ Code
 
 Accelerate outcomes with autonomous intelligence fueled by world-class expertise.
 
-Code
+Security
 
 ![](https://assets.claude.com/2a378f5e9d136884701abca4f5ee0b0298b6a159.svg)
 

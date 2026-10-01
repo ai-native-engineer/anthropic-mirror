@@ -10,6 +10,12 @@ Oct 5, 2023
 
 In our latest paper, [*Towards Monosemanticity: Decomposing Language Models With Dictionary Learning*](https://transformer-circuits.pub/2023/monosemantic-features), we outline evidence that there are better units of analysis than individual neurons, and we have built machinery that lets us find these units in small transformer models. These units, called features, correspond to patterns (linear combinations) of neuron activations. This provides a path to breaking down complex neural networks into parts we can understand, and builds on previous efforts to interpret high-dimensional systems in neuroscience, machine learning, and statistics. In a transformer language model, we decompose a layer with 512 neurons into more than 4000 features which separately represent things like DNA sequences, legal language, HTTP requests, Hebrew text, nutrition statements, and much, much more. Most of these model properties are invisible when looking at the activations of individual neurons in isolation.
 
+### What work can robots do?
+
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
+
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
+
 ### What do you want from AI?
 
 We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
@@ -21,9 +27,3 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
 [Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
-
-### Yes, Claude can do Nine Loops
-
-Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
-
-[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)

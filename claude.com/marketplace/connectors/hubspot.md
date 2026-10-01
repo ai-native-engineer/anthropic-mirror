@@ -47,14 +47,6 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
-
-### [Shopify](https://claude.com/marketplace/connectors/shopify)
-
-Build, manage, and analyze your Shopify store
-
-[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
-
 ![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
 
 ### [Miro](https://claude.com/marketplace/connectors/miro)
@@ -62,6 +54,14 @@ Build, manage, and analyze your Shopify store
 Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+
+![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
+
+### [Shopify](https://claude.com/marketplace/connectors/shopify)
+
+Build, manage, and analyze your Shopify store
+
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
 ![](https://assets.claude.com/2a378f5e9d136884701abca4f5ee0b0298b6a159.svg?w=128&fit=max&auto=format)
 
@@ -79,10 +79,10 @@ Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
 
-![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=getjobber.com&sz=96)
 
-### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
+### [Jobber](https://claude.com/marketplace/connectors/jobber)
 
-Sell, serve, and operate at scale with Salesforce.
+Get answers and take action with context from your Jobber account
 
-[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
+[Add Jobber in Claude (opens in new tab)](https://claude.ai/directory/d53b3c4b-c4c7-4886-8698-786cfaff70f2 "Add in Claude")

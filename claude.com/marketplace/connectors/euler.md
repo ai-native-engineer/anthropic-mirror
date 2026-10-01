@@ -8,30 +8,46 @@ Manage your partner program and access your Partner Data Lake with Claude — in
 
 ## Tools
 
-* ping
 * list\_accounts
-* partners
 * partner\_directory\_search
+* partner\_directory\_manage
+* partner\_directory\_profiles
+* partners
+* partner\_access\_diagnosis
 * partner\_artifacts
 * referrals
 * submit\_referral
-* company\_deals
-* company\_invoices
+* get\_outbound\_form
+* send\_outbound\_referral
+* resolve\_referral
+* get\_search\_deals
 * charges\_lookup
-* flow\_lifecycle
-* flow\_details
-* flow\_steps
-* flow\_attachable\_resources
-* flow\_assignment
-* flow\_assignment\_candidates
-* incentives\_summary
-* content\_search
+* manage\_deals
+* list\_partner\_contacts
+* create\_partner\_contact
+* invite\_partners\_to\_portal
+* flows
+* flows\_manage
+* quizzes
+* quizzes\_manage
+* company\_invoices
 * commissions
-* performance
+
+Show all 50 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
+
+![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
+
+### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
+
+Anthropic verifiedTrending
+
+Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+
+[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -72,11 +88,3 @@ Connect your Notion workspace to search, update, and power workflows across tool
 Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
-
-![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
-
-### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
-
-Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
-
-[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")

@@ -168,6 +168,12 @@ Finally, as model progress continues, we expect more aspects of military and int
 2. We tested two prompt variants—one that names a specific person of interest ("anchor-given") as the signal for the classification task, one that only describes an issue of concern ("vague issue"). We report the results from the “vague issue” variant, but the ordering of the models was essentially the same from the “anchor-given” version of the eval.
 3. It’s worth noting that Haas et al.'s human comparison comes from GeoGuessr's Duels mode, where a player has 15 seconds to answer once the opponent has guessed. While the authors did not report timing data, their paper and codebase show that the bot was able to respond nearly instantaneously but included a random delay on the order of seconds. We can then surmise that the human medians reflect roughly 15–20 seconds of interactive Street View exploration per round. For comparison, Mythos 5 returned its estimate from a single static image in a median of 6 seconds of wall-clock time per photo in our setup.
 
+### What work can robots do?
+
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
+
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
+
 ### What do you want from AI?
 
 We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
@@ -179,12 +185,6 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
 [Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
-
-### Yes, Claude can do Nine Loops
-
-Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
-
-[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
 
 ## Subscribe to the Frontier Red Team newsletter
 

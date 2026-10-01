@@ -19803,8 +19803,6 @@ Create Session
 
   - `status: "rescheduling" or "running" or "idle" or "terminated"`
 
-    SessionStatus enum
-
     - `"rescheduling"`
 
       Transient error occurred, retrying automatically.
@@ -21012,8 +21010,6 @@ List Sessions
 
     - `status: "rescheduling" or "running" or "idle" or "terminated"`
 
-      SessionStatus enum
-
       - `"rescheduling"`
 
         Transient error occurred, retrying automatically.
@@ -22166,8 +22162,6 @@ Get Session
       format: double
 
   - `status: "rescheduling" or "running" or "idle" or "terminated"`
-
-    SessionStatus enum
 
     - `"rescheduling"`
 
@@ -23332,8 +23326,6 @@ Update Session
       format: double
 
   - `status: "rescheduling" or "running" or "idle" or "terminated"`
-
-    SessionStatus enum
 
     - `"rescheduling"`
 
@@ -24524,8 +24516,6 @@ Archive Session
 
   - `status: "rescheduling" or "running" or "idle" or "terminated"`
 
-    SessionStatus enum
-
     - `"rescheduling"`
 
       Transient error occurred, retrying automatically.
@@ -25642,7 +25632,7 @@ List Events
 
         Unique identifier for this event.
 
-      - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
+      - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 10 more`
 
         - `beta_managed_agents_unknown_error: object`
 
@@ -25874,6 +25864,156 @@ List Events
 
             ID of the vault containing the affected credential.
 
+        - `beta_managed_agents_repository_authentication_error: object`
+
+          The repository host rejected the credentials, or required credentials and received none.
+
+          - `type: "repository_authentication_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
+        - `beta_managed_agents_repository_forbidden_error: object`
+
+          The repository host refused access to the repository.
+
+          - `type: "repository_forbidden_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
+        - `beta_managed_agents_repository_not_found_error: object`
+
+          The repository host reported the repository as not found.
+
+          - `type: "repository_not_found_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
+        - `beta_managed_agents_repository_checkout_error: object`
+
+          The requested branch or commit does not exist in the repository.
+
+          - `type: "repository_checkout_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
+        - `beta_managed_agents_repository_clone_error: object`
+
+          The repository could not be cloned.
+
+          - `type: "repository_clone_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
       - `processed_at: string`
 
         Timestamp when the error occurred.
@@ -25928,7 +26068,31 @@ List Events
 
         format: date-time
 
-      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+      - `stop_details: object`
+
+        Structured information about why the session stopped. `null` when there is nothing more to report.
+
+        - `type: "refusal"`
+
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+          The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+          - `"cyber"`
+
+          - `"bio"`
+
+          - `"frontier_llm"`
+
+          - `"reasoning_extraction"`
+
+          - `"general_harms"`
+
+        - `explanation: string`
+
+          Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or 2 more`
 
         - `beta_managed_agents_session_end_turn: object`
 
@@ -25957,6 +26121,12 @@ List Events
           The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
           - `type: "budget_reached"`
+
+        - `beta_managed_agents_session_refusal: object`
+
+          The turn ended because the model's response was refused, for example by a safety classifier.
+
+          - `type: "refusal"`
 
     - `beta_managed_agents_session_status_terminated_event: object`
 
@@ -26314,7 +26484,21 @@ List Events
 
         Public sthr_ ID of the thread that went idle.
 
-      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+      - `stop_details: object`
+
+        Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+        - `type: "refusal"`
+
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+          The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `explanation: string`
+
+          Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or 2 more`
 
         - `beta_managed_agents_session_end_turn: object`
 
@@ -26331,6 +26515,10 @@ List Events
         - `beta_managed_agents_session_budget_reached: object`
 
           The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+        - `beta_managed_agents_session_refusal: object`
+
+          The turn ended because the model's response was refused, for example by a safety classifier.
 
     - `beta_managed_agents_session_thread_status_terminated_event: object`
 
@@ -28521,7 +28709,7 @@ Stream Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
+    - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 10 more`
 
       - `beta_managed_agents_unknown_error: object`
 
@@ -28753,6 +28941,156 @@ Stream Events
 
           ID of the vault containing the affected credential.
 
+      - `beta_managed_agents_repository_authentication_error: object`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: "repository_authentication_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `beta_managed_agents_repository_forbidden_error: object`
+
+        The repository host refused access to the repository.
+
+        - `type: "repository_forbidden_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `beta_managed_agents_repository_not_found_error: object`
+
+        The repository host reported the repository as not found.
+
+        - `type: "repository_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `beta_managed_agents_repository_checkout_error: object`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: "repository_checkout_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `beta_managed_agents_repository_clone_error: object`
+
+        The repository could not be cloned.
+
+        - `type: "repository_clone_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: string`
 
       Timestamp when the error occurred.
@@ -28807,7 +29145,31 @@ Stream Events
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: object`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `type: "refusal"`
+
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `"cyber"`
+
+        - `"bio"`
+
+        - `"frontier_llm"`
+
+        - `"reasoning_extraction"`
+
+        - `"general_harms"`
+
+      - `explanation: string`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or 2 more`
 
       - `beta_managed_agents_session_end_turn: object`
 
@@ -28836,6 +29198,12 @@ Stream Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `type: "budget_reached"`
+
+      - `beta_managed_agents_session_refusal: object`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: "refusal"`
 
   - `beta_managed_agents_session_status_terminated_event: object`
 
@@ -29193,7 +29561,21 @@ Stream Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: object`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+      - `type: "refusal"`
+
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+      - `explanation: string`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or 2 more`
 
       - `beta_managed_agents_session_end_turn: object`
 
@@ -29210,6 +29592,10 @@ Stream Events
       - `beta_managed_agents_session_budget_reached: object`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `beta_managed_agents_session_refusal: object`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `beta_managed_agents_session_thread_status_terminated_event: object`
 
@@ -31760,425 +32146,3 @@ Get Session Thread
           - `"claude-opus-4-8"`
 
             Powerful intelligence for long-running agents and coding
-
-          - `"claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `"claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `"claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
-
-          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
-
-          - `beta_managed_agents_effort_low: object`
-
-            Low effort. Favors latency over reasoning depth.
-
-            - `type: "low"`
-
-          - `beta_managed_agents_effort_medium: object`
-
-            Medium effort. Balances latency and reasoning depth.
-
-            - `type: "medium"`
-
-          - `beta_managed_agents_effort_high: object`
-
-            High effort. Favors reasoning depth.
-
-            - `type: "high"`
-
-          - `beta_managed_agents_effort_xhigh: object`
-
-            Extra-high effort. Not all models accept this level.
-
-            - `type: "xhigh"`
-
-          - `beta_managed_agents_effort_max: object`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-            - `type: "max"`
-
-        - `inference_geo: optional string`
-
-          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-        - `speed: optional "standard" or "fast"`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"`
-
-          - `"fast"`
-
-      - `name: string`
-
-      - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-        - `beta_managed_agents_anthropic_skill: object`
-
-          A resolved Anthropic-managed skill.
-
-          - `type: "anthropic"`
-
-          - `skill_id: string`
-
-          - `version: string`
-
-        - `beta_managed_agents_custom_skill: object`
-
-          A resolved user-created custom skill.
-
-          - `type: "custom"`
-
-          - `skill_id: string`
-
-          - `version: string`
-
-      - `system: string`
-
-      - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-        - `beta_managed_agents_agent_toolset20260401: object`
-
-          - `type: "agent_toolset_20260401"`
-
-          - `configs: array of BetaManagedAgentsAgentToolConfig`
-
-            - `beta_managed_agents_bash_tool_config: object`
-
-              Configuration for the bash tool.
-
-              - `type: "bash"`
-
-              - `enabled: boolean`
-
-              - `name: "bash"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                  - `type: "always_allow"`
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                  - `type: "always_ask"`
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                  - `type: "auto"`
-
-            - `beta_managed_agents_edit_tool_config: object`
-
-              Configuration for the edit tool.
-
-              - `type: "edit"`
-
-              - `enabled: boolean`
-
-              - `name: "edit"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_read_tool_config: object`
-
-              Configuration for the read tool.
-
-              - `type: "read"`
-
-              - `enabled: boolean`
-
-              - `name: "read"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_write_tool_config: object`
-
-              Configuration for the write tool.
-
-              - `type: "write"`
-
-              - `enabled: boolean`
-
-              - `name: "write"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_glob_tool_config: object`
-
-              Configuration for the glob tool.
-
-              - `type: "glob"`
-
-              - `enabled: boolean`
-
-              - `name: "glob"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_grep_tool_config: object`
-
-              Configuration for the grep tool.
-
-              - `type: "grep"`
-
-              - `enabled: boolean`
-
-              - `name: "grep"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_web_fetch_tool_config: object`
-
-              Configuration for the web_fetch tool.
-
-              - `type: "web_fetch"`
-
-              - `enabled: boolean`
-
-              - `name: "web_fetch"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-              - `allowed_domains: optional array of string`
-
-              - `blocked_domains: optional array of string`
-
-              - `max_content_tokens: optional number`
-
-                format: int32
-
-            - `beta_managed_agents_web_search_tool_config: object`
-
-              Configuration for the web_search tool.
-
-              - `type: "web_search"`
-
-              - `enabled: boolean`
-
-              - `name: "web_search"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-              - `allowed_domains: optional array of string`
-
-              - `blocked_domains: optional array of string`
-
-              - `user_location: optional object`
-
-                Approximate user location for search result localization.
-
-                - `type: "approximate"`
-
-                  Location precision. Only "approximate" is supported.
-
-                - `city: optional string`
-
-                  City name.
-
-                  minLength: 1, maxLength: 255
-
-                - `country: optional string`
-
-                  Two-letter ISO 3166-1 country code, uppercase.
-
-                - `region: optional string`
-
-                  Region or state name.
-
-                  minLength: 1, maxLength: 255
-
-                - `timezone: optional string`
-
-                  IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                  minLength: 1, maxLength: 255
-
-          - `default_config: object`
-
-            Resolved default configuration for agent tools.
-
-            - `enabled: boolean`
-
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-              Permission policy for tool execution.
-
-              - `beta_managed_agents_always_allow_policy: object`
-
-                Tool calls are automatically approved without user confirmation.
-
-              - `beta_managed_agents_always_ask_policy: object`
-
-                Tool calls require user confirmation before execution.
-
-              - `beta_managed_agents_auto_policy: object`
-
-                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-        - `beta_managed_agents_mcp_toolset: object`
-
-          - `type: "mcp_toolset"`
-
-          - `configs: array of BetaManagedAgentsMCPToolConfig`
-
-            - `enabled: boolean`
-
-            - `name: string`
-
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-              Permission policy for tool execution.
-
-              - `beta_managed_agents_always_allow_policy: object`
-
-                Tool calls are automatically approved without user confirmation.
-
-              - `beta_managed_agents_always_ask_policy: object`
-
-                Tool calls require user confirmation before execution.
-
-              - `beta_managed_agents_auto_policy: object`
-
-                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-          - `default_config: object`

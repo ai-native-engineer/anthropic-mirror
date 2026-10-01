@@ -6,13 +6,13 @@ Sep 17, 2026
 
 ![Introducing the Life Sciences Verification Program](https://www-cdn.anthropic.com/images/4zrzovbb/website/d6058e0db8e477dc782dacae46e2ec6663d165d9-1000x1000.svg)
 
-Today, we are introducing the Life Sciences Verification Program (LSVP), which gives life science professionals access to our Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work. We have already onboarded dozens of organizations through an early-access program, and are now opening applications to the broader life science community ([apply here](https://claude.com/form/life-sciences-verification-program)). The program is launching in beta, initially for teams and institutions. We will continue to improve the program and expand access to individual Pro and Max plans over time.
+Today, we are introducing the Life Sciences Verification Program (LSVP), which gives life science professionals access to our Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work. We have already onboarded dozens of organizations through an early-access program, and are now opening applications to the broader life science community ([join waitlist here](https://claude.com/form/life-sciences-verification-program)). The program is launching in beta, initially for teams and institutions. We will continue to improve the program and expand access to individual Pro and Max plans over time.
 
 The LSVP is designed to enable life science professionals to use our models across a wide range of tasks that are currently blocked in our generally available Fable models, like drug discovery, research biology, clinical development, and manufacturing. It’s built for teams of all kinds—from academic labs to startups, pharma companies, and more.
 
 ## **Verification and access types**
 
-To qualify for these grants, each applicant goes through a verification process that includes a review of their research credentials, security standards, and ethical research oversight. Once verified, teams may apply for two types of LSVP grants, “Standard Use” or “High-risk Use,” depending on their access needs. These grants can be used through all our product surfaces, including [Claude Science](https://claude.com/product/claude-science), [Claude.ai](http://claude.ai/redirect/website.v1.74c4d221-cdaa-463c-a91b-7c05bf872713), Claude Code and the API.
+To qualify for these grants, each applicant goes through a verification process that includes a review of their research credentials, security standards, and ethical research oversight. Once verified, teams may apply for two types of LSVP grants, “Standard Use” or “High-risk Use,” depending on their access needs. These grants can be used through all our product surfaces, including [Claude Science](https://claude.com/product/claude-science), [Claude.ai](http://claude.ai/redirect/website.v1.304f2fee-226d-4471-aafb-12fe5b3b9101), Claude Code and the API.
 
 **Standard Use** grants are suitable for most life science work, including the majority of biology research and development workflows. These grants can be extended to entire teams for diverse, daily workloads, and are renewed once a year. They give those teams access to our Mythos, Opus, and Sonnet models, with refined classifiers that are more permissive for science tasks than our generally available models. Standard Use grants apply to Mythos 5.1, Opus 5, and Sonnet 5 today, and to future models as they launch. They’re specifically designed to enable the full breadth of life science activities in areas spanning basic science, R&D, supply chain and manufacturing, clinical development, quality assurance, regulatory affairs, investing and diligence, and more.
 
@@ -54,17 +54,20 @@ This data is strictly compartmentalized and cannot be used for model training or
 
 ## Applications and availability
 
-Organizations interested in joining the LSVP can [submit an application here](https://claude.com/form/life-sciences-verification-program). We expect to enroll hundreds of organizations within the first week, and to scale the program further to support the majority of the life science community in the coming weeks.
+Organizations interested in joining the LSVP can [register interest here](https://claude.com/form/life-sciences-verification-program). We expect to enroll hundreds of organizations within the first week, and to scale the program further to support the majority of the life science community in the coming weeks.
 
 Today, LSVP is available in our first-party console for API usage, as well as in Claude for Enterprise and Team plans. We do not yet support individual plans but are working to expand access for these users. It is also not yet available on third-party platforms.
 
 As a beta, LSVP is not available for BAA-enabled orgs. This means customers with PHI data should use separate non-BAA orgs with non-HIPAA.
 
-In API and Claude Science, users can switch between grants natively. In [Claude.ai](http://claude.ai/redirect/website.v1.74c4d221-cdaa-463c-a91b-7c05bf872713) and Claude Code, initially only a preselected default grant applies (except while using Claude Code with API authentication). This should be fine for the vast majority of users, who will only ever require a Standard Use grant. However, we will improve support and portability of these LSVP features over time.
+In API and Claude Science, users can switch between grants natively. In [Claude.ai](http://claude.ai/redirect/website.v1.304f2fee-226d-4471-aafb-12fe5b3b9101) and Claude Code, initially only a preselected default grant applies (except while using Claude Code with API authentication). This should be fine for the vast majority of users, who will only ever require a Standard Use grant. However, we will improve support and portability of these LSVP features over time.
 
 ## What comes next
 
 Providing these frontier capabilities is part of our broader efforts in supporting the life sciences community in our shared mission to accelerate curing disease and improving human health. We will share more about new products, research collaborations, and improvements to the program in the coming months.
+
+**Changelog:**
+September 30th, 2026. We clarified that the form we link to is an expression of interest, not an application.
 
 ### Developing Enterprise Frontier Safeguards with our customers
 

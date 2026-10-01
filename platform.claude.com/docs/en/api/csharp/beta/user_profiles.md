@@ -157,6 +157,8 @@ Create User Profile
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -477,6 +479,8 @@ List User Profiles
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -771,6 +775,8 @@ Get User Profile
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -1101,6 +1107,8 @@ Update User Profile
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1391,6 +1399,8 @@ Create Enrollment URL
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 

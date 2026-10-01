@@ -3,7 +3,7 @@
 ---
 title: Preserved thinking
 url: https://platform.claude.com/docs/en/build-with-claude/preserved-thinking
-description: Preserved thinking lets a model use a thinking block from an earlier turn only if that model or an earlier one produced it and nothing before the block has changed.
+description: Preserved thinking lets a model use a thinking block from an earlier turn only if that model or one of a fixed set of other models produced it and nothing before the block has changed.
 ---
 
 Preserved thinking is a property of newer Claude models that guards against distillation. It decides whether the model can use a thinking block that you send back from an earlier turn. Starting with Claude Fable 5.1, when a `thinking` or `redacted_thinking` block comes back in a request, the API checks the block's `signature` for two things:
@@ -38,9 +38,9 @@ Also check your integration if it sends Claude Sonnet 5.5 thinking blocks from o
 
 Claude Fable 5.1 and Claude Mythos 5.1 read thinking blocks produced by each other and by earlier Claude models. No earlier model reads thinking blocks from Claude Fable 5.1 or Claude Mythos 5.1.
 
-Claude Opus 5.5 reads thinking blocks from Claude Opus 5 and earlier Opus, Sonnet, and Haiku models, but not from Claude Fable or Claude Mythos models. On the Claude API, Claude Fable 5.1 and Claude Mythos 5.1 read thinking blocks from Claude Opus 5.5; no other model does. So a conversation that moves from Claude Opus 5 onto Claude Opus 5.5 keeps its reasoning, and so does one that moves from Claude Opus 5.5 up to Claude Fable 5.1 or Claude Mythos 5.1 on the Claude API. One that moves from Claude Fable 5.1 or Claude Mythos 5.1 to Claude Opus 5.5, or from Claude Opus 5.5 to any model other than those two, runs the turns after the switch without the previous model's reasoning. The blocks are dropped, not rejected, as described below.
+Claude Opus 5.5 reads thinking blocks from Claude Opus 5, from earlier Opus, Sonnet, and Haiku models, and, on the Claude API, from Claude Sonnet 5.5, but not from Claude Fable or Claude Mythos models. On the Claude API, Claude Fable 5.1 and Claude Mythos 5.1 read thinking blocks from Claude Opus 5.5; no other model does. So a conversation that moves from Claude Opus 5 onto Claude Opus 5.5 keeps its reasoning, and so does one that moves from Claude Opus 5.5 up to Claude Fable 5.1 or Claude Mythos 5.1 on the Claude API. One that moves from Claude Fable 5.1 or Claude Mythos 5.1 to Claude Opus 5.5, or from Claude Opus 5.5 to any model other than those two, runs the turns after the switch without the previous model's reasoning. The blocks are dropped, not rejected, as described below.
 
-Claude Sonnet 5.5 reads thinking blocks from Claude Sonnet 5, Claude Opus 4.8, Claude Haiku 4.5, and earlier models, but not from Claude Opus 5, Claude Opus 5.5, or any Claude Fable or Claude Mythos model. No other model reads thinking blocks from Claude Sonnet 5.5. So a conversation that moves from Claude Sonnet 5 onto Claude Sonnet 5.5 keeps its reasoning. One that moves onto Claude Sonnet 5.5 from Claude Opus 5, Claude Opus 5.5, or a Claude Fable or Claude Mythos model runs the turns after the switch without the previous model's reasoning. So does one that moves from Claude Sonnet 5.5 to any other model, for example in a [server-side fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback).
+Claude Sonnet 5.5 reads thinking blocks from Claude Sonnet 5, Claude Opus 4.8, Claude Haiku 4.5, and earlier models, but not from Claude Opus 5, Claude Opus 5.5, or any Claude Fable or Claude Mythos model. On the Claude API, Claude Opus 5.5 reads thinking blocks from Claude Sonnet 5.5; no other model does. So a conversation that moves from Claude Sonnet 5 onto Claude Sonnet 5.5 keeps its reasoning, and so does one that moves from Claude Sonnet 5.5 up to Claude Opus 5.5 on the Claude API. One that moves onto Claude Sonnet 5.5 from Claude Opus 5, Claude Opus 5.5, or a Claude Fable or Claude Mythos model runs the turns after the switch without the previous model's reasoning. So does any other move away from Claude Sonnet 5.5, for example a [server-side fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback) to Claude Sonnet 5.
 
 * **A conversation that moves to Claude Fable 5.1 from an earlier model, or from Claude Opus 5.5 on the Claude API, keeps its reasoning.** The earlier model's thinking blocks stay readable, so the model thinks as usual from the first turn after the switch.
 * **A conversation that moves down to an earlier model loses Claude Fable 5.1's reasoning for that request.** This happens when a router sends a turn to a cheaper model, after a [classifier refusal fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback), or during a [server-side fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback). The API removes the unreadable blocks before the prompt reaches the model. They aren't billed and don't count toward `input_tokens`.
@@ -431,6 +431,16 @@ Each row compares two consecutive requests:
 | The same turn-scoped message deleted or reworded on a later request                                                                                                        | Invalid                                                                                                                                                                                                                                                                                                                                                  |
 
 ### Check whether your code edits the prefix
+
+<Tip>
+  **Automate this check with the Claude API skill.** In the latest version of [Claude Code](https://code.claude.com/docs/en/overview), open the repository that builds your requests and run the bundled [Claude API skill](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill#checking-an-integration-for-preserved-thinking):
+
+  ```text wrap
+  /claude-api preserved-thinking-migration
+  ```
+
+  The skill captures a few of your own multi-turn sessions and diffs consecutive requests to find where your code edits the prefix. It then replays the sessions with `"drop_block"` and counts the thinking blocks the API drops. After that, it fixes one cause at a time and measures again after each fix.
+</Tip>
 
 First, diff what you send. Capture the request bodies your integration sends over a few normal turns, including a compaction or a tool change. For each pair of consecutive requests, compare `system`, `tools`, and the `messages` they share. They should be identical up to the newly appended turns.
 

@@ -41,7 +41,7 @@ Use this table to help decide which provisioning mode is right for your organiza
 
 Both JIT and SCIM can be combined with **Enable group mappings** to control role or seat tier assignment based on IdP group membership. If you select either of these options for your provisioning mode, **Enable group mappings** will appear within the **User provisioning** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1790775000&signature=bcbf7d10f2767ddaa22483d1a6ee6dbae5f43367e518dce8c85dd39264ba6d94&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQqtTCl92xFMG%2BIEvQSflkHh21eSFTFuRoZdE%0ADAwt41jsrvtAtYf57kE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1790775000&signature=bcbf7d10f2767ddaa22483d1a6ee6dbae5f43367e518dce8c85dd39264ba6d94&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQqtTCl92xFMG%2BIEvQSflkHh21eSFTFuRoZdE%0ADAwt41jsrvtAtYf57kE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1790829000&signature=142dd44c4fa1d47de0d97670725e93ea79c9737a800067f607463c1c2a82d4af&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQqtcD1N2xFMG%2BIEvQSfBOgBita9DCLQkB5fh%0AUHdlOYkygu5C4uOjpX0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1790829000&signature=142dd44c4fa1d47de0d97670725e93ea79c9737a800067f607463c1c2a82d4af&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQqtcD1N2xFMG%2BIEvQSfBOgBita9DCLQkB5fh%0AUHdlOYkygu5C4uOjpX0%3D%0A)
 
 **Important:** Group mappings set a user’s role type and seat tier only. Users with the Custom role get their permissions from groups in Claude, and those groups sync from your IdP only when your provisioning mode is SCIM directory sync. With JIT, you need to create groups and add users to them manually in **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**. If you map an IdP group to the Custom role under JIT without doing this, those users have no permissions when they log in. Learn more about **[managing groups on Enterprise plans](https://support.claude.com/en/articles/13799932)**.
 
@@ -112,7 +112,7 @@ Once your IdP is connected, continue to Step 3.
 3. Return to your **Organization and access** or **Identity and access** settings in Claude or Console, and find **User provisioning**.
 4. Toggle **Enable group mappings** on (if it’s not already):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1790775000&signature=42161b3b191379e8c585eea47b8b9da9d3c6a34dab4c51c9e8cd6531ce2550f8&req=diMmFM5%2FmYdcXPMW1HO4zeBEb8XfkP9Iyb72rapuHpOnjgVNtPJUrUaREkZk%0AMy%2FH%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1790775000&signature=42161b3b191379e8c585eea47b8b9da9d3c6a34dab4c51c9e8cd6531ce2550f8&req=diMmFM5%2FmYdcXPMW1HO4zeBEb8XfkP9Iyb72rapuHpOnjgVNtPJUrUaREkZk%0AMy%2FH%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1790829000&signature=3ec9fb36f3c90e0c49b95161d208591dd98890f9d6678e69fcedd6bfe3e89ed9&req=diMmFM5%2FmYdcXPMW1HO4zeBEb8XQlfNIyb72rapuHpOhWCLbiuG%2Bk0MW%2FP%2Fi%0APjCZ%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1790829000&signature=3ec9fb36f3c90e0c49b95161d208591dd98890f9d6678e69fcedd6bfe3e89ed9&req=diMmFM5%2FmYdcXPMW1HO4zeBEb8XQlfNIyb72rapuHpOhWCLbiuG%2Bk0MW%2FP%2Fi%0APjCZ%0A)
 5. In the **Enable group mappings** section, click “Add” next to each role and select the corresponding group from your IdP in the dropdown.
 
    1. When using group mappings, you *must* assign all users to a role-based group in order to ensure they’re provisioned an account. Assigning users to seat-tier based groups is optional.
@@ -152,7 +152,7 @@ Verify you have enough seats purchased and available to add members to your org.
 3. **For JIT:** The user needs to log out and log back in for role changes to take effect.
 4. **For SCIM:** Click "Sync" to prompt an immediate sync, or wait for the automatic sync cycle:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1790775000&signature=3a1d4dacd870cf27c261870bdd6d68b6133c192ace8933b61198bff7018d372e&req=diMmFM5%2FmoVdWPMW1HO4zZ9Lal2qHs%2FC5hujYvMis4e1hDqOyKX8meEP5w0J%0AdHHT%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1790775000&signature=3a1d4dacd870cf27c261870bdd6d68b6133c192ace8933b61198bff7018d372e&req=diMmFM5%2FmoVdWPMW1HO4zZ9Lal2qHs%2FC5hujYvMis4e1hDqOyKX8meEP5w0J%0AdHHT%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1790829000&signature=2bdae992d27cb7e21c4838c51e6b4463aa0b8c8c6567dcc0c2a56d4267994fd3&req=diMmFM5%2FmoVdWPMW1HO4zZ9Lal2lG8PC5hujYvMis4eAYrZP1RVFtQk05YI7%0AUKY6%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1790829000&signature=2bdae992d27cb7e21c4838c51e6b4463aa0b8c8c6567dcc0c2a56d4267994fd3&req=diMmFM5%2FmoVdWPMW1HO4zZ9Lal2lG8PC5hujYvMis4eAYrZP1RVFtQk05YI7%0AUKY6%0A)
 
 ### Users mapped to the Custom role can't access anything after logging in
 
@@ -182,7 +182,7 @@ To fix this, do one of the following:
 3. **For SCIM:** Ask another Admin or Owner to click "Sync" in the **Organization and access** settings, or wait for the automatic sync cycle.
 
 * [Switching to a different Identity Provider (IdP)](https://support.claude.com/en/articles/13443687-switching-to-a-different-identity-provider-idp)
+* [Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)
 * [Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)
-* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
 * [How SCIM sync works for Enterprise organizations](https://support.claude.com/en/articles/14499648-how-scim-sync-works-for-enterprise-organizations)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

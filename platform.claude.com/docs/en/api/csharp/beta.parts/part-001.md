@@ -358,6 +358,8 @@ The Models API response can be used to determine which models are available for 
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -731,6 +733,8 @@ The Models API response can be used to determine information about a specific mo
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -4836,6 +4840,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string userProfileID`
 
@@ -12717,6 +12723,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string userProfileID`
 
     Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
@@ -17021,6 +17029,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string userProfileID`
 
     Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
@@ -17466,6 +17476,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17733,6 +17745,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17999,6 +18013,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18256,6 +18272,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18414,6 +18432,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -23046,6 +23066,8 @@ Create Agent
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -23861,6 +23883,8 @@ List Agents
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -24662,6 +24686,8 @@ Get Agent
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -26193,6 +26219,8 @@ Update Agent
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -26984,6 +27012,8 @@ Archive Agent
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -27788,6 +27818,8 @@ List Agent Versions
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -28700,6 +28732,8 @@ Create a new environment with the specified configuration.
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -29021,6 +29055,8 @@ List environments with pagination support.
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -29336,6 +29372,8 @@ Retrieve a specific environment by ID.
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -29765,6 +29803,8 @@ Update an existing environment's configuration.
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -29862,51 +29902,3 @@ Update an existing environment's configuration.
           Node.js packages to install
 
         - `required IReadOnlyList<string> Pip`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `JsonElement Type = "self_hosted"`
-
-        Environment type
-
-  - `required string CreatedAt`
-
-    RFC 3339 timestamp when environment was created
-
-  - `required string? Description`
-
-    User-provided description for the environment; null when unset
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    User-provided metadata key-value pairs
-
-  - `required string Name`
-
-    Human-readable name for the environment
-
-  - `required string UpdatedAt`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `Scope Scope`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `Organization("organization")`
-
-    - `Account("account")`
-
-#### Example
-
-```csharp
-EnvironmentUpdateParams parameters = new()
-{
-    EnvironmentID = "env_011CZkZ9X2dpNyB7HsEFoRfW"
-};
-
-var betaEnvironment = await client.Beta.Environments.Update(parameters);

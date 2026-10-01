@@ -485,4 +485,4 @@ As with Fable 5.1, Opus 5.5 comes with our watermarking measures to comply with 
 
 ## Availability
 
-Claude Opus 5.5 is now available on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure. On the Claude Platform, developers can [get started](https://platform.claude.com/docs/en/models/overview) with `claude-opus-5-5`.
+Claude Opus 5.5 is now available on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure. On the Claude Platform, developers can [get started](https://platform.claude.com/docs/en/models/overview) with `claude-opus-5-5`. See our [migration guide for details.](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide)

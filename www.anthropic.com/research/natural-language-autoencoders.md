@@ -58,7 +58,7 @@ For example, in the blackmail test discussed above, we used NLAs to understand w
 
 Claude does not say it thinks it’s being tested in this transcript from our blackmail evaluation, but the NLA explanation reveals its suspicions.
 
-Extending this analysis to other evaluations, NLAs suggest that Claude suspects it’s being tested more often than it lets on. For instance, in a test of whether Claude takes destructive actions while writing code—for example, deleting important files—NLA explanations show signs of evaluation awareness 16% of the time, even though Claude never explicitly verbalizes this. Similarly, on the popular coding benchmark SWE-bench Verified, which we use to determine how capable Claude is, NLAs indicate that Claude is aware it is being evaluated on 26% of problems. In contrast, NLA explanations indicate evaluation awareness on less than 1% of real [claude.ai](http://claude.ai/redirect/website.v1.3a09f146-74b9-46af-bb9f-f879eda24eda) usage that opted in for training.
+Extending this analysis to other evaluations, NLAs suggest that Claude suspects it’s being tested more often than it lets on. For instance, in a test of whether Claude takes destructive actions while writing code—for example, deleting important files—NLA explanations show signs of evaluation awareness 16% of the time, even though Claude never explicitly verbalizes this. Similarly, on the popular coding benchmark SWE-bench Verified, which we use to determine how capable Claude is, NLAs indicate that Claude is aware it is being evaluated on 26% of problems. In contrast, NLA explanations indicate evaluation awareness on less than 1% of real [claude.ai](http://claude.ai/redirect/website.v1.bedf491c-d074-4752-97ac-c2e73a8b22cb) usage that opted in for training.
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/fc08005f32ff020f21e598cc72f58768af2bcc4f-1590x1170.png)
 
@@ -102,6 +102,12 @@ Read the [full paper](https://transformer-circuits.pub/2026/nla/index.html).
 
 Find the [code](https://github.com/kitft/natural_language_autoencoders) on GitHub.
 
+### What work can robots do?
+
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
+
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
+
 ### What do you want from AI?
 
 We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
@@ -113,9 +119,3 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
 [Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
-
-### Yes, Claude can do Nine Loops
-
-Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
-
-[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)

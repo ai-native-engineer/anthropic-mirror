@@ -28,7 +28,7 @@ These differ from regular chats in several ways:
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1790774100&signature=d1ee957faec54ee46d94a226ad5af19663fb8dc6bea80b358499a410d4c3c068&req=dScmH854lYZbXfMW1HO4zeUcugK6aeGKDCAt3Cx%2FSO0fAUeauVYwtXBtg7YZ%0AR%2FaBjars5U4YT%2B9JyhU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1790774100&signature=d1ee957faec54ee46d94a226ad5af19663fb8dc6bea80b358499a410d4c3c068&req=dScmH854lYZbXfMW1HO4zeUcugK6aeGKDCAt3Cx%2FSO0fAUeauVYwtXBtg7YZ%0AR%2FaBjars5U4YT%2B9JyhU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1790942400&signature=e7cc156e464716e7e71bf7865e86974930c59c6014b30a383e5fe31d58d6ae10&req=dScmH854lYZbXfMW3nq%2BgV3vl450548id7W8szMzgHnXOQgom8Yh%2F407Pyft%0AgVhlZ5dgBmx0hAmN86uPG0gd67A%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1790942400&signature=e7cc156e464716e7e71bf7865e86974930c59c6014b30a383e5fe31d58d6ae10&req=dScmH854lYZbXfMW3nq%2BgV3vl450548id7W8szMzgHnXOQgom8Yh%2F407Pyft%0AgVhlZ5dgBmx0hAmN86uPG0gd67A%3D%0A)
 
 1. Click the ghost icon to enable incognito mode.
 2. The interface will indicate you're in an incognito chat with a black border and “Incognito chat” label in the upper left corner.
@@ -49,6 +49,10 @@ If you're using incognito chats on a Team or Enterprise plan:
 
 ## Frequently asked questions
 
+### What's the difference between an incognito chat and a chat with memory turned off?
+
+An incognito chat isn't saved to your chat history or to memory. If you want Claude to skip memory for one conversation but still keep the chat, turn off "Memory" in the "+" menu before you send your first message instead. Claude won't use or add to memory in that chat, and the chat stays in your chat history and Claude can still find it when searching past chats from your other conversations.
+
 ### Can Claude access my profile information (custom styles, personal preferences, etc.) in incognito chats?
 
 Yes, Claude can access this information within an incognito chat.
@@ -59,13 +63,13 @@ No, once you start an incognito chat, it cannot be converted to a regular chat o
 
 ### Can I use incognito mode in projects?
 
-Incognito mode is currently only available for chats outside of projects, so you will not see the ghost icon when starting a chat within a project.
+Incognito mode is currently only available for chats outside of projects, so you won't see the ghost icon when starting a chat within a project. Instead, you can turn memory off for a single chat in a project by turning off "Memory" in the "+" menu before you send your first message.
 
 ### What happens if I accidentally close an incognito chat?
 
 Once closed, incognito chats cannot be reopened. Make sure to save any important information before ending your session.
 
-* [How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)
+* [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
 * [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)

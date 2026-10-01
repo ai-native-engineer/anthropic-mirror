@@ -2,7 +2,7 @@
 
 # What is the Life Sciences Verification Program?
 
-Updated yesterday
+Updated this week
 
 Table of contents
 

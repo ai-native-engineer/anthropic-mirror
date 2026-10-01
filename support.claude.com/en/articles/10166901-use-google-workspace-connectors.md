@@ -202,7 +202,7 @@ On Team and Enterprise plans, Owners and Primary Owners can disable Google Works
 
 Browse all available connectors in the **[Connectors Directory](https://claude.ai/directory)**.
 
+* [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
-* [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)
 * [What are artifacts and how do I use them?](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them)

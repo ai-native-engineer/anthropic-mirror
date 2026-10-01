@@ -768,6 +768,18 @@ Developer docs
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
+
+Aug 26, 2026
+
+### How Warp builds self-improving agents on Claude
+
+Agents
+
+[How Warp builds self-improving agents on Claude](#)How Warp builds self-improving agents on Claude
+
+[How Warp builds self-improving agents on Claude](https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude)How Warp builds self-improving agents on Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
 
 Sep 29, 2026
@@ -803,18 +815,6 @@ Enterprise AI
 [The AI-native SDLC playbook](#)The AI-native SDLC playbook
 
 [The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
-
-Sep 24, 2026
-
-### Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
-
-Claude Code
-
-[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](#)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
-
-[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
 ## Transform how your organization operates with Claude
 

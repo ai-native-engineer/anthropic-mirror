@@ -52,7 +52,7 @@ The best way to understand how models work is to run experiments. I tried doing 
 
 If I ask Claude to “build a personal fitness and workout tracker app,” effort changes dramatically how fleshed out the app is, but also results in Claude making more choices along the way. At low effort, the fitness app is just a log and a simple graph. At higher effort levels the app is more complex with additional detail. At max effort there’s a heat chart.
 
-low1.5 minmedium4 minhigh11 minmax67 min
+low(1.5 min)medium(4 min)high(11 min)max(67 min)
 
 If I wanted a simple base to iterate from, low effort would get it done. Max effort would be if I wanted Claude’s best one shot.
 
@@ -74,7 +74,7 @@ What if I gave Claude lots of details? I tried asking Claude to interview me in-
 
 I found that given this spec, the models behaved much more similarly. I got designs that looked fairly similar and had similar implementations but with different details, at max effort Claude took some time to simplify a few of the details.
 
-low16 minmedium22 minhigh33 minmax79 min
+low(16 min)medium(22 min)high(33 min)max(79 min)
 
 PreviousNextPause
 

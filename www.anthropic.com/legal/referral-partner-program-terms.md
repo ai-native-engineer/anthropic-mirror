@@ -72,3 +72,5 @@
 9. **Force Majeure.** Neither party will be liable for failure or delay in performance to the extent caused by circumstances beyond its reasonable control.
 10. **Independent Contractors**. The relationship of the parties established by this Agreement is that of independent contractors (and will so represent themselves to third parties) and nothing contained in this Agreement will be construed to give either party the power to act as an agent or direct or control the day-to-day activities of the other or to make the parties joint venturers. Financial and other obligations associated with each party’s business are the sole responsibility of that party.
 11. **Non-Exclusive.** This Agreement is non-exclusive and nothing in this Agreement may be deemed to prohibit either party from entering into any alliance, partner, referral, resale, customer or other agreement with any party anywhere in the world either during or after the Term.
+
+Referral Partner Program Terms and Conditions \ Anthropic

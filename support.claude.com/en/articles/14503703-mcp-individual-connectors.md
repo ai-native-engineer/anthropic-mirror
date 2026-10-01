@@ -1,5 +1,7 @@
 <!-- source: https://support.claude.com/en/articles/14503703-mcp-individual-connectors -->
 
+**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved or you want to get started, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation.
+
 Your organization can register its own MCP servers in Claude for Government, letting Claude connect to internal systems, custom tools, or third-party services you've approved for your environment.
 
 **Custom connectors work the same way in Claude for Government as in Claude Enterprise.** The prerequisites, the registration flow, and the behavior once enabled are identical. For full setup instructions, see **[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)**. This page covers only what's different.
@@ -33,7 +35,7 @@ Claude, the MCP proxy, and all OAuth token storage stay inside the FedRAMP High 
 **Prefer FedRAMP-authorized backing services.** If your connector talks to a SaaS product, check whether that product has a government-cloud offering—Atlassian Government Cloud, Salesforce Government Cloud, ServiceNow GCC—and point the connector there rather than at the commercial endpoint.
 
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
-* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

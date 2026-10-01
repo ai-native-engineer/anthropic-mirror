@@ -573,3 +573,5 @@ Evening reception
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 Tokyo and ready to replay.
 
 [Browse recordings](https://claude.com/code-with-claude/tokyo)
+
+Inside Canva AI: Architecting an agentic system for tens of millions of users | Session | Code w/ Claude 2026

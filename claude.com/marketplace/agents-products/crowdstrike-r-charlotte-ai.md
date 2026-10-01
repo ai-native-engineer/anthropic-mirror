@@ -15,26 +15,10 @@ Charlotte Agentic SOAR combines the precision of security automation with the ad
 
 ## Related products
 
-![](https://assets.claude.com/b2934abd4aa98f7edfdbd265be89e6493825459f.svg)
+![](https://assets.claude.com/ead191cb646dc885e2beecdf7d6194c38c275627.svg)
 
-### [Factory](https://claude.com/marketplace/agents-products/factory)
+### [Cyera](https://claude.com/marketplace/agents-products/cyera)
 
-Factory helps enterprises continuously build and operate production software through governed autonomous engineering.
+Trust everything your AI can see and do. Secure your agents from the data layer up.
 
-Code
-
-![](https://assets.claude.com/9e48c05f10cf4adac54a25d183d2d14e38621a56.svg)
-
-### [Augment](https://claude.com/marketplace/agents-products/augment)
-
-The agent platform for engineering orgs, with expert agents on every stage of the lifecycle.
-
-Code
-
-![](https://assets.claude.com/3d676d4cd90f3e876d4ac8fbb3ab8314b8497c22.svg)
-
-### [Base44](https://claude.com/marketplace/agents-products/base44)
-
-Teams in organizations can build, ship, and run their own internal apps, no developer required.
-
-Code
+Security

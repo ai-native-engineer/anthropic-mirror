@@ -3,6 +3,24 @@
 
 <!-- chunk-start -->
 
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
         - `unauthenticated_email_address: optional string or null`
 
           format: email

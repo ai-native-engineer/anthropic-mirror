@@ -107,7 +107,7 @@ Global Code of Conduct
 Global Vendor Code of Conduct
 Best Practices and Whitepapers
 [Anthropic] CMEK - Cryptographic Design Whitepaper
-Claude Cowork Security Best Practices
+Claude Cowork and Unified Claude Security Best Practices
 Claude Cowork Desktop Security Architecture Overview
 Claude Desktop Security Overview (Third-party platforms)
 

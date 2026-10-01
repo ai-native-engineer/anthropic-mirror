@@ -42,5 +42,3 @@ A wealth management firm can use Snowflake Intelligence, powered by Claude, to c
 ## **Getting started**
 
 Customers can get started with Claude on Snowflake through this [quickstart guide](https://www.snowflake.com/en/developers/guides/build-agentic-application-in-snowflake/). Enterprises can visit our [Enterprise page](https://www.anthropic.com/enterprise) to learn more about deploying Claude. Claude is the only frontier model available on all three of the world's most prominent cloud services, including Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure. Learn more about how [Snowflake powers enterprise data intelligence with Claude](https://claude.com/customers/snowflake).
-
-Snowflake and Anthropic announce $200M partnership \ Anthropic

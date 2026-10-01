@@ -158,6 +158,38 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
+
+Sep 30, 2026
+
+Claude for Government is now generally available
+
+Product announcements
+
+Claude for Government is now generally available
+
+September 30, 2026
+
+[Claude for Government is now generally available](https://claude.com/blog/claude-for-government-is-now-generally-available)Claude for Government is now generally available
+
+[Claude for Government is now generally available](#)Claude for Government is now generally available
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Sep 30, 2026
+
+How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+Enterprise AI
+
+How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+September 30, 2026
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](#)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
 
 Sep 29, 2026
@@ -366,38 +398,6 @@ September 15, 2026
 
 [Building an AI-native revenue organization](#)Building an AI-native revenue organization
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa82dfc4ca89952d04c3873_Object-Store.svg)
-
-Sep 15, 2026
-
-Claude for Small Business launches new workflows, integrations, and training programs
-
-Product announcements
-
-Claude for Small Business launches new workflows, integrations, and training programs
-
-September 15, 2026
-
-[Claude for Small Business launches new workflows, integrations, and training programs](https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs)Claude for Small Business launches new workflows, integrations, and training programs
-
-[Claude for Small Business launches new workflows, integrations, and training programs](#)Claude for Small Business launches new workflows, integrations, and training programs
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228e9c51800dde13958_6507d83d1197bb8630131d363fb8bea838d79ca7-1000x1000.svg)
-
-Sep 14, 2026
-
-Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
-
-Claude Code
-
-Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
-
-September 14, 2026
-
-[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
-
-[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](#)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 17
@@ -407,6 +407,38 @@ Category
 Product
 
 Usecase
+
+### Claude for Government is now generally available
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 30, 2026
+
+[Claude for Government is now generally available](https://claude.com/blog/claude-for-government-is-now-generally-available)Claude for Government is now generally available
+
+[Claude for Government is now generally available](#)Claude for Government is now generally available
+
+### How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+September 30, 2026
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](#)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
 
 ### Agents you can coach: how Asana builds human-agent teams with Claude
 
@@ -615,38 +647,6 @@ September 15, 2026
 [Building an AI-native revenue organization](https://claude.com/blog/building-an-ai-native-revenue-organization)Building an AI-native revenue organization
 
 [Building an AI-native revenue organization](#)Building an AI-native revenue organization
-
-### Claude for Small Business launches new workflows, integrations, and training programs
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-September 15, 2026
-
-[Claude for Small Business launches new workflows, integrations, and training programs](https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs)Claude for Small Business launches new workflows, integrations, and training programs
-
-[Claude for Small Business launches new workflows, integrations, and training programs](#)Claude for Small Business launches new workflows, integrations, and training programs
-
-### Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-September 14, 2026
-
-[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
-
-[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](#)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 

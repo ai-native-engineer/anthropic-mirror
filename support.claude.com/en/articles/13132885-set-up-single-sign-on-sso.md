@@ -38,12 +38,12 @@ You can verify multiple domains for a single organization, but all domains must 
 2. In the **Domains** section, click “Add or edit domains.”
 3. Enter the domain(s) you want to verify in the **Update organization email domains** modal and click the “+” button:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1790774100&signature=2b7839e891878f2c50e4e7cdfc1e4da215c8e07419d8dc5a380d25c0fe730005&req=diQuHsF6noNXW%2FMW1HO4zSdmH3w%2B%2FcCNe3H0OpmIzWHdQhZ%2BZOLVmUUVANrz%0AQT4M%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1790774100&signature=2b7839e891878f2c50e4e7cdfc1e4da215c8e07419d8dc5a380d25c0fe730005&req=diQuHsF6noNXW%2FMW1HO4zSdmH3w%2B%2FcCNe3H0OpmIzWHdQhZ%2BZOLVmUUVANrz%0AQT4M%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1790829000&signature=74b79bfa8dedf79c59b67bdb5a2f82829f0638c82d88fda7d2326a1b6365789c&req=diQuHsF6noNXW%2FMW1HO4zSdmH3wx%2BM2Me3H0OpmIzWFPtRd3h6cZ8PEAArof%0AaQ74%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1790829000&signature=74b79bfa8dedf79c59b67bdb5a2f82829f0638c82d88fda7d2326a1b6365789c&req=diQuHsF6noNXW%2FMW1HO4zSdmH3wx%2BM2Me3H0OpmIzWFPtRd3h6cZ8PEAArof%0AaQ74%0A)
 4. Click “Save” when you’re finished adding domains.
 5. The domain(s) you added will now appear in the **Domains** section; click “Verify” to the right of the domain(s) to begin the verification process.
 6. Enter your domain in the text box and click “Continue”:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1790774100&signature=59d9e183330cf1c034d6158edb794c748bdebec60a25da1937f6a121504150b2&req=diAjEcl6n4dcWfMW1HO4zWHctB2QkNWryoyXAW0OlXryXAdEkneb8SjaVJ22%0AA4Ja%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1790774100&signature=59d9e183330cf1c034d6158edb794c748bdebec60a25da1937f6a121504150b2&req=diAjEcl6n4dcWfMW1HO4zWHctB2QkNWryoyXAW0OlXryXAdEkneb8SjaVJ22%0AA4Ja%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1790829000&signature=53340eacc5f89729da8bc5b47cc155da34e7328572645ed64498863229711634&req=diAjEcl6n4dcWfMW1HO4zWHctB2fldiqyoyXAW0OlXq4vrGaIi3AUHS0vkuD%0AqMDN%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1790829000&signature=53340eacc5f89729da8bc5b47cc155da34e7328572645ed64498863229711634&req=diAjEcl6n4dcWfMW1HO4zWHctB2fldiqyoyXAW0OlXq4vrGaIi3AUHS0vkuD%0AqMDN%0A)
 7. The setup screen displays a TXT record. **Copy the full Value using the copy button**—it begins with `anthropic-domain-verification-` and is longer than what's visible in the box. In your DNS provider, add a TXT record to your domain and **Value** set to the copied string. The domain must match exactly what you entered in the previous step, including any subdomains. Add it alongside any existing TXT records; don't replace them. The value is case-sensitive, so paste it exactly. Please refer to your DNS provider's documentation on this topic.
 
    1. **Important:** Save the TXT value before leaving the setup screen. Once the domain shows as Pending, the admin console doesn't display the value again. If you lose it, you'll need to remove and re-add the domain, which generates a new value.
@@ -63,7 +63,7 @@ Clicking "Refresh" re-checks your DNS; it won't show Verified until the publishe
 
 If the record is correct and propagated but the status still shows Pending, contact Support.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1790774100&signature=c017f6bbfee579cb26905b323714b38b534f82af2f4e56b48da05b99b8908e25&req=diAjEcl6mYVWX%2FMW1HO4zVjmWCkHaHC4PM2D8Zcdgrj4Ir1IXsd02h6YONPk%0Am6%2BhJFX0tT0K6QqbQXk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1790774100&signature=c017f6bbfee579cb26905b323714b38b534f82af2f4e56b48da05b99b8908e25&req=diAjEcl6mYVWX%2FMW1HO4zVjmWCkHaHC4PM2D8Zcdgrj4Ir1IXsd02h6YONPk%0Am6%2BhJFX0tT0K6QqbQXk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1790829000&signature=625e726f78b91819dc5b93b9452ed89127994ddb02c41859b7a547c5f3900f2a&req=diAjEcl6mYVWX%2FMW1HO4zVjmWCkIbX25PM2D8ZcdgriFjW7idxq9MqrfXtEv%0AkLwcPooeeyp3KaoKjTw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1790829000&signature=625e726f78b91819dc5b93b9452ed89127994ddb02c41859b7a547c5f3900f2a&req=diAjEcl6mYVWX%2FMW1HO4zVjmWCkIbX25PM2D8ZcdgriFjW7idxq9MqrfXtEv%0AkLwcPooeeyp3KaoKjTw%3D%0A)
 
 **Note:** Once your domain is verified, you'll see a **Restrict organization creation** toggle under **Security** on the Organization and access organization settings page. Enable this if you want to prevent users from creating new Claude or Console organizations—including personal accounts—using your verified domains.
 
@@ -94,7 +94,7 @@ For IdP-specific setup instructions, see:
 
 You can now choose to toggle on **Require SSO for Console** and/or **Require SSO for Claude,** on the **Organization and access** page, under the **Authentication** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1790774100&signature=85a197a3d90a99ef7ee22eb184a7e36b0b19c771fbbf3a6f7f10c7147300516f&req=diMmFM93nYNfWfMW1HO4zdAICg%2BmBXgLItXtKivx6ZFJ1sbwOVLqeFN5NlRt%0AQbF2YKDSYAfFzZ6TSVU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1790774100&signature=85a197a3d90a99ef7ee22eb184a7e36b0b19c771fbbf3a6f7f10c7147300516f&req=diMmFM93nYNfWfMW1HO4zdAICg%2BmBXgLItXtKivx6ZFJ1sbwOVLqeFN5NlRt%0AQbF2YKDSYAfFzZ6TSVU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1790829000&signature=48ae28db34f3d9f41f6022074039098faea519a6275282ec2113d976a1aeafc9&req=diMmFM93nYNfWfMW1HO4zdAICg%2BpAHUKItXtKivx6ZGlkrzdvPbXzmj7aWuy%0AQsmFoA%2BaBS5BBs%2FihYM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1790829000&signature=48ae28db34f3d9f41f6022074039098faea519a6275282ec2113d976a1aeafc9&req=diMmFM93nYNfWfMW1HO4zdAICg%2BpAHUKItXtKivx6ZGlkrzdvPbXzmj7aWuy%0AQsmFoA%2BaBS5BBs%2FihYM%3D%0A)
 
 When SSO is required, users must use the “Continue with SSO” option to log in to their Claude/Console accounts. When SSO is not required, they will have the option to choose “Continue with SSO” or “Continue with email.”
 
@@ -151,6 +151,6 @@ If none of your Owners or Admins can sign in (for example, after a certificate e
 
 * [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
-* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
+* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)
 * [SSO login](https://support.claude.com/en/articles/14503613-sso-login)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

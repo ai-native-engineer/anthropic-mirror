@@ -1,5 +1,7 @@
 <!-- source: https://support.claude.com/en/articles/14503804-classification-banner-in-claude-for-government -->
 
+**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved or you want to get started, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation.
+
 The classification banner displays a persistent marking at the top of every page for every user in your organization. Use it to communicate the classification level of data approved for your Claude for Government environment or any custom handling instruction your agency requires.
 
 ## When to use a classification banner
@@ -30,8 +32,8 @@ You must be the Primary Owner to configure the banner.
 
 You can update the banner at any time by returning to the same settings page.
 
-* [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
 * [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
 * [Organization instructions in Claude for Government](https://support.claude.com/en/articles/14503675-organization-instructions-in-claude-for-government)
+* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

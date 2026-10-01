@@ -1,5 +1,7 @@
 <!-- source: https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government -->
 
+**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved or you want to get started, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation.
+
 Claude is a family of state-of-the-art large language models developed by Anthropic. This guide introduces the models available for customers using Claude for Government. For the most up to date information about the model’s general capabilities, please visit our **[Model Overview page](https://platform.claude.com/docs/en/about-claude/models/overview)**.
 
 ## How model availability differs in Claude for Government
@@ -38,6 +40,6 @@ If your agency policy requires advance notice or opt-in before new models reach 
 
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
-* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)

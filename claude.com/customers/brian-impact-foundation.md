@@ -68,12 +68,12 @@ With Claude, Brian Impact Foundation can be confident that it’s supporting the
 
 - Soomin Syd Kim, Project Director at Brian Impact Foundation
 
-[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
+
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
 ### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
 ### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
-
-### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)

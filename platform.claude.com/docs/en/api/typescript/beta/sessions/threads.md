@@ -37,103 +37,103 @@ List Session Threads
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -185,71 +185,69 @@ List Session Threads
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-sonnet-5-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-opus-5-5"`
 
-            - `"claude-opus-5-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Powerful intelligence for coding, knowledge work, and long-running agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-sonnet-5"`
 
-            - `"claude-sonnet-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-fable-5"`
 
-            - `"claude-fable-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-opus-5"`
 
-            - `"claude-opus-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-6"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-sonnet-4-6"`
+            Best combination of speed and intelligence
 
-              Best combination of speed and intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-haiku-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-opus-4-5"`
 
-            - `"claude-opus-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5-20250929"`
 
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
+            High-performance model for agents and coding
 
           - `(string & {})`
 
@@ -962,103 +960,103 @@ Get Session Thread
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -1110,71 +1108,69 @@ Get Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-sonnet-5-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-opus-5-5"`
 
-            - `"claude-opus-5-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Powerful intelligence for coding, knowledge work, and long-running agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-sonnet-5"`
 
-            - `"claude-sonnet-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-fable-5"`
 
-            - `"claude-fable-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-opus-5"`
 
-            - `"claude-opus-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-6"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-sonnet-4-6"`
+            Best combination of speed and intelligence
 
-              Best combination of speed and intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-haiku-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-opus-4-5"`
 
-            - `"claude-opus-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5-20250929"`
 
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
+            High-performance model for agents and coding
 
           - `(string & {})`
 
@@ -1882,103 +1878,103 @@ Archive Session Thread
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -2030,71 +2026,69 @@ Archive Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-sonnet-5-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-opus-5-5"`
 
-            - `"claude-opus-5-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Powerful intelligence for coding, knowledge work, and long-running agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-sonnet-5"`
 
-            - `"claude-sonnet-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-fable-5"`
 
-            - `"claude-fable-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-opus-5"`
 
-            - `"claude-opus-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-6"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-sonnet-4-6"`
+            Best combination of speed and intelligence
 
-              Best combination of speed and intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-haiku-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-opus-4-5"`
 
-            - `"claude-opus-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5-20250929"`
 
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
+            High-performance model for agents and coding
 
           - `(string & {})`
 
@@ -2824,71 +2818,69 @@ console.log(betaManagedAgentsSessionThread.id);
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-sonnet-5-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-opus-5-5"`
 
-            - `"claude-opus-5-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Powerful intelligence for coding, knowledge work, and long-running agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-sonnet-5"`
 
-            - `"claude-sonnet-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-fable-5"`
 
-            - `"claude-fable-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-opus-5"`
 
-            - `"claude-opus-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-6"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-sonnet-4-6"`
+            Best combination of speed and intelligence
 
-              Best combination of speed and intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-haiku-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-opus-4-5"`
 
-            - `"claude-opus-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5-20250929"`
 
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
+            High-performance model for agents and coding
 
           - `(string & {})`
 
@@ -3493,8 +3485,6 @@ console.log(betaManagedAgentsSessionThread.id);
 ### Beta Managed Agents Session Thread Status
 
 - `type BetaManagedAgentsSessionThreadStatus = "running" | "idle" | "rescheduling" | "terminated"`
-
-  SessionThreadStatus enum
 
   - `"running"`
 
@@ -4298,7 +4288,7 @@ console.log(betaManagedAgentsSessionThread.id);
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
       - `interface BetaManagedAgentsUnknownError`
 
@@ -4530,6 +4520,156 @@ console.log(betaManagedAgentsSessionThread.id);
 
           ID of the vault containing the affected credential.
 
+      - `interface BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: "repository_authentication_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: "repository_forbidden_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: "repository_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: "repository_checkout_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: "repository_clone_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: string`
 
       Timestamp when the error occurred.
@@ -4584,7 +4724,31 @@ console.log(betaManagedAgentsSessionThread.id);
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `type: "refusal"`
+
+      - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `"cyber"`
+
+        - `"bio"`
+
+        - `"frontier_llm"`
+
+        - `"reasoning_extraction"`
+
+        - `"general_harms"`
+
+      - `explanation: string | null`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `interface BetaManagedAgentsSessionEndTurn`
 
@@ -4613,6 +4777,12 @@ console.log(betaManagedAgentsSessionThread.id);
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `type: "budget_reached"`
+
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: "refusal"`
 
   - `interface BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -4942,7 +5112,11 @@ console.log(betaManagedAgentsSessionThread.id);
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `interface BetaManagedAgentsSessionEndTurn`
 
@@ -4959,6 +5133,10 @@ console.log(betaManagedAgentsSessionThread.id);
       - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `interface BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -5100,71 +5278,69 @@ console.log(betaManagedAgentsSessionThread.id);
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-sonnet-5-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-opus-5-5"`
 
-            - `"claude-opus-5-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Powerful intelligence for coding, knowledge work, and long-running agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-sonnet-5"`
 
-            - `"claude-sonnet-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-fable-5"`
 
-            - `"claude-fable-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-opus-5"`
 
-            - `"claude-opus-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-6"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-sonnet-4-6"`
+            Best combination of speed and intelligence
 
-              Best combination of speed and intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-haiku-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-opus-4-5"`
 
-            - `"claude-opus-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5-20250929"`
 
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
+            High-performance model for agents and coding
 
           - `(string & {})`
 
@@ -5894,103 +6070,103 @@ List Session Thread Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -6718,7 +6894,7 @@ List Session Thread Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
       - `interface BetaManagedAgentsUnknownError`
 
@@ -6950,6 +7126,156 @@ List Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `interface BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: "repository_authentication_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: "repository_forbidden_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: "repository_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: "repository_checkout_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: "repository_clone_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: string`
 
       Timestamp when the error occurred.
@@ -7004,7 +7330,31 @@ List Session Thread Events
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `type: "refusal"`
+
+      - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `"cyber"`
+
+        - `"bio"`
+
+        - `"frontier_llm"`
+
+        - `"reasoning_extraction"`
+
+        - `"general_harms"`
+
+      - `explanation: string | null`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `interface BetaManagedAgentsSessionEndTurn`
 
@@ -7033,6 +7383,12 @@ List Session Thread Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `type: "budget_reached"`
+
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: "refusal"`
 
   - `interface BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -7362,7 +7718,11 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `interface BetaManagedAgentsSessionEndTurn`
 
@@ -7379,6 +7739,10 @@ List Session Thread Events
       - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `interface BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -7520,71 +7884,69 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-sonnet-5-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-opus-5-5"`
 
-            - `"claude-opus-5-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Powerful intelligence for coding, knowledge work, and long-running agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-sonnet-5"`
 
-            - `"claude-sonnet-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-fable-5"`
 
-            - `"claude-fable-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-opus-5"`
 
-            - `"claude-opus-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-6"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-sonnet-4-6"`
+            Best combination of speed and intelligence
 
-              Best combination of speed and intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-haiku-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-opus-4-5"`
 
-            - `"claude-opus-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5-20250929"`
 
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
+            High-performance model for agents and coding
 
           - `(string & {})`
 
@@ -8299,103 +8661,103 @@ Stream Session Thread Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -9123,7 +9485,7 @@ Stream Session Thread Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
       - `interface BetaManagedAgentsUnknownError`
 
@@ -9355,6 +9717,156 @@ Stream Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `interface BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: "repository_authentication_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: "repository_forbidden_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: "repository_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: "repository_checkout_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: "repository_clone_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: string`
 
       Timestamp when the error occurred.
@@ -9409,7 +9921,31 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `type: "refusal"`
+
+      - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `"cyber"`
+
+        - `"bio"`
+
+        - `"frontier_llm"`
+
+        - `"reasoning_extraction"`
+
+        - `"general_harms"`
+
+      - `explanation: string | null`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `interface BetaManagedAgentsSessionEndTurn`
 
@@ -9438,6 +9974,12 @@ Stream Session Thread Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `type: "budget_reached"`
+
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: "refusal"`
 
   - `interface BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -9767,7 +10309,11 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `interface BetaManagedAgentsSessionEndTurn`
 
@@ -9784,6 +10330,10 @@ Stream Session Thread Events
       - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `interface BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -9925,71 +10475,69 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-sonnet-5-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-opus-5-5"`
 
-            - `"claude-opus-5-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Powerful intelligence for coding, knowledge work, and long-running agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-sonnet-5"`
 
-            - `"claude-sonnet-5"`
+            Efficient model for coding and agents
 
-              Efficient model for coding and agents
+          - `"claude-fable-5"`
 
-            - `"claude-fable-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-opus-5"`
 
-            - `"claude-opus-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-6"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-sonnet-4-6"`
+            Best combination of speed and intelligence
 
-              Best combination of speed and intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-haiku-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-opus-4-5"`
 
-            - `"claude-opus-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-sonnet-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5-20250929"`
 
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
+            High-performance model for agents and coding
 
           - `(string & {})`
 

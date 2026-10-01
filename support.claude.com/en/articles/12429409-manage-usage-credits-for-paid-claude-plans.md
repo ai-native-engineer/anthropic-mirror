@@ -36,7 +36,7 @@ To enable usage credits on your paid Claude plan:
 7. You’ll then need to prepay to cover usage beyond your plan limits. Click “Add funds,” enter the amount you want to purchase in the modal, then click “Purchase.”
 8. You can also enable auto-reload to automatically make a purchase when your balance falls below a threshold you set:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790774100&signature=c30ac18dfbabe837695cb88c94d098c2b09da2c0ace1b95b18a2da4cbbaf8a53&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABKeovQ5opE7m38YdfdCGP2AHCyuBHQoeolQ%0AAthQvs4eqPsYgF1Q4Ns%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790774100&signature=c30ac18dfbabe837695cb88c94d098c2b09da2c0ace1b95b18a2da4cbbaf8a53&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABKeovQ5opE7m38YdfdCGP2AHCyuBHQoeolQ%0AAthQvs4eqPsYgF1Q4Ns%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790833500&signature=f7212f5c7ed7c6effec010475f3aaf2148763d2ff2a344282eee85e1e7d4062b&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABKRpvM9opE7m38Ydfc9szAMUREOtipdikw0%0Ata2EACoEw8UPo1TOJtI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790833500&signature=f7212f5c7ed7c6effec010475f3aaf2148763d2ff2a344282eee85e1e7d4062b&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABKRpvM9opE7m38Ydfc9szAMUREOtipdikw0%0Ata2EACoEw8UPo1TOJtI%3D%0A)
 
 **Note:** There is a daily redemption limit of $2000.
 
@@ -124,8 +124,8 @@ Yes, you’ll see a clear notification when approaching and reaching your includ
 
 In most cases, usage credits do not expire. However, in certain jurisdictions such as Japan, usage credits expire six months after purchase starting September 10, 2026. You'll receive an email notification seven days before your credits expire, and you can view expiration dates on the Usage page in Settings.
 
+* [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
-* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
 * [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)

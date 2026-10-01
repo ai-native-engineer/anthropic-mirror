@@ -3,146 +3,6 @@
 
 <!-- chunk-start -->
 
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `get_page_text: BetaBrowserGetPageTextConfig`
-
-                      `get_page_text`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `hold_key: BetaBrowserHoldKeyConfig`
-
-                      `hold_key`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `hover: BetaBrowserHoverConfig`
-
-                      `hover`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `javascript_exec: BetaBrowserJavascriptExecConfig`
-
-                      `javascript_exec`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `key: BetaBrowserKeyConfig`
-
-                      `key`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `left_click: BetaBrowserLeftClickConfig`
-
-                      `left_click`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `left_click_drag: BetaBrowserLeftClickDragConfig`
-
-                      `left_click_drag`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `left_mouse_down: BetaBrowserLeftMouseDownConfig`
-
-                      `left_mouse_down`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `left_mouse_up: BetaBrowserLeftMouseUpConfig`
-
-                      `left_mouse_up`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `list_tabs: BetaBrowserListTabsConfig`
-
-                      `list_tabs`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                    - `middle_click: BetaBrowserMiddleClickConfig`
-
-                      `middle_click`'s config overrides.
-
-                      - `defer_loading: bool`
-
-                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                      - `enabled: bool`
-
-                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
                     - `mouse_move: BetaBrowserMouseMoveConfig`
 
                       `mouse_move`'s config overrides.
@@ -1408,89 +1268,83 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                    - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+                    - `:"claude-sonnet-5-5"`
 
-                      The model that will complete your prompt.
+                      Efficient model for coding and agents
 
-                      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+                    - `:"claude-fable-5-1"`
 
-                      - `:"claude-sonnet-5-5"`
+                      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-                        Efficient model for coding and agents
+                    - `:"claude-opus-5-5"`
 
-                      - `:"claude-fable-5-1"`
+                      Powerful intelligence for coding, knowledge work, and long-running agents
 
-                        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                    - `:"claude-mythos-5-1"`
 
-                      - `:"claude-opus-5-5"`
+                      Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-                        Powerful intelligence for coding, knowledge work, and long-running agents
+                    - `:"claude-sonnet-5"`
 
-                      - `:"claude-mythos-5-1"`
+                      Efficient model for coding and agents
 
-                        Our most capable model for cybersecurity and biology research, available through trusted access programs
+                    - `:"claude-fable-5"`
 
-                      - `:"claude-sonnet-5"`
+                      Next generation of intelligence for the hardest knowledge work and coding problems
 
-                        Efficient model for coding and agents
+                    - `:"claude-mythos-5"`
 
-                      - `:"claude-fable-5"`
+                      Most capable model for cybersecurity and biology research
 
-                        Next generation of intelligence for the hardest knowledge work and coding problems
+                    - `:"claude-opus-5"`
 
-                      - `:"claude-mythos-5"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Most capable model for cybersecurity and biology research
+                    - `:"claude-opus-4-8"`
 
-                      - `:"claude-opus-5"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-opus-4-7"`
 
-                      - `:"claude-opus-4-8"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-opus-4-6"`
 
-                      - `:"claude-opus-4-7"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-sonnet-4-6"`
 
-                      - `:"claude-opus-4-6"`
+                      Best combination of speed and intelligence
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-haiku-4-5"`
 
-                      - `:"claude-sonnet-4-6"`
+                      Fastest model with near-frontier intelligence
 
-                        Best combination of speed and intelligence
+                    - `:"claude-haiku-4-5-20251001"`
 
-                      - `:"claude-haiku-4-5"`
+                      Fastest model with near-frontier intelligence
 
-                        Fastest model with near-frontier intelligence
+                    - `:"claude-opus-4-5"`
 
-                      - `:"claude-haiku-4-5-20251001"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Fastest model with near-frontier intelligence
+                    - `:"claude-opus-4-5-20251101"`
 
-                      - `:"claude-opus-4-5"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-sonnet-4-5"`
 
-                      - `:"claude-opus-4-5-20251101"`
+                      High-performance model for agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-sonnet-4-5-20250929"`
 
-                      - `:"claude-sonnet-4-5"`
+                      High-performance model for agents and coding
 
-                        High-performance model for agents and coding
+                    - `:"claude-mythos-preview"`
 
-                      - `:"claude-sonnet-4-5-20250929"`
+                      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-                        High-performance model for agents and coding
-
-                      - `:"claude-mythos-preview"`
-
-                        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                        New class of intelligence, strongest in coding and cybersecurity
+                      New class of intelligence, strongest in coding and cybersecurity
 
                     - `String = String`
 
@@ -2617,89 +2471,83 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will complete your prompt.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            Efficient model for coding and agents
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-mythos-5-1"`
 
-          - `:"claude-opus-5-5"`
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-            Powerful intelligence for coding, knowledge work, and long-running agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-mythos-5-1"`
+          Efficient model for coding and agents
 
-            Our most capable model for cybersecurity and biology research, available through trusted access programs
+        - `:"claude-fable-5"`
 
-          - `:"claude-sonnet-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Efficient model for coding and agents
+        - `:"claude-mythos-5"`
 
-          - `:"claude-fable-5"`
+          Most capable model for cybersecurity and biology research
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-opus-5"`
 
-          - `:"claude-mythos-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Most capable model for cybersecurity and biology research
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-opus-4-6"`
+          Best combination of speed and intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-sonnet-4-6"`
+          Fastest model with near-frontier intelligence
 
-            Best combination of speed and intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-haiku-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Powerful intelligence for long-running agents and coding
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-opus-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          High-performance model for agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
 
-          - `:"claude-sonnet-4-5"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-mythos-preview"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-            High-performance model for agents and coding
-
-          - `:"claude-mythos-preview"`
-
-            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-            New class of intelligence, strongest in coding and cybersecurity
+          New class of intelligence, strongest in coding and cybersecurity
 
         - `String = String`
 
@@ -2928,89 +2776,83 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+    - `:"claude-sonnet-5-5"`
 
-      The model that will complete your prompt.
+      Efficient model for coding and agents
 
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+    - `:"claude-fable-5-1"`
 
-      - `:"claude-sonnet-5-5"`
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-        Efficient model for coding and agents
+    - `:"claude-opus-5-5"`
 
-      - `:"claude-fable-5-1"`
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
-        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+    - `:"claude-mythos-5-1"`
 
-      - `:"claude-opus-5-5"`
+      Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-        Powerful intelligence for coding, knowledge work, and long-running agents
+    - `:"claude-sonnet-5"`
 
-      - `:"claude-mythos-5-1"`
+      Efficient model for coding and agents
 
-        Our most capable model for cybersecurity and biology research, available through trusted access programs
+    - `:"claude-fable-5"`
 
-      - `:"claude-sonnet-5"`
+      Next generation of intelligence for the hardest knowledge work and coding problems
 
-        Efficient model for coding and agents
+    - `:"claude-mythos-5"`
 
-      - `:"claude-fable-5"`
+      Most capable model for cybersecurity and biology research
 
-        Next generation of intelligence for the hardest knowledge work and coding problems
+    - `:"claude-opus-5"`
 
-      - `:"claude-mythos-5"`
+      Powerful intelligence for long-running agents and coding
 
-        Most capable model for cybersecurity and biology research
+    - `:"claude-opus-4-8"`
 
-      - `:"claude-opus-5"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-7"`
 
-      - `:"claude-opus-4-8"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-6"`
 
-      - `:"claude-opus-4-7"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-sonnet-4-6"`
 
-      - `:"claude-opus-4-6"`
+      Best combination of speed and intelligence
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-haiku-4-5"`
 
-      - `:"claude-sonnet-4-6"`
+      Fastest model with near-frontier intelligence
 
-        Best combination of speed and intelligence
+    - `:"claude-haiku-4-5-20251001"`
 
-      - `:"claude-haiku-4-5"`
+      Fastest model with near-frontier intelligence
 
-        Fastest model with near-frontier intelligence
+    - `:"claude-opus-4-5"`
 
-      - `:"claude-haiku-4-5-20251001"`
+      Powerful intelligence for long-running agents and coding
 
-        Fastest model with near-frontier intelligence
+    - `:"claude-opus-4-5-20251101"`
 
-      - `:"claude-opus-4-5"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-sonnet-4-5"`
 
-      - `:"claude-opus-4-5-20251101"`
+      High-performance model for agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-sonnet-4-5-20250929"`
 
-      - `:"claude-sonnet-4-5"`
+      High-performance model for agents and coding
 
-        High-performance model for agents and coding
+    - `:"claude-mythos-preview"`
 
-      - `:"claude-sonnet-4-5-20250929"`
+      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-        High-performance model for agents and coding
-
-      - `:"claude-mythos-preview"`
-
-        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-        New class of intelligence, strongest in coding and cybersecurity
+      New class of intelligence, strongest in coding and cybersecurity
 
     - `String = String`
 
@@ -5932,89 +5774,83 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                      - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+                      - `:"claude-sonnet-5-5"`
 
-                        The model that will complete your prompt.
+                        Efficient model for coding and agents
 
-                        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+                      - `:"claude-fable-5-1"`
 
-                        - `:"claude-sonnet-5-5"`
+                        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-                          Efficient model for coding and agents
+                      - `:"claude-opus-5-5"`
 
-                        - `:"claude-fable-5-1"`
+                        Powerful intelligence for coding, knowledge work, and long-running agents
 
-                          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                      - `:"claude-mythos-5-1"`
 
-                        - `:"claude-opus-5-5"`
+                        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-                          Powerful intelligence for coding, knowledge work, and long-running agents
+                      - `:"claude-sonnet-5"`
 
-                        - `:"claude-mythos-5-1"`
+                        Efficient model for coding and agents
 
-                          Our most capable model for cybersecurity and biology research, available through trusted access programs
+                      - `:"claude-fable-5"`
 
-                        - `:"claude-sonnet-5"`
+                        Next generation of intelligence for the hardest knowledge work and coding problems
 
-                          Efficient model for coding and agents
+                      - `:"claude-mythos-5"`
 
-                        - `:"claude-fable-5"`
+                        Most capable model for cybersecurity and biology research
 
-                          Next generation of intelligence for the hardest knowledge work and coding problems
+                      - `:"claude-opus-5"`
 
-                        - `:"claude-mythos-5"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Most capable model for cybersecurity and biology research
+                      - `:"claude-opus-4-8"`
 
-                        - `:"claude-opus-5"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-opus-4-7"`
 
-                        - `:"claude-opus-4-8"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-opus-4-6"`
 
-                        - `:"claude-opus-4-7"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-sonnet-4-6"`
 
-                        - `:"claude-opus-4-6"`
+                        Best combination of speed and intelligence
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-haiku-4-5"`
 
-                        - `:"claude-sonnet-4-6"`
+                        Fastest model with near-frontier intelligence
 
-                          Best combination of speed and intelligence
+                      - `:"claude-haiku-4-5-20251001"`
 
-                        - `:"claude-haiku-4-5"`
+                        Fastest model with near-frontier intelligence
 
-                          Fastest model with near-frontier intelligence
+                      - `:"claude-opus-4-5"`
 
-                        - `:"claude-haiku-4-5-20251001"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Fastest model with near-frontier intelligence
+                      - `:"claude-opus-4-5-20251101"`
 
-                        - `:"claude-opus-4-5"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-sonnet-4-5"`
 
-                        - `:"claude-opus-4-5-20251101"`
+                        High-performance model for agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-sonnet-4-5-20250929"`
 
-                        - `:"claude-sonnet-4-5"`
+                        High-performance model for agents and coding
 
-                          High-performance model for agents and coding
+                      - `:"claude-mythos-preview"`
 
-                        - `:"claude-sonnet-4-5-20250929"`
+                        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-                          High-performance model for agents and coding
-
-                        - `:"claude-mythos-preview"`
-
-                          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                          New class of intelligence, strongest in coding and cybersecurity
+                        New class of intelligence, strongest in coding and cybersecurity
 
                       - `String = String`
 
@@ -9354,89 +9190,83 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                    - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+                    - `:"claude-sonnet-5-5"`
 
-                      The model that will complete your prompt.
+                      Efficient model for coding and agents
 
-                      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+                    - `:"claude-fable-5-1"`
 
-                      - `:"claude-sonnet-5-5"`
+                      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-                        Efficient model for coding and agents
+                    - `:"claude-opus-5-5"`
 
-                      - `:"claude-fable-5-1"`
+                      Powerful intelligence for coding, knowledge work, and long-running agents
 
-                        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                    - `:"claude-mythos-5-1"`
 
-                      - `:"claude-opus-5-5"`
+                      Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-                        Powerful intelligence for coding, knowledge work, and long-running agents
+                    - `:"claude-sonnet-5"`
 
-                      - `:"claude-mythos-5-1"`
+                      Efficient model for coding and agents
 
-                        Our most capable model for cybersecurity and biology research, available through trusted access programs
+                    - `:"claude-fable-5"`
 
-                      - `:"claude-sonnet-5"`
+                      Next generation of intelligence for the hardest knowledge work and coding problems
 
-                        Efficient model for coding and agents
+                    - `:"claude-mythos-5"`
 
-                      - `:"claude-fable-5"`
+                      Most capable model for cybersecurity and biology research
 
-                        Next generation of intelligence for the hardest knowledge work and coding problems
+                    - `:"claude-opus-5"`
 
-                      - `:"claude-mythos-5"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Most capable model for cybersecurity and biology research
+                    - `:"claude-opus-4-8"`
 
-                      - `:"claude-opus-5"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-opus-4-7"`
 
-                      - `:"claude-opus-4-8"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-opus-4-6"`
 
-                      - `:"claude-opus-4-7"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-sonnet-4-6"`
 
-                      - `:"claude-opus-4-6"`
+                      Best combination of speed and intelligence
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-haiku-4-5"`
 
-                      - `:"claude-sonnet-4-6"`
+                      Fastest model with near-frontier intelligence
 
-                        Best combination of speed and intelligence
+                    - `:"claude-haiku-4-5-20251001"`
 
-                      - `:"claude-haiku-4-5"`
+                      Fastest model with near-frontier intelligence
 
-                        Fastest model with near-frontier intelligence
+                    - `:"claude-opus-4-5"`
 
-                      - `:"claude-haiku-4-5-20251001"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Fastest model with near-frontier intelligence
+                    - `:"claude-opus-4-5-20251101"`
 
-                      - `:"claude-opus-4-5"`
+                      Powerful intelligence for long-running agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-sonnet-4-5"`
 
-                      - `:"claude-opus-4-5-20251101"`
+                      High-performance model for agents and coding
 
-                        Powerful intelligence for long-running agents and coding
+                    - `:"claude-sonnet-4-5-20250929"`
 
-                      - `:"claude-sonnet-4-5"`
+                      High-performance model for agents and coding
 
-                        High-performance model for agents and coding
+                    - `:"claude-mythos-preview"`
 
-                      - `:"claude-sonnet-4-5-20250929"`
+                      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-                        High-performance model for agents and coding
-
-                      - `:"claude-mythos-preview"`
-
-                        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                        New class of intelligence, strongest in coding and cybersecurity
+                      New class of intelligence, strongest in coding and cybersecurity
 
                     - `String = String`
 
@@ -10092,89 +9922,83 @@
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will complete your prompt.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-sonnet-5-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Efficient model for coding and agents
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-mythos-5-1"`
 
-            - `:"claude-opus-5-5"`
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-              Powerful intelligence for coding, knowledge work, and long-running agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-mythos-5-1"`
+            Efficient model for coding and agents
 
-              Our most capable model for cybersecurity and biology research, available through trusted access programs
+          - `:"claude-fable-5"`
 
-            - `:"claude-sonnet-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Efficient model for coding and agents
+          - `:"claude-mythos-5"`
 
-            - `:"claude-fable-5"`
+            Most capable model for cybersecurity and biology research
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-opus-5"`
 
-            - `:"claude-mythos-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Most capable model for cybersecurity and biology research
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-opus-4-6"`
+            Best combination of speed and intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-sonnet-4-6"`
+            Fastest model with near-frontier intelligence
 
-              Best combination of speed and intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-haiku-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Powerful intelligence for long-running agents and coding
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-opus-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-opus-4-5-20251101"`
+            High-performance model for agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
 
-            - `:"claude-sonnet-4-5"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-mythos-preview"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-              High-performance model for agents and coding
-
-            - `:"claude-mythos-preview"`
-
-              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-              New class of intelligence, strongest in coding and cybersecurity
+            New class of intelligence, strongest in coding and cybersecurity
 
           - `String = String`
 
@@ -13076,89 +12900,83 @@
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                      - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+                      - `:"claude-sonnet-5-5"`
 
-                        The model that will complete your prompt.
+                        Efficient model for coding and agents
 
-                        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+                      - `:"claude-fable-5-1"`
 
-                        - `:"claude-sonnet-5-5"`
+                        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-                          Efficient model for coding and agents
+                      - `:"claude-opus-5-5"`
 
-                        - `:"claude-fable-5-1"`
+                        Powerful intelligence for coding, knowledge work, and long-running agents
 
-                          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                      - `:"claude-mythos-5-1"`
 
-                        - `:"claude-opus-5-5"`
+                        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-                          Powerful intelligence for coding, knowledge work, and long-running agents
+                      - `:"claude-sonnet-5"`
 
-                        - `:"claude-mythos-5-1"`
+                        Efficient model for coding and agents
 
-                          Our most capable model for cybersecurity and biology research, available through trusted access programs
+                      - `:"claude-fable-5"`
 
-                        - `:"claude-sonnet-5"`
+                        Next generation of intelligence for the hardest knowledge work and coding problems
 
-                          Efficient model for coding and agents
+                      - `:"claude-mythos-5"`
 
-                        - `:"claude-fable-5"`
+                        Most capable model for cybersecurity and biology research
 
-                          Next generation of intelligence for the hardest knowledge work and coding problems
+                      - `:"claude-opus-5"`
 
-                        - `:"claude-mythos-5"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Most capable model for cybersecurity and biology research
+                      - `:"claude-opus-4-8"`
 
-                        - `:"claude-opus-5"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-opus-4-7"`
 
-                        - `:"claude-opus-4-8"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-opus-4-6"`
 
-                        - `:"claude-opus-4-7"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-sonnet-4-6"`
 
-                        - `:"claude-opus-4-6"`
+                        Best combination of speed and intelligence
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-haiku-4-5"`
 
-                        - `:"claude-sonnet-4-6"`
+                        Fastest model with near-frontier intelligence
 
-                          Best combination of speed and intelligence
+                      - `:"claude-haiku-4-5-20251001"`
 
-                        - `:"claude-haiku-4-5"`
+                        Fastest model with near-frontier intelligence
 
-                          Fastest model with near-frontier intelligence
+                      - `:"claude-opus-4-5"`
 
-                        - `:"claude-haiku-4-5-20251001"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Fastest model with near-frontier intelligence
+                      - `:"claude-opus-4-5-20251101"`
 
-                        - `:"claude-opus-4-5"`
+                        Powerful intelligence for long-running agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-sonnet-4-5"`
 
-                        - `:"claude-opus-4-5-20251101"`
+                        High-performance model for agents and coding
 
-                          Powerful intelligence for long-running agents and coding
+                      - `:"claude-sonnet-4-5-20250929"`
 
-                        - `:"claude-sonnet-4-5"`
+                        High-performance model for agents and coding
 
-                          High-performance model for agents and coding
+                      - `:"claude-mythos-preview"`
 
-                        - `:"claude-sonnet-4-5-20250929"`
+                        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-                          High-performance model for agents and coding
-
-                        - `:"claude-mythos-preview"`
-
-                          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                          New class of intelligence, strongest in coding and cybersecurity
+                        New class of intelligence, strongest in coding and cybersecurity
 
                       - `String = String`
 
@@ -16770,89 +16588,83 @@
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                        - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+                        - `:"claude-sonnet-5-5"`
 
-                          The model that will complete your prompt.
+                          Efficient model for coding and agents
 
-                          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+                        - `:"claude-fable-5-1"`
 
-                          - `:"claude-sonnet-5-5"`
+                          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-                            Efficient model for coding and agents
+                        - `:"claude-opus-5-5"`
 
-                          - `:"claude-fable-5-1"`
+                          Powerful intelligence for coding, knowledge work, and long-running agents
 
-                            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                        - `:"claude-mythos-5-1"`
 
-                          - `:"claude-opus-5-5"`
+                          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-                            Powerful intelligence for coding, knowledge work, and long-running agents
+                        - `:"claude-sonnet-5"`
 
-                          - `:"claude-mythos-5-1"`
+                          Efficient model for coding and agents
 
-                            Our most capable model for cybersecurity and biology research, available through trusted access programs
+                        - `:"claude-fable-5"`
 
-                          - `:"claude-sonnet-5"`
+                          Next generation of intelligence for the hardest knowledge work and coding problems
 
-                            Efficient model for coding and agents
+                        - `:"claude-mythos-5"`
 
-                          - `:"claude-fable-5"`
+                          Most capable model for cybersecurity and biology research
 
-                            Next generation of intelligence for the hardest knowledge work and coding problems
+                        - `:"claude-opus-5"`
 
-                          - `:"claude-mythos-5"`
+                          Powerful intelligence for long-running agents and coding
 
-                            Most capable model for cybersecurity and biology research
+                        - `:"claude-opus-4-8"`
 
-                          - `:"claude-opus-5"`
+                          Powerful intelligence for long-running agents and coding
 
-                            Powerful intelligence for long-running agents and coding
+                        - `:"claude-opus-4-7"`
 
-                          - `:"claude-opus-4-8"`
+                          Powerful intelligence for long-running agents and coding
 
-                            Powerful intelligence for long-running agents and coding
+                        - `:"claude-opus-4-6"`
 
-                          - `:"claude-opus-4-7"`
+                          Powerful intelligence for long-running agents and coding
 
-                            Powerful intelligence for long-running agents and coding
+                        - `:"claude-sonnet-4-6"`
 
-                          - `:"claude-opus-4-6"`
+                          Best combination of speed and intelligence
 
-                            Powerful intelligence for long-running agents and coding
+                        - `:"claude-haiku-4-5"`
 
-                          - `:"claude-sonnet-4-6"`
+                          Fastest model with near-frontier intelligence
 
-                            Best combination of speed and intelligence
+                        - `:"claude-haiku-4-5-20251001"`
 
-                          - `:"claude-haiku-4-5"`
+                          Fastest model with near-frontier intelligence
 
-                            Fastest model with near-frontier intelligence
+                        - `:"claude-opus-4-5"`
 
-                          - `:"claude-haiku-4-5-20251001"`
+                          Powerful intelligence for long-running agents and coding
 
-                            Fastest model with near-frontier intelligence
+                        - `:"claude-opus-4-5-20251101"`
 
-                          - `:"claude-opus-4-5"`
+                          Powerful intelligence for long-running agents and coding
 
-                            Powerful intelligence for long-running agents and coding
+                        - `:"claude-sonnet-4-5"`
 
-                          - `:"claude-opus-4-5-20251101"`
+                          High-performance model for agents and coding
 
-                            Powerful intelligence for long-running agents and coding
+                        - `:"claude-sonnet-4-5-20250929"`
 
-                          - `:"claude-sonnet-4-5"`
+                          High-performance model for agents and coding
 
-                            High-performance model for agents and coding
+                        - `:"claude-mythos-preview"`
 
-                          - `:"claude-sonnet-4-5-20250929"`
+                          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-                            High-performance model for agents and coding
-
-                          - `:"claude-mythos-preview"`
-
-                            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                            New class of intelligence, strongest in coding and cybersecurity
+                          New class of intelligence, strongest in coding and cybersecurity
 
                         - `String = String`
 
@@ -20490,89 +20302,83 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+            - `:"claude-sonnet-5-5"`
 
-              The model that will complete your prompt.
+              Efficient model for coding and agents
 
-              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+            - `:"claude-fable-5-1"`
 
-              - `:"claude-sonnet-5-5"`
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-                Efficient model for coding and agents
+            - `:"claude-opus-5-5"`
 
-              - `:"claude-fable-5-1"`
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
-                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+            - `:"claude-mythos-5-1"`
 
-              - `:"claude-opus-5-5"`
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-                Powerful intelligence for coding, knowledge work, and long-running agents
+            - `:"claude-sonnet-5"`
 
-              - `:"claude-mythos-5-1"`
+              Efficient model for coding and agents
 
-                Our most capable model for cybersecurity and biology research, available through trusted access programs
+            - `:"claude-fable-5"`
 
-              - `:"claude-sonnet-5"`
+              Next generation of intelligence for the hardest knowledge work and coding problems
 
-                Efficient model for coding and agents
+            - `:"claude-mythos-5"`
 
-              - `:"claude-fable-5"`
+              Most capable model for cybersecurity and biology research
 
-                Next generation of intelligence for the hardest knowledge work and coding problems
+            - `:"claude-opus-5"`
 
-              - `:"claude-mythos-5"`
+              Powerful intelligence for long-running agents and coding
 
-                Most capable model for cybersecurity and biology research
+            - `:"claude-opus-4-8"`
 
-              - `:"claude-opus-5"`
+              Powerful intelligence for long-running agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-opus-4-7"`
 
-              - `:"claude-opus-4-8"`
+              Powerful intelligence for long-running agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-opus-4-6"`
 
-              - `:"claude-opus-4-7"`
+              Powerful intelligence for long-running agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-sonnet-4-6"`
 
-              - `:"claude-opus-4-6"`
+              Best combination of speed and intelligence
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-haiku-4-5"`
 
-              - `:"claude-sonnet-4-6"`
+              Fastest model with near-frontier intelligence
 
-                Best combination of speed and intelligence
+            - `:"claude-haiku-4-5-20251001"`
 
-              - `:"claude-haiku-4-5"`
+              Fastest model with near-frontier intelligence
 
-                Fastest model with near-frontier intelligence
+            - `:"claude-opus-4-5"`
 
-              - `:"claude-haiku-4-5-20251001"`
+              Powerful intelligence for long-running agents and coding
 
-                Fastest model with near-frontier intelligence
+            - `:"claude-opus-4-5-20251101"`
 
-              - `:"claude-opus-4-5"`
+              Powerful intelligence for long-running agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-sonnet-4-5"`
 
-              - `:"claude-opus-4-5-20251101"`
+              High-performance model for agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-sonnet-4-5-20250929"`
 
-              - `:"claude-sonnet-4-5"`
+              High-performance model for agents and coding
 
-                High-performance model for agents and coding
+            - `:"claude-mythos-preview"`
 
-              - `:"claude-sonnet-4-5-20250929"`
+              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-                High-performance model for agents and coding
-
-              - `:"claude-mythos-preview"`
-
-                **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                New class of intelligence, strongest in coding and cybersecurity
+              New class of intelligence, strongest in coding and cybersecurity
 
             - `String = String`
 
@@ -22693,89 +22499,83 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+            - `:"claude-sonnet-5-5"`
 
-              The model that will complete your prompt.
+              Efficient model for coding and agents
 
-              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+            - `:"claude-fable-5-1"`
 
-              - `:"claude-sonnet-5-5"`
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-                Efficient model for coding and agents
+            - `:"claude-opus-5-5"`
 
-              - `:"claude-fable-5-1"`
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
-                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+            - `:"claude-mythos-5-1"`
 
-              - `:"claude-opus-5-5"`
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-                Powerful intelligence for coding, knowledge work, and long-running agents
+            - `:"claude-sonnet-5"`
 
-              - `:"claude-mythos-5-1"`
+              Efficient model for coding and agents
 
-                Our most capable model for cybersecurity and biology research, available through trusted access programs
+            - `:"claude-fable-5"`
 
-              - `:"claude-sonnet-5"`
+              Next generation of intelligence for the hardest knowledge work and coding problems
 
-                Efficient model for coding and agents
+            - `:"claude-mythos-5"`
 
-              - `:"claude-fable-5"`
+              Most capable model for cybersecurity and biology research
 
-                Next generation of intelligence for the hardest knowledge work and coding problems
+            - `:"claude-opus-5"`
 
-              - `:"claude-mythos-5"`
+              Powerful intelligence for long-running agents and coding
 
-                Most capable model for cybersecurity and biology research
+            - `:"claude-opus-4-8"`
 
-              - `:"claude-opus-5"`
+              Powerful intelligence for long-running agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-opus-4-7"`
 
-              - `:"claude-opus-4-8"`
+              Powerful intelligence for long-running agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-opus-4-6"`
 
-              - `:"claude-opus-4-7"`
+              Powerful intelligence for long-running agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-sonnet-4-6"`
 
-              - `:"claude-opus-4-6"`
+              Best combination of speed and intelligence
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-haiku-4-5"`
 
-              - `:"claude-sonnet-4-6"`
+              Fastest model with near-frontier intelligence
 
-                Best combination of speed and intelligence
+            - `:"claude-haiku-4-5-20251001"`
 
-              - `:"claude-haiku-4-5"`
+              Fastest model with near-frontier intelligence
 
-                Fastest model with near-frontier intelligence
+            - `:"claude-opus-4-5"`
 
-              - `:"claude-haiku-4-5-20251001"`
+              Powerful intelligence for long-running agents and coding
 
-                Fastest model with near-frontier intelligence
+            - `:"claude-opus-4-5-20251101"`
 
-              - `:"claude-opus-4-5"`
+              Powerful intelligence for long-running agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-sonnet-4-5"`
 
-              - `:"claude-opus-4-5-20251101"`
+              High-performance model for agents and coding
 
-                Powerful intelligence for long-running agents and coding
+            - `:"claude-sonnet-4-5-20250929"`
 
-              - `:"claude-sonnet-4-5"`
+              High-performance model for agents and coding
 
-                High-performance model for agents and coding
+            - `:"claude-mythos-preview"`
 
-              - `:"claude-sonnet-4-5-20250929"`
+              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-                High-performance model for agents and coding
-
-              - `:"claude-mythos-preview"`
-
-                **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                New class of intelligence, strongest in coding and cybersecurity
+              New class of intelligence, strongest in coding and cybersecurity
 
             - `String = String`
 
@@ -24811,89 +24611,83 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will complete your prompt.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Efficient model for coding and agents
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-mythos-5-1"`
 
-        - `:"claude-opus-5-5"`
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-mythos-5-1"`
+        Efficient model for coding and agents
 
-          Our most capable model for cybersecurity and biology research, available through trusted access programs
+      - `:"claude-fable-5"`
 
-        - `:"claude-sonnet-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Efficient model for coding and agents
+      - `:"claude-mythos-5"`
 
-        - `:"claude-fable-5"`
+        Most capable model for cybersecurity and biology research
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-opus-5"`
 
-        - `:"claude-mythos-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Most capable model for cybersecurity and biology research
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-opus-4-6"`
+        Best combination of speed and intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-sonnet-4-6"`
+        Fastest model with near-frontier intelligence
 
-          Best combination of speed and intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Powerful intelligence for long-running agents and coding
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        High-performance model for agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
 
-        - `:"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-mythos-preview"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-          High-performance model for agents and coding
-
-        - `:"claude-mythos-preview"`
-
-          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          New class of intelligence, strongest in coding and cybersecurity
+        New class of intelligence, strongest in coding and cybersecurity
 
       - `String = String`
 
@@ -28651,89 +28445,83 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Model = :"claude-sonnet-5-5" | :"claude-fable-5-1" | :"claude-opus-5-5" | 16 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will complete your prompt.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            Efficient model for coding and agents
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-mythos-5-1"`
 
-          - `:"claude-opus-5-5"`
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-            Powerful intelligence for coding, knowledge work, and long-running agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-mythos-5-1"`
+          Efficient model for coding and agents
 
-            Our most capable model for cybersecurity and biology research, available through trusted access programs
+        - `:"claude-fable-5"`
 
-          - `:"claude-sonnet-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Efficient model for coding and agents
+        - `:"claude-mythos-5"`
 
-          - `:"claude-fable-5"`
+          Most capable model for cybersecurity and biology research
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-opus-5"`
 
-          - `:"claude-mythos-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Most capable model for cybersecurity and biology research
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-opus-4-6"`
+          Best combination of speed and intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-sonnet-4-6"`
+          Fastest model with near-frontier intelligence
 
-            Best combination of speed and intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-haiku-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Powerful intelligence for long-running agents and coding
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-opus-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          High-performance model for agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
 
-          - `:"claude-sonnet-4-5"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-mythos-preview"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-            High-performance model for agents and coding
-
-          - `:"claude-mythos-preview"`
-
-            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-            New class of intelligence, strongest in coding and cybersecurity
+          New class of intelligence, strongest in coding and cybersecurity
 
         - `String = String`
 
@@ -30642,3 +30430,352 @@
         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
         minimum: 1
+
+      - `max_uses: Integer`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `response_inclusion: :full | :excluded`
+
+        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+        - `:full`
+
+        - `:excluded`
+
+      - `strict: bool`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: BetaWebFetchURLSources`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `use_cache: bool`
+
+        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+    - `class BetaAdvisorTool20260301`
+
+      - `type: :advisor_20260301`
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
+
+        - `:"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `:"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
+
+        - `:"claude-mythos-5-1"`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+        - `:"claude-sonnet-5"`
+
+          Efficient model for coding and agents
+
+        - `:"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `:"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-8"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-7"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-6"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-sonnet-4-6"`
+
+          Best combination of speed and intelligence
+
+        - `:"claude-haiku-4-5"`
+
+          Fastest model with near-frontier intelligence
+
+        - `:"claude-haiku-4-5-20251001"`
+
+          Fastest model with near-frontier intelligence
+
+        - `:"claude-opus-4-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+        - `:"claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
+
+        - `String = String`
+
+      - `name: :advisor`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+        - `:direct`
+
+        - `:code_execution_20250825`
+
+        - `:code_execution_20260120`
+
+        - `:code_execution_20260521`
+
+      - `cache_control: BetaCacheControlEphemeral`
+
+        Create a cache control breakpoint at this content block.
+
+      - `caching: BetaCacheControlEphemeral`
+
+        Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+      - `defer_loading: bool`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_tokens: Integer`
+
+        Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+        minimum: 1024
+
+      - `max_uses: Integer`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: bool`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolSearchToolBm25_20251119`
+
+      - `type: :tool_search_tool_bm25_20251119 | :tool_search_tool_bm25`
+
+        - `:tool_search_tool_bm25_20251119`
+
+        - `:tool_search_tool_bm25`
+
+      - `name: :tool_search_tool_bm25`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+        - `:direct`
+
+        - `:code_execution_20250825`
+
+        - `:code_execution_20260120`
+
+        - `:code_execution_20260521`
+
+      - `cache_control: BetaCacheControlEphemeral`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: bool`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: bool`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolSearchToolRegex20251119`
+
+      - `type: :tool_search_tool_regex_20251119 | :tool_search_tool_regex`
+
+        - `:tool_search_tool_regex_20251119`
+
+        - `:tool_search_tool_regex`
+
+      - `name: :tool_search_tool_regex`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+        - `:direct`
+
+        - `:code_execution_20250825`
+
+        - `:code_execution_20260120`
+
+        - `:code_execution_20260521`
+
+      - `cache_control: BetaCacheControlEphemeral`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: bool`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: bool`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaMCPToolset`
+
+      Configuration for a group of tools from an MCP server.
+
+      Allows configuring enabled status and defer_loading for all tools
+      from an MCP server, with optional per-tool overrides.
+
+      - `type: :mcp_toolset`
+
+      - `mcp_server_name: String`
+
+        Name of the MCP server to configure tools for
+
+        minLength: 1, maxLength: 255
+
+      - `cache_control: BetaCacheControlEphemeral`
+
+        Create a cache control breakpoint at this content block.
+
+      - `configs: Hash[Symbol, BetaMCPToolConfig]`
+
+        Configuration overrides for specific tools, keyed by tool name
+
+        - `defer_loading: bool`
+
+        - `enabled: bool`
+
+      - `default_config: BetaMCPToolDefaultConfig`
+
+        Default configuration applied to all tools from this server
+
+        - `defer_loading: bool`
+
+        - `enabled: bool`
+
+      - `tools: Array[BetaMCPToolParam]`
+
+        The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+        - `input_schema: Hash[Symbol, untyped]`
+
+          The tool's input schema as the MCP server lists it, verbatim.
+
+        - `name: String`
+
+          The tool's name as the MCP server lists it (not prefixed with the server name).
+
+          minLength: 1
+
+        - `description: String`
+
+          The tool's description as the MCP server lists it.
+
+### Beta Tool Change Tool Reference
+
+- `class BetaToolChangeToolReference`
+
+  Reference to a single tool, by the name the model uses to call it: a
+  tool declared in `tools` or defined by an earlier `tool_addition`
+  block. Does not accept the composed `{server}_{name}` form the server
+  assigns to MCP-resolved tools; use `mcp_tool_reference` or
+  `mcp_toolset_reference` for those.
+
+  - `type: :tool_reference`
+
+  - `name: String`
+
+    pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+### Beta Tool Choice
+
+- `type BetaToolChoice = BetaToolChoiceAuto | BetaToolChoiceAny | BetaToolChoiceTool | BetaToolChoiceNone`
+
+  How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
+  - `class BetaToolChoiceAuto`
+
+    The model will automatically decide whether to use tools.
+
+    - `type: :auto`
+
+    - `disable_parallel_tool_use: bool`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+  - `class BetaToolChoiceAny`
+
+    The model will use any available tools.
+
+    - `type: :any`
+
+    - `disable_parallel_tool_use: bool`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `class BetaToolChoiceTool`
+
+    The model will use the specified tool with `tool_choice.name`.
+
+    - `type: :tool`
+
+    - `name: String`
+
+      The name of the tool to use.
+
+    - `disable_parallel_tool_use: bool`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `class BetaToolChoiceNone`

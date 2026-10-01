@@ -3,6 +3,8 @@
 
 <!-- chunk-start -->
 
+          - `String encryptedContent`
+
             Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
           - `Optional<String> stopReason`

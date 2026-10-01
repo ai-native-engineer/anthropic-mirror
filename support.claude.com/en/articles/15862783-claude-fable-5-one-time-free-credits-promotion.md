@@ -2,7 +2,7 @@
 
 # Claude Fable 5 one-time free credits promotion
 
-Updated over 4 weeks ago
+Updated over a month ago
 
 Table of contents
 

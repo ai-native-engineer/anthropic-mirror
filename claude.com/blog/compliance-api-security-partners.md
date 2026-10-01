@@ -79,6 +79,30 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
+
+Jul 20, 2026
+
+### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+Enterprise AI
+
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Sep 30, 2026
+
+### How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+Enterprise AI
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](#)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
 Aug 21, 2026
@@ -102,30 +126,6 @@ Product announcements
 [Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
 
 [Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
-
-Sep 24, 2026
-
-### Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
-
-Claude Code
-
-[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](#)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
-
-[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2287f90c57df4c9dd97_c1ef4c0b6882dfe985555b52999d370ea88a3c50-1000x1000.svg)
-
-Sep 23, 2026
-
-### How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
-
-Enterprise AI
-
-[How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace](#)How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
-
-[How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace](https://claude.com/blog/how-coderabbit-power-digital-and-thoughtspot-scale-with-snowflake-and-vercel-on-claude-marketplace)How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
 
 ## Transform how your organization operates with Claude
 

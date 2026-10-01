@@ -97,7 +97,6 @@ Bentonville
 Boston
 Chicago
 Dallas
-Detroit
 Frisco
 Houston
 London
@@ -127,30 +126,6 @@ Non-Technical
 Financial Services
 Healthcare & Life Sciences
 Clear filters
-
-Claude SMB Workshop
-
-Detroit
-
-September 29
-
-About this session
-
-A hands-on AI fluency session for small and medium-sized business owners and operators. Learn how to hand Claude real tasks from your actual job — payroll, marketing, invoices, lead follow-ups — and get time back.
-
-[Apply ↗](https://anthropic.swoogo.com/claude-smb-workshop-detroit/rta)
-
-Claude Coworkshop
-
-London
-
-September 29
-
-About this session
-
-A hands-on session for non-developers. Learn how to hand Claude real tasks from your actual job — research, drafts, decks, follow-ups — and get time back.
-
-[Apply ↗](https://www.zartis.com/events/claude-coworkshop-london/)
 
 Claude Coworkshop
 
@@ -443,30 +418,6 @@ About this session
 Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
 
 [Apply ↗](https://luma.com/claude-code-workshop-sf-oct-19)
-
-Claude Workshop
-
-New York City
-
-October 20
-
-About this session
-
-A hands-on session for non-developers. Learn how to hand Claude real tasks from your actual job — research, drafts, decks, follow-ups — and get time back.
-
-[Apply ↗](https://luma.com/claude-workshop-nyc-oct-20)
-
-Claude Code Workshop
-
-New York City
-
-October 20
-
-About this session
-
-Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
-
-[Apply ↗](https://luma.com/claude-code-workshop-nyc-oct-20)
 
 Claude Code Workshop
 

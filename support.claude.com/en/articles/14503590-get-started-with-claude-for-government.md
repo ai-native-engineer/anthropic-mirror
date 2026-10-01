@@ -1,6 +1,6 @@
 <!-- source: https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government -->
 
-**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation for getting started.
+**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved or you want to get started, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation.
 
 ## What is Claude for Government?
 
@@ -13,7 +13,7 @@ Claude for Government is available to U.S. federal, state, and local government 
 ##
 
 * [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
-* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

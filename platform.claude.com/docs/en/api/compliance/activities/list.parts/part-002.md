@@ -927,7 +927,7 @@
 
     - `webhook_url: string`
 
-      The endpoint that inspected prompts and responses are sent to.
+      Scheme and host of the endpoint that Inference hooks sends prompts and responses to after this change, for example `https://hooks.example.com`; the port, path and query are never included. Empty when the address cannot be shown safely, and on activities recorded before this field was limited to scheme and host.
 
     - `id: optional string`
 
@@ -17629,7 +17629,7 @@
 
     - `mcp_server_url: optional string or null`
 
-      Origin (scheme, host and port, the default port omitted) of the MCP server at the time of the change; the path is never included. Null when not available.
+      Origin (scheme, host and port, the default port omitted) of the MCP server at the time of the change; the path is never included. Null when not available, and on activities recorded before this field was limited to the origin.
 
     - `organization_id: optional string or null`
 
@@ -42500,15 +42500,3 @@
         - `type: optional "web_search_enabled"`
 
           default: web_search_enabled
-
-        - `current_value: optional boolean or null`
-
-          Setting value immediately after this change
-
-        - `previous_value: optional boolean or null`
-
-          Setting value immediately before this change
-
-      - `GeolocationEnabled object`
-
-        The geolocation setting was changed.

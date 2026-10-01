@@ -3,6 +3,38 @@
 
 <!-- chunk-start -->
 
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
         A federated external workload authenticated via a verified OIDC token.
 
         Carries the verified issuer, subject, and audience claims from the
@@ -17267,10 +17299,6 @@
 
       Tagged ID of the created app
 
-    - `workspace_id: string`
-
-      Tagged ID of the workspace the app is scoped to
-
     - `id: optional string`
 
       Unique identifier for the activity e.g. 'activity_abcd1234'
@@ -17288,6 +17316,10 @@
     - `organization_uuid: optional string or null`
 
       Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `workspace_id: optional string or null`
+
+      Tagged ID of the workspace the app is scoped to. Null or absent if the app is not scoped to a workspace.
 
   - `PlatformOAuthAppRevoked object`
 
@@ -42408,33 +42440,3 @@
             Asserting party: the Azure subscription the organization is bound to.
 
             - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`

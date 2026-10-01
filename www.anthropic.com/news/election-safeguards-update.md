@@ -57,5 +57,3 @@ Opus 4.7 and Sonnet 4.6 triggered web search on these types of questions 92% and
 ## Looking ahead
 
 When people choose to engage with Claude during an election, we want them to be able to trust that the information they receive is accurate, reliable, and balanced. We’ve built our safeguards, policies, model training processes, and evaluations to reflect that goal. Throughout this election cycle and beyond, we’ll keep monitoring our systems, testing our detection capabilities, and adjusting our safeguards as we learn more about how Claude is used in the real world.
-
-An update on our election safeguards \ Anthropic

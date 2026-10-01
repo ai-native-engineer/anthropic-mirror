@@ -84,12 +84,12 @@ Quantium's approach pairs talented people with sophisticated AI tools and techno
 
 "Claude has fundamentally changed how we approach complex problems," says Driussi. "The combination of our deep analytical expertise with powerful AI capabilities lets us tackle more ambitious challenges. Our teams can explore solutions in ways that weren't feasible before. We're now taking these practical insights to our enterprise clients globally, helping them move beyond AI experimentation to create genuine competitive advantage that will determine which businesses thrive in the coming decade."
 
-[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
+
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
 ### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
 ### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
-
-### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)

@@ -1333,6 +1333,12 @@ We are especially grateful to Sarah Gurev and Gage Moreno for their help in deve
 7. All analyses performed here are provided for illustration purposes only and are not intended to provide medical or public-health guidance; for Ebola disease treatment recommendations, please refer to official WHO guidance.
 8. To echo a [point Nils Homer recently made](https://blog.fulcrumgenomics.com/p/your-bioinformatics-tools-need-to) about AI-ready bioinformatics tools: “AI assistants need to work with your code, your outputs, and your analysis logic.” This allows agents to inspect not only what was retrieved, but how it was retrieved, turning a plausible-looking answer into something that can be checked and reproduced.
 
+### What work can robots do?
+
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
+
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
+
 ### What do you want from AI?
 
 We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
@@ -1345,14 +1351,6 @@ Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously bui
 
 [Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
 
-### Yes, Claude can do Nine Loops
-
-Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
-
-[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
-
 ## Subscribe to Anthropic Science
 
 Features on AI-assisted discoveries, practical workflows, and field notes across the sciences.
-
-Paving the way for AI agents in biology \ Anthropic

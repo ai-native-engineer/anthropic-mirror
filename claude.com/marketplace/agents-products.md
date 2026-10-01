@@ -6,7 +6,7 @@ Use Cases
 
 CodeDataFinancial ServicesLegalSecurity
 
-15 products
+16 products
 
 ![](https://assets.claude.com/9e48c05f10cf4adac54a25d183d2d14e38621a56.svg)
 
@@ -38,7 +38,7 @@ Code
 
 Accelerate outcomes with autonomous intelligence fueled by world-class expertise.
 
-Code
+Security
 
 ![](https://assets.claude.com/15522d3777558a7b4f9bae8cc97170bd2b297e69.png)
 
@@ -47,6 +47,14 @@ Code
 AI coding platform for the full Software Development Lifecycle.
 
 Code
+
+![](https://assets.claude.com/ead191cb646dc885e2beecdf7d6194c38c275627.svg)
+
+### [Cyera](https://claude.com/marketplace/agents-products/cyera)
+
+Trust everything your AI can see and do. Secure your agents from the data layer up.
+
+Security
 
 ![](https://assets.claude.com/b2934abd4aa98f7edfdbd265be89e6493825459f.svg)
 

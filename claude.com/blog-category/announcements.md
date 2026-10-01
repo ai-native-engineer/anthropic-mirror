@@ -18,6 +18,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
+
+Sep 30, 2026
+
+Claude for Government is now generally available
+
+Product announcements
+
+Claude for Government is now generally available
+
+September 30, 2026
+
+[Claude for Government is now generally available](https://claude.com/blog/claude-for-government-is-now-generally-available)Claude for Government is now generally available
+
+[Claude for Government is now generally available](#)Claude for Government is now generally available
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
 Sep 25, 2026
@@ -242,22 +258,6 @@ August 20, 2026
 
 [Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Aug 20, 2026
-
-Build production agents with computer use, the Skills API, and the Files API
-
-Product announcements
-
-Build production agents with computer use, the Skills API, and the Files API
-
-August 20, 2026
-
-[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
-
-[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -265,6 +265,22 @@ Category
 Product
 
 Usecase
+
+### Claude for Government is now generally available
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 30, 2026
+
+[Claude for Government is now generally available](https://claude.com/blog/claude-for-government-is-now-generally-available)Claude for Government is now generally available
+
+[Claude for Government is now generally available](#)Claude for Government is now generally available
 
 ### Build plugins for Claude
 
@@ -489,22 +505,6 @@ August 20, 2026
 [Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
 
 [Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
-
-### Build production agents with computer use, the Skills API, and the Files API
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 20, 2026
-
-[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
-
-[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
 
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 

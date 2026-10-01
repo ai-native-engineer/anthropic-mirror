@@ -88,6 +88,30 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
+
+Sep 30, 2026
+
+### Claude for Government is now generally available
+
+Product announcements
+
+[Claude for Government is now generally available](#)Claude for Government is now generally available
+
+[Claude for Government is now generally available](https://claude.com/blog/claude-for-government-is-now-generally-available)Claude for Government is now generally available
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
+
+Sep 25, 2026
+
+### Build plugins for Claude
+
+Product announcements
+
+[Build plugins for Claude](#)Build plugins for Claude
+
+[Build plugins for Claude](https://claude.com/blog/build-plugins-for-claude)Build plugins for Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
 Aug 21, 2026
@@ -111,30 +135,6 @@ Product announcements
 [Claude Marketplace: one place to discover plugins, agents, and services from our partners](#)Claude Marketplace: one place to discover plugins, agents, and services from our partners
 
 [Claude Marketplace: one place to discover plugins, agents, and services from our partners](https://claude.com/blog/claude-marketplace)Claude Marketplace: one place to discover plugins, agents, and services from our partners
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Sep 25, 2026
-
-### Build plugins for Claude
-
-Product announcements
-
-[Build plugins for Claude](#)Build plugins for Claude
-
-[Build plugins for Claude](https://claude.com/blog/build-plugins-for-claude)Build plugins for Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
-
-Sep 24, 2026
-
-### Claude Tag now supports personal connectors in channels
-
-Product announcements
-
-[Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
-
-[Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
 
 ## Transform how your organization operates with Claude
 

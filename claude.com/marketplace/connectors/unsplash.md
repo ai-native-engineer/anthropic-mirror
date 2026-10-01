@@ -8,14 +8,43 @@ Find and use high-quality, free images from Unsplash. Your visual companion for 
 
 ## Tools
 
-* SearchCollections
-* SearchIllustrations
-* SearchPhotos
-* SearchUsers
+* add\_asset\_to\_bookmarks
+* add\_asset\_to\_collection
+* create\_collection
+* create\_collection\_from\_bookmarks
+* delete\_asset\_from\_bookmarks
+* delete\_asset\_from\_collection
+* delete\_bookmarks
+* delete\_collection
+* get\_assets\_from\_collection
+* get\_bookmarks
+* get\_collection
+* get\_current\_user
+* get\_featured\_collections
+* get\_related\_collections
+* get\_user\_collections
+* search\_by\_image
+* search\_collections
+* search\_illustrations
+* search\_photos
+* search\_related
+* search\_users
+* update\_collection
+* upload\_image\_for\_search
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
+
+![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
+
+### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
+
+Anthropic verifiedTrending
+
+Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+
+[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -56,11 +85,3 @@ Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claud
 Connect your Notion workspace to search, update, and power workflows across tools
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
-
-![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
-
-### [Slack](https://claude.com/marketplace/connectors/slack)
-
-Send messages, create canvases, and fetch Slack data
-
-[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

@@ -35,5 +35,3 @@ These discussions are the first of many, and we're grateful to everyone who has 
 In the months ahead, we plan to engage with more groups—including legal scholars, psychologists, writers, and civic institutions. Many of these conversations will move beyond moral formation toward broader questions about how AI is reshaping work, institutions, and the distribution of power.
 
 We’ll keep deepening the relationships we’ve already formed, testing what we’ve heard against our research, and sharing what we learn.
-
-Widening the conversation on frontier AI \ Anthropic

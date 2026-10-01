@@ -150,7 +150,7 @@ The European Parliament transformed 2.1M archive documents accessibility with Cl
 
 Read story
 
-[Read story](https://claude.com/customers/european-parliament)Read story
+[Read story](#)Read story
 
 ## Compliance and certifications
 

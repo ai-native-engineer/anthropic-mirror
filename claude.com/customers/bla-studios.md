@@ -38,12 +38,12 @@ Joe BacusCo-founder, BLA Studios
 
 ![](https://assets.claude.com/c55df7a1293e9eaba8708618884853f7c4a712c5.jpg)
 
-[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
+
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
 ### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
 ### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
-### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)[![Quantium](https://assets.claude.com/0e6b8d1ab806b1a949b793cce5bc3b294fe8d88c.svg)
-
-### Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)
+### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)

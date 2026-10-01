@@ -15,7 +15,7 @@ For paid API customers, we do not support ad hoc deletion. See [here](https://pr
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
-* [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
+* [Who owns and manages the data of my team?](https://privacy.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
 * [Can you delete data that I sent via Team and Enterprise plans?](https://privacy.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans)
 
 Table of contents

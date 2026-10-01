@@ -1,10 +1,12 @@
 <!-- source: https://support.claude.com/en/articles/14503775-mcp-web-search -->
 
+**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved or you want to get started, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation.
+
 The Web Search connector gives Claude the ability to search the public internet for real-time information, including verifying facts, pulling recent news, and researching topics outside its training data.
 
 For questions about web search in commercial Claude, see **[Enabling and using web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1790774100&signature=e1ae77064f76504b65dabcb63434294bd5d999fabcc6f059d5d1bc6ac1648127&req=diIiEMh8nYZZWvMW1HO4zQvFLbJUisD5M%2Fw5SJgC29GlcIpaMtx%2BxY5g2wQI%0Ad%2BX7HP2Y98ubXVQ417k%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1790774100&signature=e1ae77064f76504b65dabcb63434294bd5d999fabcc6f059d5d1bc6ac1648127&req=diIiEMh8nYZZWvMW1HO4zQvFLbJUisD5M%2Fw5SJgC29GlcIpaMtx%2BxY5g2wQI%0Ad%2BX7HP2Y98ubXVQ417k%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1790942400&signature=39255f5bcdfd7ff61ed25c441b869395c994e63c7812afad533184cbbcad5bd2&req=diIiEMh8nYZZWvMW3nq%2BgXeaYHxIYiPhSHOISj51v3xme5BrP38YWaOJM7sC%0AOc2dUYg1Sualkq7n6jhBQGWWCJY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1790942400&signature=39255f5bcdfd7ff61ed25c441b869395c994e63c7812afad533184cbbcad5bd2&req=diIiEMh8nYZZWvMW3nq%2BgXeaYHxIYiPhSHOISj51v3xme5BrP38YWaOJM7sC%0AOc2dUYg1Sualkq7n6jhBQGWWCJY%3D%0A)
 
 ## How Web Search differs for Claude for Government
 
@@ -75,6 +77,6 @@ No. The Remote MCP framework was authorized as a feature, which covers individua
 
 * [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
-* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

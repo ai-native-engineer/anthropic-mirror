@@ -1,7 +1,5 @@
 <!-- source: https://claude.com/marketplace/plugins/pinecone -->
 
-[Skip to main content](#main-content)
-
 Integrate Pinecone vector database directly into your Claude Code workflow. This plugin provides a complete toolkit for managing vector indexes, querying data with natural language, and rapidly prototyping semantic search applications—all without leaving your editor.
 
 The MCP server gives you access to seven powerful tools: list-indexes, describe-index, describe-index-stats, search-records, create-index-for-model, upsert-records, and rerank-documents. Build RAG applications, recommendation systems, and semantic search features with full control over your vector data.
@@ -14,8 +12,6 @@ Requires a Pinecone API key set as `PINECONE_API_KEY` environment variable befor
 
 ### [Frontend Design](https://claude.com/marketplace/plugins/frontend-design)
 
-Anthropic verified
-
 Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
 
 ### [Superpowers](https://claude.com/marketplace/plugins/superpowers)
@@ -24,8 +20,6 @@ Claude learns brainstorming, subagent development with code review, debugging, T
 
 ### [Code Review](https://claude.com/marketplace/plugins/code-review)
 
-Anthropic verified
-
 AI code review with specialized agents and confidence-based filtering for pull requests
 
 ### [Context7](https://claude.com/marketplace/plugins/context7)
@@ -33,8 +27,6 @@ AI code review with specialized agents and confidence-based filtering for pull r
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
 ### [Code Simplifier](https://claude.com/marketplace/plugins/code-simplifier)
-
-Anthropic verified
 
 Code clarity agent: simplifies and refines recently modified code while preserving functionality and consistency.
 

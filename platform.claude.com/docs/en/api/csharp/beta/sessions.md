@@ -1193,6 +1193,8 @@ Create Session
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1992,8 +1994,6 @@ Create Session
       format: double
 
   - `required Status Status`
-
-    SessionStatus enum
 
     - `Rescheduling("rescheduling")`
 
@@ -2495,6 +2495,8 @@ List Sessions
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -3295,8 +3297,6 @@ List Sessions
 
   - `required Status Status`
 
-    SessionStatus enum
-
     - `Rescheduling("rescheduling")`
 
       Transient error occurred, retrying automatically.
@@ -3718,6 +3718,8 @@ Get Session
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -4518,8 +4520,6 @@ Get Session
       format: double
 
   - `required Status Status`
-
-    SessionStatus enum
 
     - `Rescheduling("rescheduling")`
 
@@ -4962,6 +4962,8 @@ Update Session
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -5762,8 +5764,6 @@ Update Session
 
   - `required Status Status`
 
-    SessionStatus enum
-
     - `Rescheduling("rescheduling")`
 
       Transient error occurred, retrying automatically.
@@ -6181,6 +6181,8 @@ Delete Session
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -6332,6 +6334,8 @@ Archive Session
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -7132,8 +7136,6 @@ Archive Session
       format: double
 
   - `required Status Status`
-
-    SessionStatus enum
 
     - `Rescheduling("rescheduling")`
 
@@ -8358,8 +8360,6 @@ Console.WriteLine(betaManagedAgentsSession);
 
 - `enum BetaManagedAgentsDeltaType`
 
-  EventDeltaType enum
-
   - `AgentMessage("agent.message")`
 
   - `AgentThinking("agent.thinking")`
@@ -9435,8 +9435,6 @@ Console.WriteLine(betaManagedAgentsSession);
       format: double
 
   - `required Status Status`
-
-    SessionStatus enum
 
     - `Rescheduling("rescheduling")`
 
@@ -12496,6 +12494,8 @@ List Events
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -13454,6 +13454,156 @@ List Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `JsonElement Type = "repository_authentication_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `JsonElement Type = "repository_forbidden_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `JsonElement Type = "repository_not_found_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `JsonElement Type = "repository_checkout_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `JsonElement Type = "repository_clone_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `required DateTimeOffset ProcessedAt`
 
       Timestamp when the error occurred.
@@ -13508,6 +13658,30 @@ List Events
 
       format: date-time
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `JsonElement Type = "refusal"`
+
+      - `required Category? Category`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `Cyber("cyber")`
+
+        - `Bio("bio")`
+
+        - `FrontierLlm("frontier_llm")`
+
+        - `ReasoningExtraction("reasoning_extraction")`
+
+        - `GeneralHarms("general_harms")`
+
+      - `required string? Explanation`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -13537,6 +13711,12 @@ List Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `required Type Type`
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `JsonElement Type = "refusal"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -13866,6 +14046,10 @@ List Events
 
       Public sthr_ ID of the thread that went idle.
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -13883,6 +14067,10 @@ List Events
       - `class BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -15253,6 +15441,8 @@ Send Events
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -15876,6 +16066,8 @@ Stream Events
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -16835,6 +17027,156 @@ Stream Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `JsonElement Type = "repository_authentication_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `JsonElement Type = "repository_forbidden_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `JsonElement Type = "repository_not_found_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `JsonElement Type = "repository_checkout_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `JsonElement Type = "repository_clone_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `required DateTimeOffset ProcessedAt`
 
       Timestamp when the error occurred.
@@ -16889,6 +17231,30 @@ Stream Events
 
       format: date-time
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `JsonElement Type = "refusal"`
+
+      - `required Category? Category`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `Cyber("cyber")`
+
+        - `Bio("bio")`
+
+        - `FrontierLlm("frontier_llm")`
+
+        - `ReasoningExtraction("reasoning_extraction")`
+
+        - `GeneralHarms("general_harms")`
+
+      - `required string? Explanation`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -16918,6 +17284,12 @@ Stream Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `required Type Type`
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `JsonElement Type = "refusal"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -17247,6 +17619,10 @@ Stream Events
 
       Public sthr_ ID of the thread that went idle.
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -17264,6 +17640,10 @@ Stream Events
       - `class BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -18325,6 +18705,8 @@ Add Session Resource
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18508,6 +18890,8 @@ List Session Resources
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -18786,6 +19170,8 @@ Get Session Resource
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -19057,6 +19443,8 @@ Update Session Resource
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -19323,6 +19711,8 @@ Delete Session Resource
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -19489,6 +19879,8 @@ List Session Threads
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -20407,6 +20799,8 @@ Get Session Thread
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -21317,6 +21711,8 @@ Archive Session Thread
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -22240,6 +22636,8 @@ List Session Thread Events
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -23199,6 +23597,156 @@ List Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `JsonElement Type = "repository_authentication_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `JsonElement Type = "repository_forbidden_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `JsonElement Type = "repository_not_found_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `JsonElement Type = "repository_checkout_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `JsonElement Type = "repository_clone_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `required DateTimeOffset ProcessedAt`
 
       Timestamp when the error occurred.
@@ -23253,6 +23801,30 @@ List Session Thread Events
 
       format: date-time
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `JsonElement Type = "refusal"`
+
+      - `required Category? Category`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `Cyber("cyber")`
+
+        - `Bio("bio")`
+
+        - `FrontierLlm("frontier_llm")`
+
+        - `ReasoningExtraction("reasoning_extraction")`
+
+        - `GeneralHarms("general_harms")`
+
+      - `required string? Explanation`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -23282,6 +23854,12 @@ List Session Thread Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `required Type Type`
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `JsonElement Type = "refusal"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -23611,6 +24189,10 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -23628,6 +24210,10 @@ List Session Thread Events
       - `class BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -24638,6 +25224,8 @@ Stream Session Thread Events
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -25596,6 +26184,156 @@ Stream Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `JsonElement Type = "repository_authentication_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `JsonElement Type = "repository_forbidden_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `JsonElement Type = "repository_not_found_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `JsonElement Type = "repository_checkout_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `JsonElement Type = "repository_clone_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `required DateTimeOffset ProcessedAt`
 
       Timestamp when the error occurred.
@@ -25650,6 +26388,30 @@ Stream Session Thread Events
 
       format: date-time
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `JsonElement Type = "refusal"`
+
+      - `required Category? Category`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `Cyber("cyber")`
+
+        - `Bio("bio")`
+
+        - `FrontierLlm("frontier_llm")`
+
+        - `ReasoningExtraction("reasoning_extraction")`
+
+        - `GeneralHarms("general_harms")`
+
+      - `required string? Explanation`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -25679,6 +26441,12 @@ Stream Session Thread Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `required Type Type`
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `JsonElement Type = "refusal"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -26008,6 +26776,10 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -26025,6 +26797,10 @@ Stream Session Thread Events
       - `class BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 

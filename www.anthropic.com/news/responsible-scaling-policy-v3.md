@@ -98,5 +98,3 @@ In that same spirit of pragmatism we will continue to revise and refine our RSP,
 #### Footnotes
 
 1. As we discuss in the RSP, we will aim to minimize redactions to the public version of the Risk Report. Reasons we may nonetheless have to redact some of the text include legal compliance, intellectual property protection, public safety, and privacy.
-
-Responsible Scaling Policy Version 3.0 \ Anthropic

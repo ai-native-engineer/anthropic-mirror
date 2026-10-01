@@ -48,14 +48,6 @@ Generate diagrams and better code from Figma context
 
 [Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
-![](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg?w=128&fit=max&auto=format)
-
-### [HubSpot](https://claude.com/marketplace/connectors/hubspot)
-
-CRM context for every answer, insight, and action
-
-[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
-
 ![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
 
 ### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
@@ -65,6 +57,14 @@ Anthropic verifiedTrending
 Faites vos courses rapidement
 
 [Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
+
+![](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg?w=128&fit=max&auto=format)
+
+### [HubSpot](https://claude.com/marketplace/connectors/hubspot)
+
+CRM context for every answer, insight, and action
+
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 

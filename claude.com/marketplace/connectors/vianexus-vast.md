@@ -75,10 +75,10 @@ Connect to Asana to coordinate tasks, projects, and goals
 
 [Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-### [Supabase](https://claude.com/marketplace/connectors/supabase)
+### [monday.com](https://claude.com/marketplace/connectors/monday)
 
-Manage databases, authentication, and storage
+monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
 
-[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")

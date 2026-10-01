@@ -113,6 +113,15 @@ You can also configure allow, deny, and ask rules declaratively in `.claude/sett
 
 Permission modes provide global control over how Claude uses tools. You can set the permission mode when calling `query()` or change it dynamically during streaming sessions.
 
+If you don't set one, Claude Code picks the starting permission mode by the rules in [Which mode a session starts in](https://code.claude.com/docs/en/permission-modes#which-mode-a-session-starts-in):
+
+* A `permissions.defaultMode` from the session's [settings files](https://code.claude.com/docs/en/settings#where-settings-live) when one applies
+* Otherwise the built-in default, which can be [auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode)
+
+A session that starts in auto mode drops broad allow rules such as a bare `Bash` entry, as [How auto mode evaluates actions](https://code.claude.com/docs/en/permission-modes#how-auto-mode-evaluates-actions) describes. If your application relies on the `default` mode or on such a rule, pass `default` explicitly.
+
+Before TypeScript Agent SDK v0.3.286, omitting `permissionMode` was the same as passing `default`.
+
 ### Available modes
 
 The SDK supports these permission modes:
@@ -124,7 +133,7 @@ The SDK supports these permission modes:
 | `acceptEdits` | Auto-accept file edits | File edits and [filesystem operations](#accept-edits-mode-acceptedits) (`mkdir`, `rm`, `mv`, etc.) are automatically approved |
 | `bypassPermissions` | Bypass permission checks | Tools run without permission prompts, except for the [actions no mode auto-approves](https://code.claude.com/docs/en/permission-modes#actions-no-mode-auto-approves). Use with caution |
 | `plan` | Planning mode | Claude explores and plans without editing your source files; file edits are never auto-approved and prompt through your `canUseTool` callback |
-| `auto` | Model-classified approvals | A model classifier approves or denies permission prompts. See [Auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode) for availability |
+| `auto` | Model-classified approvals | A model classifier reviews actions such as shell commands and network requests, allowing or blocking each one it reviews. See [Auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode) for availability and the decision order |
 
 <Warning>
   **Subagent inheritance:** A subagent runs in the parent session's permission mode unless you set `permissionMode` on its [`AgentDefinition`](https://code.claude.com/docs/en/agent-sdk/typescript#agentdefinition) and the parent session is in `default`, `dontAsk`, or `plan` mode. Even then, Claude Code never applies a `"bypassPermissions"` value. A subagent runs in `bypassPermissions` mode only when the parent session itself does. The `bypassPermissions` exception requires Claude Code v2.1.267 or later.

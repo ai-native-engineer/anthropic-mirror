@@ -104,12 +104,12 @@ The architecture reaches past migration too: in Accelerate for Agentic Cloud Ope
 
 Caylent's newest practice is Claude-powered from day one: in April 2026, the company launched ACE, its Anthropic Consulting and Engineering practice, advancing its role as a Preferred Services Partner in the Claude Partner Network. Forward-deployed teams embed inside customer organizations to build the integrations and internal capabilities that make AI adoption stick. Every stage of the engagement runs on Claude Code, and DevBench is now available to ACE customers. Demand for that work is concentrating among software-intensive enterprises, and the team sees the question changing: "They have stopped asking whether AI belongs in the software development lifecycle and started asking how to operationalize it."
 
-[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
+
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
 ### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
 ### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
-### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)[![Quantium](https://assets.claude.com/0e6b8d1ab806b1a949b793cce5bc3b294fe8d88c.svg)
-
-### Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)
+### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)

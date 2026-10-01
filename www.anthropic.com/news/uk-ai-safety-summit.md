@@ -36,5 +36,3 @@ Finally, I’d like to discuss the relationship between RSPs and regulation. RSP
 **Footnotes**
 
 1. [https://www.anthropic.com/inde...](https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety)
-
-Dario Amodei's remarks at the AI Safety Summit \ Anthropic

@@ -91,10 +91,12 @@ Discover how to get anywhere
 
 [Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
 
-![](https://metricool.com/wp-content/uploads/cropped-web-app-manifest-512x512-1-180x180.png)
+![](https://mcp.govola.com/icon.png)
 
-### [Metricool Social Media Management](https://claude.com/marketplace/connectors/metricool-social-media-management)
+### [GoVola](https://claude.com/marketplace/connectors/govola)
 
-Schedule posts, analyze, and manage social media with AI
+Anthropic verifiedTrending
 
-[Add Metricool Social Media Management in Claude (opens in new tab)](https://claude.ai/directory/70ba6d62-7e98-4ef4-9073-d161d900a95f "Add in Claude")
+Search flight offers
+
+[Add GoVola in Claude (opens in new tab)](https://claude.ai/directory/cb899a5b-01b8-41a3-8c39-c204acb1bd78 "Add in Claude")

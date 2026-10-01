@@ -1,5 +1,7 @@
 <!-- source: https://support.claude.com/en/articles/14503675-organization-instructions-in-claude-for-government -->
 
+**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved or you want to get started, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation.
+
 Organization instructions allow administrators to define custom instructions that Claude follows in every conversation for all users in the organization. Use this to set compliance guidance, communication standards, formatting requirements, or domain-specific context.
 
 ## How organization and user instructions interact
@@ -60,7 +62,7 @@ To remove instructions entirely, clear the text area and click "Save."
 
 **Response formatting** — "Prefer concise responses under 300 words. Use bullet points for lists with three or more items."
 
-**Referral guidance** — "When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c6aeb486a3bea7abb6aaa3e8a5a9ab) rather than providing specific policy advice."
+**Referral guidance** — "When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#771f0537120f161a071b125914181a) rather than providing specific policy advice."
 
 * [Understanding Claude's personalization features](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)
 * [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)

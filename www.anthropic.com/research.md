@@ -56,6 +56,9 @@ Search
 
 DateCategoryTitle
 
+* [Sep 30, 2026Economics
+
+  What work can robots do?](https://www.anthropic.com/research/what-work-can-robots-do)
 * [Sep 29, 2026Societal Impacts
 
   What do you want from AI?](https://www.anthropic.com/research/your-thoughts-on-ai)
@@ -83,9 +86,6 @@ DateCategoryTitle
 * [Aug 28, 2026Alignment
 
   Automated researchers can reliably mitigate alignment failures](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
-* [Aug 26, 2026Societal Impacts
-
-  Enabling independent research on how people use Claude](https://www.anthropic.com/research/enabling-independent-research)
 
 [See more](#)
 

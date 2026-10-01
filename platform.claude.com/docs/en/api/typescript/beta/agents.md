@@ -29,71 +29,69 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -111,27 +109,25 @@ Create Agent
 
         How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
 
-        - `"low" | "medium" | "high" | 2 more`
+        - `"low"`
 
-          - `"low"`
+          Low effort. Favors latency over reasoning depth.
 
-            Low effort. Favors latency over reasoning depth.
+        - `"medium"`
 
-          - `"medium"`
+          Medium effort. Balances latency and reasoning depth.
 
-            Medium effort. Balances latency and reasoning depth.
+        - `"high"`
 
-          - `"high"`
+          High effort. Favors reasoning depth.
 
-            High effort. Favors reasoning depth.
+        - `"xhigh"`
 
-          - `"xhigh"`
+          Extra-high effort. Not all models accept this level.
 
-            Extra-high effort. Not all models accept this level.
+        - `"max"`
 
-          - `"max"`
-
-            Maximum effort. Favors reasoning depth over latency.
+          Maximum effort. Favors reasoning depth over latency.
 
         - `interface BetaManagedAgentsEffortLow`
 
@@ -739,103 +735,103 @@ Create Agent
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -887,71 +883,69 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -1565,103 +1559,103 @@ List Agents
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -1713,71 +1707,69 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -2378,103 +2370,103 @@ Get Agent
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -2526,71 +2518,69 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -3213,71 +3203,69 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -3295,27 +3283,25 @@ Update Agent
 
         How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
 
-        - `"low" | "medium" | "high" | 2 more`
+        - `"low"`
 
-          - `"low"`
+          Low effort. Favors latency over reasoning depth.
 
-            Low effort. Favors latency over reasoning depth.
+        - `"medium"`
 
-          - `"medium"`
+          Medium effort. Balances latency and reasoning depth.
 
-            Medium effort. Balances latency and reasoning depth.
+        - `"high"`
 
-          - `"high"`
+          High effort. Favors reasoning depth.
 
-            High effort. Favors reasoning depth.
+        - `"xhigh"`
 
-          - `"xhigh"`
+          Extra-high effort. Not all models accept this level.
 
-            Extra-high effort. Not all models accept this level.
+        - `"max"`
 
-          - `"max"`
-
-            Maximum effort. Favors reasoning depth over latency.
+          Maximum effort. Favors reasoning depth over latency.
 
         - `interface BetaManagedAgentsEffortLow`
 
@@ -3901,103 +3887,103 @@ Update Agent
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -4049,71 +4035,69 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -4705,103 +4689,103 @@ Archive Agent
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -4853,71 +4837,69 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -5544,71 +5526,69 @@ console.log(betaManagedAgentsAgent.id);
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -8230,7 +8210,83 @@ console.log(betaManagedAgentsAgent.id);
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+  - `"claude-sonnet-5-5"`
+
+    Efficient model for coding and agents
+
+  - `"claude-opus-5-5"`
+
+    Powerful intelligence for coding, knowledge work, and long-running agents
+
+  - `"claude-fable-5-1"`
+
+    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+  - `"claude-sonnet-5"`
+
+    Efficient model for coding and agents
+
+  - `"claude-fable-5"`
+
+    Next generation of intelligence for the hardest knowledge work and coding problems
+
+  - `"claude-opus-5"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `"claude-opus-4-8"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `"claude-opus-4-7"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `"claude-opus-4-6"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `"claude-sonnet-4-6"`
+
+    Best combination of speed and intelligence
+
+  - `"claude-haiku-4-5"`
+
+    Fastest model with near-frontier intelligence
+
+  - `"claude-haiku-4-5-20251001"`
+
+    Fastest model with near-frontier intelligence
+
+  - `"claude-opus-4-5"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `"claude-opus-4-5-20251101"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `"claude-sonnet-4-5"`
+
+    High-performance model for agents and coding
+
+  - `"claude-sonnet-4-5-20250929"`
+
+    High-performance model for agents and coding
+
+  - `(string & {})`
+
+### Beta Managed Agents Model Config
+
+- `interface BetaManagedAgentsModelConfig`
+
+  Model identifier and configuration.
+
+  - `id: BetaManagedAgentsModel`
+
+    The model that will power your agent.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
     - `"claude-sonnet-5-5"`
 
@@ -8296,86 +8352,6 @@ console.log(betaManagedAgentsAgent.id);
 
       High-performance model for agents and coding
 
-  - `(string & {})`
-
-### Beta Managed Agents Model Config
-
-- `interface BetaManagedAgentsModelConfig`
-
-  Model identifier and configuration.
-
-  - `id: BetaManagedAgentsModel`
-
-    The model that will power your agent.
-
-    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-    - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
-
-      - `"claude-sonnet-5-5"`
-
-        Efficient model for coding and agents
-
-      - `"claude-opus-5-5"`
-
-        Powerful intelligence for coding, knowledge work, and long-running agents
-
-      - `"claude-fable-5-1"`
-
-        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-      - `"claude-sonnet-5"`
-
-        Efficient model for coding and agents
-
-      - `"claude-fable-5"`
-
-        Next generation of intelligence for the hardest knowledge work and coding problems
-
-      - `"claude-opus-5"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-opus-4-8"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-opus-4-7"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-opus-4-6"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-sonnet-4-6"`
-
-        Best combination of speed and intelligence
-
-      - `"claude-haiku-4-5"`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-haiku-4-5-20251001"`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-opus-4-5"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-opus-4-5-20251101"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `"claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
     - `(string & {})`
 
   - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
@@ -8436,71 +8412,69 @@ console.log(betaManagedAgentsAgent.id);
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+    - `"claude-sonnet-5-5"`
 
-      - `"claude-sonnet-5-5"`
+      Efficient model for coding and agents
 
-        Efficient model for coding and agents
+    - `"claude-opus-5-5"`
 
-      - `"claude-opus-5-5"`
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
-        Powerful intelligence for coding, knowledge work, and long-running agents
+    - `"claude-fable-5-1"`
 
-      - `"claude-fable-5-1"`
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+    - `"claude-sonnet-5"`
 
-      - `"claude-sonnet-5"`
+      Efficient model for coding and agents
 
-        Efficient model for coding and agents
+    - `"claude-fable-5"`
 
-      - `"claude-fable-5"`
+      Next generation of intelligence for the hardest knowledge work and coding problems
 
-        Next generation of intelligence for the hardest knowledge work and coding problems
+    - `"claude-opus-5"`
 
-      - `"claude-opus-5"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `"claude-opus-4-8"`
 
-      - `"claude-opus-4-8"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `"claude-opus-4-7"`
 
-      - `"claude-opus-4-7"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `"claude-opus-4-6"`
 
-      - `"claude-opus-4-6"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `"claude-sonnet-4-6"`
 
-      - `"claude-sonnet-4-6"`
+      Best combination of speed and intelligence
 
-        Best combination of speed and intelligence
+    - `"claude-haiku-4-5"`
 
-      - `"claude-haiku-4-5"`
+      Fastest model with near-frontier intelligence
 
-        Fastest model with near-frontier intelligence
+    - `"claude-haiku-4-5-20251001"`
 
-      - `"claude-haiku-4-5-20251001"`
+      Fastest model with near-frontier intelligence
 
-        Fastest model with near-frontier intelligence
+    - `"claude-opus-4-5"`
 
-      - `"claude-opus-4-5"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `"claude-opus-4-5-20251101"`
 
-      - `"claude-opus-4-5-20251101"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `"claude-sonnet-4-5"`
 
-      - `"claude-sonnet-4-5"`
+      High-performance model for agents and coding
 
-        High-performance model for agents and coding
+    - `"claude-sonnet-4-5-20250929"`
 
-      - `"claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
+      High-performance model for agents and coding
 
     - `(string & {})`
 
@@ -8508,27 +8482,25 @@ console.log(betaManagedAgentsAgent.id);
 
     How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
 
-    - `"low" | "medium" | "high" | 2 more`
+    - `"low"`
 
-      - `"low"`
+      Low effort. Favors latency over reasoning depth.
 
-        Low effort. Favors latency over reasoning depth.
+    - `"medium"`
 
-      - `"medium"`
+      Medium effort. Balances latency and reasoning depth.
 
-        Medium effort. Balances latency and reasoning depth.
+    - `"high"`
 
-      - `"high"`
+      High effort. Favors reasoning depth.
 
-        High effort. Favors reasoning depth.
+    - `"xhigh"`
 
-      - `"xhigh"`
+      Extra-high effort. Not all models accept this level.
 
-        Extra-high effort. Not all models accept this level.
+    - `"max"`
 
-      - `"max"`
-
-        Maximum effort. Favors reasoning depth over latency.
+      Maximum effort. Favors reasoning depth over latency.
 
     - `interface BetaManagedAgentsEffortLow`
 
@@ -8766,71 +8738,69 @@ console.log(betaManagedAgentsAgent.id);
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -9704,103 +9674,103 @@ List Agent Versions
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
 
-      - `"compact-2026-09-04"`
+    - `"inline-tools-2026-09-15"`
 
-      - `"inline-tools-2026-09-15"`
+    - `"mcp-client-2026-09-15"`
 
-      - `"mcp-client-2026-09-15"`
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -9852,71 +9822,69 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-sonnet-5-5" | "claude-opus-5-5" | "claude-fable-5-1" | 13 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-sonnet-5-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-opus-5-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-fable-5-1"`
 
-        - `"claude-fable-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-sonnet-5"`
 
-        - `"claude-sonnet-5"`
+        Efficient model for coding and agents
 
-          Efficient model for coding and agents
+      - `"claude-fable-5"`
 
-        - `"claude-fable-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Best combination of speed and intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
+        High-performance model for agents and coding
 
       - `(string & {})`
 

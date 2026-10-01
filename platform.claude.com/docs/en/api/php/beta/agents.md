@@ -1911,6 +1911,8 @@ var_dump($betaManagedAgentsAgent);
 
     High-performance model for agents and coding
 
+  - `string`
+
 ### Beta Managed Agents Model Config
 
 - `class BetaManagedAgentsModelConfig`

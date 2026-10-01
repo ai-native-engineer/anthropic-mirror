@@ -31,7 +31,7 @@ Update Workspace
 
       - `"us"`
 
-    - `Unrestricted = "unrestricted"`
+    - `"unrestricted"`
 
   - `default_inference_geo: optional "global" or "us" or null`
 
@@ -127,7 +127,7 @@ Update Workspace
 
         - `"us"`
 
-      - `Unrestricted = "unrestricted"`
+      - `"unrestricted"`
 
     - `default_inference_geo: "global" or "us"`
 

@@ -3,294 +3,6 @@
 
 <!-- chunk-start -->
 
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `left_click_drag: Optional[BetaComputerLeftClickDragConfig]`
-
-          `left_click_drag`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `left_mouse_down: Optional[BetaComputerLeftMouseDownConfig]`
-
-          `left_mouse_down`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `left_mouse_up: Optional[BetaComputerLeftMouseUpConfig]`
-
-          `left_mouse_up`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `middle_click: Optional[BetaComputerMiddleClickConfig]`
-
-          `middle_click`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `mouse_move: Optional[BetaComputerMouseMoveConfig]`
-
-          `mouse_move`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `right_click: Optional[BetaComputerRightClickConfig]`
-
-          `right_click`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `screenshot: Optional[BetaComputerScreenshotConfig]`
-
-          `screenshot`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `scroll: Optional[BetaComputerScrollConfig]`
-
-          `scroll`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `triple_click: Optional[BetaComputerTripleClickConfig]`
-
-          `triple_click`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `wait: Optional[BetaComputerWaitConfig]`
-
-          `wait`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `zoom: Optional[BetaComputerZoomConfig]`
-
-          `zoom`'s config overrides.
-
-          - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-    - `class BetaToolTextEditor20250124`
-
-      - `type: Literal["text_editor_20250124"]`
-
-      - `name: Literal["str_replace_editor"]`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-        - `"direct"`
-
-        - `"code_execution_20250825"`
-
-        - `"code_execution_20260120"`
-
-        - `"code_execution_20260521"`
-
-      - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-        Create a cache control breakpoint at this content block.
-
-      - `defer_loading: Optional[bool]`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `input_examples: Optional[List[Dict[str, object]]]`
-
-      - `strict: Optional[bool]`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolTextEditor20250429`
-
-      - `type: Literal["text_editor_20250429"]`
-
-      - `name: Literal["str_replace_based_edit_tool"]`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-        - `"direct"`
-
-        - `"code_execution_20250825"`
-
-        - `"code_execution_20260120"`
-
-        - `"code_execution_20260521"`
-
-      - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-        Create a cache control breakpoint at this content block.
-
-      - `defer_loading: Optional[bool]`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `input_examples: Optional[List[Dict[str, object]]]`
-
-      - `strict: Optional[bool]`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolTextEditor20250728`
-
-      - `type: Literal["text_editor_20250728"]`
-
-      - `name: Literal["str_replace_based_edit_tool"]`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-        - `"direct"`
-
-        - `"code_execution_20250825"`
-
-        - `"code_execution_20260120"`
-
-        - `"code_execution_20260521"`
-
-      - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-        Create a cache control breakpoint at this content block.
-
-      - `defer_loading: Optional[bool]`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `input_examples: Optional[List[Dict[str, object]]]`
-
-      - `max_characters: Optional[int]`
-
-        Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
-
-        minimum: 1
-
-      - `strict: Optional[bool]`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaWebSearchTool20250305`
-
-      - `type: Literal["web_search_20250305"]`
-
-      - `name: Literal["web_search"]`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-        - `"direct"`
-
-        - `"code_execution_20250825"`
-
-        - `"code_execution_20260120"`
-
-        - `"code_execution_20260521"`
-
-      - `allowed_domains: Optional[List[str]]`
-
-        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-      - `blocked_domains: Optional[List[str]]`
-
-        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-      - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-        Create a cache control breakpoint at this content block.
-
-      - `defer_loading: Optional[bool]`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `max_uses: Optional[int]`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `strict: Optional[bool]`
-
-        When true, guarantees schema validation on tool names and inputs
-
       - `user_location: Optional[BetaUserLocation]`
 
         Parameters for the user's location. Used to provide more relevant search results.
@@ -781,89 +493,83 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
+        - `"claude-sonnet-5-5"`
 
-          The model that will complete your prompt.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `"claude-fable-5-1"`
 
-          - `"claude-sonnet-5-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            Efficient model for coding and agents
+        - `"claude-opus-5-5"`
 
-          - `"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `"claude-mythos-5-1"`
 
-          - `"claude-opus-5-5"`
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-            Powerful intelligence for coding, knowledge work, and long-running agents
+        - `"claude-sonnet-5"`
 
-          - `"claude-mythos-5-1"`
+          Efficient model for coding and agents
 
-            Our most capable model for cybersecurity and biology research, available through trusted access programs
+        - `"claude-fable-5"`
 
-          - `"claude-sonnet-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Efficient model for coding and agents
+        - `"claude-mythos-5"`
 
-          - `"claude-fable-5"`
+          Most capable model for cybersecurity and biology research
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `"claude-opus-5"`
 
-          - `"claude-mythos-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Most capable model for cybersecurity and biology research
+        - `"claude-opus-4-8"`
 
-          - `"claude-opus-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-7"`
 
-          - `"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-6"`
 
-          - `"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-sonnet-4-6"`
 
-          - `"claude-opus-4-6"`
+          Best combination of speed and intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-haiku-4-5"`
 
-          - `"claude-sonnet-4-6"`
+          Fastest model with near-frontier intelligence
 
-            Best combination of speed and intelligence
+        - `"claude-haiku-4-5-20251001"`
 
-          - `"claude-haiku-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `"claude-opus-4-5"`
 
-          - `"claude-haiku-4-5-20251001"`
+          Powerful intelligence for long-running agents and coding
 
-            Fastest model with near-frontier intelligence
+        - `"claude-opus-4-5-20251101"`
 
-          - `"claude-opus-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-sonnet-4-5"`
 
-          - `"claude-opus-4-5-20251101"`
+          High-performance model for agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-sonnet-4-5-20250929"`
 
-          - `"claude-sonnet-4-5"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `"claude-mythos-preview"`
 
-          - `"claude-sonnet-4-5-20250929"`
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-            High-performance model for agents and coding
-
-          - `"claude-mythos-preview"`
-
-            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-            New class of intelligence, strongest in coding and cybersecurity
+          New class of intelligence, strongest in coding and cybersecurity
 
         - `str`
 
@@ -2809,89 +2515,83 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
+        - `"claude-sonnet-5-5"`
 
-          The model that will complete your prompt.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `"claude-fable-5-1"`
 
-          - `"claude-sonnet-5-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            Efficient model for coding and agents
+        - `"claude-opus-5-5"`
 
-          - `"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `"claude-mythos-5-1"`
 
-          - `"claude-opus-5-5"`
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-            Powerful intelligence for coding, knowledge work, and long-running agents
+        - `"claude-sonnet-5"`
 
-          - `"claude-mythos-5-1"`
+          Efficient model for coding and agents
 
-            Our most capable model for cybersecurity and biology research, available through trusted access programs
+        - `"claude-fable-5"`
 
-          - `"claude-sonnet-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Efficient model for coding and agents
+        - `"claude-mythos-5"`
 
-          - `"claude-fable-5"`
+          Most capable model for cybersecurity and biology research
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `"claude-opus-5"`
 
-          - `"claude-mythos-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Most capable model for cybersecurity and biology research
+        - `"claude-opus-4-8"`
 
-          - `"claude-opus-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-7"`
 
-          - `"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-6"`
 
-          - `"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-sonnet-4-6"`
 
-          - `"claude-opus-4-6"`
+          Best combination of speed and intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-haiku-4-5"`
 
-          - `"claude-sonnet-4-6"`
+          Fastest model with near-frontier intelligence
 
-            Best combination of speed and intelligence
+        - `"claude-haiku-4-5-20251001"`
 
-          - `"claude-haiku-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `"claude-opus-4-5"`
 
-          - `"claude-haiku-4-5-20251001"`
+          Powerful intelligence for long-running agents and coding
 
-            Fastest model with near-frontier intelligence
+        - `"claude-opus-4-5-20251101"`
 
-          - `"claude-opus-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-sonnet-4-5"`
 
-          - `"claude-opus-4-5-20251101"`
+          High-performance model for agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-sonnet-4-5-20250929"`
 
-          - `"claude-sonnet-4-5"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `"claude-mythos-preview"`
 
-          - `"claude-sonnet-4-5-20250929"`
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-            High-performance model for agents and coding
-
-          - `"claude-mythos-preview"`
-
-            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-            New class of intelligence, strongest in coding and cybersecurity
+          New class of intelligence, strongest in coding and cybersecurity
 
         - `str`
 
@@ -6227,89 +5927,83 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
+      - `"claude-sonnet-5-5"`
 
-        The model that will complete your prompt.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `"claude-fable-5-1"`
 
-        - `"claude-sonnet-5-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Efficient model for coding and agents
+      - `"claude-opus-5-5"`
 
-        - `"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-mythos-5-1"`
 
-        - `"claude-opus-5-5"`
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-          Powerful intelligence for coding, knowledge work, and long-running agents
+      - `"claude-sonnet-5"`
 
-        - `"claude-mythos-5-1"`
+        Efficient model for coding and agents
 
-          Our most capable model for cybersecurity and biology research, available through trusted access programs
+      - `"claude-fable-5"`
 
-        - `"claude-sonnet-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Efficient model for coding and agents
+      - `"claude-mythos-5"`
 
-        - `"claude-fable-5"`
+        Most capable model for cybersecurity and biology research
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-opus-5"`
 
-        - `"claude-mythos-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Most capable model for cybersecurity and biology research
+      - `"claude-opus-4-8"`
 
-        - `"claude-opus-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-opus-4-6"`
+        Best combination of speed and intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-haiku-4-5"`
 
-        - `"claude-sonnet-4-6"`
+        Fastest model with near-frontier intelligence
 
-          Best combination of speed and intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-haiku-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Powerful intelligence for long-running agents and coding
 
-          Fastest model with near-frontier intelligence
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-opus-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-opus-4-5-20251101"`
+        High-performance model for agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-sonnet-4-5-20250929"`
 
-        - `"claude-sonnet-4-5"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-mythos-preview"`
 
-        - `"claude-sonnet-4-5-20250929"`
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-          High-performance model for agents and coding
-
-        - `"claude-mythos-preview"`
-
-          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          New class of intelligence, strongest in coding and cybersecurity
+        New class of intelligence, strongest in coding and cybersecurity
 
       - `str`
 
@@ -6805,89 +6499,83 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
+        - `"claude-sonnet-5-5"`
 
-          The model that will complete your prompt.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `"claude-fable-5-1"`
 
-          - `"claude-sonnet-5-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            Efficient model for coding and agents
+        - `"claude-opus-5-5"`
 
-          - `"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `"claude-mythos-5-1"`
 
-          - `"claude-opus-5-5"`
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-            Powerful intelligence for coding, knowledge work, and long-running agents
+        - `"claude-sonnet-5"`
 
-          - `"claude-mythos-5-1"`
+          Efficient model for coding and agents
 
-            Our most capable model for cybersecurity and biology research, available through trusted access programs
+        - `"claude-fable-5"`
 
-          - `"claude-sonnet-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Efficient model for coding and agents
+        - `"claude-mythos-5"`
 
-          - `"claude-fable-5"`
+          Most capable model for cybersecurity and biology research
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `"claude-opus-5"`
 
-          - `"claude-mythos-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Most capable model for cybersecurity and biology research
+        - `"claude-opus-4-8"`
 
-          - `"claude-opus-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-7"`
 
-          - `"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-6"`
 
-          - `"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-sonnet-4-6"`
 
-          - `"claude-opus-4-6"`
+          Best combination of speed and intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-haiku-4-5"`
 
-          - `"claude-sonnet-4-6"`
+          Fastest model with near-frontier intelligence
 
-            Best combination of speed and intelligence
+        - `"claude-haiku-4-5-20251001"`
 
-          - `"claude-haiku-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `"claude-opus-4-5"`
 
-          - `"claude-haiku-4-5-20251001"`
+          Powerful intelligence for long-running agents and coding
 
-            Fastest model with near-frontier intelligence
+        - `"claude-opus-4-5-20251101"`
 
-          - `"claude-opus-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-sonnet-4-5"`
 
-          - `"claude-opus-4-5-20251101"`
+          High-performance model for agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-sonnet-4-5-20250929"`
 
-          - `"claude-sonnet-4-5"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `"claude-mythos-preview"`
 
-          - `"claude-sonnet-4-5-20250929"`
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-            High-performance model for agents and coding
-
-          - `"claude-mythos-preview"`
-
-            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-            New class of intelligence, strongest in coding and cybersecurity
+          New class of intelligence, strongest in coding and cybersecurity
 
         - `str`
 
@@ -12447,89 +12135,83 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                          - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
+                          - `"claude-sonnet-5-5"`
 
-                            The model that will complete your prompt.
+                            Efficient model for coding and agents
 
-                            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+                          - `"claude-fable-5-1"`
 
-                            - `"claude-sonnet-5-5"`
+                            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-                              Efficient model for coding and agents
+                          - `"claude-opus-5-5"`
 
-                            - `"claude-fable-5-1"`
+                            Powerful intelligence for coding, knowledge work, and long-running agents
 
-                              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                          - `"claude-mythos-5-1"`
 
-                            - `"claude-opus-5-5"`
+                            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-                              Powerful intelligence for coding, knowledge work, and long-running agents
+                          - `"claude-sonnet-5"`
 
-                            - `"claude-mythos-5-1"`
+                            Efficient model for coding and agents
 
-                              Our most capable model for cybersecurity and biology research, available through trusted access programs
+                          - `"claude-fable-5"`
 
-                            - `"claude-sonnet-5"`
+                            Next generation of intelligence for the hardest knowledge work and coding problems
 
-                              Efficient model for coding and agents
+                          - `"claude-mythos-5"`
 
-                            - `"claude-fable-5"`
+                            Most capable model for cybersecurity and biology research
 
-                              Next generation of intelligence for the hardest knowledge work and coding problems
+                          - `"claude-opus-5"`
 
-                            - `"claude-mythos-5"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Most capable model for cybersecurity and biology research
+                          - `"claude-opus-4-8"`
 
-                            - `"claude-opus-5"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-opus-4-7"`
 
-                            - `"claude-opus-4-8"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-opus-4-6"`
 
-                            - `"claude-opus-4-7"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-sonnet-4-6"`
 
-                            - `"claude-opus-4-6"`
+                            Best combination of speed and intelligence
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-haiku-4-5"`
 
-                            - `"claude-sonnet-4-6"`
+                            Fastest model with near-frontier intelligence
 
-                              Best combination of speed and intelligence
+                          - `"claude-haiku-4-5-20251001"`
 
-                            - `"claude-haiku-4-5"`
+                            Fastest model with near-frontier intelligence
 
-                              Fastest model with near-frontier intelligence
+                          - `"claude-opus-4-5"`
 
-                            - `"claude-haiku-4-5-20251001"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Fastest model with near-frontier intelligence
+                          - `"claude-opus-4-5-20251101"`
 
-                            - `"claude-opus-4-5"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-sonnet-4-5"`
 
-                            - `"claude-opus-4-5-20251101"`
+                            High-performance model for agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-sonnet-4-5-20250929"`
 
-                            - `"claude-sonnet-4-5"`
+                            High-performance model for agents and coding
 
-                              High-performance model for agents and coding
+                          - `"claude-mythos-preview"`
 
-                            - `"claude-sonnet-4-5-20250929"`
+                            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-                              High-performance model for agents and coding
-
-                            - `"claude-mythos-preview"`
-
-                              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                              New class of intelligence, strongest in coding and cybersecurity
+                            New class of intelligence, strongest in coding and cybersecurity
 
                           - `str`
 
@@ -13018,7 +12700,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `type: Literal["all"]`
 
-            - `Literal["all"]`
+            - `"all"`
 
         - `class BetaCompact20260112Edit`
 
@@ -13231,7 +12913,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `"updates"`
 
-      - `Literal["default"]`
+      - `"default"`
 
     - `inference_geo: Optional[str]`
 
@@ -13544,103 +13226,103 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
 
-    - `"compact-2026-09-04"`
+  - `"inline-tools-2026-09-15"`
 
-    - `"inline-tools-2026-09-15"`
+  - `"mcp-client-2026-09-15"`
 
-    - `"mcp-client-2026-09-15"`
+  - `"ce-plugins-2026-09-01"`
 
 - `user_profile_id: Optional[str]`
 
@@ -13838,103 +13520,103 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
 
-    - `"compact-2026-09-04"`
+  - `"inline-tools-2026-09-15"`
 
-    - `"inline-tools-2026-09-15"`
+  - `"mcp-client-2026-09-15"`
 
-    - `"mcp-client-2026-09-15"`
+  - `"ce-plugins-2026-09-01"`
 
 - `workspace_id: Optional[str]`
 
@@ -14126,103 +13808,103 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
 
-    - `"compact-2026-09-04"`
+  - `"inline-tools-2026-09-15"`
 
-    - `"inline-tools-2026-09-15"`
+  - `"mcp-client-2026-09-15"`
 
-    - `"mcp-client-2026-09-15"`
+  - `"ce-plugins-2026-09-01"`
 
 - `workspace_id: Optional[str]`
 
@@ -14410,103 +14092,103 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
 
-    - `"compact-2026-09-04"`
+  - `"inline-tools-2026-09-15"`
 
-    - `"inline-tools-2026-09-15"`
+  - `"mcp-client-2026-09-15"`
 
-    - `"mcp-client-2026-09-15"`
+  - `"ce-plugins-2026-09-01"`
 
 - `workspace_id: Optional[str]`
 
@@ -14688,103 +14370,103 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
 
-    - `"compact-2026-09-04"`
+  - `"inline-tools-2026-09-15"`
 
-    - `"inline-tools-2026-09-15"`
+  - `"mcp-client-2026-09-15"`
 
-    - `"mcp-client-2026-09-15"`
+  - `"ce-plugins-2026-09-01"`
 
 - `workspace_id: Optional[str]`
 
@@ -14858,103 +14540,103 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
 
-    - `"compact-2026-09-04"`
+  - `"inline-tools-2026-09-15"`
 
-    - `"inline-tools-2026-09-15"`
+  - `"mcp-client-2026-09-15"`
 
-    - `"mcp-client-2026-09-15"`
+  - `"ce-plugins-2026-09-01"`
 
 - `workspace_id: Optional[str]`
 
@@ -17717,89 +17399,83 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                          - `Literal["claude-sonnet-5-5", "claude-fable-5-1", "claude-opus-5-5", 16 more]`
+                          - `"claude-sonnet-5-5"`
 
-                            The model that will complete your prompt.
+                            Efficient model for coding and agents
 
-                            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+                          - `"claude-fable-5-1"`
 
-                            - `"claude-sonnet-5-5"`
+                            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-                              Efficient model for coding and agents
+                          - `"claude-opus-5-5"`
 
-                            - `"claude-fable-5-1"`
+                            Powerful intelligence for coding, knowledge work, and long-running agents
 
-                              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                          - `"claude-mythos-5-1"`
 
-                            - `"claude-opus-5-5"`
+                            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-                              Powerful intelligence for coding, knowledge work, and long-running agents
+                          - `"claude-sonnet-5"`
 
-                            - `"claude-mythos-5-1"`
+                            Efficient model for coding and agents
 
-                              Our most capable model for cybersecurity and biology research, available through trusted access programs
+                          - `"claude-fable-5"`
 
-                            - `"claude-sonnet-5"`
+                            Next generation of intelligence for the hardest knowledge work and coding problems
 
-                              Efficient model for coding and agents
+                          - `"claude-mythos-5"`
 
-                            - `"claude-fable-5"`
+                            Most capable model for cybersecurity and biology research
 
-                              Next generation of intelligence for the hardest knowledge work and coding problems
+                          - `"claude-opus-5"`
 
-                            - `"claude-mythos-5"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Most capable model for cybersecurity and biology research
+                          - `"claude-opus-4-8"`
 
-                            - `"claude-opus-5"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-opus-4-7"`
 
-                            - `"claude-opus-4-8"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-opus-4-6"`
 
-                            - `"claude-opus-4-7"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-sonnet-4-6"`
 
-                            - `"claude-opus-4-6"`
+                            Best combination of speed and intelligence
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-haiku-4-5"`
 
-                            - `"claude-sonnet-4-6"`
+                            Fastest model with near-frontier intelligence
 
-                              Best combination of speed and intelligence
+                          - `"claude-haiku-4-5-20251001"`
 
-                            - `"claude-haiku-4-5"`
+                            Fastest model with near-frontier intelligence
 
-                              Fastest model with near-frontier intelligence
+                          - `"claude-opus-4-5"`
 
-                            - `"claude-haiku-4-5-20251001"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Fastest model with near-frontier intelligence
+                          - `"claude-opus-4-5-20251101"`
 
-                            - `"claude-opus-4-5"`
+                            Powerful intelligence for long-running agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-sonnet-4-5"`
 
-                            - `"claude-opus-4-5-20251101"`
+                            High-performance model for agents and coding
 
-                              Powerful intelligence for long-running agents and coding
+                          - `"claude-sonnet-4-5-20250929"`
 
-                            - `"claude-sonnet-4-5"`
+                            High-performance model for agents and coding
 
-                              High-performance model for agents and coding
+                          - `"claude-mythos-preview"`
 
-                            - `"claude-sonnet-4-5-20250929"`
+                            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
-                              High-performance model for agents and coding
-
-                            - `"claude-mythos-preview"`
-
-                              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                              New class of intelligence, strongest in coding and cybersecurity
+                            New class of intelligence, strongest in coding and cybersecurity
 
                           - `str`
 

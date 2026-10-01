@@ -2,7 +2,7 @@
 
 # Anthropic Interviewer sessions completed after September 29, 2026
 
-Updated today
+Updated yesterday
 
 *This article is about Anthropic Interviewer, which is a research survey tool running on our consumer products such as Claude Free, Pro, and Max. Anthropic Interviewer is not currently available for our commercial products such as Claude for Work and the Anthropic API.*
 

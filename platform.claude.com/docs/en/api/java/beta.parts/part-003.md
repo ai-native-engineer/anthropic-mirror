@@ -2,6 +2,1037 @@
 <!-- part of: https://platform.claude.com/docs/en/api/java/beta -->
 
 <!-- chunk-start -->
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaManagedAgentsCredential`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `Type type`
+
+  - `String id`
+
+    Unique identifier for the credential.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    When the credential was archived. Null if not archived.
+
+    format: date-time
+
+  - `Auth auth`
+
+    Authentication configuration for this credential.
+
+    - `class BetaManagedAgentsMcpOAuthAuthResponse`
+
+      OAuth credential details for an MCP server.
+
+      - `Type type`
+
+      - `String mcpServerUrl`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `Optional<LocalDateTime> expiresAt`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
+
+        Refresh token configuration, if the credential supports token refresh.
+
+        - `String clientId`
+
+          OAuth client ID.
+
+        - `String tokenEndpoint`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `TokenEndpointAuth tokenEndpointAuth`
+
+          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+            Token endpoint requires no client authentication.
+
+            - `Type type`
+
+          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `Type type`
+
+          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `Type type`
+
+        - `Optional<String> resource`
+
+          OAuth resource indicator.
+
+        - `Optional<String> scope`
+
+          OAuth scope for the refresh request.
+
+    - `class BetaManagedAgentsStaticBearerAuthResponse`
+
+      Static bearer token credential details for an MCP server.
+
+      - `Type type`
+
+      - `String mcpServerUrl`
+
+        URL of the MCP server this credential authenticates against.
+
+    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `Type type`
+
+      - `BetaManagedAgentsInjectionLocationResponse injectionLocation`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `boolean body`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `boolean header`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `Networking networking`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `Type type`
+
+        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `Type type`
+
+          - `List<String> allowedHosts`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+      - `String secretName`
+
+        Name of the environment variable.
+
+  - `LocalDateTime createdAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `Metadata metadata`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `LocalDateTime updatedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `String vaultId`
+
+    Identifier of the vault this credential belongs to.
+
+  - `Optional<String> displayName`
+
+    Human-readable name for the credential.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.vaults.credentials.BetaManagedAgentsCredential;
+import com.anthropic.models.beta.vaults.credentials.CredentialArchiveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        CredentialArchiveParams params = CredentialArchiveParams.builder()
+            .vaultId("vlt_011CZkZDLs7fYzm1hXNPeRjv")
+            .credentialId("vcrd_011CZkZEMt8gZan2iYOQfSkw")
+            .build();
+        BetaManagedAgentsCredential betaManagedAgentsCredential = client.beta().vaults().credentials().archive(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+### Validate Credential
+
+`BetaManagedAgentsCredentialValidation beta().vaults().credentials().mcpOAuthValidate(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate`
+
+Validate Credential
+
+#### Parameters
+
+- `CredentialMcpOAuthValidateParams params`
+
+  - `String vaultId`
+
+    Identifier of the vault containing the credential.
+
+  - `Optional<String> credentialId`
+
+    Unique identifier of the credential to validate.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaManagedAgentsCredentialValidation`
+
+  Result of live-probing a credential against its configured MCP server.
+
+  - `Type type`
+
+  - `String credentialId`
+
+    Unique identifier of the credential that was validated.
+
+  - `boolean hasRefreshToken`
+
+    Whether the credential has a refresh token configured.
+
+  - `Optional<BetaManagedAgentsMcpProbe> mcpProbe`
+
+    Details of the failing MCP probe step. Null when the probe succeeded.
+
+    - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
+
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
+
+      - `String body`
+
+        Response body. May be truncated and has sensitive values scrubbed.
+
+      - `boolean bodyTruncated`
+
+        Whether `body` was truncated.
+
+      - `String contentType`
+
+        Value of the `Content-Type` response header.
+
+      - `long statusCode`
+
+        HTTP status code.
+
+        format: int32
+
+    - `String method`
+
+      The MCP method that failed (for example `initialize` or `tools/list`).
+
+  - `Optional<BetaManagedAgentsRefreshObject> refresh`
+
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
+
+    - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
+
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
+
+    - `Status status`
+
+      Outcome of the refresh attempt.
+
+      - `SUCCEEDED("succeeded")`
+
+        The token endpoint returned a new access token.
+
+      - `FAILED("failed")`
+
+        The token endpoint returned an error response. See `http_response` for detail.
+
+      - `CONNECT_ERROR("connect_error")`
+
+        The token endpoint could not be reached (DNS, TLS, or connection error).
+
+      - `NO_REFRESH_TOKEN("no_refresh_token")`
+
+        No refresh token is stored for the credential, so no exchange was attempted.
+
+  - `BetaManagedAgentsCredentialValidationStatus status`
+
+    Overall verdict of the validation probe.
+
+    - `VALID("valid")`
+
+      The credential successfully authenticated against its MCP server.
+
+    - `INVALID("invalid")`
+
+      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
+
+    - `UNKNOWN("unknown")`
+
+      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
+
+  - `LocalDateTime validatedAt`
+
+    When the validation probe was performed.
+
+    format: date-time
+
+  - `String vaultId`
+
+    Identifier of the vault containing the credential.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.vaults.credentials.BetaManagedAgentsCredentialValidation;
+import com.anthropic.models.beta.vaults.credentials.CredentialMcpOAuthValidateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        CredentialMcpOAuthValidateParams params = CredentialMcpOAuthValidateParams.builder()
+            .vaultId("vlt_011CZkZDLs7fYzm1hXNPeRjv")
+            .credentialId("vcrd_011CZkZEMt8gZan2iYOQfSkw")
+            .build();
+        BetaManagedAgentsCredentialValidation betaManagedAgentsCredentialValidation = client.beta().vaults().credentials().mcpOAuthValidate(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "has_refresh_token": true,
+  "mcp_probe": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "method": "method"
+  },
+  "refresh": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "status": "succeeded"
+  },
+  "status": "valid",
+  "type": "vault_credential_validation",
+  "validated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+}
+```
+
+## Beta › Memory Stores
+
+### Create a memory store
+
+`BetaManagedAgentsMemoryStore beta().memoryStores().create(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/memory_stores`
+
+Create a memory store
+
+#### Parameters
+
+- `MemoryStoreCreateParams params`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+  - `String name`
+
+    Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
+
+    minLength: 1, maxLength: 255
+
+  - `Optional<String> description`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
+
+    maxLength: 1024
+
+  - `Optional<Metadata> metadata`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
+
+#### Returns
+
+- `class BetaManagedAgentsMemoryStore`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `Type type`
+
+  - `String id`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `LocalDateTime createdAt`
+
+    Timestamp when the store was created.
+
+    format: date-time
+
+  - `String name`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `LocalDateTime updatedAt`
+
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
+
+    format: date-time
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
+  - `Optional<String> description`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `Optional<Metadata> metadata`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.memorystores.BetaManagedAgentsMemoryStore;
+import com.anthropic.models.beta.memorystores.MemoryStoreCreateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        MemoryStoreCreateParams params = MemoryStoreCreateParams.builder()
+            .name("x")
+            .build();
+        BetaManagedAgentsMemoryStore betaManagedAgentsMemoryStore = client.beta().memoryStores().create(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+### List memory stores
+
+`MemoryStoreListPage beta().memoryStores().list(params = MemoryStoreListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/memory_stores`
+
+List memory stores
+
+#### Parameters
+
+- `MemoryStoreListParams params`
+
+  - `Optional<LocalDateTime> createdAtGte`
+
+    Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
+
+    format: date-time
+
+  - `Optional<LocalDateTime> createdAtLte`
+
+    Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
+
+    format: date-time
+
+  - `Optional<Boolean> includeArchived`
+
+    When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
+
+  - `Optional<Long> limit`
+
+    Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
+
+    format: int32
+
+  - `Optional<String> page`
+
+    Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaManagedAgentsMemoryStore`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `Type type`
+
+  - `String id`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `LocalDateTime createdAt`
+
+    Timestamp when the store was created.
+
+    format: date-time
+
+  - `String name`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `LocalDateTime updatedAt`
+
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
+
+    format: date-time
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
+  - `Optional<String> description`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `Optional<Metadata> metadata`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.memorystores.MemoryStoreListPage;
+import com.anthropic.models.beta.memorystores.MemoryStoreListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        MemoryStoreListPage page = client.beta().memoryStores().list();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "name": "name",
+      "type": "memory_store",
       "updated_at": "2019-12-27T18:11:19.117Z",
       "archived_at": "2019-12-27T18:11:19.117Z",
       "description": "description",
@@ -129,6 +1160,8 @@ Retrieve a memory store
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -331,6 +1364,8 @@ Update a memory store
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -550,6 +1585,8 @@ Delete a memory store
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -713,6 +1750,8 @@ Archive a memory store
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -921,6 +1960,8 @@ Create a memory
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -1171,6 +2212,8 @@ List memories
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1408,6 +2451,8 @@ Retrieve a memory
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1629,6 +2674,8 @@ Update a memory
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -1868,6 +2915,8 @@ Delete a memory
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -2085,6 +3134,8 @@ List memory versions
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -2390,6 +3441,8 @@ Retrieve a memory version
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -2689,6 +3742,8 @@ Redact a memory version
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -2982,6 +4037,8 @@ Upload File
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -3238,6 +4295,8 @@ List Files
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -3467,6 +4526,8 @@ Download File
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -3609,6 +4670,8 @@ Get File Metadata
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -3834,6 +4897,8 @@ Delete File
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -3997,6 +5062,8 @@ Create Skill
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -4260,6 +5327,8 @@ List Skills
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -4494,6 +5563,8 @@ Get Skill
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -4723,6 +5794,8 @@ Delete Skill
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -4894,6 +5967,8 @@ Create Skill Version
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -5116,6 +6191,8 @@ List Skill Versions
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -5325,6 +6402,8 @@ Download a skill version's content as a zip archive.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -5479,6 +6558,8 @@ Get Skill Version
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -5688,6 +6769,8 @@ Delete Skill Version
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -5856,6 +6939,8 @@ Create User Profile
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -6226,6 +7311,8 @@ List User Profiles
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -6530,6 +7617,8 @@ Get User Profile
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -6828,6 +7917,8 @@ Update User Profile
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -7166,6 +8257,8 @@ Create Enrollment URL
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -7340,6 +8433,8 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -7898,6 +8993,8 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -8318,6 +9415,8 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -8732,6 +9831,8 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -9148,6 +10249,8 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -9559,6 +10662,8 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -9754,6 +10859,8 @@ Fetches a tunnel by ID.
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -9955,6 +11062,8 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -10150,6 +11259,8 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -10340,6 +11451,8 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -10510,6 +11623,8 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -10689,6 +11804,8 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -10900,6 +12017,8 @@ Fetches a tunnel certificate by ID.
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -11116,6 +12235,8 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -11321,6 +12442,8 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -13099,6 +14222,8 @@ matched as the JWT's `iss` claim and is not fetched.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `String issuerUrl`
 
     The `iss` claim value to match against.
@@ -13493,6 +14618,8 @@ Archived issuers are excluded unless `include_archived=true`.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaFederationIssuer`
@@ -13803,6 +14930,8 @@ Retrieve a federation issuer by its ID (`fdis_...`).
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
 #### Returns
 
@@ -14116,6 +15245,8 @@ session.
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<Boolean> checkJti`
 
@@ -14504,6 +15635,8 @@ issuer cannot be changed), or recreate them against another issuer.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaFederationIssuer`
@@ -14821,6 +15954,8 @@ manage rules whose `oauth_scope` is `workspace:developer` or
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `String issuerId`
 
@@ -15208,6 +16343,8 @@ unless `include_archived=true`.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaFederationRule`
@@ -15524,6 +16661,8 @@ Retrieve a federation rule by its ID (`fdrl_...`).
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
 #### Returns
 
@@ -15852,6 +16991,8 @@ Console session.
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<Boolean> appliesToAllWorkspaces`
 
@@ -16217,6 +17358,8 @@ other scopes require a Console session.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaFederationRule`
@@ -16540,6 +17683,8 @@ other scopes require a Console session.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `String workspaceId`
 
     Tagged ID of the workspace to enable this rule for.
@@ -16744,6 +17889,8 @@ rules with `applies_to_all_workspaces` or a legacy single
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaFederationRuleWorkspace`
@@ -16937,6 +18084,8 @@ Console session.
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
 #### Returns
 
@@ -17631,6 +18780,8 @@ accounts.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `String name`
 
     Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
@@ -17886,6 +19037,8 @@ archived service accounts.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaServiceAccount`
@@ -18109,6 +19262,8 @@ Retrieve a service account by its ID (`svac_...`).
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaServiceAccount`
@@ -18331,6 +19486,8 @@ interactive credential (a user OAuth token or a Console session).
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> description`
 
@@ -18569,6 +19726,8 @@ those rules first or change their target to another service account.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaServiceAccount`
@@ -18796,6 +19955,8 @@ rejected.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `String workspaceId`
 
     Tagged workspace ID to add the service account to.
@@ -19022,6 +20183,8 @@ page to recover.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaServiceAccountWorkspaceMember`
@@ -19226,6 +20389,8 @@ to the implicit `workspace_user` membership. Archived workspaces return
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
 #### Returns
 
@@ -19980,6 +21145,8 @@ Create Workspace
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `String name`
 
@@ -21496,6 +22663,8 @@ omitted from the results.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaServiceAccountWorkspaceMember`
@@ -21697,6 +22866,8 @@ accounts cannot be added and are rejected.
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `String serviceAccountId`
 
@@ -21911,6 +23082,8 @@ account returns 404.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaServiceAccountWorkspaceMember`
@@ -22113,6 +23286,8 @@ rejected.
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `BetaNoBillingWorkspaceRole workspaceRole`
 
@@ -22321,6 +23496,8 @@ membership. Archived workspaces return 400.
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
 #### Returns
 
@@ -22738,5 +23915,5368 @@ public final class Main {
     "type": "enabled"
   },
   "type": "compliance_settings"
+}
+```
+
+## Beta › Organization › Plugins
+
+### Create Plugin
+
+`BetaPlugin beta().organization().plugins().create(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/plugins`
+
+Create an organization-owned Plugin and its first version by uploading the
+version's files.
+
+The upload is `multipart/form-data`: the version's files (`files`, each part sent
+as `files[]`), with an optional `marketplace_id` and `release_notes`. The manifest's `name` becomes the
+Plugin's `name`, and `display_name`, `description` and `manifest_version` come
+from the manifest too.
+
+`name` may contain lowercase letters (from any alphabet), digits, and hyphens, up
+to 64 characters. Uppercase letters, spaces, underscores, and other punctuation are
+rejected.
+
+The `name` must be unique within the marketplace: a name already taken
+returns a 409 with `error_code` `plugin_name_taken` and, when a Plugin holds it,
+that Plugin's ID in `details.plugin_id`. A Plugin going into the organization's
+library marketplace is also refused with a 409 when one of its skills has the name of
+an organization skill (a skill an administrator uploaded for the whole organization
+in claude.ai): `error_code` `skill_name_taken`, with that name in
+`details.skill_name`; rename the skill, or remove the organization skill in
+claude.ai. A 503 with `error_code`
+`registration_pending` means the Plugin and its version were stored (their IDs are
+in `details`) but are not yet usable in claude.ai: do not retry the create (the
+retry would return `plugin_name_taken`); create a version on the stored Plugin
+instead, which completes it.
+
+For a worked example, see [Create a plugin](https://platform.claude.com/docs/en/manage-claude/plugins-api#create-a-plugin)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginCreateParams params`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `List<String> files`
+
+    The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+
+  - `Optional<String> marketplaceId`
+
+    ID of the organization-owned plugin marketplace to create the Plugin in (prefixed `marketplace_`). It must be a `manual` marketplace, one whose Plugins are uploaded rather than synchronized from a repository. When omitted, the Plugin is created in the organization's library marketplace, an organization-owned `manual` marketplace created on first use.
+
+  - `Optional<String> releaseNotes`
+
+    Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+
+    maxLength: 5000
+
+#### Returns
+
+- `class BetaPlugin`
+
+  - `JsonValue type = "plugin"`
+
+    Always `plugin`.
+
+  - `String id`
+
+    The Plugin's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the served version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+      - `String apiKeyId`
+
+        The key's ID.
+
+  - `Optional<String> description`
+
+    The served version's description.
+
+  - `Optional<String> displayName`
+
+    The served version's display name.
+
+  - `String latestVersionId`
+
+    The newest version.
+
+  - `Optional<String> manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `String marketplaceId`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `String name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `Optional<OrganizationInstallationPreference> organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<Boolean> organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Optional<Reach> reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `String servedVersionId`
+
+    The version claude.ai serves to members.
+
+  - `boolean servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.BetaPlugin;
+import com.anthropic.models.beta.organization.plugins.PluginCreateParams;
+import java.io.ByteArrayInputStream;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        PluginCreateParams params = PluginCreateParams.builder()
+            .addFile(new ByteArrayInputStream("Example data".getBytes()))
+            .build();
+        BetaPlugin betaPlugin = client.beta().organization().plugins().create(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Get Plugin
+
+`BetaPlugin beta().organization().plugins().retrieve(params = PluginRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugins/{plugin_id}`
+
+Retrieve a Plugin by ID.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginRetrieveParams params`
+
+  - `Optional<String> pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<String> organizationId`
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaPlugin`
+
+  - `JsonValue type = "plugin"`
+
+    Always `plugin`.
+
+  - `String id`
+
+    The Plugin's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the served version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+      - `String apiKeyId`
+
+        The key's ID.
+
+  - `Optional<String> description`
+
+    The served version's description.
+
+  - `Optional<String> displayName`
+
+    The served version's display name.
+
+  - `String latestVersionId`
+
+    The newest version.
+
+  - `Optional<String> manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `String marketplaceId`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `String name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `Optional<OrganizationInstallationPreference> organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<Boolean> organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Optional<Reach> reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `String servedVersionId`
+
+    The version claude.ai serves to members.
+
+  - `boolean servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.BetaPlugin;
+import com.anthropic.models.beta.organization.plugins.PluginRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaPlugin betaPlugin = client.beta().organization().plugins().retrieve("plugin_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Update Plugin
+
+`BetaPlugin beta().organization().plugins().update(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/plugins/{plugin_id}`
+
+Change which stored version of an organization-owned Plugin is served to members,
+for example to roll back to an earlier one. This pins the served version: later
+uploads are stored but no longer change what is served, and pinning cannot currently
+be undone, here or in claude.ai.
+
+Pass the version as `served_version_id`: an earlier one to roll back, a later one to
+start serving a version that was stored without being served, or the one already
+served to pin it without changing what is served. No new version is created.
+
+When the organization has content scanning enabled, a version whose scan is still
+running is refused with a 409 (`error_code` `scan_pending`; retry once the scan
+finishes) and one whose scan failed, errored or reached no verdict with a 400
+(`scan_failed`; a `warn` is accepted). When the Plugin is in the organization's
+library marketplace, a version other than the one served is also refused with a 409
+when one of its skills has a name that an organization skill (one an administrator
+uploaded for the whole organization in claude.ai) has since taken: `error_code`
+`skill_name_taken`, with that name in `details.skill_name`. A member-owned Plugin
+cannot be updated here (403).
+
+This endpoint does not write installation settings; they are written at
+`/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginUpdateParams params`
+
+  - `Optional<String> pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `String servedVersionId`
+
+    Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
+
+#### Returns
+
+- `class BetaPlugin`
+
+  - `JsonValue type = "plugin"`
+
+    Always `plugin`.
+
+  - `String id`
+
+    The Plugin's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the served version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+      - `String apiKeyId`
+
+        The key's ID.
+
+  - `Optional<String> description`
+
+    The served version's description.
+
+  - `Optional<String> displayName`
+
+    The served version's display name.
+
+  - `String latestVersionId`
+
+    The newest version.
+
+  - `Optional<String> manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `String marketplaceId`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `String name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `Optional<OrganizationInstallationPreference> organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<Boolean> organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Optional<Reach> reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `String servedVersionId`
+
+    The version claude.ai serves to members.
+
+  - `boolean servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.BetaPlugin;
+import com.anthropic.models.beta.organization.plugins.PluginUpdateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        PluginUpdateParams params = PluginUpdateParams.builder()
+            .pluginId("plugin_id")
+            .servedVersionId("pluginver_01KaZmQpRsTuVwXyZ2b4c6d8")
+            .build();
+        BetaPlugin betaPlugin = client.beta().organization().plugins().update(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### List Plugins
+
+`PluginListPage beta().organization().plugins().list(params = PluginListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugins`
+
+List the Plugins created under the organization, newest first: those in the
+organization's own plugin marketplaces and those in members' personal plugin
+marketplaces.
+
+Plugins in members' personal marketplaces are listed with the same detail as the
+organization's own, and their files can be downloaded through the version archive
+endpoint, which records each such download on the Compliance API activity feed.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginListParams params`
+
+  - `Optional<LocalDateTime> createdAtGt`
+
+    RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+    format: date-time
+
+  - `Optional<LocalDateTime> createdAtGte`
+
+    RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+    format: date-time
+
+  - `Optional<LocalDateTime> createdAtLt`
+
+    RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+    format: date-time
+
+  - `Optional<LocalDateTime> createdAtLte`
+
+    RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+    format: date-time
+
+  - `Optional<Long> limit`
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `100`.
+
+    minimum: 1, maximum: 100
+
+  - `Optional<String> marketplaceId`
+
+    Only Plugins in this plugin marketplace (prefixed `marketplace_`).
+
+  - `Optional<String> organizationId`
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<OwnerType> ownerType`
+
+    `organization` for Plugins in the organization's plugin marketplaces, `user` for Plugins in members' personal plugin marketplaces.
+
+    - `ORGANIZATION("organization")`
+
+    - `USER("user")`
+
+  - `Optional<String> ownerUserId`
+
+    Only Plugins in this member's personal plugin marketplaces (prefixed `user_`); a removed member's ID is accepted.
+
+  - `Optional<String> page`
+
+    Optionally set to the `next_page` token from the previous response.
+
+    maxLength: 2048
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaPlugin`
+
+  - `JsonValue type = "plugin"`
+
+    Always `plugin`.
+
+  - `String id`
+
+    The Plugin's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the served version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+      - `String apiKeyId`
+
+        The key's ID.
+
+  - `Optional<String> description`
+
+    The served version's description.
+
+  - `Optional<String> displayName`
+
+    The served version's display name.
+
+  - `String latestVersionId`
+
+    The newest version.
+
+  - `Optional<String> manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `String marketplaceId`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `String name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `Optional<OrganizationInstallationPreference> organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<Boolean> organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Optional<Reach> reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `String servedVersionId`
+
+    The version claude.ai serves to members.
+
+  - `boolean servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.PluginListPage;
+import com.anthropic.models.beta.organization.plugins.PluginListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        PluginListPage page = client.beta().organization().plugins().list();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "components": [
+        {
+          "description": "description",
+          "name": "review-pr",
+          "type": "skill"
+        }
+      ],
+      "content_scan": {
+        "assessment": "warn",
+        "reason": "credential-exposure",
+        "status": "completed"
+      },
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "created_by": {
+        "email_address": "user@example.com",
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "description": "Reviews pull requests against your team's conventions.",
+      "display_name": "Code Review Helper",
+      "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+      "manifest_version": "1.2.0",
+      "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+      "name": "code-review-helper",
+      "organization_installation_preference": "available",
+      "organization_installation_preference_inherited": true,
+      "owner": {
+        "type": "organization"
+      },
+      "reach": "contained",
+      "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+      "served_version_pinned": true,
+      "type": "plugin",
+      "updated_at": "2026-03-14T09:26:53.589793Z"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Delete Plugin
+
+`BetaDeletedPlugin beta().organization().plugins().delete(params = PluginDeleteParams.none(), requestOptions = RequestOptions.none())`
+
+**DELETE** `/v1/organizations/plugins/{plugin_id}`
+
+Permanently delete a Plugin and every version it holds, exactly as when an
+administrator deletes it in claude.ai. The Plugin may belong to the organization or
+to a member, including a member who has since left the organization.
+
+An organization-owned Plugin's installation settings go with it; a member-owned
+Plugin's shares are withdrawn and its owner no longer has it.
+
+To take an organization-owned Plugin out of use reversibly, set its
+organization-wide installation setting to `not_available` instead (and
+remove or change any group settings, which override it for their members). Only a
+Plugin in a `manual` marketplace can be deleted here; one synchronized from a
+repository is removed by removing it from the repository (400).
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginDeleteParams params`
+
+  - `Optional<String> pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaDeletedPlugin`
+
+  - `JsonValue type = "plugin_deleted"`
+
+    Always `plugin_deleted`.
+
+  - `String id`
+
+    The deleted Plugin's ID.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.BetaDeletedPlugin;
+import com.anthropic.models.beta.organization.plugins.PluginDeleteParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaDeletedPlugin betaDeletedPlugin = client.beta().organization().plugins().delete("plugin_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "type": "plugin_deleted"
+}
+```
+
+## Beta › Organization › Plugins › Versions
+
+### Create Plugin Version
+
+`BetaPluginVersion beta().organization().plugins().versions().create(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/plugins/{plugin_id}/versions`
+
+Add a version to an organization-owned Plugin by uploading the new version's
+files; it becomes the version served to members unless the Plugin's served version
+has been pinned.
+
+The upload is the same `multipart/form-data` as creating a Plugin: the version's
+files (`files`, each part sent as `files[]`) and optional `release_notes`. The uploaded manifest's `name`
+must equal the Plugin's `name`. Returns the stored version; read the Plugin back to
+see which version it serves.
+
+Only a Plugin in a `manual` marketplace takes uploads; a Plugin synchronized from
+a repository gets its versions from the repository. When the Plugin is in the
+organization's library marketplace, a version that adds a skill with the name of an
+organization skill (a skill an administrator uploaded for the whole organization in
+claude.ai) is refused with a 409: `error_code` `skill_name_taken`, with that name in
+`details.skill_name`. A 503 with `error_code`
+`registration_pending` means the version was stored but is not yet usable; a later
+version create on the Plugin completes it.
+
+For a worked example, see [Create a version](https://platform.claude.com/docs/en/manage-claude/plugins-api#create-a-version)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `VersionCreateParams params`
+
+  - `Optional<String> pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `List<String> files`
+
+    The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+
+  - `Optional<String> releaseNotes`
+
+    Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+
+    maxLength: 5000
+
+#### Returns
+
+- `class BetaPluginVersion`
+
+  - `JsonValue type = "plugin_version"`
+
+    Always `plugin_version`.
+
+  - `String id`
+
+    The version's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    This version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who uploaded this version; null when not recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+      - `String apiKeyId`
+
+        The key's ID.
+
+  - `Optional<String> description`
+
+    The manifest's description; null when it declares none.
+
+  - `Optional<String> displayName`
+
+    The manifest's display name; null when it declares none.
+
+  - `Optional<String> manifestVersion`
+
+    The version string the manifest declares; null when it declares none.
+
+  - `String pluginId`
+
+    The Plugin's ID.
+
+  - `Optional<Reach> reach`
+
+    How far the version reaches: `remote`, `privileged` or `contained`, as on the Plugin; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `Optional<String> releaseNotes`
+
+    As supplied with the upload; null when none were supplied.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.versions.BetaPluginVersion;
+import com.anthropic.models.beta.organization.plugins.versions.VersionCreateParams;
+import java.io.ByteArrayInputStream;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        VersionCreateParams params = VersionCreateParams.builder()
+            .pluginId("plugin_id")
+            .addFile(new ByteArrayInputStream("Example data".getBytes()))
+            .build();
+        BetaPluginVersion betaPluginVersion = client.beta().organization().plugins().versions().create(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "manifest_version": "1.2.0",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "reach": "contained",
+  "release_notes": "Adds a review checklist for database migrations.",
+  "type": "plugin_version"
+}
+```
+
+### List Plugin Versions
+
+`VersionListPage beta().organization().plugins().versions().list(params = VersionListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/versions`
+
+List a Plugin's versions, newest first.
+
+The first item of the first page is the version the Plugin's `latest_version_id`
+refers to.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `VersionListParams params`
+
+  - `Optional<String> pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<Long> limit`
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    minimum: 1, maximum: 1000
+
+  - `Optional<String> organizationId`
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<String> page`
+
+    Optionally set to the `next_page` token from the previous response.
+
+    maxLength: 2048
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaPluginVersion`
+
+  - `JsonValue type = "plugin_version"`
+
+    Always `plugin_version`.
+
+  - `String id`
+
+    The version's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    This version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who uploaded this version; null when not recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+      - `String apiKeyId`
+
+        The key's ID.
+
+  - `Optional<String> description`
+
+    The manifest's description; null when it declares none.
+
+  - `Optional<String> displayName`
+
+    The manifest's display name; null when it declares none.
+
+  - `Optional<String> manifestVersion`
+
+    The version string the manifest declares; null when it declares none.
+
+  - `String pluginId`
+
+    The Plugin's ID.
+
+  - `Optional<Reach> reach`
+
+    How far the version reaches: `remote`, `privileged` or `contained`, as on the Plugin; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `Optional<String> releaseNotes`
+
+    As supplied with the upload; null when none were supplied.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.versions.VersionListPage;
+import com.anthropic.models.beta.organization.plugins.versions.VersionListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        VersionListPage page = client.beta().organization().plugins().versions().list("plugin_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+      "components": [
+        {
+          "description": "description",
+          "name": "review-pr",
+          "type": "skill"
+        }
+      ],
+      "content_scan": {
+        "assessment": "warn",
+        "reason": "credential-exposure",
+        "status": "completed"
+      },
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "created_by": {
+        "email_address": "user@example.com",
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "description": "Reviews pull requests against your team's conventions.",
+      "display_name": "Code Review Helper",
+      "manifest_version": "1.2.0",
+      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "reach": "contained",
+      "release_notes": "Adds a review checklist for database migrations.",
+      "type": "plugin_version"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Get Plugin Version
+
+`BetaPluginVersion beta().organization().plugins().versions().retrieve(params, requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/versions/{version}`
+
+Retrieve one version of a Plugin by its ID, or the Plugin's newest version.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `VersionRetrieveParams params`
+
+  - `String pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<String> version`
+
+    ID of the Plugin Version (prefixed `pluginver_`), or `latest` for the newest one.
+
+  - `Optional<String> organizationId`
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaPluginVersion`
+
+  - `JsonValue type = "plugin_version"`
+
+    Always `plugin_version`.
+
+  - `String id`
+
+    The version's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    This version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who uploaded this version; null when not recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+      - `String apiKeyId`
+
+        The key's ID.
+
+  - `Optional<String> description`
+
+    The manifest's description; null when it declares none.
+
+  - `Optional<String> displayName`
+
+    The manifest's display name; null when it declares none.
+
+  - `Optional<String> manifestVersion`
+
+    The version string the manifest declares; null when it declares none.
+
+  - `String pluginId`
+
+    The Plugin's ID.
+
+  - `Optional<Reach> reach`
+
+    How far the version reaches: `remote`, `privileged` or `contained`, as on the Plugin; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `Optional<String> releaseNotes`
+
+    As supplied with the upload; null when none were supplied.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.versions.BetaPluginVersion;
+import com.anthropic.models.beta.organization.plugins.versions.VersionRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        VersionRetrieveParams params = VersionRetrieveParams.builder()
+            .pluginId("plugin_id")
+            .version("version")
+            .build();
+        BetaPluginVersion betaPluginVersion = client.beta().organization().plugins().versions().retrieve(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "manifest_version": "1.2.0",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "reach": "contained",
+  "release_notes": "Adds a review checklist for database migrations.",
+  "type": "plugin_version"
+}
+```
+
+### Download Plugin Version Archive
+
+`HttpResponse beta().organization().plugins().versions().download(params, requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/versions/{version}/content`
+
+Download one version's `.zip` archive, exactly as stored. Each download of a
+Plugin from a member's personal plugin marketplace is recorded on the Compliance API
+activity feed.
+
+The response body is the archive (`Content-Type: application/zip`), sent as an
+attachment whose filename is derived from the Plugin's name; name saved files from
+the IDs in the request path, since that filename is not unique.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every read scope above (`read:plugins`, `read:org_audit`, and
+`read:compliance_org_data`) can download the files of plugins in members' personal
+marketplaces, including files that claude.ai's admin settings do not show, and a
+`read:org_audit` or `read:compliance_org_data` key created for all of your parent
+organization's linked organizations can do this in any organization under it that has
+access to this API, by passing `organization_id`. Each such download records a
+`claude_plugin_archive_accessed` event on the Compliance API activity feed,
+identifying the key, the plugin, the version, and the member. Downloads of
+organization-owned plugins are not recorded.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `VersionDownloadParams params`
+
+  - `String pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<String> version`
+
+    ID of the Plugin Version (prefixed `pluginver_`). `latest` is not accepted here.
+
+  - `Optional<String> organizationId`
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.core.http.HttpResponse;
+import com.anthropic.models.beta.organization.plugins.versions.VersionDownloadParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        VersionDownloadParams params = VersionDownloadParams.builder()
+            .pluginId("plugin_id")
+            .version("version")
+            .build();
+        HttpResponse response = client.beta().organization().plugins().versions().download(params);
+    }
+}
+```
+
+## Beta › Organization › Plugins › Installation Settings
+
+### List Plugin Installation Settings
+
+`InstallationSettingListPage beta().organization().plugins().installationSettings().list(params = InstallationSettingListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/installation_settings`
+
+List an organization-owned Plugin's installation settings, which say which
+members it is for, most recently created first.
+
+The list holds the Plugin's own organization-wide setting (absent while the Plugin
+inherits its marketplace's default) and each RBAC Group's own setting. A
+member-owned Plugin has shares instead, so this path returns 404 for one.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `InstallationSettingListParams params`
+
+  - `Optional<String> pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<Long> limit`
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `100`.
+
+    minimum: 1, maximum: 100
+
+  - `Optional<String> organizationId`
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<String> page`
+
+    Optionally set to the `next_page` token from the previous response.
+
+    maxLength: 2048
+
+  - `Optional<TargetType> targetType`
+
+    Only settings for this kind of target: `organization` (the organization-wide setting) or `rbac_group` (an RBAC Group's).
+
+    - `ORGANIZATION("organization")`
+
+    - `RBAC_GROUP("rbac_group")`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaPluginInstallationSetting`
+
+  The installation setting an organization-owned Plugin holds for one
+  target. It has no ID of its own: it is addressed by the Plugin's ID and the
+  target.
+
+  - `JsonValue type = "plugin_installation_setting"`
+
+    Always `plugin_installation_setting`.
+
+  - `LocalDateTime createdAt`
+
+    When the target was first given a setting for this Plugin.
+
+    format: date-time
+
+  - `InstallationPreference installationPreference`
+
+    The setting the target holds for this Plugin. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `String pluginId`
+
+    The Plugin's ID.
+
+  - `Target target`
+
+    Whose setting this is: `organization` (the Plugin's own organization-wide setting) or `rbac_group` (one RBAC Group's own setting); `organization_member` does not occur here.
+
+    - `class BetaPluginTargetOrganization`
+
+      - `JsonValue type = "organization"`
+
+        Every member of the organization.
+
+    - `class BetaPluginTargetRbacGroup`
+
+      - `JsonValue type = "rbac_group"`
+
+        An RBAC Group.
+
+      - `String rbacGroupId`
+
+        The RBAC Group's ID.
+
+    - `class BetaPluginTargetOrganizationMember`
+
+      - `JsonValue type = "organization_member"`
+
+        One member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `LocalDateTime updatedAt`
+
+    When its setting last changed.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.installationsettings.InstallationSettingListPage;
+import com.anthropic.models.beta.organization.plugins.installationsettings.InstallationSettingListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        InstallationSettingListPage page = client.beta().organization().plugins().installationSettings().list("plugin_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "installation_preference": "required",
+      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "target": {
+        "type": "organization"
+      },
+      "type": "plugin_installation_setting",
+      "updated_at": "2026-03-14T09:26:53.589793Z"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Set Plugin Installation Setting
+
+`BetaPluginInstallationSetting beta().organization().plugins().installationSettings().set(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`
+
+Set or change an organization-owned Plugin's installation setting for the whole
+organization or for one RBAC Group.
+
+Writing the value a target already holds of its own changes nothing.
+
+A member-owned Plugin has shares instead of installation settings, so this path
+returns 404 for one.
+
+Send a Plugin's installation-setting writes one at a time. If several writes for the
+same Plugin arrive at the same time, the server handles them one after another and
+can answer some of them with `503` instead of applying them. That `503` carries
+`x-should-retry: true`, and the write is safe to repeat: wait a second or two, then
+send it again.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `InstallationSettingSetParams params`
+
+  - `String pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<String> target`
+
+    The target whose setting is written: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Writing the `organization` target stops the Plugin from inheriting its marketplace's default, even when the value written equals that default.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `InstallationPreference installationPreference`
+
+    The installation setting the target is to hold for this Plugin: one of `required`, `auto_install`, `available`, `not_available`.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+#### Returns
+
+- `class BetaPluginInstallationSetting`
+
+  The installation setting an organization-owned Plugin holds for one
+  target. It has no ID of its own: it is addressed by the Plugin's ID and the
+  target.
+
+  - `JsonValue type = "plugin_installation_setting"`
+
+    Always `plugin_installation_setting`.
+
+  - `LocalDateTime createdAt`
+
+    When the target was first given a setting for this Plugin.
+
+    format: date-time
+
+  - `InstallationPreference installationPreference`
+
+    The setting the target holds for this Plugin. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `String pluginId`
+
+    The Plugin's ID.
+
+  - `Target target`
+
+    Whose setting this is: `organization` (the Plugin's own organization-wide setting) or `rbac_group` (one RBAC Group's own setting); `organization_member` does not occur here.
+
+    - `class BetaPluginTargetOrganization`
+
+      - `JsonValue type = "organization"`
+
+        Every member of the organization.
+
+    - `class BetaPluginTargetRbacGroup`
+
+      - `JsonValue type = "rbac_group"`
+
+        An RBAC Group.
+
+      - `String rbacGroupId`
+
+        The RBAC Group's ID.
+
+    - `class BetaPluginTargetOrganizationMember`
+
+      - `JsonValue type = "organization_member"`
+
+        One member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `LocalDateTime updatedAt`
+
+    When its setting last changed.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.installationsettings.BetaPluginInstallationSetting;
+import com.anthropic.models.beta.organization.plugins.installationsettings.InstallationSettingSetParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        InstallationSettingSetParams params = InstallationSettingSetParams.builder()
+            .pluginId("plugin_id")
+            .target("target")
+            .installationPreference(InstallationSettingSetParams.InstallationPreference.REQUIRED)
+            .build();
+        BetaPluginInstallationSetting betaPluginInstallationSetting = client.beta().organization().plugins().installationSettings().set(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "installation_preference": "required",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "target": {
+    "type": "organization"
+  },
+  "type": "plugin_installation_setting",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Remove Plugin Installation Setting
+
+`BetaDeletedPluginInstallationSetting beta().organization().plugins().installationSettings().remove(params, requestOptions = RequestOptions.none())`
+
+**DELETE** `/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`
+
+Remove an organization-owned Plugin's own installation setting for the whole
+organization or for one RBAC Group.
+
+Removing the `organization` target returns the Plugin to its marketplace's default
+installation setting and leaves the groups' settings in place. Removing a group's
+setting makes the group's members fall back to the Plugin's organization-wide setting
+or to the settings of their other groups.
+
+A target that holds no setting of its own returns 404 (a Plugin that already inherits
+its marketplace's default holds no `organization` setting), and so does a member-owned
+Plugin.
+
+A removal counts as one of the Plugin's installation-setting writes: send all of those
+writes one at a time. If several arrive for the same Plugin at the same time, the server
+handles them one after another and can answer some of them with `503` and
+`x-should-retry: true` instead of applying them; wait a second or two and send the
+removal again. A `404` on the repeat means the setting is already gone.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `InstallationSettingRemoveParams params`
+
+  - `String pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<String> target`
+
+    The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaDeletedPluginInstallationSetting`
+
+  Confirmation that one target's installation setting was removed, naming
+  the Plugin and the target in place of an ID.
+
+  - `JsonValue type = "plugin_installation_setting_deleted"`
+
+    Always `plugin_installation_setting_deleted`.
+
+  - `String pluginId`
+
+    The Plugin's ID.
+
+  - `Target target`
+
+    Whose setting was removed.
+
+    - `class BetaPluginTargetOrganization`
+
+      - `JsonValue type = "organization"`
+
+        Every member of the organization.
+
+    - `class BetaPluginTargetRbacGroup`
+
+      - `JsonValue type = "rbac_group"`
+
+        An RBAC Group.
+
+      - `String rbacGroupId`
+
+        The RBAC Group's ID.
+
+    - `class BetaPluginTargetOrganizationMember`
+
+      - `JsonValue type = "organization_member"`
+
+        One member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.installationsettings.BetaDeletedPluginInstallationSetting;
+import com.anthropic.models.beta.organization.plugins.installationsettings.InstallationSettingRemoveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        InstallationSettingRemoveParams params = InstallationSettingRemoveParams.builder()
+            .pluginId("plugin_id")
+            .target("target")
+            .build();
+        BetaDeletedPluginInstallationSetting betaDeletedPluginInstallationSetting = client.beta().organization().plugins().installationSettings().remove(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "target": {
+    "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+    "type": "rbac_group"
+  },
+  "type": "plugin_installation_setting_deleted"
+}
+```
+
+## Beta › Organization › Plugins › Shares
+
+### List Plugin Shares
+
+`ShareListPage beta().organization().plugins().shares().list(params = ShareListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/shares`
+
+List the shares the owner of a member-owned Plugin has given — to every member of
+the organization, to an RBAC Group, or to one member — most recently granted first.
+
+Shares are read-only in this API: members give and withdraw them in claude.ai, and
+who gave a share is recorded on the Compliance API activity feed rather than on the
+share. An organization-owned Plugin has installation settings instead, so this path
+returns 404 for one.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `ShareListParams params`
+
+  - `Optional<String> pluginId`
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<Long> limit`
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `100`.
+
+    minimum: 1, maximum: 100
+
+  - `Optional<String> organizationId`
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<String> page`
+
+    Optionally set to the `next_page` token from the previous response.
+
+    maxLength: 2048
+
+  - `Optional<TargetType> targetType`
+
+    Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
+
+    - `ORGANIZATION("organization")`
+
+    - `ORGANIZATION_MEMBER("organization_member")`
+
+    - `RBAC_GROUP("rbac_group")`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaPluginShare`
+
+  One share the owner of a member-owned Plugin has given. Shares are
+  read-only in this API and have no ID of their own; who gave a share is
+  recorded on the Compliance API activity feed, not here.
+
+  - `JsonValue type = "plugin_share"`
+
+    Always `plugin_share`.
+
+  - `LocalDateTime grantedAt`
+
+    When the share was given; a share whose role is later changed in claude.ai is re-granted and carries the time of that change.
+
+    format: date-time
+
+  - `String pluginId`
+
+    The Plugin's ID.
+
+  - `Target target`
+
+    Who the Plugin is shared with: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
+
+    - `class BetaPluginTargetOrganization`
+
+      - `JsonValue type = "organization"`
+
+        Every member of the organization.
+
+    - `class BetaPluginTargetRbacGroup`
+
+      - `JsonValue type = "rbac_group"`
+
+        An RBAC Group.
+
+      - `String rbacGroupId`
+
+        The RBAC Group's ID.
+
+    - `class BetaPluginTargetOrganizationMember`
+
+      - `JsonValue type = "organization_member"`
+
+        One member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.shares.ShareListPage;
+import com.anthropic.models.beta.organization.plugins.shares.ShareListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        ShareListPage page = client.beta().organization().plugins().shares().list("plugin_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "granted_at": "2026-03-14T09:26:53.589793Z",
+      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "target": {
+        "type": "organization"
+      },
+      "type": "plugin_share"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+## Beta › Organization › Plugin Marketplaces
+
+### List Plugin Marketplaces
+
+`PluginMarketplaceListPage beta().organization().pluginMarketplaces().list(params = PluginMarketplaceListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugin_marketplaces`
+
+List the plugin marketplaces Plugins live in, newest first: the organization's own
+and its members' personal ones.
+
+Plugin marketplaces are created, connected to a repository and deleted in
+claude.ai, not through this API. The organization's library marketplace, the
+organization-owned `manual` marketplace that uploads go to when no marketplace is
+named, is created the first time something is put in it and is listed from then on.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginMarketplaceListParams params`
+
+  - `Optional<Long> limit`
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    minimum: 1, maximum: 1000
+
+  - `Optional<String> organizationId`
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<OwnerType> ownerType`
+
+    `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
+
+    - `ORGANIZATION("organization")`
+
+    - `USER("user")`
+
+  - `Optional<String> page`
+
+    Optionally set to the `next_page` token from the previous response.
+
+    maxLength: 2048
+
+  - `Optional<Source> source`
+
+    Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
+
+    - `DIRECTORY("directory")`
+
+    - `GITHUB("github")`
+
+    - `GITLAB("gitlab")`
+
+    - `MANUAL("manual")`
+
+    - `PUBLIC_GIT("public_git")`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaPluginMarketplace`
+
+  - `JsonValue type = "plugin_marketplace"`
+
+    Always `plugin_marketplace`.
+
+  - `String id`
+
+    The plugin marketplace's ID, prefixed `marketplace_`.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<DefaultInstallationPreference> defaultInstallationPreference`
+
+    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<LocalDateTime> lastSyncEndedAt`
+
+    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
+
+    format: date-time
+
+  - `Optional<String> lastSyncReadSha`
+
+    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
+
+  - `String name`
+
+    Fixed for the plugin marketplace's lifetime.
+
+  - `Owner owner`
+
+    The organization, or the member whose personal plugin marketplace it is.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Source source`
+
+    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
+
+    - `DIRECTORY("directory")`
+
+    - `GITHUB("github")`
+
+    - `GITLAB("gitlab")`
+
+    - `MANUAL("manual")`
+
+    - `PUBLIC_GIT("public_git")`
+
+  - `Optional<SyncStatus> syncStatus`
+
+    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
+
+    - `FAILED_AUTH("failed_auth")`
+
+    - `FAILED_CONTENT("failed_content")`
+
+    - `FAILED_LIMITS("failed_limits")`
+
+    - `FAILED_TRANSIENT("failed_transient")`
+
+    - `IN_PROGRESS("in_progress")`
+
+    - `SUCCESS("success")`
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.pluginmarketplaces.PluginMarketplaceListPage;
+import com.anthropic.models.beta.organization.pluginmarketplaces.PluginMarketplaceListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        PluginMarketplaceListPage page = client.beta().organization().pluginMarketplaces().list();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "default_installation_preference": "available",
+      "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
+      "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+      "name": "engineering-tools",
+      "owner": {
+        "type": "organization"
+      },
+      "source": "github",
+      "sync_status": "success",
+      "type": "plugin_marketplace"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Get Plugin Marketplace
+
+`BetaPluginMarketplace beta().organization().pluginMarketplaces().retrieve(params = PluginMarketplaceRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugin_marketplaces/{marketplace_id}`
+
+Retrieve a plugin marketplace by ID.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginMarketplaceRetrieveParams params`
+
+  - `Optional<String> marketplaceId`
+
+    ID of the plugin marketplace (prefixed `marketplace_`).
+
+  - `Optional<String> organizationId`
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+#### Returns
+
+- `class BetaPluginMarketplace`
+
+  - `JsonValue type = "plugin_marketplace"`
+
+    Always `plugin_marketplace`.
+
+  - `String id`
+
+    The plugin marketplace's ID, prefixed `marketplace_`.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<DefaultInstallationPreference> defaultInstallationPreference`
+
+    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<LocalDateTime> lastSyncEndedAt`
+
+    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
+
+    format: date-time
+
+  - `Optional<String> lastSyncReadSha`
+
+    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
+
+  - `String name`
+
+    Fixed for the plugin marketplace's lifetime.
+
+  - `Owner owner`
+
+    The organization, or the member whose personal plugin marketplace it is.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Source source`
+
+    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
+
+    - `DIRECTORY("directory")`
+
+    - `GITHUB("github")`
+
+    - `GITLAB("gitlab")`
+
+    - `MANUAL("manual")`
+
+    - `PUBLIC_GIT("public_git")`
+
+  - `Optional<SyncStatus> syncStatus`
+
+    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
+
+    - `FAILED_AUTH("failed_auth")`
+
+    - `FAILED_CONTENT("failed_content")`
+
+    - `FAILED_LIMITS("failed_limits")`
+
+    - `FAILED_TRANSIENT("failed_transient")`
+
+    - `IN_PROGRESS("in_progress")`
+
+    - `SUCCESS("success")`
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.pluginmarketplaces.BetaPluginMarketplace;
+import com.anthropic.models.beta.organization.pluginmarketplaces.PluginMarketplaceRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaPluginMarketplace betaPluginMarketplace = client.beta().organization().pluginMarketplaces().retrieve("marketplace_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "default_installation_preference": "available",
+  "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
+  "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "name": "engineering-tools",
+  "owner": {
+    "type": "organization"
+  },
+  "source": "github",
+  "sync_status": "success",
+  "type": "plugin_marketplace"
+}
+```
+
+### Update Plugin Marketplace
+
+`BetaPluginMarketplace beta().organization().pluginMarketplaces().update(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/plugin_marketplaces/{marketplace_id}`
+
+Set the default installation setting of one of the organization's own plugin
+marketplaces. Every Plugin in it without a setting of its own gets this default as
+its organization-wide setting, including Plugins added later.
+
+Pass it as `default_installation_preference`. A member's personal marketplace
+cannot be updated here (403).
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginMarketplaceUpdateParams params`
+
+  - `Optional<String> marketplaceId`
+
+    ID of the plugin marketplace (prefixed `marketplace_`).
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `DefaultInstallationPreference defaultInstallationPreference`
+
+    The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+#### Returns
+
+- `class BetaPluginMarketplace`
+
+  - `JsonValue type = "plugin_marketplace"`
+
+    Always `plugin_marketplace`.
+
+  - `String id`
+
+    The plugin marketplace's ID, prefixed `marketplace_`.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<DefaultInstallationPreference> defaultInstallationPreference`
+
+    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<LocalDateTime> lastSyncEndedAt`
+
+    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
+
+    format: date-time
+
+  - `Optional<String> lastSyncReadSha`
+
+    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
+
+  - `String name`
+
+    Fixed for the plugin marketplace's lifetime.
+
+  - `Owner owner`
+
+    The organization, or the member whose personal plugin marketplace it is.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Source source`
+
+    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
+
+    - `DIRECTORY("directory")`
+
+    - `GITHUB("github")`
+
+    - `GITLAB("gitlab")`
+
+    - `MANUAL("manual")`
+
+    - `PUBLIC_GIT("public_git")`
+
+  - `Optional<SyncStatus> syncStatus`
+
+    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
+
+    - `FAILED_AUTH("failed_auth")`
+
+    - `FAILED_CONTENT("failed_content")`
+
+    - `FAILED_LIMITS("failed_limits")`
+
+    - `FAILED_TRANSIENT("failed_transient")`
+
+    - `IN_PROGRESS("in_progress")`
+
+    - `SUCCESS("success")`
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.pluginmarketplaces.BetaPluginMarketplace;
+import com.anthropic.models.beta.organization.pluginmarketplaces.PluginMarketplaceUpdateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        PluginMarketplaceUpdateParams params = PluginMarketplaceUpdateParams.builder()
+            .marketplaceId("marketplace_id")
+            .defaultInstallationPreference(PluginMarketplaceUpdateParams.DefaultInstallationPreference.AVAILABLE)
+            .build();
+        BetaPluginMarketplace betaPluginMarketplace = client.beta().organization().pluginMarketplaces().update(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "default_installation_preference": "available",
+  "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
+  "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "name": "engineering-tools",
+  "owner": {
+    "type": "organization"
+  },
+  "source": "github",
+  "sync_status": "success",
+  "type": "plugin_marketplace"
+}
+```
+
+### Validate Plugin Marketplace Repository
+
+`BetaPluginMarketplaceValidationReport beta().organization().pluginMarketplaces().validateRepository(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/plugin_marketplaces/validate_repository`
+
+Check whether a plugin marketplace held in a public GitHub repository would
+synchronize into claude.ai, without connecting or storing it.
+
+To check a `.zip` of the marketplace directory instead, use Validate Plugin Marketplace Archive.
+
+The report says whether `marketplace.json` is well-formed, which plugins a
+synchronization would skip and why, and which plugins would synchronize only in
+part, with some files left out. A repository that is missing, private, or has no such branch or commit is reported, not refused: the response is a report with `valid: false`. Plugin sources outside the marketplace
+are fetched anonymously from GitHub, so a private one is reported as not found; a
+source on any other host is not fetched here, and the report notes that it will be
+checked when the marketplace actually synchronizes.
+
+Nothing is recorded on the Compliance API activity feed.
+
+For a worked example, see [Validate marketplace content](https://platform.claude.com/docs/en/manage-claude/plugins-api#validate-marketplace-content)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not grant it.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginMarketplaceValidateRepositoryParams params`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `String repositoryUrl`
+
+    The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
+
+    minLength: 1
+
+  - `Optional<String> ref`
+
+    The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
+
+    minLength: 1
+
+#### Returns
+
+- `class BetaPluginMarketplaceValidationReport`
+
+  The outcome of validating plugin marketplace content: a report, not a
+  stored object, so nothing in it can be retrieved afterwards.
+
+  - `JsonValue type = "plugin_marketplace_validation_report"`
+
+    Always `plugin_marketplace_validation_report`.
+
+  - `Optional<String> commitSha`
+
+    The full SHA of the commit that was validated: for a repository, the commit that was read; for an uploaded archive, the commit recorded in the archive's comment (as a Git host's download writes it; not verified), else null.
+
+  - `Optional<String> manifestError`
+
+    Set when nothing could be validated: the repository or archive could not be read, or marketplace.json is missing, malformed or over a limit. Null otherwise.
+
+  - `Optional<String> manifestErrorCode`
+
+    A stable identifier for `manifest_error`; null when that is.
+
+  - `List<BetaPluginMarketplaceValidationPluginError> pluginErrors`
+
+    One entry per plugin a synchronization would skip entirely, keyed by the plugin's name in marketplace.json.
+
+    - `String error`
+
+      Why the plugin would be skipped by a synchronization.
+
+    - `String errorCode`
+
+      A stable identifier for the reason — the value to branch on.
+
+    - `String name`
+
+      The plugin's name, as its entry in marketplace.json declares it.
+
+  - `List<BetaPluginMarketplaceValidationPluginWarnings> pluginWarnings`
+
+    One entry per plugin that would synchronize with some of its contents left out, keyed by the plugin's name in marketplace.json.
+
+    - `String name`
+
+      The plugin's name, as its entry in marketplace.json declares it.
+
+    - `List<BetaPluginMarketplaceValidationPluginWarning> warnings`
+
+      The parts of the plugin a synchronization would leave out.
+
+      - `String errorCode`
+
+        A stable identifier for the kind of warning.
+
+      - `String message`
+
+        What would be left out, and why.
+
+  - `Optional<String> ref`
+
+    For a repository, the branch that was read by name: the one requested, or else the branch a synchronization of this repository is set to read. Null when no branch is named or set and the repository's default branch was read, for a request by commit SHA, and for an uploaded archive.
+
+  - `long totalPluginCount`
+
+    How many plugins marketplace.json declares; 0 when it could not be read.
+
+  - `boolean valid`
+
+    True when marketplace.json is well-formed and no plugin would be skipped; warnings never make it false.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.pluginmarketplaces.BetaPluginMarketplaceValidationReport;
+import com.anthropic.models.beta.organization.pluginmarketplaces.PluginMarketplaceValidateRepositoryParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        PluginMarketplaceValidateRepositoryParams params = PluginMarketplaceValidateRepositoryParams.builder()
+            .repositoryUrl("https://github.com/example-org/example-marketplace")
+            .build();
+        BetaPluginMarketplaceValidationReport betaPluginMarketplaceValidationReport = client.beta().organization().pluginMarketplaces().validateRepository(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "commit_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "manifest_error": "manifest_error",
+  "manifest_error_code": "marketplace_sync_manifest_not_found",
+  "plugin_errors": [
+    {
+      "error": "error",
+      "error_code": "marketplace_sync_plugin_missing_manifest",
+      "name": "name"
+    }
+  ],
+  "plugin_warnings": [
+    {
+      "name": "name",
+      "warnings": [
+        {
+          "error_code": "marketplace_sync_zipball_symlink_dangling",
+          "message": "message"
+        }
+      ]
+    }
+  ],
+  "ref": "main",
+  "total_plugin_count": 0,
+  "type": "plugin_marketplace_validation_report",
+  "valid": false
+}
+```
+
+### Validate Plugin Marketplace Archive
+
+`BetaPluginMarketplaceValidationReport beta().organization().pluginMarketplaces().validateArchive(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/plugin_marketplaces/validate_archive`
+
+Check whether a plugin marketplace, uploaded as a `.zip` of the marketplace
+directory, would synchronize into claude.ai, without connecting or storing it.
+
+To check a public GitHub repository instead, use Validate Plugin Marketplace Repository.
+
+The report says whether `marketplace.json` is well-formed, which plugins a
+synchronization would skip and why, and which plugins would synchronize only in
+part, with some files left out. An archive that cannot be read as a marketplace is reported, not refused: the response is a report with `valid: false`. Plugin sources outside the marketplace
+are fetched anonymously from GitHub, so a private one is reported as not found; a
+source on any other host is not fetched here, and the report notes that it will be
+checked when the marketplace actually synchronizes.
+
+Nothing is recorded on the Compliance API activity feed.
+
+For a worked example, see [Validate marketplace content](https://platform.claude.com/docs/en/manage-claude/plugins-api#validate-marketplace-content)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not grant it.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginMarketplaceValidateArchiveParams params`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+  - `String archive`
+
+    A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
+
+    format: binary
+
+#### Returns
+
+- `class BetaPluginMarketplaceValidationReport`
+
+  The outcome of validating plugin marketplace content: a report, not a
+  stored object, so nothing in it can be retrieved afterwards.
+
+  - `JsonValue type = "plugin_marketplace_validation_report"`
+
+    Always `plugin_marketplace_validation_report`.
+
+  - `Optional<String> commitSha`
+
+    The full SHA of the commit that was validated: for a repository, the commit that was read; for an uploaded archive, the commit recorded in the archive's comment (as a Git host's download writes it; not verified), else null.
+
+  - `Optional<String> manifestError`
+
+    Set when nothing could be validated: the repository or archive could not be read, or marketplace.json is missing, malformed or over a limit. Null otherwise.
+
+  - `Optional<String> manifestErrorCode`
+
+    A stable identifier for `manifest_error`; null when that is.
+
+  - `List<BetaPluginMarketplaceValidationPluginError> pluginErrors`
+
+    One entry per plugin a synchronization would skip entirely, keyed by the plugin's name in marketplace.json.
+
+    - `String error`
+
+      Why the plugin would be skipped by a synchronization.
+
+    - `String errorCode`
+
+      A stable identifier for the reason — the value to branch on.
+
+    - `String name`
+
+      The plugin's name, as its entry in marketplace.json declares it.
+
+  - `List<BetaPluginMarketplaceValidationPluginWarnings> pluginWarnings`
+
+    One entry per plugin that would synchronize with some of its contents left out, keyed by the plugin's name in marketplace.json.
+
+    - `String name`
+
+      The plugin's name, as its entry in marketplace.json declares it.
+
+    - `List<BetaPluginMarketplaceValidationPluginWarning> warnings`
+
+      The parts of the plugin a synchronization would leave out.
+
+      - `String errorCode`
+
+        A stable identifier for the kind of warning.
+
+      - `String message`
+
+        What would be left out, and why.
+
+  - `Optional<String> ref`
+
+    For a repository, the branch that was read by name: the one requested, or else the branch a synchronization of this repository is set to read. Null when no branch is named or set and the repository's default branch was read, for a request by commit SHA, and for an uploaded archive.
+
+  - `long totalPluginCount`
+
+    How many plugins marketplace.json declares; 0 when it could not be read.
+
+  - `boolean valid`
+
+    True when marketplace.json is well-formed and no plugin would be skipped; warnings never make it false.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.pluginmarketplaces.BetaPluginMarketplaceValidationReport;
+import com.anthropic.models.beta.organization.pluginmarketplaces.PluginMarketplaceValidateArchiveParams;
+import java.io.ByteArrayInputStream;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        PluginMarketplaceValidateArchiveParams params = PluginMarketplaceValidateArchiveParams.builder()
+            .archive(new ByteArrayInputStream("Example data".getBytes()))
+            .build();
+        BetaPluginMarketplaceValidationReport betaPluginMarketplaceValidationReport = client.beta().organization().pluginMarketplaces().validateArchive(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "commit_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "manifest_error": "manifest_error",
+  "manifest_error_code": "marketplace_sync_manifest_not_found",
+  "plugin_errors": [
+    {
+      "error": "error",
+      "error_code": "marketplace_sync_plugin_missing_manifest",
+      "name": "name"
+    }
+  ],
+  "plugin_warnings": [
+    {
+      "name": "name",
+      "warnings": [
+        {
+          "error_code": "marketplace_sync_zipball_symlink_dangling",
+          "message": "message"
+        }
+      ]
+    }
+  ],
+  "ref": "main",
+  "total_plugin_count": 0,
+  "type": "plugin_marketplace_validation_report",
+  "valid": false
 }
 ```

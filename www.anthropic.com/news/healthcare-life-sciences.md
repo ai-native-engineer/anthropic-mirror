@@ -38,7 +38,7 @@ With these model improvements and our new tools, Claude is now dramatically more
 
 #### **What’s new**
 
-[Connectors](https://claude.ai/redirect/website.v1.9b83b62d-8a92-4099-b173-26f93629b078/settings/connectors) are tools that allow users to give Claude access to other platforms directly. For payers and providers, we’ve added several connectors that make healthcare information easier to find, access, and understand. These allow Claude to pull information from industry-standard systems and databases, meaning that clinicians and administrators can save significant time finding the data and generating the reports they need.
+[Connectors](https://claude.ai/redirect/website.v1.4a86e3ef-b3ae-4917-ac23-c37d7936bc2e/settings/connectors) are tools that allow users to give Claude access to other platforms directly. For payers and providers, we’ve added several connectors that make healthcare information easier to find, access, and understand. These allow Claude to pull information from industry-standard systems and databases, meaning that clinicians and administrators can save significant time finding the data and generating the reports they need.
 
 Claude can now connect to:
 

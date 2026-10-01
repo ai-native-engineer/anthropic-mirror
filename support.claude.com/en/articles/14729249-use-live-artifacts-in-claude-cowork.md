@@ -33,7 +33,7 @@ Sharing a live artifact works the way it always has:
 
 **Important:** Only open shared artifacts from people you trust. Treat someone else's artifact the way you'd treat a file from an unknown sender.
 
+* [Share artifacts](https://support.claude.com/en/articles/9547008-share-artifacts)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)
-* [Get started with Claude Docs](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs)
 * [Artifacts admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans)

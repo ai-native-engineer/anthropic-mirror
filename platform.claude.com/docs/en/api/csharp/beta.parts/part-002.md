@@ -3,6 +3,54 @@
 
 <!-- chunk-start -->
 
+          Python packages to install
+
+    - `class BetaSelfHostedConfig`
+
+      Configuration for self-hosted environments.
+
+      - `JsonElement Type = "self_hosted"`
+
+        Environment type
+
+  - `required string CreatedAt`
+
+    RFC 3339 timestamp when environment was created
+
+  - `required string? Description`
+
+    User-provided description for the environment; null when unset
+
+  - `required IReadOnlyDictionary<string, string> Metadata`
+
+    User-provided metadata key-value pairs
+
+  - `required string Name`
+
+    Human-readable name for the environment
+
+  - `required string UpdatedAt`
+
+    RFC 3339 timestamp when environment was last updated
+
+  - `Scope Scope`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
+    - `Organization("organization")`
+
+    - `Account("account")`
+
+#### Example
+
+```csharp
+EnvironmentUpdateParams parameters = new()
+{
+    EnvironmentID = "env_011CZkZ9X2dpNyB7HsEFoRfW"
+};
+
+var betaEnvironment = await client.Beta.Environments.Update(parameters);
+
 Console.WriteLine(betaEnvironment);
 ```
 
@@ -169,6 +217,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -324,6 +374,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -647,6 +699,8 @@ Retrieve detailed information about a specific work item.
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -902,6 +956,8 @@ Long poll for work items in the queue.
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string anthropicWorkerID`
 
     Header param: Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
@@ -1145,6 +1201,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
 #### Returns
 
@@ -1395,6 +1453,8 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse`
@@ -1582,6 +1642,8 @@ Stop a work item, initiating graceful or forced shutdown.
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -1836,6 +1898,8 @@ List work items in an environment.
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
 #### Returns
 
 - `class BetaSelfHostedWork`
@@ -2087,6 +2151,8 @@ Update work item metadata with merge semantics.
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -2326,6 +2392,8 @@ Get statistics about the work queue for an environment.
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -3574,6 +3642,8 @@ Create Session
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -4373,8 +4443,6 @@ Create Session
       format: double
 
   - `required Status Status`
-
-    SessionStatus enum
 
     - `Rescheduling("rescheduling")`
 
@@ -4876,6 +4944,8 @@ List Sessions
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -5676,8 +5746,6 @@ List Sessions
 
   - `required Status Status`
 
-    SessionStatus enum
-
     - `Rescheduling("rescheduling")`
 
       Transient error occurred, retrying automatically.
@@ -6099,6 +6167,8 @@ Get Session
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -6899,8 +6969,6 @@ Get Session
       format: double
 
   - `required Status Status`
-
-    SessionStatus enum
 
     - `Rescheduling("rescheduling")`
 
@@ -7343,6 +7411,8 @@ Update Session
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -8143,8 +8213,6 @@ Update Session
 
   - `required Status Status`
 
-    SessionStatus enum
-
     - `Rescheduling("rescheduling")`
 
       Transient error occurred, retrying automatically.
@@ -8562,6 +8630,8 @@ Delete Session
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -8713,6 +8783,8 @@ Archive Session
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -9513,8 +9585,6 @@ Archive Session
       format: double
 
   - `required Status Status`
-
-    SessionStatus enum
 
     - `Rescheduling("rescheduling")`
 
@@ -10050,6 +10120,8 @@ List Events
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -11009,6 +11081,156 @@ List Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `JsonElement Type = "repository_authentication_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `JsonElement Type = "repository_forbidden_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `JsonElement Type = "repository_not_found_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `JsonElement Type = "repository_checkout_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `JsonElement Type = "repository_clone_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `required DateTimeOffset ProcessedAt`
 
       Timestamp when the error occurred.
@@ -11063,6 +11285,30 @@ List Events
 
       format: date-time
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `JsonElement Type = "refusal"`
+
+      - `required Category? Category`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `Cyber("cyber")`
+
+        - `Bio("bio")`
+
+        - `FrontierLlm("frontier_llm")`
+
+        - `ReasoningExtraction("reasoning_extraction")`
+
+        - `GeneralHarms("general_harms")`
+
+      - `required string? Explanation`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -11092,6 +11338,12 @@ List Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `required Type Type`
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `JsonElement Type = "refusal"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -11421,6 +11673,10 @@ List Events
 
       Public sthr_ ID of the thread that went idle.
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -11438,6 +11694,10 @@ List Events
       - `class BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -12808,6 +13068,8 @@ Send Events
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -13431,6 +13693,8 @@ Stream Events
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -14390,6 +14654,156 @@ Stream Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `JsonElement Type = "repository_authentication_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `JsonElement Type = "repository_forbidden_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `JsonElement Type = "repository_not_found_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `JsonElement Type = "repository_checkout_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `JsonElement Type = "repository_clone_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `required DateTimeOffset ProcessedAt`
 
       Timestamp when the error occurred.
@@ -14444,6 +14858,30 @@ Stream Events
 
       format: date-time
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `JsonElement Type = "refusal"`
+
+      - `required Category? Category`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `Cyber("cyber")`
+
+        - `Bio("bio")`
+
+        - `FrontierLlm("frontier_llm")`
+
+        - `ReasoningExtraction("reasoning_extraction")`
+
+        - `GeneralHarms("general_harms")`
+
+      - `required string? Explanation`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -14473,6 +14911,12 @@ Stream Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `required Type Type`
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `JsonElement Type = "refusal"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -14802,6 +15246,10 @@ Stream Events
 
       Public sthr_ ID of the thread that went idle.
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -14819,6 +15267,10 @@ Stream Events
       - `class BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -15880,6 +16332,8 @@ Add Session Resource
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16063,6 +16517,8 @@ List Session Resources
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -16341,6 +16797,8 @@ Get Session Resource
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16612,6 +17070,8 @@ Update Session Resource
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16878,6 +17338,8 @@ Delete Session Resource
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17044,6 +17506,8 @@ List Session Threads
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -17962,6 +18426,8 @@ Get Session Thread
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18872,6 +19338,8 @@ Archive Session Thread
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -19795,6 +20263,8 @@ List Session Thread Events
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -20754,6 +21224,156 @@ List Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `JsonElement Type = "repository_authentication_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `JsonElement Type = "repository_forbidden_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `JsonElement Type = "repository_not_found_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `JsonElement Type = "repository_checkout_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `JsonElement Type = "repository_clone_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `required DateTimeOffset ProcessedAt`
 
       Timestamp when the error occurred.
@@ -20808,6 +21428,30 @@ List Session Thread Events
 
       format: date-time
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `JsonElement Type = "refusal"`
+
+      - `required Category? Category`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `Cyber("cyber")`
+
+        - `Bio("bio")`
+
+        - `FrontierLlm("frontier_llm")`
+
+        - `ReasoningExtraction("reasoning_extraction")`
+
+        - `GeneralHarms("general_harms")`
+
+      - `required string? Explanation`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -20837,6 +21481,12 @@ List Session Thread Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `required Type Type`
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `JsonElement Type = "refusal"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -21166,6 +21816,10 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -21183,6 +21837,10 @@ List Session Thread Events
       - `class BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -22193,6 +22851,8 @@ Stream Session Thread Events
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -23151,6 +23811,156 @@ Stream Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `JsonElement Type = "repository_authentication_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `JsonElement Type = "repository_forbidden_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `JsonElement Type = "repository_not_found_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `JsonElement Type = "repository_checkout_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `JsonElement Type = "repository_clone_error"`
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required string? RepositoryUrl`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `required DateTimeOffset ProcessedAt`
 
       Timestamp when the error occurred.
@@ -23205,6 +24015,30 @@ Stream Session Thread Events
 
       format: date-time
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `JsonElement Type = "refusal"`
+
+      - `required Category? Category`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `Cyber("cyber")`
+
+        - `Bio("bio")`
+
+        - `FrontierLlm("frontier_llm")`
+
+        - `ReasoningExtraction("reasoning_extraction")`
+
+        - `GeneralHarms("general_harms")`
+
+      - `required string? Explanation`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -23234,6 +24068,12 @@ Stream Session Thread Events
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `required Type Type`
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `JsonElement Type = "refusal"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -23563,6 +24403,10 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
+    - `required BetaManagedAgentsSessionRefusalStopDetails? StopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `required StopReason StopReason`
 
       - `class BetaManagedAgentsSessionEndTurn`
@@ -23580,6 +24424,10 @@ Stream Session Thread Events
       - `class BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
+
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
@@ -24992,6 +25840,8 @@ Create Deployment
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -25761,6 +26611,8 @@ List Deployments
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -26486,6 +27338,8 @@ Get Deployment
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -27581,6 +28435,8 @@ Update Deployment
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -28302,6 +29158,8 @@ Archive Deployment
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -29025,6 +29883,8 @@ Run Deployment Now
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -29408,6 +30268,8 @@ Pause Deployment
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -30130,6 +30992,8 @@ Unpause Deployment
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -30897,6 +31761,8 @@ List Deployment Runs
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -31284,6 +32150,8 @@ Get Deployment Run
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -31677,6 +32545,8 @@ Create Vault
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -31873,6 +32743,8 @@ List Vaults
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32065,6 +32937,8 @@ Get Vault
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -32265,6 +33139,8 @@ Update Vault
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32454,6 +33330,8 @@ Delete Vault
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32609,6 +33487,8 @@ Archive Vault
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -32973,6 +33853,8 @@ Create Credential
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -33303,6 +34185,8 @@ List Credentials
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -33623,6 +34507,8 @@ Get Credential
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string workspaceID`
 
@@ -34069,6 +34955,8 @@ Update Credential
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -34384,6 +35272,8 @@ Delete Credential
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -34460,1052 +35350,3 @@ Archive Credential
     - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
     - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-  - `string workspaceID`
-
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsCredential`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the credential.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the credential was archived. Null if not archived.
-
-    format: date-time
-
-  - `required Auth Auth`
-
-    Authentication configuration for this credential.
-
-    - `class BetaManagedAgentsMcpOAuthAuthResponse`
-
-      OAuth credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `DateTimeOffset? ExpiresAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
-
-        Refresh token configuration, if the credential supports token refresh.
-
-        - `required string ClientID`
-
-          OAuth client ID.
-
-        - `required string TokenEndpoint`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `required TokenEndpointAuth TokenEndpointAuth`
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
-
-            Token endpoint requires no client authentication.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `required Type Type`
-
-        - `string? Resource`
-
-          OAuth resource indicator.
-
-        - `string? Scope`
-
-          OAuth scope for the refresh request.
-
-    - `class BetaManagedAgentsStaticBearerAuthResponse`
-
-      Static bearer token credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `required Type Type`
-
-      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `required bool Body`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `required bool Header`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `required Networking Networking`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `required Type Type`
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-      - `required string SecretName`
-
-        Name of the environment variable.
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string VaultID`
-
-    Identifier of the vault this credential belongs to.
-
-  - `string? DisplayName`
-
-    Human-readable name for the credential.
-
-#### Example
-
-```csharp
-CredentialArchiveParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    CredentialID = "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-};
-
-var betaManagedAgentsCredential = await client.Beta.Vaults.Credentials.Archive(parameters);
-
-Console.WriteLine(betaManagedAgentsCredential);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "archived_at": null,
-  "auth": {
-    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-    "type": "static_bearer"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-### Validate Credential
-
-`BetaManagedAgentsCredentialValidation Beta.Vaults.Credentials.McpOAuthValidate(parameters, cancellationToken = default)`
-
-**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate`
-
-Validate Credential
-
-#### Parameters
-
-- `CredentialMcpOAuthValidateParams parameters`
-
-  - `required string vaultID`
-
-    Path param: Identifier of the vault containing the credential.
-
-  - `required string credentialID`
-
-    Path param: Unique identifier of the credential to validate.
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-  - `string workspaceID`
-
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsCredentialValidation`
-
-  Result of live-probing a credential against its configured MCP server.
-
-  - `required Type Type`
-
-  - `required string CredentialID`
-
-    Unique identifier of the credential that was validated.
-
-  - `required bool HasRefreshToken`
-
-    Whether the credential has a refresh token configured.
-
-  - `required BetaManagedAgentsMcpProbe? McpProbe`
-
-    Details of the failing MCP probe step. Null when the probe succeeded.
-
-    - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
-
-      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
-
-      - `required string Body`
-
-        Response body. May be truncated and has sensitive values scrubbed.
-
-      - `required bool BodyTruncated`
-
-        Whether `body` was truncated.
-
-      - `required string ContentType`
-
-        Value of the `Content-Type` response header.
-
-      - `required int StatusCode`
-
-        HTTP status code.
-
-        format: int32
-
-    - `required string Method`
-
-      The MCP method that failed (for example `initialize` or `tools/list`).
-
-  - `required BetaManagedAgentsRefreshObject? Refresh`
-
-    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
-
-    - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
-
-      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
-
-    - `required Status Status`
-
-      Outcome of the refresh attempt.
-
-      - `Succeeded("succeeded")`
-
-        The token endpoint returned a new access token.
-
-      - `Failed("failed")`
-
-        The token endpoint returned an error response. See `http_response` for detail.
-
-      - `ConnectError("connect_error")`
-
-        The token endpoint could not be reached (DNS, TLS, or connection error).
-
-      - `NoRefreshToken("no_refresh_token")`
-
-        No refresh token is stored for the credential, so no exchange was attempted.
-
-  - `required BetaManagedAgentsCredentialValidationStatus Status`
-
-    Overall verdict of the validation probe.
-
-    - `Valid("valid")`
-
-      The credential successfully authenticated against its MCP server.
-
-    - `Invalid("invalid")`
-
-      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
-
-    - `Unknown("unknown")`
-
-      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
-
-  - `required DateTimeOffset ValidatedAt`
-
-    When the validation probe was performed.
-
-    format: date-time
-
-  - `required string VaultID`
-
-    Identifier of the vault containing the credential.
-
-#### Example
-
-```csharp
-CredentialMcpOAuthValidateParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    CredentialID = "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-};
-
-var betaManagedAgentsCredentialValidation = await client.Beta.Vaults.Credentials.McpOAuthValidate(parameters);
-
-Console.WriteLine(betaManagedAgentsCredentialValidation);
-```
-
-##### Response (200)
-
-```json
-{
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "has_refresh_token": true,
-  "mcp_probe": {
-    "http_response": {
-      "body": "body",
-      "body_truncated": true,
-      "content_type": "content_type",
-      "status_code": 0
-    },
-    "method": "method"
-  },
-  "refresh": {
-    "http_response": {
-      "body": "body",
-      "body_truncated": true,
-      "content_type": "content_type",
-      "status_code": 0
-    },
-    "status": "succeeded"
-  },
-  "status": "valid",
-  "type": "vault_credential_validation",
-  "validated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-}
-```
-
-## Beta › Memory Stores
-
-### Create a memory store
-
-`BetaManagedAgentsMemoryStore Beta.MemoryStores.Create(parameters, cancellationToken = default)`
-
-**POST** `/v1/memory_stores`
-
-Create a memory store
-
-#### Parameters
-
-- `MemoryStoreCreateParams parameters`
-
-  - `required string name`
-
-    Body param: Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
-
-    minLength: 1, maxLength: 255
-
-  - `string description`
-
-    Body param: Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
-
-    maxLength: 1024
-
-  - `IReadOnlyDictionary<string, string> metadata`
-
-    Body param: Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-  - `string workspaceID`
-
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `required DateTimeOffset CreatedAt`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `required string Name`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-  - `DateTimeOffset? ArchivedAt`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `string Description`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-#### Example
-
-```csharp
-MemoryStoreCreateParams parameters = new() { Name = "x" };
-
-var betaManagedAgentsMemoryStore = await client.Beta.MemoryStores.Create(parameters);
-
-Console.WriteLine(betaManagedAgentsMemoryStore);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  }
-}
-```
-
-### List memory stores
-
-`MemoryStoreListPage Beta.MemoryStores.List(parameters, cancellationToken = default)`
-
-**GET** `/v1/memory_stores`
-
-List memory stores
-
-#### Parameters
-
-- `MemoryStoreListParams parameters`
-
-  - `DateTimeOffset createdAtGte`
-
-    Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
-
-    format: date-time
-
-  - `DateTimeOffset createdAtLte`
-
-    Query param: Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
-
-    format: date-time
-
-  - `bool includeArchived`
-
-    Query param: When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
-
-  - `int limit`
-
-    Query param: Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
-
-    format: int32
-
-  - `string page`
-
-    Query param: Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-  - `string workspaceID`
-
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `required DateTimeOffset CreatedAt`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `required string Name`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-  - `DateTimeOffset? ArchivedAt`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `string Description`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-#### Example
-
-```csharp
-MemoryStoreListParams parameters = new();
-
-var page = await client.Beta.MemoryStores.List(parameters);
-await foreach (var item in page.Paginate())
-{
-    Console.WriteLine(item);
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "name": "name",
-      "type": "memory_store",
-      "updated_at": "2019-12-27T18:11:19.117Z",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "metadata": {
-        "foo": "string"
-      }
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-### Retrieve a memory store
-
-`BetaManagedAgentsMemoryStore Beta.MemoryStores.Retrieve(parameters, cancellationToken = default)`
-
-**GET** `/v1/memory_stores/{memory_store_id}`
-
-Retrieve a memory store
-
-#### Parameters
-
-- `MemoryStoreRetrieveParams parameters`
-
-  - `required string memoryStoreID`
-
-    ID of the memory store to retrieve (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`.
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`

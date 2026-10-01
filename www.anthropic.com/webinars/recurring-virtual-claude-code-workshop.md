@@ -16,8 +16,6 @@ This Claude Code workshop, presented with Tenex, is a 1.5 hour product experienc
 
 *Multiple Dates & Times available. Please selection an option on the form.*
 
-**Next Session:** September 17th at 8:30am - 10:00am PT
-
 ## Featuring
 
 No items found.

@@ -33,16 +33,6 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://app.paxton.ai/images/paxton-favicon.png)
-
-### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
-
-Anthropic verifiedTrending
-
-Research U.S. law in Claude—with citations you can open and verify.
-
-[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
-
 ![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
 
 ### [Dropbox](https://claude.com/marketplace/connectors/dropbox)
@@ -58,6 +48,16 @@ Search, organize, and take action on your Dropbox content
 Intelligent, secure contract management by Docusign
 
 [Add Docusign in Claude (opens in new tab)](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd "Add in Claude")
+
+![](https://app.paxton.ai/images/paxton-favicon.png)
+
+### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
+
+Anthropic verifiedTrending
+
+Research U.S. law in Claude—with citations you can open and verify.
+
+[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
 
 ![](https://bookface-images.s3.amazonaws.com/small_logos/f848e072de817e8a37aeb1ad8a912f9e2f5d9c52.png)
 

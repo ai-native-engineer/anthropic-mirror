@@ -44,7 +44,7 @@ For important limitations and considerations for Team and Enterprise organizatio
 
 * **Work from anywhere:** Sessions in the cloud follow your Claude account. Start a task on one surface, steer it from another, and pick up the finished output wherever you are. See **[Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349)**.
 * **Work that continues without you:** In sessions in the cloud, Claude keeps working when you close your laptop or step away.
-* **Shared memory with chat:** In sessions in the cloud, Claude starts from what it already remembers from your chats, and what comes up in a Cowork task carries back to chat. Learn more about **[Claude's memory](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context#h_82126ebcc9)**.
+* **Shared memory with chat:** In sessions in the cloud, Claude starts from what it already remembers from your chats, and what comes up in a Cowork task carries back to chat. To run a single task without memory, turn "Memory" off in the "+" menu before you send the first message. This is set when the task starts and can't be changed later. Learn more about **[Claude's memory](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context#h_82126ebcc9)**.
 * **Direct local file access:** On desktop, Claude can read from and write to your local files without manual uploads or downloads.
 * **Sub-agent coordination:** Claude breaks complex work into smaller tasks and coordinates parallel workstreams to complete them.
 * **Professional outputs:** Generate polished deliverables like Excel spreadsheets with working formulas, PowerPoint presentations, and formatted documents.
@@ -152,7 +152,7 @@ To set global instructions:
 2. Click "Edit" next to **Global instructions**.
 3. Type your instructions in the text box and click "Save":
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790775000&signature=f8d43dbc7a0f26526a5ceead6d4a528d8551a6986a0e154a87318a21fe5b38ef&req=diUlE8B8m4lYXfMW1HO4zcDl69jrMVSw8iWjaktE943uuTF0iTL4q%2FlZ5meP%0AoB%2FcJwbItcMxxeupzt4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790775000&signature=f8d43dbc7a0f26526a5ceead6d4a528d8551a6986a0e154a87318a21fe5b38ef&req=diUlE8B8m4lYXfMW1HO4zcDl69jrMVSw8iWjaktE943uuTF0iTL4q%2FlZ5meP%0AoB%2FcJwbItcMxxeupzt4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790942400&signature=364cb9fa0e17e97260f2677c2e2703821bc6cf9a538867b2f6e3eedd3c3ae350&req=diUlE8B8m4lYXfMW3nq%2BgcqgxG%2BC3L%2FYaVWMqW%2FkK1e9eXUvC8vcU%2F%2F8jHmA%0A6Q0ujbhKY%2BFFRfR5jbyoJIlonko%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790942400&signature=364cb9fa0e17e97260f2677c2e2703821bc6cf9a538867b2f6e3eedd3c3ae350&req=diUlE8B8m4lYXfMW3nq%2BgcqgxG%2BC3L%2FYaVWMqW%2FkK1e9eXUvC8vcU%2F%2F8jHmA%0A6Q0ujbhKY%2BFFRfR5jbyoJIlonko%3D%0A)
 
 ### Folder instructions
 

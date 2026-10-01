@@ -23,7 +23,7 @@ On Fedora, RHEL, or Arch, use the command for your distribution from the Linux t
 sudo apt-get update && sudo apt-get install -y curl bubblewrap socat
 ```
 
-The sandbox requires bubblewrap 0.8.0 or later; check with `bwrap --version`. Ubuntu 24.04 ships a new enough version, and Ubuntu 22.04 doesn’t. The sandbox isn’t optional: Claude Science refuses to start rather than run code unsandboxed.
+The sandbox requires bubblewrap 0.8.0 or later; check with `bwrap --version`. Ubuntu 24.04 ships a new enough version, and Ubuntu 22.04 doesn’t. If Claude Science can’t set up the sandbox, it refuses to start rather than run code unsandboxed.
 
 ##  Run Claude Science without administrator access
 
@@ -57,13 +57,14 @@ claude-science --version
 ##  Forward the ports from your computer
 
 Set up the tunnel before you start Claude Science: the sign-in link it prints is only valid for about three minutes.
-By default, the web app listens only on the server’s localhost, so it isn’t exposed to the network. An SSH tunnel makes it reachable from your computer. Claude Science uses two ports: one for the web app (8000) and a separate one for previews of generated HTML, served from its own origin so a previewed page can’t read your session. The preview port is always the web app port plus one, so 8001 by default. Forward both. In a terminal on your computer:
+By default, the web app listens only on the server’s localhost, so it isn’t exposed to the network. An SSH tunnel makes it reachable from your computer. Claude Science uses two ports: one for the web app (8000) and a separate one for previews of generated HTML, served from its own origin so a previewed page can’t read your session. The preview port defaults to the web app port plus one, so 8001. Forward both. In a terminal on your computer:
 
 ```
 ssh -L 8000:localhost:8000 -L 8001:localhost:8001 you@server.example.com
 ```
 
 Leave that terminal open; the tunnel lasts as long as the SSH connection. If you work on the server through VS Code’s Remote-SSH extension, it forwards ports automatically as the app uses them; check its Ports panel to confirm both ports are forwarded.
+If the preview port is taken on the server, Claude Science uses a free port instead. After you start it, `claude-science url` prints both ports. Add a forward for the preview port it prints, with that number on both sides (`-L <port>:localhost:<port>`).
 
 ##  Start Claude Science
 
@@ -73,7 +74,7 @@ On the server:
 claude-science serve --no-browser
 ```
 
-First launch prints the sign-in link, of the form `http://localhost:8000/?nonce=...`, right away, and continues setting up its starter Python and R environments; the setup can take a few minutes and about 5 GB of disk. If port 8000 or 8001 is taken on either machine, pass a different port to serve (for example `--port 8765`; previews then use the next port up, 8766) and change the `ssh -L` forwards to match.
+First launch prints the sign-in link, of the form `http://localhost:8000/?nonce=...`, right away, and continues setting up its starter Python and R environments; the setup can take a few minutes and about 5 GB of disk. If port 8000 or 8001 is taken on either machine, pass a different port to serve (for example `--port 8765`) and change the `ssh -L` forwards to match. Previews then use the next port up, 8766, if it is free.
 To run it in the background instead, use `claude-science serve --no-browser --detached`. `claude-science status` reports whether it’s running, and `claude-science stop` stops it.
 
 ##  Sign in
@@ -83,7 +84,7 @@ Sign in with your Claude account. If the sign-in redirect can’t find its way b
 
 ##  Keep it up to date
 
-`claude-science update` checks for and installs updates. See [Command line settings](https://claude.com/docs/claude-science/command-line-settings) for the full command reference, including `logs` and the `serve` flags.
+`claude-science update` checks for and installs updates. See [Command line settings](https://claude.com/docs/claude-science/command-line-settings) for the command reference, including `logs` and the `serve` flags.
 
 ##  Troubleshooting
 
@@ -100,6 +101,6 @@ Sign in with your Claude account. If the sign-in redirect can’t find its way b
 | A message mentioning `daemon already running on port 8000` | Claude Science is already running. Run `claude-science url` for a fresh sign-in link, or `claude-science stop` to stop it. |
 | The sign-in link shows an expired-link page | Links are single-use and valid for about three minutes. Run `claude-science url` on the server and open the fresh link; restarting with `claude-science stop` then `claude-science serve --no-browser` also prints one. |
 | Sign-in stops at claude.ai | The redirect couldn’t return through the tunnel (choose **Paste code instead**), your account is on the Free plan (an upgrade is required), or your Team or Enterprise organization hasn’t [enabled Claude Science](https://claude.com/docs/claude-science/enable-claude-science) yet. |
-| Interactive HTML previews render as static snapshots after a short delay (charts don’t respond) | The tunnel isn’t forwarding the preview port. Add the second `-L` forward; the preview port is the web app port plus one (8001 by default). |
+| Interactive HTML previews render as static snapshots after a short delay (charts don’t respond) | The tunnel isn’t forwarding the preview port. Add the second `-L` forward for the preview port that `claude-science url` prints (8001 by default), with that number on both sides. |
 | The browser can’t reach `localhost:8000` | The tunnel isn’t up; rerun the `ssh -L` command. If the tunnel is up, confirm Claude Science is running on the server with `claude-science status`. |
 | The installer reports no binary for your platform | Claude Science on Linux needs x64 with glibc. arm64 servers and musl-based distributions such as Alpine aren’t supported. |

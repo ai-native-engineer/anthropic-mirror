@@ -27,14 +27,6 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-![](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg?w=128&fit=max&auto=format)
-
-### [HubSpot](https://claude.com/marketplace/connectors/hubspot)
-
-CRM context for every answer, insight, and action
-
-[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
-
 ![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
 
 ### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
@@ -45,13 +37,13 @@ Faites vos courses rapidement
 
 [Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
 
-![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg?w=128&fit=max&auto=format)
 
-### [Supabase](https://claude.com/marketplace/connectors/supabase)
+### [HubSpot](https://claude.com/marketplace/connectors/hubspot)
 
-Manage databases, authentication, and storage
+CRM context for every answer, insight, and action
 
-[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
@@ -61,10 +53,18 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://assets.claude.com/73fb34c4126e99aa21f0f63e48c061963454ee06.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
-### [Addepar MCP](https://claude.com/marketplace/connectors/addepar)
+### [Supabase](https://claude.com/marketplace/connectors/supabase)
 
-Bring Addepar portfolio intelligence into Claude
+Manage databases, authentication, and storage
 
-[Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+
+![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
+
+### [Box](https://claude.com/marketplace/connectors/box)
+
+Search, edit and get insights on your Box content
+
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")

@@ -52,5 +52,5 @@ If you have multiple accounts associated with the same email address, you'll nee
 * [Delete or rename a conversation](https://support.claude.com/en/articles/8230524-delete-or-rename-a-conversation)
 * [Install Claude for iOS](https://support.claude.com/en/articles/9266462-install-claude-for-ios)
 * [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)
-* [Install Claude for Android](https://support.claude.com/en/articles/9612887-install-claude-for-android)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
+* [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)

@@ -16,11 +16,11 @@ By submitting your MCP server for inclusion in any of Anthropic's Desktop Extens
 
 Related Articles
 
+* [Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 * [Anthropic Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms)
 * [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
-* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
 
 Disappointed Reaction😞Neutral Reaction😐Smiley Reaction😃
 

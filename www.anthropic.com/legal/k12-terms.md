@@ -221,5 +221,3 @@ These Terms (including the Usage Policy, Supported Regions Policy, Service Speci
 ### M.10. Force Majeure.
 
 Neither party will be liable for failure or delay in performance to the extent caused by circumstances beyond its reasonable control.
-
-U.S. K-12 Terms of Service \ Anthropic

@@ -54,8 +54,8 @@ If you’re a member of an organization and want to learn more about using the S
 
 Claude signs in as each user's own Salesforce account and sees only what that user's existing Salesforce permissions already allow. By default, Claude asks you to approve each proposed change before it's written.
 
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization)
 * [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
-* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
 * [Use Salesforce in Claude](https://support.claude.com/en/articles/16952186-use-salesforce-in-claude)

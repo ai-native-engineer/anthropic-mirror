@@ -3,6 +3,22 @@
 
 <!-- chunk-start -->
 
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
             - `issuer: optional string or null`
 
               The federation issuer's URL. Null when the presented credential failed verification.
@@ -2721,7 +2737,7 @@
 
     - `webhook_url: string`
 
-      The endpoint that inspected prompts and responses are sent to.
+      Scheme and host of the endpoint that Inference hooks sends prompts and responses to after this change, for example `https://hooks.example.com`; the port, path and query are never included. Empty when the address cannot be shown safely, and on activities recorded before this field was limited to scheme and host.
 
     - `id: optional string`
 
@@ -19423,7 +19439,7 @@
 
     - `mcp_server_url: optional string or null`
 
-      Origin (scheme, host and port, the default port omitted) of the MCP server at the time of the change; the path is never included. Null when not available.
+      Origin (scheme, host and port, the default port omitted) of the MCP server at the time of the change; the path is never included. Null when not available, and on activities recorded before this field was limited to the origin.
 
     - `organization_id: optional string or null`
 
@@ -42427,35 +42443,3 @@
         - `type: optional "admin_api_key_actor"`
 
           default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`

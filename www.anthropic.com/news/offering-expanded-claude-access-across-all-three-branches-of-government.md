@@ -39,5 +39,3 @@ We hope other companies will join us in taking similar steps to ensure the U.S. 
 **Getting started**
 
 To gain access, department or agency leadership at eligible organizations should contact us at [pubsec@anthropic.com](mailto:pubsec@anthropic.com).
-
-Offering expanded Claude access across all three branches of government \ Anthropic

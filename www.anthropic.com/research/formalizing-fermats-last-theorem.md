@@ -165,6 +165,12 @@ The full proof is available on [GitHub](https://github.com/anthropics/fermats-la
 2. There are numerous other stories of the mathematical community struggling with verification. Among the most famous is Thomas Hales’s 1998 proof of the [Kepler conjecture](https://en.wikipedia.org/wiki/Kepler_conjecture), which spent four years in review before a 12-referee panel settled for “99% certain” (Hales eventually led a 20-person project, [Flyspeck](https://github.com/flyspeck/flyspeck), that formalized the proof). Grigori Perelman’s 2002 proof of the [Poincaré conjecture](https://en.wikipedia.org/wiki/Poincar%C3%A9_conjecture) took the community roughly four years and three 300-page expositions to accept. Harald Helfgott’s 2013 proof of the [weak Goldbach conjecture](https://en.wikipedia.org/wiki/Goldbach%27s_weak_conjecture) is still under review. Sometimes results that turn out to be wrong are [accepted for years](https://www.ias.edu/ideas/2014/voevodsky-origins), and other mathematicians build their theories on these faulty foundations.
 3. This is partly because Mathlib is concise and well-reviewed, while our proof is likely much longer than it needs to be.
 
+### What work can robots do?
+
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
+
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
+
 ### What do you want from AI?
 
 We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
@@ -176,12 +182,6 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
 [Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
-
-### Yes, Claude can do Nine Loops
-
-Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
-
-[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
 
 ## Subscribe to Anthropic Science
 

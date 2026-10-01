@@ -3,6 +3,36 @@
 
 <!-- chunk-start -->
 
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
           The provider's verified identifier for the caller; its form depends on the provider.
 
         - `user_agent: optional string or null`

@@ -2,13 +2,13 @@
 
 To help you identify legitimate marketing communications from Anthropic, all our marketing emails are sent from addresses ending in anthropic.com or claude.com. Below are the official email addresses we use for marketing communications:
 
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#4f3b2a2e220f2a222e2623612e213b273d203f262c612c2022)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#4c2d3c250c29212d2520622d2238243e233c252f622f2321)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#107e7f6479737550757d71797c3e717e6478627f6079733e737f7d)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#b0d1dec4d8c2dfc0d9d39dc4d5d1ddf0ddd1d9dc9ed1dec4d8c2dfc0d9d39ed3dfdd)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#5427353831271439353d387a353a203c263b243d377a373b39)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#275342464a67424a464e4b094649534f5548574e440944484a)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#0766776e47626a666e6b296669736f7568776e642964686a)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#452b2a312c2620052028242c296b242b312d372a352c266b262a28)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c6a7a8b2aeb4a9b6afa5ebb2a3a7ab86aba7afaae8a7a8b2aeb4a9b6afa5e8a5a9ab)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3f4c5e535a4c7f525e5653115e514b574d504f565c115c5052)
 * [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#1a747537687f6a76635a7f777b73763479767b6f7e7f34797577)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#224c4d0f5047524e5b62504751474350414a0c434c564a504d524b410c414d4f)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#d9b7b6f4abbca9b5a099abbcaabcb8abbab1f7b8b7adb1abb6a9b0baf7bab6b4)
 
 Please note that these addresses are outbound only with unmonitored inboxes.
 

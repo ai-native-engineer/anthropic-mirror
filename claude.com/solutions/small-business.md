@@ -437,18 +437,6 @@ Location
 
 Date
 
-MI
-
-Detroit | Claude SMB Workshop
-
-Detroit, MI
-
-September 29, 2026
-
-Detroit
-
-[Detroit | Claude SMB Workshop](https://anthropic.swoogo.com/claude-smb-workshop-detroit/rta)Detroit | Claude SMB Workshop
-
 MN
 
 Minneapolis | Claude SMB Workshop

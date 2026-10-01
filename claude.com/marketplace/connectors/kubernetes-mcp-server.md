@@ -71,6 +71,16 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
+![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
+
+### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
+
+Anthropic verifiedTrending
+
+Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+
+[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
+
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
 ### [Google Drive](https://claude.com/marketplace/connectors/google-drive)
@@ -110,11 +120,3 @@ Search, create, autofill, and export Canva designs
 Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
-
-![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)
-
-### [Notion](https://claude.com/marketplace/connectors/notion)
-
-Connect your Notion workspace to search, update, and power workflows across tools
-
-[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

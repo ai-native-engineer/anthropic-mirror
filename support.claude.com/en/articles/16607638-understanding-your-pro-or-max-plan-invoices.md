@@ -38,7 +38,7 @@ You can also open any invoice from your account:
 
 **Amount due.** The invoice total minus any applied balance. This is what your payment method was charged.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2629072970/c514f489b65072ccad08e803864f/e8c7a7de-905f-4a40-815f-c9c66edcdbf6?expires=1790774100&signature=7d383879bef7e1edc150bfa122464d9f0e1606a4c12437f2818d832fc6a50874&req=diYlH8l5n4hYWfMW1HO4zdWraRE46VAfPZYKVlMiWEVgTiYoxL0sRtfuYuSU%0AKFYpOgCIUVRkfx09O5g%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2629072970/c514f489b65072ccad08e803864f/e8c7a7de-905f-4a40-815f-c9c66edcdbf6?expires=1790774100&signature=7d383879bef7e1edc150bfa122464d9f0e1606a4c12437f2818d832fc6a50874&req=diYlH8l5n4hYWfMW1HO4zdWraRE46VAfPZYKVlMiWEVgTiYoxL0sRtfuYuSU%0AKFYpOgCIUVRkfx09O5g%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2629072970/c514f489b65072ccad08e803864f/e8c7a7de-905f-4a40-815f-c9c66edcdbf6?expires=1790829900&signature=17952b757192cb9159805c9e800cee8665798c356d207bb04a45791b6b7f9cec&req=diYlH8l5n4hYWfMW1HO4zdWraRE37F0XPZYKVlMiWEWp8UW53lhV174peq8A%0Ah6aZlygDkkUnRezeNMA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2629072970/c514f489b65072ccad08e803864f/e8c7a7de-905f-4a40-815f-c9c66edcdbf6?expires=1790829900&signature=17952b757192cb9159805c9e800cee8665798c356d207bb04a45791b6b7f9cec&req=diYlH8l5n4hYWfMW1HO4zdWraRE37F0XPZYKVlMiWEWp8UW53lhV174peq8A%0Ah6aZlygDkkUnRezeNMA%3D%0A)
 
 ## Billing details on your invoice
 

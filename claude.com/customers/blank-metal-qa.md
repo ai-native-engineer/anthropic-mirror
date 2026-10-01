@@ -100,12 +100,12 @@ We pay particular attention to what comes off the shelf from Claude, and dig dee
 
 **Rader:** Start with the [Cowork training](https://anthropic.skilljar.com/introduction-to-claude-cowork). Give teams the opportunity and support to build their own things and it will unlock a ton of their creativity that ultimately will drive better use cases.
 
-[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
+
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
 ### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
 ### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)[![Quantium](https://assets.claude.com/0e6b8d1ab806b1a949b793cce5bc3b294fe8d88c.svg)
-
-### Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)

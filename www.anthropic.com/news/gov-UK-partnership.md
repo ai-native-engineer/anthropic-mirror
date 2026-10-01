@@ -35,5 +35,3 @@ Our London office is home to a growing team of AI researchers, and continues to 
 ### **Bringing AI to public services around the world**
 
 This initiative with DSIT is part of a growing trend of governments and organizations partnering with Anthropic to deploy AI for public benefit. In the UK, we partner with the London School of Economics to provide students access to Claude. In Iceland, we've [partnered](https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots) with the Ministry of Education and Children to launch one of the world's first national AI education pilots, giving teachers across the country access to Claude to support lesson preparation and student learning. Anthropic has also recently partnered with the [Rwandan Government](https://www.anthropic.com/news/rwandan-government-partnership-ai-education) to bring AI education to hundreds of thousands of learners across the country.
-
-Anthropic partners with the UK Government on GOV.UK \ Anthropic

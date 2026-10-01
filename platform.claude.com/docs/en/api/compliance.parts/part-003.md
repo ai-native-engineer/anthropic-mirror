@@ -3,6 +3,18 @@
 
 <!-- chunk-start -->
 
+          default: web_search_enabled
+
+        - `current_value: optional boolean or null`
+
+          Setting value immediately after this change
+
+        - `previous_value: optional boolean or null`
+
+          Setting value immediately before this change
+
+      - `GeolocationEnabled object`
+
         The geolocation setting was changed.
 
         - `type: optional "geolocation_enabled"`
@@ -15422,10 +15434,6 @@
 
       Tagged ID of the created app
 
-    - `workspace_id: string`
-
-      Tagged ID of the workspace the app is scoped to
-
     - `id: optional string`
 
       Unique identifier for the activity e.g. 'activity_abcd1234'
@@ -15443,6 +15451,10 @@
     - `organization_uuid: optional string or null`
 
       Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `workspace_id: optional string or null`
+
+      Tagged ID of the workspace the app is scoped to. Null or absent if the app is not scoped to a workspace.
 
   - `PlatformOAuthAppRevoked object`
 
@@ -42397,25 +42409,3 @@
       - `UserActor object`
 
         - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`

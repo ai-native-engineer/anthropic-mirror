@@ -35,5 +35,3 @@ The Anthropic Economic Futures Program represents our commitment to supporting t
 Visit [anthropic.com/economic-futures](https://www.anthropic.com/economic-futures) to submit your research proposal or learn more about the program. For questions, contact [economicfutures@anthropic.com](mailto:economicfutures@anthropic.com).
 
 *Learn more about our economic research through the [Anthropic Economic Index](https://www.anthropic.com/economic-index) and explore our broader research initiatives at [anthropic.com/research](https://www.anthropic.com/research).*
-
-Anthropic Economic Futures Program Launch \ Anthropic

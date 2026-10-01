@@ -112,6 +112,8 @@ url: https://platform.claude.com/docs/en/api/java/beta
 
   - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+  - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
 ### Beta API Error
 
 - `class BetaApiError`
@@ -457,6 +459,8 @@ The Models API response can be used to determine which models are available for 
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -841,6 +845,8 @@ The Models API response can be used to determine information about a specific mo
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1216,6 +1222,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> userProfileId`
 
@@ -9235,6 +9243,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
@@ -13028,6 +13038,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> userProfileId`
 
@@ -17428,6 +17440,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17706,6 +17720,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17981,6 +17997,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18249,6 +18267,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18418,6 +18438,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -22329,6 +22351,8 @@ Create Agent
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -23824,6 +23848,8 @@ List Agents
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -24635,6 +24661,8 @@ Get Agent
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -25434,6 +25462,8 @@ Update Agent
     - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
   - `Optional<String> workspaceId`
 
@@ -26909,6 +26939,8 @@ Archive Agent
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -27721,6 +27753,8 @@ List Agent Versions
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -28524,6 +28558,8 @@ Create a new environment with the specified configuration.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -28973,6 +29009,8 @@ List environments with pagination support.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -29298,6 +29336,8 @@ Retrieve a specific environment by ID.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -29618,6 +29658,8 @@ Update an existing environment's configuration.
 
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -29673,51 +29715,3 @@ Update an existing environment's configuration.
           - `Optional<List<String>> allowedHosts`
 
             Specifies domains the container can reach.
-
-      - `Optional<BetaPackagesParams> packages`
-
-        Package manager configuration. Under `limited` networking, requires `networking.allow_package_managers` to be `true`. Omit on update to preserve the existing value.
-
-        - `Optional<Type> type`
-
-          Package configuration type
-
-        - `Optional<List<String>> apt`
-
-          Ubuntu/Debian packages to install
-
-        - `Optional<List<String>> cargo`
-
-          Rust packages to install
-
-        - `Optional<List<String>> gem`
-
-          Ruby packages to install
-
-        - `Optional<List<String>> go`
-
-          Go packages to install
-
-        - `Optional<List<String>> npm`
-
-          Node.js packages to install
-
-        - `Optional<List<String>> pip`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfigParams`
-
-      Request params for `self_hosted` environment configuration.
-
-      - `JsonValue type = "self_hosted"`
-
-        Environment type
-
-  - `Optional<String> description`
-
-    Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
-
-    maxLength: 1024
-
-  - `Optional<Metadata> metadata`

@@ -18,6 +18,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Sep 30, 2026
+
+How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+Enterprise AI
+
+How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+September 30, 2026
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](#)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
 
 Sep 24, 2026
@@ -242,22 +258,6 @@ August 21, 2026
 
 [The AI-native SDLC playbook](#)The AI-native SDLC playbook
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
-
-Aug 20, 2026
-
-Anthropic’s approach to teaching and learning AI
-
-Product announcements
-
-Anthropic’s approach to teaching and learning AI
-
-August 20, 2026
-
-[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
-
-[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
-
 [View more](https://claude.com/blog-category/enterprise-ai?1e959936_page=2)
 
 Category
@@ -265,6 +265,22 @@ Category
 Product
 
 Usecase
+
+### How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+September 30, 2026
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](#)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
 
 ### Claude Tag now supports personal connectors in channels
 
@@ -489,22 +505,6 @@ August 21, 2026
 [The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
 
 [The AI-native SDLC playbook](#)The AI-native SDLC playbook
-
-### Anthropic’s approach to teaching and learning AI
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 20, 2026
-
-[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
-
-[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
 
 [View more](https://claude.com/blog-category/enterprise-ai?2f226f2c_page=2)
 

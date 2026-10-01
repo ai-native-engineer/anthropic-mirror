@@ -40,7 +40,7 @@ To get up and running, system administrators specify which tools and information
 
 Once permissions are set, everyone can begin tagging right away. Administrators can set limits for token spend (both for the organization and for individual channels), and can view a log of everything that @Claude has done, along with who requested each task.
 
-If you’re a Claude Enterprise or Team customer, you have access to Claude Tag in beta starting today. To get started, [visit here](http://claude.ai/redirect/website.v1.3cfb04bd-1120-4af0-804d-b2799e2bcfe6/admin-settings/claude-in-slack) and follow these four steps:
+If you’re a Claude Enterprise or Team customer, you have access to Claude Tag in beta starting today. To get started, [visit here](http://claude.ai/redirect/website.v1.1093160d-df7a-4af4-ae58-9bf0bb215ed6/admin-settings/claude-in-slack) and follow these four steps:
 
 1. Pair Claude Tag with your Slack workspace
 2. Give Claude access to your tools

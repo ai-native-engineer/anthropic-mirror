@@ -3,6 +3,10 @@
 
 <!-- chunk-start -->
 
+                  - `BetaCacheControlEphemeral? CacheControl`
+
+                    Create a cache control breakpoint at this content block.
+
                     - `JsonElement Type = "ephemeral"`
 
                     - `Ttl Ttl`

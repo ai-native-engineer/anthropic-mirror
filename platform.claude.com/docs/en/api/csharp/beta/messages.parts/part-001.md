@@ -3866,6 +3866,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string userProfileID`
 
     Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
@@ -11745,6 +11747,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
   - `string userProfileID`
 
@@ -30487,7 +30491,3 @@ Console.WriteLine(betaMessageTokensCount);
                     - `CodeExecution20260120("code_execution_20260120")`
 
                     - `CodeExecution20260521("code_execution_20260521")`
-
-                  - `BetaCacheControlEphemeral? CacheControl`
-
-                    Create a cache control breakpoint at this content block.

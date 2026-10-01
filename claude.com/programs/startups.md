@@ -70,7 +70,7 @@ Be first to hear about launches, model releases, and program perks for eligible 
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c02555494a06a2d8a9cbb0_logo-orange.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5e8c0ed40050ce0a934d_Code%20Rabbit-dark-theme.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eb7889a5de1e97d78de39b_Frame.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eb7889a5de1e97d78de39b_Frame.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eb7889a5de1e97d78de39b_Frame.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6abd6eeac406fe406fe65502_6abd6ed24ec38ac375712fe9_logo_glean-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da4_6ab2c6ea45f4990cf30cf13d_startups-wordmark-gamma-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da4_6ab2c6ea45f4990cf30cf13d_startups-wordmark-gamma-light.svg)
 

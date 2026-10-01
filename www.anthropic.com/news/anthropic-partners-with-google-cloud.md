@@ -11,5 +11,3 @@ Anthropic, an AI safety and research company, has [selected](https://www.googlec
 Anthropic is focused on developing and deploying Claude, an AI assistant based on the company's research into building safe, steerable AI. Anthropic has created safety techniques like [Constitutional AI](https://arxiv.org/abs/2212.08073) to create AI technologies that are easier to rely on and understand.
 
 “We are eager to use the Google Cloud infrastructure to build reliable, interpretable, and steerable AI systems. This partnership with Google Cloud will let us build a more robust AI platform,” said Dario Amodei.
-
-Anthropic partners with Google Cloud \ Anthropic

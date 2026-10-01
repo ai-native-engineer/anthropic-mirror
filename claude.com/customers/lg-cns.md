@@ -117,12 +117,12 @@ LG CNS plans to develop LG CNS Build Factory into a rigorous, verifiable moderni
 
 Hyosup Bae Director and Head of Build Center, LG CNS
 
-[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
+
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
 ### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
 ### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
-### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)[![Quantium](https://assets.claude.com/0e6b8d1ab806b1a949b793cce5bc3b294fe8d88c.svg)
-
-### Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)
+### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)

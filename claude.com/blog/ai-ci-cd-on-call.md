@@ -194,6 +194,42 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
+
+Aug 26, 2026
+
+### How Warp builds self-improving agents on Claude
+
+Agents
+
+[How Warp builds self-improving agents on Claude](#)How Warp builds self-improving agents on Claude
+
+[How Warp builds self-improving agents on Claude](https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude)How Warp builds self-improving agents on Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
+
+Jul 20, 2026
+
+### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+Enterprise AI
+
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Sep 30, 2026
+
+### How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+Enterprise AI
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](#)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
 May 21, 2026
@@ -205,42 +241,6 @@ Enterprise AI
 [Claude now works with more security and compliance tools](#)Claude now works with more security and compliance tools
 
 [Claude now works with more security and compliance tools](https://claude.com/blog/compliance-api-security-partners)Claude now works with more security and compliance tools
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
-
-Sep 29, 2026
-
-### Agents you can coach: how Asana builds human-agent teams with Claude
-
-Agents
-
-[Agents you can coach: how Asana builds human-agent teams with Claude](#)Agents you can coach: how Asana builds human-agent teams with Claude
-
-[Agents you can coach: how Asana builds human-agent teams with Claude](https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)Agents you can coach: how Asana builds human-agent teams with Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
-
-Sep 28, 2026
-
-### Giving companies more control over their AI agents, with NVIDIA
-
-Agents
-
-[Giving companies more control over their AI agents, with NVIDIA](#)Giving companies more control over their AI agents, with NVIDIA
-
-[Giving companies more control over their AI agents, with NVIDIA](https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia)Giving companies more control over their AI agents, with NVIDIA
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Aug 21, 2026
-
-### The AI-native SDLC playbook
-
-Enterprise AI
-
-[The AI-native SDLC playbook](#)The AI-native SDLC playbook
-
-[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
 
 ## Transform how your organization operates with Claude
 
