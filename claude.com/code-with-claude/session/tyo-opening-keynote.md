@@ -589,5 +589,3 @@ Evening reception
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 Tokyo and ready to replay.
 
 [Browse recordings](https://claude.com/code-with-claude/tokyo)
-
-Opening keynote | Session | Code w/ Claude 2026

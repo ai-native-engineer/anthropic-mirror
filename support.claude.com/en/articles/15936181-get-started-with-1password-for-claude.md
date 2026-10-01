@@ -42,7 +42,7 @@ Once the requirements are in place, you can set up 1Password from a few places i
 3. Toggle on **Enable for your team** if it isn't already on.
 4. Toggle on **Password managers**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1790835300&signature=13af36e5a219cea8fd7d073768b3bbc3a2c08836969fdf537f47b0cccc1e0696&req=diUjEMh8m4RWX%2FMW1HO4zU5ln2tmrsBgGkiu4hEpcPU43fx6GAgfAKwkbsS5%0ATxfqD4k6hGXvBUSIDQQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1790835300&signature=13af36e5a219cea8fd7d073768b3bbc3a2c08836969fdf537f47b0cccc1e0696&req=diUjEMh8m4RWX%2FMW1HO4zU5ln2tmrsBgGkiu4hEpcPU43fx6GAgfAKwkbsS5%0ATxfqD4k6hGXvBUSIDQQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1790856900&signature=b3a1db274f6207b65982eb18285ed5eb976ce36192d974c834c708899fe50f67&req=diUjEMh8m4RWX%2FMW1HO4zU5ln2tmqMNqGkiu4hEpcPVn2avypQnalAxBgekC%0Arnj84wQx1YJcz2Vpd%2F4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1790856900&signature=b3a1db274f6207b65982eb18285ed5eb976ce36192d974c834c708899fe50f67&req=diUjEMh8m4RWX%2FMW1HO4zU5ln2tmqMNqGkiu4hEpcPVn2avypQnalAxBgekC%0Arnj84wQx1YJcz2Vpd%2F4%3D%0A)
 
 Once enabled, eligible users will see the discovery options above. Users still need to install and set up the required apps and extensions themselves.
 

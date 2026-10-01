@@ -66,6 +66,14 @@ Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
 
+![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
+
+### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
+
+Build, analyze, and compare portfolios for advisors
+
+[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
 ### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
@@ -75,11 +83,3 @@ Anthropic verifiedTrending
 Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
-
-![](https://resources.swsapp.com/shared/orion.svg)
-
-### [Orion](https://claude.com/marketplace/connectors/orion-advisor-solutions)
-
-Bring Orion Connect portfolio data and Redtail CRM together in Claude — prep for client meetings, capture follow-ups, prioritize your pipeline, and turn reports into talking points.
-
-[Add Orion in Claude (opens in new tab)](https://claude.ai/directory/ae7131fa-f9e7-4f96-b776-b582c7fa09a1 "Add in Claude")

@@ -22,6 +22,8 @@ We expect frontier labs to work with several organizations at once. Our partners
 
 We'll continue to train and release frontier models, and we want independent evaluators working alongside us as we do. We’re sharing these early efforts now so people and other AI developers can see our process. We expect our approach to evolve as the field matures, and we’ll share more as our work begins and as we bring on additional evaluators.
 
-### Developing Enterprise Frontier Safeguards with our customers
+### Introducing the Life Sciences Verification Program
 
-[Read more](https://www.anthropic.com/news/enterprise-frontier-safeguards)
+The Life Sciences Verification Program (LSVP) gives life science professionals access to Claude Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work.
+
+[Read more](https://www.anthropic.com/news/life-sciences-verification-program)

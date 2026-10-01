@@ -1,13 +1,5 @@
 <!-- source: https://claude.com/docs/office-agents/dictation -->
 
-> ## Documentation Index
->
-> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
->
-> Use this file to discover all available pages before exploring further.
-
-[Skip to main content](#content-area)
-
 Dictation lets you speak prompts instead of typing them. Click the
 microphone icon in the chat input, speak, and see your words appear in
 the composer in real time.
@@ -25,20 +17,14 @@ for platform support details.
 
 ##  Use dictation
 
-1
-
 Start listening
 
 Click the microphone icon on the right side of the chat input. The
 placeholder changes to “Listening…” and the button highlights.
 
-2
-
 Speak your prompt
 
 Words appear in the composer as you talk.
-
-3
 
 Stop or send
 

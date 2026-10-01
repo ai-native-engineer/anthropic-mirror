@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/customers/airops -->
 
+[Skip to main content](#main-content)
+
 Case study | Claude Platform
 
 # AirOps doubles team productivity and ships agents in weeks with Claude

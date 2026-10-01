@@ -32,42 +32,6 @@ Location
 
 Date
 
-IN
-
-Bhopal | Agent and Learn Workshop
-
-Bhopal, IN
-
-September 30, 2026
-
-AIC-RNTU Foundation (Start-up Incubation Centre), Chiklod Road, Bhopal, Madhya Pradesh 464993, India
-
-[Bhopal | Agent and Learn Workshop](https://luma.com/claude-8le5)Bhopal | Agent and Learn Workshop
-
-NO
-
-Oslo | Claude Conversation
-
-Oslo, NO
-
-September 30, 2026
-
-Mesh Youngstorget - Mesh Community, Møllergata 6, 8, 0179 Oslo, Norway
-
-[Oslo | Claude Conversation](https://luma.com/claude-326i)Oslo | Claude Conversation
-
-US
-
-San Francisco | Claude for Physical AI Agents
-
-San Francisco, US
-
-September 30, 2026
-
-Vizcom HQ, 488 Bryant St, San Francisco, CA 94107, USA
-
-[San Francisco | Claude for Physical AI Agents](https://luma.com/claudeforphysicalaiagents)San Francisco | Claude for Physical AI Agents
-
 JP
 
 Kesennuma | Claude for Business
@@ -127,6 +91,42 @@ October 2, 2026
 2-chōme-8-14 Hamamatsuchō, Minato City, Tokyo 105-0013, Japan
 
 [Tokyo | Claude Meetup for Healthcare Professionals](https://luma.com/claude-urwj)Tokyo | Claude Meetup for Healthcare Professionals
+
+IN
+
+Calicut | Claude Impact Lab - Superhuman Lab
+
+Kozhikode, IN
+
+October 3, 2026
+
+Institute of Palliative Medicine, Medical college P.O., 7RHV+2QC, Palakottuvayal, Kozhikode, Kerala 673008, India
+
+[Calicut | Claude Impact Lab - Superhuman Lab](https://luma.com/claude-06vm)Calicut | Claude Impact Lab - Superhuman Lab
+
+US
+
+Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop
+
+Key Largo, US
+
+October 3, 2026
+
+REEF Ocean Exploration Center for Marine Conservation, 98380 Overseas Hwy, Key Largo, FL 33037, USA
+
+[Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop](https://luma.com/claude-5bay)Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop
+
+SE
+
+Stockholm | Claude for Freelancers & Self-Employed
+
+Stockholm, SE
+
+October 5, 2026
+
+Kvadrat Holding, Kungsbroplan 3A, 112 27 Stockholm, Sweden
+
+[Stockholm | Claude for Freelancers & Self-Employed](https://luma.com/claude-2qhw)Stockholm | Claude for Freelancers & Self-Employed
 
 [View more](https://claude.com/community?46f68bc1_page=2)
 

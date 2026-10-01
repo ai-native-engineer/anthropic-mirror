@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/customers/replit -->
 
+[Skip to main content](#main-content)
+
 Case study | Claude Platform
 
 # Replit democratizes software development with Claude on Google Cloud

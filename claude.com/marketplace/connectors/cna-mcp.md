@@ -52,6 +52,16 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
+![](https://www.gemini.com/favicon.ico)
+
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
+
+Anthropic verifiedTrending
+
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
+
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
+
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
 ### [Supabase](https://claude.com/marketplace/connectors/supabase)
@@ -67,14 +77,6 @@ Manage databases, authentication, and storage
 Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
-
-![](https://www.gemini.com/favicon.ico)
-
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
 ![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
 

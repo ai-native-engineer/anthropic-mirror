@@ -59,10 +59,10 @@ Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
-![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=getjobber.com&sz=96)
 
-### [Zapier](https://claude.com/marketplace/connectors/zapier)
+### [Jobber](https://claude.com/marketplace/connectors/jobber)
 
-Automate workflows across thousands of apps via conversation
+Get answers and take action with context from your Jobber account
 
-[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+[Add Jobber in Claude (opens in new tab)](https://claude.ai/directory/d53b3c4b-c4c7-4886-8698-786cfaff70f2 "Add in Claude")

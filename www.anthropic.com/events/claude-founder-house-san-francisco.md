@@ -192,7 +192,7 @@ Speakers
 
 ### Mike Krieger
 
-Head of Anthropic Labs at Anthropic
+Head of Anthropic Labs, Anthropic
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ab32bf01288b3b5b088b1fd_david-rosenthal.jpg)
 
@@ -210,7 +210,7 @@ Chief Medical Officer, OpenEvidence
 
 ### Beth Robertson
 
-Head of Startups at Anthropic
+Head of Startups, Anthropic
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ab32c70c53d5febb4513044_matt-biilmann.jpg)
 
@@ -395,6 +395,12 @@ Co-founder and CTO, Bedrock Robotics
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6abc4e09d72883e5ffdb0233_tobin-south.jpg)
 
 ### Tobin South
+
+Member of Technical Staff, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6abdb4412767e88ab4377c32_nate-parrott.jpg)
+
+### Nate Parrott
 
 Member of Technical Staff, Anthropic
 
@@ -402,7 +408,7 @@ Member of Technical Staff, Anthropic
 
 ### Mike Krieger
 
-Head of Anthropic Labs at Anthropic
+Head of Anthropic Labs, Anthropic
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ab32bf01288b3b5b088b1fd_david-rosenthal.jpg)
 
@@ -420,7 +426,7 @@ Chief Medical Officer, OpenEvidence
 
 ### Beth Robertson
 
-Head of Startups at Anthropic
+Head of Startups, Anthropic
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ab32c70c53d5febb4513044_matt-biilmann.jpg)
 
@@ -608,9 +614,15 @@ Co-founder and CTO, Bedrock Robotics
 
 Member of Technical Staff, Anthropic
 
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6abdb4412767e88ab4377c32_nate-parrott.jpg)
+
+### Nate Parrott
+
+Member of Technical Staff, Anthropic
+
 ## Agenda
 
-Doors open at 11:00 am PDT each day. Times and speakers will be added here as they are confirmed.
+Doors open at 11:00 am PDT each day. All times are PDT.
 
 * 6 Oct
 * 7 Oct
@@ -634,9 +646,11 @@ Day 1Day 2Day 3Day 3
 
 Brunch
 
-[A seated brunch for women founders and startup leaders, hosted by Anthropic.](https://luma.com/claude-women-founders-brunch)
+A seated brunch for women founders and startup leaders, hosted by Anthropic.
 
 [Register on Luma](https://luma.com/claude-women-founders-brunch)
+
+Beth Robertson, Head of Startups, Anthropic (host)
 
 Tuesday
 
@@ -650,7 +664,7 @@ Oct 6
 
 -
 
-12:00 pm
+12:30 pm
 
 PDT
 
@@ -660,6 +674,8 @@ Workshop
 
 A workshop from Anthropic on building agents that own outcomes for production workloads, run by Ina Chun (Member of Technical Staff, Anthropic).
 
+Ina Chun, Member of Technical Staff, Anthropic
+
 Tuesday
 
 ,
@@ -668,11 +684,11 @@ Oct 6
 
 ,
 
-12:00 pm
+12:30 pm
 
 -
 
-12:30 pm
+12:55 pm
 
 PDT
 
@@ -680,7 +696,9 @@ PDT
 
 Talk
 
-Walden Robotics, Foundry Robotics, and The Bot Company join Caitlin Kalinowski (Member of Technical Staff, Anthropic) to discuss how they're bringing AI into the physical world.
+Walden Robotics, Foundry Robotics, and Bedrock Robotics join Caitlin Kalinowski (Member of Technical Staff, Anthropic) to discuss how they're bringing AI into the physical world.
+
+Adrien Gaidon, PhD, Co-founder and Chief Strategy Officer, Walden Robotics · Adarsh Kulkarni, CEO, Foundry Robotics · Kevin Peterson, Co-founder and CTO, Bedrock Robotics
 
 Tuesday
 
@@ -690,11 +708,11 @@ Oct 6
 
 ,
 
-12:30 pm
+1:00 pm
 
 -
 
-1:00 pm
+1:25 pm
 
 PDT
 
@@ -703,6 +721,8 @@ PDT
 Panel
 
 Investors from Lightspeed, Sequoia and ICONIQ talk about where AI funding is going and how to prepare for your next round.
+
+Gaby Wilkerson-Melnick, Global Head of Startup Partnerships, Anthropic · Sebastian Duesterhoeft, Partner, Lightspeed · Lauren Reeder, Partner, Sequoia · Murali Joshi, General Partner, ICONIQ
 
 Tuesday
 
@@ -716,7 +736,31 @@ Oct 6
 
 -
 
+1:55 pm
+
+PDT
+
+#### Building plugins for Claude
+
+Talk
+
+Tobin South (Member of Technical Staff, Anthropic) walks through how to build a plugin for Claude, from packaging MCP connectors and skills to getting listed in the Claude directory.
+
+Tobin South, Member of Technical Staff, Anthropic
+
+Tuesday
+
+,
+
+Oct 6
+
+,
+
 2:00 pm
+
+-
+
+2:25 pm
 
 PDT
 
@@ -725,6 +769,8 @@ PDT
 Talk
 
 Gagan Bhat (Member of Technical Staff, Anthropic) walks through the Model Hardware Standard, our open standard for letting AI agents run lab and factory equipment, and how startups can build on it today.
+
+Gagan Bhat, Member of Technical Staff, Anthropic
 
 Tuesday
 
@@ -738,7 +784,7 @@ Oct 6
 
 -
 
-3:00 pm
+2:55 pm
 
 PDT
 
@@ -747,6 +793,8 @@ PDT
 Talk
 
 OpenEvidence and Stanford Health Care join Jonah Cool (Partnerships, Anthropic) to discuss the impact and limitations of AI in healthcare today.
+
+Jonah Cool, Partnerships, Anthropic · Travis Zack, Chief Medical Officer, OpenEvidence · Ron Li, Medical Director, Digital Health, Stanford Medicine
 
 Tuesday
 
@@ -798,7 +846,7 @@ PDT
 
 -
 
-12:00 pm
+12:30 pm
 
 PDT
 
@@ -806,15 +854,17 @@ PDT
 
 Brunch
 
-[A seated brunch for women founders and startup leaders, hosted by Anthropic.](https://luma.com/claude-women-founders-brunch)
+A seated brunch for women founders and startup leaders, hosted by Anthropic.
 
 [Register on Luma](https://luma.com/claude-women-founders-brunch)
 
-12:00 pm
+Beth Robertson, Head of Startups, Anthropic (host)
+
+12:30 pm
 
 -
 
-12:30 pm
+12:55 pm
 
 PDT
 
@@ -824,11 +874,13 @@ Workshop
 
 A workshop from Anthropic on building agents that own outcomes for production workloads, run by Ina Chun (Member of Technical Staff, Anthropic).
 
-12:30 pm
+Ina Chun, Member of Technical Staff, Anthropic
+
+1:00 pm
 
 -
 
-1:00 pm
+1:25 pm
 
 PDT
 
@@ -836,13 +888,15 @@ PDT
 
 Talk
 
-Walden Robotics, Foundry Robotics, and The Bot Company join Caitlin Kalinowski (Member of Technical Staff, Anthropic) to discuss how they're bringing AI into the physical world.
+Walden Robotics, Foundry Robotics, and Bedrock Robotics join Caitlin Kalinowski (Member of Technical Staff, Anthropic) to discuss how they're bringing AI into the physical world.
+
+Adrien Gaidon, PhD, Co-founder and Chief Strategy Officer, Walden Robotics · Adarsh Kulkarni, CEO, Foundry Robotics · Kevin Peterson, Co-founder and CTO, Bedrock Robotics
 
 1:30 pm
 
 -
 
-2:00 pm
+1:55 pm
 
 PDT
 
@@ -852,11 +906,29 @@ Panel
 
 Investors from Lightspeed, Sequoia and ICONIQ talk about where AI funding is going and how to prepare for your next round.
 
+Gaby Wilkerson-Melnick, Global Head of Startup Partnerships, Anthropic · Sebastian Duesterhoeft, Partner, Lightspeed · Lauren Reeder, Partner, Sequoia · Murali Joshi, General Partner, ICONIQ
+
+2:00 pm
+
+-
+
+2:25 pm
+
+PDT
+
+### Building plugins for Claude
+
+Talk
+
+Tobin South (Member of Technical Staff, Anthropic) walks through how to build a plugin for Claude, from packaging MCP connectors and skills to getting listed in the Claude directory.
+
+Tobin South, Member of Technical Staff, Anthropic
+
 2:30 pm
 
 -
 
-3:00 pm
+2:55 pm
 
 PDT
 
@@ -865,6 +937,8 @@ PDT
 Talk
 
 Gagan Bhat (Member of Technical Staff, Anthropic) walks through the Model Hardware Standard, our open standard for letting AI agents run lab and factory equipment, and how startups can build on it today.
+
+Gagan Bhat, Member of Technical Staff, Anthropic
 
 3:00 pm
 
@@ -879,6 +953,8 @@ PDT
 Talk
 
 OpenEvidence and Stanford Health Care join Jonah Cool (Partnerships, Anthropic) to discuss the impact and limitations of AI in healthcare today.
+
+Jonah Cool, Partnerships, Anthropic · Travis Zack, Chief Medical Officer, OpenEvidence · Ron Li, Medical Director, Digital Health, Stanford Medicine
 
 3:30 pm
 
@@ -916,17 +992,21 @@ Oct 7
 
 ,
 
-11:00 am
+9:00 am
 
 -
 
-12:00 pm
+10:00 am
 
 PDT
 
 #### Rebuilding from SaaS to agent-native
 
 Workshop
+
+Retool shares how it's rebuilding an established SaaS product to be agent-native, and how it has continued to adapt and grow through several technology cycles.
+
+Allen Kleiner, Senior Engineering Manager, Retool
 
 Wednesday
 
@@ -940,7 +1020,31 @@ Oct 7
 
 -
 
+11:55 am
+
+PDT
+
+#### From founder to frontier lab
+
+Panel
+
+Former founders now at Anthropic discuss what they would do differently if they were starting a company today.
+
+Jamie Neuwirth, Head of Startup Sales, Anthropic (moderator) · Bryan McCann, Member of Technical Staff, Anthropic · Jarred Sumner, Member of Technical Staff, Anthropic
+
+Wednesday
+
+,
+
+Oct 7
+
+,
+
 12:00 pm
+
+-
+
+12:25 pm
 
 PDT
 
@@ -950,7 +1054,7 @@ Panel
 
 PostHog, Simile and Socket discuss how they run frontier models in their products, including how they pick the right model for each job and the frameworks for making decisions on cost, speed and quality.
 
-‍
+Carly Ryan, Applied AI, Anthropic (moderator) · Tim Glaser, Co-founder and Co-CEO, PostHog · Joon Sung Park, CEO, Simile · Feross Aboukhadijeh, CEO, Socket
 
 Wednesday
 
@@ -964,29 +1068,7 @@ Oct 7
 
 -
 
-1:00 pm
-
-PDT
-
-#### From founder to frontier lab
-
-Panel
-
-Former founders now at Anthropic discuss what they would do differently if they were starting a company today.
-
-Wednesday
-
-,
-
-Oct 7
-
-,
-
-1:00 pm
-
--
-
-1:30 pm
+12:55 pm
 
 PDT
 
@@ -996,6 +1078,8 @@ Talk
 
 Profound shows how its team uses Claude to build a go-to-market engine that wins more qualified customers, faster.
 
+Edgar Sze, GTM Engineer, Profound
+
 Wednesday
 
 ,
@@ -1008,15 +1092,17 @@ Oct 7
 
 -
 
-2:00 pm
+1:55 pm
 
 PDT
 
-#### Securing the cyber frontier
+#### From solo to multiplayer: AI with teams
 
-Demo
+Talk
 
-Artemis, XBOW and Outtake discuss how they use frontier models to help defenders protect mission-critical infrastructure in the evolving landscape.
+Most AI use today is one person, one chat. Nate Parrott and William Hu from Anthropic talk about what changes when Claude works across a whole team: shared context, agents that show up where the team already works, and what it takes to make it stick.
+
+Nate Parrott, Member of Technical Staff, Anthropic · William Hu, Member of Technical Staff, Anthropic
 
 Wednesday
 
@@ -1026,11 +1112,35 @@ Oct 7
 
 ,
 
-3:00 pm
+2:00 pm
 
 -
 
-3:30 pm
+2:25 pm
+
+PDT
+
+#### Securing the cyber frontier
+
+Talk
+
+Artemis, XBOW and Outtake discuss how they use frontier models to help defenders protect mission-critical infrastructure in the evolving landscape.
+
+Shachar Hirshberg, Co-founder and CEO, Artemis · Erdem Menges, VP of Marketing, XBOW · Alex Dhillon, CEO, Outtake
+
+Wednesday
+
+,
+
+Oct 7
+
+,
+
+2:30 pm
+
+-
+
+3:00 pm
 
 PDT
 
@@ -1040,6 +1150,8 @@ Panel
 
 Gamma and Town share how they built consumer brands people love; including how they found their first users, what kept those users coming back, and how they went from the early days to hyper growth.
 
+Deeni Fatiha, Head of Product for AI, Gamma · Jean-Denis Greze, Co-founder and CEO, Town
+
 Wednesday
 
 ,
@@ -1052,7 +1164,7 @@ Oct 7
 
 -
 
-4:00 pm
+3:55 pm
 
 PDT
 
@@ -1062,11 +1174,11 @@ PDT
 
 ### Wednesday
 
-11:00 am
+9:00 am
 
 -
 
-12:00 pm
+10:00 am
 
 PDT
 
@@ -1074,11 +1186,11 @@ PDT
 
 Run club
 
-11:00 am
+9:00 am
 
 -
 
-12:00 pm
+10:00 am
 
 PDT
 
@@ -1094,7 +1206,7 @@ Start the day with a group run through San Francisco with other founders and the
 
 -
 
-12:00 pm
+11:55 am
 
 PDT
 
@@ -1106,7 +1218,7 @@ Workshop
 
 -
 
-12:00 pm
+11:55 am
 
 PDT
 
@@ -1114,39 +1226,15 @@ PDT
 
 Workshop
 
-12:30 pm
+Retool shares how it's rebuilding an established SaaS product to be agent-native, and how it has continued to adapt and grow through several technology cycles.
+
+Allen Kleiner, Senior Engineering Manager, Retool
+
+12:00 pm
 
 -
 
-1:00 pm
-
-PDT
-
-### Building on the frontier
-
-Panel
-
-12:30 pm
-
--
-
-1:00 pm
-
-PDT
-
-### Building on the frontier
-
-Panel
-
-PostHog, Simile and Socket discuss how they run frontier models in their products, including how they pick the right model for each job and the frameworks for making decisions on cost, speed and quality.
-
-‍
-
-1:00 pm
-
--
-
-1:30 pm
+12:25 pm
 
 PDT
 
@@ -1154,11 +1242,11 @@ PDT
 
 Panel
 
-1:00 pm
+12:00 pm
 
 -
 
-1:30 pm
+12:25 pm
 
 PDT
 
@@ -1168,11 +1256,41 @@ Panel
 
 Former founders now at Anthropic discuss what they would do differently if they were starting a company today.
 
+Jamie Neuwirth, Head of Startup Sales, Anthropic (moderator) · Bryan McCann, Member of Technical Staff, Anthropic · Jarred Sumner, Member of Technical Staff, Anthropic
+
+12:30 pm
+
+-
+
+12:55 pm
+
+PDT
+
+### Building on the frontier
+
+Panel
+
+12:30 pm
+
+-
+
+12:55 pm
+
+PDT
+
+### Building on the frontier
+
+Panel
+
+PostHog, Simile and Socket discuss how they run frontier models in their products, including how they pick the right model for each job and the frameworks for making decisions on cost, speed and quality.
+
+Carly Ryan, Applied AI, Anthropic (moderator) · Tim Glaser, Co-founder and Co-CEO, PostHog · Joon Sung Park, CEO, Simile · Feross Aboukhadijeh, CEO, Socket
+
 1:30 pm
 
 -
 
-2:00 pm
+1:55 pm
 
 PDT
 
@@ -1184,7 +1302,7 @@ Talk
 
 -
 
-2:00 pm
+1:55 pm
 
 PDT
 
@@ -1194,37 +1312,69 @@ Talk
 
 Profound shows how its team uses Claude to build a go-to-market engine that wins more qualified customers, faster.
 
-3:00 pm
+Edgar Sze, GTM Engineer, Profound
+
+2:00 pm
 
 -
 
-3:30 pm
+2:25 pm
+
+PDT
+
+### From solo to multiplayer: AI with teams
+
+Talk
+
+2:00 pm
+
+-
+
+2:25 pm
+
+PDT
+
+### From solo to multiplayer: AI with teams
+
+Talk
+
+Most AI use today is one person, one chat. Nate Parrott and William Hu from Anthropic talk about what changes when Claude works across a whole team: shared context, agents that show up where the team already works, and what it takes to make it stick.
+
+Nate Parrott, Member of Technical Staff, Anthropic · William Hu, Member of Technical Staff, Anthropic
+
+2:30 pm
+
+-
+
+3:00 pm
 
 PDT
 
 ### Securing the cyber frontier
 
-Demo
+Talk
 
-3:00 pm
+2:30 pm
 
 -
 
-3:30 pm
+3:00 pm
 
 PDT
 
 ### Securing the cyber frontier
 
-Demo
+Talk
 
 Artemis, XBOW and Outtake discuss how they use frontier models to help defenders protect mission-critical infrastructure in the evolving landscape.
 
+Shachar Hirshberg, Co-founder and CEO, Artemis · Erdem Menges, VP of Marketing, XBOW · Alex Dhillon, CEO, Outtake
+
 3:30 pm
 
 -
 
-4:00 pm
+3:55 pm
 
 PDT
 
@@ -1236,7 +1386,7 @@ Panel
 
 -
 
-4:00 pm
+3:55 pm
 
 PDT
 
@@ -1245,6 +1395,8 @@ PDT
 Panel
 
 Gamma and Town share how they built consumer brands people love; including how they found their first users, what kept those users coming back, and how they went from the early days to hyper growth.
+
+Deeni Fatiha, Head of Product for AI, Gamma · Jean-Denis Greze, Co-founder and CEO, Town
 
 ### October
 
@@ -1257,6 +1409,8 @@ Gamma and Town share how they built consumer brands people love; including how t
 Brunch
 
 A pancake brunch for builders and early founders who are turning a project into a real business. Founders from The Collective and Lovable's growth team give an inside look at their growth stack.
+
+Elena Verna, Growth, Lovable
 
 Thursday
 
@@ -1280,6 +1434,8 @@ Workshop
 
 A hands-on workshop from ClickHouse. You'll build an agent on your own data with ClickHouse, the Claude MCP and Langfuse, and then learn how to enable the agent to check its own answers.
 
+Dustin Healy, Software Engineer, ClickHouse
+
 Thursday
 
 ,
@@ -1296,11 +1452,13 @@ Oct 8
 
 PDT
 
-#### Founder Salon
+#### Welcome keynote
 
-Salon
+Talk
 
-David Rosenthal of the Acquired podcast in conversation with Mike Krieger, plus other Anthropic leaders on what's next for startups building on Claude.
+Opening remarks from Beth Robertson, Head of Startups at Anthropic.
+
+Beth Robertson, Head of Startups, Anthropic
 
 Thursday
 
@@ -1314,7 +1472,79 @@ Oct 8
 
 -
 
-4:45 pm
+2:00 pm
+
+PDT
+
+#### David Rosenthal x Mike Krieger
+
+Fireside
+
+David Rosenthal of the Acquired podcast in conversation with Mike Krieger on what's next for startups building on Claude.
+
+Mike Krieger, Head of Anthropic Labs, Anthropic · David Rosenthal, Co-host, Acquired
+
+Thursday
+
+,
+
+Oct 8
+
+,
+
+2:00 pm
+
+-
+
+2:25 pm
+
+PDT
+
+#### Building AI-native companies
+
+Panel
+
+Leaders from Factory, Genspark and Netlify talk about how their teams are set up and how they ship. You'll hear which roles have changed and how they keep up with each model release.
+
+Sameer Dholakia, Partner, Bessemer (moderator) · Francesca LaBianca, COO, Factory · Lenjoy Lin, Co-founder, Genspark · Matt Biilmann, CEO, Netlify
+
+Thursday
+
+,
+
+Oct 8
+
+,
+
+2:30 pm
+
+-
+
+2:55 pm
+
+PDT
+
+#### Building for the next model
+
+Fireside
+
+A research fireside on Claude's model family and how to build for the next jump in capabilities.
+
+Anu Bharadwaj, Partner, ICONIQ (moderator) · Jared Kaplan, Co-founder, Anthropic · Dianne Penn, Anthropic
+
+Thursday
+
+,
+
+Oct 8
+
+,
+
+3:00 pm
+
+-
+
+3:25 pm
 
 PDT
 
@@ -1372,6 +1602,8 @@ Brunch
 
 A pancake brunch for builders and early founders who are turning a project into a real business. Founders from The Collective and Lovable's growth team give an inside look at their growth stack.
 
+Elena Verna, Growth, Lovable
+
 12:00 pm
 
 -
@@ -1398,31 +1630,119 @@ Workshop
 
 A hands-on workshop from ClickHouse. You'll build an agent on your own data with ClickHouse, the Claude MCP and Langfuse, and then learn how to enable the agent to check its own answers.
 
-1:45 pm
-
--
-
-4:45 pm
-
-PDT
-
-### Founder Salon
-
-Salon
+Dustin Healy, Software Engineer, ClickHouse
 
 1:45 pm
 
 -
 
-4:45 pm
+2:00 pm
 
 PDT
 
-### Founder Salon
+### Welcome keynote
 
-Salon
+Talk
 
-David Rosenthal of the Acquired podcast in conversation with Mike Krieger, plus other Anthropic leaders on what's next for startups building on Claude.
+1:45 pm
+
+-
+
+2:00 pm
+
+PDT
+
+### Welcome keynote
+
+Talk
+
+Opening remarks from Beth Robertson, Head of Startups at Anthropic.
+
+Beth Robertson, Head of Startups, Anthropic
+
+2:00 pm
+
+-
+
+2:25 pm
+
+PDT
+
+### David Rosenthal x Mike Krieger
+
+Fireside
+
+2:00 pm
+
+-
+
+2:25 pm
+
+PDT
+
+### David Rosenthal x Mike Krieger
+
+Fireside
+
+David Rosenthal of the Acquired podcast in conversation with Mike Krieger on what's next for startups building on Claude.
+
+Mike Krieger, Head of Anthropic Labs, Anthropic · David Rosenthal, Co-host, Acquired
+
+2:30 pm
+
+-
+
+2:55 pm
+
+PDT
+
+### Building AI-native companies
+
+Panel
+
+2:30 pm
+
+-
+
+2:55 pm
+
+PDT
+
+### Building AI-native companies
+
+Panel
+
+Leaders from Factory, Genspark and Netlify talk about how their teams are set up and how they ship. You'll hear which roles have changed and how they keep up with each model release.
+
+Sameer Dholakia, Partner, Bessemer (moderator) · Francesca LaBianca, COO, Factory · Lenjoy Lin, Co-founder, Genspark · Matt Biilmann, CEO, Netlify
+
+3:00 pm
+
+-
+
+3:25 pm
+
+PDT
+
+### Building for the next model
+
+Fireside
+
+3:00 pm
+
+-
+
+3:25 pm
+
+PDT
+
+### Building for the next model
+
+Fireside
+
+A research fireside on Claude's model family and how to build for the next jump in capabilities.
+
+Anu Bharadwaj, Partner, ICONIQ (moderator) · Jared Kaplan, Co-founder, Anthropic · Dianne Penn, Anthropic
 
 4:00 pm
 

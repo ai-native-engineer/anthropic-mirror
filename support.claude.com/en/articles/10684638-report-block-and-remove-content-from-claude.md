@@ -6,7 +6,7 @@ Please note, we reserve the right to suspend users who frequently provide manife
 
 ## How to report safety issues
 
-We welcome reports concerning safety issues so that we can enhance the safety and harmlessness of our models. We would also like to hear from you if you identify our safety mechanisms causing any user experience issues. Please report such issues to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#d3a6a0b6a1a0b2b5b6a7aa93b2bda7bba1bca3bab0fdb0bcbe) with enough detail for us to replicate the issue.
+We welcome reports concerning safety issues so that we can enhance the safety and harmlessness of our models. We would also like to hear from you if you identify our safety mechanisms causing any user experience issues. Please report such issues to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#7f0a0c1a0d0c1e191a0b063f1e110b170d100f161c511c1012) with enough detail for us to replicate the issue.
 
 ## How to block or remove content
 
@@ -19,7 +19,7 @@ We welcome reports concerning safety issues so that we can enhance the safety an
 | `noindex` tag | Applicable: all content types    The `noindex` robots meta tag is a rule that tells our partners not to index your content so that they don’t send it to us in response to your web search query. Your content can still be linked to and visited through other web pages, or directly visited by users with a link, but the content will not appear in Claude outputs that use web search. |
 | Disallow crawling with robots.txt | Applicable: images and video    Our search partners only index images and videos that their bots are allowed to crawl. To prevent them from accessing your media files, use robots.txt rules to block the files. |
 | Disallow Anthropic’s Bots | Applicable: all content types    Follow the instructions [here](https://privacy.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler). |
-| Block access to a URL already appearing in Claude outputs | Applicable: all content types    Submit a request to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#afd8cacdddcadcdac3dbdcc0dfdbc0dadbefcec1dbc7ddc0dfc6cc81ccc0c2), including information necessary to prove you own the URL, which can be: an [ICANN registration](https://www.icann.org/resources/pages/register-domain-name-2017-06-20-en), [WHOIS lookup result](https://whois.domaintools.com/), domain registration payment receipt, SSL certificate, or use of a domain-specific email address. |
+| Block access to a URL already appearing in Claude outputs | Applicable: all content types    Submit a request to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3f485a5d4d5a4c4a534b4c504f4b504a4b7f5e514b574d504f565c115c5052), including information necessary to prove you own the URL, which can be: an [ICANN registration](https://www.icann.org/resources/pages/register-domain-name-2017-06-20-en), [WHOIS lookup result](https://whois.domaintools.com/), domain registration payment receipt, SSL certificate, or use of a domain-specific email address. |
 
 ### Block or remove content from shared Claude content
 

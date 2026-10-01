@@ -10,9 +10,9 @@ Location
 
 ## AI Research & Engineering
 
-69 Open Roles
+68 Open Roles
 
-69 Open Roles
+68 Open Roles
 
 [[Expression of Interest] Research Manager, Interpretability
 
@@ -198,11 +198,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/4952051008)[Research Engi
 
 London, UK
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5264619008)[Research Engineer, Takeoff Intel
-
-Remote-Friendly (Travel Required) | San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5416882008)[Research Engineer, Visual Knowledge Work
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5264619008)[Research Engineer, Visual Knowledge Work
 
 New York City, NY; San Francisco, CA; Seattle, WA
 
@@ -1714,9 +1710,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5074937008)
 
 ## Sales
 
-120 Open Roles
+121 Open Roles
 
-120 Open Roles
+121 Open Roles
 
 [Enterprise Account Executive, Automotive
 
@@ -1950,7 +1946,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/4423394008)[Growth Accoun
 
 New York City, NY; San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5079916008)[GTM Programs Manager, AMER
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5079916008)[Growth Account Executive, Startups
+
+Dublin, IE
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5440799008)[GTM Programs Manager, AMER
 
 San Francisco, CA | New York City, NY
 
@@ -2014,11 +2014,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5421541008)[Manager, Cust
 
 Boston, MA; San Francisco, CA | New York City, NY; San Francisco, CA | Seattle, WA; Washington, DC
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5421539008)[Manager, Sales Development - EMEA
-
-Dublin, IE
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5412584008)[Manager, Technical Deployment
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5421539008)[Manager, Technical Deployment
 
 London, UK
 
@@ -2090,7 +2086,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391199008)[Revenue Strat
 
 Seoul, South Korea
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5199633008)[Sales Director, Enterprise
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5199633008)[Revenue Strategy & Operations
+
+Singapore
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5439844008)[Sales Director, Enterprise
 
 Seoul, South Korea
 

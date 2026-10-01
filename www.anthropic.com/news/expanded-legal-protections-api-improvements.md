@@ -49,3 +49,5 @@ Copy
 We have many upcoming features planned that are enabled by a richer, structured API. This beta feature is our first step in offering services like robust function calling, which will be coming to the Messages API soon.
 
 In addition to these updates, we plan to broaden access to the Claude API in the coming weeks so developers and enterprises can build with our trusted AI solutions.
+
+Expanded legal protections and improvements to our API \ Anthropic

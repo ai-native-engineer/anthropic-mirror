@@ -14,7 +14,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 876
+Show all 877
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -142,7 +142,7 @@ Browser automation and end-to-end testing MCP server by Microsoft. Enables Claud
 
 ## Trending connectors
 
-Show all 6
+Show all 7
 
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
@@ -164,16 +164,6 @@ Faites vos courses rapidement
 
 [Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
 
-![](https://app.paxton.ai/images/paxton-favicon.png)
-
-### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
-
-Anthropic verifiedTrending
-
-Research U.S. law in Claude—with citations you can open and verify.
-
-[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
-
 ![](https://mcp.govola.com/icon.png)
 
 ### [GoVola](https://claude.com/marketplace/connectors/govola)
@@ -194,6 +184,16 @@ Search flights, hotels and seats, then get alerted the moment a price you are wa
 
 [Add SlickTrip in Claude (opens in new tab)](https://claude.ai/directory/c1cba93e-98f4-4146-8afa-e9551a789823 "Add in Claude")
 
+![](https://app.paxton.ai/images/paxton-favicon.png)
+
+### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
+
+Anthropic verifiedTrending
+
+Research U.S. law in Claude—with citations you can open and verify.
+
+[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
+
 ![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
 ### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
@@ -203,6 +203,16 @@ Anthropic verifiedTrending
 Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
 
 [Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
+
+![](https://www.gemini.com/favicon.ico)
+
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
+
+Anthropic verifiedTrending
+
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
+
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
 ## New connectors
 
@@ -250,7 +260,7 @@ Search and compare hotels with public and private wholesale rates.
 
 ## All connectors
 
-876 connectors
+877 connectors
 
 ![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
@@ -344,14 +354,6 @@ CRM context for every answer, insight, and action
 
 [Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=thelinks.ai&sz=96)
-
-### [Links Connect](https://claude.com/marketplace/connectors/links-connect)
-
-Live financial data. Let Claude do the rest.
-
-[Add Links Connect in Claude (opens in new tab)](https://claude.ai/directory/cb34f851-d450-4cd8-8197-c292bbdcb2f2 "Add in Claude")
-
 ![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)
 
 ### [Asana](https://claude.com/marketplace/connectors/asana)
@@ -368,6 +370,14 @@ Manage issues, projects & team workflows in Linear
 
 [Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=thelinks.ai&sz=96)
+
+### [Links Connect](https://claude.com/marketplace/connectors/links-connect)
+
+Live financial data. Let Claude do the rest.
+
+[Add Links Connect in Claude (opens in new tab)](https://claude.ai/directory/cb34f851-d450-4cd8-8197-c292bbdcb2f2 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 
 ### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
@@ -383,6 +393,16 @@ Design, combine, and edit with Adobe pro tools
 monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+
+![](https://www.gemini.com/favicon.ico)
+
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
+
+Anthropic verifiedTrending
+
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
+
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
@@ -416,14 +436,6 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://www.gemini.com/favicon.ico)
-
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
-
 ![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
 
 ### [Miro](https://claude.com/marketplace/connectors/miro)
@@ -440,12 +452,12 @@ Music and podcast recommendations, just for you.
 
 [Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
 
-![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/5d13b21d7329cefe058a60e9df0455a8594d3f6e.jpg?w=128&fit=max&auto=format)
 
-### [Vercel](https://claude.com/marketplace/connectors/vercel)
+### [Zoom for Claude](https://claude.com/marketplace/connectors/zoom-for-claude)
 
-Analyze, debug, and manage projects and deployments
+Search, recap, and act on your Zoom meetings
 
-[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
+[Add Zoom for Claude in Claude (opens in new tab)](https://claude.ai/directory/1ed68a66-c371-4d26-82dc-28e6c260ece8 "Add in Claude")
 
 View more

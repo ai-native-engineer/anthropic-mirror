@@ -80,10 +80,10 @@ Discover every grant opportunity in existence.
 
 [Add Granted in Claude (opens in new tab)](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=kindora.co&sz=96)
+![](https://www.google.com/s2/favicons?domain=rsvpify.com&sz=96)
 
-### [Kindora Funder Discovery](https://claude.com/marketplace/connectors/kindora-funder-discovery)
+### [RSVPify](https://claude.com/marketplace/connectors/rsvpify)
 
-Find funders who support causes like yours
+Run your event operations in RSVPify, end-to-end
 
-[Add Kindora Funder Discovery in Claude (opens in new tab)](https://claude.ai/directory/df363d23-97ef-4ccd-a36e-5369846f5506 "Add in Claude")
+[Add RSVPify in Claude (opens in new tab)](https://claude.ai/directory/10622bb7-fadd-4edf-bf2d-29d73138711e "Add in Claude")

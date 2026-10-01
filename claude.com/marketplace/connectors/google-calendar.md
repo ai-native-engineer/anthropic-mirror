@@ -64,10 +64,10 @@ Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=thelinks.ai&sz=96)
+![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)
 
-### [Links Connect](https://claude.com/marketplace/connectors/links-connect)
+### [Asana](https://claude.com/marketplace/connectors/asana)
 
-Live financial data. Let Claude do the rest.
+Connect to Asana to coordinate tasks, projects, and goals
 
-[Add Links Connect in Claude (opens in new tab)](https://claude.ai/directory/cb34f851-d450-4cd8-8197-c292bbdcb2f2 "Add in Claude")
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")

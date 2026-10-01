@@ -46,5 +46,3 @@ Claude response after system prompt changes (Sonnet 3.5 new)
 ### Looking forward
 
 Protecting election integrity requires constant vigilance and adaptation as AI technology evolves. We remain committed to developing sophisticated testing systems, strengthening industry collaboration, and maintaining transparent communication about our findings as we work to protect democratic processes.
-
-Elections and AI in 2024: Anthropic observations and learnings \ Anthropic

@@ -134,7 +134,7 @@ Add to calendar
 
 ### Mike Krieger
 
-Head of Anthropic Labs at Anthropic
+Head of Anthropic Labs, Anthropic
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/682b6f08ebca6c53cc37eabc_kate-jensen.jpg)
 
@@ -146,7 +146,7 @@ Head of Sales & Partnerships at Anthropic
 
 ### Mike Krieger
 
-Head of Anthropic Labs at Anthropic
+Head of Anthropic Labs, Anthropic
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/682b6f08ebca6c53cc37eabc_kate-jensen.jpg)
 

@@ -67,8 +67,6 @@ Manage your ElevenAgents voice agents in your chat
 
 ### [Sonos](https://claude.com/marketplace/connectors/sonos-mcp)
 
-Anthropic verifiedNew
-
 Control your Sonos system
 
 [Add Sonos in Claude (opens in new tab)](https://claude.ai/directory/b71a0736-1471-4538-a3f5-f2b474c85662 "Add in Claude")

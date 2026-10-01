@@ -69,6 +69,14 @@ Connect AI assistants to live crypto markets, prediction markets, your trading a
 
 [Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
+![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
+
+### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
+
+Build, analyze, and compare portfolios for advisors
+
+[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
+
 ![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
 
 ### [Zapier](https://claude.com/marketplace/connectors/zapier)
@@ -76,13 +84,3 @@ Connect AI assistants to live crypto markets, prediction markets, your trading a
 Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
-
-### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
-
-Anthropic verifiedTrending
-
-Amazon Selling Partner MCP
-
-[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")

@@ -38,6 +38,9 @@ Search
 
 DateCategoryTitle
 
+* [Oct 1, 2026Announcements
+
+  Barclays scales Claude to upgrade operations and improve client experience](https://www.anthropic.com/news/barclays-scales-claude)
 * [Sep 23, 2026Science
 
    Claude discovers a novel enzyme system with CRISPR-like repeats](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
@@ -65,8 +68,5 @@ DateCategoryTitle
 * [Aug 14, 2026Announcements
 
   How Claude’s text watermark works](https://www.anthropic.com/news/claude-text-watermark)
-* [Aug 7, 2026Product
-
-  Improving Fable 5's biology safeguards](https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards)
 
 [See more](#)

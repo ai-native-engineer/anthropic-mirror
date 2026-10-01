@@ -8,17 +8,19 @@ Revolut X helps Claude look up the signed-in user's exchange balances and workin
 
 ## Tools
 
-* revx\_get\_active\_orders
-* revx\_get\_all\_trades
 * revx\_get\_balances
-* revx\_get\_candles
-* revx\_get\_currencies
+* revx\_get\_active\_orders
 * revx\_get\_historical\_orders
 * revx\_get\_order
-* revx\_get\_order\_book
 * revx\_get\_order\_fills
+* revx\_get\_transactions
+* revx\_get\_transaction
+* revx\_get\_currencies
 * revx\_get\_pairs
 * revx\_get\_tickers
+* revx\_get\_candles
+* revx\_get\_order\_book
+* revx\_get\_all\_trades
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
@@ -31,6 +33,14 @@ Only use connectors from developers you trust. Anthropic does not control which 
 Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
 [Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
+
+![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
+
+### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
+
+Build, analyze, and compare portfolios for advisors
+
+[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
@@ -65,11 +75,3 @@ Bring Addepar portfolio intelligence into Claude
 Payment processing and financial infrastructure tools
 
 [Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
-
-### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
-
-Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
-
-[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")

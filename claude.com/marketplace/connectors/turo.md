@@ -16,14 +16,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://www.rome2rio.com/favicon.ico)
-
-### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
-
-Discover how to get anywhere
-
-[Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
-
 ![](https://mcp.govola.com/icon.png)
 
 ### [GoVola](https://claude.com/marketplace/connectors/govola)
@@ -51,6 +43,14 @@ Search flights, hotels and seats, then get alerted the moment a price you are wa
 Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
 
 [Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
+
+![](https://www.rome2rio.com/favicon.ico)
+
+### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
+
+Discover how to get anywhere
+
+[Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=accuweather.com&sz=96)
 

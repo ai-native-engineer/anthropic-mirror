@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/customers/bito -->
 
+[Skip to main content](#main-content)
+
 Case study | Claude Platform
 
 # Bito powers agentic AI tools for software development with Claude

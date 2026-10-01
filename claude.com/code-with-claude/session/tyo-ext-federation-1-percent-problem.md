@@ -435,3 +435,5 @@ Closing reception
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 Tokyo and ready to replay.
 
 [Browse recordings](https://claude.com/code-with-claude/tokyo)
+
+The 1% problem: How domain expertise + Claude let a 2-person team hit #1 on a global classification benchmark | Session | Code w/ Claude 2026

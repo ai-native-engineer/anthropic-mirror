@@ -60,9 +60,11 @@ You can find more detail in our technical report ([here](https://www-cdn.anthrop
 
 We hope this work demonstrates the value of AI-driven hypothesis generation to the wider scientific community, and we would like to work with other scientists to extend this approach to a broad range of problems, in genomics and in other fields. If you have a proposal for a research question, we would like to hear from you.
 
-### Developing Enterprise Frontier Safeguards with our customers
+### Introducing the Life Sciences Verification Program
 
-[Read more](https://www.anthropic.com/news/enterprise-frontier-safeguards)
+The Life Sciences Verification Program (LSVP) gives life science professionals access to Claude Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work.
+
+[Read more](https://www.anthropic.com/news/life-sciences-verification-program)
 
 ## Subscribe to Anthropic Science
 

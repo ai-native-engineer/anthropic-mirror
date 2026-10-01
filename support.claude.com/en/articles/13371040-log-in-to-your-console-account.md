@@ -2,7 +2,7 @@
 
 When you navigate to the **[Claude Console](https://platform.claude.com)**, you will see two different options for logging in to your Console account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1790774100&signature=0589f321d964ffac00462741933339b9deabcb7a69d6c60eb0cd25714aeaed3b&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5onrp4QM8vUNcPt4%2B73Ww%2FEsJs6Uyx2MPvMA%0AChRv0lreZKAYMrnmz2Y%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1790774100&signature=0589f321d964ffac00462741933339b9deabcb7a69d6c60eb0cd25714aeaed3b&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5onrp4QM8vUNcPt4%2B73Ww%2FEsJs6Uyx2MPvMA%0AChRv0lreZKAYMrnmz2Y%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1790856000&signature=48dac64301e37d4e1f3005c8ce1f97ac0752210999f6a682a2c7650835e70f77&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5onkpYYN8vUNcPt4%2B73vAR4v6PXBOX3NZnGv%0ApZsBsa6hk0H7%2BdsmXbY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1790856000&signature=48dac64301e37d4e1f3005c8ce1f97ac0752210999f6a682a2c7650835e70f77&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5onkpYYN8vUNcPt4%2B73vAR4v6PXBOX3NZnGv%0ApZsBsa6hk0H7%2BdsmXbY%3D%0A)
 
 ## Continue with Google
 
@@ -68,8 +68,8 @@ If you've previously authenticated using Google, you can follow these steps to u
 
 Yes, you can have both a Claude account (for using Claude at claude.ai) and a Console account (for accessing the playground and Claude API). These are separate accounts, though you can use the same email address for both. Learn more in **[Can I have a Claude account and a Console account?](https://support.claude.com/en/articles/8987223-can-i-have-a-claude-account-and-a-console-account)**
 
+* [How do I log out of all active sessions?](https://support.claude.com/en/articles/10310342-how-do-i-log-out-of-all-active-sessions)
 * [Set up single sign-on (SSO)](https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Google Workspace SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch)
-* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [SSO login](https://support.claude.com/en/articles/14503613-sso-login)
