@@ -16,7 +16,7 @@ crawl-mirror.py의 dest/save/find_boilerplate/strip_boilerplate를 재사용한�
 실행: python3 crawl-site.py <out_dir> [--only <host>] [--force] [--limit N] [--concurrency N] [--plan-json FILE]
 """
 
-import argparse, hashlib, importlib.util, json, os, re
+import argparse, base64, hashlib, importlib.util, json, os, re
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import parse_qs, urljoin, urlsplit
@@ -799,6 +799,21 @@ def collected_hosts():
     )
 
 
+INLINE_PNG = re.compile(r"data:image/png;base64,([A-Za-z0-9+/=]+)")
+
+
+def truncated_inline_png(text):
+    """인라인 base64 PNG 중 IEND로 끝나지 않는 것이 있는가."""
+    for m in INLINE_PNG.finditer(text):
+        try:
+            data = base64.b64decode(m.group(1) + "=" * (-len(m.group(1)) % 4))
+        except ValueError:
+            return True
+        if b"IEND" not in data[-16:]:
+            return True
+    return False
+
+
 def foreign_target(requested, url):
     """리다이렉트 대상이 이 수집기의 범위 밖(제품 앱·Skilljar 랜딩·manifest 제외)인가.
     docs 경로 목적지는 crawl()이 fetch 종류를 보고 따로 거른다."""
@@ -862,6 +877,11 @@ def crawl(urls, fetch, concurrency):
                         "reason": f"redirect -> {url}",
                     }
                 )
+            if mdtext and truncated_inline_png(mdtext):
+                # 대형 페이지 응답이 중간에 끊기면 인라인 그림이 잘린 채 저장된다. 기존 파일을 지키고 다시 받는다.
+                items.append({"url": requested, "class": "refresh_pending", "reason": "응답이 잘려 인라인 PNG가 불완전함"})
+                fails.append((requested, "truncated inline png"))
+                continue
             if mdtext and (foreign_target(requested, url) or (fetch is not fetch_docs_md and docs_route(url))):
                 # docs 경로로 리다이렉트된 HTML은 docs phase가 raw Markdown으로 받은 파일을 쿠키 배너 본문으로 덮어쓴다.
                 # 제품 앱 로그인 화면·비로그인 Academy 랜딩이 원래 URL의 본문으로 저장되지 않게 한다.
@@ -964,6 +984,13 @@ MARKDOWN_SYNTAX = re.compile(r"^(?:```|~~~)|^[-*_=|:+\s]+$")
 HOST_BOILERPLATE = {}
 
 
+def load_boilerplate(state):
+    """지난 전체 실행의 host별 판정을 불러온다. 크기 0으로 넣어 이번 실행의 sitemap·discover 묶음이 새 판정으로 덮는다."""
+    for key, lines in state.items():
+        if key.startswith("boilerplate:") and isinstance(lines, list):
+            HOST_BOILERPLATE[key.split(":", 1)[1]] = (set(lines), 0)
+
+
 def site_boilerplate(host, pages, reuse=False, owner=None, threshold=0.4):
     """host의 nav·footer 줄(묶음 페이지의 40% 이상에 반복되는 줄).
 
@@ -1009,6 +1036,10 @@ def flush(pages, out, state, force=False, reuse=False):
         wrote, seeded = save_changed(out, url, body, state, force)
         changed += wrote
         baselined += seeded
+    # 전체 실행의 판정을 남겨 --url-file 재시도도 같은 줄을 지운다. 묶음마다 다시 계산하면 결과가 흔들린다.
+    for host, (bl, n) in HOST_BOILERPLATE.items():
+        if n:
+            state[f"boilerplate:{host}"] = sorted(bl)
     write_state(out, state)
     return len(pages), changed, baselined
 
@@ -1264,6 +1295,9 @@ def self_test():
         assert site_boilerplate("a.test", skew, reuse=True) == {"Nav"}, (
             "linked phase는 기억한 판정을 재사용한다"
         )
+        load_boilerplate({"boilerplate:d.test": ["Nav"]})
+        assert site_boilerplate("d.test", skew, reuse=True) == {"Nav"}, "재시도는 저장된 판정을 쓴다"
+        assert site_boilerplate("d.test", main, owner="d.test") == {"Nav"} and HOST_BOILERPLATE["d.test"][1] == 6
         stray = {f"https://c.test/t/{i}": "### Metadata\nx" + str(i) for i in range(6)}
         site_boilerplate("c.test", stray, owner="a.test")
         assert "c.test" not in HOST_BOILERPLATE, (
@@ -1367,6 +1401,9 @@ def self_test():
         moved = '<html><head><meta http-equiv="refresh" content="0;URL=\'/new/\'" /></head><body><p>This page has moved.</p></body></html>'
         assert thin_reason(moved, "This page has moved.") == "thin=redirect"
         assert not page_candidate("https://claude.com/form/apply")
+        png = base64.b64encode(b"\x89PNG\r\n\x1a\nxxxx" + b"\x00\x00\x00\x00IEND\xaeB`\x82").decode()
+        assert not truncated_inline_png(f"![](data:image/png;base64,{png})")
+        assert truncated_inline_png(f"![](data:image/png;base64,{png[:-12]})"), "잘린 인라인 PNG는 저장하지 않는다"
         assert foreign_target("https://claude.com/x", "https://claude.ai/login")
         assert foreign_target(
             "https://www.anthropic.com/learn/x", "https://anthropic.skilljar.com/x"
@@ -1480,6 +1517,7 @@ def main():
         return
 
     state = load_state(a.out)
+    load_boilerplate(state)
     scanned, changed, baselined, fails, empties, stale, items = (
         0,
         0,
