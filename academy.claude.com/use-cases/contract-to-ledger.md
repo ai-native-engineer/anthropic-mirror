@@ -58,7 +58,7 @@ SalesforceOptional
 
 Cross-check deal terms against what the opportunity record says was sold.
 
-Custom connector
+[Connect](https://claude.ai/desktop/directory/salesforce-headless-360)
 
 Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 

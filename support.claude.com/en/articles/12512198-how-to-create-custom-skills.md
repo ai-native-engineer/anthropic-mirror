@@ -239,8 +239,7 @@ For a more in-depth guide to skill creation, refer to **[Skill authoring best pr
 
 Visit our repository on GitHub for example skills you can use as templates: **<https://github.com/anthropics/skills/tree/main/skills>**.
 
-* [Get started with Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
 * [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)
+* [Schedule recurring tasks in Claude Cowork](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)

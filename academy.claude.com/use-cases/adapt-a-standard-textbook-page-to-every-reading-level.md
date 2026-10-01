@@ -42,7 +42,7 @@ Open in Cowork
 
 Attach the page as a photo or scan, the standards or learning objectives it needs to map to, and your rules for each version. Opus 5 reads the small text and diagram labels reliably at this resolution, so the full spread works without cropping to the section you want.
 
-Make sure the model picket is set to Opus 5. With [file creation(opens in new tab)](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude), the deck and handouts come back as real .pptx and .docx files.
+Make sure the model picker is set to Opus 5. With [file creation(opens in new tab)](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude), the deck and handouts come back as real .pptx and .docx files.
 
 ### Required context[](#required-context)
 

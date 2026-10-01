@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-Claude Desktop on third-party (3P) supports the same extensibility model as standard Claude Desktop ([MCP connectors](https://claude.com/docs/connectors/overview), [skills](https://claude.com/docs/skills/overview), and [plugins](https://claude.com/docs/plugins/overview)), with the key difference that administrators provision them through managed configuration and the filesystem rather than the claude.ai admin console.
+Claude Desktop on third-party (3P) supports the same extensibility model as standard Claude Desktop ([MCP connectors](https://claude.com/docs/connectors/getting-started), [skills](https://claude.com/docs/skills/overview), and [plugins](https://claude.com/docs/plugins/overview)), with the key difference that administrators provision them through managed configuration and the filesystem rather than the claude.ai admin console.
 There are three layers, in order of precedence:
 
 | Layer | Provisioned by | Delivered via |
@@ -51,6 +51,7 @@ In the exported configuration, each server is one entry in the `managedMcpServer
 
 See the [`managedMcpServers` schema](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) in the configuration reference for every field, including static headers, OAuth, and the headers-helper executable for short-lived tokens.
 In the in-app configuration window, each server you add under **Connectors** has a **Test this connection** button that runs a live MCP `initialize` and `tools/list` against the server using the headers or OAuth settings you’ve entered, then shows the round-trip latency, the discovered tool list, or the error returned. Use it to validate reachability and credentials before exporting the configuration.
+Give each remote server’s final address in `url`. Claude Desktop doesn’t follow HTTP redirects from a managed MCP server, or from its OAuth authorization server when it fetches that server’s metadata or requests and refreshes tokens. If one of these requests is answered with a redirect, for example to the same address with a trailing slash, the server doesn’t connect, and **Test this connection** reports that redirects are not followed. Remote servers that [organization plugins](#organization-plugins-admin) declare in `.mcp.json` follow the same redirect rule.
 
 ###  OAuth sign-in
 
@@ -61,7 +62,7 @@ http://127.0.0.1:53280/callback
 ```
 
 The value is the same on every device and for every delivery method (device management, a local configuration file, or a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap)). On identity providers that accept any port on a loopback redirect URI (the [RFC 8252](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3) native-app pattern), a registration of `http://127.0.0.1/callback` also matches.
-With `"oauth": true`, Claude Desktop registers its own public client through dynamic client registration and lists this URI as the client’s only redirect URI, so the authorization server must offer a registration endpoint and accept an `http` loopback redirect URI. With a client you registered yourself, set `oauth.clientId` and add the URI to that registration. If the registration uses `localhost` or another port, set `oauth.callbackHost` or `oauth.callbackPort` to match; both require `clientId`.
+With `"oauth": true`, Claude Desktop registers its own public client through dynamic client registration and lists this URI as the client’s only redirect URI, so the authorization server must offer a registration endpoint and accept an `http` loopback redirect URI. With a client you registered yourself, set `oauth.clientId` and add the URI to that registration. If the registration uses `localhost` or another port, set `oauth.callbackHost` or `oauth.callbackPort` to match; both require `clientId`. [Set up sign-in for managed MCP servers](https://claude.com/docs/third-party/claude-desktop/mcp-sign-in) explains how to tell which servers need a client that you register, when a client secret is also required, and where the secret goes.
 An `http` or `sse` entry with no `oauth`, no `headersHelper`, and no `Authorization` header is treated as `"oauth": true` when its server asks for authentication (Claude Desktop 1.24012.0 or later). This redirect URI applies to MCP server sign-in only. [Gateway single sign-on](https://claude.com/docs/third-party/claude-desktop/gateway#set-up-single-sign-on) and [bootstrap sign-in](https://claude.com/docs/third-party/claude-desktop/bootstrap#provider-notes) register their own loopback redirect URI.
 
 ####  How OAuth sign-in works
@@ -91,7 +92,7 @@ For short-lived header credentials, configure the helper per server:
 | `headersHelperTtlSec` | 300 | Seconds the returned headers stay valid. |
 | `headersHelperRefreshBufferSec` | 60 | Seconds before expiry that the helper re-runs. Set it above the helper’s typical runtime. |
 
-The helper follows the [`inferenceCredentialHelper`](https://claude.com/docs/third-party/claude-desktop/credential-helper) execution model, with three differences: a 30-second time limit, no `CLAUDE_HELPER_CONTEXT`, and no prompting for input. The helper applies only to servers provisioned through managed configuration and never replaces the `Authorization` header on `oauth` entries.
+The helper follows the [`inferenceCredentialHelper`](https://claude.com/docs/third-party/claude-desktop/credential-helper) execution model, with four differences: no arguments, a 30-second time limit, no `CLAUDE_HELPER_CONTEXT`, and no prompting for input. The helper applies only to servers provisioned through managed configuration and never replaces the `Authorization` header on `oauth` entries.
 While the connection is open, the TTL schedule triggers renewal, and a request that the server rejects with HTTP 401 or 403 also re-runs the helper and, when it returns new headers, is retried once with them (Claude Desktop 1.46388.1 or later). A failed helper run does not interrupt the connection; Claude Desktop keeps the current headers and retries on its schedule. A failure while the server is connecting shows the server as needing authentication.
 
 Mid-session renewal requires Claude Desktop 1.21459.0 or later. Earlier versions run the helper only when the server connects.
@@ -120,7 +121,7 @@ Outlook, OneDrive, SharePoint, and Teams. Requires registering an app in your En
 
 ##  Plugin marketplaces (admin)
 
-A **plugin marketplace** is a catalog file (`marketplace.json`) that lists one or more Claude plugins. You host it either as a git repository or as a plain file over HTTPS. Claude Desktop fetches it on each device, shows the plugins under **Settings → Plugins → Organization** in both **Cowork** and [**Code**](https://claude.com/docs/third-party/claude-desktop/code), and keeps them in sync with the revision you pin. You control which plugins are available, which install automatically, and which are required.
+A **plugin marketplace** is a catalog file (`marketplace.json`) that lists one or more Claude plugins. You host it either as a git repository or as a plain file over HTTPS. Claude Desktop fetches it on each device, lists its plugins under **Customize → Plugins → Discover → Organization** in both **Cowork** and [**Code**](https://claude.com/docs/third-party/claude-desktop/code), and keeps them in sync with the revision you pin. You control which plugins are available, which install automatically, and which are required.
 This is the recommended way to distribute organization plugins. For a git-hosted marketplace, Claude Desktop clones with the git already installed on each device, so include git in your device baseline (Git for Windows on Windows; the Xcode Command Line Tools provide it on macOS); devices without git can use a [marketplace hosted over HTTPS](#host-the-marketplace-over-https-instead-of-git) instead. Use the [system-wide directory](#organization-plugins-admin) path when end-user devices cannot reach a git server or an HTTPS file host.
 
 Plugin marketplaces are in beta and require Claude Desktop 1.17377.1 or later.
@@ -213,7 +214,7 @@ On Windows, write the same string to the `allowedPluginMarketplaces` value in th
 | `credentialHelper` | Path to an executable that prints an access token on stdout. Required, and only valid, when `credentialKind` is `"credentialHelper"`. |
 | `installationPreference` | `"available"` (default), `"auto_install"`, or `"required"`. See [Marketplace installation preferences](#marketplace-installation-preferences). |
 
-You can configure multiple marketplaces; each appears as its own sub-tab under **Settings → Plugins → Organization**. If an admin-configured marketplace has the same `repo`, `url`, or manifest `name` as one the user added themselves, the admin entry replaces the user’s.
+You can configure multiple marketplaces, and each appears as its own sub-tab under **Organization** in the **Directory**. If an admin-configured marketplace has the same `repo`, `url`, or manifest `name` as one the user added themselves, the admin entry replaces the user’s.
 
 ###  Marketplace installation preferences
 
@@ -260,7 +261,7 @@ Claude Desktop fetches marketplaces on the host operating system, outside the Co
 | --- | --- |
 | `"anonymous"` | No credential is sent. Use for public repositories or unauthenticated file hosts. |
 | `"userGit"` | Uses the git credential helpers already configured for the signed-in OS user (for example, `git-credential-manager`, macOS Keychain, or a GitHub CLI credential helper). Use when each user already has read access through their own account. For `url` sources, the same credential is sent as HTTP Basic on the manifest and archive requests. |
-| `"credentialHelper"` | Runs the executable at `credentialHelper`. If it prints a bare token, the token is used as the git password for username `x-access-token` (accepted by GitHub, GitLab, and Azure DevOps) and, for `url` sources, sent as `Authorization: Bearer <token>` on the manifest and archive requests. For hosts that need a particular username, print git-credential lines `username=<user>` and `password=<token>` instead (for example `x-token-auth` for Bitbucket Data Center access tokens, or `gitlab+deploy-token-N` for a GitLab deploy token); `url` sources then use HTTP Basic. Print `authtype=Bearer` and `credential=<token>` to force a bearer header. Unlike an inference credential helper, it does not accept JSON output. Username forms require Claude Desktop 1.37937.0 or later. Otherwise follows the execution model of an [inference credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper). |
+| `"credentialHelper"` | Runs the executable at `credentialHelper`. If it prints a bare token, the token is used as the git password for username `x-access-token` (accepted by GitHub, GitLab, and Azure DevOps) and, for `url` sources, sent as `Authorization: Bearer <token>` on the manifest and archive requests. For hosts that need a particular username, print git-credential lines `username=<user>` and `password=<token>` instead (for example `x-token-auth` for Bitbucket Data Center access tokens, or `gitlab+deploy-token-N` for a GitLab deploy token); `url` sources then use HTTP Basic. Print `authtype=Bearer` and `credential=<token>` to force a bearer header. For `url` sources, the helper can instead print a flat JSON object of HTTP headers, such as `{"Authorization": "Bearer …", "X-Tenant": "acme"}` (the form a managed MCP server’s `headersHelper` prints, not an inference credential helper’s `{"token": …}` object), and Claude Desktop sends every header in it on each request to that marketplace. `github` and `git` sources refuse this form. Output that opens with `{` must be a valid header object, or the fetch is refused. Username forms require Claude Desktop 1.37937.0 or later. Otherwise follows the execution model of an [inference credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper). |
 | `"inferenceCredential"` | `url` sources only. Sends the credentials Claude Desktop already sends to your inference gateway or to your [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap), so a marketplace hosted on either is private to signed-in members without a separate credential. On the gateway’s origin it sends the same `Authorization` bearer as inference and works for [gateway single sign-on](https://claude.com/docs/third-party/claude-desktop/gateway#single-sign-on-with-your-identity-provider), a [credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper), and bearer-scheme API keys. On the bootstrap server’s origin (Claude Desktop 1.37937.0 or later) it sends the bootstrap sign-in token or your `bootstrapHeaders` and `bootstrapHeadersHelper` headers. Claude Desktop sends a credential only when the marketplace URL is on one of those two origins. When there is nothing to send yet (no sign-in held and no bootstrap headers configured, or a gateway API key sent as `x-api-key` rather than a bearer), no request is made and the entry reports why in the diagnostic report. |
 
 Because the fetch happens on the host, the marketplace host does not need to be on the [`coworkEgressAllowedHosts`](https://claude.com/docs/third-party/claude-desktop/configuration#coworkegressallowedhosts) allowlist. It does need to be reachable from end-user devices.
@@ -273,7 +274,7 @@ For a git marketplace, commit the change to the repository, update the `ref` in 
 
 For most deployments, distribute organization plugins via a [plugin marketplace](#plugin-marketplaces-admin) instead. Marketplaces let you manage plugin content in git or on any HTTPS file host and roll out updates by changing a single configuration value, rather than pushing files to every device. Use the directory path below when end-user devices cannot reach a git server or an HTTPS file host.
 
-[Plugins](https://claude.com/docs/plugins/overview) bundle MCP connectors, skills, slash commands, hooks, and sub-agents into a single directory. On this path, admins distribute plugins by placing them in a system-wide directory on each device, typically via the same MDM or software-distribution channel used for the app itself.
+[Plugins](https://claude.com/docs/plugins/overview) bundle MCP connectors, skills, slash commands, hooks, and sub-agents into a single directory. On this path, admins distribute plugins by placing them in a system-wide directory on each device, typically via the same MDM or software-distribution channel used for the app itself. Plugins distributed this way are available in Cowork sessions and Chat conversations. Code sessions do not load their skills, commands, sub-agents, or hooks, so a plugin that must reach Code sessions has to be distributed through a [plugin marketplace](#plugin-marketplaces-admin) instead.
 
 ###  Plugin directory location
 
@@ -306,21 +307,21 @@ org-plugins/
 
 | File | Purpose |
 | --- | --- |
-| `.claude-plugin/plugin.json` | **Required.** Plugin manifest (name, description, version). Directories without this file are ignored. |
+| `.claude-plugin/plugin.json` | Plugin manifest (name, description, version). Required unless a top-level `SKILL.md` serves as the manifest; see the note below this table. A directory with neither is ignored. |
 | `version.json` | `{"version": "1.2.3"}`. When this string changes, Claude Desktop re-syncs the plugin on next launch. Any string change triggers re-sync (there’s no semver ordering, so a downgrade is just another version string). If absent, the directory’s modification time is used instead. |
 | `.mcp.json` | MCP servers bundled with this plugin. A JSON object keyed by server name: `{"mcpServers": {"<name>": {"type": "http", "url": "...", "oauth": true}}}`. A remote entry uses `type` (`http` or `sse`), not `transport`, and supports `url`, `headers`, and `oauth` only. `toolPolicy`, `headersHelper`, and `headersHelperTtlSec` are not read from this file. A local entry gives a `command` with optional `args` and `env` (`type` is `"stdio"` or omitted). Give `command` as a program name on `PATH` or an absolute path, using `${CLAUDE_PLUGIN_ROOT}` for the plugin’s directory under `org-plugins/`. Claude Desktop starts these local servers itself, including when [`isLocalDevMcpEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#islocaldevmcpenabled) is `false`. Local entries require Claude Desktop 1.49585.0 or later. A local entry that references `${user_config.<key>}` is skipped, because per-user plugin settings are not available to organization plugins. The diagnostic report’s **MCP servers** section lists each server, with the reason for any it skipped. |
 | `agents/` | Sub-agent definitions. |
 | `commands/` | Slash-command definitions. |
 | `skills/` | [Skill](https://claude.com/docs/skills/overview) directories. |
-| `hooks/` | Hook definitions that run on agent lifecycle events. |
+| `hooks/` | Hook definitions that run on agent lifecycle events. See [Plugin hooks](#plugin-hooks) for where they run. |
 
-Each entry in `org-plugins/` must carry a valid manifest: a `.claude-plugin/plugin.json`, or a top-level `SKILL.md` for an entry that distributes a single skill. A directory with neither is not loaded and never appears in the user’s plugin browser; the diagnostic report’s plugin section shows the rejected entry and why. To distribute an MCP connector, declare it in a plugin’s `.mcp.json` or use [`managedMcpServers`](#managed-mcp-servers-admin).
+Each entry in `org-plugins/` must carry a valid manifest: a `.claude-plugin/plugin.json`, or a top-level `SKILL.md` whose frontmatter declares `agents` or `mcpServers` (a skill folder that also acts as a plugin). A plain skill folder does not qualify on its own. To distribute a single skill, place it under `skills/<name>/SKILL.md` in a plugin that has a `plugin.json`. A directory with no valid manifest is not loaded and never appears in the user’s plugin browser. The diagnostic report’s plugin section shows the rejected entry and why. To distribute an MCP connector, declare it in a plugin’s `.mcp.json` or use [`managedMcpServers`](#managed-mcp-servers-admin).
 
 See the [plugins reference](https://code.claude.com/docs/en/plugins) for the full file format of each component, including the hooks schema.
 
 Symlinks inside a plugin are followed as long as the target resolves to a path inside the plugin directory. Symlinks that point outside the plugin (for example, `skills/foo/SKILL.md → /etc/hosts`) are skipped. A symlinked top-level plugin directory (for example, `org-plugins/my-plugin → /opt/shared/my-plugin`) is also followed.
 
-MCP servers declared in a plugin’s `.mcp.json` don’t carry a `toolPolicy` field in the plugin file itself. To lock tools on a plugin-delivered server, set [`orgPluginSettings`](https://claude.com/docs/third-party/claude-desktop/configuration#orgpluginsettings) in managed configuration, keyed on the server’s `name`.
+MCP servers declared in a plugin’s `.mcp.json` don’t carry a `toolPolicy` field in the plugin file itself. To lock tools on a plugin-delivered server, set [`orgPluginSettings`](https://claude.com/docs/third-party/claude-desktop/configuration#orgpluginsettings) in managed configuration, keyed on the server’s `name`, or add a [`managedMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) entry with `"transport": "policy-only"`, the server’s `name`, and a `toolPolicy`. A `policy-only` entry connects to nothing. It only applies the permissions, and it takes precedence over `orgPluginSettings` for that server. A regular `managedMcpServers` entry that matches a plugin’s server by URL or name governs that server the same way.
 
 ###  Auto-installing organization plugins
 
@@ -337,11 +338,11 @@ By default, organization plugins appear in the user’s plugin browser as availa
 
 | Value | Behavior |
 | --- | --- |
-| `"required"` | Installs automatically when the user signs in. The Uninstall action is hidden. If the plugin is removed from disk, it reinstalls on the next sign-in. |
-| `"auto_install"` | Installs automatically when the user signs in. Users can uninstall it, and it stays uninstalled for that user. |
+| `"required"` | Installs automatically the next time the app syncs organization plugins (at launch or when a session starts). The Uninstall action is hidden. If a user’s installed copy is removed, it reinstalls on the next sync. |
+| `"auto_install"` | Installs automatically on the next sync. Users can uninstall it, and it stays uninstalled for that user. |
 | `"available"` (or omitted) | Default. Users install manually from the plugin browser. |
 
-This mirrors the installation preference behavior of remote-managed plugins on claude.ai. Changing a plugin’s `installationPreference` takes effect the next time each user signs in.
+This mirrors the installation preference behavior of remote-managed plugins on claude.ai. Changing a plugin’s `installationPreference` takes effect at each user’s next sync.
 
 ###  Updating organization plugins
 
@@ -352,6 +353,17 @@ To roll out a new version of a plugin:
 3. Users pick up the change on their next app launch
 
 To withdraw a plugin, remove its folder from `org-plugins/`. On Claude Desktop 1.46388.1 or later, each user’s installed copy is unregistered the next time the app syncs organization plugins (at launch or when a session starts); earlier versions leave the copy installed.
+
+##  Plugin hooks
+
+[Hooks](https://code.claude.com/docs/en/hooks) bundled in a plugin, under `hooks/` or declared in its manifest, run wherever the plugin itself loads:
+
+* **Cowork sessions** run hooks from marketplace plugins, from plugins in the `org-plugins/` directory, and from plugins users add themselves.
+* **Code sessions** run hooks from marketplace plugins (Claude Desktop 1.32352.0 or later) and from plugins the user installed for Claude Code. Hooks from plugins in the `org-plugins/` directory do not run in Code sessions. In [remote SSH sessions](https://claude.com/docs/third-party/claude-desktop/ssh-remote-sessions#managed-configuration-on-the-remote-host), hooks from the plugins Claude Desktop copies to the host do not run.
+* **Chat conversations** run hooks from the same plugins as Cowork sessions, on Claude Desktop 1.52386.0 or later.
+
+A `UserPromptSubmit` hook that blocks a prompt stops that turn and shows the hook’s reason to the user. When a conversation or session is created, Claude Desktop also sends its first message to your inference provider in a separate request, without tools, to generate the title shown in the sidebar. That request does not pass through plugin hooks, so a first message that a hook blocks still reaches your provider for titling.
+Claude Code [managed settings](https://claude.com/docs/third-party/claude-desktop/code#interaction-with-claude-code%E2%80%99s-own-managed-settings) deployed on the device govern these hooks as they do in the Claude Code CLI: `disableAllHooks` turns them off, and `allowManagedHooksOnly` keeps only the hooks those managed settings define.
 
 ##  User extensions
 
@@ -373,10 +385,12 @@ Admins can restrict or disable each user-extension surface independently via man
 | `isDesktopExtensionEnabled` | `false` | Desktop extensions (`.mcpb`) bundled in plugins are not loaded. Set to `true` to allow them. |
 | `isDesktopExtensionSignatureRequired` | `false` | (When `true`) Unsigned `.mcpb` extensions are rejected. |
 | `skillCreationEnabled` | `true` | Users cannot create or upload skills in the app. Claude does not offer to create or update skills in conversations. |
-| `userPluginMarketplacesEnabled` | `true` | Users cannot add plugin marketplaces of their own; the add-marketplace options are hidden. Marketplaces you provision with `allowedPluginMarketplaces` are unaffected. Requires Claude Desktop 1.37937.0 or later. |
-| `userPluginUploadsEnabled` | `true` | Users cannot upload plugin files or create plugins with Claude; every in-app option for adding a plugin of their own is hidden. Plugins from your marketplaces and the organization plugins directory are unaffected. Requires Claude Desktop 1.37937.0 or later. |
+| `userPluginMarketplacesEnabled` | `true` | Users cannot add plugin marketplaces of their own, and the add-marketplace options are hidden. Marketplaces your organization did not [provision](#plugin-marketplaces-admin) are hidden too, and the app neither installs nor loads their plugins. The organization plugins directory, plugins users uploaded, and marketplaces you provision with `allowedPluginMarketplaces` are unaffected. |
+| `userPluginUploadsEnabled` | `true` | Users cannot upload plugin files or create plugins with Claude; every in-app option for adding a plugin of their own is hidden. Plugins from your marketplaces and the organization plugins directory are unaffected. |
 
-Setting `isLocalDevMcpEnabled` to `false` and leaving `isDesktopExtensionEnabled` at `false` restricts MCP servers and connectors to those delivered through `managedMcpServers` and `org-plugins/`. Setting [`skillCreationEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#skillcreationenabled) to `false` turns off skill creation and upload in the app. Skills already on the device keep working, as do skills from [organization plugins](#organization-plugins-admin). Users can still install plugins from the marketplaces you provision regardless of these settings. Setting `userPluginMarketplacesEnabled` and `userPluginUploadsEnabled` to `false` removes only the options for adding marketplaces and plugins of their own, and anything a user added earlier stays in place. See the [Locked down profile](https://claude.com/docs/third-party/claude-desktop/configuration#recommended-security-profiles) for a complete example.
+Setting `isLocalDevMcpEnabled` to `false` and leaving `isDesktopExtensionEnabled` at `false` restricts MCP servers and connectors to those delivered through `managedMcpServers` and `org-plugins/`, plus any that installed plugins bundle, whether from your marketplaces or added by users. To limit plugin-bundled servers to ones you name, or to none, set [`allowedPluginMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#allowedpluginmcpservers) to a list of URL patterns. An empty list admits no plugin-bundled server. Setting [`skillCreationEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#skillcreationenabled) to `false` turns off skill creation and upload in the app. Skills already on the device keep working, as do skills from [organization plugins](#organization-plugins-admin). Users can still install plugins from the marketplaces you provision regardless of these settings. Setting `userPluginUploadsEnabled` to `false` removes only users’ options for adding plugins themselves. Plugins a user uploaded earlier stay in place. See the [Locked down profile](https://claude.com/docs/third-party/claude-desktop/configuration#recommended-security-profiles) for a complete example.
+Setting [`userPluginMarketplacesEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#userpluginmarketplacesenabled) to `false` also hides every marketplace already on the device that your organization didn’t [provision](#plugin-marketplaces-admin), whether a user added it in the app earlier or Claude Code registered it from a terminal on the same device. By default, Claude Code adds [Anthropic’s official marketplace](https://code.claude.com/docs/en/plugins/anthropic-marketplaces) the first time a user starts an interactive terminal session, so that marketplace is hidden too unless you provision it. The app doesn’t install or update plugins from a hidden marketplace. Plugins already installed from a hidden marketplace stay on the device, but they don’t appear in the app or load in its sessions until you remove the key or set it back to `true`.
+`userPluginMarketplacesEnabled` doesn’t govern Claude Code in a terminal. To limit the marketplaces Claude Code can use in a terminal, set [marketplace restrictions in its managed settings](https://code.claude.com/docs/en/plugins/org#restrict-what-users-can-install). If you deploy Claude Code managed settings to the device, restrict marketplaces there too, because in Code sessions those settings can take precedence over the app’s restrictions.
 
 ##  Related topics
 

@@ -75,73 +75,75 @@ Create Session
 
       Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more | String`
+      - `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
@@ -165,13 +167,23 @@ Create Session
 
             - `:low`
 
+              Low effort. Favors latency over reasoning depth.
+
             - `:medium`
+
+              Medium effort. Balances latency and reasoning depth.
 
             - `:high`
 
+              High effort. Favors reasoning depth.
+
             - `:xhigh`
 
+              Extra-high effort. Not all models accept this level.
+
             - `:max`
+
+              Maximum effort. Favors reasoning depth over latency.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -209,7 +221,7 @@ Create Session
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. Defaults to `standard`.
 
           - `:standard`
 
@@ -291,7 +303,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -327,7 +339,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -357,7 +369,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -387,7 +399,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -417,7 +429,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -447,7 +459,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -491,7 +503,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -529,7 +541,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -575,7 +587,7 @@ Create Session
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
-          Default configuration for all tools in a toolset.
+          Default configuration applied to all tools in this set.
 
           - `enabled: bool`
 
@@ -583,7 +595,7 @@ Create Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -625,7 +637,7 @@ Create Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Overrides the `default_config` setting.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -641,7 +653,7 @@ Create Session
 
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
-          Default configuration for all tools from an MCP server.
+          Default configuration for all tools from this server.
 
           - `enabled: bool`
 
@@ -649,7 +661,7 @@ Create Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Default permission policy for tools from this server.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -677,7 +689,7 @@ Create Session
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-          JSON Schema for custom tool input parameters.
+          JSON Schema defining the expected input parameters for the tool.
 
           - `type: :object`
 
@@ -705,13 +717,13 @@ Create Session
 
 - `budget: BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Enforced spend ceiling for the session. Omit to create an uncapped session. Every model the session can run — the agent's model and each callable agent's model — must have a public list price, or the request is rejected with reason `model_not_budgetable`.
 
   - `type: :limit`
 
   - `max_list_cost: BetaMonetaryAmount`
 
-    A monetary amount in a specific currency.
+    Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
     - `amount: String`
 
@@ -755,7 +767,7 @@ Create Session
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -807,7 +819,7 @@ Create Session
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -893,7 +905,7 @@ Create Session
 
     - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. Text or file reference.
 
       - `class BetaManagedAgentsFileRubricParams`
 
@@ -1009,7 +1021,7 @@ Create Session
 
     - `access: :read_write | :read_only`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
 
       - `:read_write`
 
@@ -1037,99 +1049,109 @@ Create Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -1169,73 +1191,75 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -1273,7 +1297,7 @@ Create Session
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -1281,7 +1305,7 @@ Create Session
 
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: :coordinator`
 
@@ -1737,19 +1761,19 @@ Create Session
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `type: :limit`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: String`
 
@@ -1777,7 +1801,7 @@ Create Session
 
     - `completed_at: Time`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -1883,7 +1907,7 @@ Create Session
 
       - `access: :read_write | :read_only`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `:read_write`
 
@@ -1909,7 +1933,7 @@ Create Session
 
   - `stats: BetaManagedAgentsSessionStats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `active_seconds: Float`
 
@@ -1925,15 +1949,21 @@ Create Session
 
   - `status: :rescheduling | :running | :idle | :terminated`
 
-    SessionStatus enum
-
     - `:rescheduling`
+
+      Transient error occurred, retrying automatically.
 
     - `:running`
 
+      Agent is actively executing.
+
     - `:idle`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `:terminated`
+
+      Session has ended, either due to an error or completion.
 
   - `title: String`
 
@@ -1945,7 +1975,7 @@ Create Session
 
   - `usage: BetaManagedAgentsSessionUsage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `active_seconds: Float`
 
@@ -1955,7 +1985,7 @@ Create Session
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -1983,7 +2013,7 @@ Create Session
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `output_tokens: Integer`
 
@@ -1993,7 +2023,7 @@ Create Session
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `web_fetch_requests: Integer`
 
@@ -2304,11 +2334,19 @@ List Sessions
 
   - `:rescheduling`
 
+    Transient error occurred, retrying automatically.
+
   - `:running`
+
+    Agent is actively executing.
 
   - `:idle`
 
+    Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
   - `:terminated`
+
+    Session has ended, either due to an error or completion.
 
 - `betas: Array[AnthropicBeta]`
 
@@ -2316,99 +2354,109 @@ List Sessions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -2448,73 +2496,75 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -2552,7 +2602,7 @@ List Sessions
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -2560,7 +2610,7 @@ List Sessions
 
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: :coordinator`
 
@@ -3016,19 +3066,19 @@ List Sessions
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `type: :limit`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: String`
 
@@ -3056,7 +3106,7 @@ List Sessions
 
     - `completed_at: Time`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -3162,7 +3212,7 @@ List Sessions
 
       - `access: :read_write | :read_only`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `:read_write`
 
@@ -3188,7 +3238,7 @@ List Sessions
 
   - `stats: BetaManagedAgentsSessionStats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `active_seconds: Float`
 
@@ -3204,15 +3254,21 @@ List Sessions
 
   - `status: :rescheduling | :running | :idle | :terminated`
 
-    SessionStatus enum
-
     - `:rescheduling`
+
+      Transient error occurred, retrying automatically.
 
     - `:running`
 
+      Agent is actively executing.
+
     - `:idle`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `:terminated`
+
+      Session has ended, either due to an error or completion.
 
   - `title: String`
 
@@ -3224,7 +3280,7 @@ List Sessions
 
   - `usage: BetaManagedAgentsSessionUsage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `active_seconds: Float`
 
@@ -3234,7 +3290,7 @@ List Sessions
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -3262,7 +3318,7 @@ List Sessions
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `output_tokens: Integer`
 
@@ -3272,7 +3328,7 @@ List Sessions
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `web_fetch_requests: Integer`
 
@@ -3524,99 +3580,109 @@ Get Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -3656,73 +3722,75 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -3760,7 +3828,7 @@ Get Session
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -3768,7 +3836,7 @@ Get Session
 
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: :coordinator`
 
@@ -4224,19 +4292,19 @@ Get Session
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `type: :limit`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: String`
 
@@ -4264,7 +4332,7 @@ Get Session
 
     - `completed_at: Time`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -4370,7 +4438,7 @@ Get Session
 
       - `access: :read_write | :read_only`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `:read_write`
 
@@ -4396,7 +4464,7 @@ Get Session
 
   - `stats: BetaManagedAgentsSessionStats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `active_seconds: Float`
 
@@ -4412,15 +4480,21 @@ Get Session
 
   - `status: :rescheduling | :running | :idle | :terminated`
 
-    SessionStatus enum
-
     - `:rescheduling`
+
+      Transient error occurred, retrying automatically.
 
     - `:running`
 
+      Agent is actively executing.
+
     - `:idle`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `:terminated`
+
+      Session has ended, either due to an error or completion.
 
   - `title: String`
 
@@ -4432,7 +4506,7 @@ Get Session
 
   - `usage: BetaManagedAgentsSessionUsage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `active_seconds: Float`
 
@@ -4442,7 +4516,7 @@ Get Session
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -4470,7 +4544,7 @@ Get Session
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `output_tokens: Integer`
 
@@ -4480,7 +4554,7 @@ Get Session
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `web_fetch_requests: Integer`
 
@@ -4722,7 +4796,7 @@ Update Session
 
 - `agent: BetaManagedAgentsSessionAgentUpdate`
 
-  Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
+  Agent configuration update. Only `tools` and `mcp_servers` are updatable mid-session. Only valid for sessions created from an agent or deployment reference. The session must not be running.
 
   - `mcp_servers: Array[BetaManagedAgentsURLMCPServerParams]`
 
@@ -4772,7 +4846,7 @@ Update Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -4808,7 +4882,7 @@ Update Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -4838,7 +4912,7 @@ Update Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -4868,7 +4942,7 @@ Update Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -4898,7 +4972,7 @@ Update Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -4928,7 +5002,7 @@ Update Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -4972,7 +5046,7 @@ Update Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -5010,7 +5084,7 @@ Update Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -5056,7 +5130,7 @@ Update Session
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
-        Default configuration for all tools in a toolset.
+        Default configuration applied to all tools in this set.
 
         - `enabled: bool`
 
@@ -5064,7 +5138,7 @@ Update Session
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -5106,7 +5180,7 @@ Update Session
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Overrides the `default_config` setting.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -5122,7 +5196,7 @@ Update Session
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
-        Default configuration for all tools from an MCP server.
+        Default configuration for all tools from this server.
 
         - `enabled: bool`
 
@@ -5130,7 +5204,7 @@ Update Session
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools from this server.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -5158,7 +5232,7 @@ Update Session
 
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-        JSON Schema for custom tool input parameters.
+        JSON Schema defining the expected input parameters for the tool.
 
         - `type: :object`
 
@@ -5174,13 +5248,13 @@ Update Session
 
 - `budget: BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Enforced spend ceiling for the session. Set an object to replace the budget of a session that was created with one, or `null` to remove it; omit to preserve. A budget cannot be added to a session created without one (rejected with reason `budget_create_only`), and a removed budget cannot be re-added. Allowed in any non-terminated status. Lowering `max_list_cost` to at or below the session's consumed list cost is rejected with reason `budget_not_raised`, and every model the session can run must have a public list price or the request is rejected with reason `model_not_budgetable`.
 
   - `type: :limit`
 
   - `max_list_cost: BetaMonetaryAmount`
 
-    A monetary amount in a specific currency.
+    Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
     - `amount: String`
 
@@ -5210,99 +5284,109 @@ Update Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -5342,73 +5426,75 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -5446,7 +5532,7 @@ Update Session
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -5454,7 +5540,7 @@ Update Session
 
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: :coordinator`
 
@@ -5910,19 +5996,19 @@ Update Session
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `type: :limit`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: String`
 
@@ -5950,7 +6036,7 @@ Update Session
 
     - `completed_at: Time`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -6056,7 +6142,7 @@ Update Session
 
       - `access: :read_write | :read_only`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `:read_write`
 
@@ -6082,7 +6168,7 @@ Update Session
 
   - `stats: BetaManagedAgentsSessionStats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `active_seconds: Float`
 
@@ -6098,15 +6184,21 @@ Update Session
 
   - `status: :rescheduling | :running | :idle | :terminated`
 
-    SessionStatus enum
-
     - `:rescheduling`
+
+      Transient error occurred, retrying automatically.
 
     - `:running`
 
+      Agent is actively executing.
+
     - `:idle`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `:terminated`
+
+      Session has ended, either due to an error or completion.
 
   - `title: String`
 
@@ -6118,7 +6210,7 @@ Update Session
 
   - `usage: BetaManagedAgentsSessionUsage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `active_seconds: Float`
 
@@ -6128,7 +6220,7 @@ Update Session
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -6156,7 +6248,7 @@ Update Session
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `output_tokens: Integer`
 
@@ -6166,7 +6258,7 @@ Update Session
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `web_fetch_requests: Integer`
 
@@ -6412,99 +6504,109 @@ Delete Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -6555,99 +6657,109 @@ Archive Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -6687,73 +6799,75 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -6791,7 +6905,7 @@ Archive Session
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -6799,7 +6913,7 @@ Archive Session
 
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: :coordinator`
 
@@ -7255,19 +7369,19 @@ Archive Session
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `type: :limit`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: String`
 
@@ -7295,7 +7409,7 @@ Archive Session
 
     - `completed_at: Time`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -7401,7 +7515,7 @@ Archive Session
 
       - `access: :read_write | :read_only`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `:read_write`
 
@@ -7427,7 +7541,7 @@ Archive Session
 
   - `stats: BetaManagedAgentsSessionStats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `active_seconds: Float`
 
@@ -7443,15 +7557,21 @@ Archive Session
 
   - `status: :rescheduling | :running | :idle | :terminated`
 
-    SessionStatus enum
-
     - `:rescheduling`
+
+      Transient error occurred, retrying automatically.
 
     - `:running`
 
+      Agent is actively executing.
+
     - `:idle`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `:terminated`
+
+      Session has ended, either due to an error or completion.
 
   - `title: String`
 
@@ -7463,7 +7583,7 @@ Archive Session
 
   - `usage: BetaManagedAgentsSessionUsage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `active_seconds: Float`
 
@@ -7473,7 +7593,7 @@ Archive Session
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -7501,7 +7621,7 @@ Archive Session
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `output_tokens: Integer`
 
@@ -7511,7 +7631,7 @@ Archive Session
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `web_fetch_requests: Integer`
 
@@ -7831,73 +7951,75 @@ puts(beta_managed_agents_session)
 
     Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
-    - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more | String`
+    - `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
@@ -7921,13 +8043,23 @@ puts(beta_managed_agents_session)
 
           - `:low`
 
+            Low effort. Favors latency over reasoning depth.
+
           - `:medium`
+
+            Medium effort. Balances latency and reasoning depth.
 
           - `:high`
 
+            High effort. Favors reasoning depth.
+
           - `:xhigh`
 
+            Extra-high effort. Not all models accept this level.
+
           - `:max`
+
+            Maximum effort. Favors reasoning depth over latency.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -7965,7 +8097,7 @@ puts(beta_managed_agents_session)
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. Defaults to `standard`.
 
         - `:standard`
 
@@ -8047,7 +8179,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8083,7 +8215,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8113,7 +8245,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8143,7 +8275,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8173,7 +8305,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8203,7 +8335,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8247,7 +8379,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8285,7 +8417,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8331,7 +8463,7 @@ puts(beta_managed_agents_session)
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
-        Default configuration for all tools in a toolset.
+        Default configuration applied to all tools in this set.
 
         - `enabled: bool`
 
@@ -8339,7 +8471,7 @@ puts(beta_managed_agents_session)
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8381,7 +8513,7 @@ puts(beta_managed_agents_session)
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Overrides the `default_config` setting.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8397,7 +8529,7 @@ puts(beta_managed_agents_session)
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
-        Default configuration for all tools from an MCP server.
+        Default configuration for all tools from this server.
 
         - `enabled: bool`
 
@@ -8405,7 +8537,7 @@ puts(beta_managed_agents_session)
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools from this server.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8433,7 +8565,7 @@ puts(beta_managed_agents_session)
 
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-        JSON Schema for custom tool input parameters.
+        JSON Schema defining the expected input parameters for the tool.
 
         - `type: :object`
 
@@ -8475,7 +8607,7 @@ puts(beta_managed_agents_session)
 
   - `max_list_cost: BetaMonetaryAmount`
 
-    A monetary amount in a specific currency.
+    Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
     - `amount: String`
 
@@ -8533,7 +8665,7 @@ puts(beta_managed_agents_session)
 
   - `content: BetaManagedAgentsTextBlock`
 
-    Regular text content.
+    A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
 
     - `type: :text`
 
@@ -8546,8 +8678,6 @@ puts(beta_managed_agents_session)
   - `index: Integer`
 
     Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-    format: uint32
 
 ### Beta Managed Agents Delta Event
 
@@ -8565,7 +8695,7 @@ puts(beta_managed_agents_session)
 
     - `content: BetaManagedAgentsTextBlock`
 
-      Regular text content.
+      A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
 
       - `type: :text`
 
@@ -8579,17 +8709,13 @@ puts(beta_managed_agents_session)
 
       Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
 
-      format: uint32
-
   - `event_id: String`
 
     The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
 ### Beta Managed Agents Delta Type
 
-- `BetaManagedAgentsDeltaType = :"agent.message" | :"agent.thinking"`
-
-  EventDeltaType enum
+- `type BetaManagedAgentsDeltaType = :"agent.message" | :"agent.thinking"`
 
   - `:"agent.message"`
 
@@ -8679,7 +8805,7 @@ puts(beta_managed_agents_session)
 
   - `access: :read_write | :read_only`
 
-    Access mode for an attached memory store.
+    Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
 
     - `:read_write`
 
@@ -8695,7 +8821,7 @@ puts(beta_managed_agents_session)
 
 - `class BetaManagedAgentsMultiagent`
 
-  Resolved coordinator topology with a concrete agent roster.
+  Resolved multiagent orchestration configuration as returned in API responses.
 
   - `type: :coordinator`
 
@@ -8729,7 +8855,7 @@ puts(beta_managed_agents_session)
 
 - `class BetaManagedAgentsMultiagentParams`
 
-  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+  Multiagent orchestration configuration. Currently supports the `coordinator` topology.
 
   - `type: :coordinator`
 
@@ -8777,7 +8903,7 @@ puts(beta_managed_agents_session)
 
 ### Beta Managed Agents Multiagent Roster Entry Params
 
-- `BetaManagedAgentsMultiagentRosterEntryParams = String | BetaManagedAgentsAgentParams | BetaManagedAgentsMultiagentSelfParams | BetaManagedAgentsAdvisorParams`
+- `type BetaManagedAgentsMultiagentRosterEntryParams = String | BetaManagedAgentsAgentParams | BetaManagedAgentsMultiagentSelfParams | BetaManagedAgentsAdvisorParams`
 
   An entry in a multiagent roster: an agent ID string, a versioned agent reference, or `self`.
 
@@ -8829,7 +8955,7 @@ puts(beta_managed_agents_session)
 
   - `completed_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
     format: date-time
 
@@ -8911,73 +9037,75 @@ puts(beta_managed_agents_session)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -9015,7 +9143,7 @@ puts(beta_managed_agents_session)
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -9023,7 +9151,7 @@ puts(beta_managed_agents_session)
 
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: :coordinator`
 
@@ -9479,19 +9607,19 @@ puts(beta_managed_agents_session)
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `type: :limit`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: String`
 
@@ -9519,7 +9647,7 @@ puts(beta_managed_agents_session)
 
     - `completed_at: Time`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -9625,7 +9753,7 @@ puts(beta_managed_agents_session)
 
       - `access: :read_write | :read_only`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `:read_write`
 
@@ -9651,7 +9779,7 @@ puts(beta_managed_agents_session)
 
   - `stats: BetaManagedAgentsSessionStats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `active_seconds: Float`
 
@@ -9667,15 +9795,21 @@ puts(beta_managed_agents_session)
 
   - `status: :rescheduling | :running | :idle | :terminated`
 
-    SessionStatus enum
-
     - `:rescheduling`
+
+      Transient error occurred, retrying automatically.
 
     - `:running`
 
+      Agent is actively executing.
+
     - `:idle`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `:terminated`
+
+      Session has ended, either due to an error or completion.
 
   - `title: String`
 
@@ -9687,7 +9821,7 @@ puts(beta_managed_agents_session)
 
   - `usage: BetaManagedAgentsSessionUsage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `active_seconds: Float`
 
@@ -9697,7 +9831,7 @@ puts(beta_managed_agents_session)
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -9725,7 +9859,7 @@ puts(beta_managed_agents_session)
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `output_tokens: Integer`
 
@@ -9735,7 +9869,7 @@ puts(beta_managed_agents_session)
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `web_fetch_requests: Integer`
 
@@ -9787,73 +9921,75 @@ puts(beta_managed_agents_session)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -9891,7 +10027,7 @@ puts(beta_managed_agents_session)
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -9899,7 +10035,7 @@ puts(beta_managed_agents_session)
 
   - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-    Resolved coordinator topology with full agent definitions for each roster member.
+    Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: :coordinator`
 
@@ -10407,7 +10543,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10443,7 +10579,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10473,7 +10609,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10503,7 +10639,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10533,7 +10669,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10563,7 +10699,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10607,7 +10743,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10645,7 +10781,7 @@ puts(beta_managed_agents_session)
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10691,7 +10827,7 @@ puts(beta_managed_agents_session)
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
-        Default configuration for all tools in a toolset.
+        Default configuration applied to all tools in this set.
 
         - `enabled: bool`
 
@@ -10699,7 +10835,7 @@ puts(beta_managed_agents_session)
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10741,7 +10877,7 @@ puts(beta_managed_agents_session)
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Overrides the `default_config` setting.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10757,7 +10893,7 @@ puts(beta_managed_agents_session)
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
-        Default configuration for all tools from an MCP server.
+        Default configuration for all tools from this server.
 
         - `enabled: bool`
 
@@ -10765,7 +10901,7 @@ puts(beta_managed_agents_session)
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools from this server.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -10793,7 +10929,7 @@ puts(beta_managed_agents_session)
 
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-        JSON Schema for custom tool input parameters.
+        JSON Schema defining the expected input parameters for the tool.
 
         - `type: :object`
 
@@ -10847,73 +10983,75 @@ puts(beta_managed_agents_session)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will power your agent.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-sonnet-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              High-performance model for coding and agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-fable-5"`
 
-            - `:"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-5"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -10951,7 +11089,7 @@ puts(beta_managed_agents_session)
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -11385,13 +11523,13 @@ puts(beta_managed_agents_session)
 
   - `processed_at: Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the update was applied.
 
     format: date-time
 
   - `agent: BetaManagedAgentsSessionAgent`
 
-    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+    The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
     - `type: :agent`
 
@@ -11417,73 +11555,75 @@ puts(beta_managed_agents_session)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -11521,7 +11661,7 @@ puts(beta_managed_agents_session)
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -11529,7 +11669,7 @@ puts(beta_managed_agents_session)
 
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: :coordinator`
 
@@ -11985,13 +12125,13 @@ puts(beta_managed_agents_session)
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
     - `type: :limit`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: String`
 
@@ -12023,7 +12163,7 @@ puts(beta_managed_agents_session)
 
   - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-    Prompt-cache creation token usage broken down by cache lifetime.
+    Tokens used to create prompt cache entries, broken down by cache TTL.
 
     - `ephemeral_1h_input_tokens: Integer`
 
@@ -12051,7 +12191,7 @@ puts(beta_managed_agents_session)
 
   - `list_cost: BetaMonetaryAmount`
 
-    A monetary amount in a specific currency.
+    Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `amount: String`
 
@@ -12069,7 +12209,7 @@ puts(beta_managed_agents_session)
 
   - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-    Cumulative count of server-executed tool invocations, broken down by tool.
+    Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
     - `web_fetch_requests: Integer`
 
@@ -12097,13 +12237,13 @@ puts(beta_managed_agents_session)
 
   - `processed_at: Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the snapshot was taken.
 
     format: date-time
 
   - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
-    Point-in-time snapshot of a session's cumulative usage.
+    The session's cumulative usage at the snapshot time.
 
     - `active_seconds: Float`
 
@@ -12113,7 +12253,7 @@ puts(beta_managed_agents_session)
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -12141,7 +12281,7 @@ puts(beta_managed_agents_session)
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `amount: String`
 
@@ -12159,7 +12299,7 @@ puts(beta_managed_agents_session)
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns.
 
       - `web_fetch_requests: Integer`
 
@@ -12175,13 +12315,13 @@ puts(beta_managed_agents_session)
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's configured budget at the snapshot time, or null when the session has no budget.
 
     - `type: :limit`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
 ### Beta Managed Agents Start Event
 
@@ -12213,7 +12353,7 @@ puts(beta_managed_agents_session)
 
 ### Beta Managed Agents Start Event Preview
 
-- `BetaManagedAgentsStartEventPreview = BetaManagedAgentsAgentMessagePreview | BetaManagedAgentsAgentThinkingPreview`
+- `type BetaManagedAgentsStartEventPreview = BetaManagedAgentsAgentMessagePreview | BetaManagedAgentsAgentThinkingPreview`
 
   - `class BetaManagedAgentsAgentMessagePreview`
 
@@ -12235,7 +12375,7 @@ puts(beta_managed_agents_session)
 
 - `class BetaManagedAgentsSystemContentBlock`
 
-  Regular text content.
+  Content block in a mid-conversation system message. Text-only.
 
   - `type: :text`
 
@@ -12271,7 +12411,7 @@ puts(beta_managed_agents_session)
 
   - `processed_at: Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this system message was processed.
 
     format: date-time
 
@@ -12315,7 +12455,7 @@ puts(beta_managed_agents_session)
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
         - `class BetaManagedAgentsBase64ImageSource`
 
@@ -12367,7 +12507,7 @@ puts(beta_managed_agents_session)
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
         - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -12443,7 +12583,7 @@ puts(beta_managed_agents_session)
 
       - `citations: BetaManagedAgentsSearchResultCitations`
 
-        Citation settings for a search result.
+        Citation settings for this search result.
 
         - `enabled: bool`
 
@@ -12479,13 +12619,13 @@ puts(beta_managed_agents_session)
 
   - `processed_at: Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this result was processed.
 
     format: date-time
 
   - `session_thread_id: String`
 
-    Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+    Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
 ## Sessions › Events
 
@@ -12527,8 +12667,6 @@ List Events
 
 - `limit: Integer`
 
-  Query parameter for limit
-
   format: int32
 
 - `order: :asc | :desc`
@@ -12543,9 +12681,77 @@ List Events
 
   Opaque pagination cursor from a previous response's `next_page`.
 
-- `types: Array[String]`
+- `types: Array[BetaManagedAgentsSessionEventType]`
 
   Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
+
+  - `:"user.message"`
+
+  - `:"user.interrupt"`
+
+  - `:"user.tool_confirmation"`
+
+  - `:"user.custom_tool_result"`
+
+  - `:"agent.custom_tool_use"`
+
+  - `:"agent.message"`
+
+  - `:"agent.thinking"`
+
+  - `:"agent.mcp_tool_use"`
+
+  - `:"agent.mcp_tool_result"`
+
+  - `:"agent.tool_use"`
+
+  - `:"agent.tool_result"`
+
+  - `:"agent.thread_message_received"`
+
+  - `:"agent.thread_message_sent"`
+
+  - `:"agent.thread_context_compacted"`
+
+  - `:"session.error"`
+
+  - `:"session.status_rescheduled"`
+
+  - `:"session.status_running"`
+
+  - `:"session.status_idle"`
+
+  - `:"session.status_terminated"`
+
+  - `:"session.thread_created"`
+
+  - `:"span.outcome_evaluation_start"`
+
+  - `:"span.outcome_evaluation_end"`
+
+  - `:"span.model_request_start"`
+
+  - `:"span.model_request_end"`
+
+  - `:"span.outcome_evaluation_ongoing"`
+
+  - `:"user.define_outcome"`
+
+  - `:"session.thread_status_running"`
+
+  - `:"session.thread_status_idle"`
+
+  - `:"session.thread_status_terminated"`
+
+  - `:"user.tool_result"`
+
+  - `:"session.thread_status_rescheduled"`
+
+  - `:"session.updated"`
+
+  - `:"system.message"`
+
+  - `:"session.usage"`
 
 - `betas: Array[AnthropicBeta]`
 
@@ -12553,103 +12759,113 @@ List Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
+- `type BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
 
   Union type for all event types in a session.
 
@@ -12687,7 +12903,7 @@ List Events
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -12739,7 +12955,7 @@ List Events
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -12815,7 +13031,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
@@ -12831,7 +13047,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -12851,7 +13067,7 @@ List Events
 
     - `result: :allow | :deny`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `:allow`
 
@@ -12869,13 +13085,13 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -12915,7 +13131,7 @@ List Events
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: bool`
 
@@ -12951,13 +13167,13 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsAgentCustomToolUseEvent`
 
@@ -12979,13 +13195,13 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMessageEvent`
 
@@ -13011,7 +13227,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
@@ -13027,7 +13243,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
@@ -13055,13 +13271,13 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `:allow`
 
@@ -13071,7 +13287,7 @@ List Events
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
@@ -13093,7 +13309,7 @@ List Events
 
         - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
           - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
@@ -13127,7 +13343,7 @@ List Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
@@ -13145,7 +13361,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -13193,27 +13409,21 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
+      The evaluated permission policy for this tool invocation.
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentToolResultEvent`
 
@@ -13227,7 +13437,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -13295,7 +13505,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -13335,7 +13545,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -13359,7 +13569,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
@@ -13373,9 +13583,7 @@ List Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
       - `class BetaManagedAgentsUnknownError`
 
@@ -13389,7 +13597,7 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -13421,7 +13629,7 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -13447,7 +13655,7 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -13473,7 +13681,7 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -13503,7 +13711,7 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -13533,7 +13741,7 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -13559,7 +13767,7 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -13589,7 +13797,7 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -13607,9 +13815,159 @@ List Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: :repository_authentication_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: :repository_forbidden_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: :repository_not_found_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: :repository_checkout_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: :repository_clone_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
@@ -13625,7 +13983,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -13641,7 +13999,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -13657,13 +14015,35 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `type: :refusal`
+
+      - `category: :cyber | :bio | :frontier_llm | 2 more`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `:cyber`
+
+        - `:bio`
+
+        - `:frontier_llm`
+
+        - `:reasoning_extraction`
+
+        - `:general_harms`
+
+      - `explanation: String`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `class BetaManagedAgentsSessionEndTurn`
 
@@ -13693,6 +14073,12 @@ List Events
 
         - `type: :budget_reached`
 
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: :refusal`
+
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
@@ -13705,7 +14091,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -13725,7 +14111,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -13755,7 +14141,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
@@ -13789,7 +14175,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -13799,7 +14185,7 @@ List Events
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `cache_creation_input_tokens: Integer`
 
@@ -13827,7 +14213,7 @@ List Events
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `:standard`
 
@@ -13845,7 +14231,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
@@ -13869,11 +14255,11 @@ List Events
 
     - `model_usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
@@ -13899,7 +14285,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
@@ -13929,13 +14315,13 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
       - `class BetaManagedAgentsFileRubric`
 
@@ -13969,7 +14355,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
@@ -13989,7 +14375,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -14013,7 +14399,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -14021,9 +14407,11 @@ List Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `class BetaManagedAgentsSessionEndTurn`
 
@@ -14041,6 +14429,10 @@ List Events
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
@@ -14057,7 +14449,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -14105,13 +14497,13 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
@@ -14129,7 +14521,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -14149,13 +14541,13 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `agent: BetaManagedAgentsSessionAgent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `type: :agent`
 
@@ -14181,73 +14573,75 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will power your agent.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-sonnet-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              High-performance model for coding and agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-fable-5"`
 
-            - `:"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-5"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -14285,7 +14679,7 @@ List Events
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -14293,7 +14687,7 @@ List Events
 
       - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `type: :coordinator`
 
@@ -14749,13 +15143,13 @@ List Events
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `type: :limit`
 
       - `max_list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `amount: String`
 
@@ -14797,7 +15191,7 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
@@ -14813,13 +15207,13 @@ List Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `active_seconds: Float`
 
@@ -14829,7 +15223,7 @@ List Events
 
       - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens: Integer`
 
@@ -14857,7 +15251,7 @@ List Events
 
       - `list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `output_tokens: Integer`
 
@@ -14867,7 +15261,7 @@ List Events
 
       - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `web_fetch_requests: Integer`
 
@@ -14883,7 +15277,7 @@ List Events
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -14975,7 +15369,7 @@ Send Events
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -15027,7 +15421,7 @@ Send Events
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -15119,7 +15513,7 @@ Send Events
 
     - `result: :allow | :deny`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `:allow`
 
@@ -15173,7 +15567,7 @@ Send Events
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: bool`
 
@@ -15219,7 +15613,7 @@ Send Events
 
     - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. Text or file reference.
 
       - `class BetaManagedAgentsFileRubricParams`
 
@@ -15309,99 +15703,109 @@ Send Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 #### Returns
 
@@ -15447,7 +15851,7 @@ Send Events
 
           - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -15499,7 +15903,7 @@ Send Events
 
           - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -15575,7 +15979,7 @@ Send Events
 
       - `processed_at: Time`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the agent finished processing this message.
 
         format: date-time
 
@@ -15591,7 +15995,7 @@ Send Events
 
       - `processed_at: Time`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the interrupt was processed.
 
         format: date-time
 
@@ -15611,7 +16015,7 @@ Send Events
 
       - `result: :allow | :deny`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `:allow`
 
@@ -15629,13 +16033,13 @@ Send Events
 
       - `processed_at: Time`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the confirmation was processed.
 
         format: date-time
 
       - `session_thread_id: String`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
     - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -15675,7 +16079,7 @@ Send Events
 
           - `citations: BetaManagedAgentsSearchResultCitations`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `enabled: bool`
 
@@ -15711,13 +16115,13 @@ Send Events
 
       - `processed_at: Time`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id: String`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `class BetaManagedAgentsUserDefineOutcomeEvent`
 
@@ -15745,13 +16149,13 @@ Send Events
 
       - `processed_at: Time`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the outcome was accepted.
 
         format: date-time
 
       - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -15813,13 +16217,13 @@ Send Events
 
       - `processed_at: Time`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id: String`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `class BetaManagedAgentsSystemMessageEvent`
 
@@ -15845,7 +16249,7 @@ Send Events
 
       - `processed_at: Time`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this system message was processed.
 
         format: date-time
 
@@ -15910,103 +16314,113 @@ Stream Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
+- `type BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
 
   Server-sent event in the session stream.
 
@@ -16044,7 +16458,7 @@ Stream Events
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -16096,7 +16510,7 @@ Stream Events
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -16172,7 +16586,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
@@ -16188,7 +16602,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -16208,7 +16622,7 @@ Stream Events
 
     - `result: :allow | :deny`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `:allow`
 
@@ -16226,13 +16640,13 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -16272,7 +16686,7 @@ Stream Events
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: bool`
 
@@ -16308,13 +16722,13 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsAgentCustomToolUseEvent`
 
@@ -16336,13 +16750,13 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMessageEvent`
 
@@ -16368,7 +16782,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
@@ -16384,7 +16798,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
@@ -16412,13 +16826,13 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `:allow`
 
@@ -16428,7 +16842,7 @@ Stream Events
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
@@ -16450,7 +16864,7 @@ Stream Events
 
         - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
           - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
@@ -16484,7 +16898,7 @@ Stream Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
@@ -16502,7 +16916,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -16550,27 +16964,21 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
+      The evaluated permission policy for this tool invocation.
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentToolResultEvent`
 
@@ -16584,7 +16992,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -16652,7 +17060,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -16692,7 +17100,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -16716,7 +17124,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
@@ -16730,9 +17138,7 @@ Stream Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
       - `class BetaManagedAgentsUnknownError`
 
@@ -16746,7 +17152,7 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -16778,7 +17184,7 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -16804,7 +17210,7 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -16830,7 +17236,7 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -16860,7 +17266,7 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -16890,7 +17296,7 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -16916,7 +17322,7 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -16946,7 +17352,7 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -16964,9 +17370,159 @@ Stream Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: :repository_authentication_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: :repository_forbidden_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: :repository_not_found_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: :repository_checkout_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: :repository_clone_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
@@ -16982,7 +17538,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -16998,7 +17554,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -17014,13 +17570,35 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `type: :refusal`
+
+      - `category: :cyber | :bio | :frontier_llm | 2 more`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `:cyber`
+
+        - `:bio`
+
+        - `:frontier_llm`
+
+        - `:reasoning_extraction`
+
+        - `:general_harms`
+
+      - `explanation: String`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `class BetaManagedAgentsSessionEndTurn`
 
@@ -17050,6 +17628,12 @@ Stream Events
 
         - `type: :budget_reached`
 
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: :refusal`
+
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
@@ -17062,7 +17646,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -17082,7 +17666,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -17112,7 +17696,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
@@ -17146,7 +17730,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -17156,7 +17740,7 @@ Stream Events
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `cache_creation_input_tokens: Integer`
 
@@ -17184,7 +17768,7 @@ Stream Events
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `:standard`
 
@@ -17202,7 +17786,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
@@ -17226,11 +17810,11 @@ Stream Events
 
     - `model_usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
@@ -17256,7 +17840,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
@@ -17286,13 +17870,13 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
       - `class BetaManagedAgentsFileRubric`
 
@@ -17326,7 +17910,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
@@ -17346,7 +17930,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -17370,7 +17954,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -17378,9 +17962,11 @@ Stream Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `class BetaManagedAgentsSessionEndTurn`
 
@@ -17398,6 +17984,10 @@ Stream Events
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
@@ -17414,7 +18004,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -17462,13 +18052,13 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
@@ -17486,7 +18076,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -17506,13 +18096,13 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `agent: BetaManagedAgentsSessionAgent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `type: :agent`
 
@@ -17538,73 +18128,75 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will power your agent.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-sonnet-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              High-performance model for coding and agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-fable-5"`
 
-            - `:"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-5"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -17642,7 +18234,7 @@ Stream Events
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -17650,7 +18242,7 @@ Stream Events
 
       - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `type: :coordinator`
 
@@ -18106,13 +18698,13 @@ Stream Events
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `type: :limit`
 
       - `max_list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `amount: String`
 
@@ -18170,13 +18762,11 @@ Stream Events
 
       - `content: BetaManagedAgentsTextBlock`
 
-        Regular text content.
+        A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
 
       - `index: Integer`
 
         Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-        format: uint32
 
     - `event_id: String`
 
@@ -18206,7 +18796,7 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
@@ -18222,13 +18812,13 @@ Stream Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `active_seconds: Float`
 
@@ -18238,7 +18828,7 @@ Stream Events
 
       - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens: Integer`
 
@@ -18266,7 +18856,7 @@ Stream Events
 
       - `list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `output_tokens: Integer`
 
@@ -18276,7 +18866,7 @@ Stream Events
 
       - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `web_fetch_requests: Integer`
 
@@ -18292,7 +18882,7 @@ Stream Events
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -18356,99 +18946,109 @@ Add Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 #### Returns
 
@@ -18531,105 +19131,113 @@ List Session Resources
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
-
-  A memory store attached to an agent session.
+- `type BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   - `class BetaManagedAgentsGitHubRepositoryResource`
 
@@ -18709,7 +19317,7 @@ List Session Resources
 
     - `access: :read_write | :read_only`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `:read_write`
 
@@ -18795,103 +19403,113 @@ Get Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
+- `type ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The requested session resource.
 
@@ -18973,7 +19591,7 @@ Get Session Resource
 
     - `access: :read_write | :read_only`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `:read_write`
 
@@ -19055,103 +19673,113 @@ Update Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
+- `type ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The updated session resource.
 
@@ -19233,7 +19861,7 @@ Update Session Resource
 
     - `access: :read_write | :read_only`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `:read_write`
 
@@ -19310,99 +19938,109 @@ Delete Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 #### Returns
 
@@ -19468,99 +20106,109 @@ List Session Threads
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 #### Returns
 
@@ -19576,7 +20224,7 @@ List Session Threads
 
   - `agent: BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
     - `class BetaManagedAgentsSessionThreadAgent`
 
@@ -19606,73 +20254,75 @@ List Session Threads
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will power your agent.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-sonnet-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              High-performance model for coding and agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-fable-5"`
 
-            - `:"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-5"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -19710,7 +20360,7 @@ List Session Threads
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -20114,13 +20764,13 @@ List Session Threads
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
     format: date-time
 
   - `created_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
     format: date-time
 
@@ -20134,7 +20784,7 @@ List Session Threads
 
   - `stats: BetaManagedAgentsSessionThreadStats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
     - `active_seconds: Float`
 
@@ -20156,7 +20806,7 @@ List Session Threads
 
   - `status: BetaManagedAgentsSessionThreadStatus`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
     - `:running`
 
@@ -20168,13 +20818,13 @@ List Session Threads
 
   - `updated_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
     format: date-time
 
   - `usage: BetaManagedAgentsSessionThreadUsage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
     - `active_seconds: Float`
 
@@ -20184,7 +20834,7 @@ List Session Threads
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -20212,7 +20862,7 @@ List Session Threads
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of this thread across all turns, priced at public list rates. Absent until cost tracking is available for the thread. Each figure is rounded to the nearest cent independently and the session's aggregate `usage.list_cost` additionally includes session runtime, so per-thread costs do not sum exactly to the session figure; the session figure is authoritative and is what a budget is enforced against.
 
       - `amount: String`
 
@@ -20230,7 +20880,7 @@ List Session Threads
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns of this thread. Absent until server-tool tracking is available for the thread.
 
       - `web_fetch_requests: Integer`
 
@@ -20370,99 +21020,109 @@ Get Session Thread
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 #### Returns
 
@@ -20478,7 +21138,7 @@ Get Session Thread
 
   - `agent: BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
     - `class BetaManagedAgentsSessionThreadAgent`
 
@@ -20508,73 +21168,75 @@ Get Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will power your agent.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-sonnet-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              High-performance model for coding and agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-fable-5"`
 
-            - `:"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-5"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -20612,7 +21274,7 @@ Get Session Thread
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -21016,13 +21678,13 @@ Get Session Thread
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
     format: date-time
 
   - `created_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
     format: date-time
 
@@ -21036,7 +21698,7 @@ Get Session Thread
 
   - `stats: BetaManagedAgentsSessionThreadStats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
     - `active_seconds: Float`
 
@@ -21058,7 +21720,7 @@ Get Session Thread
 
   - `status: BetaManagedAgentsSessionThreadStatus`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
     - `:running`
 
@@ -21070,13 +21732,13 @@ Get Session Thread
 
   - `updated_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
     format: date-time
 
   - `usage: BetaManagedAgentsSessionThreadUsage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
     - `active_seconds: Float`
 
@@ -21086,7 +21748,7 @@ Get Session Thread
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -21114,7 +21776,7 @@ Get Session Thread
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of this thread across all turns, priced at public list rates. Absent until cost tracking is available for the thread. Each figure is rounded to the nearest cent independently and the session's aggregate `usage.list_cost` additionally includes session runtime, so per-thread costs do not sum exactly to the session figure; the session figure is authoritative and is what a budget is enforced against.
 
       - `amount: String`
 
@@ -21132,7 +21794,7 @@ Get Session Thread
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns of this thread. Absent until server-tool tracking is available for the thread.
 
       - `web_fetch_requests: Integer`
 
@@ -21270,99 +21932,109 @@ Archive Session Thread
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 #### Returns
 
@@ -21378,7 +22050,7 @@ Archive Session Thread
 
   - `agent: BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
     - `class BetaManagedAgentsSessionThreadAgent`
 
@@ -21408,73 +22080,75 @@ Archive Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will power your agent.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-sonnet-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              High-performance model for coding and agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-fable-5"`
 
-            - `:"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-5"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -21512,7 +22186,7 @@ Archive Session Thread
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -21916,13 +22590,13 @@ Archive Session Thread
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
     format: date-time
 
   - `created_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
     format: date-time
 
@@ -21936,7 +22610,7 @@ Archive Session Thread
 
   - `stats: BetaManagedAgentsSessionThreadStats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
     - `active_seconds: Float`
 
@@ -21958,7 +22632,7 @@ Archive Session Thread
 
   - `status: BetaManagedAgentsSessionThreadStatus`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
     - `:running`
 
@@ -21970,13 +22644,13 @@ Archive Session Thread
 
   - `updated_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
     format: date-time
 
   - `usage: BetaManagedAgentsSessionThreadUsage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
     - `active_seconds: Float`
 
@@ -21986,7 +22660,7 @@ Archive Session Thread
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -22014,7 +22688,7 @@ Archive Session Thread
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of this thread across all turns, priced at public list rates. Absent until cost tracking is available for the thread. Each figure is rounded to the nearest cent independently and the session's aggregate `usage.list_cost` additionally includes session runtime, so per-thread costs do not sum exactly to the session figure; the session figure is authoritative and is what a budget is enforced against.
 
       - `amount: String`
 
@@ -22032,7 +22706,7 @@ Archive Session Thread
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns of this thread. Absent until server-tool tracking is available for the thread.
 
       - `web_fetch_requests: Integer`
 
@@ -22168,13 +22842,9 @@ List Session Thread Events
 
 - `limit: Integer`
 
-  Query parameter for limit
-
   format: int32
 
 - `page: String`
-
-  Query parameter for page
 
 - `betas: Array[AnthropicBeta]`
 
@@ -22182,103 +22852,113 @@ List Session Thread Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
+- `type BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
 
   Union type for all event types in a session.
 
@@ -22316,7 +22996,7 @@ List Session Thread Events
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -22368,7 +23048,7 @@ List Session Thread Events
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -22444,7 +23124,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
@@ -22460,7 +23140,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -22480,7 +23160,7 @@ List Session Thread Events
 
     - `result: :allow | :deny`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `:allow`
 
@@ -22498,13 +23178,13 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -22544,7 +23224,7 @@ List Session Thread Events
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: bool`
 
@@ -22580,13 +23260,13 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsAgentCustomToolUseEvent`
 
@@ -22608,13 +23288,13 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMessageEvent`
 
@@ -22640,7 +23320,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
@@ -22656,7 +23336,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
@@ -22684,13 +23364,13 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `:allow`
 
@@ -22700,7 +23380,7 @@ List Session Thread Events
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
@@ -22722,7 +23402,7 @@ List Session Thread Events
 
         - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
           - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
@@ -22756,7 +23436,7 @@ List Session Thread Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
@@ -22774,7 +23454,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -22822,27 +23502,21 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
+      The evaluated permission policy for this tool invocation.
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentToolResultEvent`
 
@@ -22856,7 +23530,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -22924,7 +23598,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -22964,7 +23638,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -22988,7 +23662,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
@@ -23002,9 +23676,7 @@ List Session Thread Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
       - `class BetaManagedAgentsUnknownError`
 
@@ -23018,7 +23690,7 @@ List Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23050,7 +23722,7 @@ List Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23076,7 +23748,7 @@ List Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23102,7 +23774,7 @@ List Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23132,7 +23804,7 @@ List Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23162,7 +23834,7 @@ List Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23188,7 +23860,7 @@ List Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23218,7 +23890,7 @@ List Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23236,9 +23908,159 @@ List Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: :repository_authentication_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: :repository_forbidden_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: :repository_not_found_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: :repository_checkout_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: :repository_clone_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
@@ -23254,7 +24076,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -23270,7 +24092,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -23286,13 +24108,35 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `type: :refusal`
+
+      - `category: :cyber | :bio | :frontier_llm | 2 more`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `:cyber`
+
+        - `:bio`
+
+        - `:frontier_llm`
+
+        - `:reasoning_extraction`
+
+        - `:general_harms`
+
+      - `explanation: String`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `class BetaManagedAgentsSessionEndTurn`
 
@@ -23322,6 +24166,12 @@ List Session Thread Events
 
         - `type: :budget_reached`
 
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: :refusal`
+
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
@@ -23334,7 +24184,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -23354,7 +24204,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -23384,7 +24234,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
@@ -23418,7 +24268,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -23428,7 +24278,7 @@ List Session Thread Events
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `cache_creation_input_tokens: Integer`
 
@@ -23456,7 +24306,7 @@ List Session Thread Events
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `:standard`
 
@@ -23474,7 +24324,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
@@ -23498,11 +24348,11 @@ List Session Thread Events
 
     - `model_usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
@@ -23528,7 +24378,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
@@ -23558,13 +24408,13 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
       - `class BetaManagedAgentsFileRubric`
 
@@ -23598,7 +24448,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
@@ -23618,7 +24468,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -23642,7 +24492,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -23650,9 +24500,11 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `class BetaManagedAgentsSessionEndTurn`
 
@@ -23670,6 +24522,10 @@ List Session Thread Events
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
@@ -23686,7 +24542,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -23734,13 +24590,13 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
@@ -23758,7 +24614,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -23778,13 +24634,13 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `agent: BetaManagedAgentsSessionAgent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `type: :agent`
 
@@ -23810,73 +24666,75 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will power your agent.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-sonnet-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              High-performance model for coding and agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-fable-5"`
 
-            - `:"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-5"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -23914,7 +24772,7 @@ List Session Thread Events
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -23922,7 +24780,7 @@ List Session Thread Events
 
       - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `type: :coordinator`
 
@@ -24378,13 +25236,13 @@ List Session Thread Events
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `type: :limit`
 
       - `max_list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `amount: String`
 
@@ -24426,7 +25284,7 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
@@ -24442,13 +25300,13 @@ List Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `active_seconds: Float`
 
@@ -24458,7 +25316,7 @@ List Session Thread Events
 
       - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens: Integer`
 
@@ -24486,7 +25344,7 @@ List Session Thread Events
 
       - `list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `output_tokens: Integer`
 
@@ -24496,7 +25354,7 @@ List Session Thread Events
 
       - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `web_fetch_requests: Integer`
 
@@ -24512,7 +25370,7 @@ List Session Thread Events
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -24578,103 +25436,113 @@ Stream Session Thread Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
+- `type BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
 
   Server-sent event in a single thread's stream.
 
@@ -24712,7 +25580,7 @@ Stream Session Thread Events
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -24764,7 +25632,7 @@ Stream Session Thread Events
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -24840,7 +25708,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
@@ -24856,7 +25724,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -24876,7 +25744,7 @@ Stream Session Thread Events
 
     - `result: :allow | :deny`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `:allow`
 
@@ -24894,13 +25762,13 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -24940,7 +25808,7 @@ Stream Session Thread Events
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: bool`
 
@@ -24976,13 +25844,13 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsAgentCustomToolUseEvent`
 
@@ -25004,13 +25872,13 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMessageEvent`
 
@@ -25036,7 +25904,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
@@ -25052,7 +25920,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
@@ -25080,13 +25948,13 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `:allow`
 
@@ -25096,7 +25964,7 @@ Stream Session Thread Events
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
@@ -25118,7 +25986,7 @@ Stream Session Thread Events
 
         - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
           - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
@@ -25152,7 +26020,7 @@ Stream Session Thread Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
@@ -25170,7 +26038,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -25218,27 +26086,21 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
+      The evaluated permission policy for this tool invocation.
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentToolResultEvent`
 
@@ -25252,7 +26114,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -25320,7 +26182,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -25360,7 +26222,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -25384,7 +26246,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
@@ -25398,9 +26260,7 @@ Stream Session Thread Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
       - `class BetaManagedAgentsUnknownError`
 
@@ -25414,7 +26274,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -25446,7 +26306,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -25472,7 +26332,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -25498,7 +26358,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -25528,7 +26388,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -25558,7 +26418,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -25584,7 +26444,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -25614,7 +26474,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -25632,9 +26492,159 @@ Stream Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `class BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: :repository_authentication_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: :repository_forbidden_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: :repository_not_found_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: :repository_checkout_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `class BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: :repository_clone_error`
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `repository_url: String`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
@@ -25650,7 +26660,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -25666,7 +26676,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -25682,13 +26692,35 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `type: :refusal`
+
+      - `category: :cyber | :bio | :frontier_llm | 2 more`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `:cyber`
+
+        - `:bio`
+
+        - `:frontier_llm`
+
+        - `:reasoning_extraction`
+
+        - `:general_harms`
+
+      - `explanation: String`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `class BetaManagedAgentsSessionEndTurn`
 
@@ -25718,6 +26750,12 @@ Stream Session Thread Events
 
         - `type: :budget_reached`
 
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: :refusal`
+
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
@@ -25730,7 +26768,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -25750,7 +26788,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -25780,7 +26818,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
@@ -25814,7 +26852,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -25824,7 +26862,7 @@ Stream Session Thread Events
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `cache_creation_input_tokens: Integer`
 
@@ -25852,7 +26890,7 @@ Stream Session Thread Events
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `:standard`
 
@@ -25870,7 +26908,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
@@ -25894,11 +26932,11 @@ Stream Session Thread Events
 
     - `model_usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
@@ -25924,7 +26962,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
@@ -25954,13 +26992,13 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
       - `class BetaManagedAgentsFileRubric`
 
@@ -25994,7 +27032,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
@@ -26014,7 +27052,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -26038,7 +27076,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -26046,9 +27084,11 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
 
       - `class BetaManagedAgentsSessionEndTurn`
 
@@ -26066,6 +27106,10 @@ Stream Session Thread Events
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
+      - `class BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
@@ -26082,7 +27126,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -26130,13 +27174,13 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
@@ -26154,7 +27198,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -26174,13 +27218,13 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `agent: BetaManagedAgentsSessionAgent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `type: :agent`
 
@@ -26206,73 +27250,75 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will power your agent.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-sonnet-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              High-performance model for coding and agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-fable-5"`
 
-            - `:"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-5"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `String = String`
 
         - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -26310,7 +27356,7 @@ Stream Session Thread Events
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -26318,7 +27364,7 @@ Stream Session Thread Events
 
       - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `type: :coordinator`
 
@@ -26774,13 +27820,13 @@ Stream Session Thread Events
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `type: :limit`
 
       - `max_list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `amount: String`
 
@@ -26838,13 +27884,11 @@ Stream Session Thread Events
 
       - `content: BetaManagedAgentsTextBlock`
 
-        Regular text content.
+        A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
 
       - `index: Integer`
 
         Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-        format: uint32
 
     - `event_id: String`
 
@@ -26874,7 +27918,7 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
@@ -26890,13 +27934,13 @@ Stream Session Thread Events
 
     - `processed_at: Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `active_seconds: Float`
 
@@ -26906,7 +27950,7 @@ Stream Session Thread Events
 
       - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens: Integer`
 
@@ -26934,7 +27978,7 @@ Stream Session Thread Events
 
       - `list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `output_tokens: Integer`
 
@@ -26944,7 +27988,7 @@ Stream Session Thread Events
 
       - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `web_fetch_requests: Integer`
 
@@ -26960,7 +28004,7 @@ Stream Session Thread Events
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 

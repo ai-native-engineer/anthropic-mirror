@@ -19,7 +19,7 @@ Add Session Resource
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--file-id: string`
 
@@ -106,7 +106,7 @@ List Session Resources
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--limit: optional number`
 
@@ -216,7 +216,7 @@ List Session Resources
 
       - `access: optional "read_write" or "read_only"`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `"read_write"`
 
@@ -294,11 +294,11 @@ Get Session Resource
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--resource-id: string`
 
-  Path param: Path parameter resource_id
+  Path param
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -394,7 +394,7 @@ Get Session Resource
 
     - `access: optional "read_write" or "read_only"`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 
@@ -456,11 +456,11 @@ Update Session Resource
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--resource-id: string`
 
-  Path param: Path parameter resource_id
+  Path param
 
 - `--authorization-token: string`
 
@@ -562,7 +562,7 @@ Update Session Resource
 
     - `access: optional "read_write" or "read_only"`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 
@@ -625,11 +625,11 @@ Delete Session Resource
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--resource-id: string`
 
-  Path param: Path parameter resource_id
+  Path param
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -765,7 +765,7 @@ ant beta:sessions:resources delete \
 
   - `access: optional "read_write" or "read_only"`
 
-    Access mode for an attached memory store.
+    Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `"read_write"`
 
@@ -792,8 +792,6 @@ ant beta:sessions:resources delete \
 ### Beta Managed Agents Session Resource
 
 - `beta_managed_agents_session_resource: BetaManagedAgentsGitHubRepositoryResource or BetaManagedAgentsFileResource or BetaManagedAgentsMemoryStoreResource`
-
-  A memory store attached to an agent session.
 
   - `beta_managed_agents_github_repository_resource: object`
 
@@ -873,7 +871,7 @@ ant beta:sessions:resources delete \
 
     - `access: optional "read_write" or "read_only"`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 

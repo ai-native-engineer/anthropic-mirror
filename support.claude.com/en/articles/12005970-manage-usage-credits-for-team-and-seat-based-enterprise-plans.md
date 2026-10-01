@@ -60,7 +60,7 @@ After navigating to **[Organization settings > Usage](https://claude.ai/admin-se
 
 The **Usage and spend limits** section will show the current limit (if any) or **Unlimited**. Clicking on "Adjust limit" opens a modal where you can either input an amount and click "Set spend limit," or click "Set to unlimited" to remove the organization-wide monthly spend limit.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149347604/936ac4eb025d3ef1f00c3b8a26b0/image.png?expires=1789086600&signature=28a77e887b323f7612fc8cdcc3e5f48a78c60c3e13c090d0c0a2d8bb12896a66&req=diEjH8p6modfXfMW1HO4zQHwg6jXniig6DwhVVpk1mAHsUDTUXeAelk93AbW%0AI%2Ff1WSzq2dlD%2FjDf2wE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149347604/936ac4eb025d3ef1f00c3b8a26b0/image.png?expires=1789086600&signature=28a77e887b323f7612fc8cdcc3e5f48a78c60c3e13c090d0c0a2d8bb12896a66&req=diEjH8p6modfXfMW1HO4zQHwg6jXniig6DwhVVpk1mAHsUDTUXeAelk93AbW%0AI%2Ff1WSzq2dlD%2FjDf2wE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149347604/936ac4eb025d3ef1f00c3b8a26b0/image.png?expires=1790856900&signature=1964cc640d24d01c8d1177bc87194c4b9adc6f150a15da25e60ebfaa9c30d80f&req=diEjH8p6modfXfMW1HO4zQHwgqHfkyiv6DwhVVpk1mCowvV%2FsSmOZJ3mFpkQ%0AyU6hOJ5drm7ayCN2%2Fzk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149347604/936ac4eb025d3ef1f00c3b8a26b0/image.png?expires=1790856900&signature=1964cc640d24d01c8d1177bc87194c4b9adc6f150a15da25e60ebfaa9c30d80f&req=diEjH8p6modfXfMW1HO4zQHwgqHfkyiv6DwhVVpk1mCowvV%2FsSmOZJ3mFpkQ%0AyU6hOJ5drm7ayCN2%2Fzk%3D%0A)
 
 Changes to your organization’s overall spend limit go into effect immediately.
 
@@ -68,11 +68,11 @@ Changes to your organization’s overall spend limit go into effect immediately.
 
 Owners and Primary Owners on **seat-based Enterprise plans only** can set spend limits that apply to all users within a specific seat tier.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149351600/c5b979c366ac2738f60ea84e85b3/CleanShot+2026-03-10+at+15_37_41%402x.png?expires=1789086600&signature=1eb894ab2703003d2c04a55cdefd8cf2033625446b587e97b6d1646b31b276f1&req=diEjH8p7nIdfWfMW1HO4zYnqMIyUK3aP0wfO62ivdG8eyVTb%2F0g5O1XKwr5o%0Avu7Jzpgk7rEgzEtXzQs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149351600/c5b979c366ac2738f60ea84e85b3/CleanShot+2026-03-10+at+15_37_41%402x.png?expires=1789086600&signature=1eb894ab2703003d2c04a55cdefd8cf2033625446b587e97b6d1646b31b276f1&req=diEjH8p7nIdfWfMW1HO4zYnqMIyUK3aP0wfO62ivdG8eyVTb%2F0g5O1XKwr5o%0Avu7Jzpgk7rEgzEtXzQs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149351600/c5b979c366ac2738f60ea84e85b3/CleanShot+2026-03-10+at+15_37_41%402x.png?expires=1790856900&signature=09182192f6d55707643f5322df37f8f088fea707ef4fd1353242ae60a36b1c81&req=diEjH8p7nIdfWfMW1HO4zYnqMYWcJnaA0wfO62ivdG9ahhmG%2FQFfLLif6nsf%0A3i8Wa2QbLau%2BT31lcts%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149351600/c5b979c366ac2738f60ea84e85b3/CleanShot+2026-03-10+at+15_37_41%402x.png?expires=1790856900&signature=09182192f6d55707643f5322df37f8f088fea707ef4fd1353242ae60a36b1c81&req=diEjH8p7nIdfWfMW1HO4zYnqMYWcJnaA0wfO62ivdG9ahhmG%2FQFfLLif6nsf%0A3i8Wa2QbLau%2BT31lcts%3D%0A)
 
 Select the "By group" tab to see **Standard seats** and **Premium seats** groups. Click the "..." icon next to the current limit, then "Edit limit." This opens a modal where you can either select "Set dollar amount" and input an amount, or click "Unlimited" to remove the limit for that seat type. Click "Set limit" to save your changes.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149362056/44993661ca2db771fe924d0346f6/image.png?expires=1789086600&signature=2252d59a252a3391a63eb4eebabe94ee2f095f652003ad912cf96582ac4daad4&req=diEjH8p4n4FaX%2FMW1HO4zRzvvIwLeEtAq7nEDCGq9G5UjaySq8jO0F%2BHWmoX%0Azky28o5wSt%2FP9cWzWbI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149362056/44993661ca2db771fe924d0346f6/image.png?expires=1789086600&signature=2252d59a252a3391a63eb4eebabe94ee2f095f652003ad912cf96582ac4daad4&req=diEjH8p4n4FaX%2FMW1HO4zRzvvIwLeEtAq7nEDCGq9G5UjaySq8jO0F%2BHWmoX%0Azky28o5wSt%2FP9cWzWbI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149362056/44993661ca2db771fe924d0346f6/image.png?expires=1790856900&signature=2df6a9c5a5161f93e2de81aaa0afae820b0b80fbd85d184d70ff43904fe1894b&req=diEjH8p4n4FaX%2FMW1HO4zRzvvYUDdUtPq7nEDCGq9G7rbjioFH4GsF47vK51%0AUpZfyo16WFinPmDJFVc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149362056/44993661ca2db771fe924d0346f6/image.png?expires=1790856900&signature=2df6a9c5a5161f93e2de81aaa0afae820b0b80fbd85d184d70ff43904fe1894b&req=diEjH8p4n4FaX%2FMW1HO4zRzvvYUDdUtPq7nEDCGq9G7rbjioFH4GsF47vK51%0AUpZfyo16WFinPmDJFVc%3D%0A)
 
 ---
 
@@ -80,11 +80,11 @@ Select the "By group" tab to see **Standard seats** and **Premium seats** groups
 
 Owners and Primary Owners can also set individual monthly spend limits for each member by finding **Spend limits by user** and clicking the "..." button next to the user, then "Edit limit."
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149370853/db66f5cd03683b9cc119d0dcd6b8/image.png?expires=1789086600&signature=134d7983d4b047d872459df2b6c6e03daf7f05b6278ef3e8735dd7c29f909606&req=diEjH8p5nYlaWvMW1HO4zaPdGQ5XXSlAe9HwvwG7ubjmzdmtH2jEBTg8q%2Fx1%0A7Wi7pnCmIKycioFEOl4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149370853/db66f5cd03683b9cc119d0dcd6b8/image.png?expires=1789086600&signature=134d7983d4b047d872459df2b6c6e03daf7f05b6278ef3e8735dd7c29f909606&req=diEjH8p5nYlaWvMW1HO4zaPdGQ5XXSlAe9HwvwG7ubjmzdmtH2jEBTg8q%2Fx1%0A7Wi7pnCmIKycioFEOl4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149370853/db66f5cd03683b9cc119d0dcd6b8/image.png?expires=1790856900&signature=6d8e579d821a9a1d827b2f700b8201fc7cbd7e40c9780475448138e079435e19&req=diEjH8p5nYlaWvMW1HO4zaPdGAdfUClPe9HwvwG7ubiUPIhlYHLZkfcYDiav%0AKBqKKkyr%2ByEaHaLybyY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149370853/db66f5cd03683b9cc119d0dcd6b8/image.png?expires=1790856900&signature=6d8e579d821a9a1d827b2f700b8201fc7cbd7e40c9780475448138e079435e19&req=diEjH8p5nYlaWvMW1HO4zaPdGAdfUClPe9HwvwG7ubiUPIhlYHLZkfcYDiav%0AKBqKKkyr%2ByEaHaLybyY%3D%0A)
 
 Enter the amount and click "Set limit." Alternatively, selecting "Set to unlimited" will remove that member's monthly spend limit (they will still be subject to any organization or seat-level spend limits).
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149374028/97813fe3b515c2e839d8d92abd79/image.png?expires=1789086600&signature=ca0493fc9b320ed1d83c929cb3df7992ac539ded3db3a66837a92a70d334fcd3&req=diEjH8p5mYFdUfMW1HO4zevsAv6KO%2B2Mw6z2wGSwkbsWmXCXd%2BEaapa6Jt%2By%0AORUphMZ%2FeOglXPXdrmA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149374028/97813fe3b515c2e839d8d92abd79/image.png?expires=1789086600&signature=ca0493fc9b320ed1d83c929cb3df7992ac539ded3db3a66837a92a70d334fcd3&req=diEjH8p5mYFdUfMW1HO4zevsAv6KO%2B2Mw6z2wGSwkbsWmXCXd%2BEaapa6Jt%2By%0AORUphMZ%2FeOglXPXdrmA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149374028/97813fe3b515c2e839d8d92abd79/image.png?expires=1790856900&signature=d988f2525bf53a51b14a2624bc091c0ddd1acf6eaed6ee04042a667697ef5c2c&req=diEjH8p5mYFdUfMW1HO4zevsA%2FeCNu2Dw6z2wGSwkbtHMzTMc1VW2Ve1racO%0AOSrcN6X3%2FbwIhYbM%2F6E%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149374028/97813fe3b515c2e839d8d92abd79/image.png?expires=1790856900&signature=d988f2525bf53a51b14a2624bc091c0ddd1acf6eaed6ee04042a667697ef5c2c&req=diEjH8p5mYFdUfMW1HO4zevsA%2FeCNu2Dw6z2wGSwkbtHMzTMc1VW2Ve1racO%0AOSrcN6X3%2FbwIhYbM%2F6E%3D%0A)
 
 This allows owners fine control over usage credits, so you can set limits for different members based on their roles or individual needs. Once a user reaches their defined spend limit, this will automatically pause their usage credits until the end of the month. They will need to wait for their usage limits to reset before using Claude again.
 
@@ -134,6 +134,6 @@ Yes, Owners and Primary Owners can choose to disable usage credits entirely, whi
 
 * [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
-* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
+* [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)

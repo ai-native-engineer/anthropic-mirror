@@ -28,6 +28,7 @@ Always connect a dedicated account for Claude (for example, `claude@yourcompany.
 | GitLab | Code | [Connect GitLab](https://claude.com/docs/claude-tag/admins/connections/gitlab) |
 | BigQuery (custom) | Data warehouse | [Connect BigQuery](https://claude.com/docs/claude-tag/admins/connections/bigquery) |
 | Snowflake | Data warehouse | [Connect Snowflake](https://claude.com/docs/claude-tag/admins/connections/snowflake) |
+| Amplitude | Product analytics | [Connect Amplitude](https://claude.com/docs/claude-tag/admins/connections/amplitude) |
 | Stripe | Billing | [Connect Stripe](https://claude.com/docs/claude-tag/admins/connections/stripe) |
 | Vercel | Deployments | [Connect Vercel](https://claude.com/docs/claude-tag/admins/connections/vercel) |
 

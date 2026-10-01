@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Factory is building Droids for software engineering with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Factory logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa863c8a450480170023_Factory_light.svg)![Factory logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa8cfc7e786bb0781067_Factory_dark.svg)
+![Factory logo](https://assets.claude.com/87ed06e3a5284cc3cc54b2e40051da1d15a205af.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 550,000 hours
 
@@ -37,42 +27,6 @@ of development time saved
 20% reduction
 
 in development cycle time
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Factory uses Claude to power autonomous droids that streamline software development for enterprises, saving customers over 500,000 engineering hours and millions of dollars across each step of the software development lifecycle.
 
@@ -106,7 +60,7 @@ Factory's Droids are already making a significant impact for their enterprise cu
 
 One of their key products is the Review Droid, which automates the code review process. When deployed, it analyzes pull requests, provides contextualization, leaves inline comments, and helps other reviewers understand the changes. Another product, the Code Droid, can take a ticket from a project management system like Jira or Linear, work on the task, and create a pull request to implement the requested feature or fix.
 
-![App screen from the Factory platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf052265a78e80bf13e71_f737d54d784cdff5efba233495cb01aa24318ec0-1920x1080.jpeg)
+![App screen from the Factory platform](https://assets.claude.com/077933909d44d5cfe6f52a6e4712131a4a7f1d0d.jpg)
 
 Both of these Droids, which are powered by Claude, dramatically reduce the time engineers spend on routine tasks—enabling engineers to focus on higher-level problem-solving and new opportunities. Factory estimates that across all their customers, they've saved approximately 550,000 hours of development time. On average, each organization saves about 2,300 hours, which translates to a 20% reduction in development cycle time.
 
@@ -116,7 +70,7 @@ Factory's use of Claude goes beyond simple task automation. They're developing s
 
 This focus allows Factory to create AI systems that can handle the immense complexity and variability of real-world software development tasks. Their systems can plan, break down problems into sub-steps, and make decisions at each stage of the process.
 
-![App screen on software development lifecycle](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf052265a78e80bf13e87_3e39cb8e8af6fc486c545c94caeb5cc3889cf5b0-1920x1080.jpeg)
+![App screen on software development lifecycle](https://assets.claude.com/70b2441c8f45439984b4d3294c014fd031a69ed4.jpg)
 
 Factory’s commitment to advancing the state of the art in AI-powered software development is evident in their recent [technical report](https://www.factory.ai/news/code-droid-technical-report), where their Code Droid—which is powered in part by Claude—delivers state of the art performance on software engineering benchmarks.
 
@@ -126,52 +80,12 @@ Factory continues to grow and refine their AI-powered droids. Their plans includ
 
 With their innovative use of LLMs and their focus on solving real-world problems for enterprise customers, Factory is well-positioned to lead the way in bringing true autonomy to software engineering.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

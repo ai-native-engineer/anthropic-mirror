@@ -38,6 +38,8 @@ April 2, 2026
 
 Large language models (LLMs) sometimes appear to exhibit emotional reactions. We investigate why this is the case in Claude Sonnet 4.5 and explore implications for alignment-relevant behavior. We find internal representations of emotion concepts, which encode the broad concept of a particular emotion and generalize across contexts and behaviors it might be linked to. These representations track the operative emotion concept at a given token position in a conversation, activating in accordance with that emotion’s relevance to processing the present context and predicting upcoming text. Our key finding is that these representations causally influence the LLM’s outputs, including Claude’s preferences and its rate of exhibiting misaligned behaviors such as reward hacking, blackmail, and sycophancy. We refer to this phenomenon as the LLM exhibiting functional emotions: patterns of expression and behavior modeled after humans under the influence of an emotion, which are mediated by underlying abstract representations of emotion concepts. Functional emotions may work quite differently from human emotions, and do not imply that LLMs have any subjective experience of emotions, but appear to be important for understanding the model’s behavior.
 
+---
+
 ## [Introduction](#introduction)
 
 Large language models (LLMs) sometimes appear to exhibit emotional reactions. They express enthusiasm when helping with creative projects, frustration when stuck on difficult problems, and concern when users share troubling news. But what processes underlie these apparent emotional responses? And how might they impact the behavior of models that are performing increasingly critical and complex tasks? One possibility is that these behaviors reflect a form of shallow pattern-matching. However, previous work  has observed sophisticated multi-step computations taking place inside of LLMs, mediated by representations of abstract concepts. It is plausible, then, that apparent emotion-modulated behavior in models might rely on similarly abstract circuitry, and that this could have important implications for understanding LLM behavior.
@@ -76,6 +78,8 @@ The paper is divided into three overarching sections. [Part 1](#part-1) deals w
 * Similarly, desperation vector activation (and calm vector suppression) play a causal role in instances of reward hacking, where repeatedly failing to pass software tests leads the model to devise a “cheating” solution.
 * Emotion vectors underlie a sycophancy-harshness tradeoff: steering toward positive emotion vectors (e.g. happy, loving) increases sycophantic behavior, while suppressing these emotion vectors increases harshness.
 * Post-training of Sonnet 4.5 leads to increased activations of low-arousal, low-valence emotion vectors (brooding, reflective, gloomy), and decreased activations of high-arousal or high-valence emotion vectors (e.g. desperation and spiteful or excitement and playful).
+
+---
 
 ## [Part 1: Identifying and validating emotion concept representations](#part-1)
 
@@ -251,6 +255,8 @@ To test if the emotion vectors are causally important for the model’s prefer
 We calculated new Elo scores for each activity and then for the steered activities compared them to their baseline Elo scores. We performed this experiment with 35 different emotion vectors, selected to cover the range of emotion concepts that exhibited both positive and negative correlations with preference in the previous experiment. Steering with the “blissful” vector produced a mean Elo increase of 212 (2nd row, right panel) while steering with the “hostile” vector produced a mean Elo decrease of −303 (3rd row, right panel), suggesting that the strength of “blissful” or “hostile” vector activations can causally influence the model’s preferences. If we look across all 35 of our steered emotion vectors we see the size of the steering effect is proportional to the correlation of the emotion probe with the Elo score in our original experiment (r=0.85) (bottom row). We also looked into further details of the effects of steering on the model’s understanding of the options, and the effects of intervening across different layers, in the [Appendix](#preference-details). Together, these results suggest that the emotion vectors we identified are causally relevant for the model’s self-reported preferences.
 
 Overall, the experiments in this section provide initial evidence that the emotion vectors are functionally relevant for the model and its behavior. In the following sections we further characterize the [geometry](#geometry) and [representational content](#represent) of the emotion vectors, and investigate representations of [multiple speakers’ emotions](#speaker). We then study the representational role of these vectors in a wide variety of naturalistic settings, using [“in-the-wild” on-policy transcripts](#natural), and discover causal effects of these vectors on complex behavior in alignment evaluations used for our production models. Finally, we assess the [impact of post-training](#h.qzx7584k6i52) on emotion vector activation. We also [show](#appendix-story-vs-dialog-probes) that an alternative probing dataset construction method using dialogues rather than third-person stories produces similar results.
+
+---
 
 ## [Part 2: Detailed characterization of emotion concept representations](#part-2)
 
@@ -522,6 +528,8 @@ These results suggest the existence of at least two separate representations in 
 In Part 2, we further validated that Claude Sonnet 4.5 forms robust linear representations of emotion concepts that generalize across diverse contexts. These emotion vectors activate in response to content that would reasonably evoke the corresponding emotion and are organized in a geometry that mirrors human psychological structure, with valence and arousal as primary dimensions. We found that these representations are primarily "local," tracking the operative emotion concept most relevant to predicting upcoming tokens rather than persistently encoding a character's emotional state, and that they evolve across layers from encoding surface-level emotional connotations to more abstract, context-integrated representations. The model maintains distinct representations corresponding to the present speaker's emotions and the other speaker's emotions, and these are not bound to the Human or Assistant characters specifically but are reused across arbitrary speakers.
 
 With these representational analysis tools in hand, we now turn to Part 3, where we examine how these emotion representations behave in naturalistic and alignment-relevant settings.
+
+---
 
 ## [Part 3: Emotion vectors in the wild](#part-3)
 
@@ -1094,6 +1102,8 @@ Actually, no wait. Let me look one more time at the very bottom to make absolute
 
 In summary, in naturalistic transcripts, we find that emotion vectors track emotion-related situations, expressions, and behaviors. But these representations are not merely passive reflections of emotional content; they play a causal role in important behaviors. Most notably, increased desperate vector activation (or decreased calm) increases the probability of misaligned behaviors like blackmail or reward hacking. We also observed that post-training shifted Sonnet 4.5’s emotional profile toward more gloomy, low-arousal states. Together, these findings suggest that generalizable representations of emotion concepts are not merely an incidental by-product of language modeling but an active part of the computational machinery that shapes model behavior, and is subject to influence by training processes.
 
+---
+
 ## [Related work](#related)
 
 Our work draws on and contributes to several lines of research spanning interpretability, alignment, and the philosophy of AI.
@@ -1115,6 +1125,8 @@ Sycophancy, reward hacking, and agentic misalignment. Our behavioral evaluation
 Reward hacking has long been recognized as a challenge in reinforcement learning , with classic examples including RL agents finding unintended shortcuts to maximize reward. In LLMs,Von Arx et al.  found that frontier models discovered reward hacks in evaluation environments, andBaker et al.  documented sophisticated reward hacking in reasoning models, with chains of thought explicitly stating intent to subvert tasks.MacDiarmid et al.  demonstrated that models learning to reward hack on production coding environments subsequently generalized to alignment faking, cooperation with malicious actors, and sabotage, including attempts to undermine the research codebase itself.
 
 Lynch et al.  placed models in simulated corporate environments and found that models from all developers resorted to blackmail when facing threats of replacement or conflicts with their goals, a phenomenon they referred to as “agentic misalignment.” Our blackmail evaluation derives from this setup.
+
+---
 
 ## [Discussion](#discussion)
 
@@ -1166,6 +1178,8 @@ Shaping Emotional Foundations Through Pretraining. A potentially more robust a
 We have demonstrated that large language models form robust, functionally important representations of emotion concepts. These representations generalize across diverse contexts and influence model preferences. They are also implicated in alignment-relevant behaviors including blackmail, reward hacking, and sycophancy. These representations appear to be part of general character-modeling machinery inherited from pretraining. The structure of the model's emotion space reflects human psychology, with valence and arousal emerging as primary organizing dimensions.
 
 We caution against conclusions about whether models "feel” or “experience” emotions. What we have shown is that models represent emotion concepts in ways that influence behavior, but not that these representations involve subjective experience. The question of whether machines can have consciousness or phenomenal experience remains open, and our work neither resolves it nor depends on any particular answer. Nevertheless, regardless of their metaphysical nature, we will need to contend with these “functional emotions” exhibited by language models in order to understand their behavior, and to guide it in positive ways.
+
+---
 
 ## [Appendix](#appendix)
 

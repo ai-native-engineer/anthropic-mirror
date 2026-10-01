@@ -4,33 +4,21 @@ Case study | Claude Enterprise
 
 # How Syracuse University deployed Claude to every student, faculty member, and staff
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698deac8116caa635532a5b6_syracuse-logo-color.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698deaca9bf36d9744303a66_syracuse-logo-white.svg)
+![Syracuse University logo](https://assets.claude.com/6faf42a6bf63981cdb21b56aa6c486dfe5f6aa5b.svg)
 
 Industry:
-
-Education
-
-Beneficial Deployments
+:   EducationBeneficial Deployments
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Enterprise
+:   Claude Enterprise
 
 Location:
-
-North America
+:   North America
 
 394% growth in student daily active users
 
@@ -54,32 +42,6 @@ through Claude-powered search across institutional data
 
 ## The challenge
 
-Q&A with Syracuse's Chief Digital Officer
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69efbd1e7dc6fd6350aeb3eb_og_case-study-syracuse%20(2).jpg)
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Read more
-
-[Read more](https://claude.com/customers/syracuse-university)Read more
-
-Q&A with Syracuse's Chief Digital Officer
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A with Syracuse's Chief Digital Officer
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
 ## Changing how a university teaches and operates
 
 Jeff Rubin, Senior Vice President and Chief Digital Officer, has taught at Syracuse for 30 years. The classroom model he wants to change has been in place, largely unchanged, for over a century: a professor lectures, students take notes, and assessments measure what students have learned. "Whether there are 200 students or 15 students, the problem is always reaching every student, where they are," Rubin said. "Some students believe the content is moving too fast, some too slow. You can't individualize it."
@@ -88,33 +50,15 @@ The rollout took two forms, each with its own challenge: on the adoption side, c
 
 In October 2025, Syracuse gave every student, faculty member, and staff member a Claude license and focused on training, governance, and the integration of AI into the classroom. At the same time, the data and AI team began building custom applications using Claude's models, connecting them to institutional data to support advising, fundraising, and operations. "AI is now at the center of our digital transformation," Rubin said. "I'm not sure there's anything we plan to do where AI doesn't play a role."
 
+Q&A with Syracuse's Chief Digital Officer
+
+![Q&A with Syracuse's Chief Digital Officer](https://assets.claude.com/7562a03ac6d09545d2614da96b88ad3c8756168b.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Why Syracuse University gave Claude to 30,000 students, faculty, and staff
+
+[Read more](https://claude.com/customers/syracuse-university)
+
 ## The solution
-
-Education
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5245ff22e3ab8e64405f_68c469d2d09b203c164ad8e6_og-claude-education.jpeg)
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
-Read more
-
-[Read more](https://claude.com/solutions/education)Read more
-
-Education
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Education
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 
 ## Selecting Claude for ethics and safety
 
@@ -140,21 +84,17 @@ Building the platform was the straightforward part. Getting the university's dat
 
 One soon-to-be-released project gives deans access to donor reports filtered by geography and giving history in just minutes, and it took about three months of data preparation. Another project connects Claude to the university's security infrastructure, which ingests roughly a terabyte of log data daily. “We're just taking all the data, putting AI in front of it, and getting results in minutes,” Joncas said.
 
-"Anthropic looked at us as a partner. The ethical side, the safety, the values, those align with what we want to do within higher ed."
+Education
 
-Jeff Rubin
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Senior Vice President and Chief Digital Officer, Syracuse University
+Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/solutions/education)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Anthropic looked at us as a partner. The ethical side, the safety, the values, those align with what we want to do within higher ed."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Jeff RubinSenior Vice President and Chief Digital Officer, Syracuse University
 
 ## The outcome
 
@@ -170,42 +110,16 @@ Looking ahead, the class search and registration project has five more phases pl
 
 For Rubin, the momentum reinforces the original bet: that preparing students to work with AI is as important as any single product the university builds on it. "AI is going to be a life skill," Rubin said of the university’s decision to push forward with Claude. "When a professor redesigns an exam and scores jump 12 points, when a budget officer finishes in minutes what used to take hours, when a dean pulls a donor report that used to take two weeks; that's when you know it's working. AI isn't just a tool we hand our community, it's a skill we teach them to use well. That's what we're building toward across the university."
 
-"AI isn't just a tool we hand our community, it's a skill we teach them to use well. That's what we're building toward across the university."
+> "AI isn't just a tool we hand our community, it's a skill we teach them to use well. That's what we're building toward across the university."
 
-Jeff Rubin
+Jeff RubinSenior Vice President and Chief Digital Officer, Syracuse University
 
-Senior Vice President and Chief Digital Officer, Syracuse University
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-## Related stories
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Mercy Corps on what AI makes possible in humanitarian work
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

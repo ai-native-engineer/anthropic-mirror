@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://developers.luminpdf.com/docs/mcp/connect/)[Support (opens in new tab)](https://luminpdf.com)
+More[Documentation (opens in new tab)](https://developers.luminpdf.com/docs/mcp/connect/)[Support (opens in new tab)](https://luminpdf.com)[Privacy policy (opens in new tab)](https://www.luminpdf.com/privacy-policy/)
 
 This extension empowers developers to build smarter, more automated document workflows. Access user profiles, browse workspaces, and manage signature requests from start to finish—sending, retrieving, or canceling with ease. Upload documents on demand and convert Markdown into high-quality PDFs in seconds. Designed for seamless integration, these tools reduce friction and simplify how files, signatures, and collaboration flow through any Model Context Protocol–powered system.
 

@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # Augment unlocks complex codebases with Claude on Google Cloud
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Augment Code logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8066e04cba3dd0a8dde_augment%20code_light.svg)![Augment Code logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a80a8b51472408dce9b3_augment%20code_dark.svg)
+![Augment Code logo](https://assets.claude.com/7c991eec0ef2ebdbb312e3a55072965c105f343e.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-Google
+:   Google
 
 Location:
-
-North America
+:   North America
 
 4-8 months to 2 weeks
 
@@ -41,42 +30,6 @@ project timeline acceleration
 Weeks to 1-2 days
 
 developer onboarding acceleration
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Augment Code uses Claude on Google Cloud to transform how developers understand and work with sophisticated codebases. It gives enterprises an AI expert that understands their software systems and helps teams navigate code confidently.
 
@@ -127,52 +80,12 @@ Augment envisions a future where AI transforms software development by elevating
 
 Augment is a leader for this transformation in software development through their partnership with Anthropic and Google Cloud. "We're pushing the state of the art on AI capabilities," said Ostrovsky. "We're building agents that can accomplish larger tasks independently while gaining deeper understanding of organizational knowledge and data." By making their platform available to all developers while maintaining enterprise-grade security, Augment aims to give every software team the power to work at the speed and scale previously possible only at the world's largest tech companies.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

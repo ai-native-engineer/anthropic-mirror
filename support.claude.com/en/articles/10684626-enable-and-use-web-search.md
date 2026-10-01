@@ -2,6 +2,8 @@
 
 You can have Claude search the internet to provide you with up-to-date information and insights when using the following models:
 
+* Sonnet 5.5
+* Opus 5.5
 * Fable 5.1
 * Opus 5
 * Sonnet 5
@@ -19,6 +21,8 @@ Web search expands Claude's knowledge with real-time data, helping you make bett
 An Owner or Primary Owner must first enable web search for the entire workspace in **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**.
 
 Once this is enabled at the workspace level, any member of the organization can switch it on while starting a chat by clicking the “+” button in the lower left corner of the chat window and selecting “Web search." Users can toggle this off for chats that don’t require web search capabilities.
+
+**Note:** If you have the new Claude experience, there's no web search toggle. Claude searches the web when it helps.
 
 ## Enable web search in a chat
 
@@ -109,8 +113,8 @@ You can re-enable it anytime you need current information.
 * For web search questions or support, please visit our **[Online Safety Contacts](https://support.claude.com/en/articles/11174660-online-safety-contacts)** page.
 * For content removal requests, please visit our **[Report, block, and remove content from Claude](https://support.claude.com/en/articles/10684638)** page.
 
-* [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
-* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)
+* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
+* [Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)

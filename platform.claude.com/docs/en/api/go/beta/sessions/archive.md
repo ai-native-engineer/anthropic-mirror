@@ -23,99 +23,103 @@ Archive Session
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -125,7 +129,7 @@ Archive Session
 
 ## Returns
 
-- `type BetaManagedAgentsSession struct{…}`
+- `type BetaManagedAgentsSession`
 
   A Managed Agents `session`.
 
@@ -161,99 +165,99 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `type BetaManagedAgentsModel string`
+        - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
-          - `const BetaManagedAgentsModelClaudeFable5_1 BetaManagedAgentsModel = "claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `const BetaManagedAgentsModelClaudeFable5_1 BetaManagedAgentsModel = "claude-fable-5-1"`
 
-          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
-          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
 
-          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
-          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
 
-          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
 
-          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
-          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
-        - `string`
+          High-performance model for agents and coding
 
       - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
-        - `type BetaManagedAgentsEffortLow struct{…}`
+        - `type BetaManagedAgentsEffortLow`
 
           Low effort. Favors latency over reasoning depth.
 
           - `Type BetaManagedAgentsEffortLowType`
 
-        - `type BetaManagedAgentsEffortMedium struct{…}`
+        - `type BetaManagedAgentsEffortMedium`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `Type BetaManagedAgentsEffortMediumType`
 
-        - `type BetaManagedAgentsEffortHigh struct{…}`
+        - `type BetaManagedAgentsEffortHigh`
 
           High effort. Favors reasoning depth.
 
           - `Type BetaManagedAgentsEffortHighType`
 
-        - `type BetaManagedAgentsEffortXhigh struct{…}`
+        - `type BetaManagedAgentsEffortXhigh`
 
           Extra-high effort. Not all models accept this level.
 
           - `Type BetaManagedAgentsEffortXhighType`
 
-        - `type BetaManagedAgentsEffortMax struct{…}`
+        - `type BetaManagedAgentsEffortMax`
 
           Maximum effort. Favors reasoning depth over latency.
 
@@ -265,7 +269,7 @@ Archive Session
 
       - `Speed BetaManagedAgentsModelConfigSpeed Optional`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
 
@@ -273,7 +277,7 @@ Archive Session
 
     - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
 
@@ -281,7 +285,7 @@ Archive Session
 
         Full `agent` definitions the coordinator may spawn as session threads.
 
-        - `type BetaManagedAgentsSessionThreadAgent struct{…}`
+        - `type BetaManagedAgentsSessionThreadAgent`
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
@@ -307,7 +311,7 @@ Archive Session
 
           - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
 
-            - `type BetaManagedAgentsAnthropicSkill struct{…}`
+            - `type BetaManagedAgentsAnthropicSkill`
 
               A resolved Anthropic-managed skill.
 
@@ -317,7 +321,7 @@ Archive Session
 
               - `Version string`
 
-            - `type BetaManagedAgentsCustomSkill struct{…}`
+            - `type BetaManagedAgentsCustomSkill`
 
               A resolved user-created custom skill.
 
@@ -331,13 +335,13 @@ Archive Session
 
           - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
 
-            - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
+            - `type BetaManagedAgentsAgentToolset20260401`
 
               - `Type BetaManagedAgentsAgentToolset20260401Type`
 
               - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
-                - `type BetaManagedAgentsBashToolConfig struct{…}`
+                - `type BetaManagedAgentsBashToolConfig`
 
                   Configuration for the bash tool.
 
@@ -351,25 +355,25 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
                       - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
                       - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                       - `Type Auto`
 
-                - `type BetaManagedAgentsEditToolConfig struct{…}`
+                - `type BetaManagedAgentsEditToolConfig`
 
                   Configuration for the edit tool.
 
@@ -383,19 +387,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `type BetaManagedAgentsReadToolConfig struct{…}`
+                - `type BetaManagedAgentsReadToolConfig`
 
                   Configuration for the read tool.
 
@@ -409,19 +413,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `type BetaManagedAgentsWriteToolConfig struct{…}`
+                - `type BetaManagedAgentsWriteToolConfig`
 
                   Configuration for the write tool.
 
@@ -435,19 +439,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `type BetaManagedAgentsGlobToolConfig struct{…}`
+                - `type BetaManagedAgentsGlobToolConfig`
 
                   Configuration for the glob tool.
 
@@ -461,19 +465,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `type BetaManagedAgentsGrepToolConfig struct{…}`
+                - `type BetaManagedAgentsGrepToolConfig`
 
                   Configuration for the grep tool.
 
@@ -487,19 +491,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
+                - `type BetaManagedAgentsWebFetchToolConfig`
 
                   Configuration for the web_fetch tool.
 
@@ -513,15 +517,15 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -533,7 +537,7 @@ Archive Session
 
                     format: int32
 
-                - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
+                - `type BetaManagedAgentsWebSearchToolConfig`
 
                   Configuration for the web_search tool.
 
@@ -547,15 +551,15 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -603,19 +607,19 @@ Archive Session
 
                   Permission policy for tool execution.
 
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                  - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
 
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                  - `type BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
 
-                  - `type BetaManagedAgentsAutoPolicy struct{…}`
+                  - `type BetaManagedAgentsAutoPolicy`
 
                     The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-            - `type BetaManagedAgentsMCPToolset struct{…}`
+            - `type BetaManagedAgentsMCPToolset`
 
               - `Type BetaManagedAgentsMCPToolsetType`
 
@@ -629,15 +633,15 @@ Archive Session
 
                   Permission policy for tool execution.
 
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                  - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
 
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                  - `type BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
 
-                  - `type BetaManagedAgentsAutoPolicy struct{…}`
+                  - `type BetaManagedAgentsAutoPolicy`
 
                     The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -651,21 +655,21 @@ Archive Session
 
                   Permission policy for tool execution.
 
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                  - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
 
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                  - `type BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
 
-                  - `type BetaManagedAgentsAutoPolicy struct{…}`
+                  - `type BetaManagedAgentsAutoPolicy`
 
                     The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `MCPServerName string`
 
-            - `type BetaManagedAgentsCustomTool struct{…}`
+            - `type BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
 
@@ -689,7 +693,7 @@ Archive Session
 
             format: int32
 
-        - `type BetaManagedAgentsAdvisor struct{…}`
+        - `type BetaManagedAgentsAdvisor`
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -703,11 +707,11 @@ Archive Session
 
     - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
 
-      - `type BetaManagedAgentsAnthropicSkill struct{…}`
+      - `type BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
 
-      - `type BetaManagedAgentsCustomSkill struct{…}`
+      - `type BetaManagedAgentsCustomSkill`
 
         A resolved user-created custom skill.
 
@@ -715,11 +719,11 @@ Archive Session
 
     - `Tools []BetaManagedAgentsSessionAgentToolUnion`
 
-      - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
+      - `type BetaManagedAgentsAgentToolset20260401`
 
-      - `type BetaManagedAgentsMCPToolset struct{…}`
+      - `type BetaManagedAgentsMCPToolset`
 
-      - `type BetaManagedAgentsCustomTool struct{…}`
+      - `type BetaManagedAgentsCustomTool`
 
         A custom tool as returned in API responses.
 
@@ -729,19 +733,19 @@ Archive Session
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `Budget BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `Type BetaManagedAgentsBudgetLimitType`
 
     - `MaxListCost BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `Amount string`
 
@@ -769,7 +773,7 @@ Archive Session
 
     - `CompletedAt Time`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -797,7 +801,7 @@ Archive Session
 
   - `Resources []BetaManagedAgentsSessionResourceUnion`
 
-    - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
+    - `type BetaManagedAgentsGitHubRepositoryResource`
 
       - `Type BetaManagedAgentsGitHubRepositoryResourceType`
 
@@ -821,7 +825,7 @@ Archive Session
 
       - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion Optional`
 
-        - `type BetaManagedAgentsBranchCheckout struct{…}`
+        - `type BetaManagedAgentsBranchCheckout`
 
           - `Type BetaManagedAgentsBranchCheckoutType`
 
@@ -831,7 +835,7 @@ Archive Session
 
             minLength: 1, maxLength: 255
 
-        - `type BetaManagedAgentsCommitCheckout struct{…}`
+        - `type BetaManagedAgentsCommitCheckout`
 
           - `Type BetaManagedAgentsCommitCheckoutType`
 
@@ -841,7 +845,7 @@ Archive Session
 
             minLength: 7, maxLength: 64
 
-    - `type BetaManagedAgentsFileResource struct{…}`
+    - `type BetaManagedAgentsFileResource`
 
       - `Type BetaManagedAgentsFileResourceType`
 
@@ -863,7 +867,7 @@ Archive Session
 
         format: date-time
 
-    - `type BetaManagedAgentsMemoryStoreResource struct{…}`
+    - `type BetaManagedAgentsMemoryStoreResource`
 
       A memory store attached to an agent session.
 
@@ -875,7 +879,7 @@ Archive Session
 
       - `Access BetaManagedAgentsMemoryStoreResourceAccess Optional`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
 
@@ -901,7 +905,7 @@ Archive Session
 
   - `Stats BetaManagedAgentsSessionStats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `ActiveSeconds float64 Optional`
 
@@ -917,15 +921,21 @@ Archive Session
 
   - `Status BetaManagedAgentsSessionStatus`
 
-    SessionStatus enum
-
     - `const BetaManagedAgentsSessionStatusRescheduling BetaManagedAgentsSessionStatus = "rescheduling"`
+
+      Transient error occurred, retrying automatically.
 
     - `const BetaManagedAgentsSessionStatusRunning BetaManagedAgentsSessionStatus = "running"`
 
+      Agent is actively executing.
+
     - `const BetaManagedAgentsSessionStatusIdle BetaManagedAgentsSessionStatus = "idle"`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `const BetaManagedAgentsSessionStatusTerminated BetaManagedAgentsSessionStatus = "terminated"`
+
+      Session has ended, either due to an error or completion.
 
   - `Title string`
 
@@ -937,7 +947,7 @@ Archive Session
 
   - `Usage BetaManagedAgentsSessionUsage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `ActiveSeconds float64 Optional`
 
@@ -947,7 +957,7 @@ Archive Session
 
     - `CacheCreation BetaManagedAgentsCacheCreationUsage Optional`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `Ephemeral1hInputTokens int64 Optional`
 
@@ -975,7 +985,7 @@ Archive Session
 
     - `ListCost BetaMonetaryAmount Optional`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `OutputTokens int64 Optional`
 
@@ -985,7 +995,7 @@ Archive Session
 
     - `ServerToolUse BetaManagedAgentsServerToolUsage Optional`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `WebFetchRequests int64 Optional`
 

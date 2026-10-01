@@ -19,6 +19,8 @@ Update Vault
 
   - `Optional<String> vaultId`
 
+    Unique identifier of the vault to update.
+
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
@@ -113,7 +115,19 @@ Update Vault
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `Optional<String> displayName`
 
@@ -127,7 +141,7 @@ Update Vault
 
 ## Returns
 
-- `class BetaManagedAgentsVault:`
+- `class BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
 
@@ -139,7 +153,7 @@ Update Vault
 
   - `Optional<LocalDateTime> archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 

@@ -19,7 +19,7 @@ Delete a memory store
 
   - `required string memoryStoreID`
 
-    Path parameter memory_store_id
+    ID of the memory store to permanently delete (a `memstore_...` identifier). Required. Deletion cascades to all memories and memory versions in the store and cannot be undone.
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -115,6 +115,14 @@ Delete a memory store
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -123,7 +131,7 @@ Delete a memory store
 
 ## Returns
 
-- `class BetaManagedAgentsDeletedMemoryStore:`
+- `class BetaManagedAgentsDeletedMemoryStore`
 
   Confirmation that a `memory_store` was deleted.
 

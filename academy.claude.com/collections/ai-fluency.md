@@ -8,15 +8,15 @@ Learn what AI is good at, where it breaks down, and how to work with it effectiv
 
 ## Start here
 
-[### AI Fluency: Framework & Foundations
+[### AI Fluency: Framework and foundations
 
 Learn to collaborate with AI effectively, efficiently, ethically, and safely using the 4D framework: Delegation, Description, Discernment, and Diligence.
 
-Course·14 lessons · 1 quiz·4 hr](https://academy.claude.com/courses/ai-fluency-framework-foundations)[### AI Capabilities and Limitations
+Course·14 lessons · 1 quiz·4 hr](https://academy.claude.com/courses/ai-fluency-framework-foundations)[### AI capabilities and limitations
 
 Build an accurate mental model of what large language models can and cannot do: next-token prediction, knowledge, working memory, steerability, and context limits.
 
-Course·13 lessons · 1 quiz·3.5 hr](https://academy.claude.com/courses/ai-capabilities-and-limitations)[### Building Effective Human Agent Teams (Beta)
+Course·13 lessons · 1 quiz·3.5 hr](https://academy.claude.com/courses/ai-capabilities-and-limitations)[### Building effective human-agent teams (beta)
 
 Explore the benefits of moving from single-player to multiplayer AI and learn how to prepare your team for the shift.
 
@@ -102,7 +102,7 @@ Tutorial·10 min](https://academy.claude.com/tutorials/discernment-toolkit)
 
 ### AI Fluency, for your world
 
-[For builders9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-builders)[For creative work8 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-creative-work)[For educators4 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-educators)[For pK–12 educators10 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)[For nonprofits9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits)[For small businesses9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses)[For students5 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-students)
+[For builders9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-builders)[For creative work8 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-creative-work)[For educators4 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-educators)[For pK–12 educators10 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)[For nonprofits9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits)[For small businesses8 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses)[For students5 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-students)
 
 ## Teach and facilitate
 

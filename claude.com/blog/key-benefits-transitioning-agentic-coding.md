@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/key-benefits-transitioning-agentic-coding -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
 # What are the key benefits of transitioning to agentic coding for software development?
@@ -112,7 +114,7 @@ When you're ready to adopt agentic coding, [Claude Code](https://claude.com/prod
 
 Installation takes just minutes and works in your terminal or IDE.
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8066e04cba3dd0a8dde_augment%20code_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a80a8b51472408dce9b3_augment%20code_dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8ba3466f0c993603d7b_6ab2c6e8c7f95095d8c9bba5_startups-wordmark-augment-code-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603d8d_6ab2c6e8bcffe96ca440c809_startups-wordmark-augment-code-dark.svg)
 
 “Claude Sonnet 4.5's intelligence is immediately noticeable—it makes better use of Augment's codebase context, handles longer-horizon tasks, and opens up new agentic possibilities we're actively exploring.”
 
@@ -180,51 +182,51 @@ Explore more product news and best practices for teams building with Claude.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-Aug 20, 2026
-
-### The Claude Code guide for startups
-
-Claude Code
-
-[The Claude Code guide for startups](#)The Claude Code guide for startups
-
-[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
 Aug 21, 2026
 
-### The AI-Native SDLC playbook
+### The AI-native SDLC playbook
 
 Enterprise AI
 
-[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](#)The AI-native SDLC playbook
 
-[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d226ca443e2e05990c00_83d7d2fe412ceb4dfe627f0d5f3d64aff1a3f5db-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Aug 24, 2026
+Sep 24, 2026
 
-### How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+### Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
 Claude Code
 
-[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](#)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](#)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
-[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](https://claude.com/blog/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229a7aa26ac1b6e96c2_a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
 
-Aug 13, 2026
+Sep 23, 2026
 
-### Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+### How to prepare for AI-driven code modernization projects
 
-Agents
+Enterprise AI
 
-[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+[How to prepare for AI-driven code modernization projects](#) How to prepare for AI-driven code modernization projects
 
-[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
+[How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) How to prepare for AI-driven code modernization projects
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 17, 2026
+
+### Projects redesigned: from folder to conversation
+
+Product announcements
+
+[Projects redesigned: from folder to conversation](#)Projects redesigned: from folder to conversation
+
+[Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned)Projects redesigned: from folder to conversation
 
 ## Transform how your organization operates with Claude
 

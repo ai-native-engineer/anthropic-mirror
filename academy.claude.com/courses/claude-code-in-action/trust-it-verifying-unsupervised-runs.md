@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs -->
 
-Lesson 8 of 9 · Claude Code in ActionTrust it: Verifying unsupervised runs
+Lesson 8 of 9 · Claude Code in actionTrust it: Verifying unsupervised runs
 
-3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+3. /[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
-[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
 # Trust it: Verifying unsupervised runs
 
@@ -72,7 +72,7 @@ Do that, and "Claude did it while I wasn't looking" no longer takes faith.
 
 [Previous lessonGitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)[Next lessonPlugins](https://academy.claude.com/courses/claude-code-in-action/plugins)
 
-Lesson 8 of 9 · Claude Code in ActionTrust it: Verifying unsupervised runs
+Lesson 8 of 9 · Claude Code in actionTrust it: Verifying unsupervised runs
 
 Steer the work
 

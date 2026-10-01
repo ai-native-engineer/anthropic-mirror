@@ -22,7 +22,8 @@ picking the right one affects both **quality** and **cost**.
 Anthropic currently offers four model tiers, and you choose between them with the `model` parameter in your API call.
 
 *Note that Claude Fable 5.1 has been generally available since September 1,
-2026, but is not reflected in the video above. Learn more about Claude
+2026, but is not reflected in the video above, and the three-card tier
+graphic below shows the lineup from before Fable 5.1. Learn more about Claude
 Fable 5.1 and Claude Mythos 5.1
 [here(opens in new tab)](https://www.anthropic.com/claude-fable-and-mythos-5-1). The video and
 terminal screenshot in this lesson were recorded with earlier models (Claude
@@ -34,7 +35,7 @@ your latency and token numbers will differ.*
 * **Claude Haiku** is the fastest and lowest cost, optimized for speed and cost efficiency rather than maximum intelligence. Use it for high-volume, low-complexity work like classification, extraction, and routing. The current Haiku model is Claude Haiku 4.5 (`claude-haiku-4-5`).
 * **Claude Sonnet** sits in the sweet spot: a balanced combination of intelligence, speed, and cost that works well for most production work. The current Sonnet model is Claude Sonnet 5 (`claude-sonnet-5`).
 
-![Three cards comparing the Claude model tiers: Haiku (fastest, lowest cost, for classification and routing), Sonnet (capable and fast, for most production work), and Opus (most intelligent, highest cost, for deep reasoning and complex analysis)](https://academy.claude.com/assets/media/ee696666d9ca0b3bb8944eb4764fc2c9c97ec6eec6ad632e462e97459d16f9a2.png)
+![Three cards from before Claude Fable 5.1, comparing three of the four Claude model tiers: Haiku (fastest, lowest cost, for classification and routing), Sonnet (capable and fast, for most production work), and Opus (labeled most intelligent and highest cost, for deep reasoning and complex analysis). The fourth tier, Claude Fable, now sits above Opus in capability and cost and is not shown.](https://academy.claude.com/assets/media/ee696666d9ca0b3bb8944eb4764fc2c9c97ec6eec6ad632e462e97459d16f9a2.png)
 
 ## Start with a simple evaluation[](#start-with-a-simple-evaluation)
 

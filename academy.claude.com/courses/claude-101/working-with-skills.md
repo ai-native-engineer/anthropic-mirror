@@ -55,7 +55,7 @@ The beauty of Skills is that you typically don't need to think about them—Clau
 * “Generate a PDF report summarizing this data”
 * “Build a financial model in Excel with scenario analysis”
 
-When Claude uses a Skill, you'll see it mentioned in Claude's chain of thought as it works. The output will be a downloadable file you can save to your computer or directly to Google Drive.
+When Claude uses a Skill, you'll see it mentioned in Claude's chain of thought as it works. The output will be a downloadable file you can save to your computer or directly to Google Drive. (On paid plans where Claude Slides and Claude Docs are enabled, asking for a deck or a document can create an artifact instead — one you keep working on with Claude, then export when you're done. The "Creating with artifacts" lesson covers how the two differ.)
 
 ## File execution[](#file-execution)
 
@@ -65,7 +65,7 @@ Claude works with you on slides, spreadsheets, and contract redlines
 
 This lesson's video contains no spoken narration (screen demonstration with background audio only).
 
-This same capability means that Claude can work with **your actual files** (within a contained environment) to create updated versions of your files (note: in Chat, Claude creates a new version of the document rather than editing the original in place). Upload slides, spreadsheets, contracts, (or any .xlsx, .pptx, .docx, or .pdf files) and watch as Claude creates slides, performs analyses, and adds suggested edits. When Claude is done, you can download these files or open them in Drive.
+This same capability means that Claude can work with **your actual files** (within a contained environment) to create updated versions of your files (note: when you upload a file in Chat, Claude creates a new version rather than editing your original in place). Upload slides, spreadsheets, contracts, (or any .xlsx, .pptx, .docx, or .pdf files) and watch as Claude creates slides, performs analyses, and adds suggested edits. When Claude is done, you can download these files or open them in Drive.
 
 Note: To use these capabilities you'll need to give Claude access to external data sources. Simply toggle Allow limited network access on when prompted:
 

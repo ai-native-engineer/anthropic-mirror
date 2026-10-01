@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots -->
 
-Lesson 5 of 11 · Model Context Protocol: Advanced TopicsRoots
+Lesson 5 of 11 · Model Context Protocol: Advanced topicsRoots
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # Roots
 
@@ -65,7 +65,7 @@ Roots make MCP servers both more powerful and more secure by giving Claude the c
 
 [Previous lessonNotifications walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/notifications-walkthrough)[Next lessonRoots walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough)
 
-Lesson 5 of 11 · Model Context Protocol: Advanced TopicsRoots
+Lesson 5 of 11 · Model Context Protocol: Advanced topicsRoots
 
 Core MCP features
 

@@ -7,72 +7,11 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
 # Webhooks
 
-## Unwrap
-
-`client.Beta.Webhooks.Unwrap(ctx) error`
-
-Verifies the webhook signature from the `webhook-id`, `webhook-timestamp` and `webhook-signature`
-headers using your webhook signing key, then parses the payload into an event. Fails if the
-signature is missing or invalid.
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	err := client.Beta.Webhooks.Unwrap(context.TODO())
-	if err != nil {
-		panic(err.Error())
-	}
-}
-```
-
-## Parse Unverified
-
-`client.Beta.Webhooks.ParseUnverified(ctx) error`
-
-Parses a webhook payload into an event without verifying its signature. Prefer `unwrap()` unless
-you have already verified the signature yourself.
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	err := client.Beta.Webhooks.ParseUnverified(context.TODO())
-	if err != nil {
-		panic(err.Error())
-	}
-}
-```
-
 ## Domain types
 
 ### Beta Webhook Agent Archived Event Data
 
-- `type BetaWebhookAgentArchivedEventData struct{…}`
+- `type BetaWebhookAgentArchivedEventData`
 
   - `Type AgentArchived`
 
@@ -86,7 +25,7 @@ func main() {
 
 ### Beta Webhook Agent Created Event Data
 
-- `type BetaWebhookAgentCreatedEventData struct{…}`
+- `type BetaWebhookAgentCreatedEventData`
 
   - `Type AgentCreated`
 
@@ -100,7 +39,7 @@ func main() {
 
 ### Beta Webhook Agent Deleted Event Data
 
-- `type BetaWebhookAgentDeletedEventData struct{…}`
+- `type BetaWebhookAgentDeletedEventData`
 
   - `Type AgentDeleted`
 
@@ -114,7 +53,7 @@ func main() {
 
 ### Beta Webhook Agent Updated Event Data
 
-- `type BetaWebhookAgentUpdatedEventData struct{…}`
+- `type BetaWebhookAgentUpdatedEventData`
 
   - `Type AgentUpdated`
 
@@ -128,7 +67,7 @@ func main() {
 
 ### Beta Webhook Deployment Archived Event Data
 
-- `type BetaWebhookDeploymentArchivedEventData struct{…}`
+- `type BetaWebhookDeploymentArchivedEventData`
 
   - `Type DeploymentArchived`
 
@@ -142,7 +81,7 @@ func main() {
 
 ### Beta Webhook Deployment Created Event Data
 
-- `type BetaWebhookDeploymentCreatedEventData struct{…}`
+- `type BetaWebhookDeploymentCreatedEventData`
 
   - `Type DeploymentCreated`
 
@@ -156,7 +95,7 @@ func main() {
 
 ### Beta Webhook Deployment Deleted Event Data
 
-- `type BetaWebhookDeploymentDeletedEventData struct{…}`
+- `type BetaWebhookDeploymentDeletedEventData`
 
   - `Type DeploymentDeleted`
 
@@ -170,7 +109,7 @@ func main() {
 
 ### Beta Webhook Deployment Paused Event Data
 
-- `type BetaWebhookDeploymentPausedEventData struct{…}`
+- `type BetaWebhookDeploymentPausedEventData`
 
   - `Type DeploymentPaused`
 
@@ -184,7 +123,7 @@ func main() {
 
 ### Beta Webhook Deployment Run Failed Event Data
 
-- `type BetaWebhookDeploymentRunFailedEventData struct{…}`
+- `type BetaWebhookDeploymentRunFailedEventData`
 
   - `Type DeploymentRunFailed`
 
@@ -198,7 +137,7 @@ func main() {
 
 ### Beta Webhook Deployment Run Started Event Data
 
-- `type BetaWebhookDeploymentRunStartedEventData struct{…}`
+- `type BetaWebhookDeploymentRunStartedEventData`
 
   - `Type DeploymentRunStarted`
 
@@ -212,7 +151,7 @@ func main() {
 
 ### Beta Webhook Deployment Run Succeeded Event Data
 
-- `type BetaWebhookDeploymentRunSucceededEventData struct{…}`
+- `type BetaWebhookDeploymentRunSucceededEventData`
 
   - `Type DeploymentRunSucceeded`
 
@@ -226,7 +165,7 @@ func main() {
 
 ### Beta Webhook Deployment Unpaused Event Data
 
-- `type BetaWebhookDeploymentUnpausedEventData struct{…}`
+- `type BetaWebhookDeploymentUnpausedEventData`
 
   - `Type DeploymentUnpaused`
 
@@ -240,7 +179,7 @@ func main() {
 
 ### Beta Webhook Deployment Updated Event Data
 
-- `type BetaWebhookDeploymentUpdatedEventData struct{…}`
+- `type BetaWebhookDeploymentUpdatedEventData`
 
   - `Type DeploymentUpdated`
 
@@ -254,7 +193,7 @@ func main() {
 
 ### Beta Webhook Environment Archived Event Data
 
-- `type BetaWebhookEnvironmentArchivedEventData struct{…}`
+- `type BetaWebhookEnvironmentArchivedEventData`
 
   - `Type EnvironmentArchived`
 
@@ -268,7 +207,7 @@ func main() {
 
 ### Beta Webhook Environment Created Event Data
 
-- `type BetaWebhookEnvironmentCreatedEventData struct{…}`
+- `type BetaWebhookEnvironmentCreatedEventData`
 
   - `Type EnvironmentCreated`
 
@@ -282,7 +221,7 @@ func main() {
 
 ### Beta Webhook Environment Deleted Event Data
 
-- `type BetaWebhookEnvironmentDeletedEventData struct{…}`
+- `type BetaWebhookEnvironmentDeletedEventData`
 
   - `Type EnvironmentDeleted`
 
@@ -296,7 +235,7 @@ func main() {
 
 ### Beta Webhook Environment Updated Event Data
 
-- `type BetaWebhookEnvironmentUpdatedEventData struct{…}`
+- `type BetaWebhookEnvironmentUpdatedEventData`
 
   - `Type EnvironmentUpdated`
 
@@ -310,7 +249,7 @@ func main() {
 
 ### Beta Webhook Event
 
-- `type UnwrapWebhookEvent struct{…}`
+- `type UnwrapWebhookEvent`
 
   - `Type Event`
 
@@ -328,7 +267,7 @@ func main() {
 
   - `Data BetaWebhookEventDataUnion`
 
-    - `type BetaWebhookSessionCreatedEventData struct{…}`
+    - `type BetaWebhookSessionCreatedEventData`
 
       - `Type SessionCreated`
 
@@ -340,7 +279,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionPendingEventData struct{…}`
+    - `type BetaWebhookSessionPendingEventData`
 
       - `Type SessionPending`
 
@@ -352,7 +291,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionRunningEventData struct{…}`
+    - `type BetaWebhookSessionRunningEventData`
 
       - `Type SessionRunning`
 
@@ -364,7 +303,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionIdledEventData struct{…}`
+    - `type BetaWebhookSessionIdledEventData`
 
       - `Type SessionIdled`
 
@@ -376,7 +315,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionRequiresActionEventData struct{…}`
+    - `type BetaWebhookSessionRequiresActionEventData`
 
       - `Type SessionRequiresAction`
 
@@ -388,7 +327,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionArchivedEventData struct{…}`
+    - `type BetaWebhookSessionArchivedEventData`
 
       - `Type SessionArchived`
 
@@ -400,7 +339,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionDeletedEventData struct{…}`
+    - `type BetaWebhookSessionDeletedEventData`
 
       - `Type SessionDeleted`
 
@@ -412,7 +351,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionStatusRescheduledEventData struct{…}`
+    - `type BetaWebhookSessionStatusRescheduledEventData`
 
       - `Type SessionStatusRescheduled`
 
@@ -424,7 +363,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionStatusRunStartedEventData struct{…}`
+    - `type BetaWebhookSessionStatusRunStartedEventData`
 
       - `Type SessionStatusRunStarted`
 
@@ -436,7 +375,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionStatusIdledEventData struct{…}`
+    - `type BetaWebhookSessionStatusIdledEventData`
 
       - `Type SessionStatusIdled`
 
@@ -448,7 +387,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionStatusTerminatedEventData struct{…}`
+    - `type BetaWebhookSessionStatusTerminatedEventData`
 
       - `Type SessionStatusTerminated`
 
@@ -460,7 +399,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionThreadCreatedEventData struct{…}`
+    - `type BetaWebhookSessionThreadCreatedEventData`
 
       - `Type SessionThreadCreated`
 
@@ -476,7 +415,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionThreadIdledEventData struct{…}`
+    - `type BetaWebhookSessionThreadIdledEventData`
 
       - `Type SessionThreadIdled`
 
@@ -492,7 +431,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionThreadTerminatedEventData struct{…}`
+    - `type BetaWebhookSessionThreadTerminatedEventData`
 
       - `Type SessionThreadTerminated`
 
@@ -508,7 +447,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionOutcomeEvaluationEndedEventData struct{…}`
+    - `type BetaWebhookSessionOutcomeEvaluationEndedEventData`
 
       - `Type SessionOutcomeEvaluationEnded`
 
@@ -520,7 +459,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookVaultCreatedEventData struct{…}`
+    - `type BetaWebhookVaultCreatedEventData`
 
       - `Type VaultCreated`
 
@@ -532,7 +471,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookVaultArchivedEventData struct{…}`
+    - `type BetaWebhookVaultArchivedEventData`
 
       - `Type VaultArchived`
 
@@ -544,7 +483,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookVaultDeletedEventData struct{…}`
+    - `type BetaWebhookVaultDeletedEventData`
 
       - `Type VaultDeleted`
 
@@ -556,7 +495,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookVaultCredentialCreatedEventData struct{…}`
+    - `type BetaWebhookVaultCredentialCreatedEventData`
 
       - `Type VaultCredentialCreated`
 
@@ -572,7 +511,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookVaultCredentialArchivedEventData struct{…}`
+    - `type BetaWebhookVaultCredentialArchivedEventData`
 
       - `Type VaultCredentialArchived`
 
@@ -588,7 +527,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookVaultCredentialDeletedEventData struct{…}`
+    - `type BetaWebhookVaultCredentialDeletedEventData`
 
       - `Type VaultCredentialDeleted`
 
@@ -604,7 +543,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookVaultCredentialRefreshFailedEventData struct{…}`
+    - `type BetaWebhookVaultCredentialRefreshFailedEventData`
 
       - `Type VaultCredentialRefreshFailed`
 
@@ -620,7 +559,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionUpdatedEventData struct{…}`
+    - `type BetaWebhookSessionUpdatedEventData`
 
       - `Type SessionUpdated`
 
@@ -632,7 +571,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookAgentCreatedEventData struct{…}`
+    - `type BetaWebhookAgentCreatedEventData`
 
       - `Type AgentCreated`
 
@@ -644,7 +583,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookAgentArchivedEventData struct{…}`
+    - `type BetaWebhookAgentArchivedEventData`
 
       - `Type AgentArchived`
 
@@ -656,7 +595,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookAgentDeletedEventData struct{…}`
+    - `type BetaWebhookAgentDeletedEventData`
 
       - `Type AgentDeleted`
 
@@ -668,7 +607,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookDeploymentPausedEventData struct{…}`
+    - `type BetaWebhookDeploymentPausedEventData`
 
       - `Type DeploymentPaused`
 
@@ -680,7 +619,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookDeploymentRunFailedEventData struct{…}`
+    - `type BetaWebhookDeploymentRunFailedEventData`
 
       - `Type DeploymentRunFailed`
 
@@ -692,7 +631,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookDeploymentCreatedEventData struct{…}`
+    - `type BetaWebhookDeploymentCreatedEventData`
 
       - `Type DeploymentCreated`
 
@@ -704,7 +643,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookDeploymentUpdatedEventData struct{…}`
+    - `type BetaWebhookDeploymentUpdatedEventData`
 
       - `Type DeploymentUpdated`
 
@@ -716,7 +655,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookDeploymentUnpausedEventData struct{…}`
+    - `type BetaWebhookDeploymentUnpausedEventData`
 
       - `Type DeploymentUnpaused`
 
@@ -728,7 +667,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookAgentUpdatedEventData struct{…}`
+    - `type BetaWebhookAgentUpdatedEventData`
 
       - `Type AgentUpdated`
 
@@ -740,7 +679,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookDeploymentArchivedEventData struct{…}`
+    - `type BetaWebhookDeploymentArchivedEventData`
 
       - `Type DeploymentArchived`
 
@@ -752,7 +691,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookDeploymentRunStartedEventData struct{…}`
+    - `type BetaWebhookDeploymentRunStartedEventData`
 
       - `Type DeploymentRunStarted`
 
@@ -764,7 +703,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookDeploymentDeletedEventData struct{…}`
+    - `type BetaWebhookDeploymentDeletedEventData`
 
       - `Type DeploymentDeleted`
 
@@ -776,7 +715,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookDeploymentRunSucceededEventData struct{…}`
+    - `type BetaWebhookDeploymentRunSucceededEventData`
 
       - `Type DeploymentRunSucceeded`
 
@@ -788,7 +727,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookEnvironmentCreatedEventData struct{…}`
+    - `type BetaWebhookEnvironmentCreatedEventData`
 
       - `Type EnvironmentCreated`
 
@@ -800,7 +739,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookEnvironmentUpdatedEventData struct{…}`
+    - `type BetaWebhookEnvironmentUpdatedEventData`
 
       - `Type EnvironmentUpdated`
 
@@ -812,7 +751,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookEnvironmentArchivedEventData struct{…}`
+    - `type BetaWebhookEnvironmentArchivedEventData`
 
       - `Type EnvironmentArchived`
 
@@ -824,7 +763,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookEnvironmentDeletedEventData struct{…}`
+    - `type BetaWebhookEnvironmentDeletedEventData`
 
       - `Type EnvironmentDeleted`
 
@@ -836,7 +775,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookMemoryStoreCreatedEventData struct{…}`
+    - `type BetaWebhookMemoryStoreCreatedEventData`
 
       - `Type MemoryStoreCreated`
 
@@ -848,7 +787,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookMemoryStoreArchivedEventData struct{…}`
+    - `type BetaWebhookMemoryStoreArchivedEventData`
 
       - `Type MemoryStoreArchived`
 
@@ -860,7 +799,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookMemoryStoreDeletedEventData struct{…}`
+    - `type BetaWebhookMemoryStoreDeletedEventData`
 
       - `Type MemoryStoreDeleted`
 
@@ -872,7 +811,7 @@ func main() {
 
       - `WorkspaceID string`
 
-    - `type BetaWebhookSessionBudgetReachedEventData struct{…}`
+    - `type BetaWebhookSessionBudgetReachedEventData`
 
       - `Type SessionBudgetReached`
 
@@ -888,7 +827,7 @@ func main() {
 
 - `type BetaWebhookEventDataUnion interface{…}`
 
-  - `type BetaWebhookSessionCreatedEventData struct{…}`
+  - `type BetaWebhookSessionCreatedEventData`
 
     - `Type SessionCreated`
 
@@ -900,7 +839,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionPendingEventData struct{…}`
+  - `type BetaWebhookSessionPendingEventData`
 
     - `Type SessionPending`
 
@@ -912,7 +851,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionRunningEventData struct{…}`
+  - `type BetaWebhookSessionRunningEventData`
 
     - `Type SessionRunning`
 
@@ -924,7 +863,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionIdledEventData struct{…}`
+  - `type BetaWebhookSessionIdledEventData`
 
     - `Type SessionIdled`
 
@@ -936,7 +875,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionRequiresActionEventData struct{…}`
+  - `type BetaWebhookSessionRequiresActionEventData`
 
     - `Type SessionRequiresAction`
 
@@ -948,7 +887,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionArchivedEventData struct{…}`
+  - `type BetaWebhookSessionArchivedEventData`
 
     - `Type SessionArchived`
 
@@ -960,7 +899,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionDeletedEventData struct{…}`
+  - `type BetaWebhookSessionDeletedEventData`
 
     - `Type SessionDeleted`
 
@@ -972,7 +911,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionStatusRescheduledEventData struct{…}`
+  - `type BetaWebhookSessionStatusRescheduledEventData`
 
     - `Type SessionStatusRescheduled`
 
@@ -984,7 +923,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionStatusRunStartedEventData struct{…}`
+  - `type BetaWebhookSessionStatusRunStartedEventData`
 
     - `Type SessionStatusRunStarted`
 
@@ -996,7 +935,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionStatusIdledEventData struct{…}`
+  - `type BetaWebhookSessionStatusIdledEventData`
 
     - `Type SessionStatusIdled`
 
@@ -1008,7 +947,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionStatusTerminatedEventData struct{…}`
+  - `type BetaWebhookSessionStatusTerminatedEventData`
 
     - `Type SessionStatusTerminated`
 
@@ -1020,7 +959,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionThreadCreatedEventData struct{…}`
+  - `type BetaWebhookSessionThreadCreatedEventData`
 
     - `Type SessionThreadCreated`
 
@@ -1036,7 +975,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionThreadIdledEventData struct{…}`
+  - `type BetaWebhookSessionThreadIdledEventData`
 
     - `Type SessionThreadIdled`
 
@@ -1052,7 +991,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionThreadTerminatedEventData struct{…}`
+  - `type BetaWebhookSessionThreadTerminatedEventData`
 
     - `Type SessionThreadTerminated`
 
@@ -1068,7 +1007,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionOutcomeEvaluationEndedEventData struct{…}`
+  - `type BetaWebhookSessionOutcomeEvaluationEndedEventData`
 
     - `Type SessionOutcomeEvaluationEnded`
 
@@ -1080,7 +1019,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookVaultCreatedEventData struct{…}`
+  - `type BetaWebhookVaultCreatedEventData`
 
     - `Type VaultCreated`
 
@@ -1092,7 +1031,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookVaultArchivedEventData struct{…}`
+  - `type BetaWebhookVaultArchivedEventData`
 
     - `Type VaultArchived`
 
@@ -1104,7 +1043,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookVaultDeletedEventData struct{…}`
+  - `type BetaWebhookVaultDeletedEventData`
 
     - `Type VaultDeleted`
 
@@ -1116,7 +1055,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookVaultCredentialCreatedEventData struct{…}`
+  - `type BetaWebhookVaultCredentialCreatedEventData`
 
     - `Type VaultCredentialCreated`
 
@@ -1132,7 +1071,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookVaultCredentialArchivedEventData struct{…}`
+  - `type BetaWebhookVaultCredentialArchivedEventData`
 
     - `Type VaultCredentialArchived`
 
@@ -1148,7 +1087,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookVaultCredentialDeletedEventData struct{…}`
+  - `type BetaWebhookVaultCredentialDeletedEventData`
 
     - `Type VaultCredentialDeleted`
 
@@ -1164,7 +1103,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookVaultCredentialRefreshFailedEventData struct{…}`
+  - `type BetaWebhookVaultCredentialRefreshFailedEventData`
 
     - `Type VaultCredentialRefreshFailed`
 
@@ -1180,7 +1119,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionUpdatedEventData struct{…}`
+  - `type BetaWebhookSessionUpdatedEventData`
 
     - `Type SessionUpdated`
 
@@ -1192,7 +1131,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookAgentCreatedEventData struct{…}`
+  - `type BetaWebhookAgentCreatedEventData`
 
     - `Type AgentCreated`
 
@@ -1204,7 +1143,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookAgentArchivedEventData struct{…}`
+  - `type BetaWebhookAgentArchivedEventData`
 
     - `Type AgentArchived`
 
@@ -1216,7 +1155,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookAgentDeletedEventData struct{…}`
+  - `type BetaWebhookAgentDeletedEventData`
 
     - `Type AgentDeleted`
 
@@ -1228,7 +1167,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookDeploymentPausedEventData struct{…}`
+  - `type BetaWebhookDeploymentPausedEventData`
 
     - `Type DeploymentPaused`
 
@@ -1240,7 +1179,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookDeploymentRunFailedEventData struct{…}`
+  - `type BetaWebhookDeploymentRunFailedEventData`
 
     - `Type DeploymentRunFailed`
 
@@ -1252,7 +1191,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookDeploymentCreatedEventData struct{…}`
+  - `type BetaWebhookDeploymentCreatedEventData`
 
     - `Type DeploymentCreated`
 
@@ -1264,7 +1203,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookDeploymentUpdatedEventData struct{…}`
+  - `type BetaWebhookDeploymentUpdatedEventData`
 
     - `Type DeploymentUpdated`
 
@@ -1276,7 +1215,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookDeploymentUnpausedEventData struct{…}`
+  - `type BetaWebhookDeploymentUnpausedEventData`
 
     - `Type DeploymentUnpaused`
 
@@ -1288,7 +1227,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookAgentUpdatedEventData struct{…}`
+  - `type BetaWebhookAgentUpdatedEventData`
 
     - `Type AgentUpdated`
 
@@ -1300,7 +1239,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookDeploymentArchivedEventData struct{…}`
+  - `type BetaWebhookDeploymentArchivedEventData`
 
     - `Type DeploymentArchived`
 
@@ -1312,7 +1251,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookDeploymentRunStartedEventData struct{…}`
+  - `type BetaWebhookDeploymentRunStartedEventData`
 
     - `Type DeploymentRunStarted`
 
@@ -1324,7 +1263,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookDeploymentDeletedEventData struct{…}`
+  - `type BetaWebhookDeploymentDeletedEventData`
 
     - `Type DeploymentDeleted`
 
@@ -1336,7 +1275,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookDeploymentRunSucceededEventData struct{…}`
+  - `type BetaWebhookDeploymentRunSucceededEventData`
 
     - `Type DeploymentRunSucceeded`
 
@@ -1348,7 +1287,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookEnvironmentCreatedEventData struct{…}`
+  - `type BetaWebhookEnvironmentCreatedEventData`
 
     - `Type EnvironmentCreated`
 
@@ -1360,7 +1299,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookEnvironmentUpdatedEventData struct{…}`
+  - `type BetaWebhookEnvironmentUpdatedEventData`
 
     - `Type EnvironmentUpdated`
 
@@ -1372,7 +1311,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookEnvironmentArchivedEventData struct{…}`
+  - `type BetaWebhookEnvironmentArchivedEventData`
 
     - `Type EnvironmentArchived`
 
@@ -1384,7 +1323,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookEnvironmentDeletedEventData struct{…}`
+  - `type BetaWebhookEnvironmentDeletedEventData`
 
     - `Type EnvironmentDeleted`
 
@@ -1396,7 +1335,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookMemoryStoreCreatedEventData struct{…}`
+  - `type BetaWebhookMemoryStoreCreatedEventData`
 
     - `Type MemoryStoreCreated`
 
@@ -1408,7 +1347,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookMemoryStoreArchivedEventData struct{…}`
+  - `type BetaWebhookMemoryStoreArchivedEventData`
 
     - `Type MemoryStoreArchived`
 
@@ -1420,7 +1359,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookMemoryStoreDeletedEventData struct{…}`
+  - `type BetaWebhookMemoryStoreDeletedEventData`
 
     - `Type MemoryStoreDeleted`
 
@@ -1432,7 +1371,7 @@ func main() {
 
     - `WorkspaceID string`
 
-  - `type BetaWebhookSessionBudgetReachedEventData struct{…}`
+  - `type BetaWebhookSessionBudgetReachedEventData`
 
     - `Type SessionBudgetReached`
 
@@ -1446,7 +1385,7 @@ func main() {
 
 ### Beta Webhook Memory Store Archived Event Data
 
-- `type BetaWebhookMemoryStoreArchivedEventData struct{…}`
+- `type BetaWebhookMemoryStoreArchivedEventData`
 
   - `Type MemoryStoreArchived`
 
@@ -1460,7 +1399,7 @@ func main() {
 
 ### Beta Webhook Memory Store Created Event Data
 
-- `type BetaWebhookMemoryStoreCreatedEventData struct{…}`
+- `type BetaWebhookMemoryStoreCreatedEventData`
 
   - `Type MemoryStoreCreated`
 
@@ -1474,7 +1413,7 @@ func main() {
 
 ### Beta Webhook Memory Store Deleted Event Data
 
-- `type BetaWebhookMemoryStoreDeletedEventData struct{…}`
+- `type BetaWebhookMemoryStoreDeletedEventData`
 
   - `Type MemoryStoreDeleted`
 
@@ -1488,7 +1427,7 @@ func main() {
 
 ### Beta Webhook Session Archived Event Data
 
-- `type BetaWebhookSessionArchivedEventData struct{…}`
+- `type BetaWebhookSessionArchivedEventData`
 
   - `Type SessionArchived`
 
@@ -1502,7 +1441,7 @@ func main() {
 
 ### Beta Webhook Session Budget Reached Event Data
 
-- `type BetaWebhookSessionBudgetReachedEventData struct{…}`
+- `type BetaWebhookSessionBudgetReachedEventData`
 
   - `Type SessionBudgetReached`
 
@@ -1516,7 +1455,7 @@ func main() {
 
 ### Beta Webhook Session Created Event Data
 
-- `type BetaWebhookSessionCreatedEventData struct{…}`
+- `type BetaWebhookSessionCreatedEventData`
 
   - `Type SessionCreated`
 
@@ -1530,7 +1469,7 @@ func main() {
 
 ### Beta Webhook Session Deleted Event Data
 
-- `type BetaWebhookSessionDeletedEventData struct{…}`
+- `type BetaWebhookSessionDeletedEventData`
 
   - `Type SessionDeleted`
 
@@ -1544,7 +1483,7 @@ func main() {
 
 ### Beta Webhook Session Idled Event Data
 
-- `type BetaWebhookSessionIdledEventData struct{…}`
+- `type BetaWebhookSessionIdledEventData`
 
   - `Type SessionIdled`
 
@@ -1558,7 +1497,7 @@ func main() {
 
 ### Beta Webhook Session Outcome Evaluation Ended Event Data
 
-- `type BetaWebhookSessionOutcomeEvaluationEndedEventData struct{…}`
+- `type BetaWebhookSessionOutcomeEvaluationEndedEventData`
 
   - `Type SessionOutcomeEvaluationEnded`
 
@@ -1572,7 +1511,7 @@ func main() {
 
 ### Beta Webhook Session Pending Event Data
 
-- `type BetaWebhookSessionPendingEventData struct{…}`
+- `type BetaWebhookSessionPendingEventData`
 
   - `Type SessionPending`
 
@@ -1586,7 +1525,7 @@ func main() {
 
 ### Beta Webhook Session Requires Action Event Data
 
-- `type BetaWebhookSessionRequiresActionEventData struct{…}`
+- `type BetaWebhookSessionRequiresActionEventData`
 
   - `Type SessionRequiresAction`
 
@@ -1600,7 +1539,7 @@ func main() {
 
 ### Beta Webhook Session Running Event Data
 
-- `type BetaWebhookSessionRunningEventData struct{…}`
+- `type BetaWebhookSessionRunningEventData`
 
   - `Type SessionRunning`
 
@@ -1614,7 +1553,7 @@ func main() {
 
 ### Beta Webhook Session Status Idled Event Data
 
-- `type BetaWebhookSessionStatusIdledEventData struct{…}`
+- `type BetaWebhookSessionStatusIdledEventData`
 
   - `Type SessionStatusIdled`
 
@@ -1628,7 +1567,7 @@ func main() {
 
 ### Beta Webhook Session Status Rescheduled Event Data
 
-- `type BetaWebhookSessionStatusRescheduledEventData struct{…}`
+- `type BetaWebhookSessionStatusRescheduledEventData`
 
   - `Type SessionStatusRescheduled`
 
@@ -1642,7 +1581,7 @@ func main() {
 
 ### Beta Webhook Session Status Run Started Event Data
 
-- `type BetaWebhookSessionStatusRunStartedEventData struct{…}`
+- `type BetaWebhookSessionStatusRunStartedEventData`
 
   - `Type SessionStatusRunStarted`
 
@@ -1656,7 +1595,7 @@ func main() {
 
 ### Beta Webhook Session Status Terminated Event Data
 
-- `type BetaWebhookSessionStatusTerminatedEventData struct{…}`
+- `type BetaWebhookSessionStatusTerminatedEventData`
 
   - `Type SessionStatusTerminated`
 
@@ -1670,7 +1609,7 @@ func main() {
 
 ### Beta Webhook Session Thread Created Event Data
 
-- `type BetaWebhookSessionThreadCreatedEventData struct{…}`
+- `type BetaWebhookSessionThreadCreatedEventData`
 
   - `Type SessionThreadCreated`
 
@@ -1688,7 +1627,7 @@ func main() {
 
 ### Beta Webhook Session Thread Idled Event Data
 
-- `type BetaWebhookSessionThreadIdledEventData struct{…}`
+- `type BetaWebhookSessionThreadIdledEventData`
 
   - `Type SessionThreadIdled`
 
@@ -1706,7 +1645,7 @@ func main() {
 
 ### Beta Webhook Session Thread Terminated Event Data
 
-- `type BetaWebhookSessionThreadTerminatedEventData struct{…}`
+- `type BetaWebhookSessionThreadTerminatedEventData`
 
   - `Type SessionThreadTerminated`
 
@@ -1724,7 +1663,7 @@ func main() {
 
 ### Beta Webhook Session Updated Event Data
 
-- `type BetaWebhookSessionUpdatedEventData struct{…}`
+- `type BetaWebhookSessionUpdatedEventData`
 
   - `Type SessionUpdated`
 
@@ -1738,7 +1677,7 @@ func main() {
 
 ### Beta Webhook Vault Archived Event Data
 
-- `type BetaWebhookVaultArchivedEventData struct{…}`
+- `type BetaWebhookVaultArchivedEventData`
 
   - `Type VaultArchived`
 
@@ -1752,7 +1691,7 @@ func main() {
 
 ### Beta Webhook Vault Created Event Data
 
-- `type BetaWebhookVaultCreatedEventData struct{…}`
+- `type BetaWebhookVaultCreatedEventData`
 
   - `Type VaultCreated`
 
@@ -1766,7 +1705,7 @@ func main() {
 
 ### Beta Webhook Vault Credential Archived Event Data
 
-- `type BetaWebhookVaultCredentialArchivedEventData struct{…}`
+- `type BetaWebhookVaultCredentialArchivedEventData`
 
   - `Type VaultCredentialArchived`
 
@@ -1784,7 +1723,7 @@ func main() {
 
 ### Beta Webhook Vault Credential Created Event Data
 
-- `type BetaWebhookVaultCredentialCreatedEventData struct{…}`
+- `type BetaWebhookVaultCredentialCreatedEventData`
 
   - `Type VaultCredentialCreated`
 
@@ -1802,7 +1741,7 @@ func main() {
 
 ### Beta Webhook Vault Credential Deleted Event Data
 
-- `type BetaWebhookVaultCredentialDeletedEventData struct{…}`
+- `type BetaWebhookVaultCredentialDeletedEventData`
 
   - `Type VaultCredentialDeleted`
 
@@ -1820,7 +1759,7 @@ func main() {
 
 ### Beta Webhook Vault Credential Refresh Failed Event Data
 
-- `type BetaWebhookVaultCredentialRefreshFailedEventData struct{…}`
+- `type BetaWebhookVaultCredentialRefreshFailedEventData`
 
   - `Type VaultCredentialRefreshFailed`
 
@@ -1838,7 +1777,7 @@ func main() {
 
 ### Beta Webhook Vault Deleted Event Data
 
-- `type BetaWebhookVaultDeletedEventData struct{…}`
+- `type BetaWebhookVaultDeletedEventData`
 
   - `Type VaultDeleted`
 

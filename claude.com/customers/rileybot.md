@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # RileyBot creates safe AI learning experiences for students with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![RileyBot logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c33356c9d4eebaab593518_cs-logo-rileybot-light-theme.png)![RileyBot logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c32bc2b8c07824336c6fdf_cs-logo-rileybot-dark-theme.png)
+![RileyBot logo](https://assets.claude.com/14b0586643ee08e0793d5b808b741c51db9d4814.png)
 
 Industry:
-
-Education
+:   Education
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Europe
+:   Europe
 
 Safe AI learning
 
@@ -37,42 +27,6 @@ increases self-efficacy and confidence
 Complete transparency
 
 for teachers and parents
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 RileyBot uses Claude to power an AI learning assistant that helps K-12 students learn more effectively while giving teachers and parents complete transparency into children' s AI interactions.
 
@@ -131,52 +85,12 @@ The challenges facing schools extend beyond AI safety. Many schools struggle to 
 
 RileyBot will continue developing tools to help schools stay ahead of AI adoption through their partnership with Anthropic, unlike previous technology waves that caught education off guard. Their goal is to expand access to safe, effective AI learning tools while helping schools navigate the complexity of AI integration. For RileyBot, success means ensuring every student can confidently and responsibly use AI to enhance their learning—skills that will serve them well throughout their academic and professional lives.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Magic School](https://assets.claude.com/cd32331aba30ee77bb8a9a4f6f769b3cf5819d14.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)[![Syracuse University](https://assets.claude.com/6faf42a6bf63981cdb21b56aa6c486dfe5f6aa5b.svg)
 
-[Next](#)Next
+### How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)[![Syracuse University (Vertical)](https://assets.claude.com/3b0fe1d2906982c88d627148ba2bf5455745aed5.png)
 
-Video caption
+### Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)[![ClassDojo](https://assets.claude.com/b6fac9066a4c09df3a120d4f8932d2d29a70880d.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
-
-MagicSchool on building a safety layer for millions of student conversations
-
-Customer story
-
-[Customer story](https://claude.com/customers/magicschool-qa)Customer story
-
-[How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
-
-How Syracuse University deployed Claude to every student, faculty member, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse)Customer story
-
-[Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse-university)Customer story
-
-[ClassDojo saves teachers time with Claude](https://claude.com/customers/classdojo)ClassDojo saves teachers time with Claude
-
-ClassDojo saves teachers time with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/classdojo)Customer story
+### ClassDojo saves teachers time with Claude](https://claude.com/customers/classdojo)

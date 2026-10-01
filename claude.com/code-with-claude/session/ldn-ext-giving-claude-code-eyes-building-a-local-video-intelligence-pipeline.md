@@ -4,38 +4,26 @@
 
 Extending Claude Code capabilities for creating marketing assets and documentation. Council of Claude Code instances working together.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-13:20 – 13:50
+:   13:20 – 13:50
 
 Speaker(s)
+:   Olivier Legris
 
-Olivier Legris
+    Founder,
 
-Founder,
+    Alter
 
-Alter
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
-
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+[Browse recordings](https://claude.com/code-with-claude/london)

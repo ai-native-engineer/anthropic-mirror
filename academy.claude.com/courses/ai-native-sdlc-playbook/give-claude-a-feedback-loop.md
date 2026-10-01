@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/give-claude-a-feedback-loop -->
 
-Lesson 8 of 14 · The AI-Native SDLC PlaybookGive Claude a feedback loop
+Lesson 8 of 14 · The AI-native SDLC playbookGive Claude a feedback loop
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Give Claude a feedback loop
 
@@ -66,7 +66,7 @@ If a test fails, fix the code, not the test.
 
 [Previous lessonParallel sessions and subagents](https://academy.claude.com/courses/ai-native-sdlc-playbook/parallel-sessions-and-subagents)[Next lessonContinuous evals in CI](https://academy.claude.com/courses/ai-native-sdlc-playbook/continuous-evals-in-ci)
 
-Lesson 8 of 14 · The AI-Native SDLC PlaybookGive Claude a feedback loop
+Lesson 8 of 14 · The AI-native SDLC playbookGive Claude a feedback loop
 
 Introduction
 

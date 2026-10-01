@@ -8,10 +8,6 @@ San Francisco, CA
 
 To meet demand, a second event just for independent developers and early-stage founders: founder stories, builder deep-dives, and laptops-open workshops from our Applied AI team. Code with Claude is where you hear what's new. Extended is where you see it in the wild.
 
-Apply to attend
-
-[Attend virtually](#)Attend virtually
-
 ### Founder stage
 
 When anyone can build, the founder's edge is knowing what to build and sticking with it. Sit in with founders and technical leaders from startups built on Claude as they walk through the bets they made, the road from prototype to first revenue, and the judgement calls they’ve made.
@@ -24,11 +20,16 @@ You don't need a CS degree or an engineering team to ship real software anymore.
 
 Join the same hands-on sessions Anthropic uses to train its own technical staff, adapted for you. Ship your first managed agent, give it memory, write evals that move the score, compose multi-agent systems, then put it all to the test in a live agent battle.
 
-Agenda
+## Agenda
 
 Demos and office hours run all day. Drop by for a demo between sessions. Sign up in advance for office hours. All times in Pacific Time (PT).
 
 Stages
+
+* All stages
+* Founder stage
+* Builder stage
+* Workshops
 
 08:00AM – 09:00AM
 
@@ -37,8 +38,6 @@ Check-in and breakfast
 09:30AM – 09:45AM
 
 [Community general session](https://claude.com/code-with-claude/session/sf-ext-community-general-session)
-
-Claude Code
 
 ·
 
@@ -56,8 +55,6 @@ morning sessions
 
 [Do agents dream of data models?](https://claude.com/code-with-claude/session/sf-ext-do-agents-dream-of-data-models)
 
-Founder stage
-
 ·
 
 Caitlin Colgrove
@@ -65,8 +62,6 @@ Caitlin Colgrove
 Hex
 
 [Claude and Sol the trophy tomato](https://claude.com/code-with-claude/session/sf-ext-claude-and-sol-the-trophy-tomato)
-
-Builder stage
 
 ·
 
@@ -80,8 +75,6 @@ AutonCorp
 
 (Workshop)
 
-Workshop
-
 ·
 
 Thariq Shihipar
@@ -92,8 +85,6 @@ Anthropic
 
 [Designing multi-agent systems: When to split, when to sandbox, what to ship](https://claude.com/code-with-claude/session/sf-ext-designing-multi-agent-systems-when-to-split-when-to-sandbox-what-to-ship)
 
-Builder stage
-
 ·
 
 Nick Khami
@@ -101,8 +92,6 @@ Nick Khami
 Mintlify
 
 [postvisit.ai - How a practicing cardiologist built a working patient followup platform in 7 days](https://claude.com/code-with-claude/session/sf-ext-postvisit-ai-how-a-practicing-cardiologist-built-a-working-patient-followup-platform-in-7-days)
-
-Founder stage
 
 ·
 
@@ -116,8 +105,6 @@ postvisit.ai
 
 (Workshop)
 
-Workshop
-
 ·
 
 Gagan Bhat
@@ -127,8 +114,6 @@ Anthropic
 11:30AM – 12:00PM
 
 [Building AI-native: What three founders bet on and what they'd change](https://claude.com/code-with-claude/session/sf-ext-building-ai-native-what-three-founders-bet-on-and-what-theyd-change)
-
-Founder stage
 
 ·
 
@@ -149,8 +134,6 @@ Lauren Reeder
 Sequoia Capital
 
 [Evals for subjective, stateful agents](https://claude.com/code-with-claude/session/sf-ext-evals-for-subjective-stateful-agents)
-
-Builder stage
 
 ·
 
@@ -174,8 +157,6 @@ afternoon sessions
 
 (Workshop)
 
-Workshop
-
 ·
 
 Tina Vachovsky
@@ -188,8 +169,6 @@ Anthropic
 
 (Workshop)
 
-Workshop
-
 ·
 
 Felix Becker
@@ -200,8 +179,6 @@ Anthropic
 
 [Measure twice, cut once: Closing the gap between AI intent and execution](https://claude.com/code-with-claude/session/sf-ext-measure-twice-cut-once-closing-the-gap-between-ai-intent-and-execution)
 
-Founder stage
-
 ·
 
 David Loker
@@ -209,8 +186,6 @@ David Loker
 CodeRabbit
 
 [The cigar company's accidental engineer](https://claude.com/code-with-claude/session/sf-ext-13-years-to-24-hours-how-i-used-claude-to-solve-a-problem-i-had-no-business-solving)
-
-Builder stage
 
 ·
 
@@ -224,8 +199,6 @@ SZ Wholesale
 
 (Workshop)
 
-Workshop
-
 ·
 
 Tanveer Mittal
@@ -236,8 +209,6 @@ Anthropic
 
 [Listen first. Then, keep thinking](https://claude.com/code-with-claude/session/sf-ext-listen-first-then-keep-thinking)
 
-Founder stage
-
 ·
 
 Mike Brown
@@ -245,8 +216,6 @@ Mike Brown
 CrossBeam
 
 [Coherence at Claude Code speed](https://claude.com/code-with-claude/session/sf-ext-coherence-at-claude-code-speed)
-
-Builder stage
 
 ·
 
@@ -258,8 +227,6 @@ Coracle
 
 [Claude can code. Experts still matter: Building BioKEA's biodiversity stack](https://claude.com/code-with-claude/session/sf-ext-claude-can-code-experts-still-matter-building-biokeas-biodiversity-stack)
 
-Founder stage
-
 ·
 
 Sean Jungbluth
@@ -267,8 +234,6 @@ Sean Jungbluth
 BioKEA
 
 [Era Online: Resurrecting a 1999 MMORPG with Claude Code](https://claude.com/code-with-claude/session/sf-ext-era-online-resurrecting-a-1999-mmorpg-with-claude-code)
-
-Builder stage
 
 ·
 
@@ -282,8 +247,6 @@ Delve Group
 
 (Workshop)
 
-Workshop
-
 ·
 
 Matt Roknich
@@ -293,8 +256,6 @@ Anthropic
 03:35PM – 04:05PM
 
 [Claude & the self-driving company](https://claude.com/code-with-claude/session/sf-ext-claude-the-self-driving-company)
-
-Founder stage
 
 ·
 
@@ -310,51 +271,33 @@ Closing reception
 
 ## Featured speakers
 
-## Featured speakers
-
-![Boris Cherny headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc4642d8f17f58de38e50d_boris-cherny.webp)
+![Boris Cherny headshot](https://assets.claude.com/eea3796abaee1d9d2d36ec1e6084fbab5fb4a703.jpg?w=720&h=720&fit=crop&auto=format)
 
 Boris Cherny
-
-[x.com](https://x.com/bcherny)x.com
-
-[LinkedIn](https://www.linkedin.com/in/bcherny/)LinkedIn
 
 Head of Claude Code
 
 Anthropic
 
-![Angela Jiang headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc46422f0213eff23dbdb9_c8d2a6f1dc63e3727198e5dbb86111e8_angela-jiang.webp)
+![Angela Jiang headshot](https://assets.claude.com/85bfbfeed1601c2e411078c6874c9246d4f3ff65.jpg?w=720&h=720&fit=crop&auto=format)
 
 Angela Jiang
-
-[x.com](https://x.com/angjiang)x.com
-
-[LinkedIn](https://www.linkedin.com/in/angelajiang/)LinkedIn
 
 Head of Product
 
 Claude Platform, Anthropic
 
-![Katelyn Lesse headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc46420c3bbf082d3f8314_katelyn-lesse.webp)
+![Katelyn Lesse headshot](https://assets.claude.com/6c2b825df3d621408ee127180e5ecc28bd232bd3.jpg?w=720&h=720&fit=crop&auto=format)
 
 Katelyn Lesse
-
-[x.com](https://x.com/katelyn_lesse)x.com
-
-[LinkedIn](https://www.linkedin.com/in/katelynlesse/)LinkedIn
 
 [Head of Engineering](https://www.linkedin.com/company/74126343/)
 
 [Claude Platform](https://www.linkedin.com/company/74126343/), Anthropic
 
-![Cat Wu headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc4641dd6ff8a4efa1077b_5739d9285f7511779f047edda4997798_cat-wu.webp)
+![Cat Wu headshot](https://assets.claude.com/4cf98dc6a28387a223d00b219e72b3e353bd9045.jpg?w=720&h=720&fit=crop&auto=format)
 
 Cat Wu
-
-[x.com](https://x.com/_catwu)x.com
-
-[LinkedIn](https://www.linkedin.com/in/cat-wu/)LinkedIn
 
 Head of Product
 
@@ -362,38 +305,32 @@ Claude Code, Anthropic
 
 May 6
 
-Code w/ Claude
+## Code w/ Claude
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
+## FAQ
 
-FAQ
-
-### What is Code with Claude: Extended?
+What is Code with Claude: Extended?
 
 Demand to attend Code with Claude in-person far exceeded our expectations. To be able to give more people access to the event experience, we added a second day just for independent developers and early-stage founders.
 
-### Who should attend?
+Who should attend?
 
 Code with Claude is designed for software developers, engineers, and technical leaders who are building with AI. Whether you're just getting started with Claude or are an experienced builder, you'll find sessions tailored to your level.
 
-### How do I attend in person?
+How do I attend in person?
 
 Space is limited. Given the demand for in-person attendance at Code with Claude, invites to Code with Claude: Extended were made to existing applicants.
 
-### Can I attend virtually?
+Can I attend virtually?
 
 Code with Claude: Extended will not be livestreamed. Sessions will be recorded and made publicly available after the event.
 
-### Is there a cost to attend?
+Is there a cost to attend?
 
 No, in-person attendance is free.
 
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Code with Claude: Extended San Francisco — May 7, 2026

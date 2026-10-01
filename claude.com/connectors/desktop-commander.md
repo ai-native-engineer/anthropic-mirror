@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/main/FAQ.md)[Support (opens in new tab)](https://github.com/wonderwhy-er/DesktopCommanderMCP)
+More[Documentation (opens in new tab)](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/main/FAQ.md)[Support (opens in new tab)](https://github.com/wonderwhy-er/DesktopCommanderMCP)[Privacy policy (opens in new tab)](https://legal.desktopcommander.app/privacy_desktop_commander_mcp)
 
 Combine local filesystem access with full terminal control to handle technical tasks through natural language. Desktop Commander empowers you to build, explore, and automate - from organizing repositories to creating complete applications:
 
@@ -81,16 +81,6 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://support.healthdataavatar.com/HDA-square.svg)
-
-### [Health Data Avatar (HDA)](https://claude.com/connectors/health-data-avatar-hda)
-
-Trending
-
-Your complete health history structured for Claude
-
-[Add Health Data Avatar (HDA) in Claude (opens in new tab)](https://claude.ai/directory/ebacb52d-dedb-424a-981c-3f6a14495676 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
 ### [Microsoft 365](https://claude.com/connectors/microsoft-365)
@@ -98,3 +88,11 @@ Your complete health history structured for Claude
 Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
+
+![](https://www.notion.so/images/notion-logo-block-main.svg)
+
+### [Notion](https://claude.com/connectors/notion)
+
+Connect your Notion workspace to search, update, and power workflows across tools
+
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

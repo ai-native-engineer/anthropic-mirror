@@ -20,13 +20,18 @@ How teams build production-grade agents on the Claude Platform, from the enginee
 
 How teams run Claude Code at scale. Long-horizon tasks, multi-repo work, parallel agents, and the infrastructure around them.
 
-Agenda
+## Agenda
 
 Demos and office hours run all day. Drop by for a demo between sessions. Sign up in advance for office hours. All times in Japan Standard Time (JST).
 
 **A note on language.** Sessions run primarily in English with some in Japanese (marked on the agenda), and live simultaneous interpretation is available in both directions throughout the event. Office hours are held in English.
 
 Session track
+
+* All tracks
+* Research
+* Claude Platform
+* Claude Code
 
 08:00 – 09:00
 
@@ -76,8 +81,6 @@ Main stage
 
 )
 
-Claude Code
-
 ·
 
 Charmaine Lee
@@ -93,8 +96,6 @@ Anthropic
 Breakout stage
 
 )
-
-Claude Platform
 
 ·
 
@@ -114,8 +115,6 @@ Workshop
 
 )
 
-Research
-
 ·
 
 Rodrigo Olivares
@@ -134,8 +133,6 @@ Main stage
 
 )
 
-Claude Platform
-
 ·
 
 Danny Wu
@@ -151,8 +148,6 @@ Canva
 Breakout stage
 
 )
-
-Research
 
 ·
 
@@ -172,8 +167,6 @@ Workshop
 
 )
 
-Claude Code
-
 ·
 
 Sosuke Suzuki
@@ -191,8 +184,6 @@ Anthropic
 Main stage
 
 )
-
-Claude Platform
 
 ·
 
@@ -220,8 +211,6 @@ Breakout stage
 
 )
 
-Claude Code
-
 ·
 
 Kohei Noguchi
@@ -246,8 +235,6 @@ Workshop
 
 )
 
-Claude Code
-
 ·
 
 Sid Bidasaria
@@ -267,8 +254,6 @@ Workshop
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -290,8 +275,6 @@ Main stage
 
 )
 
-Research
-
 ·
 
 Yusuke Kaji
@@ -307,8 +290,6 @@ Rakuten Group, Inc.
 Breakout stage
 
 )
-
-Research
 
 ·
 
@@ -327,8 +308,6 @@ Anthropic
 Workshop
 
 )
-
-Claude Platform
 
 ·
 
@@ -350,8 +329,6 @@ Main stage
 
 )
 
-Claude Platform
-
 ·
 
 Kentaro Someya
@@ -372,8 +349,6 @@ Breakout stage
 
 )
 
-Claude Code
-
 ·
 
 Fiona Fung
@@ -392,8 +367,6 @@ Main stage
 
 )
 
-Research
-
 ·
 
 Theo Chu
@@ -411,8 +384,6 @@ Breakout stage
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -433,8 +404,6 @@ Workshop
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -460,8 +429,6 @@ Main stage
 
 )
 
-Research
-
 ·
 
 Yuki Kitamura
@@ -479,8 +446,6 @@ Breakout stage
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -504,8 +469,6 @@ Workshop
 
 )
 
-Claude Code
-
 ·
 
 Ash Prabaker
@@ -527,8 +490,6 @@ Anthropic
 Main stage
 
 )
-
-Claude Platform
 
 ·
 
@@ -552,8 +513,6 @@ Breakout stage
 
 )
 
-Claude Code
-
 ·
 
 Yu Nakai
@@ -571,8 +530,6 @@ Mercari, Inc.
 Workshop
 
 )
-
-Research
 
 ·
 
@@ -608,47 +565,33 @@ Evening reception
 
 ## Featured speakers
 
-![Angela Jiang headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc46422f0213eff23dbdb9_c8d2a6f1dc63e3727198e5dbb86111e8_angela-jiang.webp)
+![Angela Jiang headshot](https://assets.claude.com/85bfbfeed1601c2e411078c6874c9246d4f3ff65.jpg?w=720&h=720&fit=crop&auto=format)
 
 Angela Jiang
-
-[x.com](https://x.com/angjiang)x.com
-
-[LinkedIn](https://www.linkedin.com/in/angelajiang/)LinkedIn
 
 Head of Product
 
 Claude Platform, Anthropic
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69f3a3b60cacfe19d239c7b7_760fead3b884d0b823cc15260881792d_dianne-penn.webp)
+![Dianne Penn headshot](https://assets.claude.com/2a8a4c2736fad9d1f78a484ab95f370e8fdb6017.jpg?w=720&h=720&fit=crop&auto=format)
 
 Dianne Penn
-
-[LinkedIn](https://www.linkedin.com/in/dianne-na-penn/)LinkedIn
 
 [Head of Product,](https://www.linkedin.com/company/74126343/)
 
 [Research](https://www.linkedin.com/company/74126343/), Anthropic
 
-![Cat Wu headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc4641dd6ff8a4efa1077b_5739d9285f7511779f047edda4997798_cat-wu.webp)
+![Cat Wu headshot](https://assets.claude.com/4cf98dc6a28387a223d00b219e72b3e353bd9045.jpg?w=720&h=720&fit=crop&auto=format)
 
 Cat Wu
-
-[x.com](https://x.com/_catwu)x.com
-
-[LinkedIn](https://www.linkedin.com/in/cat-wu/)LinkedIn
 
 Head of Product
 
 Claude Code, Anthropic
 
-![Katelyn Lesse headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc46420c3bbf082d3f8314_katelyn-lesse.webp)
+![Katelyn Lesse headshot](https://assets.claude.com/6c2b825df3d621408ee127180e5ecc28bd232bd3.jpg?w=720&h=720&fit=crop&auto=format)
 
 Katelyn Lesse
-
-[x.com](https://x.com/katelyn_lesse)x.com
-
-[LinkedIn](https://www.linkedin.com/in/katelynlesse/)LinkedIn
 
 [Head of Engineering](https://www.linkedin.com/company/74126343/)
 
@@ -656,38 +599,32 @@ Claude Platform, Anthropic
 
 11 June
 
-Code w/ Claude: Extended
+## Code w/ Claude: Extended
 
 To meet demand, a second event just for independent developers and early-stage founders: founder stories, builder deep-dives, and laptops-open workshops from our Applied AI team. Code with Claude is where you hear what's new. Extended is where you see it in the wild.
 
-Learn more
+[Learn more](https://claude.com/code-with-claude/tokyo-extended)
 
-[Learn more](https://claude.com/code-with-claude/tokyo-extended)Learn more
+## FAQ
 
-FAQ
-
-### What is Code with Claude?
+What is Code with Claude?
 
 Code with Claude is a series of developer events hosted by Anthropic. Join us for a day of hands-on workshops, live demos of new capabilities, and conversations with the teams behind Claude.
 
-### Who should attend?
+Who should attend?
 
 Code with Claude is designed for software developers, engineers, and technical leaders who are building with AI. Whether you're just getting started with Claude or are an experienced builder, you'll find sessions tailored to your level.
 
-### How do I attend in person?
+How do I attend in person?
 
 Space is limited. Applications are now closed and accepted attendees will be notified via email in early April.
 
-### Can I attend virtually?
+Can I attend virtually?
 
 Yes, the San Francisco (May 6), London (19 May) and Tokyo (10 June) events will be livestreamed. Register now for access and we'll send you details closer to the event.
 
-### Is there a cost to attend?
+Is there a cost to attend?
 
 No, both in-person attendance and the livestream access are free.
 
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Tokyo — Code w/ Claude 2026

@@ -7,54 +7,11 @@ url: https://platform.claude.com/docs/en/api/python/beta/webhooks
 
 # Webhooks
 
-## Unwrap
-
-`beta.webhooks.unwrap()`
-
-Verifies the webhook signature from the `webhook-id`, `webhook-timestamp` and `webhook-signature`
-headers using your webhook signing key, then parses the payload into an event. Fails if the
-signature is missing or invalid.
-
-### Example
-
-```python
-import os
-from anthropic import Anthropic
-
-client = Anthropic(
-    api_key=os.environ.get(
-        "ANTHROPIC_API_KEY"
-    ),  # This is the default and can be omitted
-)
-client.beta.webhooks.unwrap()
-```
-
-## Parse Unverified
-
-`beta.webhooks.parse_unverified()`
-
-Parses a webhook payload into an event without verifying its signature. Prefer `unwrap()` unless
-you have already verified the signature yourself.
-
-### Example
-
-```python
-import os
-from anthropic import Anthropic
-
-client = Anthropic(
-    api_key=os.environ.get(
-        "ANTHROPIC_API_KEY"
-    ),  # This is the default and can be omitted
-)
-client.beta.webhooks.parse_unverified()
-```
-
 ## Domain types
 
 ### Beta Webhook Agent Archived Event Data
 
-- `class BetaWebhookAgentArchivedEventData: …`
+- `class BetaWebhookAgentArchivedEventData`
 
   - `type: Literal["agent.archived"]`
 
@@ -68,7 +25,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Agent Created Event Data
 
-- `class BetaWebhookAgentCreatedEventData: …`
+- `class BetaWebhookAgentCreatedEventData`
 
   - `type: Literal["agent.created"]`
 
@@ -82,7 +39,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Agent Deleted Event Data
 
-- `class BetaWebhookAgentDeletedEventData: …`
+- `class BetaWebhookAgentDeletedEventData`
 
   - `type: Literal["agent.deleted"]`
 
@@ -96,7 +53,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Agent Updated Event Data
 
-- `class BetaWebhookAgentUpdatedEventData: …`
+- `class BetaWebhookAgentUpdatedEventData`
 
   - `type: Literal["agent.updated"]`
 
@@ -110,7 +67,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Deployment Archived Event Data
 
-- `class BetaWebhookDeploymentArchivedEventData: …`
+- `class BetaWebhookDeploymentArchivedEventData`
 
   - `type: Literal["deployment.archived"]`
 
@@ -124,7 +81,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Deployment Created Event Data
 
-- `class BetaWebhookDeploymentCreatedEventData: …`
+- `class BetaWebhookDeploymentCreatedEventData`
 
   - `type: Literal["deployment.created"]`
 
@@ -138,7 +95,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Deployment Deleted Event Data
 
-- `class BetaWebhookDeploymentDeletedEventData: …`
+- `class BetaWebhookDeploymentDeletedEventData`
 
   - `type: Literal["deployment.deleted"]`
 
@@ -152,7 +109,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Deployment Paused Event Data
 
-- `class BetaWebhookDeploymentPausedEventData: …`
+- `class BetaWebhookDeploymentPausedEventData`
 
   - `type: Literal["deployment.paused"]`
 
@@ -166,7 +123,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Deployment Run Failed Event Data
 
-- `class BetaWebhookDeploymentRunFailedEventData: …`
+- `class BetaWebhookDeploymentRunFailedEventData`
 
   - `type: Literal["deployment_run.failed"]`
 
@@ -180,7 +137,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Deployment Run Started Event Data
 
-- `class BetaWebhookDeploymentRunStartedEventData: …`
+- `class BetaWebhookDeploymentRunStartedEventData`
 
   - `type: Literal["deployment_run.started"]`
 
@@ -194,7 +151,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Deployment Run Succeeded Event Data
 
-- `class BetaWebhookDeploymentRunSucceededEventData: …`
+- `class BetaWebhookDeploymentRunSucceededEventData`
 
   - `type: Literal["deployment_run.succeeded"]`
 
@@ -208,7 +165,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Deployment Unpaused Event Data
 
-- `class BetaWebhookDeploymentUnpausedEventData: …`
+- `class BetaWebhookDeploymentUnpausedEventData`
 
   - `type: Literal["deployment.unpaused"]`
 
@@ -222,7 +179,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Deployment Updated Event Data
 
-- `class BetaWebhookDeploymentUpdatedEventData: …`
+- `class BetaWebhookDeploymentUpdatedEventData`
 
   - `type: Literal["deployment.updated"]`
 
@@ -236,7 +193,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Environment Archived Event Data
 
-- `class BetaWebhookEnvironmentArchivedEventData: …`
+- `class BetaWebhookEnvironmentArchivedEventData`
 
   - `type: Literal["environment.archived"]`
 
@@ -250,7 +207,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Environment Created Event Data
 
-- `class BetaWebhookEnvironmentCreatedEventData: …`
+- `class BetaWebhookEnvironmentCreatedEventData`
 
   - `type: Literal["environment.created"]`
 
@@ -264,7 +221,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Environment Deleted Event Data
 
-- `class BetaWebhookEnvironmentDeletedEventData: …`
+- `class BetaWebhookEnvironmentDeletedEventData`
 
   - `type: Literal["environment.deleted"]`
 
@@ -278,7 +235,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Environment Updated Event Data
 
-- `class BetaWebhookEnvironmentUpdatedEventData: …`
+- `class BetaWebhookEnvironmentUpdatedEventData`
 
   - `type: Literal["environment.updated"]`
 
@@ -292,7 +249,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Event
 
-- `class BetaWebhookEvent: …`
+- `class BetaWebhookEvent`
 
   - `type: Literal["event"]`
 
@@ -310,7 +267,7 @@ client.beta.webhooks.parse_unverified()
 
   - `data: BetaWebhookEventData`
 
-    - `class BetaWebhookSessionCreatedEventData: …`
+    - `class BetaWebhookSessionCreatedEventData`
 
       - `type: Literal["session.created"]`
 
@@ -322,7 +279,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionPendingEventData: …`
+    - `class BetaWebhookSessionPendingEventData`
 
       - `type: Literal["session.pending"]`
 
@@ -334,7 +291,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionRunningEventData: …`
+    - `class BetaWebhookSessionRunningEventData`
 
       - `type: Literal["session.running"]`
 
@@ -346,7 +303,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionIdledEventData: …`
+    - `class BetaWebhookSessionIdledEventData`
 
       - `type: Literal["session.idled"]`
 
@@ -358,7 +315,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionRequiresActionEventData: …`
+    - `class BetaWebhookSessionRequiresActionEventData`
 
       - `type: Literal["session.requires_action"]`
 
@@ -370,7 +327,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionArchivedEventData: …`
+    - `class BetaWebhookSessionArchivedEventData`
 
       - `type: Literal["session.archived"]`
 
@@ -382,7 +339,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionDeletedEventData: …`
+    - `class BetaWebhookSessionDeletedEventData`
 
       - `type: Literal["session.deleted"]`
 
@@ -394,7 +351,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionStatusRescheduledEventData: …`
+    - `class BetaWebhookSessionStatusRescheduledEventData`
 
       - `type: Literal["session.status_rescheduled"]`
 
@@ -406,7 +363,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionStatusRunStartedEventData: …`
+    - `class BetaWebhookSessionStatusRunStartedEventData`
 
       - `type: Literal["session.status_run_started"]`
 
@@ -418,7 +375,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionStatusIdledEventData: …`
+    - `class BetaWebhookSessionStatusIdledEventData`
 
       - `type: Literal["session.status_idled"]`
 
@@ -430,7 +387,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionStatusTerminatedEventData: …`
+    - `class BetaWebhookSessionStatusTerminatedEventData`
 
       - `type: Literal["session.status_terminated"]`
 
@@ -442,7 +399,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionThreadCreatedEventData: …`
+    - `class BetaWebhookSessionThreadCreatedEventData`
 
       - `type: Literal["session.thread_created"]`
 
@@ -458,7 +415,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionThreadIdledEventData: …`
+    - `class BetaWebhookSessionThreadIdledEventData`
 
       - `type: Literal["session.thread_idled"]`
 
@@ -474,7 +431,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionThreadTerminatedEventData: …`
+    - `class BetaWebhookSessionThreadTerminatedEventData`
 
       - `type: Literal["session.thread_terminated"]`
 
@@ -490,7 +447,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionOutcomeEvaluationEndedEventData: …`
+    - `class BetaWebhookSessionOutcomeEvaluationEndedEventData`
 
       - `type: Literal["session.outcome_evaluation_ended"]`
 
@@ -502,7 +459,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookVaultCreatedEventData: …`
+    - `class BetaWebhookVaultCreatedEventData`
 
       - `type: Literal["vault.created"]`
 
@@ -514,7 +471,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookVaultArchivedEventData: …`
+    - `class BetaWebhookVaultArchivedEventData`
 
       - `type: Literal["vault.archived"]`
 
@@ -526,7 +483,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookVaultDeletedEventData: …`
+    - `class BetaWebhookVaultDeletedEventData`
 
       - `type: Literal["vault.deleted"]`
 
@@ -538,7 +495,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookVaultCredentialCreatedEventData: …`
+    - `class BetaWebhookVaultCredentialCreatedEventData`
 
       - `type: Literal["vault_credential.created"]`
 
@@ -554,7 +511,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookVaultCredentialArchivedEventData: …`
+    - `class BetaWebhookVaultCredentialArchivedEventData`
 
       - `type: Literal["vault_credential.archived"]`
 
@@ -570,7 +527,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookVaultCredentialDeletedEventData: …`
+    - `class BetaWebhookVaultCredentialDeletedEventData`
 
       - `type: Literal["vault_credential.deleted"]`
 
@@ -586,7 +543,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookVaultCredentialRefreshFailedEventData: …`
+    - `class BetaWebhookVaultCredentialRefreshFailedEventData`
 
       - `type: Literal["vault_credential.refresh_failed"]`
 
@@ -602,7 +559,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionUpdatedEventData: …`
+    - `class BetaWebhookSessionUpdatedEventData`
 
       - `type: Literal["session.updated"]`
 
@@ -614,7 +571,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookAgentCreatedEventData: …`
+    - `class BetaWebhookAgentCreatedEventData`
 
       - `type: Literal["agent.created"]`
 
@@ -626,7 +583,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookAgentArchivedEventData: …`
+    - `class BetaWebhookAgentArchivedEventData`
 
       - `type: Literal["agent.archived"]`
 
@@ -638,7 +595,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookAgentDeletedEventData: …`
+    - `class BetaWebhookAgentDeletedEventData`
 
       - `type: Literal["agent.deleted"]`
 
@@ -650,7 +607,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookDeploymentPausedEventData: …`
+    - `class BetaWebhookDeploymentPausedEventData`
 
       - `type: Literal["deployment.paused"]`
 
@@ -662,7 +619,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookDeploymentRunFailedEventData: …`
+    - `class BetaWebhookDeploymentRunFailedEventData`
 
       - `type: Literal["deployment_run.failed"]`
 
@@ -674,7 +631,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookDeploymentCreatedEventData: …`
+    - `class BetaWebhookDeploymentCreatedEventData`
 
       - `type: Literal["deployment.created"]`
 
@@ -686,7 +643,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookDeploymentUpdatedEventData: …`
+    - `class BetaWebhookDeploymentUpdatedEventData`
 
       - `type: Literal["deployment.updated"]`
 
@@ -698,7 +655,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookDeploymentUnpausedEventData: …`
+    - `class BetaWebhookDeploymentUnpausedEventData`
 
       - `type: Literal["deployment.unpaused"]`
 
@@ -710,7 +667,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookAgentUpdatedEventData: …`
+    - `class BetaWebhookAgentUpdatedEventData`
 
       - `type: Literal["agent.updated"]`
 
@@ -722,7 +679,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookDeploymentArchivedEventData: …`
+    - `class BetaWebhookDeploymentArchivedEventData`
 
       - `type: Literal["deployment.archived"]`
 
@@ -734,7 +691,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookDeploymentRunStartedEventData: …`
+    - `class BetaWebhookDeploymentRunStartedEventData`
 
       - `type: Literal["deployment_run.started"]`
 
@@ -746,7 +703,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookDeploymentDeletedEventData: …`
+    - `class BetaWebhookDeploymentDeletedEventData`
 
       - `type: Literal["deployment.deleted"]`
 
@@ -758,7 +715,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookDeploymentRunSucceededEventData: …`
+    - `class BetaWebhookDeploymentRunSucceededEventData`
 
       - `type: Literal["deployment_run.succeeded"]`
 
@@ -770,7 +727,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookEnvironmentCreatedEventData: …`
+    - `class BetaWebhookEnvironmentCreatedEventData`
 
       - `type: Literal["environment.created"]`
 
@@ -782,7 +739,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookEnvironmentUpdatedEventData: …`
+    - `class BetaWebhookEnvironmentUpdatedEventData`
 
       - `type: Literal["environment.updated"]`
 
@@ -794,7 +751,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookEnvironmentArchivedEventData: …`
+    - `class BetaWebhookEnvironmentArchivedEventData`
 
       - `type: Literal["environment.archived"]`
 
@@ -806,7 +763,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookEnvironmentDeletedEventData: …`
+    - `class BetaWebhookEnvironmentDeletedEventData`
 
       - `type: Literal["environment.deleted"]`
 
@@ -818,7 +775,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookMemoryStoreCreatedEventData: …`
+    - `class BetaWebhookMemoryStoreCreatedEventData`
 
       - `type: Literal["memory_store.created"]`
 
@@ -830,7 +787,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookMemoryStoreArchivedEventData: …`
+    - `class BetaWebhookMemoryStoreArchivedEventData`
 
       - `type: Literal["memory_store.archived"]`
 
@@ -842,7 +799,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookMemoryStoreDeletedEventData: …`
+    - `class BetaWebhookMemoryStoreDeletedEventData`
 
       - `type: Literal["memory_store.deleted"]`
 
@@ -854,7 +811,7 @@ client.beta.webhooks.parse_unverified()
 
       - `workspace_id: str`
 
-    - `class BetaWebhookSessionBudgetReachedEventData: …`
+    - `class BetaWebhookSessionBudgetReachedEventData`
 
       - `type: Literal["session.budget_reached"]`
 
@@ -868,9 +825,9 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Event Data
 
-- `BetaWebhookEventData`
+- `type BetaWebhookEventData = ...`
 
-  - `class BetaWebhookSessionCreatedEventData: …`
+  - `class BetaWebhookSessionCreatedEventData`
 
     - `type: Literal["session.created"]`
 
@@ -882,7 +839,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionPendingEventData: …`
+  - `class BetaWebhookSessionPendingEventData`
 
     - `type: Literal["session.pending"]`
 
@@ -894,7 +851,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionRunningEventData: …`
+  - `class BetaWebhookSessionRunningEventData`
 
     - `type: Literal["session.running"]`
 
@@ -906,7 +863,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionIdledEventData: …`
+  - `class BetaWebhookSessionIdledEventData`
 
     - `type: Literal["session.idled"]`
 
@@ -918,7 +875,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionRequiresActionEventData: …`
+  - `class BetaWebhookSessionRequiresActionEventData`
 
     - `type: Literal["session.requires_action"]`
 
@@ -930,7 +887,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionArchivedEventData: …`
+  - `class BetaWebhookSessionArchivedEventData`
 
     - `type: Literal["session.archived"]`
 
@@ -942,7 +899,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionDeletedEventData: …`
+  - `class BetaWebhookSessionDeletedEventData`
 
     - `type: Literal["session.deleted"]`
 
@@ -954,7 +911,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionStatusRescheduledEventData: …`
+  - `class BetaWebhookSessionStatusRescheduledEventData`
 
     - `type: Literal["session.status_rescheduled"]`
 
@@ -966,7 +923,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionStatusRunStartedEventData: …`
+  - `class BetaWebhookSessionStatusRunStartedEventData`
 
     - `type: Literal["session.status_run_started"]`
 
@@ -978,7 +935,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionStatusIdledEventData: …`
+  - `class BetaWebhookSessionStatusIdledEventData`
 
     - `type: Literal["session.status_idled"]`
 
@@ -990,7 +947,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionStatusTerminatedEventData: …`
+  - `class BetaWebhookSessionStatusTerminatedEventData`
 
     - `type: Literal["session.status_terminated"]`
 
@@ -1002,7 +959,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionThreadCreatedEventData: …`
+  - `class BetaWebhookSessionThreadCreatedEventData`
 
     - `type: Literal["session.thread_created"]`
 
@@ -1018,7 +975,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionThreadIdledEventData: …`
+  - `class BetaWebhookSessionThreadIdledEventData`
 
     - `type: Literal["session.thread_idled"]`
 
@@ -1034,7 +991,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionThreadTerminatedEventData: …`
+  - `class BetaWebhookSessionThreadTerminatedEventData`
 
     - `type: Literal["session.thread_terminated"]`
 
@@ -1050,7 +1007,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionOutcomeEvaluationEndedEventData: …`
+  - `class BetaWebhookSessionOutcomeEvaluationEndedEventData`
 
     - `type: Literal["session.outcome_evaluation_ended"]`
 
@@ -1062,7 +1019,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookVaultCreatedEventData: …`
+  - `class BetaWebhookVaultCreatedEventData`
 
     - `type: Literal["vault.created"]`
 
@@ -1074,7 +1031,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookVaultArchivedEventData: …`
+  - `class BetaWebhookVaultArchivedEventData`
 
     - `type: Literal["vault.archived"]`
 
@@ -1086,7 +1043,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookVaultDeletedEventData: …`
+  - `class BetaWebhookVaultDeletedEventData`
 
     - `type: Literal["vault.deleted"]`
 
@@ -1098,7 +1055,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookVaultCredentialCreatedEventData: …`
+  - `class BetaWebhookVaultCredentialCreatedEventData`
 
     - `type: Literal["vault_credential.created"]`
 
@@ -1114,7 +1071,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookVaultCredentialArchivedEventData: …`
+  - `class BetaWebhookVaultCredentialArchivedEventData`
 
     - `type: Literal["vault_credential.archived"]`
 
@@ -1130,7 +1087,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookVaultCredentialDeletedEventData: …`
+  - `class BetaWebhookVaultCredentialDeletedEventData`
 
     - `type: Literal["vault_credential.deleted"]`
 
@@ -1146,7 +1103,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookVaultCredentialRefreshFailedEventData: …`
+  - `class BetaWebhookVaultCredentialRefreshFailedEventData`
 
     - `type: Literal["vault_credential.refresh_failed"]`
 
@@ -1162,7 +1119,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionUpdatedEventData: …`
+  - `class BetaWebhookSessionUpdatedEventData`
 
     - `type: Literal["session.updated"]`
 
@@ -1174,7 +1131,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookAgentCreatedEventData: …`
+  - `class BetaWebhookAgentCreatedEventData`
 
     - `type: Literal["agent.created"]`
 
@@ -1186,7 +1143,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookAgentArchivedEventData: …`
+  - `class BetaWebhookAgentArchivedEventData`
 
     - `type: Literal["agent.archived"]`
 
@@ -1198,7 +1155,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookAgentDeletedEventData: …`
+  - `class BetaWebhookAgentDeletedEventData`
 
     - `type: Literal["agent.deleted"]`
 
@@ -1210,7 +1167,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookDeploymentPausedEventData: …`
+  - `class BetaWebhookDeploymentPausedEventData`
 
     - `type: Literal["deployment.paused"]`
 
@@ -1222,7 +1179,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookDeploymentRunFailedEventData: …`
+  - `class BetaWebhookDeploymentRunFailedEventData`
 
     - `type: Literal["deployment_run.failed"]`
 
@@ -1234,7 +1191,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookDeploymentCreatedEventData: …`
+  - `class BetaWebhookDeploymentCreatedEventData`
 
     - `type: Literal["deployment.created"]`
 
@@ -1246,7 +1203,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookDeploymentUpdatedEventData: …`
+  - `class BetaWebhookDeploymentUpdatedEventData`
 
     - `type: Literal["deployment.updated"]`
 
@@ -1258,7 +1215,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookDeploymentUnpausedEventData: …`
+  - `class BetaWebhookDeploymentUnpausedEventData`
 
     - `type: Literal["deployment.unpaused"]`
 
@@ -1270,7 +1227,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookAgentUpdatedEventData: …`
+  - `class BetaWebhookAgentUpdatedEventData`
 
     - `type: Literal["agent.updated"]`
 
@@ -1282,7 +1239,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookDeploymentArchivedEventData: …`
+  - `class BetaWebhookDeploymentArchivedEventData`
 
     - `type: Literal["deployment.archived"]`
 
@@ -1294,7 +1251,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookDeploymentRunStartedEventData: …`
+  - `class BetaWebhookDeploymentRunStartedEventData`
 
     - `type: Literal["deployment_run.started"]`
 
@@ -1306,7 +1263,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookDeploymentDeletedEventData: …`
+  - `class BetaWebhookDeploymentDeletedEventData`
 
     - `type: Literal["deployment.deleted"]`
 
@@ -1318,7 +1275,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookDeploymentRunSucceededEventData: …`
+  - `class BetaWebhookDeploymentRunSucceededEventData`
 
     - `type: Literal["deployment_run.succeeded"]`
 
@@ -1330,7 +1287,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookEnvironmentCreatedEventData: …`
+  - `class BetaWebhookEnvironmentCreatedEventData`
 
     - `type: Literal["environment.created"]`
 
@@ -1342,7 +1299,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookEnvironmentUpdatedEventData: …`
+  - `class BetaWebhookEnvironmentUpdatedEventData`
 
     - `type: Literal["environment.updated"]`
 
@@ -1354,7 +1311,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookEnvironmentArchivedEventData: …`
+  - `class BetaWebhookEnvironmentArchivedEventData`
 
     - `type: Literal["environment.archived"]`
 
@@ -1366,7 +1323,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookEnvironmentDeletedEventData: …`
+  - `class BetaWebhookEnvironmentDeletedEventData`
 
     - `type: Literal["environment.deleted"]`
 
@@ -1378,7 +1335,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookMemoryStoreCreatedEventData: …`
+  - `class BetaWebhookMemoryStoreCreatedEventData`
 
     - `type: Literal["memory_store.created"]`
 
@@ -1390,7 +1347,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookMemoryStoreArchivedEventData: …`
+  - `class BetaWebhookMemoryStoreArchivedEventData`
 
     - `type: Literal["memory_store.archived"]`
 
@@ -1402,7 +1359,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookMemoryStoreDeletedEventData: …`
+  - `class BetaWebhookMemoryStoreDeletedEventData`
 
     - `type: Literal["memory_store.deleted"]`
 
@@ -1414,7 +1371,7 @@ client.beta.webhooks.parse_unverified()
 
     - `workspace_id: str`
 
-  - `class BetaWebhookSessionBudgetReachedEventData: …`
+  - `class BetaWebhookSessionBudgetReachedEventData`
 
     - `type: Literal["session.budget_reached"]`
 
@@ -1428,7 +1385,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Memory Store Archived Event Data
 
-- `class BetaWebhookMemoryStoreArchivedEventData: …`
+- `class BetaWebhookMemoryStoreArchivedEventData`
 
   - `type: Literal["memory_store.archived"]`
 
@@ -1442,7 +1399,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Memory Store Created Event Data
 
-- `class BetaWebhookMemoryStoreCreatedEventData: …`
+- `class BetaWebhookMemoryStoreCreatedEventData`
 
   - `type: Literal["memory_store.created"]`
 
@@ -1456,7 +1413,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Memory Store Deleted Event Data
 
-- `class BetaWebhookMemoryStoreDeletedEventData: …`
+- `class BetaWebhookMemoryStoreDeletedEventData`
 
   - `type: Literal["memory_store.deleted"]`
 
@@ -1470,7 +1427,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Archived Event Data
 
-- `class BetaWebhookSessionArchivedEventData: …`
+- `class BetaWebhookSessionArchivedEventData`
 
   - `type: Literal["session.archived"]`
 
@@ -1484,7 +1441,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Budget Reached Event Data
 
-- `class BetaWebhookSessionBudgetReachedEventData: …`
+- `class BetaWebhookSessionBudgetReachedEventData`
 
   - `type: Literal["session.budget_reached"]`
 
@@ -1498,7 +1455,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Created Event Data
 
-- `class BetaWebhookSessionCreatedEventData: …`
+- `class BetaWebhookSessionCreatedEventData`
 
   - `type: Literal["session.created"]`
 
@@ -1512,7 +1469,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Deleted Event Data
 
-- `class BetaWebhookSessionDeletedEventData: …`
+- `class BetaWebhookSessionDeletedEventData`
 
   - `type: Literal["session.deleted"]`
 
@@ -1526,7 +1483,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Idled Event Data
 
-- `class BetaWebhookSessionIdledEventData: …`
+- `class BetaWebhookSessionIdledEventData`
 
   - `type: Literal["session.idled"]`
 
@@ -1540,7 +1497,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Outcome Evaluation Ended Event Data
 
-- `class BetaWebhookSessionOutcomeEvaluationEndedEventData: …`
+- `class BetaWebhookSessionOutcomeEvaluationEndedEventData`
 
   - `type: Literal["session.outcome_evaluation_ended"]`
 
@@ -1554,7 +1511,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Pending Event Data
 
-- `class BetaWebhookSessionPendingEventData: …`
+- `class BetaWebhookSessionPendingEventData`
 
   - `type: Literal["session.pending"]`
 
@@ -1568,7 +1525,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Requires Action Event Data
 
-- `class BetaWebhookSessionRequiresActionEventData: …`
+- `class BetaWebhookSessionRequiresActionEventData`
 
   - `type: Literal["session.requires_action"]`
 
@@ -1582,7 +1539,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Running Event Data
 
-- `class BetaWebhookSessionRunningEventData: …`
+- `class BetaWebhookSessionRunningEventData`
 
   - `type: Literal["session.running"]`
 
@@ -1596,7 +1553,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Status Idled Event Data
 
-- `class BetaWebhookSessionStatusIdledEventData: …`
+- `class BetaWebhookSessionStatusIdledEventData`
 
   - `type: Literal["session.status_idled"]`
 
@@ -1610,7 +1567,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Status Rescheduled Event Data
 
-- `class BetaWebhookSessionStatusRescheduledEventData: …`
+- `class BetaWebhookSessionStatusRescheduledEventData`
 
   - `type: Literal["session.status_rescheduled"]`
 
@@ -1624,7 +1581,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Status Run Started Event Data
 
-- `class BetaWebhookSessionStatusRunStartedEventData: …`
+- `class BetaWebhookSessionStatusRunStartedEventData`
 
   - `type: Literal["session.status_run_started"]`
 
@@ -1638,7 +1595,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Status Terminated Event Data
 
-- `class BetaWebhookSessionStatusTerminatedEventData: …`
+- `class BetaWebhookSessionStatusTerminatedEventData`
 
   - `type: Literal["session.status_terminated"]`
 
@@ -1652,7 +1609,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Thread Created Event Data
 
-- `class BetaWebhookSessionThreadCreatedEventData: …`
+- `class BetaWebhookSessionThreadCreatedEventData`
 
   - `type: Literal["session.thread_created"]`
 
@@ -1670,7 +1627,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Thread Idled Event Data
 
-- `class BetaWebhookSessionThreadIdledEventData: …`
+- `class BetaWebhookSessionThreadIdledEventData`
 
   - `type: Literal["session.thread_idled"]`
 
@@ -1688,7 +1645,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Thread Terminated Event Data
 
-- `class BetaWebhookSessionThreadTerminatedEventData: …`
+- `class BetaWebhookSessionThreadTerminatedEventData`
 
   - `type: Literal["session.thread_terminated"]`
 
@@ -1706,7 +1663,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Session Updated Event Data
 
-- `class BetaWebhookSessionUpdatedEventData: …`
+- `class BetaWebhookSessionUpdatedEventData`
 
   - `type: Literal["session.updated"]`
 
@@ -1720,7 +1677,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Vault Archived Event Data
 
-- `class BetaWebhookVaultArchivedEventData: …`
+- `class BetaWebhookVaultArchivedEventData`
 
   - `type: Literal["vault.archived"]`
 
@@ -1734,7 +1691,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Vault Created Event Data
 
-- `class BetaWebhookVaultCreatedEventData: …`
+- `class BetaWebhookVaultCreatedEventData`
 
   - `type: Literal["vault.created"]`
 
@@ -1748,7 +1705,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Vault Credential Archived Event Data
 
-- `class BetaWebhookVaultCredentialArchivedEventData: …`
+- `class BetaWebhookVaultCredentialArchivedEventData`
 
   - `type: Literal["vault_credential.archived"]`
 
@@ -1766,7 +1723,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Vault Credential Created Event Data
 
-- `class BetaWebhookVaultCredentialCreatedEventData: …`
+- `class BetaWebhookVaultCredentialCreatedEventData`
 
   - `type: Literal["vault_credential.created"]`
 
@@ -1784,7 +1741,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Vault Credential Deleted Event Data
 
-- `class BetaWebhookVaultCredentialDeletedEventData: …`
+- `class BetaWebhookVaultCredentialDeletedEventData`
 
   - `type: Literal["vault_credential.deleted"]`
 
@@ -1802,7 +1759,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Vault Credential Refresh Failed Event Data
 
-- `class BetaWebhookVaultCredentialRefreshFailedEventData: …`
+- `class BetaWebhookVaultCredentialRefreshFailedEventData`
 
   - `type: Literal["vault_credential.refresh_failed"]`
 
@@ -1820,7 +1777,7 @@ client.beta.webhooks.parse_unverified()
 
 ### Beta Webhook Vault Deleted Event Data
 
-- `class BetaWebhookVaultDeletedEventData: …`
+- `class BetaWebhookVaultDeletedEventData`
 
   - `type: Literal["vault.deleted"]`
 

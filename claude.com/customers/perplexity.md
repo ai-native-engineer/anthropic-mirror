@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Perplexity delivers factual and relevant answers with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Perplexity logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5acf08e9c73b76c598a44_Perplexity_light.svg)![Perplexity logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5acf78c96a87aa8c98149_Perplexity_dark.svg)
+![Perplexity logo](https://assets.claude.com/874a4e89990bde9f20ce189dba6003b85c32cace.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 2x faster
 
@@ -37,42 +27,6 @@ response times with Claude 3.5 Sonnet
 2x more accurate
 
 results with Claude 3 Opus
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Perplexity, a conversational answer engine, uses the Claude model family to deliver factual and relevant search results to users. By employing various models—Claude 3.5 Sonnet, Claude 3 Opus, and Claude 3 Haiku—Perplexity optimizes cost, performance, and accuracy for both its free and paid users.
 
@@ -108,52 +62,12 @@ Looking ahead, Perplexity will continue to work with Anthropic to push the bound
 
 ‍
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

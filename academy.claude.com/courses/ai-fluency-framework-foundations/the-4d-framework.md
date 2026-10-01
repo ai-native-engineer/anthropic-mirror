@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework -->
 
-Lesson 3 of 14 · AI Fluency: Framework & FoundationsThe 4D Framework
+Lesson 3 of 14 · AI Fluency: Framework and foundationsThe 4D Framework
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # The 4D Framework
 
@@ -94,7 +94,7 @@ The next lesson, Deep Dive 1: "What is Generative AI?" is a two-part technical l
 
 [Previous lessonWhy do we need AI Fluency?](https://academy.claude.com/courses/ai-fluency-framework-foundations/why-do-we-need-ai-fluency)[Next lessonGenerative AI fundamentals](https://academy.claude.com/courses/ai-fluency-framework-foundations/generative-ai-fundamentals)
 
-Lesson 3 of 14 · AI Fluency: Framework & FoundationsThe 4D Framework
+Lesson 3 of 14 · AI Fluency: Framework and foundationsThe 4D Framework
 
 Introduction to AI Fluency
 

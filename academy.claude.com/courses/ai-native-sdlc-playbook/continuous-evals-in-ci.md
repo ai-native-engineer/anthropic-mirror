@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/continuous-evals-in-ci -->
 
-Lesson 9 of 14 · The AI-Native SDLC PlaybookContinuous evals in CI
+Lesson 9 of 14 · The AI-native SDLC playbookContinuous evals in CI
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Continuous evals in CI
 
@@ -71,7 +71,7 @@ Evals give QA a gate that keeps up with agent output. The pass-rate threshold is
 
 [Previous lessonGive Claude a feedback loop](https://academy.claude.com/courses/ai-native-sdlc-playbook/give-claude-a-feedback-loop)[Next lessonAI in the PR review loop](https://academy.claude.com/courses/ai-native-sdlc-playbook/ai-in-the-pr-review-loop)
 
-Lesson 9 of 14 · The AI-Native SDLC PlaybookContinuous evals in CI
+Lesson 9 of 14 · The AI-native SDLC playbookContinuous evals in CI
 
 Introduction
 

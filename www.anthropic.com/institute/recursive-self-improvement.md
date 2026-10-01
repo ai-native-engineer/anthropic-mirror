@@ -182,6 +182,12 @@ In the coming months, we will organize conversations where policymakers, researc
 
 *Marina Favaro and Jack Clark co-authored this piece, with editorial support from Santi Ruiz. Shan Carter, Romello Goodman, and Nikki Makagiansar created the visuals from data collected by Brian Calvert and Jun Shern Chan. Daniel Freeman, Jim Baker, Max Young, Sarah Pollack, Francesco Mosconi, Holden Karnofsky, Andy Jones, Kevin Troy, Chloe Lubinski, Anton Korinek, Meg Tong, Andrew Ho, Dan Altman, Drake Thomas, Jack Shen, Sasha de Marigny, and Avital Balwit provided feedback.*
 
+### **Update 9/18/2026**
+
+![Line graph of Claude Code session success rate from August 2025 to September 2026 across four task types: trivial tasks, routine tasks, substantial tasks, and open-ended problems. Vertical markers show ten model releases: Claude Sonnet 4.5, Claude Opus 4.5, Claude Opus 4.6, Mythos Preview (internal access), Mythos Preview, Claude Opus 4.7, Claude Opus 4.8, Claude Sonnet 5, Claude Opus 5, and Claude Fable and Mythos 5.1. Success rates rise for all four task types, converging around 88 to 92 percent by September 2026. Open-ended problems improve the most, from about 26 percent to 91 percent, with the sharpest jump in March 2026 after Mythos Preview internal access.](https://www-cdn.anthropic.com/images/4zrzovbb/website/302dbe412128f143faf2bfa2c4b7928b58ead50f-1920x1277.png)
+
+**How to read this:** Session success is determined by a Claude judge; a session is deemed successful if the Claude Code agent clearly succeeded at the user’s tasks without requiring corrections. Changes in workloads can lead to short-term fluctuations in success rates.
+
 ---
 
 ## Footnotes

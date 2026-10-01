@@ -51,7 +51,7 @@ A single issuer can have many rules: one per team, namespace, or permission leve
 
 1. **Your IdP issues a JWT to the workload.** On most platforms this is ambient: a Kubernetes projected service-account token, the Google Cloud metadata server, Azure IMDS, or the GitHub Actions OIDC endpoint. The JWT's `iss` claim identifies the provider, and its `sub` and other claims identify the specific workload.
 2. **The SDK exchanges the JWT for an Anthropic access token.** The SDK posts the JWT to `POST /v1/oauth/token` using the [RFC 7523](https://www.rfc-editor.org/rfc/rfc7523) `jwt-bearer` grant. Anthropic verifies the JWT against the issuer's JWKS and the federation rule's match conditions, then returns a short-lived `sk-ant-oat01-...` token that acts on behalf of the rule's target service account.
-3. **The SDK sends the token on every request and refreshes it before it expires.** Your application code constructs the client with no `api_key` and calls the API as usual. The SDK re-runs the exchange before the token expires.
+3. **The SDK sends the token on every request and refreshes it before it expires.** Your application code constructs the client with no API key and calls the API as usual. The SDK re-runs the exchange before the token expires.
 
 ## Set up federation
 
@@ -81,17 +81,17 @@ The **Connect workload** wizard creates all three resources (the issuer, the ser
   </Step>
 </Steps>
 
-To manage these resources programmatically, see [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api) for the curl walkthrough, or see the [Service accounts API reference](https://platform.claude.com/docs/en/api/admin/service_accounts), [Federation issuers API reference](https://platform.claude.com/docs/en/api/admin/federation_issuers), and [Federation rules API reference](https://platform.claude.com/docs/en/api/admin/federation_rules) for complete parameter details and response schemas.
+To manage these resources programmatically, see [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api) for the curl walkthrough, or see the [Service accounts API reference](https://platform.claude.com/docs/en/api/beta/organization/service_accounts), [Federation issuers API reference](https://platform.claude.com/docs/en/api/beta/organization/federation/issuers), and [Federation rules API reference](https://platform.claude.com/docs/en/api/beta/organization/federation/rules) for complete parameter details and response schemas.
 
 ## Authenticate from your workload
 
-With federation configured, your workload exchanges its IdP-issued JWT for an Anthropic token at runtime. The SDKs handle the exchange and refresh loop for you. The cURL tab shows the underlying HTTP exchange for shell scripts, debugging, or languages without SDK support.
+With federation configured, your workload exchanges its IdP-issued JWT for an Anthropic token at runtime. The SDK handles the exchange and refresh loop for you. The cURL tab shows the underlying HTTP exchange for shell scripts, debugging, or languages without SDK support.
 
 ### Construct the SDK client
 
 You can construct the client with explicit credentials or with no arguments. With no arguments, the SDK resolves credentials from environment variables or the active profile, as described under [Credential precedence](https://platform.claude.com/docs/en/manage-claude/workload-identity-federation#credential-precedence). The zero-argument form is the recommended pattern for production workloads: ship the same container image everywhere and inject `ANTHROPIC_FEDERATION_RULE_ID`, `ANTHROPIC_ORGANIZATION_ID`, `ANTHROPIC_SERVICE_ACCOUNT_ID`, `ANTHROPIC_WORKSPACE_ID`, and `ANTHROPIC_IDENTITY_TOKEN_FILE` per environment.
 
-<CodeGroup>
+<CodeGroup exclude="shell:CLI">
   ```bash cURL
   # 1. Acquire your IdP's JWT (platform-specific; see the per-provider guides).
   JWT=$(cat /var/run/secrets/anthropic.com/token)
@@ -121,7 +121,7 @@ You can construct the client with explicit credentials or with no arguments. Wit
     -H "content-type: application/json" \
     -d @- <<'JSON' | jq -r '.content[] | select(.type == "text") | .text'
   {
-    "model": "claude-opus-5",
+    "model": "claude-opus-5-5",
     "max_tokens": 1024,
     "messages": [{"role": "user", "content": "Hello, Claude"}]
   }
@@ -144,7 +144,7 @@ You can construct the client with explicit credentials or with no arguments. Wit
   )
 
   message = client.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=1024,
       messages=[{"role": "user", "content": "Hello, Claude"}],
   )
@@ -169,7 +169,7 @@ You can construct the client with explicit credentials or with no arguments. Wit
   });
 
   const message = await client.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [{ role: "user", content: "Hello, Claude" }]
   });
@@ -194,7 +194,7 @@ You can construct the client with explicit credentials or with no arguments. Wit
   )
 
   message, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 1024,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Hello, Claude")),
@@ -241,7 +241,7 @@ You can construct the client with explicit credentials or with no arguments. Wit
               .build();
 
       var message = client.messages().create(MessageCreateParams.builder()
-              .model(Model.CLAUDE_OPUS_5)
+              .model(Model.CLAUDE_OPUS_5_5)
               .maxTokens(1024)
               .addUserMessage("Hello, Claude")
               .build());
@@ -266,7 +266,7 @@ You can construct the client with explicit credentials or with no arguments. Wit
 
   var message = await client.Messages.Create(new()
   {
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Messages = [new() { Role = Role.User, Content = "Hello, Claude" }],
   });
@@ -299,7 +299,7 @@ You can construct the client with explicit credentials or with no arguments. Wit
   ));
 
   $message = $client->messages->create(
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       maxTokens: 1024,
       messages: [['role' => 'user', 'content' => 'Hello, Claude']],
   );
@@ -322,7 +322,7 @@ You can construct the client with explicit credentials or with no arguments. Wit
   )
 
   message = client.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [{role: "user", content: "Hello, Claude"}]
   )
@@ -356,7 +356,7 @@ To switch an existing workload from a static API key to federation without downt
 
 The minted Anthropic token's lifetime is the lesser of (a) the rule's `token_lifetime_seconds` (default 3,600 seconds) and (b) twice the remaining lifetime of the IdP JWT you presented. The result is never less than 60 seconds. The second bound prevents an Anthropic token from outliving the upstream identity it was derived from by more than a small margin.
 
-The SDKs cache the token and refresh it on a two-tier schedule modeled on `botocore`:
+The SDK caches the token and refreshes it on a two-tier schedule modeled on `botocore`:
 
 * **Advisory refresh** at expiry minus 120 seconds. The SDK attempts a new exchange. If the token endpoint is unreachable, the SDK continues serving the cached token, which is still valid for roughly 90 more seconds.
 * **Mandatory refresh** at expiry minus 30 seconds. A failed exchange at this point raises an error. The cached token is too close to expiry to be safe.
@@ -403,5 +403,5 @@ Each guide covers where the JWT comes from on that platform, what its claims loo
 
 * [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api): create issuers, service accounts, and rules from infrastructure as code
 * [WIF reference](https://platform.claude.com/docs/en/manage-claude/wif-reference): environment variables, profile file schema, validation rules, and error codes
-* [Authentication](https://platform.claude.com/docs/en/manage-claude/authentication): all authentication options across the Anthropic SDKs
-* [Admin API reference](https://platform.claude.com/docs/en/api/admin): generated request and response schemas for every Admin API endpoint
+* [Authentication](https://platform.claude.com/docs/en/manage-claude/authentication): all the SDK's authentication options
+* [Admin API reference](https://platform.claude.com/docs/en/api/beta/organization): generated request and response schemas for every Admin API endpoint

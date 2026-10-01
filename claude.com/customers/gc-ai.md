@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69dfc1822f076436efa3d66d_gc-ai-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69dfc1ba9d4ab6a49ca4f383_gc-ai-dark.svg)
+![GC AI logo](https://assets.claude.com/bf75981f3c09a3118604def848ab045ebfd0bfb5.svg)
 
 Industry:
-
-Legal
+:   Legal
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 14 hours saved per week
 
@@ -52,28 +42,6 @@ as reported by surveyed GC AI customers
 
 ## The challenge
 
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698529955ffaa6de831ec14e_opus%201%20(4).jpg)
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.6
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
 ## **A single lawyer supports dozens of stakeholders**
 
 In-house legal teams at midsize and enterprise companies face a persistent ratio problem: each lawyer supports dozens of internal stakeholders, all with competing deadlines. Even straightforward questions can require hours of research and writing before the lawyer can provide a useful answer. At one company, a solo lawyer using GC AI supports $8 billion in revenue.
@@ -90,17 +58,13 @@ GC AI uses Claude Sonnet as its primary model for customer-facing workflows for 
 
 The team found the strongest differences in contract analysis and clause interpretation. “When identifying nuanced obligations or deviations from standard terms in agreements, Claude was more consistent in both spotting the issue and clearly explaining the reasoning behind it,” Ziniti said.
 
+Introducing Claude Opus 4.6
+
+![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg?w=2400&q=75&fm=webp&fit=max)
+
+We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
+
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ## **Governed workflows for everyday legal work**
 
@@ -114,21 +78,9 @@ In addition to the web interface, GC AI integrates into the tools lawyers alread
 
 "We can deliver legal AI workflows that lawyers actually use every day," Ziniti said. "Instead of treating AI as a separate experiment, GC AI embeds it directly into the way in-house lawyers complete their work."
 
-“When identifying deviations from standard terms, Claude was more consistent in both spotting the issue and clearly explaining the reasoning.”
+> “When identifying deviations from standard terms, Claude was more consistent in both spotting the issue and clearly explaining the reasoning.”
 
-Cecilia Ziniti
-
-Co-founder and CEO
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Cecilia ZinitiCo-founder and CEO
 
 ## The outcome
 
@@ -146,42 +98,16 @@ GC AI's architecture now supports coordinated multi-agent workflows, with specia
 
 As Claude's capabilities continue to advance, GC AI continues to leverage those improvements into deeper, more specialized legal workflows that a horizontal AI tool cannot replicate. “Our roadmap is focused on making the legal function operate at the speed of the business and driving more agency across all a company’s legal needs,” Ziniti said. “That means proactive legal operations and more strategic impact.”
 
-“We needed models that could produce clear, structured outputs that lawyers could review quickly and integrate.”
+> “We needed models that could produce clear, structured outputs that lawyers could review quickly and integrate.”
 
-Cecilia Ziniti
+Cecilia ZinitiCo-founder and CEO
 
-Co-founder and CEO
+[![Spellbook](https://assets.claude.com/6d8c2b327807c9a9dc5b911946df64b7a0cbda3c.svg)
 
-## Related stories
+### Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)[![EvenUp](https://assets.claude.com/466446f5f59635a264efe3e688a42b51c0e88976.svg)
 
-[Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)Spellbook runs 530,000 contract reviews a month with Claude
+### EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)[![Eve Legal](https://assets.claude.com/f1efc487a08ab700dd2f0a0d09e717745da3e2d0.svg)
 
-Spellbook runs 530,000 contract reviews a month with Claude
+### Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)[![Thomson Reuters](https://assets.claude.com/3c80d8dc7dbf6556d1137977873dee26eaffae1d.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/spellbook)Customer story
-
-[EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/evenup)Customer story
-
-[Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/eve-legal)Customer story
-
-[Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/thomson-reuters-qa)Customer story
+### Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)

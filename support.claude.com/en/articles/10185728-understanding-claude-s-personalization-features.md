@@ -19,6 +19,8 @@ To set your instructions:
 
 Any instructions you add here will be applied to all of your conversations with Claude.
 
+If you used **Global instructions** in Claude Cowork, they're part of **Instructions for Claude** once you have the new Claude experience. Check this setting to make sure your instructions are what you want.
+
 ---
 
 ## Project instructions
@@ -63,7 +65,6 @@ For more information, see **[What are skills?](https://support.claude.com/en/art
 You can use these features independently or in combination to create the most effective experience for your needs.
 
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
-* [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
-* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

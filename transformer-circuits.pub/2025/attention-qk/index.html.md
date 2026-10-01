@@ -57,6 +57,8 @@ The case studies here are our first attempts at applying the method, and we expe
 
 We believe the addition of QK attributions is a significant qualitative improvement on our original attribution graphs, unlocking analyses that were previously impossible. However, there remain many open research questions regarding attentional circuits, which we describe at the end of the post.
 
+---
+
 ## The problem: transcoder-based attribution graphs omit attentional computations
 
 Transcoders only ever read and write information within the same context position – however, transformer models also contain attention layers, which carry information across context positions. Thus, the influence between any two transcoder features is mediated by attention layers For features in different context positions, all of the interaction is attention-mediated. For features in the same context position, some of the interaction is direct, and some is mediated by attention to the same position.
@@ -70,11 +72,15 @@ But freezing attention patterns and summing over heads like this means our attri
 
 In our original paper, we [pointed out](https://transformer-circuits.pub/2025/attribution-graphs/methods.html#limitations-attention) that for many prompts, this missing QK information renders attribution graphs useless. In particular, for many prompts, the question of which head(s) mediated an edge, and why those heads attended where they did, is the crux of the computation. We provide several [examples](#examples) of this failure mode later in the paper and demonstrate how our method fills in the missing information.
 
+---
+
 ## High-level strategy
 
 Explaining the source of an attention head’s attention pattern. The core insight underlying our method is the fact that attention scores (prior to softmax) are a bilinear function of the residual stream at the query and key positions. Thus, if we have a decomposition of the residual stream as a sum of feature components, we can rewrite the attention scores as a sum of dot products between feature-feature pairs (one on the query position, one on the key position). We call this decomposition “QK attribution” and describe in more detail how we compute it [below](#h.quumi2k6fvi8). Note that the same strategy was used by  and  to analyze QK circuits, but explored in less depth.
 
 Explaining how attention heads participate in attribution graphs. Explaining the source of each head’s attention scores is insufficient on its own; we also must understand how the heads participate in our attribution graphs. To do so, for each edge in an attribution graph, we keep track of the extent to which that edge was mediated by different attention heads. To achieve this, (cross-layer) transcoders on their own are not adequate; we explain this issue and how to resolve it [below](#h.ni0l5mtw8vj8).
+
+---
 
 ## QK attributions
 
@@ -95,6 +101,8 @@ Once we have computed these terms, we can simply list them ordered by magnitude.
 An illustration of how we visualize QK attributions. In a circuits graph, for any edge that crosses context positions, we can use the head loadings of that edge to index into a specific (query ctx, key ctx, layer, head) position, and then use the (un)marginalized list of features to inspect the QK circuit.
 
 One limitation of this approach is that it does not directly explain the attention pattern itself, which involves competition between the attention scores at multiple context positions – to explain why an attention head attended to a particular position, it may be important to understand why it didn’t attend to other positions. Our method gives us information about QK attributions at all context positions, including negative attributions, so we do have access to this information (and we highlight some interesting inhibitory effects in some of our later examples). However, we do not yet have a way of automatically surfacing the important inhibitory effects without manual inspection. While addressing this limitation is an important direction for future work, we nevertheless find that our attention score decompositions can be interpretable and useful.
+
+---
 
 ## Computing attention head contributions to an attribution graph
 
@@ -127,6 +135,8 @@ Let source and target feature at positions p\_s and p\_t, with activations a\_s 
 \sum\_{h \in \text{heads}} a\_s a\_t \left(\mathbf{v\_t}^\top O\_h V\_h \mathbf{v\_s}\right) \cdot \text{attention}\_h(p\_s, p\_t)
 
 The sum over heads runs over all the heads in the source feature’s layer (which is one layer prior to the target feature’s). Each term in this sum represents the contribution (head loading) of a specific attention head to this edge. We compute and store these terms separately and surface them in our UI .
+
+---
 
 ## [Examples](#examples)
 
@@ -337,11 +347,15 @@ Thus, our preliminary conclusion is that these heads use their QK circuits to ch
 
 More work is needed to understand the scope and generality of which kinds of properties these heads can check for, and what exactly the OV circuit is using as input substrate to transform into (in)correctness-related outputs.
 
+---
+
 ## Related work
 
 The work most closely related to ours is , which computed QK attributions for some important heads in the indirect object identification (IOI) task , and analyzed them in the context of transcoder-based attribution graphs. In this work, the important heads were identified based on the manual analysis conducted by  rather than using a systematic head loadings computation (and thus they did not run into the “checkpointing” problem that we address in this work).  also computed QK attributions, and in fact trained SAEs incentivized to make the QK attributions sparse, using a sparsity-penalized learnable mask on the feature-feature interactions.  studied the use of attention out SAEs for attention circuit analysis; as part of this work, they conducted an analysis of QK attributions (of features propagated by OV circuits that go on to interact with key-side features via QK circuits).
 
 Other papers have studied QK circuit mechanisms using carefully designed patching experiments. For instance,  studied QK circuits underlying entity binding,  investigated QK circuits in multiple choice question answering,  examined QK circuits for validating statement correctness, and  identified QK circuits involved in IOI.
+
+---
 
 ## Future work
 

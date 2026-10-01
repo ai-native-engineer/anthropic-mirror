@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment -->
 
-Lesson 10 of 10 · AI Fluency for pK–12 EducatorsClosure and enrichment
+Lesson 10 of 10 · AI Fluency for pK–12 educatorsClosure and enrichment
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # Closure and enrichment
 
@@ -58,7 +58,7 @@ In the next lesson, you'll take a short quiz to earn your completion badge. You 
 
 [Previous lessonTying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)[Next lessonCourse Quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz)
 
-Lesson 10 of 10 · AI Fluency for pK–12 EducatorsClosure and enrichment
+Lesson 10 of 10 · AI Fluency for pK–12 educatorsClosure and enrichment
 
 How this course was made
 

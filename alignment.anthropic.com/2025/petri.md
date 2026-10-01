@@ -578,6 +578,8 @@ Stuart Ritchie, Trenton Bricken, Keshav Shenoy, and Toren Fronsdal for providing
 Finally, we would like to thank John
 Hughes and Avery Griffin for help with computing resources and management.
 
+---
+
 *Petri is available at [github.com/safety-research/petri](https://github.com/safety-research/petri). Documentation,
 examples, and installation instructions can be found in the repository.*
 

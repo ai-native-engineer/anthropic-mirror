@@ -4,31 +4,21 @@ Q&A | Claude Cowork
 
 # How Jamf's engineering team turns structured workflows into interactive tools with Cowork
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Jamf logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b45499ebd143bd2c52765a_logo_jamf-light.svg)![Jamf logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b454a6ceaa3ebddb228495_logo_jamf-dark.svg)
+![Jamf logo](https://assets.claude.com/6525757ec4c3fc79978ca32c81251db6edcf286d.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Cowork
+:   Claude Cowork
 
 Location:
-
-North America
+:   North America
 
 45 minutes
 
@@ -40,35 +30,11 @@ using Claude Enterprise
 
 Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Read more
-
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/product/cowork)
 
 [Jamf](https://www.jamf.com/) manages and secures Apple devices for more than 70,000 customers worldwide. The company recently rolled out Claude Enterprise across all 16 departments. Then the engineering team found Cowork and started replacing spreadsheets and checklists with guided, reusable workflows. Nick Benyo, Software Engineer on Jamf's Enterprise AI and Automation team, sat down with Anthropic to discuss how the team is using Cowork, what surprised them about adoption, and where they see the most untapped potential. The following conversation has been edited for length and clarity.
 
@@ -92,11 +58,9 @@ A typical session runs 60 to 90 minutes with a visible checklist tracking progre
 
 **Nick Benyo:** Under 45 minutes. At a previous employer, something comparable was a full team and three months of build time. You're talking about a conversational UI with branching logic, role-based filtering, Jira integration, progress tracking, and structured file export. Testing was just as fast. I told the skill to sample a few questions from each competency instead of running the full set and it adjusted on the fly. No code change, no redeployment. The test framework was up and running in a single prompt.
 
-“The biggest surprise is that it's not engineers driving the broadest adoption. People across the org are using Cowork.”
+> “The biggest surprise is that it's not engineers driving the broadest adoption. People across the org are using Cowork.”
 
-Nick Benyo
-
-Software Engineer, Jamf
+Nick BenyoSoftware Engineer, Jamf
 
 ## How does the quality compare to the old process?
 
@@ -124,84 +88,22 @@ Don't overthink the first skill. Pick a workflow that's annoying, structured, an
 
 Claude Enterprise, now available self-serve
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690515bc9c9d273cbf764a30_og_amazon-bedrock-general-availability.jpg)
+![Claude Enterprise, now available self-serve](https://assets.claude.com/72d1034a360474d7ac2b1ae9b198d5b09a23d97c.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Any organization can now purchase Claude Enterprise directly—no sales conversation required. Set up SSO, invite team members, and start working in minutes.
 
-Read more
+[Read more](https://claude.com/blog/self-serve-enterprise)
 
-[Read more](https://claude.com/blog/self-serve-enterprise)Read more
+> “The human is still making the decisions. Cowork just makes sure the process doesn't stall or come back with the wrong data.”
 
-Claude Enterprise, now available self-serve
+Nick BenyoSoftware Engineer, Jamf
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Next](#)Next
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-Any organization can now purchase Claude Enterprise directly—no sales conversation required. Set up SSO, invite team members, and start working in minutes.
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Enterprise, now available self-serve
-
-Any organization can now purchase Claude Enterprise directly—no sales conversation required. Set up SSO, invite team members, and start working in minutes.
-
-“The human is still making the decisions. Cowork just makes sure the process doesn't stall or come back with the wrong data.”
-
-Nick Benyo
-
-Software Engineer, Jamf
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

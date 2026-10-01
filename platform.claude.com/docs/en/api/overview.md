@@ -27,7 +27,7 @@ The Claude API includes the following APIs:
 
 * **[Messages API](https://platform.claude.com/docs/en/api/messages/create)**: Send messages to Claude for conversational interactions (`POST /v1/messages`)
 * **[Message Batches API](https://platform.claude.com/docs/en/api/messages/batches/create)**: Process large volumes of Messages requests asynchronously with 50% cost reduction (`POST /v1/messages/batches`)
-* **[Token Counting API](https://platform.claude.com/docs/en/api/messages-count-tokens)**: Count tokens in a message before sending to manage costs and rate limits (`POST /v1/messages/count_tokens`)
+* **[Token Counting API](https://platform.claude.com/docs/en/api/messages/count_tokens)**: Count tokens in a message before sending to manage costs and rate limits (`POST /v1/messages/count_tokens`)
 * **[Models API](https://platform.claude.com/docs/en/api/models/list)**: List available Claude models and their details (`GET /v1/models`)
 * **[Files API](https://platform.claude.com/docs/en/api/files/upload)**: Upload and manage files for use across multiple API calls (`POST /v1/files`, `GET /v1/files`)
 * **[Skills API](https://platform.claude.com/docs/en/api/skills/create)**: Create and manage custom agent skills (`POST /v1/skills`, `GET /v1/skills`)
@@ -58,7 +58,7 @@ When accessing Claude through a [cloud platform](https://platform.claude.com/doc
 
 ### Getting API keys
 
-The API is made available through the web [Console](https://platform.claude.com/). You can use [playground](https://platform.claude.com/playground) to try out the API in the browser and then generate API keys in [Account Settings](https://platform.claude.com/settings/keys). You choose each key's type (see [Key types](https://platform.claude.com/docs/en/manage-claude/authentication#key-types)) and its [expiration](https://platform.claude.com/docs/en/manage-claude/authentication#key-expiration) when you create it. Use [workspaces](https://platform.claude.com/settings/workspaces) to separate environments and [control spend](https://platform.claude.com/docs/en/api/rate-limits) by use case.
+The API is made available through the web [Console](https://platform.claude.com/). You can use [playground](https://platform.claude.com/playground) to try out the API in the browser and then generate API keys in [Account Settings](https://platform.claude.com/settings/keys) (see [Get your Claude API key](https://platform.claude.com/docs/en/get-api-key)). You choose each key's type (see [Key types](https://platform.claude.com/docs/en/manage-claude/authentication#key-types)) and its [expiration](https://platform.claude.com/docs/en/manage-claude/authentication#key-expiration) when you create it. Use [workspaces](https://platform.claude.com/settings/workspaces) to separate environments and [control spend](https://platform.claude.com/docs/en/api/rate-limits) by use case.
 
 ## Client SDKs
 
@@ -150,7 +150,7 @@ List endpoints return results in pages. Most newer list endpoints use the `page`
 
 To go back a page, pass `prev_page` as the `page` parameter. `prev_page` is `null` when you're on the first page. Not all list endpoints support `prev_page`. Only `GET /v1/sessions` returns `prev_page`; on list endpoints that do not support backward pagination, the field is absent from the response rather than `null`. For a request walkthrough, see [Listing sessions](https://platform.claude.com/docs/en/managed-agents/session-operations#listing-sessions).
 
-Every SDK provides an auto-paginating iterator that follows `next_page` for you. In Python and TypeScript, you get it by iterating the list result directly. The other SDKs provide the iterator through a separate method. SDK auto-pagination is forward-only; to go back a page, read `prev_page` from the response and pass it back as the `page` parameter yourself. See [client SDKs](https://platform.claude.com/docs/en/cli-sdks-libraries/overview) for language-specific details.
+The SDK provides an auto-paginating iterator that follows `next_page` for you. For example, `for session in client.beta.sessions.list()` (python; typescript: `for await (const session of client.beta.sessions.list())`; go: `client.Beta.Sessions.ListAutoPaging()`; java: `client.beta().sessions().list().autoPager()`; csharp: `(await client.Beta.Sessions.List()).Paginate()`; php: `$client->beta->sessions->list()->pagingEachItem()`; ruby: `client.beta.sessions.list.auto_paging_each`) walks through every session. SDK auto-pagination is forward-only; to go back a page, read `prev_page` from the response and pass it back as the `page` parameter yourself. See [client SDKs](https://platform.claude.com/docs/en/cli-sdks-libraries/overview) for details.
 
 <Note>
   Some list endpoints use a different cursor scheme. The [Message Batches API](https://platform.claude.com/docs/en/build-with-claude/batch-processing), the [Models API](https://platform.claude.com/docs/en/api/models/list), and several [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api) endpoints take `after_id` and `before_id` query parameters instead of `page`. Their responses return `has_more`, `first_id`, and `last_id` instead of `next_page`. See the reference page for each endpoint for its exact pagination fields.

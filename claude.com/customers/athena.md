@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Athena Intelligence compresses weeks of enterprise knowledge work into hours with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a7b79140926cd13b607b4b_logo_athena-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a89deac0ec8663229712fe_logo_athena-dark-mode.svg)
+![Athena logo](https://assets.claude.com/1a7368aebba8b1ef9d6691ffe616edd8018b34d8.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 4–8 weeks to production
 
@@ -40,63 +30,17 @@ from days to hours
 
 How enterprises are building AI agents in 2026
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6938f1ba14ef8dffb304fae8_2026%20State%20of%20AI%20Agents%20Report%20-%20Blog%20-%201200%20x%20630%20E.png)
+![How enterprises are building AI agents in 2026](https://assets.claude.com/faaa398e4d7a94cfce273d40c67bf04482996e0d.png?w=2400&q=75&fm=webp&fit=max)
 
 New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
 
-Read more
-
-[Read more](https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026)Read more
-
-How enterprises are building AI agents in 2026
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How enterprises are building AI agents in 2026
-
-New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
+[Read more](https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026)
 
 Introducing Claude Opus 4.6
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698529955ffaa6de831ec14e_opus%201%20(4).jpg)
+![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Read more
-
-[Read more](#)Read more
-
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.6
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Athena Intelligence](https://www.athenaintel.com/) is a startup that pairs an AI-native workspace with an autonomous agent to handle the repetitive, time-intensive parts of knowledge work. The company serves Fortune 500 enterprises, law firms, financial services organizations, healthcare systems, and government agencies. Claude powers the vast majority of autonomous work on the platform.
 
@@ -143,58 +87,16 @@ Athena’s goal is proving AI can be “powerful, trustworthy, and genuinely use
 
 ‍
 
-"We needed a model that could reason through ambiguity, follow complex instructions, and explain its reasoning within strict compliance frameworks. Claude was the best fit."
+> "We needed a model that could reason through ambiguity, follow complex instructions, and explain its reasoning within strict compliance frameworks. Claude was the best fit."
 
-Brendon Geils
+Brendon GeilsFounder and CEO, Athena Intelligence
 
-Founder and CEO, Athena Intelligence
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Presien reduces critical safety events on construction sites by 70%+ with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a05f852751968314e440dac_PresienLogo-Primary-Black%20(1).svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a05f8782d771beca1be7e9e_logo_presien-dark-mode.svg)
+![Presien logo](https://assets.claude.com/bda48d73f84cfc493a851ec8190952875e3cdca3.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 Over 70% reduction in critical safety events
 
@@ -51,28 +41,6 @@ Safety managers receive actionable AI-generated risk and site analysis
 
 ## The challenge
 
-Explore MCP
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0ce932717c4d3cc8a584f2_3aabd8804251c0364cbde9d2e4be6dc8e8c2faec-2880x1620_2500w.jpg)
-
-Try out MCP Connectors in Claude.ai
-
-Explore MCP
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Try out MCP Connectors in Claude.ai
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Explore MCP
-
-Try out MCP Connectors in Claude.ai
-
 ## A flood of data with no way to reason over it
 
 Construction and mining sites generate massive amounts of data, but less than 5% of it is ever acted on. The U.S. Bureau of Labor Statistics estimates that every 104 minutes, a worker dies from a preventable injury in the U.S. Operators of these sites generate enormous volumes of video and sensor data for the purposes of incident prevention and site management.
@@ -83,29 +51,13 @@ Before Presien created /loop with Claude, safety workflows were manual and react
 
 "That's what led us to Claude," said Mark Richards, CEO of Presien. "Not as a chatbot layer sitting on top of our data, but as the reasoning engine at the heart of our intelligence platform."
 
+Explore MCP
+
+![Explore MCP](https://assets.claude.com/27fe73dbb12100740bc7776c3bfa4e9d92af5c51.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Try out MCP Connectors in Claude.ai
+
 ## The solution
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## Selecting Claude for orchestration across complexity
 
@@ -125,21 +77,15 @@ Claude connects to this data through MCP servers. When /loop identifies a cluste
 
 /loop runs continuously, 24 hours a day, reviewing events as they happen. Critical detections trigger immediate attention; others are queued for morning review. By the time the safety manager starts their day, the analysis is ready.
 
-"Not as a chatbot layer sitting on top of our data, but as the reasoning engine at the heart of our intelligence platform."
+Choosing the right Claude model
 
-Mark Richards
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
-CEO, Presien
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Not as a chatbot layer sitting on top of our data, but as the reasoning engine at the heart of our intelligence platform."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Mark RichardsCEO, Presien
 
 ## The outcome
 
@@ -161,42 +107,16 @@ Through MCP, Presien is also offering OEM partners—the manufacturers of excava
 
 "The shift is from a tool you query to an intelligence that monitors, interprets, and surfaces what matters without being asked," Richards said.
 
-"With Claude, the adherence to instruction was precise, and it did all of this through our MCP server architecture, knowing which of Presien's tools to call, without explicit instruction.”
+> "With Claude, the adherence to instruction was precise, and it did all of this through our MCP server architecture, knowing which of Presien's tools to call, without explicit instruction.”
 
-Mark Richards
+Mark RichardsCEO, Presien
 
-CEO, Presien
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

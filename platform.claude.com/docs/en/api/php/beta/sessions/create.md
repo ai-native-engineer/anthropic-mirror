@@ -25,7 +25,7 @@ Create Session
 
 - `budget?:optional BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Enforced spend ceiling for the session. Omit to create an uncapped session. Every model the session can run — the agent's model and each callable agent's model — must have a public list price, or the request is rejected with reason `model_not_budgetable`.
 
 - `initialEvents?:optional list<InitialEvent>`
 
@@ -53,9 +53,13 @@ Create Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -67,11 +71,11 @@ Create Session
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
   - `\Datetime createdAt`
 
@@ -89,11 +93,9 @@ Create Session
 
   - `BetaManagedAgentsSessionStats stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
   - `Status status`
-
-    SessionStatus enum
 
   - `?string title`
 
@@ -103,7 +105,7 @@ Create Session
 
   - `BetaManagedAgentsSessionUsage usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
   - `list<string> vaultIDs`
 

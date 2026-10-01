@@ -19,17 +19,17 @@ Update Credential
 
   - `required string vaultID`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `required string credentialID`
 
-    Path param: Path parameter credential_id
+    Path param: Unique identifier of the credential to update.
 
   - `Auth auth`
 
-    Body param: Updated authentication details for a credential.
+    Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
-    - `class BetaManagedAgentsMcpOAuthUpdateParams:`
+    - `class BetaManagedAgentsMcpOAuthUpdateParams`
 
       Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
 
@@ -49,7 +49,7 @@ Update Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshUpdateParams? Refresh`
 
-        Parameters for updating OAuth refresh token configuration.
+        Updated refresh token configuration.
 
         - `string? RefreshToken`
 
@@ -65,9 +65,7 @@ Update Credential
 
         - `TokenEndpointAuth TokenEndpointAuth`
 
-          Updated HTTP Basic authentication parameters for the token endpoint.
-
-          - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam:`
+          - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
 
             Updated HTTP Basic authentication parameters for the token endpoint.
 
@@ -79,7 +77,7 @@ Update Credential
 
               minLength: 1, maxLength: 512
 
-          - `class BetaManagedAgentsTokenEndpointAuthPostUpdateParam:`
+          - `class BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
             Updated POST body authentication parameters for the token endpoint.
 
@@ -91,7 +89,7 @@ Update Credential
 
               minLength: 1, maxLength: 512
 
-    - `class BetaManagedAgentsStaticBearerUpdateParams:`
+    - `class BetaManagedAgentsStaticBearerUpdateParams`
 
       Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
 
@@ -103,7 +101,7 @@ Update Credential
 
         minLength: 1, maxLength: 8192
 
-    - `class BetaManagedAgentsEnvironmentVariableUpdateParams:`
+    - `class BetaManagedAgentsEnvironmentVariableUpdateParams`
 
       Parameters for updating an environment variable credential. `secret_name` is immutable.
 
@@ -125,13 +123,13 @@ Update Credential
 
         Updated networking scope. Full replacement.
 
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingParams:`
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
 
           Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
           - `required Type Type`
 
-        - `class BetaManagedAgentsLimitedCredentialNetworkingParams:`
+        - `class BetaManagedAgentsLimitedCredentialNetworkingParams`
 
           Substitute the secret only on requests to the listed hosts.
 
@@ -251,6 +249,14 @@ Update Credential
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -259,7 +265,7 @@ Update Credential
 
 ## Returns
 
-- `class BetaManagedAgentsCredential:`
+- `class BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -271,15 +277,15 @@ Update Credential
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `required Auth Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
-    - `class BetaManagedAgentsMcpOAuthAuthResponse:`
+    - `class BetaManagedAgentsMcpOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -297,7 +303,7 @@ Update Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -309,21 +315,19 @@ Update Credential
 
         - `required TokenEndpointAuth TokenEndpointAuth`
 
-          Token endpoint requires no client authentication.
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
+          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `required Type Type`
 
-          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
+          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `required Type Type`
 
-          - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
+          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -337,7 +341,7 @@ Update Credential
 
           OAuth scope for the refresh request.
 
-    - `class BetaManagedAgentsStaticBearerAuthResponse:`
+    - `class BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -347,7 +351,7 @@ Update Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
+    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -369,13 +373,13 @@ Update Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse:`
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `required Type Type`
 
-        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse:`
+        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 

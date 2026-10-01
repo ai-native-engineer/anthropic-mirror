@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/import-memory -->
 
+Explore here
+
 Switch to Claude without starting over
 
 Bring your preferences and context from other AI providers to Claude. With one copy-paste, Claude updates its memory and picks up right where you left off.

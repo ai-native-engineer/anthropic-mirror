@@ -1,7 +1,25 @@
 # claude (YouTube)
 
-영상 190개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 212개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Getting started with Claude Tag](claude/260929-getting-started-with-claude-tag.md) — 2026-09-29
+- [Introducing Claude Sonnet 5.5](claude/260928-introducing-claude-sonnet-5-5.md) — 2026-09-28 (자막없음)
+- [Building verification loops in Claude Code](claude/260925-building-verification-loops-in-claude-code.md) — 2026-09-25
+- [Patrick Collison on Claude Code at Stripe](claude/260924-patrick-collison-on-claude-code-at-stripe.md) — 2026-09-24
+- [Using AI in humanitarian work](claude/260924-using-ai-in-humanitarian-work.md) — 2026-09-24 (자막없음)
+- [Using Claude Opus 5.5 as your daily driver](claude/260923-using-claude-opus-5-5-as-your-daily-driver.md) — 2026-09-23 (자막없음)
+- [Introducing Claude Opus 5.5](claude/260922-introducing-claude-opus-5-5.md) — 2026-09-22 (자막없음)
+- [GPS, explained by Claude Opus 5.5](claude/260922-gps-explained-by-claude-opus-5-5.md) — 2026-09-22
+- [Claude Opus 5.5 rebuilds Earthrise in 3D, down to the second](claude/260922-claude-opus-5-5-rebuilds-earthrise-in-3d-down-to-the-second.md) — 2026-09-22 (자막없음)
+- [Claude Opus 5.5 builds daydreams that hold together](claude/260922-claude-opus-5-5-builds-daydreams-that-hold-together.md) — 2026-09-22 (자막없음)
+- [Claude Opus 5.5 turns graphite into gravity](claude/260922-claude-opus-5-5-turns-graphite-into-gravity.md) — 2026-09-22 (자막없음)
+- [Which Claude model should you use?](claude/260918-which-claude-model-should-you-use.md) — 2026-09-18
+- [Projects are now a conversation with Claude](claude/260917-projects-are-now-a-conversation-with-claude.md) — 2026-09-17 (자막없음)
+- [Meet Claude Slides, Claude Design and Claude Docs](claude/260916-meet-claude-slides-claude-design-and-claude-docs.md) — 2026-09-16 (자막없음)
+- [Claude Cowork and chat are now one Claude](claude/260916-claude-cowork-and-chat-are-now-one-claude.md) — 2026-09-16
+- [Frontier Day | Claude for startups](claude/260915-frontier-day-claude-for-startups.md) — 2026-09-15
+- [Salesforce in Claude](claude/260915-salesforce-in-claude.md) — 2026-09-15 (자막없음)
+- [How data retention works when using Claude](claude/260914-how-data-retention-works-when-using-claude.md) — 2026-09-14
 - [How founders build on Claude Managed Agents](claude/260908-how-founders-build-on-claude-managed-agents.md) — 2026-09-08
 - [How the Claude Code team uses Claude Code](claude/260902-how-the-claude-code-team-uses-claude-code.md) — 2026-09-02
 - [Debugging across the whole stack with Claude Fable 5.1](claude/260901-debugging-across-the-whole-stack-with-claude-fable-5-1.md) — 2026-09-01 (자막없음)
@@ -161,6 +179,10 @@
 - [A.A.Murakami's The Moon Underwater](claude/260202-a-a-murakami-s-the-moon-underwater.md) — 2026-02-02
 - [Getting started with Claude in Excel](claude/260130-getting-started-with-claude-in-excel.md) — 2026-01-30
 - [How Anthropic uses Claude in Marketing](claude/260127-how-anthropic-uses-claude-in-marketing.md) — 2026-01-27
+- [Introducing Claude Sonnet 5.5](claude/260928-introducing-claude-sonnet-5-5-u-3cPW.md) — 2026-09-28 (자막없음)
+- [Sometimes the whole point of a project is who it’s for](claude/260923-sometimes-the-whole-point-of-a-project-is-who-it-s-for.md) — 2026-09-23
+- [Meet Claude Opus 5.5](claude/260922-meet-claude-opus-5-5.md) — 2026-09-22 (자막없음)
+- [Claude Cowork and chat are now one Claude](claude/260921-claude-cowork-and-chat-are-now-one-claude.md) — 2026-09-21 (자막없음)
 - [Why Claude works better inside Slack](claude/260909-why-claude-works-better-inside-slack.md) — 2026-09-09
 - [Anthropic engineers on what Claude changed for them](claude/260908-anthropic-engineers-on-what-claude-changed-for-them.md) — 2026-09-08
 - [Fable 5.1 is here](claude/260902-fable-5-1-is-here.md) — 2026-09-02 (자막없음)

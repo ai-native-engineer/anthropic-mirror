@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Stairwell protects companies from sophisticated cybersecurity threats with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Stairwell logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c3c225dbbe49350cb144_cs-logo-stairwell-light-theme.svg)![Stairwell logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c3c5136d380aa90caf47_cs-logo-stairwell-dark-theme.svg)
+![Stairwell logo](https://assets.claude.com/482e7e2021e24def4f5012b0ee5f341a9b7fc48b.svg)
 
 Industry:
-
-Cybersecurity
+:   Cybersecurity
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 40,000+
 
@@ -37,42 +27,6 @@ characters processed in security data
 Minimal prompting
 
 required for complex security analysis
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Stairwell uses Claude to analyze and summarize complex security data, helping protect companies from sophisticated cybersecurity threats, giving them the confidence to know if, when, and where malware has ever been on their systems.
 
@@ -108,9 +62,7 @@ Claude enhances Stairwell's security platform in three key ways:
 
 This comprehensive approach allows Stairwell to deliver sophisticated security analysis that would typically require extensive expertise to interpret. The combination of Stairwell's deep security expertise and Claude's advanced summarization capabilities creates a powerful solution for modern cybersecurity challenges.
 
-![Stairwell product screen 1](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf059357df52646b28c4f_28613d0b21917b6754dbc00e8ddad626f390de5c-1920x769.png)
-
-![Stairwell product screen 2](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf059357df52646b28c55_17481d871e4c7098a78691ce4c4909b50baa89f1-1920x769.png)
+![Stairwell product screen 1](https://assets.claude.com/834d6258a709a3054a105046c49ecefc251d5191.png)![Stairwell product screen 2](https://assets.claude.com/13ee5bf461e174d612babbbcc2e2def8330afb84.png)
 
 ## Transforming security analysis for professionals
 
@@ -124,52 +76,12 @@ As cybersecurity threats grow in sophistication and frequency, Stairwell stands 
 
 Looking ahead, Stairwell plans to expand Claude's capabilities across their platform, democratizing access to sophisticated security analysis. Through their partnership with Anthropic, they aim to create a future where advanced threat detection isn't limited to seasoned experts, but is accessible to all security professionals working to protect critical systems. By combining Stairwell's security expertise with Claude's AI capabilities, they're building a more secure digital future—one where organizations of all sizes can defend against sophisticated threats.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Vega Security](https://assets.claude.com/4e1839348313fbe4c8f3c96d6c7cbc95f53e13c6.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-[Next](#)Next
+### Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-Video caption
+### Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera)[![Kai](https://assets.claude.com/aff2397c0fd3708b6d0b23554c2ce5f81a3f7c56.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/vega)Customer story
-
-[Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
-
-Cyera on making Claude Cowork the front door to 40 tools
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera-qa)Customer story
-
-[Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera) Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera)Customer story
-
-[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
-
-Kai delivers preemptive exposure management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/kai)Customer story
+### Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai)

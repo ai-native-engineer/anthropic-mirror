@@ -19,13 +19,13 @@ Create Credential
 
   - `required string vaultID`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault to create the credential in.
 
   - `required Auth auth`
 
-    Body param: Authentication details for creating a credential.
+    Body param: Authentication configuration for the credential.
 
-    - `class BetaManagedAgentsMcpOAuthCreateParams:`
+    - `class BetaManagedAgentsMcpOAuthCreateParams`
 
       Parameters for creating an MCP OAuth credential.
 
@@ -51,7 +51,7 @@ Create Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshParams? Refresh`
 
-        OAuth refresh token parameters for creating a credential with refresh support.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -73,15 +73,13 @@ Create Credential
 
         - `required TokenEndpointAuth TokenEndpointAuth`
 
-          Token endpoint requires no client authentication.
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneParam:`
+          - `class BetaManagedAgentsTokenEndpointAuthNoneParam`
 
             Token endpoint requires no client authentication.
 
             - `required Type Type`
 
-          - `class BetaManagedAgentsTokenEndpointAuthBasicParam:`
+          - `class BetaManagedAgentsTokenEndpointAuthBasicParam`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
@@ -93,7 +91,7 @@ Create Credential
 
               minLength: 1, maxLength: 512
 
-          - `class BetaManagedAgentsTokenEndpointAuthPostParam:`
+          - `class BetaManagedAgentsTokenEndpointAuthPostParam`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -117,7 +115,7 @@ Create Credential
 
           minLength: 1, maxLength: 8192
 
-    - `class BetaManagedAgentsStaticBearerCreateParams:`
+    - `class BetaManagedAgentsStaticBearerCreateParams`
 
       Parameters for creating a static bearer token credential.
 
@@ -135,7 +133,7 @@ Create Credential
 
         minLength: 1, maxLength: 2047
 
-    - `class BetaManagedAgentsEnvironmentVariableCreateParams:`
+    - `class BetaManagedAgentsEnvironmentVariableCreateParams`
 
       Parameters for creating an environment variable credential.
 
@@ -145,13 +143,13 @@ Create Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingParams:`
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
 
           Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
           - `required Type Type`
 
-        - `class BetaManagedAgentsLimitedCredentialNetworkingParams:`
+        - `class BetaManagedAgentsLimitedCredentialNetworkingParams`
 
           Substitute the secret only on requests to the listed hosts.
 
@@ -289,6 +287,14 @@ Create Credential
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -297,7 +303,7 @@ Create Credential
 
 ## Returns
 
-- `class BetaManagedAgentsCredential:`
+- `class BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -309,15 +315,15 @@ Create Credential
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `required Auth Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
-    - `class BetaManagedAgentsMcpOAuthAuthResponse:`
+    - `class BetaManagedAgentsMcpOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -335,7 +341,7 @@ Create Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -347,21 +353,19 @@ Create Credential
 
         - `required TokenEndpointAuth TokenEndpointAuth`
 
-          Token endpoint requires no client authentication.
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
+          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `required Type Type`
 
-          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
+          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `required Type Type`
 
-          - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
+          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -375,7 +379,7 @@ Create Credential
 
           OAuth scope for the refresh request.
 
-    - `class BetaManagedAgentsStaticBearerAuthResponse:`
+    - `class BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -385,7 +389,7 @@ Create Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
+    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -407,13 +411,13 @@ Create Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse:`
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `required Type Type`
 
-        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse:`
+        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 

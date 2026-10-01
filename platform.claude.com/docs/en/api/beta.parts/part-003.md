@@ -3,7 +3,14742 @@
 
 <!-- chunk-start -->
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsMemoryStore object`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `type: "memory_store"`
+
+  - `id: string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `created_at: string`
+
+    Timestamp when the store was created.
+
+    format: date-time
+
+  - `name: string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `updated_at: string`
+
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
+
+    format: date-time
+
+  - `archived_at: optional string or null`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
+  - `description: optional string`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata: optional map[string]`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+### Update a memory store
+
+**POST** `/v1/memory_stores/{memory_store_id}`
+
+Update a memory store
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  ID of the memory store to update (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`. Updating an archived store returns 400.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `description: optional string or null`
+
+  New description for the store, up to 1024 characters. Pass an empty string to clear it.
+
+  maxLength: 1024
+
+- `metadata: optional map[string] or null`
+
+  Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
+
+- `name: optional string or null`
+
+  New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
+
+  minLength: 1, maxLength: 255
+
+#### Returns
+
+- `BetaManagedAgentsMemoryStore object`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `type: "memory_store"`
+
+  - `id: string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `created_at: string`
+
+    Timestamp when the store was created.
+
+    format: date-time
+
+  - `name: string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `updated_at: string`
+
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
+
+    format: date-time
+
+  - `archived_at: optional string or null`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
+  - `description: optional string`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata: optional map[string]`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{}'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+### Delete a memory store
+
+**DELETE** `/v1/memory_stores/{memory_store_id}`
+
+Delete a memory store
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  ID of the memory store to permanently delete (a `memstore_...` identifier). Required. Deletion cascades to all memories and memory versions in the store and cannot be undone.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsDeletedMemoryStore object`
+
+  Confirmation that a `memory_store` was deleted.
+
+  - `type: "memory_store_deleted"`
+
+  - `id: string`
+
+    ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "type": "memory_store_deleted"
+}
+```
+
+### Archive a memory store
+
+**POST** `/v1/memory_stores/{memory_store_id}/archive`
+
+Archive a memory store
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  ID of the memory store to archive (a `memstore_...` identifier). Required. Archiving is one-way and idempotent; archived stores cannot be unarchived. Enumerate IDs via `GET /v1/memory_stores`.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsMemoryStore object`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `type: "memory_store"`
+
+  - `id: string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `created_at: string`
+
+    Timestamp when the store was created.
+
+    format: date-time
+
+  - `name: string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `updated_at: string`
+
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
+
+    format: date-time
+
+  - `archived_at: optional string or null`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
+  - `description: optional string`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata: optional map[string]`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/archive \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## Beta › Memory Stores › Memories
+
+### Create a memory
+
+**POST** `/v1/memory_stores/{memory_store_id}/memories`
+
+Create a memory
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  The ID of the memory store to create the memory in (`memstore_...`).
+
+#### Query parameters
+
+- `view: optional BetaManagedAgentsMemoryView`
+
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
+  - `"basic"`
+
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
+  - `"full"`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `content: string or null`
+
+  UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
+
+- `path: string`
+
+  Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive.
+
+  minLength: 2, maxLength: 1024
+
+#### Returns
+
+- `BetaManagedAgentsMemory object`
+
+  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `type: "memory"`
+
+  - `id: string`
+
+    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+  - `content_sha256: string`
+
+    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+  - `content_size_bytes: number`
+
+    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+    format: int32
+
+  - `created_at: string`
+
+    When this memory was created, in RFC 3339 format.
+
+    format: date-time
+
+  - `memory_store_id: string`
+
+    ID of the memory store this memory belongs to (a `memstore_...` value).
+
+  - `memory_version_id: string`
+
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
+
+  - `path: string`
+
+    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+  - `updated_at: string`
+
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
+
+    format: date-time
+
+  - `content: optional string or null`
+
+    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "content": "content",
+          "path": "xx"
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+### List memories
+
+**GET** `/v1/memory_stores/{memory_store_id}/memories`
+
+List memories
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  The ID of the memory store to list memories from (`memstore_...`).
+
+#### Query parameters
+
+- `depth: optional number`
+
+  `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
+
+  format: int32
+
+- `limit: optional number`
+
+  Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
+
+  format: int32
+
+- `page: optional string`
+
+  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
+
+- `path_prefix: optional string`
+
+  Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
+
+- `view: optional BetaManagedAgentsMemoryView`
+
+  Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
+
+  - `"basic"`
+
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
+  - `"full"`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: optional array of BetaManagedAgentsMemoryListItem`
+
+  One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items are returned in a stable, server-defined order.
+
+  - `BetaManagedAgentsMemory object`
+
+    A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+    - `type: "memory"`
+
+    - `id: string`
+
+      Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+    - `content_sha256: string`
+
+      Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+    - `content_size_bytes: number`
+
+      Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+      format: int32
+
+    - `created_at: string`
+
+      When this memory was created, in RFC 3339 format.
+
+      format: date-time
+
+    - `memory_store_id: string`
+
+      ID of the memory store this memory belongs to (a `memstore_...` value).
+
+    - `memory_version_id: string`
+
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
+
+    - `path: string`
+
+      Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+    - `updated_at: string`
+
+      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
+
+      format: date-time
+
+    - `content: optional string or null`
+
+      The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+  - `BetaManagedAgentsMemoryPrefix object`
+
+    A rolled-up directory marker returned by [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
+    - `type: "memory_prefix"`
+
+    - `path: string`
+
+      The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
+
+- `next_page: optional string or null`
+
+  Opaque cursor for the next page (a `page_...` value), or `null` if there are no more results. Pass as `page` on the next request.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_store_id": "memory_store_id",
+      "memory_version_id": "memory_version_id",
+      "path": "path",
+      "type": "memory",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "content": "content"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Retrieve a memory
+
+**GET** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+
+Retrieve a memory
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  The ID of the memory store that holds the memory (`memstore_...`).
+
+- `memory_id: string`
+
+  The ID of the memory to retrieve (`mem_...`).
+
+#### Query parameters
+
+- `view: optional BetaManagedAgentsMemoryView`
+
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
+  - `"basic"`
+
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
+  - `"full"`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsMemory object`
+
+  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `type: "memory"`
+
+  - `id: string`
+
+    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+  - `content_sha256: string`
+
+    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+  - `content_size_bytes: number`
+
+    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+    format: int32
+
+  - `created_at: string`
+
+    When this memory was created, in RFC 3339 format.
+
+    format: date-time
+
+  - `memory_store_id: string`
+
+    ID of the memory store this memory belongs to (a `memstore_...` value).
+
+  - `memory_version_id: string`
+
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
+
+  - `path: string`
+
+    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+  - `updated_at: string`
+
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
+
+    format: date-time
+
+  - `content: optional string or null`
+
+    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMORY_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+### Update a memory
+
+**POST** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+
+Update a memory
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  The ID of the memory store that holds the memory (`memstore_...`).
+
+- `memory_id: string`
+
+  The ID of the memory to update (`mem_...`).
+
+#### Query parameters
+
+- `view: optional BetaManagedAgentsMemoryView`
+
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
+  - `"basic"`
+
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
+  - `"full"`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `content: optional string or null`
+
+  New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
+
+- `path: optional string or null`
+
+  New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
+
+  minLength: 2, maxLength: 1024
+
+- `precondition: optional BetaManagedAgentsPrecondition`
+
+  Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
+
+  - `type: "content_sha256"`
+
+  - `content_sha256: optional string`
+
+    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
+
+#### Returns
+
+- `BetaManagedAgentsMemory object`
+
+  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `type: "memory"`
+
+  - `id: string`
+
+    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+  - `content_sha256: string`
+
+    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+  - `content_size_bytes: number`
+
+    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+    format: int32
+
+  - `created_at: string`
+
+    When this memory was created, in RFC 3339 format.
+
+    format: date-time
+
+  - `memory_store_id: string`
+
+    ID of the memory store this memory belongs to (a `memstore_...` value).
+
+  - `memory_version_id: string`
+
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
+
+  - `path: string`
+
+    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+  - `updated_at: string`
+
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
+
+    format: date-time
+
+  - `content: optional string or null`
+
+    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMORY_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{}'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+### Delete a memory
+
+**DELETE** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+
+Delete a memory
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  The ID of the memory store that holds the memory (`memstore_...`).
+
+- `memory_id: string`
+
+  The ID of the memory to delete (`mem_...`).
+
+#### Query parameters
+
+- `expected_content_sha256: optional string`
+
+  Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
+
+  If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsDeletedMemory object`
+
+  Tombstone returned by [Delete a memory](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
+
+  - `type: "memory_deleted"`
+
+  - `id: string`
+
+    ID of the deleted memory (a `mem_...` value).
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMORY_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "type": "memory_deleted"
+}
+```
+
+## Beta › Memory Stores › Memory Versions
+
+### List memory versions
+
+**GET** `/v1/memory_stores/{memory_store_id}/memory_versions`
+
+List memory versions
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  The ID of the memory store whose version history to list (`memstore_...`).
+
+#### Query parameters
+
+- `api_key_id: optional string`
+
+  Return only versions written with the API key that has this ID.
+
+- `"created_at[gte]": optional string`
+
+  Return versions created at or after this time (inclusive).
+
+  format: date-time
+
+- `"created_at[lte]": optional string`
+
+  Return versions created at or before this time (inclusive).
+
+  format: date-time
+
+- `limit: optional number`
+
+  The maximum number of versions to return per page. Defaults to 20.
+
+  format: int32
+
+- `memory_id: optional string`
+
+  Return only versions of the memory with this ID (`mem_...`).
+
+  The filter still works after the memory is deleted. The results then include the version whose `operation` is `deleted`.
+
+- `operation: optional BetaManagedAgentsMemoryVersionOperation`
+
+  Return only versions that record this kind of change.
+
+  - `"created"`
+
+    The memory was created. The first version in any memory's lineage.
+
+  - `"modified"`
+
+    The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
+
+  - `"deleted"`
+
+    The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
+
+- `page: optional string`
+
+  The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
+
+- `service_account_id: optional string`
+
+  Return only versions written by the service account with this ID (`svac_...`).
+
+- `session_id: optional string`
+
+  Return only versions written by the session with this ID.
+
+- `view: optional BetaManagedAgentsMemoryView`
+
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
+  - `"basic"`
+
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
+  - `"full"`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: optional array of BetaManagedAgentsMemoryVersion`
+
+  One page of `memory_version` objects, ordered by `created_at` descending (newest first), with `id` as tiebreak.
+
+  - `type: "memory_version"`
+
+  - `id: string`
+
+    Unique identifier for this version (a `memver_...` value).
+
+  - `created_at: string`
+
+    When this version was written, in RFC 3339 format.
+
+    format: date-time
+
+  - `memory_id: string`
+
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+
+  - `memory_store_id: string`
+
+    ID of the memory store this version belongs to (a `memstore_...` value).
+
+  - `operation: BetaManagedAgentsMemoryVersionOperation`
+
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
+
+    - `"created"`
+
+      The memory was created. The first version in any memory's lineage.
+
+    - `"modified"`
+
+      The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
+
+    - `"deleted"`
+
+      The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
+
+  - `content: optional string or null`
+
+    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
+
+  - `content_sha256: optional string or null`
+
+    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `content_size_bytes: optional number or null`
+
+    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+    format: int32
+
+  - `created_by: optional BetaManagedAgentsActor`
+
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
+
+    - `BetaManagedAgentsSessionActor object`
+
+      An agent acting during a session, for example through the session's mounted filesystem. It names the session itself, not the user or API key that started the session.
+
+      - `type: "session_actor"`
+
+      - `session_id: string`
+
+        ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](https://platform.claude.com/docs/en/api/beta/sessions/retrieve) for further provenance.
+
+        minLength: 1
+
+    - `BetaManagedAgentsAPIActor object`
+
+      A direct caller of the public API, identified by the API key that authenticated the request.
+
+      - `type: "api_actor"`
+
+      - `api_key_id: string`
+
+        ID of the API key (an `apikey_...` value). This identifies the key, not the secret.
+
+        minLength: 1
+
+    - `BetaManagedAgentsUserActor object`
+
+      A human user, for example acting through the Anthropic Console.
+
+      - `type: "user_actor"`
+
+      - `user_id: string`
+
+        ID of the user (a `user_...` value).
+
+        minLength: 1
+
+    - `BetaManagedAgentsServiceAccountActor object`
+
+      A workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `type: "service_account_actor"`
+
+      - `service_account_id: string`
+
+        ID of the service account (a `svac_...` value).
+
+        minLength: 1
+
+  - `path: optional string or null`
+
+    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
+
+  - `redacted_at: optional string or null`
+
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
+
+    format: date-time
+
+  - `redacted_by: optional BetaManagedAgentsActor`
+
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
+
+- `next_page: optional string or null`
+
+  Opaque cursor for the next page (a `page_...` value), or `null` if there are no more results. Pass as `page` on the next request.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memory_versions \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_id": "memory_id",
+      "memory_store_id": "memory_store_id",
+      "operation": "created",
+      "type": "memory_version",
+      "content": "content",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      },
+      "path": "path",
+      "redacted_at": "2019-12-27T18:11:19.117Z",
+      "redacted_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Retrieve a memory version
+
+**GET** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}`
+
+Retrieve a memory version
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  The ID of the memory store that holds the version (`memstore_...`).
+
+- `memory_version_id: string`
+
+  The ID of the memory version to retrieve (`memver_...`).
+
+#### Query parameters
+
+- `view: optional BetaManagedAgentsMemoryView`
+
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
+  - `"basic"`
+
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
+  - `"full"`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsMemoryVersion object`
+
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
+  - `type: "memory_version"`
+
+  - `id: string`
+
+    Unique identifier for this version (a `memver_...` value).
+
+  - `created_at: string`
+
+    When this version was written, in RFC 3339 format.
+
+    format: date-time
+
+  - `memory_id: string`
+
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+
+  - `memory_store_id: string`
+
+    ID of the memory store this version belongs to (a `memstore_...` value).
+
+  - `operation: BetaManagedAgentsMemoryVersionOperation`
+
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
+
+    - `"created"`
+
+      The memory was created. The first version in any memory's lineage.
+
+    - `"modified"`
+
+      The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
+
+    - `"deleted"`
+
+      The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
+
+  - `content: optional string or null`
+
+    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
+
+  - `content_sha256: optional string or null`
+
+    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `content_size_bytes: optional number or null`
+
+    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+    format: int32
+
+  - `created_by: optional BetaManagedAgentsActor`
+
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
+
+    - `BetaManagedAgentsSessionActor object`
+
+      An agent acting during a session, for example through the session's mounted filesystem. It names the session itself, not the user or API key that started the session.
+
+      - `type: "session_actor"`
+
+      - `session_id: string`
+
+        ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](https://platform.claude.com/docs/en/api/beta/sessions/retrieve) for further provenance.
+
+        minLength: 1
+
+    - `BetaManagedAgentsAPIActor object`
+
+      A direct caller of the public API, identified by the API key that authenticated the request.
+
+      - `type: "api_actor"`
+
+      - `api_key_id: string`
+
+        ID of the API key (an `apikey_...` value). This identifies the key, not the secret.
+
+        minLength: 1
+
+    - `BetaManagedAgentsUserActor object`
+
+      A human user, for example acting through the Anthropic Console.
+
+      - `type: "user_actor"`
+
+      - `user_id: string`
+
+        ID of the user (a `user_...` value).
+
+        minLength: 1
+
+    - `BetaManagedAgentsServiceAccountActor object`
+
+      A workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `type: "service_account_actor"`
+
+      - `service_account_id: string`
+
+        ID of the service account (a `svac_...` value).
+
+        minLength: 1
+
+  - `path: optional string or null`
+
+    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
+
+  - `redacted_at: optional string or null`
+
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
+
+    format: date-time
+
+  - `redacted_by: optional BetaManagedAgentsActor`
+
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memory_versions/$MEMORY_VERSION_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_id": "memory_id",
+  "memory_store_id": "memory_store_id",
+  "operation": "created",
+  "type": "memory_version",
+  "content": "content",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  },
+  "path": "path",
+  "redacted_at": "2019-12-27T18:11:19.117Z",
+  "redacted_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  }
+}
+```
+
+### Redact a memory version
+
+**POST** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
+
+Redact a memory version
+
+#### Path parameters
+
+- `memory_store_id: string`
+
+  The ID of the memory store that holds the version (`memstore_...`).
+
+- `memory_version_id: string`
+
+  The ID of the memory version to redact (`memver_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsMemoryVersion object`
+
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
+  - `type: "memory_version"`
+
+  - `id: string`
+
+    Unique identifier for this version (a `memver_...` value).
+
+  - `created_at: string`
+
+    When this version was written, in RFC 3339 format.
+
+    format: date-time
+
+  - `memory_id: string`
+
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+
+  - `memory_store_id: string`
+
+    ID of the memory store this version belongs to (a `memstore_...` value).
+
+  - `operation: BetaManagedAgentsMemoryVersionOperation`
+
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
+
+    - `"created"`
+
+      The memory was created. The first version in any memory's lineage.
+
+    - `"modified"`
+
+      The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
+
+    - `"deleted"`
+
+      The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
+
+  - `content: optional string or null`
+
+    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
+
+  - `content_sha256: optional string or null`
+
+    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `content_size_bytes: optional number or null`
+
+    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+    format: int32
+
+  - `created_by: optional BetaManagedAgentsActor`
+
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
+
+    - `BetaManagedAgentsSessionActor object`
+
+      An agent acting during a session, for example through the session's mounted filesystem. It names the session itself, not the user or API key that started the session.
+
+      - `type: "session_actor"`
+
+      - `session_id: string`
+
+        ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](https://platform.claude.com/docs/en/api/beta/sessions/retrieve) for further provenance.
+
+        minLength: 1
+
+    - `BetaManagedAgentsAPIActor object`
+
+      A direct caller of the public API, identified by the API key that authenticated the request.
+
+      - `type: "api_actor"`
+
+      - `api_key_id: string`
+
+        ID of the API key (an `apikey_...` value). This identifies the key, not the secret.
+
+        minLength: 1
+
+    - `BetaManagedAgentsUserActor object`
+
+      A human user, for example acting through the Anthropic Console.
+
+      - `type: "user_actor"`
+
+      - `user_id: string`
+
+        ID of the user (a `user_...` value).
+
+        minLength: 1
+
+    - `BetaManagedAgentsServiceAccountActor object`
+
+      A workload authenticated as a service account, for example via Workload Identity Federation.
+
+      - `type: "service_account_actor"`
+
+      - `service_account_id: string`
+
+        ID of the service account (a `svac_...` value).
+
+        minLength: 1
+
+  - `path: optional string or null`
+
+    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
+
+  - `redacted_at: optional string or null`
+
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
+
+    format: date-time
+
+  - `redacted_by: optional BetaManagedAgentsActor`
+
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memory_versions/$MEMORY_VERSION_ID/redact \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_id": "memory_id",
+  "memory_store_id": "memory_store_id",
+  "operation": "created",
+  "type": "memory_version",
+  "content": "content",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  },
+  "path": "path",
+  "redacted_at": "2019-12-27T18:11:19.117Z",
+  "redacted_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  }
+}
+```
+
+## Beta › Files
+
+### Upload File
+
+**POST** `/v1/files`
+
+Upload File
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters (form-data)
+
+- `file: string`
+
+  The file to upload. Only the final path component of the part's `filename` is kept; an absent or empty `filename` is replaced with `unnamed` plus the extension for the file's stored `mime_type`, when known.
+
+  format: binary
+
+- `expires_in_seconds: optional number`
+
+  Seconds from upload until the file expires and its bytes become permanently unavailable. Must be between 3600 (one hour) and 7776000 (ninety days).
+
+  minimum: 3600, maximum: 7776000
+
+#### Returns
+
+- `BetaFileMetadata object`
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string representing when the file was created.
+
+    format: date-time
+
+  - `filename: string`
+
+    Original filename of the uploaded file.
+
+    minLength: 1, maxLength: 500
+
+  - `mime_type: string`
+
+    MIME type of the file.
+
+    minLength: 1, maxLength: 255
+
+  - `size_bytes: number`
+
+    Size of the file in bytes.
+
+    minimum: 0
+
+  - `downloadable: optional boolean`
+
+    Whether the file can be downloaded.
+
+    default: false
+
+  - `expires_at: optional string or null`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
+    format: date-time
+
+  - `scope: optional BetaFileScope or null`
+
+    The scope of this file, indicating the context in which it was created (e.g., a session).
+
+    - `type: "session"`
+
+      The type of scope (e.g., `"session"`).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/files \
+    -H 'Content-Type: multipart/form-data' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -F 'file=@/path/to/file'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "expires_at": "2025-05-15T18:37:24.100435Z",
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+### List Files
+
+**GET** `/v1/files`
+
+List Files
+
+#### Query parameters
+
+- `ids: optional array of string`
+
+  Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
+
+- `limit: optional number`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20, minimum: 1, maximum: 1000
+
+- `page: optional string`
+
+  Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
+
+- `scope_id: optional string`
+
+  Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: array of BetaFileMetadata`
+
+  List of file metadata objects.
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string representing when the file was created.
+
+    format: date-time
+
+  - `filename: string`
+
+    Original filename of the uploaded file.
+
+    minLength: 1, maxLength: 500
+
+  - `mime_type: string`
+
+    MIME type of the file.
+
+    minLength: 1, maxLength: 255
+
+  - `size_bytes: number`
+
+    Size of the file in bytes.
+
+    minimum: 0
+
+  - `downloadable: optional boolean`
+
+    Whether the file can be downloaded.
+
+    default: false
+
+  - `expires_at: optional string or null`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
+    format: date-time
+
+  - `scope: optional BetaFileScope or null`
+
+    The scope of this file, indicating the context in which it was created (e.g., a session).
+
+    - `type: "session"`
+
+      The type of scope (e.g., `"session"`).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
+
+- `next_page: optional string or null`
+
+  Opaque cursor for the next page. Supply as `?page=` to fetch the next page; null when there are no more results.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/files \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "expires_at": "2025-05-15T18:37:24.100435Z",
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Download File
+
+**GET** `/v1/files/{file_id}/content`
+
+Download File
+
+#### Path parameters
+
+- `file_id: string`
+
+  ID of the File.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/files/$FILE_ID/content \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+### Get File Metadata
+
+**GET** `/v1/files/{file_id}`
+
+Get File Metadata
+
+#### Path parameters
+
+- `file_id: string`
+
+  ID of the File.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaFileMetadata object`
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string representing when the file was created.
+
+    format: date-time
+
+  - `filename: string`
+
+    Original filename of the uploaded file.
+
+    minLength: 1, maxLength: 500
+
+  - `mime_type: string`
+
+    MIME type of the file.
+
+    minLength: 1, maxLength: 255
+
+  - `size_bytes: number`
+
+    Size of the file in bytes.
+
+    minimum: 0
+
+  - `downloadable: optional boolean`
+
+    Whether the file can be downloaded.
+
+    default: false
+
+  - `expires_at: optional string or null`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
+    format: date-time
+
+  - `scope: optional BetaFileScope or null`
+
+    The scope of this file, indicating the context in which it was created (e.g., a session).
+
+    - `type: "session"`
+
+      The type of scope (e.g., `"session"`).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/files/$FILE_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "expires_at": "2025-05-15T18:37:24.100435Z",
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+### Delete File
+
+**DELETE** `/v1/files/{file_id}`
+
+Delete File
+
+#### Path parameters
+
+- `file_id: string`
+
+  ID of the File.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaDeletedFile object`
+
+  - `type: optional "file_deleted"`
+
+    Deleted object type.
+
+    For file deletion, this is always `"file_deleted"`.
+
+    default: file_deleted
+
+  - `id: string`
+
+    ID of the deleted file.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/files/$FILE_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
+```
+
+## Beta › Skills
+
+### Create Skill
+
+**POST** `/v1/skills`
+
+Create Skill
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters (form-data)
+
+- `files: array of string`
+
+  Files to upload for the skill.
+
+  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
+- `display_name: optional string or null`
+
+  Human-readable, single-line label for the Skill. Maximum 255 characters.
+  Always set: derived from the SKILL.md frontmatter `name` when omitted at
+  creation. Not unique.
+
+#### Returns
+
+- `BetaSkill object`
+
+  - `type: "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
+
+    default: skill
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
+
+  - `latest_version_id: string`
+
+    ID of the newest Skill Version — what `latest` references resolve to. Always set: a Skill holds at least one version.
+
+  - `source: BetaSkillSource`
+
+    Where the Skill comes from.
+
+    Possible values:
+
+    * `"custom"`: authored by the platform user; private to their workspace
+    * `"anthropic"`: published by Anthropic; shared and read-only
+    * `"anthropic_example"`: Anthropic-published sample Skill
+    * `"plugin"`: resolved from an installed plugin
+
+    - `type: "custom" or "anthropic" or "anthropic_example" or "plugin"`
+
+      Where the Skill comes from.
+
+      Possible values:
+
+      * `"custom"`: authored by the platform user; private to their workspace
+      * `"anthropic"`: published by Anthropic; shared and read-only
+      * `"anthropic_example"`: Anthropic-published sample Skill
+      * `"plugin"`: resolved from an installed plugin
+
+      - `"custom"`
+
+      - `"anthropic"`
+
+      - `"anthropic_example"`
+
+      - `"plugin"`
+
+  - `updated_at: string`
+
+    ISO 8601 timestamp of when the skill was last updated.
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/skills \
+    -H 'Content-Type: multipart/form-data' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -F 'files[]=@/path/to/file'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "display_name",
+  "latest_version_id": "latest_version_id",
+  "source": {
+    "type": "custom"
+  },
+  "type": "skill",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### List Skills
+
+**GET** `/v1/skills`
+
+List Skills
+
+#### Query parameters
+
+- `limit: optional number`
+
+  Number of results to return per page.
+
+  Ranges from `1` to `1000`. Defaults to `20`.
+
+  default: 20, minimum: 1, maximum: 1000
+
+- `page: optional string`
+
+  Pagination token for fetching a specific page of results.
+
+  Pass the value from a previous response's `next_page` field to get the next page of results.
+
+- `source: optional string`
+
+  Filter skills by source.
+
+  If provided, only skills from the specified source will be returned:
+
+  * `"custom"`: only return user-created skills
+  * `"anthropic"`: only return Anthropic-created skills
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: array of BetaSkill`
+
+  List of skills.
+
+  - `type: "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
+
+    default: skill
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
+
+  - `latest_version_id: string`
+
+    ID of the newest Skill Version — what `latest` references resolve to. Always set: a Skill holds at least one version.
+
+  - `source: BetaSkillSource`
+
+    Where the Skill comes from.
+
+    Possible values:
+
+    * `"custom"`: authored by the platform user; private to their workspace
+    * `"anthropic"`: published by Anthropic; shared and read-only
+    * `"anthropic_example"`: Anthropic-published sample Skill
+    * `"plugin"`: resolved from an installed plugin
+
+    - `type: "custom" or "anthropic" or "anthropic_example" or "plugin"`
+
+      Where the Skill comes from.
+
+      Possible values:
+
+      * `"custom"`: authored by the platform user; private to their workspace
+      * `"anthropic"`: published by Anthropic; shared and read-only
+      * `"anthropic_example"`: Anthropic-published sample Skill
+      * `"plugin"`: resolved from an installed plugin
+
+      - `"custom"`
+
+      - `"anthropic"`
+
+      - `"anthropic_example"`
+
+      - `"plugin"`
+
+  - `updated_at: string`
+
+    ISO 8601 timestamp of when the skill was last updated.
+
+    format: date-time
+
+- `next_page: string or null`
+
+  Token for fetching the next page of results.
+
+  If `null`, there are no more results available. Pass this value to the `page` parameter in the next request to get the next page.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/skills \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_name": "display_name",
+      "latest_version_id": "latest_version_id",
+      "source": {
+        "type": "custom"
+      },
+      "type": "skill",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Skill
+
+**GET** `/v1/skills/{skill_id}`
+
+Get Skill
+
+#### Path parameters
+
+- `skill_id: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaSkill object`
+
+  - `type: "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
+
+    default: skill
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
+
+  - `latest_version_id: string`
+
+    ID of the newest Skill Version — what `latest` references resolve to. Always set: a Skill holds at least one version.
+
+  - `source: BetaSkillSource`
+
+    Where the Skill comes from.
+
+    Possible values:
+
+    * `"custom"`: authored by the platform user; private to their workspace
+    * `"anthropic"`: published by Anthropic; shared and read-only
+    * `"anthropic_example"`: Anthropic-published sample Skill
+    * `"plugin"`: resolved from an installed plugin
+
+    - `type: "custom" or "anthropic" or "anthropic_example" or "plugin"`
+
+      Where the Skill comes from.
+
+      Possible values:
+
+      * `"custom"`: authored by the platform user; private to their workspace
+      * `"anthropic"`: published by Anthropic; shared and read-only
+      * `"anthropic_example"`: Anthropic-published sample Skill
+      * `"plugin"`: resolved from an installed plugin
+
+      - `"custom"`
+
+      - `"anthropic"`
+
+      - `"anthropic_example"`
+
+      - `"plugin"`
+
+  - `updated_at: string`
+
+    ISO 8601 timestamp of when the skill was last updated.
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/skills/$SKILL_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "display_name",
+  "latest_version_id": "latest_version_id",
+  "source": {
+    "type": "custom"
+  },
+  "type": "skill",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Delete Skill
+
+**DELETE** `/v1/skills/{skill_id}`
+
+Delete Skill
+
+#### Path parameters
+
+- `skill_id: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaDeletedSkill object`
+
+  - `type: "skill_deleted"`
+
+    Deleted object type.
+
+    For Skills, this is always `"skill_deleted"`.
+
+    default: skill_deleted
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/skills/$SKILL_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "skill_deleted"
+}
+```
+
+## Beta › Skills › Versions
+
+### Create Skill Version
+
+**POST** `/v1/skills/{skill_id}/versions`
+
+Create Skill Version
+
+#### Path parameters
+
+- `skill_id: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters (form-data)
+
+- `files: array of string`
+
+  Files to upload for the skill.
+
+  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
+#### Returns
+
+- `BetaSkillVersion object`
+
+  - `type: "skill_version"`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
+
+    default: skill_version
+
+  - `id: string`
+
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+    format: date-time
+
+  - `description: string`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `name: string`
+
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
+
+  - `skill_id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions \
+    -H 'Content-Type: multipart/form-data' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -F 'files[]=@/path/to/file'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "description",
+  "name": "name",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "skill_version"
+}
+```
+
+### List Skill Versions
+
+**GET** `/v1/skills/{skill_id}/versions`
+
+List Skill Versions
+
+#### Path parameters
+
+- `skill_id: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+#### Query parameters
+
+- `limit: optional number`
+
+  Number of results to return per page.
+
+  Ranges from `1` to `1000`. Defaults to `20`.
+
+  default: 20, minimum: 1, maximum: 1000
+
+- `page: optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: array of BetaSkillVersion`
+
+  List of skills.
+
+  - `type: "skill_version"`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
+
+    default: skill_version
+
+  - `id: string`
+
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+    format: date-time
+
+  - `description: string`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `name: string`
+
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
+
+  - `skill_id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+- `next_page: string or null`
+
+  Token for fetching the next page of results.
+
+  If `null`, there are no more results available. Pass this value to the `page` parameter in the next request to get the next page.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "description": "description",
+      "name": "name",
+      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "type": "skill_version"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Download Skill Version Content
+
+**GET** `/v1/skills/{skill_id}/versions/{version}/content`
+
+Download a skill version's content as a zip archive.
+
+#### Path parameters
+
+- `skill_id: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `version: string`
+
+  Identifies the skill version by its version ID.
+
+  Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION/content \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+### Get Skill Version
+
+**GET** `/v1/skills/{skill_id}/versions/{version}`
+
+Get Skill Version
+
+#### Path parameters
+
+- `skill_id: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `version: string`
+
+  Identifies the skill version: a version ID, or the literal `latest` for the skill's most recent version.
+
+  Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaSkillVersion object`
+
+  - `type: "skill_version"`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
+
+    default: skill_version
+
+  - `id: string`
+
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+    format: date-time
+
+  - `description: string`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `name: string`
+
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
+
+  - `skill_id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "description",
+  "name": "name",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "skill_version"
+}
+```
+
+### Delete Skill Version
+
+**DELETE** `/v1/skills/{skill_id}/versions/{version}`
+
+Delete Skill Version
+
+#### Path parameters
+
+- `skill_id: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `version: string`
+
+  Identifies the skill version by its version ID.
+
+  Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaDeletedSkillVersion object`
+
+  - `type: "skill_version_deleted"`
+
+    Deleted object type.
+
+    For Skill Versions, this is always `"skill_version_deleted"`.
+
+    default: skill_version_deleted
+
+  - `id: string`
+
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "type": "skill_version_deleted"
+}
+```
+
+## Beta › User Profiles
+
+### Create User Profile
+
+**POST** `/v1/user_profiles`
+
+Create User Profile
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `access_type: optional "application" or "passthrough"`
+
+  How the platform uses the API for this entity. `application` (default): the profile represents an individual end-user of the platform's product. `passthrough`: the profile identifies a company the platform resells Claude access to.
+
+  - `"application"`
+
+    The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
+  - `"passthrough"`
+
+    The user profile represents a company that the platform resells Claude access to.
+
+- `external_id: optional string or null`
+
+  Platform's own identifier for this user. Not enforced unique. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
+
+  minLength: 1, maxLength: 255
+
+- `external_user_details: optional BetaUserProfileExternalUserDetailsParams`
+
+  Details about the entity this profile represents, as the platform states them. Every field is optional. Accepted under the `user-profiles-2026-09-04` beta header only.
+
+  - `account_status: optional "active" or "suspended" or "blocked" or null`
+
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`.
+
+    - `"active"`
+
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
+    - `"suspended"`
+
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
+    - `"blocked"`
+
+      The platform has barred the account of the entity that the user profile represents.
+
+  - `country: optional string or null`
+
+    The country of the entity (not of the platform), as the platform determines it: an ISO 3166-1 alpha-2 code in upper case, for example `US`. Only the form, two uppercase ASCII letters, is checked.
+
+  - `email_hash: optional string or null`
+
+    A hash of the entity's email address, computed by the platform. Anthropic treats it as an opaque string and does not prescribe the hash function. 1 to 255 characters.
+
+    minLength: 1, maxLength: 255
+
+  - `entity_type: optional "individual" or "business" or "non_profit" or "government" or null`
+
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`.
+
+    - `"individual"`
+
+    - `"business"`
+
+    - `"non_profit"`
+
+    - `"government"`
+
+  - `name_hash: optional string or null`
+
+    A hash of the entity's name, computed by the platform. Anthropic treats it as an opaque string and does not prescribe the hash function. 1 to 255 characters.
+
+    minLength: 1, maxLength: 255
+
+  - `onboarded_at: optional string`
+
+    When the entity opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future.
+
+    format: date-time
+
+  - `reference_id: optional string or null`
+
+    The platform's own reference for the entity, for example the key of the end-user's row in the platform's database. Not interpreted by Anthropic and not enforced unique. 1 to 255 characters.
+
+    minLength: 1, maxLength: 255
+
+- `external_user_onboarded_at: optional string`
+
+  When the entity this profile represents opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future. Optional. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
+
+  format: date-time
+
+- `metadata: optional map[string]`
+
+  Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
+
+- `name: optional string or null`
+
+  Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a company the platform resells Claude access to (`access_type` `passthrough`), that company's name where known. Maximum 255 characters.
+
+  minLength: 1, maxLength: 255
+
+#### Returns
+
+- `BetaUserProfile object`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
+  - `id: string`
+
+    Unique identifier for this user profile, prefixed `uprof_`.
+
+  - `created_at: string`
+
+    When this user profile was created, in RFC 3339 format.
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `trust_grants: map[BetaUserProfileTrustGrant]`
+
+    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
+    - `status: "active" or "pending" or "rejected"`
+
+      Status of the trust grant.
+
+      - `"active"`
+
+      - `"pending"`
+
+      - `"rejected"`
+
+  - `updated_at: string`
+
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
+
+    format: date-time
+
+  - `access_type: optional "application" or "passthrough"`
+
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
+
+    - `"application"`
+
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
+    - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
+
+  - `external_id: optional string or null`
+
+    Platform's own identifier for this user. Not enforced unique. Present under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` the value is `external_user_details.reference_id`.
+
+  - `external_user_details: optional BetaUserProfileExternalUserDetails`
+
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
+
+    - `account_status: "active" or "suspended" or "blocked" or null`
+
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
+
+      - `"active"`
+
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
+      - `"suspended"`
+
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
+      - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
+
+    - `country: string or null`
+
+      The country the platform associates with the entity, as an ISO 3166-1 alpha-2 code. `null` until the platform supplies one.
+
+    - `email_hash: string or null`
+
+      The platform-computed hash of the entity's email address. `null` until the platform supplies one.
+
+    - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
+
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
+
+      - `"individual"`
+
+      - `"business"`
+
+      - `"non_profit"`
+
+      - `"government"`
+
+    - `name_hash: string or null`
+
+      The platform-computed hash of the entity's name. `null` until the platform supplies one.
+
+    - `onboarded_at: string or null`
+
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
+
+      format: date-time
+
+    - `reference_id: string or null`
+
+      The platform's own reference for the entity. `null` until the platform supplies one.
+
+  - `external_user_onboarded_at: optional string or null`
+
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
+
+    format: date-time
+
+  - `name: optional string or null`
+
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/user_profiles \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: user-profiles-2026-08-18' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "external_id": "user_12345",
+          "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+          "metadata": {}
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "access_type": "application",
+  "external_id": "user_12345",
+  "external_user_details": {
+    "account_status": "active",
+    "country": "country",
+    "email_hash": "email_hash",
+    "entity_type": "individual",
+    "name_hash": "name_hash",
+    "onboarded_at": "2019-12-27T18:11:19.117Z",
+    "reference_id": "reference_id"
+  },
+  "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+  "name": "Example User"
+}
+```
+
+### List User Profiles
+
+**GET** `/v1/user_profiles`
+
+List User Profiles
+
+#### Query parameters
+
+- `limit: optional number`
+
+  The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
+
+  format: int32
+
+- `order: optional "asc" or "desc"`
+
+  The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
+
+  - `"asc"`
+
+    Oldest first when `order_by` is `created_at`, or names in ascending order when `order_by` is `name`.
+
+  - `"desc"`
+
+    Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
+
+- `order_by: optional "created_at" or "name"`
+
+  The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
+
+  - `"created_at"`
+
+    Sort by when each user profile was created. This is the default.
+
+  - `"name"`
+
+    Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
+
+- `page: optional string`
+
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: array of BetaUserProfile`
+
+  User profiles on this page.
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
+  - `id: string`
+
+    Unique identifier for this user profile, prefixed `uprof_`.
+
+  - `created_at: string`
+
+    When this user profile was created, in RFC 3339 format.
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `trust_grants: map[BetaUserProfileTrustGrant]`
+
+    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
+    - `status: "active" or "pending" or "rejected"`
+
+      Status of the trust grant.
+
+      - `"active"`
+
+      - `"pending"`
+
+      - `"rejected"`
+
+  - `updated_at: string`
+
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
+
+    format: date-time
+
+  - `access_type: optional "application" or "passthrough"`
+
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
+
+    - `"application"`
+
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
+    - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
+
+  - `external_id: optional string or null`
+
+    Platform's own identifier for this user. Not enforced unique. Present under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` the value is `external_user_details.reference_id`.
+
+  - `external_user_details: optional BetaUserProfileExternalUserDetails`
+
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
+
+    - `account_status: "active" or "suspended" or "blocked" or null`
+
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
+
+      - `"active"`
+
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
+      - `"suspended"`
+
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
+      - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
+
+    - `country: string or null`
+
+      The country the platform associates with the entity, as an ISO 3166-1 alpha-2 code. `null` until the platform supplies one.
+
+    - `email_hash: string or null`
+
+      The platform-computed hash of the entity's email address. `null` until the platform supplies one.
+
+    - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
+
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
+
+      - `"individual"`
+
+      - `"business"`
+
+      - `"non_profit"`
+
+      - `"government"`
+
+    - `name_hash: string or null`
+
+      The platform-computed hash of the entity's name. `null` until the platform supplies one.
+
+    - `onboarded_at: string or null`
+
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
+
+      format: date-time
+
+    - `reference_id: string or null`
+
+      The platform's own reference for the entity. `null` until the platform supplies one.
+
+  - `external_user_onboarded_at: optional string or null`
+
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
+
+    format: date-time
+
+  - `name: optional string or null`
+
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
+
+- `next_page: string or null`
+
+  Cursor for the next page, or `null` when there are no more results.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/user_profiles \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: user-profiles-2026-08-18' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "access_type": "application",
+      "external_id": "user_12345",
+      "external_user_details": {
+        "account_status": "active",
+        "country": "country",
+        "email_hash": "email_hash",
+        "entity_type": "individual",
+        "name_hash": "name_hash",
+        "onboarded_at": "2019-12-27T18:11:19.117Z",
+        "reference_id": "reference_id"
+      },
+      "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+### Get User Profile
+
+**GET** `/v1/user_profiles/{user_profile_id}`
+
+Get User Profile
+
+#### Path parameters
+
+- `user_profile_id: string`
+
+  The ID of the user profile to get (`uprof_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaUserProfile object`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
+  - `id: string`
+
+    Unique identifier for this user profile, prefixed `uprof_`.
+
+  - `created_at: string`
+
+    When this user profile was created, in RFC 3339 format.
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `trust_grants: map[BetaUserProfileTrustGrant]`
+
+    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
+    - `status: "active" or "pending" or "rejected"`
+
+      Status of the trust grant.
+
+      - `"active"`
+
+      - `"pending"`
+
+      - `"rejected"`
+
+  - `updated_at: string`
+
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
+
+    format: date-time
+
+  - `access_type: optional "application" or "passthrough"`
+
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
+
+    - `"application"`
+
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
+    - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
+
+  - `external_id: optional string or null`
+
+    Platform's own identifier for this user. Not enforced unique. Present under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` the value is `external_user_details.reference_id`.
+
+  - `external_user_details: optional BetaUserProfileExternalUserDetails`
+
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
+
+    - `account_status: "active" or "suspended" or "blocked" or null`
+
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
+
+      - `"active"`
+
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
+      - `"suspended"`
+
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
+      - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
+
+    - `country: string or null`
+
+      The country the platform associates with the entity, as an ISO 3166-1 alpha-2 code. `null` until the platform supplies one.
+
+    - `email_hash: string or null`
+
+      The platform-computed hash of the entity's email address. `null` until the platform supplies one.
+
+    - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
+
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
+
+      - `"individual"`
+
+      - `"business"`
+
+      - `"non_profit"`
+
+      - `"government"`
+
+    - `name_hash: string or null`
+
+      The platform-computed hash of the entity's name. `null` until the platform supplies one.
+
+    - `onboarded_at: string or null`
+
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
+
+      format: date-time
+
+    - `reference_id: string or null`
+
+      The platform's own reference for the entity. `null` until the platform supplies one.
+
+  - `external_user_onboarded_at: optional string or null`
+
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
+
+    format: date-time
+
+  - `name: optional string or null`
+
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: user-profiles-2026-08-18' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "access_type": "application",
+  "external_id": "user_12345",
+  "external_user_details": {
+    "account_status": "active",
+    "country": "country",
+    "email_hash": "email_hash",
+    "entity_type": "individual",
+    "name_hash": "name_hash",
+    "onboarded_at": "2019-12-27T18:11:19.117Z",
+    "reference_id": "reference_id"
+  },
+  "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+  "name": "Example User"
+}
+```
+
+### Update User Profile
+
+**POST** `/v1/user_profiles/{user_profile_id}`
+
+Update User Profile
+
+#### Path parameters
+
+- `user_profile_id: string`
+
+  The ID of the user profile to update (`uprof_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `access_type: optional "application" or "passthrough" or null`
+
+  If present, replaces the stored access type. Omit to leave unchanged.
+
+  - `"application"`
+
+    The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
+  - `"passthrough"`
+
+    The user profile represents a company that the platform resells Claude access to.
+
+- `external_id: optional string or null`
+
+  If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
+
+  minLength: 1, maxLength: 255
+
+- `external_user_details: optional BetaUserProfileExternalUserDetailsParams`
+
+  Details about the entity this profile represents, as the platform states them. Each field sent replaces the stored value; omit a field to leave it unchanged. Once set, a value cannot be cleared and `null` is rejected. Accepted under the `user-profiles-2026-09-04` beta header only.
+
+  - `account_status: optional "active" or "suspended" or "blocked" or null`
+
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`.
+
+    - `"active"`
+
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
+    - `"suspended"`
+
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
+    - `"blocked"`
+
+      The platform has barred the account of the entity that the user profile represents.
+
+  - `country: optional string or null`
+
+    The country of the entity (not of the platform), as the platform determines it: an ISO 3166-1 alpha-2 code in upper case, for example `US`. Only the form, two uppercase ASCII letters, is checked.
+
+  - `email_hash: optional string or null`
+
+    A hash of the entity's email address, computed by the platform. Anthropic treats it as an opaque string and does not prescribe the hash function. 1 to 255 characters.
+
+    minLength: 1, maxLength: 255
+
+  - `entity_type: optional "individual" or "business" or "non_profit" or "government" or null`
+
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`.
+
+    - `"individual"`
+
+    - `"business"`
+
+    - `"non_profit"`
+
+    - `"government"`
+
+  - `name_hash: optional string or null`
+
+    A hash of the entity's name, computed by the platform. Anthropic treats it as an opaque string and does not prescribe the hash function. 1 to 255 characters.
+
+    minLength: 1, maxLength: 255
+
+  - `onboarded_at: optional string`
+
+    When the entity opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future.
+
+    format: date-time
+
+  - `reference_id: optional string or null`
+
+    The platform's own reference for the entity, for example the key of the end-user's row in the platform's database. Not interpreted by Anthropic and not enforced unique. 1 to 255 characters.
+
+    minLength: 1, maxLength: 255
+
+- `external_user_onboarded_at: optional string`
+
+  If present, replaces the stored account creation time. Omit to leave unchanged; once set, the value cannot be cleared and `null` is rejected. Must be a complete RFC 3339 timestamp no more than 1 minute in the future. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
+
+  format: date-time
+
+- `metadata: optional map[string]`
+
+  Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
+
+- `name: optional string or null`
+
+  If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
+
+  minLength: 1, maxLength: 255
+
+#### Returns
+
+- `BetaUserProfile object`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
+  - `id: string`
+
+    Unique identifier for this user profile, prefixed `uprof_`.
+
+  - `created_at: string`
+
+    When this user profile was created, in RFC 3339 format.
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `trust_grants: map[BetaUserProfileTrustGrant]`
+
+    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
+    - `status: "active" or "pending" or "rejected"`
+
+      Status of the trust grant.
+
+      - `"active"`
+
+      - `"pending"`
+
+      - `"rejected"`
+
+  - `updated_at: string`
+
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
+
+    format: date-time
+
+  - `access_type: optional "application" or "passthrough"`
+
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
+
+    - `"application"`
+
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
+    - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
+
+  - `external_id: optional string or null`
+
+    Platform's own identifier for this user. Not enforced unique. Present under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` the value is `external_user_details.reference_id`.
+
+  - `external_user_details: optional BetaUserProfileExternalUserDetails`
+
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
+
+    - `account_status: "active" or "suspended" or "blocked" or null`
+
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
+
+      - `"active"`
+
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
+      - `"suspended"`
+
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
+      - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
+
+    - `country: string or null`
+
+      The country the platform associates with the entity, as an ISO 3166-1 alpha-2 code. `null` until the platform supplies one.
+
+    - `email_hash: string or null`
+
+      The platform-computed hash of the entity's email address. `null` until the platform supplies one.
+
+    - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
+
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
+
+      - `"individual"`
+
+      - `"business"`
+
+      - `"non_profit"`
+
+      - `"government"`
+
+    - `name_hash: string or null`
+
+      The platform-computed hash of the entity's name. `null` until the platform supplies one.
+
+    - `onboarded_at: string or null`
+
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
+
+      format: date-time
+
+    - `reference_id: string or null`
+
+      The platform's own reference for the entity. `null` until the platform supplies one.
+
+  - `external_user_onboarded_at: optional string or null`
+
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
+
+    format: date-time
+
+  - `name: optional string or null`
+
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: user-profiles-2026-08-18' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "external_id": "user_12345"
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "access_type": "application",
+  "external_id": "user_12345",
+  "external_user_details": {
+    "account_status": "active",
+    "country": "country",
+    "email_hash": "email_hash",
+    "entity_type": "individual",
+    "name_hash": "name_hash",
+    "onboarded_at": "2019-12-27T18:11:19.117Z",
+    "reference_id": "reference_id"
+  },
+  "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+  "name": "Example User"
+}
+```
+
+### Create Enrollment URL
+
+**POST** `/v1/user_profiles/{user_profile_id}/enrollment_url`
+
+Create Enrollment URL
+
+#### Path parameters
+
+- `user_profile_id: string`
+
+  The ID of the user profile to create an enrollment URL for (`uprof_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaUserProfileEnrollmentURL object`
+
+  A URL to give to the entity that a user profile represents, so that the entity can enroll for a trust grant.
+
+  - `type: "enrollment_url"`
+
+    Object type. Always `enrollment_url`.
+
+  - `expires_at: string`
+
+    When this enrollment URL expires, in RFC 3339 format.
+
+    format: date-time
+
+  - `url: string`
+
+    Enrollment URL to send to the end user. Valid until `expires_at`.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: user-profiles-2026-08-18' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
+```
+
+## Beta › Dreams
+
+### Create a Dream
+
+**POST** `/v1/dreams`
+
+Start an asynchronous job that uses past sessions to produce a reorganized version of a memory store and get back the dream to poll for the result.
+
+By default the dream writes its result to a new memory store and doesn't change the input memory store. The response has `status` set to `pending` and an empty `outputs` array. Poll the dream until `status` is `completed`, `failed`, or `canceled`.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#create-a-dream) to learn more about creating dreams.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `inputs: array of BetaDreamInput`
+
+  The memory store and sessions for the dream to read, as exactly one `memory_store` entry and exactly one `sessions` entry.
+
+  - `BetaDreamMemoryStoreInput object`
+
+    The memory store that a dream reads, given as an entry in `inputs`.
+
+    With `output_behavior` set to `update_existing`, the dream writes its result into this memory store. Otherwise the dream doesn't change it.
+
+    - `type: "memory_store"`
+
+    - `memory_store_id: string`
+
+      The ID of the memory store for the dream to read (`memstore_...`).
+
+      The memory store must be in the same workspace as the dream and must not be archived.
+
+      minLength: 1
+
+  - `BetaDreamSessionsInput object`
+
+    The sessions that a dream reads, given as an entry in `inputs`.
+
+    - `type: "sessions"`
+
+    - `session_ids: array of string`
+
+      The IDs of the sessions whose transcripts the dream reads (`sesn_...`).
+
+      Give 1 to 100 IDs, with no duplicates. Each session must be in the same workspace as the dream. Responses list the IDs in sorted order.
+
+      The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists all the limits on a dream.
+
+- `model: string or BetaDreamModelConfigParam`
+
+  The model that runs a dream, given as a model ID or as an object with `id` and `speed`.
+
+  In the object form, `speed` can only be `standard`.
+
+  The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists the supported models.
+
+  - `string`
+
+  - `BetaDreamModelConfigParam object`
+
+    The object form of `model` in a request to create a dream.
+
+    - `id: string`
+
+      The ID of the model to run the dream with.
+
+      The ID can be 1 to 256 characters long.
+
+      The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists the supported models.
+
+      minLength: 1, maxLength: 256
+
+    - `speed: optional "standard" or "fast" or null`
+
+      How fast the model generates output for the dream. Defaults to `standard`.
+
+      Dreams accept only `standard`.
+
+      - `"standard"`
+
+      - `"fast"`
+
+- `instructions: optional string or null`
+
+  Guidance that steers how the dream reads the sessions and organizes the output memory store, from 1 to 4,096 characters.
+
+  See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#steer-with-instructions) for what kinds of instructions work well.
+
+  minLength: 1, maxLength: 4096
+
+- `output_behavior: optional BetaOutputBehavior`
+
+  Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+
+  - `BetaOutputBehaviorCreateNew object`
+
+    Write the result to a new memory store that starts as a copy of the input memory store. This is the default.
+
+    The new memory store is in the same workspace as the dream. The dream doesn't change the input memory store.
+
+    - `type: "create_new"`
+
+  - `BetaOutputBehaviorUpdateExisting object`
+
+    Write the result into the input memory store instead of a new memory store.
+
+    The credential must be allowed to write memory stores, or the request returns a 403 error. While another `update_existing` dream on the same memory store hasn't fully stopped, the request returns a 409 error.
+
+    - `type: "update_existing"`
+
+    - `memory_store_id: string`
+
+      The ID of the memory store for the dream to write its result to (`memstore_...`). It must be the memory store in the `memory_store` entry of `inputs`.
+
+      minLength: 1
+
+#### Returns
+
+- `BetaDream object`
+
+  An asynchronous job that reads a memory store and past sessions, then writes a reorganized version of that memory store.
+
+  By default the dream writes its result to a new memory store and doesn't change the input memory store. With `output_behavior` set to `update_existing`, it writes its result into the input memory store instead.
+
+  The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#how-it-works) for what a dream reads and produces.
+
+  - `type: "dream"`
+
+  - `id: string`
+
+    The unique ID of the dream (`drm_...`).
+
+  - `archived_at: string or null`
+
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
+
+    format: date-time
+
+  - `ended_at: string or null`
+
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
+
+    format: date-time
+
+  - `error: BetaDreamError or null`
+
+    Why the dream failed, or `null` if `status` isn't `failed`.
+
+    - `type: string`
+
+      A code for why the dream failed, such as `timeout` or `internal_error`.
+
+      The [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#errors) lists common error codes and when they occur.
+
+    - `message: string`
+
+      A human-readable explanation of why the dream failed.
+
+  - `inputs: array of BetaDreamInput`
+
+    The sources that the dream reads, from the request that created it.
+
+    - `BetaDreamMemoryStoreInput object`
+
+      The memory store that a dream reads, given as an entry in `inputs`.
+
+      With `output_behavior` set to `update_existing`, the dream writes its result into this memory store. Otherwise the dream doesn't change it.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to read (`memstore_...`).
+
+        The memory store must be in the same workspace as the dream and must not be archived.
+
+        minLength: 1
+
+    - `BetaDreamSessionsInput object`
+
+      The sessions that a dream reads, given as an entry in `inputs`.
+
+      - `type: "sessions"`
+
+      - `session_ids: array of string`
+
+        The IDs of the sessions whose transcripts the dream reads (`sesn_...`).
+
+        Give 1 to 100 IDs, with no duplicates. Each session must be in the same workspace as the dream. Responses list the IDs in sorted order.
+
+        The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists all the limits on a dream.
+
+  - `instructions: string or null`
+
+    The guidance given when the dream was created, or `null` if none was given.
+
+  - `model: BetaDreamModelConfig`
+
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
+
+    - `id: string`
+
+      The ID of the model that runs the dream, as given in the request that created it.
+
+      minLength: 1, maxLength: 256
+
+    - `speed: optional "standard" or "fast"`
+
+      How fast the model generates output for the dream. Always `standard`.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `output_behavior: BetaOutputBehavior`
+
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
+
+    - `BetaOutputBehaviorCreateNew object`
+
+      Write the result to a new memory store that starts as a copy of the input memory store. This is the default.
+
+      The new memory store is in the same workspace as the dream. The dream doesn't change the input memory store.
+
+      - `type: "create_new"`
+
+    - `BetaOutputBehaviorUpdateExisting object`
+
+      Write the result into the input memory store instead of a new memory store.
+
+      The credential must be allowed to write memory stores, or the request returns a 403 error. While another `update_existing` dream on the same memory store hasn't fully stopped, the request returns a 409 error.
+
+      - `type: "update_existing"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to write its result to (`memstore_...`). It must be the memory store in the `memory_store` entry of `inputs`.
+
+        minLength: 1
+
+  - `outputs: array of BetaDreamOutput`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
+    - `type: "memory_store"`
+
+    - `memory_store_id: string`
+
+      The ID of the memory store that the dream writes its result to (`memstore_...`).
+
+      With `output_behavior` set to `create_new`, this is a new memory store. With `update_existing`, it is the input memory store.
+
+  - `session_id: string or null`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
+  - `status: BetaDreamStatus`
+
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
+
+    - `"pending"`
+
+      The dream is waiting to start and hasn't read its inputs yet.
+
+      `outputs` is empty and every `usage` count is zero.
+
+    - `"running"`
+
+      The dream is reading its inputs and writing its result.
+
+      `usage` updates while the dream has this status.
+
+    - `"completed"`
+
+      The dream finished and its output memory store holds the complete result.
+
+    - `"failed"`
+
+      The dream stopped with an error, which `error` describes.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote before it stopped.
+
+    - `"canceled"`
+
+      A cancel request stopped the dream before it reached `completed` or `failed`.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
+
+  - `usage: BetaDreamUsage`
+
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
+
+    - `cache_creation_input_tokens: number`
+
+      The dream's input tokens that were written to the prompt cache, for both the 5-minute and 1-hour cache durations.
+
+      format: int32
+
+    - `cache_read_input_tokens: number`
+
+      The dream's input tokens that were read from the prompt cache.
+
+      format: int32
+
+    - `input_tokens: number`
+
+      The dream's input tokens that weren't read from or written to the prompt cache.
+
+      format: int32
+
+    - `output_tokens: number`
+
+      The tokens that the model generated for the dream.
+
+      format: int32
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/dreams \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: dreaming-2026-04-21' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "inputs": [
+            {
+              "memory_store_id": "x",
+              "type": "memory_store"
+            }
+          ],
+          "model": "string"
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "output_behavior": {
+    "type": "create_new"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+### List Dreams
+
+**GET** `/v1/dreams`
+
+List the dreams in the workspace, newest first.
+
+Archived dreams are left out unless `include_archived` is `true`.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#list-dreams) for how to page through dreams.
+
+#### Query parameters
+
+- `"created_at[gt]": optional string`
+
+  Return only dreams created after this time (exclusive), in RFC 3339.
+
+  format: date-time
+
+- `"created_at[lt]": optional string`
+
+  Return only dreams created before this time (exclusive), in RFC 3339.
+
+  format: date-time
+
+- `include_archived: optional boolean`
+
+  Whether to include archived dreams. Defaults to `false`.
+
+- `limit: optional number`
+
+  The maximum number of dreams to return, from 1 to 100. Defaults to 20.
+
+  format: int32
+
+- `page: optional string`
+
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
+
+- `statuses: optional array of BetaDreamStatus`
+
+  Return only dreams that have one of these statuses.
+
+  Repeat the parameter to give more than one status. Leave it out to return dreams of every status.
+
+  - `"pending"`
+
+    The dream is waiting to start and hasn't read its inputs yet.
+
+    `outputs` is empty and every `usage` count is zero.
+
+  - `"running"`
+
+    The dream is reading its inputs and writing its result.
+
+    `usage` updates while the dream has this status.
+
+  - `"completed"`
+
+    The dream finished and its output memory store holds the complete result.
+
+  - `"failed"`
+
+    The dream stopped with an error, which `error` describes.
+
+    If `outputs` references a memory store, that memory store keeps what the dream wrote before it stopped.
+
+  - `"canceled"`
+
+    A cancel request stopped the dream before it reached `completed` or `failed`.
+
+    If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: array of BetaDream`
+
+  The dreams on this page, newest first.
+
+  - `type: "dream"`
+
+  - `id: string`
+
+    The unique ID of the dream (`drm_...`).
+
+  - `archived_at: string or null`
+
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
+
+    format: date-time
+
+  - `ended_at: string or null`
+
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
+
+    format: date-time
+
+  - `error: BetaDreamError or null`
+
+    Why the dream failed, or `null` if `status` isn't `failed`.
+
+    - `type: string`
+
+      A code for why the dream failed, such as `timeout` or `internal_error`.
+
+      The [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#errors) lists common error codes and when they occur.
+
+    - `message: string`
+
+      A human-readable explanation of why the dream failed.
+
+  - `inputs: array of BetaDreamInput`
+
+    The sources that the dream reads, from the request that created it.
+
+    - `BetaDreamMemoryStoreInput object`
+
+      The memory store that a dream reads, given as an entry in `inputs`.
+
+      With `output_behavior` set to `update_existing`, the dream writes its result into this memory store. Otherwise the dream doesn't change it.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to read (`memstore_...`).
+
+        The memory store must be in the same workspace as the dream and must not be archived.
+
+        minLength: 1
+
+    - `BetaDreamSessionsInput object`
+
+      The sessions that a dream reads, given as an entry in `inputs`.
+
+      - `type: "sessions"`
+
+      - `session_ids: array of string`
+
+        The IDs of the sessions whose transcripts the dream reads (`sesn_...`).
+
+        Give 1 to 100 IDs, with no duplicates. Each session must be in the same workspace as the dream. Responses list the IDs in sorted order.
+
+        The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists all the limits on a dream.
+
+  - `instructions: string or null`
+
+    The guidance given when the dream was created, or `null` if none was given.
+
+  - `model: BetaDreamModelConfig`
+
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
+
+    - `id: string`
+
+      The ID of the model that runs the dream, as given in the request that created it.
+
+      minLength: 1, maxLength: 256
+
+    - `speed: optional "standard" or "fast"`
+
+      How fast the model generates output for the dream. Always `standard`.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `output_behavior: BetaOutputBehavior`
+
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
+
+    - `BetaOutputBehaviorCreateNew object`
+
+      Write the result to a new memory store that starts as a copy of the input memory store. This is the default.
+
+      The new memory store is in the same workspace as the dream. The dream doesn't change the input memory store.
+
+      - `type: "create_new"`
+
+    - `BetaOutputBehaviorUpdateExisting object`
+
+      Write the result into the input memory store instead of a new memory store.
+
+      The credential must be allowed to write memory stores, or the request returns a 403 error. While another `update_existing` dream on the same memory store hasn't fully stopped, the request returns a 409 error.
+
+      - `type: "update_existing"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to write its result to (`memstore_...`). It must be the memory store in the `memory_store` entry of `inputs`.
+
+        minLength: 1
+
+  - `outputs: array of BetaDreamOutput`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
+    - `type: "memory_store"`
+
+    - `memory_store_id: string`
+
+      The ID of the memory store that the dream writes its result to (`memstore_...`).
+
+      With `output_behavior` set to `create_new`, this is a new memory store. With `update_existing`, it is the input memory store.
+
+  - `session_id: string or null`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
+  - `status: BetaDreamStatus`
+
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
+
+    - `"pending"`
+
+      The dream is waiting to start and hasn't read its inputs yet.
+
+      `outputs` is empty and every `usage` count is zero.
+
+    - `"running"`
+
+      The dream is reading its inputs and writing its result.
+
+      `usage` updates while the dream has this status.
+
+    - `"completed"`
+
+      The dream finished and its output memory store holds the complete result.
+
+    - `"failed"`
+
+      The dream stopped with an error, which `error` describes.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote before it stopped.
+
+    - `"canceled"`
+
+      A cancel request stopped the dream before it reached `completed` or `failed`.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
+
+  - `usage: BetaDreamUsage`
+
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
+
+    - `cache_creation_input_tokens: number`
+
+      The dream's input tokens that were written to the prompt cache, for both the 5-minute and 1-hour cache durations.
+
+      format: int32
+
+    - `cache_read_input_tokens: number`
+
+      The dream's input tokens that were read from the prompt cache.
+
+      format: int32
+
+    - `input_tokens: number`
+
+      The dream's input tokens that weren't read from or written to the prompt cache.
+
+      format: int32
+
+    - `output_tokens: number`
+
+      The tokens that the model generated for the dream.
+
+      format: int32
+
+- `next_page: string or null`
+
+  The cursor for the next page, or `null` if this is the last page.
+
+  Pass it as `page` to get the next page.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/dreams \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: dreaming-2026-04-21' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "ended_at": "2019-12-27T18:11:19.117Z",
+      "error": {
+        "message": "message",
+        "type": "type"
+      },
+      "inputs": [
+        {
+          "memory_store_id": "x",
+          "type": "memory_store"
+        }
+      ],
+      "instructions": "instructions",
+      "model": {
+        "id": "x",
+        "speed": "standard"
+      },
+      "output_behavior": {
+        "type": "create_new"
+      },
+      "outputs": [
+        {
+          "memory_store_id": "memory_store_id",
+          "type": "memory_store"
+        }
+      ],
+      "session_id": "session_id",
+      "status": "pending",
+      "type": "dream",
+      "usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get a Dream
+
+**GET** `/v1/dreams/{dream_id}`
+
+Get a dream by ID to check its status, output memory store, and token usage.
+
+Archived dreams are returned too.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#track-progress) for how to poll a dream and what each status means.
+
+#### Path parameters
+
+- `dream_id: string`
+
+  The ID of the dream to get (`drm_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaDream object`
+
+  An asynchronous job that reads a memory store and past sessions, then writes a reorganized version of that memory store.
+
+  By default the dream writes its result to a new memory store and doesn't change the input memory store. With `output_behavior` set to `update_existing`, it writes its result into the input memory store instead.
+
+  The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#how-it-works) for what a dream reads and produces.
+
+  - `type: "dream"`
+
+  - `id: string`
+
+    The unique ID of the dream (`drm_...`).
+
+  - `archived_at: string or null`
+
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
+
+    format: date-time
+
+  - `ended_at: string or null`
+
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
+
+    format: date-time
+
+  - `error: BetaDreamError or null`
+
+    Why the dream failed, or `null` if `status` isn't `failed`.
+
+    - `type: string`
+
+      A code for why the dream failed, such as `timeout` or `internal_error`.
+
+      The [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#errors) lists common error codes and when they occur.
+
+    - `message: string`
+
+      A human-readable explanation of why the dream failed.
+
+  - `inputs: array of BetaDreamInput`
+
+    The sources that the dream reads, from the request that created it.
+
+    - `BetaDreamMemoryStoreInput object`
+
+      The memory store that a dream reads, given as an entry in `inputs`.
+
+      With `output_behavior` set to `update_existing`, the dream writes its result into this memory store. Otherwise the dream doesn't change it.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to read (`memstore_...`).
+
+        The memory store must be in the same workspace as the dream and must not be archived.
+
+        minLength: 1
+
+    - `BetaDreamSessionsInput object`
+
+      The sessions that a dream reads, given as an entry in `inputs`.
+
+      - `type: "sessions"`
+
+      - `session_ids: array of string`
+
+        The IDs of the sessions whose transcripts the dream reads (`sesn_...`).
+
+        Give 1 to 100 IDs, with no duplicates. Each session must be in the same workspace as the dream. Responses list the IDs in sorted order.
+
+        The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists all the limits on a dream.
+
+  - `instructions: string or null`
+
+    The guidance given when the dream was created, or `null` if none was given.
+
+  - `model: BetaDreamModelConfig`
+
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
+
+    - `id: string`
+
+      The ID of the model that runs the dream, as given in the request that created it.
+
+      minLength: 1, maxLength: 256
+
+    - `speed: optional "standard" or "fast"`
+
+      How fast the model generates output for the dream. Always `standard`.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `output_behavior: BetaOutputBehavior`
+
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
+
+    - `BetaOutputBehaviorCreateNew object`
+
+      Write the result to a new memory store that starts as a copy of the input memory store. This is the default.
+
+      The new memory store is in the same workspace as the dream. The dream doesn't change the input memory store.
+
+      - `type: "create_new"`
+
+    - `BetaOutputBehaviorUpdateExisting object`
+
+      Write the result into the input memory store instead of a new memory store.
+
+      The credential must be allowed to write memory stores, or the request returns a 403 error. While another `update_existing` dream on the same memory store hasn't fully stopped, the request returns a 409 error.
+
+      - `type: "update_existing"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to write its result to (`memstore_...`). It must be the memory store in the `memory_store` entry of `inputs`.
+
+        minLength: 1
+
+  - `outputs: array of BetaDreamOutput`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
+    - `type: "memory_store"`
+
+    - `memory_store_id: string`
+
+      The ID of the memory store that the dream writes its result to (`memstore_...`).
+
+      With `output_behavior` set to `create_new`, this is a new memory store. With `update_existing`, it is the input memory store.
+
+  - `session_id: string or null`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
+  - `status: BetaDreamStatus`
+
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
+
+    - `"pending"`
+
+      The dream is waiting to start and hasn't read its inputs yet.
+
+      `outputs` is empty and every `usage` count is zero.
+
+    - `"running"`
+
+      The dream is reading its inputs and writing its result.
+
+      `usage` updates while the dream has this status.
+
+    - `"completed"`
+
+      The dream finished and its output memory store holds the complete result.
+
+    - `"failed"`
+
+      The dream stopped with an error, which `error` describes.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote before it stopped.
+
+    - `"canceled"`
+
+      A cancel request stopped the dream before it reached `completed` or `failed`.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
+
+  - `usage: BetaDreamUsage`
+
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
+
+    - `cache_creation_input_tokens: number`
+
+      The dream's input tokens that were written to the prompt cache, for both the 5-minute and 1-hour cache durations.
+
+      format: int32
+
+    - `cache_read_input_tokens: number`
+
+      The dream's input tokens that were read from the prompt cache.
+
+      format: int32
+
+    - `input_tokens: number`
+
+      The dream's input tokens that weren't read from or written to the prompt cache.
+
+      format: int32
+
+    - `output_tokens: number`
+
+      The tokens that the model generated for the dream.
+
+      format: int32
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/dreams/$DREAM_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: dreaming-2026-04-21' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "output_behavior": {
+    "type": "create_new"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+### Cancel a Dream
+
+**POST** `/v1/dreams/{dream_id}/cancel`
+
+Stop a `pending` or `running` dream.
+
+The response shows `status` as `canceled`, unless the dream reached `completed` or `failed` first. `usage` can keep changing after the response. Canceling a `canceled` dream returns it unchanged. Canceling a `completed` or `failed` dream returns a 400 error.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#cancel-a-dream) to learn more about canceling dreams.
+
+#### Path parameters
+
+- `dream_id: string`
+
+  The ID of the dream to cancel (`drm_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaDream object`
+
+  An asynchronous job that reads a memory store and past sessions, then writes a reorganized version of that memory store.
+
+  By default the dream writes its result to a new memory store and doesn't change the input memory store. With `output_behavior` set to `update_existing`, it writes its result into the input memory store instead.
+
+  The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#how-it-works) for what a dream reads and produces.
+
+  - `type: "dream"`
+
+  - `id: string`
+
+    The unique ID of the dream (`drm_...`).
+
+  - `archived_at: string or null`
+
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
+
+    format: date-time
+
+  - `ended_at: string or null`
+
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
+
+    format: date-time
+
+  - `error: BetaDreamError or null`
+
+    Why the dream failed, or `null` if `status` isn't `failed`.
+
+    - `type: string`
+
+      A code for why the dream failed, such as `timeout` or `internal_error`.
+
+      The [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#errors) lists common error codes and when they occur.
+
+    - `message: string`
+
+      A human-readable explanation of why the dream failed.
+
+  - `inputs: array of BetaDreamInput`
+
+    The sources that the dream reads, from the request that created it.
+
+    - `BetaDreamMemoryStoreInput object`
+
+      The memory store that a dream reads, given as an entry in `inputs`.
+
+      With `output_behavior` set to `update_existing`, the dream writes its result into this memory store. Otherwise the dream doesn't change it.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to read (`memstore_...`).
+
+        The memory store must be in the same workspace as the dream and must not be archived.
+
+        minLength: 1
+
+    - `BetaDreamSessionsInput object`
+
+      The sessions that a dream reads, given as an entry in `inputs`.
+
+      - `type: "sessions"`
+
+      - `session_ids: array of string`
+
+        The IDs of the sessions whose transcripts the dream reads (`sesn_...`).
+
+        Give 1 to 100 IDs, with no duplicates. Each session must be in the same workspace as the dream. Responses list the IDs in sorted order.
+
+        The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists all the limits on a dream.
+
+  - `instructions: string or null`
+
+    The guidance given when the dream was created, or `null` if none was given.
+
+  - `model: BetaDreamModelConfig`
+
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
+
+    - `id: string`
+
+      The ID of the model that runs the dream, as given in the request that created it.
+
+      minLength: 1, maxLength: 256
+
+    - `speed: optional "standard" or "fast"`
+
+      How fast the model generates output for the dream. Always `standard`.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `output_behavior: BetaOutputBehavior`
+
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
+
+    - `BetaOutputBehaviorCreateNew object`
+
+      Write the result to a new memory store that starts as a copy of the input memory store. This is the default.
+
+      The new memory store is in the same workspace as the dream. The dream doesn't change the input memory store.
+
+      - `type: "create_new"`
+
+    - `BetaOutputBehaviorUpdateExisting object`
+
+      Write the result into the input memory store instead of a new memory store.
+
+      The credential must be allowed to write memory stores, or the request returns a 403 error. While another `update_existing` dream on the same memory store hasn't fully stopped, the request returns a 409 error.
+
+      - `type: "update_existing"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to write its result to (`memstore_...`). It must be the memory store in the `memory_store` entry of `inputs`.
+
+        minLength: 1
+
+  - `outputs: array of BetaDreamOutput`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
+    - `type: "memory_store"`
+
+    - `memory_store_id: string`
+
+      The ID of the memory store that the dream writes its result to (`memstore_...`).
+
+      With `output_behavior` set to `create_new`, this is a new memory store. With `update_existing`, it is the input memory store.
+
+  - `session_id: string or null`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
+  - `status: BetaDreamStatus`
+
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
+
+    - `"pending"`
+
+      The dream is waiting to start and hasn't read its inputs yet.
+
+      `outputs` is empty and every `usage` count is zero.
+
+    - `"running"`
+
+      The dream is reading its inputs and writing its result.
+
+      `usage` updates while the dream has this status.
+
+    - `"completed"`
+
+      The dream finished and its output memory store holds the complete result.
+
+    - `"failed"`
+
+      The dream stopped with an error, which `error` describes.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote before it stopped.
+
+    - `"canceled"`
+
+      A cancel request stopped the dream before it reached `completed` or `failed`.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
+
+  - `usage: BetaDreamUsage`
+
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
+
+    - `cache_creation_input_tokens: number`
+
+      The dream's input tokens that were written to the prompt cache, for both the 5-minute and 1-hour cache durations.
+
+      format: int32
+
+    - `cache_read_input_tokens: number`
+
+      The dream's input tokens that were read from the prompt cache.
+
+      format: int32
+
+    - `input_tokens: number`
+
+      The dream's input tokens that weren't read from or written to the prompt cache.
+
+      format: int32
+
+    - `output_tokens: number`
+
+      The tokens that the model generated for the dream.
+
+      format: int32
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/dreams/$DREAM_ID/cancel \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: dreaming-2026-04-21' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "output_behavior": {
+    "type": "create_new"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+### Archive a Dream
+
+**POST** `/v1/dreams/{dream_id}/archive`
+
+Hide a `completed`, `failed`, or `canceled` dream from the default list of dreams.
+
+Archiving a `pending` or `running` dream returns a 400 error, so cancel it first. Archiving an archived dream returns it unchanged. An archived dream can still be fetched by ID. Archiving can't be undone.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#archive-a-dream) to learn more about archiving dreams.
+
+#### Path parameters
+
+- `dream_id: string`
+
+  The ID of the dream to archive (`drm_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaDream object`
+
+  An asynchronous job that reads a memory store and past sessions, then writes a reorganized version of that memory store.
+
+  By default the dream writes its result to a new memory store and doesn't change the input memory store. With `output_behavior` set to `update_existing`, it writes its result into the input memory store instead.
+
+  The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#how-it-works) for what a dream reads and produces.
+
+  - `type: "dream"`
+
+  - `id: string`
+
+    The unique ID of the dream (`drm_...`).
+
+  - `archived_at: string or null`
+
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
+
+    format: date-time
+
+  - `ended_at: string or null`
+
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
+
+    format: date-time
+
+  - `error: BetaDreamError or null`
+
+    Why the dream failed, or `null` if `status` isn't `failed`.
+
+    - `type: string`
+
+      A code for why the dream failed, such as `timeout` or `internal_error`.
+
+      The [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#errors) lists common error codes and when they occur.
+
+    - `message: string`
+
+      A human-readable explanation of why the dream failed.
+
+  - `inputs: array of BetaDreamInput`
+
+    The sources that the dream reads, from the request that created it.
+
+    - `BetaDreamMemoryStoreInput object`
+
+      The memory store that a dream reads, given as an entry in `inputs`.
+
+      With `output_behavior` set to `update_existing`, the dream writes its result into this memory store. Otherwise the dream doesn't change it.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to read (`memstore_...`).
+
+        The memory store must be in the same workspace as the dream and must not be archived.
+
+        minLength: 1
+
+    - `BetaDreamSessionsInput object`
+
+      The sessions that a dream reads, given as an entry in `inputs`.
+
+      - `type: "sessions"`
+
+      - `session_ids: array of string`
+
+        The IDs of the sessions whose transcripts the dream reads (`sesn_...`).
+
+        Give 1 to 100 IDs, with no duplicates. Each session must be in the same workspace as the dream. Responses list the IDs in sorted order.
+
+        The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists all the limits on a dream.
+
+  - `instructions: string or null`
+
+    The guidance given when the dream was created, or `null` if none was given.
+
+  - `model: BetaDreamModelConfig`
+
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
+
+    - `id: string`
+
+      The ID of the model that runs the dream, as given in the request that created it.
+
+      minLength: 1, maxLength: 256
+
+    - `speed: optional "standard" or "fast"`
+
+      How fast the model generates output for the dream. Always `standard`.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `output_behavior: BetaOutputBehavior`
+
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
+
+    - `BetaOutputBehaviorCreateNew object`
+
+      Write the result to a new memory store that starts as a copy of the input memory store. This is the default.
+
+      The new memory store is in the same workspace as the dream. The dream doesn't change the input memory store.
+
+      - `type: "create_new"`
+
+    - `BetaOutputBehaviorUpdateExisting object`
+
+      Write the result into the input memory store instead of a new memory store.
+
+      The credential must be allowed to write memory stores, or the request returns a 403 error. While another `update_existing` dream on the same memory store hasn't fully stopped, the request returns a 409 error.
+
+      - `type: "update_existing"`
+
+      - `memory_store_id: string`
+
+        The ID of the memory store for the dream to write its result to (`memstore_...`). It must be the memory store in the `memory_store` entry of `inputs`.
+
+        minLength: 1
+
+  - `outputs: array of BetaDreamOutput`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
+    - `type: "memory_store"`
+
+    - `memory_store_id: string`
+
+      The ID of the memory store that the dream writes its result to (`memstore_...`).
+
+      With `output_behavior` set to `create_new`, this is a new memory store. With `update_existing`, it is the input memory store.
+
+  - `session_id: string or null`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
+  - `status: BetaDreamStatus`
+
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
+
+    - `"pending"`
+
+      The dream is waiting to start and hasn't read its inputs yet.
+
+      `outputs` is empty and every `usage` count is zero.
+
+    - `"running"`
+
+      The dream is reading its inputs and writing its result.
+
+      `usage` updates while the dream has this status.
+
+    - `"completed"`
+
+      The dream finished and its output memory store holds the complete result.
+
+    - `"failed"`
+
+      The dream stopped with an error, which `error` describes.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote before it stopped.
+
+    - `"canceled"`
+
+      A cancel request stopped the dream before it reached `completed` or `failed`.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
+
+  - `usage: BetaDreamUsage`
+
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
+
+    - `cache_creation_input_tokens: number`
+
+      The dream's input tokens that were written to the prompt cache, for both the 5-minute and 1-hour cache durations.
+
+      format: int32
+
+    - `cache_read_input_tokens: number`
+
+      The dream's input tokens that were read from the prompt cache.
+
+      format: int32
+
+    - `input_tokens: number`
+
+      The dream's input tokens that weren't read from or written to the prompt cache.
+
+      format: int32
+
+    - `output_tokens: number`
+
+      The tokens that the model generated for the dream.
+
+      format: int32
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/dreams/$DREAM_ID/archive \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: dreaming-2026-04-21' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "output_behavior": {
+    "type": "create_new"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Beta › Tunnels
+
+### Create Tunnel
+
+**POST** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel; it is not idempotent. The new tunnel rejects MCP traffic until at least one CA certificate is added.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `display_name: optional string or null`
+
+  Optional human-readable name for the tunnel (1-255 characters).
+
+  minLength: 1, maxLength: 255
+
+#### Returns
+
+- `BetaTunnel object`
+
+  An MCP tunnel.
+
+  - `type: "tunnel"`
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the tunnel was created.
+
+    format: date-time
+
+  - `display_name: string or null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{}'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+### Get Tunnel
+
+**GET** `/v1/tunnels/{tunnel_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel by ID.
+
+#### Path parameters
+
+- `tunnel_id: string`
+
+  ID of the tunnel (`tnl_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaTunnel object`
+
+  An MCP tunnel.
+
+  - `type: "tunnel"`
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the tunnel was created.
+
+    format: date-time
+
+  - `display_name: string or null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels/$TUNNEL_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+### List Tunnels
+
+**GET** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists tunnels. Results are ordered by creation time, newest first; archived tunnels are excluded unless include_archived is set.
+
+#### Query parameters
+
+- `include_archived: optional boolean`
+
+  Whether to include archived tunnels in the results. Defaults to false.
+
+- `limit: optional number`
+
+  Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
+
+  format: int32
+
+- `page: optional string`
+
+  Opaque pagination cursor from a previous `list_tunnels` response.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: array of BetaTunnel`
+
+  List of tunnels, ordered by created_at descending.
+
+  - `type: "tunnel"`
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the tunnel was created.
+
+    format: date-time
+
+  - `display_name: string or null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+- `next_page: string or null`
+
+  Pagination cursor for the next page, or null if no more results.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "display_name": "display_name",
+      "domain": "domain",
+      "type": "tunnel"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Archive Tunnel
+
+**POST** `/v1/tunnels/{tunnel_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel. Archival is irreversible: every non-archived certificate on the tunnel is archived in the same operation, the hostname is retired and never re-allocated, and the tunnel token is invalidated. Retrying against an already-archived tunnel returns the existing record unchanged.
+
+#### Path parameters
+
+- `tunnel_id: string`
+
+  ID of the tunnel (`tnl_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaTunnel object`
+
+  An MCP tunnel.
+
+  - `type: "tunnel"`
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the tunnel was created.
+
+    format: date-time
+
+  - `display_name: string or null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels/$TUNNEL_ID/archive \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+### Reveal Tunnel Token
+
+**POST** `/v1/tunnels/{tunnel_id}/reveal_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Reveals a tunnel's connector token. The value is fetched live on each call; Anthropic does not store it. Repeated calls return the same value until the token is rotated. Exposed as POST so the token does not appear in intermediary access logs.
+
+#### Path parameters
+
+- `tunnel_id: string`
+
+  ID of the tunnel (`tnl_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaTunnelToken object`
+
+  A tunnel's connector token.
+
+  - `type: "tunnel_token"`
+
+  - `id: string`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: string`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels/$TUNNEL_ID/reveal_token \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+### Rotate Tunnel Token
+
+**POST** `/v1/tunnels/{tunnel_id}/rotate_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Rotates a tunnel's connector token. Rotation invalidates the current token for new connections and returns a fresh value; established connections are not severed. A connector restarted after rotation must use the new value.
+
+#### Path parameters
+
+- `tunnel_id: string`
+
+  ID of the tunnel (`tnl_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `reason: optional string or null`
+
+  Optional free-text reason for the rotation, recorded for audit.
+
+  maxLength: 1024
+
+#### Returns
+
+- `BetaTunnelToken object`
+
+  A tunnel's connector token.
+
+  - `type: "tunnel_token"`
+
+  - `id: string`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: string`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels/$TUNNEL_ID/rotate_token \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{}'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+## Beta › Tunnels › Certificates
+
+### Create Tunnel Certificate
+
+**POST** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's server certificate against this CA when it terminates the inner TLS session. A tunnel holds at most two non-archived certificates.
+
+#### Path parameters
+
+- `tunnel_id: string`
+
+  ID of the tunnel (`tnl_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `ca_certificate_pem: string`
+
+  PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
+
+  maxLength: 8192
+
+#### Returns
+
+- `BetaTunnelCertificate object`
+
+  A CA certificate attached to a tunnel.
+
+  - `type: "tunnel_certificate"`
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
+
+    format: date-time
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the certificate was registered.
+
+    format: date-time
+
+  - `expires_at: string or null`
+
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
+
+    format: date-time
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels/$TUNNEL_ID/certificates \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "ca_certificate_pem": "ca_certificate_pem"
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+### Get Tunnel Certificate
+
+**GET** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel certificate by ID.
+
+#### Path parameters
+
+- `tunnel_id: string`
+
+  ID of the tunnel (`tnl_...`).
+
+- `certificate_id: string`
+
+  ID of the certificate (`tcrt_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaTunnelCertificate object`
+
+  A CA certificate attached to a tunnel.
+
+  - `type: "tunnel_certificate"`
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
+
+    format: date-time
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the certificate was registered.
+
+    format: date-time
+
+  - `expires_at: string or null`
+
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
+
+    format: date-time
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+### List Tunnel Certificates
+
+**GET** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists the certificates registered on a tunnel. Archived certificates are excluded unless include_archived is set.
+
+#### Path parameters
+
+- `tunnel_id: string`
+
+  ID of the tunnel (`tnl_...`).
+
+#### Query parameters
+
+- `include_archived: optional boolean`
+
+  Whether to include archived certificates in the results. Defaults to false.
+
+- `limit: optional number`
+
+  Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
+
+  format: int32
+
+- `page: optional string`
+
+  Opaque pagination cursor from a previous `list_tunnel_certificates` response.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: array of BetaTunnelCertificate`
+
+  List of certificates, ordered by created_at descending.
+
+  - `type: "tunnel_certificate"`
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
+
+    format: date-time
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the certificate was registered.
+
+    format: date-time
+
+  - `expires_at: string or null`
+
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
+
+    format: date-time
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+- `next_page: string or null`
+
+  Pagination cursor for the next page, or null if no more results.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels/$TUNNEL_ID/certificates \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "expires_at": "2019-12-27T18:11:19.117Z",
+      "fingerprint": "fingerprint",
+      "tunnel_id": "tunnel_id",
+      "type": "tunnel_certificate"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Archive Tunnel Certificate
+
+**POST** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel certificate, removing it from the set Anthropic trusts for the tunnel. The certificate record is retained. Archiving the last non-archived certificate is permitted; the tunnel rejects MCP traffic until a new certificate is added.
+
+#### Path parameters
+
+- `tunnel_id: string`
+
+  ID of the tunnel (`tnl_...`).
+
+- `certificate_id: string`
+
+  ID of the certificate to archive (`tcrt_...`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaTunnelCertificate object`
+
+  A CA certificate attached to a tunnel.
+
+  - `type: "tunnel_certificate"`
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string or null`
+
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
+
+    format: date-time
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the certificate was registered.
+
+    format: date-time
+
+  - `expires_at: string or null`
+
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
+
+    format: date-time
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID/archive \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-06-22' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Beta › Organization
+
+### Get Current Organization
+
+**GET** `/v1/organizations/me`
+
+Retrieve information about the organization associated with the authenticated API key.
+
+#### Returns
+
+- `BetaOrganization object`
+
+  - `type: "organization"`
+
+    Object type.
+
+    For Organizations, this is always `"organization"`.
+
+    default: organization
+
+  - `id: string`
+
+    ID of the Organization.
+
+    format: uuid
+
+  - `name: string`
+
+    Name of the Organization.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/me \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "12345678-1234-5678-1234-567812345678",
+  "name": "Organization Name",
+  "type": "organization"
+}
+```
+
+## Beta › Organization › API Keys
+
+### List API Keys
+
+**GET** `/v1/organizations/api_keys`
+
+List API Keys
+
+#### Query parameters
+
+- `after_id: optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+- `before_id: optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+- `created_by_user_id: optional string`
+
+  Filter by the ID of the User who created the object.
+
+- `limit: optional number`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20, minimum: 1, maximum: 1000
+
+- `status: optional "active" or "archived" or "expired" or "inactive"`
+
+  Filter by API key status.
+
+  - `"active"`
+
+  - `"archived"`
+
+  - `"expired"`
+
+  - `"inactive"`
+
+- `workspace_id: optional string`
+
+  Filter by Workspace ID.
+
+#### Returns
+
+- `data: array of BetaAPIKey`
+
+  - `type: "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+    default: api_key
+
+  - `id: string`
+
+    ID of the API key.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `created_by: BetaAPIKeyCreatedBy or null`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `type: "service_account" or "user"`
+
+      Type of the actor that created the object.
+
+      - `"service_account"`
+
+      - `"user"`
+
+    - `id: string`
+
+      ID of the actor that created the object.
+
+  - `expires_at: string or null`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `name: string`
+
+    Name of the API key.
+
+  - `partial_key_hint: string or null`
+
+    Partially redacted hint for the API key.
+
+  - `principal: BetaAPIKeyUserActor or BetaAPIKeyServiceAccountActor or null`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `BetaAPIKeyUserActor object`
+
+      - `type: "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+        default: user_actor
+
+      - `user_id: string`
+
+        ID of the User the API key acts as.
+
+    - `BetaAPIKeyServiceAccountActor object`
+
+      - `type: "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+        default: service_account_actor
+
+      - `service_account_id: string`
+
+        ID of the Service Account the API key acts as.
+
+  - `scope: BetaAPIKeyOrganizationScope or BetaAPIKeyWorkspaceScope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `BetaAPIKeyOrganizationScope object`
+
+      - `type: "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+        default: organization
+
+    - `BetaAPIKeyWorkspaceScope object`
+
+      - `type: "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `status: "active" or "archived" or "expired" or "inactive"`
+
+    Status of the API key.
+
+    - `"active"`
+
+    - `"archived"`
+
+    - `"expired"`
+
+    - `"inactive"`
+
+  - `workspace_id: string or null`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+- `first_id: string or null`
+
+  First ID in the `data` list. Can be used as the `before_id` for the previous page.
+
+- `has_more: boolean`
+
+  Indicates if there are more results in the requested page direction.
+
+- `last_id: string or null`
+
+  Last ID in the `data` list. Can be used as the `after_id` for the next page.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/api_keys \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by": {
+        "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+        "type": "user"
+      },
+      "expires_at": "2024-10-30T23:58:27.427722Z",
+      "name": "Developer Key",
+      "partial_key_hint": "sk-ant-api03-R2D...igAA",
+      "principal": {
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "scope": {
+        "type": "workspace",
+        "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+      },
+      "status": "active",
+      "type": "api_key",
+      "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Retrieve API Key (Admin API)
+
+**GET** `/v1/organizations/api_keys/{api_key_id}`
+
+Retrieve information about a single API key in your organization, looked up by its ID. This Admin API endpoint requires an Admin API key, is intended for programmatic key management, and never returns the key's secret value. To view or create your own API keys, go to [API keys](https://platform.claude.com/settings/keys) in the Claude Console.
+
+#### Path parameters
+
+- `api_key_id: string`
+
+  ID of the API key.
+
+#### Returns
+
+- `BetaAPIKey object`
+
+  - `type: "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+    default: api_key
+
+  - `id: string`
+
+    ID of the API key.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `created_by: BetaAPIKeyCreatedBy or null`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `type: "service_account" or "user"`
+
+      Type of the actor that created the object.
+
+      - `"service_account"`
+
+      - `"user"`
+
+    - `id: string`
+
+      ID of the actor that created the object.
+
+  - `expires_at: string or null`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `name: string`
+
+    Name of the API key.
+
+  - `partial_key_hint: string or null`
+
+    Partially redacted hint for the API key.
+
+  - `principal: BetaAPIKeyUserActor or BetaAPIKeyServiceAccountActor or null`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `BetaAPIKeyUserActor object`
+
+      - `type: "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+        default: user_actor
+
+      - `user_id: string`
+
+        ID of the User the API key acts as.
+
+    - `BetaAPIKeyServiceAccountActor object`
+
+      - `type: "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+        default: service_account_actor
+
+      - `service_account_id: string`
+
+        ID of the Service Account the API key acts as.
+
+  - `scope: BetaAPIKeyOrganizationScope or BetaAPIKeyWorkspaceScope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `BetaAPIKeyOrganizationScope object`
+
+      - `type: "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+        default: organization
+
+    - `BetaAPIKeyWorkspaceScope object`
+
+      - `type: "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `status: "active" or "archived" or "expired" or "inactive"`
+
+    Status of the API key.
+
+    - `"active"`
+
+    - `"archived"`
+
+    - `"expired"`
+
+    - `"inactive"`
+
+  - `workspace_id: string or null`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/api_keys/$API_KEY_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+### Update API Key
+
+**POST** `/v1/organizations/api_keys/{api_key_id}`
+
+Update API Key
+
+#### Path parameters
+
+- `api_key_id: string`
+
+  ID of the API key.
+
+#### Body parameters
+
+- `name: optional string or null`
+
+  Name of the API key.
+
+  minLength: 1, maxLength: 500
+
+- `status: optional "active" or "archived" or "inactive" or null`
+
+  Status of the API key.
+
+  - `"active"`
+
+  - `"archived"`
+
+  - `"inactive"`
+
+#### Returns
+
+- `BetaAPIKey object`
+
+  - `type: "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+    default: api_key
+
+  - `id: string`
+
+    ID of the API key.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `created_by: BetaAPIKeyCreatedBy or null`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `type: "service_account" or "user"`
+
+      Type of the actor that created the object.
+
+      - `"service_account"`
+
+      - `"user"`
+
+    - `id: string`
+
+      ID of the actor that created the object.
+
+  - `expires_at: string or null`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `name: string`
+
+    Name of the API key.
+
+  - `partial_key_hint: string or null`
+
+    Partially redacted hint for the API key.
+
+  - `principal: BetaAPIKeyUserActor or BetaAPIKeyServiceAccountActor or null`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `BetaAPIKeyUserActor object`
+
+      - `type: "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+        default: user_actor
+
+      - `user_id: string`
+
+        ID of the User the API key acts as.
+
+    - `BetaAPIKeyServiceAccountActor object`
+
+      - `type: "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+        default: service_account_actor
+
+      - `service_account_id: string`
+
+        ID of the Service Account the API key acts as.
+
+  - `scope: BetaAPIKeyOrganizationScope or BetaAPIKeyWorkspaceScope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `BetaAPIKeyOrganizationScope object`
+
+      - `type: "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+        default: organization
+
+    - `BetaAPIKeyWorkspaceScope object`
+
+      - `type: "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `status: "active" or "archived" or "expired" or "inactive"`
+
+    Status of the API key.
+
+    - `"active"`
+
+    - `"archived"`
+
+    - `"expired"`
+
+    - `"inactive"`
+
+  - `workspace_id: string or null`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/api_keys/$API_KEY_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{}'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+## Beta › Organization › External Keys
+
+### Create External Key
+
+**POST** `/v1/organizations/external_keys`
+
+Create an external key config owned by the caller's organization.
+
+#### Body parameters
+
+- `provider_config: BetaAWSExternalKeyConfig or BetaGCPExternalKeyConfig or BetaAzureExternalKeyConfigParam`
+
+  KMS provider identity and auth coordinates.
+
+  - `BetaAWSExternalKeyConfig object`
+
+    - `type: "aws"`
+
+    - `kms_arn: string`
+
+      Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+      maxLength: 2048
+
+    - `region: optional string or null`
+
+      AWS region. Derived from `kms_arn` if omitted.
+
+    - `role_arn: optional string or null`
+
+      **Deprecated**
+
+      IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+  - `BetaGCPExternalKeyConfig object`
+
+    - `type: "gcp"`
+
+    - `key_name: string`
+
+      Full resource name of the Cloud KMS key.
+
+  - `BetaAzureExternalKeyConfigParam object`
+
+    Azure Key Vault provider configuration.
+
+    - `type: "azure"`
+
+    - `key_name: string`
+
+      Name of the key within the vault.
+
+    - `tenant_id: string`
+
+      Azure AD tenant ID.
+
+    - `vault_uri: string`
+
+      Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+    - `client_id: optional string or null`
+
+      Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+- `display_name: optional string or null`
+
+  Human-friendly display name.
+
+  minLength: 1, maxLength: 255
+
+- `geo: optional "us"`
+
+  Data residency geo. Only `us` is supported.
+
+#### Returns
+
+- `BetaExternalKey object`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `type: "external_key"`
+
+    default: external_key
+
+  - `id: string`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `attachment: BetaExternalKeyAttachedAttachment or BetaExternalKeyUnattachedAttachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `BetaExternalKeyAttachedAttachment object`
+
+      - `type: "attached"`
+
+        default: attached
+
+    - `BetaExternalKeyUnattachedAttachment object`
+
+      - `type: "unattached"`
+
+        default: unattached
+
+  - `created_at: string`
+
+    format: date-time
+
+  - `display_name: string or null`
+
+    Human-friendly display name. Null if none was set.
+
+  - `geo: string`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `provider_config: BetaAWSExternalKeyConfig or BetaGCPExternalKeyConfig or BetaAzureExternalKeyConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `BetaAWSExternalKeyConfig object`
+
+      - `type: "aws"`
+
+      - `kms_arn: string`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `region: optional string or null`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `role_arn: optional string or null`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `BetaGCPExternalKeyConfig object`
+
+      - `type: "gcp"`
+
+      - `key_name: string`
+
+        Full resource name of the Cloud KMS key.
+
+    - `BetaAzureExternalKeyConfig object`
+
+      - `type: "azure"`
+
+      - `key_name: string`
+
+        Name of the key within the vault.
+
+      - `tenant_id: string`
+
+        Azure AD tenant ID.
+
+      - `vault_uri: string`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `client_id: optional string or null`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `updated_at: string`
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/external_keys \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "provider_config": {
+            "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+            "type": "aws"
+          }
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### List External Keys
+
+**GET** `/v1/organizations/external_keys`
+
+List external key configs in the caller's organization.
+
+Results are ordered by creation time (newest first). Use the
+`next_page` cursor from the response to fetch subsequent pages.
+
+#### Query parameters
+
+- `limit: optional number`
+
+  Number of results per page.
+
+  default: 20, minimum: 1, maximum: 100
+
+- `page: optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+#### Returns
+
+- `data: array of BetaExternalKey`
+
+  - `type: "external_key"`
+
+    default: external_key
+
+  - `id: string`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `attachment: BetaExternalKeyAttachedAttachment or BetaExternalKeyUnattachedAttachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `BetaExternalKeyAttachedAttachment object`
+
+      - `type: "attached"`
+
+        default: attached
+
+    - `BetaExternalKeyUnattachedAttachment object`
+
+      - `type: "unattached"`
+
+        default: unattached
+
+  - `created_at: string`
+
+    format: date-time
+
+  - `display_name: string or null`
+
+    Human-friendly display name. Null if none was set.
+
+  - `geo: string`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `provider_config: BetaAWSExternalKeyConfig or BetaGCPExternalKeyConfig or BetaAzureExternalKeyConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `BetaAWSExternalKeyConfig object`
+
+      - `type: "aws"`
+
+      - `kms_arn: string`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `region: optional string or null`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `role_arn: optional string or null`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `BetaGCPExternalKeyConfig object`
+
+      - `type: "gcp"`
+
+      - `key_name: string`
+
+        Full resource name of the Cloud KMS key.
+
+    - `BetaAzureExternalKeyConfig object`
+
+      - `type: "azure"`
+
+      - `key_name: string`
+
+        Name of the key within the vault.
+
+      - `tenant_id: string`
+
+        Azure AD tenant ID.
+
+      - `vault_uri: string`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `client_id: optional string or null`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `updated_at: string`
+
+    format: date-time
+
+- `next_page: string or null`
+
+  Opaque cursor for the next page, or null if no more results. Pass as `?page=` to fetch the next page.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/external_keys \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+      "attachment": {
+        "type": "attached"
+      },
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_name": "prod-us-key",
+      "geo": "us",
+      "provider_config": {
+        "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+        "type": "aws",
+        "region": "us-east-1",
+        "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+      },
+      "type": "external_key",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get External Key
+
+**GET** `/v1/organizations/external_keys/{external_key_id}`
+
+Retrieve a single external key config in the caller's organization by ID.
+
+#### Path parameters
+
+- `external_key_id: string`
+
+  ID of the External Key.
+
+  maxLength: 2048
+
+#### Returns
+
+- `BetaExternalKey object`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `type: "external_key"`
+
+    default: external_key
+
+  - `id: string`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `attachment: BetaExternalKeyAttachedAttachment or BetaExternalKeyUnattachedAttachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `BetaExternalKeyAttachedAttachment object`
+
+      - `type: "attached"`
+
+        default: attached
+
+    - `BetaExternalKeyUnattachedAttachment object`
+
+      - `type: "unattached"`
+
+        default: unattached
+
+  - `created_at: string`
+
+    format: date-time
+
+  - `display_name: string or null`
+
+    Human-friendly display name. Null if none was set.
+
+  - `geo: string`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `provider_config: BetaAWSExternalKeyConfig or BetaGCPExternalKeyConfig or BetaAzureExternalKeyConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `BetaAWSExternalKeyConfig object`
+
+      - `type: "aws"`
+
+      - `kms_arn: string`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `region: optional string or null`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `role_arn: optional string or null`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `BetaGCPExternalKeyConfig object`
+
+      - `type: "gcp"`
+
+      - `key_name: string`
+
+        Full resource name of the Cloud KMS key.
+
+    - `BetaAzureExternalKeyConfig object`
+
+      - `type: "azure"`
+
+      - `key_name: string`
+
+        Name of the key within the vault.
+
+      - `tenant_id: string`
+
+        Azure AD tenant ID.
+
+      - `vault_uri: string`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `client_id: optional string or null`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `updated_at: string`
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Update External Key
+
+**POST** `/v1/organizations/external_keys/{external_key_id}`
+
+Partially update an external key config. Omitted fields are left unchanged.
+
+`display_name` is always editable. `geo` and `provider_config` cannot
+be changed once any workspace references this config, because previously
+encrypted data requires the original key identity to decrypt.
+
+#### Path parameters
+
+- `external_key_id: string`
+
+  ID of the External Key.
+
+  maxLength: 2048
+
+#### Body parameters
+
+- `display_name: optional string or null`
+
+  Human-friendly display name.
+
+  minLength: 1, maxLength: 255
+
+- `geo: optional "us" or null`
+
+  Data residency geo. Only `us` is supported.
+
+- `provider_config: optional BetaAWSExternalKeyConfig or BetaGCPExternalKeyConfig or BetaAzureExternalKeyConfigParam or null`
+
+  KMS provider identity and auth coordinates.
+
+  - `BetaAWSExternalKeyConfig object`
+
+    - `type: "aws"`
+
+    - `kms_arn: string`
+
+      Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+      maxLength: 2048
+
+    - `region: optional string or null`
+
+      AWS region. Derived from `kms_arn` if omitted.
+
+    - `role_arn: optional string or null`
+
+      **Deprecated**
+
+      IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+  - `BetaGCPExternalKeyConfig object`
+
+    - `type: "gcp"`
+
+    - `key_name: string`
+
+      Full resource name of the Cloud KMS key.
+
+  - `BetaAzureExternalKeyConfigParam object`
+
+    Azure Key Vault provider configuration.
+
+    - `type: "azure"`
+
+    - `key_name: string`
+
+      Name of the key within the vault.
+
+    - `tenant_id: string`
+
+      Azure AD tenant ID.
+
+    - `vault_uri: string`
+
+      Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+    - `client_id: optional string or null`
+
+      Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+#### Returns
+
+- `BetaExternalKey object`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `type: "external_key"`
+
+    default: external_key
+
+  - `id: string`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `attachment: BetaExternalKeyAttachedAttachment or BetaExternalKeyUnattachedAttachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `BetaExternalKeyAttachedAttachment object`
+
+      - `type: "attached"`
+
+        default: attached
+
+    - `BetaExternalKeyUnattachedAttachment object`
+
+      - `type: "unattached"`
+
+        default: unattached
+
+  - `created_at: string`
+
+    format: date-time
+
+  - `display_name: string or null`
+
+    Human-friendly display name. Null if none was set.
+
+  - `geo: string`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `provider_config: BetaAWSExternalKeyConfig or BetaGCPExternalKeyConfig or BetaAzureExternalKeyConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `BetaAWSExternalKeyConfig object`
+
+      - `type: "aws"`
+
+      - `kms_arn: string`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `region: optional string or null`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `role_arn: optional string or null`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `BetaGCPExternalKeyConfig object`
+
+      - `type: "gcp"`
+
+      - `key_name: string`
+
+        Full resource name of the Cloud KMS key.
+
+    - `BetaAzureExternalKeyConfig object`
+
+      - `type: "azure"`
+
+      - `key_name: string`
+
+        Name of the key within the vault.
+
+      - `tenant_id: string`
+
+        Azure AD tenant ID.
+
+      - `vault_uri: string`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `client_id: optional string or null`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `updated_at: string`
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{}'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Delete External Key
+
+**DELETE** `/v1/organizations/external_keys/{external_key_id}`
+
+Delete an external key config.
+
+The request is rejected if any workspace still references this config.
+
+#### Path parameters
+
+- `external_key_id: string`
+
+  ID of the External Key.
+
+  maxLength: 2048
+
+#### Returns
+
+- `type: "external_key_deleted"`
+
+  default: external_key_deleted
+
+- `id: string`
+
+  ID of the deleted External Key.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01AbCdEfGhIjKlMnOpQrStUv",
+  "type": "external_key_deleted"
+}
+```
+
+### Validate External Key
+
+**POST** `/v1/organizations/external_keys/{external_key_id}/validate`
+
+Validate an external key config against the customer's KMS.
+
+Anthropic performs an encrypt/decrypt roundtrip against the configured
+KMS key and waits up to 30 seconds for the result. The response status is
+`success` if the roundtrip succeeded, or `failure` with an error
+message if it failed or timed out.
+
+#### Path parameters
+
+- `external_key_id: string`
+
+  ID of the External Key.
+
+  maxLength: 2048
+
+#### Returns
+
+- `type: "external_key_validation"`
+
+  default: external_key_validation
+
+- `error: string or null`
+
+  Error message when status is `failure`. Null otherwise.
+
+- `status: "failure" or "success"`
+
+  `success` — encrypt/decrypt roundtrip succeeded. `failure` — the roundtrip failed or timed out; see `error`.
+
+  - `"failure"`
+
+  - `"success"`
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/validate \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "error": "error",
+  "status": "failure",
+  "type": "external_key_validation"
+}
+```
+
+## Beta › Organization › Federation › Issuers
+
+### Create Federation Issuer
+
+**POST** `/v1/organizations/federation_issuers`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Register an OIDC issuer that Anthropic will trust for workload identity
+federation in your organization.
+
+The `jwks` field controls how the issuer's signing keys are obtained and
+takes one of three shapes selected by `type`: `discovery` (resolve keys
+through OIDC discovery), `explicit_url` (fetch keys from a fixed JWKS
+URL), or `inline` (provide a static key set). When `jwks.type` is
+`discovery` and no `discovery_base` is set, the issuer URL must be
+publicly reachable over HTTPS so Anthropic can fetch the discovery
+document; for `explicit_url` and `inline` modes the issuer URL is only
+matched as the JWT's `iss` claim and is not fetched.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters
+
+- `issuer_url: string`
+
+  The `iss` claim value to match against.
+
+  minLength: 1
+
+- `name: string`
+
+  Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+  minLength: 1, maxLength: 255
+
+- `check_jti: optional boolean or null`
+
+  Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Defaults to true. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+- `jwks: optional BetaJWKSDiscovery or BetaJWKSExplicitURL or BetaJWKSInline`
+
+  How signing keys are obtained. Defaults to OIDC discovery.
+
+  - `BetaJWKSDiscovery object`
+
+    JWKS via the issuer's OIDC discovery document.
+
+    - `type: "discovery"`
+
+    - `ca_cert_pem: optional string or null`
+
+      Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+      maxLength: 8192
+
+    - `discovery_base: optional string or null`
+
+      Set when the discovery URL differs from `issuer_url`.
+
+  - `BetaJWKSExplicitURL object`
+
+    JWKS fetched from a fixed endpoint.
+
+    - `type: "explicit_url"`
+
+    - `url: string`
+
+      JWKS endpoint.
+
+      minLength: 1
+
+    - `ca_cert_pem: optional string or null`
+
+      Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+      maxLength: 8192
+
+  - `BetaJWKSInline object`
+
+    JWKS supplied directly; no network fetch.
+
+    - `type: "inline"`
+
+    - `keys: array of map[unknown]`
+
+      Inline JWK objects.
+
+      minItems: 1
+
+- `max_jwt_lifetime_seconds: optional number or null`
+
+  Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Defaults to 3600 (1h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  minimum: 1, maximum: 176400
+
+#### Returns
+
+- `BetaFederationIssuer object`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `type: "federation_issuer"`
+
+    default: federation_issuer
+
+  - `id: string`
+
+    Tagged ID of the federation issuer.
+
+  - `archived_at: string or null`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `archived_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `check_jti: boolean`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `created_at: string`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `created_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `issuer_url: string`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `jwks: BetaJWKSDiscovery or BetaJWKSExplicitURL or BetaJWKSInline`
+
+    How signing keys are obtained for signature verification.
+
+    - `BetaJWKSDiscovery object`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `type: "discovery"`
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `discovery_base: optional string or null`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `BetaJWKSExplicitURL object`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `type: "explicit_url"`
+
+      - `url: string`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `BetaJWKSInline object`
+
+      JWKS supplied directly; no network fetch.
+
+      - `type: "inline"`
+
+      - `keys: array of map[unknown]`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `jwks_polling_disabled_at: string or null`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `max_jwt_lifetime_seconds: number`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `name: string`
+
+    Admin-chosen slug identifier.
+
+  - `poll_status: BetaFederationIssuerPollStatus or null`
+
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
+
+    - `consecutive_failures: number`
+
+      Consecutive fetch failures since the last success.
+
+    - `last_fetched_at: string or null`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `next_poll_at: string or null`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `updated_at: string`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `updated_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/federation_issuers \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "issuer_url": "x",
+          "name": "x"
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### List Federation Issuers
+
+**GET** `/v1/organizations/federation_issuers`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+List federation issuers in your organization.
+
+Archived issuers are excluded unless `include_archived=true`.
+
+#### Query parameters
+
+- `include_archived: optional boolean`
+
+  Include archived resources. Defaults to false.
+
+  default: false
+
+- `limit: optional number`
+
+  Number of results per page.
+
+  default: 20, minimum: 1, maximum: 100
+
+- `page: optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `data: array of BetaFederationIssuer`
+
+  - `type: "federation_issuer"`
+
+    default: federation_issuer
+
+  - `id: string`
+
+    Tagged ID of the federation issuer.
+
+  - `archived_at: string or null`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `archived_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `check_jti: boolean`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `created_at: string`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `created_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `issuer_url: string`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `jwks: BetaJWKSDiscovery or BetaJWKSExplicitURL or BetaJWKSInline`
+
+    How signing keys are obtained for signature verification.
+
+    - `BetaJWKSDiscovery object`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `type: "discovery"`
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `discovery_base: optional string or null`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `BetaJWKSExplicitURL object`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `type: "explicit_url"`
+
+      - `url: string`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `BetaJWKSInline object`
+
+      JWKS supplied directly; no network fetch.
+
+      - `type: "inline"`
+
+      - `keys: array of map[unknown]`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `jwks_polling_disabled_at: string or null`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `max_jwt_lifetime_seconds: number`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `name: string`
+
+    Admin-chosen slug identifier.
+
+  - `poll_status: BetaFederationIssuerPollStatus or null`
+
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
+
+    - `consecutive_failures: number`
+
+      Consecutive fetch failures since the last success.
+
+    - `last_fetched_at: string or null`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `next_poll_at: string or null`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `updated_at: string`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `updated_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+- `next_page: string or null`
+
+  Opaque cursor for the next page, or null if no more results.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/federation_issuers \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "archived_by_actor_id": "archived_by_actor_id",
+      "check_jti": true,
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "issuer_url": "https://token.actions.githubusercontent.com",
+      "jwks": {
+        "type": "discovery",
+        "ca_cert_pem": "ca_cert_pem",
+        "discovery_base": "discovery_base"
+      },
+      "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+      "max_jwt_lifetime_seconds": 0,
+      "name": "github-actions",
+      "poll_status": {
+        "consecutive_failures": 0,
+        "last_fetched_at": "2019-12-27T18:11:19.117Z",
+        "next_poll_at": "2019-12-27T18:11:19.117Z"
+      },
+      "type": "federation_issuer",
+      "updated_at": "2024-10-30T23:58:27.427722Z",
+      "updated_by_actor_id": "updated_by_actor_id"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Federation Issuer
+
+**GET** `/v1/organizations/federation_issuers/{federation_issuer_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a federation issuer by its ID (`fdis_...`).
+
+#### Path parameters
+
+- `federation_issuer_id: string`
+
+  ID of the federation issuer.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `BetaFederationIssuer object`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `type: "federation_issuer"`
+
+    default: federation_issuer
+
+  - `id: string`
+
+    Tagged ID of the federation issuer.
+
+  - `archived_at: string or null`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `archived_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `check_jti: boolean`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `created_at: string`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `created_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `issuer_url: string`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `jwks: BetaJWKSDiscovery or BetaJWKSExplicitURL or BetaJWKSInline`
+
+    How signing keys are obtained for signature verification.
+
+    - `BetaJWKSDiscovery object`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `type: "discovery"`
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `discovery_base: optional string or null`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `BetaJWKSExplicitURL object`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `type: "explicit_url"`
+
+      - `url: string`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `BetaJWKSInline object`
+
+      JWKS supplied directly; no network fetch.
+
+      - `type: "inline"`
+
+      - `keys: array of map[unknown]`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `jwks_polling_disabled_at: string or null`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `max_jwt_lifetime_seconds: number`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `name: string`
+
+    Admin-chosen slug identifier.
+
+  - `poll_status: BetaFederationIssuerPollStatus or null`
+
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
+
+    - `consecutive_failures: number`
+
+      Consecutive fetch failures since the last success.
+
+    - `last_fetched_at: string or null`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `next_poll_at: string or null`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `updated_at: string`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `updated_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_ISSUER_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Update Federation Issuer
+
+**POST** `/v1/organizations/federation_issuers/{federation_issuer_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Partially update a federation issuer.
+
+Setting `jwks` replaces the full JWKS shape at once. Archived issuers
+cannot be updated; this returns 400. Create a new issuer instead.
+
+Updating an issuer that backs a rule with a scope outside
+`workspace:developer` or `workspace:inference` requires a Console
+session.
+
+#### Path parameters
+
+- `federation_issuer_id: string`
+
+  ID of the federation issuer to update.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters
+
+- `check_jti: optional boolean or null`
+
+  Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+- `issuer_url: optional string or null`
+
+  Replaces the `iss` claim value to match against. For discovery-mode issuers without a `discovery_base`, this is also the URL Anthropic fetches the OIDC discovery document and signing keys from, so changing it repoints the JWKS source. Changing the issuer URL to a well-known shared platform is rejected while any live rule under this issuer would not constrain tenant identity.
+
+  minLength: 1
+
+- `jwks: optional BetaJWKSDiscovery or BetaJWKSExplicitURL or BetaJWKSInline or null`
+
+  Replaces the entire JWKS configuration.
+
+  - `BetaJWKSDiscovery object`
+
+    JWKS via the issuer's OIDC discovery document.
+
+    - `type: "discovery"`
+
+    - `ca_cert_pem: optional string or null`
+
+      Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+      maxLength: 8192
+
+    - `discovery_base: optional string or null`
+
+      Set when the discovery URL differs from `issuer_url`.
+
+  - `BetaJWKSExplicitURL object`
+
+    JWKS fetched from a fixed endpoint.
+
+    - `type: "explicit_url"`
+
+    - `url: string`
+
+      JWKS endpoint.
+
+      minLength: 1
+
+    - `ca_cert_pem: optional string or null`
+
+      Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+      maxLength: 8192
+
+  - `BetaJWKSInline object`
+
+    JWKS supplied directly; no network fetch.
+
+    - `type: "inline"`
+
+    - `keys: array of map[unknown]`
+
+      Inline JWK objects.
+
+      minItems: 1
+
+- `jwks_polling_disabled: optional boolean or null`
+
+  Only `false` is accepted, to re-enable polling after the system pauses it. Polling is paused automatically; sending `true` is rejected.
+
+- `max_jwt_lifetime_seconds: optional number or null`
+
+  Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  minimum: 1, maximum: 176400
+
+- `name: optional string or null`
+
+  Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+  minLength: 1, maxLength: 255
+
+#### Returns
+
+- `BetaFederationIssuer object`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `type: "federation_issuer"`
+
+    default: federation_issuer
+
+  - `id: string`
+
+    Tagged ID of the federation issuer.
+
+  - `archived_at: string or null`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `archived_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `check_jti: boolean`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `created_at: string`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `created_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `issuer_url: string`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `jwks: BetaJWKSDiscovery or BetaJWKSExplicitURL or BetaJWKSInline`
+
+    How signing keys are obtained for signature verification.
+
+    - `BetaJWKSDiscovery object`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `type: "discovery"`
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `discovery_base: optional string or null`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `BetaJWKSExplicitURL object`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `type: "explicit_url"`
+
+      - `url: string`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `BetaJWKSInline object`
+
+      JWKS supplied directly; no network fetch.
+
+      - `type: "inline"`
+
+      - `keys: array of map[unknown]`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `jwks_polling_disabled_at: string or null`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `max_jwt_lifetime_seconds: number`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `name: string`
+
+    Admin-chosen slug identifier.
+
+  - `poll_status: BetaFederationIssuerPollStatus or null`
+
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
+
+    - `consecutive_failures: number`
+
+      Consecutive fetch failures since the last success.
+
+    - `last_fetched_at: string or null`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `next_poll_at: string or null`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `updated_at: string`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `updated_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_ISSUER_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{}'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Archive Federation Issuer
+
+**POST** `/v1/organizations/federation_issuers/{federation_issuer_id}/archive`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Archive a federation issuer.
+
+Idempotent; re-archiving returns the issuer with its original
+`archived_at`. Rejected with 400 if any live (non-archived) federation
+rule still references the issuer; archive those rules first (a rule's
+issuer cannot be changed), or recreate them against another issuer.
+
+#### Path parameters
+
+- `federation_issuer_id: string`
+
+  ID of the federation issuer to archive.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `BetaFederationIssuer object`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `type: "federation_issuer"`
+
+    default: federation_issuer
+
+  - `id: string`
+
+    Tagged ID of the federation issuer.
+
+  - `archived_at: string or null`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `archived_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `check_jti: boolean`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `created_at: string`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `created_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `issuer_url: string`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `jwks: BetaJWKSDiscovery or BetaJWKSExplicitURL or BetaJWKSInline`
+
+    How signing keys are obtained for signature verification.
+
+    - `BetaJWKSDiscovery object`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `type: "discovery"`
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `discovery_base: optional string or null`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `BetaJWKSExplicitURL object`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `type: "explicit_url"`
+
+      - `url: string`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `ca_cert_pem: optional string or null`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `BetaJWKSInline object`
+
+      JWKS supplied directly; no network fetch.
+
+      - `type: "inline"`
+
+      - `keys: array of map[unknown]`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `jwks_polling_disabled_at: string or null`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `max_jwt_lifetime_seconds: number`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `name: string`
+
+    Admin-chosen slug identifier.
+
+  - `poll_status: BetaFederationIssuerPollStatus or null`
+
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
+
+    - `consecutive_failures: number`
+
+      Consecutive fetch failures since the last success.
+
+    - `last_fetched_at: string or null`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `next_poll_at: string or null`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `updated_at: string`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `updated_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_ISSUER_ID/archive \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+## Beta › Organization › Federation › Rules
+
+### Create Federation Rule
+
+**POST** `/v1/organizations/federation_rules`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Create a federation rule owned by your organization.
+
+The referenced issuer and the target service account must already exist
+in the same organization; invalid references are rejected with a 400
+error. The workspace reference is validated. Membership is not checked
+at rule creation: token exchange resolves a single enabled workspace per
+call and is rejected unless the target service account is a member of
+that workspace (it is implicitly a member of the default workspace).
+Rules on well-known shared issuers (GitHub Actions, GitLab, Buildkite,
+Terraform Cloud, Google) must constrain tenant identity via an
+identity-bearing claim, a tenant-pinning subject prefix (such as
+`repo:YOUR_ORG/...`), or a CEL condition referencing one of those
+identity claims (e.g. `claims.repository_owner`). OAuth callers may only
+manage rules whose `oauth_scope` is `workspace:developer` or
+`workspace:inference`; other scopes require a Console session.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters
+
+- `issuer_id: string`
+
+  Tagged ID of the federation issuer.
+
+- `match: BetaFederationRuleMatch`
+
+  Conditions the verified JWT must satisfy for this rule to apply. At least one of `subject_prefix` (other than a wildcard-only value like `*`), `claims`, or `condition` is required; `audience` alone is not sufficient.
+
+  - `audience: optional string or null`
+
+    Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+    maxLength: 1024
+
+  - `claims: optional map[string] or null`
+
+    Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+  - `condition: optional string or null`
+
+    CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+    maxLength: 4096
+
+  - `subject_prefix: optional string or null`
+
+    Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+    maxLength: 1024
+
+- `name: string`
+
+  Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+  minLength: 1, maxLength: 255
+
+- `oauth_scope: string`
+
+  Space-separated OAuth scopes. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
+
+  minLength: 1
+
+- `target: BetaServiceAccountTarget`
+
+  Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+  - `type: "service_account"`
+
+  - `service_account_id: string`
+
+    Tagged ID of the service account to mint tokens for.
+
+  - `service_account_name: optional string or null`
+
+    Service account's display name at read time. Ignored on writes.
+
+- `applies_to_all_workspaces: optional boolean`
+
+  When true, enable this rule for every workspace in the org (including workspaces created later).
+
+- `attributes: optional map[string] or null`
+
+  CEL expressions `{name: expr}` extracting named values from claims. Not yet supported; any non-empty value is rejected with 400.
+
+- `description: optional string or null`
+
+  Optional free-text description.
+
+  maxLength: 2000
+
+- `token_lifetime_seconds: optional number`
+
+  Lifetime in seconds for access tokens minted via this rule (60-86400). Defaults to 3600 (1h). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  minimum: 60, maximum: 86400
+
+- `workspace_id: optional string or null`
+
+  Tagged ID of the workspace to enable this rule for. Required unless `applies_to_all_workspaces` is true. Additional workspaces can be added via the `/federation_rules/{federation_rule_id}/workspaces` sub-resource.
+
+#### Returns
+
+- `BetaFederationRule object`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `type: "federation_rule"`
+
+    default: federation_rule
+
+  - `id: string`
+
+    Tagged ID of the federation rule.
+
+  - `applies_to_all_workspaces: boolean`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `archived_at: string or null`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `archived_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `attributes: map[string] or null`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `created_at: string`
+
+    When this rule was created.
+
+    format: date-time
+
+  - `created_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `description: string or null`
+
+    Optional free-text description.
+
+  - `issuer_id: string`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `issuer_name: string or null`
+
+    Issuer's display name at read time.
+
+  - `match: BetaFederationRuleMatch`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+    - `audience: optional string or null`
+
+      Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+      maxLength: 1024
+
+    - `claims: optional map[string] or null`
+
+      Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+    - `condition: optional string or null`
+
+      CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+      maxLength: 4096
+
+    - `subject_prefix: optional string or null`
+
+      Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+      maxLength: 1024
+
+  - `name: string`
+
+    Admin-chosen slug identifier.
+
+  - `oauth_scope: string`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `target: BetaServiceAccountTarget`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+    - `type: "service_account"`
+
+    - `service_account_id: string`
+
+      Tagged ID of the service account to mint tokens for.
+
+    - `service_account_name: optional string or null`
+
+      Service account's display name at read time. Ignored on writes.
+
+  - `token_lifetime_seconds: number`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `updated_at: string`
+
+    When this rule was last updated.
+
+    format: date-time
+
+  - `updated_by_actor_id: string or null`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `workspace_id: string or null`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `workspace_ids: array of string`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/federation_rules \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "issuer_id": "issuer_id",
+          "match": {},
+          "name": "x",
+          "oauth_scope": "x",
+          "target": {
+            "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+            "type": "service_account"
+          }
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+### List Federation Rules
+
+**GET** `/v1/organizations/federation_rules`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List federation rules in your organization.
 
@@ -26,7 +14761,7 @@ unless `include_archived=true`.
 
   Number of results per page.
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `page: optional string`
 
@@ -40,97 +14775,103 @@ unless `include_archived=true`.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -317,7 +15058,7 @@ curl https://api.anthropic.com/v1/organizations/federation_rules \
 
 **GET** `/v1/organizations/federation_rules/{federation_rule_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a federation rule by its ID (`fdrl_...`).
 
@@ -335,97 +15076,103 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -614,7 +15361,7 @@ curl https://api.anthropic.com/v1/organizations/federation_rules/$FEDERATION_RUL
 
 **POST** `/v1/organizations/federation_rules/{federation_rule_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Partially update a federation rule.
 
@@ -648,97 +15395,103 @@ Console session.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -758,11 +15511,7 @@ Console session.
 
 - `match: optional BetaFederationRuleMatch or null`
 
-  Does the incoming JWT qualify?
-
-  All populated fields must pass; omitted fields are skipped. At least one
-  of `subject_prefix` (other than a wildcard-only value like `*`), `claims`,
-  or `condition` is required; `audience` alone is not sufficient.
+  Replaces the entire match object. All populated matcher fields must pass.
 
   - `audience: optional string or null`
 
@@ -790,7 +15539,7 @@ Console session.
 
   Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
-  maxLength: 255, minLength: 1
+  minLength: 1, maxLength: 255
 
 - `oauth_scope: optional string or null`
 
@@ -800,7 +15549,7 @@ Console session.
 
 - `target: optional BetaServiceAccountTarget or null`
 
-  Bind to a fixed service account by ID.
+  Replaces the entire target object. Currently always a `service_account` target.
 
   - `type: "service_account"`
 
@@ -816,7 +15565,7 @@ Console session.
 
   Replaces the lifetime in seconds for access tokens minted via this rule (60-86400). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
 
-  maximum: 86400, minimum: 60
+  minimum: 60, maximum: 86400
 
 - `workspace_id: optional string or null`
 
@@ -1011,7 +15760,7 @@ curl https://api.anthropic.com/v1/organizations/federation_rules/$FEDERATION_RUL
 
 **POST** `/v1/organizations/federation_rules/{federation_rule_id}/archive`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Archive a federation rule.
 
@@ -1037,97 +15786,103 @@ other scopes require a Console session.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -1319,7 +16074,7 @@ curl https://api.anthropic.com/v1/organizations/federation_rules/$FEDERATION_RUL
 
 **POST** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Enable a federation rule for a workspace.
 
@@ -1346,97 +16101,103 @@ other scopes require a Console session.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -1503,7 +16264,7 @@ curl https://api.anthropic.com/v1/organizations/federation_rules/$FEDERATION_RUL
 
 **GET** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List workspaces where this federation rule is enabled.
 
@@ -1525,7 +16286,7 @@ rules with `applies_to_all_workspaces` or a legacy single
 
   Number of results per page.
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `page: optional string`
 
@@ -1539,97 +16300,103 @@ rules with `applies_to_all_workspaces` or a legacy single
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -1695,7 +16462,7 @@ curl https://api.anthropic.com/v1/organizations/federation_rules/$FEDERATION_RUL
 
 **DELETE** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces/{workspace_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Disable a federation rule for a workspace.
 
@@ -1722,97 +16489,103 @@ Console session.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -2022,7 +16795,7 @@ List the organization's invites.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `roles: optional array of string`
 
@@ -2325,7 +17098,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
 
 **POST** `/v1/organizations/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Create a service account.
 
@@ -2345,97 +17118,103 @@ accounts.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -2443,7 +17222,7 @@ accounts.
 
   Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
-  maxLength: 255, minLength: 1
+  minLength: 1, maxLength: 255
 
 - `description: optional string or null`
 
@@ -2556,7 +17335,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts \
 
 **GET** `/v1/organizations/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List service accounts in the caller's organization.
 
@@ -2576,7 +17355,7 @@ archived service accounts.
 
   Number of results per page.
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `page: optional string`
 
@@ -2590,97 +17369,103 @@ archived service accounts.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -2779,7 +17564,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts \
 
 **GET** `/v1/organizations/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a service account by its ID (`svac_...`).
 
@@ -2797,97 +17582,103 @@ Retrieve a service account by its ID (`svac_...`).
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -2982,7 +17773,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
 **POST** `/v1/organizations/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Update a service account.
 
@@ -3005,97 +17796,103 @@ interactive credential (a user OAuth token or a Console session).
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -3208,7 +18005,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
 **POST** `/v1/organizations/service_accounts/{service_account_id}/archive`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Archive a service account.
 
@@ -3231,97 +18028,103 @@ those rules first or change their target to another service account.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -3419,7 +18222,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
 **POST** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Add a service account to a workspace with the given `workspace_role`.
 
@@ -3444,97 +18247,103 @@ rejected.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -3622,7 +18431,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
 **GET** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List the workspaces a service account is a member of.
 
@@ -3652,7 +18461,7 @@ page to recover.
 
   Number of results per page.
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `page: optional string`
 
@@ -3666,97 +18475,103 @@ page to recover.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -3830,7 +18645,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
 
 **DELETE** `/v1/organizations/service_accounts/{service_account_id}/workspaces/{workspace_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Remove a service account from a workspace.
 
@@ -3860,97 +18675,103 @@ to the implicit `workspace_user` membership. Archived workspaces return
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -4015,7 +18836,7 @@ List the organization's members.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `roles: optional array of string`
 
@@ -4381,7 +19202,7 @@ List Workspaces
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 #### Returns
 
@@ -4429,19 +19250,27 @@ List Workspaces
 
     Data residency configuration.
 
-    - `allowed_inference_geos: array of string or "unrestricted"`
+    - `allowed_inference_geos: array of BetaAllowedInferenceGeo or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
 
-      - `Geos = array of string`
+      - `Geos = array of BetaAllowedInferenceGeo`
 
-      - `Unrestricted = "unrestricted"`
+        - `"global"`
 
-    - `default_inference_geo: string`
+        - `"us"`
+
+      - `"unrestricted"`
+
+    - `default_inference_geo: "global" or "us"`
 
       Default inference geo applied when requests omit the parameter.
 
-    - `workspace_geo: string`
+      - `"global"`
+
+      - `"us"`
+
+    - `workspace_geo: "us"`
 
       Geographic region for workspace data storage. Immutable after creation.
 
@@ -4503,8 +19332,8 @@ curl https://api.anthropic.com/v1/organizations/workspaces \
       "created_at": "2024-10-30T23:58:27.427722Z",
       "data_residency": {
         "allowed_inference_geos": "unrestricted",
-        "default_inference_geo": "default_inference_geo",
-        "workspace_geo": "workspace_geo"
+        "default_inference_geo": "global",
+        "workspace_geo": "us"
       },
       "display_color": "#6C5BB9",
       "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -4536,97 +19365,103 @@ Create Workspace
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -4634,7 +19469,7 @@ Create Workspace
 
   Name of the Workspace.
 
-  maxLength: 40, minLength: 1
+  minLength: 1, maxLength: 40
 
 - `data_residency: optional BetaDataResidencyCreateConfig or null`
 
@@ -4650,7 +19485,7 @@ Create Workspace
 
       - `"us"`
 
-    - `Unrestricted = "unrestricted"`
+    - `"unrestricted"`
 
   - `default_inference_geo: optional "global" or "us" or null`
 
@@ -4734,19 +19569,27 @@ Create Workspace
 
     Data residency configuration.
 
-    - `allowed_inference_geos: array of string or "unrestricted"`
+    - `allowed_inference_geos: array of BetaAllowedInferenceGeo or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
 
-      - `Geos = array of string`
+      - `Geos = array of BetaAllowedInferenceGeo`
 
-      - `Unrestricted = "unrestricted"`
+        - `"global"`
 
-    - `default_inference_geo: string`
+        - `"us"`
+
+      - `"unrestricted"`
+
+    - `default_inference_geo: "global" or "us"`
 
       Default inference geo applied when requests omit the parameter.
 
-    - `workspace_geo: string`
+      - `"global"`
+
+      - `"us"`
+
+    - `workspace_geo: "us"`
 
       Geographic region for workspace data storage. Immutable after creation.
 
@@ -4804,8 +19647,8 @@ curl https://api.anthropic.com/v1/organizations/workspaces \
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -4876,19 +19719,27 @@ Get Workspace
 
     Data residency configuration.
 
-    - `allowed_inference_geos: array of string or "unrestricted"`
+    - `allowed_inference_geos: array of BetaAllowedInferenceGeo or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
 
-      - `Geos = array of string`
+      - `Geos = array of BetaAllowedInferenceGeo`
 
-      - `Unrestricted = "unrestricted"`
+        - `"global"`
 
-    - `default_inference_geo: string`
+        - `"us"`
+
+      - `"unrestricted"`
+
+    - `default_inference_geo: "global" or "us"`
 
       Default inference geo applied when requests omit the parameter.
 
-    - `workspace_geo: string`
+      - `"global"`
+
+      - `"us"`
+
+    - `workspace_geo: "us"`
 
       Geographic region for workspace data storage. Immutable after creation.
 
@@ -4936,8 +19787,8 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -4976,7 +19827,7 @@ Update Workspace
 
       - `"us"`
 
-    - `Unrestricted = "unrestricted"`
+    - `"unrestricted"`
 
   - `default_inference_geo: optional "global" or "us" or null`
 
@@ -5010,7 +19861,7 @@ Update Workspace
 
   Name of the Workspace.
 
-  maxLength: 40, minLength: 1
+  minLength: 1, maxLength: 40
 
 - `tags: optional map[string] or null`
 
@@ -5062,19 +19913,27 @@ Update Workspace
 
     Data residency configuration.
 
-    - `allowed_inference_geos: array of string or "unrestricted"`
+    - `allowed_inference_geos: array of BetaAllowedInferenceGeo or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
 
-      - `Geos = array of string`
+      - `Geos = array of BetaAllowedInferenceGeo`
 
-      - `Unrestricted = "unrestricted"`
+        - `"global"`
 
-    - `default_inference_geo: string`
+        - `"us"`
+
+      - `"unrestricted"`
+
+    - `default_inference_geo: "global" or "us"`
 
       Default inference geo applied when requests omit the parameter.
 
-    - `workspace_geo: string`
+      - `"global"`
+
+      - `"us"`
+
+    - `workspace_geo: "us"`
 
       Geographic region for workspace data storage. Immutable after creation.
 
@@ -5131,8 +19990,8 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -5201,19 +20060,27 @@ Archive Workspace
 
     Data residency configuration.
 
-    - `allowed_inference_geos: array of string or "unrestricted"`
+    - `allowed_inference_geos: array of BetaAllowedInferenceGeo or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
 
-      - `Geos = array of string`
+      - `Geos = array of BetaAllowedInferenceGeo`
 
-      - `Unrestricted = "unrestricted"`
+        - `"global"`
 
-    - `default_inference_geo: string`
+        - `"us"`
+
+      - `"unrestricted"`
+
+    - `default_inference_geo: "global" or "us"`
 
       Default inference geo applied when requests omit the parameter.
 
-    - `workspace_geo: string`
+      - `"global"`
+
+      - `"us"`
+
+    - `workspace_geo: "us"`
 
       Geographic region for workspace data storage. Immutable after creation.
 
@@ -5262,8 +20129,8 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/archive
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -5282,11 +20149,13 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/archive
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/rate_limits`
 
-List rate-limit overrides configured for a workspace.
+List a workspace's rate limits.
 
-Returns only the groups and limiter types that have a workspace-level
-override. Groups without overrides inherit the organization limits and
-are not listed; use `GET /v1/organizations/rate_limits` to see those.
+By default, returns only the groups and limiter types that have a
+workspace-level override. With `include_inherited=true`, returns every
+group with organization-level limits the workspace can see, listing for
+each the values it inherits from the organization as well as its own
+overrides. Each value's `source` says which it is.
 
 When `limit` is omitted, every matching entry is returned in a single
 page; when `limit` truncates the result, follow `next_page` to fetch
@@ -5316,13 +20185,19 @@ the remaining entries.
 
   - `"web_search"`
 
+- `include_inherited: optional boolean`
+
+  Also list the limiter values the workspace inherits from the organization, including groups with no workspace-level override.
+
+  default: false
+
 - `limit: optional number`
 
   Maximum number of items to return per page. Ranges from `1` to `1000`.
 
   When omitted, every remaining entry is returned in a single page and `next_page` is `null`.
 
-  maximum: 1000, minimum: 1
+  minimum: 1, maximum: 1000
 
 - `page: optional string`
 
@@ -5332,7 +20207,7 @@ the remaining entries.
 
 - `data: array of BetaWorkspaceRateLimit`
 
-  Rate-limit entries for the workspace, one per group that has at least one override.
+  Rate-limit entries for the workspace: one per group with at least one override, or, with `include_inherited` set to `true`, one per group the workspace can see that has organization-level limits.
 
   - `type: "workspace_rate_limit"`
 
@@ -5340,9 +20215,139 @@ the remaining entries.
 
     default: workspace_rate_limit
 
+  - `group: BetaOrganizationRateLimitModelGroup or BetaOrganizationRateLimitBatchGroup or BetaOrganizationRateLimitTokenCountGroup or 3 more`
+
+    The rate-limit group this entry's limits apply to. Its `type` equals `group_type`.
+
+    - `BetaOrganizationRateLimitModelGroup object`
+
+      - `type: "model_group"`
+
+        Always `model_group`: a family of models.
+
+        default: model_group
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+      - `display_name: string`
+
+        Human-readable name of the model group (for example, `Claude Sonnet 4.x`). For display only; it may change.
+
+    - `BetaOrganizationRateLimitBatchGroup object`
+
+      - `type: "batch"`
+
+        Always `batch`: the Message Batches API.
+
+        default: batch
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `BetaOrganizationRateLimitTokenCountGroup object`
+
+      - `type: "token_count"`
+
+        Always `token_count`: the Token Count API.
+
+        default: token_count
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `BetaOrganizationRateLimitFilesGroup object`
+
+      - `type: "files"`
+
+        Always `files`: the Files API.
+
+        default: files
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `BetaOrganizationRateLimitSkillsGroup object`
+
+      - `type: "skills"`
+
+        Always `skills`: the Skills API.
+
+        default: skills
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `BetaOrganizationRateLimitWebSearchGroup object`
+
+      - `type: "web_search"`
+
+        Always `web_search`: the Messages API web search tool.
+
+        default: web_search
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+  - `limits: array of BetaWorkspaceRateLimitValue`
+
+    The workspace's limiter values for this group. By default only the limiter types with a workspace-level override are listed. With `include_inherited` set to `true`, the limiter types the workspace inherits from the organization are listed too, each marked by `source`.
+
+    - `type: string`
+
+      The limiter type (for example, `requests_per_minute` or `input_tokens_per_minute`).
+
+    - `org_limit: number or null`
+
+      The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
+
+    - `source: BetaWorkspaceRateLimitWorkspaceSource or BetaWorkspaceRateLimitOrganizationSource`
+
+      Where `value` comes from. `organization` values are listed only when `include_inherited` is `true`, and then `value` equals `org_limit`.
+
+      - `BetaWorkspaceRateLimitWorkspaceSource object`
+
+        - `type: "workspace"`
+
+          Always `workspace`: a workspace-level override is stored.
+
+          default: workspace
+
+      - `BetaWorkspaceRateLimitOrganizationSource object`
+
+        - `type: "organization"`
+
+          Always `organization`: no workspace-level override is stored, so the organization's value applies.
+
+          default: organization
+
+    - `value: number`
+
+      The workspace's value for this limiter type: the workspace-level override when `source.type` is `workspace`, otherwise the organization's value.
+
+  - `models: array of string or null`
+
+    Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
+
+  - `rate_limit_id: string`
+
+    The `id` of the organization's RateLimit entry this entry applies to.
+
+  - `workspace_id: string`
+
+    ID of the Workspace this entry applies to.
+
   - `group_type: "batch" or "files" or "model_group" or 3 more`
 
-    The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+    **Deprecated**: Use `group.type` instead. `group_type` is still returned and always equals `group.type`.
+
+    Deprecated: use `group.type` instead. The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`. Always equal to `group.type`.
 
     - `"batch"`
 
@@ -5355,34 +20360,6 @@ the remaining entries.
     - `"token_count"`
 
     - `"web_search"`
-
-  - `limits: array of BetaWorkspaceRateLimitValue`
-
-    The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
-
-    - `type: string`
-
-      The limiter type (for example, `requests_per_minute` or `input_tokens_per_minute`).
-
-    - `org_limit: number or null`
-
-      The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
-
-    - `value: number`
-
-      The workspace-level override value for this limiter type.
-
-  - `models: array of string or null`
-
-    Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
-
-  - `rate_limit_id: string`
-
-    The `id` of the RateLimit group this override applies to.
-
-  - `workspace_id: string`
-
-    ID of the Workspace this override applies to.
 
 - `next_page: string or null`
 
@@ -5402,10 +20379,18 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
 {
   "data": [
     {
+      "group": {
+        "id": "id",
+        "display_name": "display_name",
+        "type": "model_group"
+      },
       "group_type": "batch",
       "limits": [
         {
           "org_limit": 0,
+          "source": {
+            "type": "workspace"
+          },
           "type": "type",
           "value": 0
         }
@@ -5452,7 +20437,7 @@ List Workspace Members
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 #### Returns
 
@@ -5831,7 +20816,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List the service accounts that are members of a workspace.
 
@@ -5854,7 +20839,7 @@ omitted from the results.
 
   Number of results per page.
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `page: optional string`
 
@@ -5868,97 +20853,103 @@ omitted from the results.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -6032,7 +21023,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 **POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Add a service account to a workspace with the given `workspace_role`.
 
@@ -6059,97 +21050,103 @@ accounts cannot be added and are rejected.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -6237,7 +21234,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a service account's membership in a workspace.
 
@@ -6266,97 +21263,103 @@ account returns 404.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -6421,7 +21424,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 **POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Change a service account's role in a workspace.
 
@@ -6450,97 +21453,103 @@ rejected.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -6623,7 +21632,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 **DELETE** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Remove a service account from a workspace.
 
@@ -6651,97 +21660,103 @@ membership. Archived workspaces return 400.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -6816,7 +21831,7 @@ the remaining entries.
 
   When omitted, every remaining entry is returned in a single page and `next_page` is `null`.
 
-  maximum: 1000, minimum: 1
+  minimum: 1, maximum: 1000
 
 - `model: optional string`
 
@@ -6840,23 +21855,87 @@ the remaining entries.
 
   - `id: string`
 
-    Stable identifier for this rate-limit group within the organization.
+    Identifier of this rate-limit entry. It is stable within the organization and differs between organizations; the group's own identifier is `group.id`.
 
-  - `group_type: "batch" or "files" or "model_group" or 3 more`
+  - `group: BetaOrganizationRateLimitModelGroup or BetaOrganizationRateLimitBatchGroup or BetaOrganizationRateLimitTokenCountGroup or 3 more`
 
-    The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+    The rate-limit group this entry's limits apply to. Its `type` equals `group_type`.
 
-    - `"batch"`
+    - `BetaOrganizationRateLimitModelGroup object`
 
-    - `"files"`
+      - `type: "model_group"`
 
-    - `"model_group"`
+        Always `model_group`: a family of models.
 
-    - `"skills"`
+        default: model_group
 
-    - `"token_count"`
+      - `id: string`
 
-    - `"web_search"`
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+      - `display_name: string`
+
+        Human-readable name of the model group (for example, `Claude Sonnet 4.x`). For display only; it may change.
+
+    - `BetaOrganizationRateLimitBatchGroup object`
+
+      - `type: "batch"`
+
+        Always `batch`: the Message Batches API.
+
+        default: batch
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `BetaOrganizationRateLimitTokenCountGroup object`
+
+      - `type: "token_count"`
+
+        Always `token_count`: the Token Count API.
+
+        default: token_count
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `BetaOrganizationRateLimitFilesGroup object`
+
+      - `type: "files"`
+
+        Always `files`: the Files API.
+
+        default: files
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `BetaOrganizationRateLimitSkillsGroup object`
+
+      - `type: "skills"`
+
+        Always `skills`: the Skills API.
+
+        default: skills
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `BetaOrganizationRateLimitWebSearchGroup object`
+
+      - `type: "web_search"`
+
+        Always `web_search`: the Messages API web search tool.
+
+        default: web_search
+
+      - `id: string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
 
   - `limits: array of BetaOrganizationRateLimitValue`
 
@@ -6873,6 +21952,24 @@ the remaining entries.
   - `models: array of string or null`
 
     Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
+
+  - `group_type: "batch" or "files" or "model_group" or 3 more`
+
+    **Deprecated**: Use `group.type` instead. `group_type` is still returned and always equals `group.type`.
+
+    Deprecated: use `group.type` instead. The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`. Always equal to `group.type`.
+
+    - `"batch"`
+
+    - `"files"`
+
+    - `"model_group"`
+
+    - `"skills"`
+
+    - `"token_count"`
+
+    - `"web_search"`
 
 - `next_page: string or null`
 
@@ -6893,6 +21990,11 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
   "data": [
     {
       "id": "id",
+      "group": {
+        "id": "id",
+        "display_name": "display_name",
+        "type": "model_group"
+      },
       "group_type": "batch",
       "limits": [
         {
@@ -7189,97 +22291,103 @@ Get Messages Usage Report
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -7462,13 +22570,13 @@ Enables organizations to analyze developer productivity and build custom dashboa
 
   UTC date in YYYY-MM-DD format. Returns metrics for this single day only.
 
-  pattern: ^\d{4}-\d{2}-\d{2}$, format: date
+  format: date, pattern: ^\d{4}-\d{2}-\d{2}$
 
 - `limit: optional number`
 
   Number of records per page (default: 20, max: 1000).
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: optional string`
 
@@ -7482,7 +22590,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
 
     List of Claude Code usage records for the requested date.
 
-    - `actor: object or object`
+    - `actor: UserActor or APIActor`
 
       The user or API key that performed the Claude Code actions.
 
@@ -7757,7 +22865,7 @@ Get Cost Report
 
   Maximum number of time buckets to return in the response.
 
-  default: 7, maximum: 31, minimum: 1
+  default: 7, minimum: 1, maximum: 31
 
 - `page: optional string`
 
@@ -7771,97 +22879,103 @@ Get Cost Report
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -8013,7 +23127,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
 
 **Deprecated**
 
-**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](https://platform.claude.com/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 List the organization's tunnels.
 
@@ -8034,7 +23148,7 @@ archived tunnels are excluded unless `include_archived` is set.
 
   Maximum number of tunnels to return in a single page.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: optional string`
 
@@ -8050,101 +23164,107 @@ archived tunnels are excluded unless `include_archived` is set.
 
 - `"anthropic-beta": array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  This endpoint is in beta: requests must send `mcp-tunnels-2026-05-19` in this header.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -8185,8 +23305,8 @@ archived tunnels are excluded unless `include_archived` is set.
 
   - `workspace_id: string or null`
 
-    ID of the Workspace this Tunnel belongs to, or `null` for the default
-    Workspace. Immutable after creation.
+    ID of the Workspace this Tunnel belongs to. May be `null` for a Tunnel in
+    the default Workspace. A Tunnel never moves to another Workspace.
 
 - `next_page: string or null`
 
@@ -8197,6 +23317,7 @@ archived tunnels are excluded unless `include_archived` is set.
 ```bash
 curl https://api.anthropic.com/v1/organizations/tunnels \
     -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-05-19' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -8225,7 +23346,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels \
 
 **Deprecated**
 
-**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](https://platform.claude.com/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Retrieve a single tunnel in the caller's organization by ID.
 
@@ -8239,101 +23360,107 @@ Retrieve a single tunnel in the caller's organization by ID.
 
 - `"anthropic-beta": array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  This endpoint is in beta: requests must send `mcp-tunnels-2026-05-19` in this header.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -8374,14 +23501,15 @@ Retrieve a single tunnel in the caller's organization by ID.
 
   - `workspace_id: string or null`
 
-    ID of the Workspace this Tunnel belongs to, or `null` for the default
-    Workspace. Immutable after creation.
+    ID of the Workspace this Tunnel belongs to. May be `null` for a Tunnel in
+    the default Workspace. A Tunnel never moves to another Workspace.
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID \
     -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-05-19' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -8405,7 +23533,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID \
 
 **Deprecated**
 
-**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](https://platform.claude.com/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Archive a tunnel. Archival is irreversible.
 
@@ -8424,101 +23552,107 @@ tunnel returns the existing record unchanged.
 
 - `"anthropic-beta": array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  This endpoint is in beta: requests must send `mcp-tunnels-2026-05-19` in this header.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -8559,8 +23693,8 @@ tunnel returns the existing record unchanged.
 
   - `workspace_id: string or null`
 
-    ID of the Workspace this Tunnel belongs to, or `null` for the default
-    Workspace. Immutable after creation.
+    ID of the Workspace this Tunnel belongs to. May be `null` for a Tunnel in
+    the default Workspace. A Tunnel never moves to another Workspace.
 
 #### Example
 
@@ -8568,6 +23702,7 @@ tunnel returns the existing record unchanged.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-05-19' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -8591,7 +23726,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
 
 **Deprecated**
 
-**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](https://platform.claude.com/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Return the tunnel's current connection token.
 
@@ -8610,101 +23745,107 @@ access logs.
 
 - `"anthropic-beta": array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  This endpoint is in beta: requests must send `mcp-tunnels-2026-05-19` in this header.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -8731,6 +23872,7 @@ access logs.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/reveal_token \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-05-19' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -8750,7 +23892,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/reveal_token 
 
 **Deprecated**
 
-**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](https://platform.claude.com/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Invalidate the tunnel's current token for new connections and return a fresh value.
 
@@ -8768,101 +23910,107 @@ restarted after rotation must use the new value. An optional
 
 - `"anthropic-beta": array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  This endpoint is in beta: requests must send `mcp-tunnels-2026-05-19` in this header.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -8897,6 +24045,7 @@ restarted after rotation must use the new value. An optional
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/rotate_token \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-05-19' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -8918,7 +24067,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/rotate_token 
 
 **Deprecated**
 
-**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](https://platform.claude.com/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Register a public CA certificate for the tunnel.
 
@@ -8937,101 +24086,107 @@ holds at most two non-archived certificates.
 
 - `"anthropic-beta": array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  This endpoint is in beta: requests must send `mcp-tunnels-2026-05-19` in this header.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Body parameters
 
@@ -9090,6 +24245,7 @@ holds at most two non-archived certificates.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-05-19' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{
           "ca_certificate_pem": "-----BEGIN CERTIFICATE-----\nMIIBexampleEXAMPLEexampleEXAMPLEexampleEXAMPLEexampleEXAMPLEexa\n...illustrative placeholder, not a real certificate...\n-----END CERTIFICATE-----\n"
@@ -9116,7 +24272,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates 
 
 **Deprecated**
 
-**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](https://platform.claude.com/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 List the certificates registered on a tunnel.
 
@@ -9141,7 +24297,7 @@ Archived certificates are excluded unless `include_archived` is set.
 
   Maximum number of certificates to return.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: optional string`
 
@@ -9152,101 +24308,107 @@ Archived certificates are excluded unless `include_archived` is set.
 
 - `"anthropic-beta": array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  This endpoint is in beta: requests must send `mcp-tunnels-2026-05-19` in this header.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -9299,6 +24461,7 @@ Archived certificates are excluded unless `include_archived` is set.
 ```bash
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates \
     -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-05-19' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -9327,7 +24490,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates 
 
 **Deprecated**
 
-**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](https://platform.claude.com/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Retrieve a single certificate registered on a tunnel by ID.
 
@@ -9345,101 +24508,107 @@ Retrieve a single certificate registered on a tunnel by ID.
 
 - `"anthropic-beta": array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  This endpoint is in beta: requests must send `mcp-tunnels-2026-05-19` in this header.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -9488,6 +24657,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 ```bash
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID \
     -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-05-19' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -9511,7 +24681,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
 
 **Deprecated**
 
-**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](https://platform.claude.com/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Archive a certificate, removing it from the set Anthropic trusts for this tunnel.
 
@@ -9533,101 +24703,107 @@ certificate is added.
 
 - `"anthropic-beta": array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  This endpoint is in beta: requests must send `mcp-tunnels-2026-05-19` in this header.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 #### Returns
 
@@ -9677,6 +24853,7 @@ certificate is added.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID/archive \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: mcp-tunnels-2026-05-19' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -9703,13 +24880,15 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
 Get organization-wide activity summaries for a date range.
 
 Returns one entry per day from `starting_date` (inclusive) to `ending_date`
-(exclusive). Data is typically available with a 1-day lag and may be
-revised by a few percent over the following days: when `ending_date` is
-omitted it defaults to the most recent available day + 1, so the last
-entry covers the most recent available day. The series can be scoped to
-an RBAC group via `filter[]=rbac_group_id:{id}`. Available to
-organizations on a Claude Enterprise plan. Requires an API key with the
-`read:analytics` scope.
+(exclusive) in `data`, the same `data` / `next_page` envelope as the other
+analytics list endpoints; the series is currently returned in full, so
+`next_page` is always null (`summaries` is a deprecated alias of `data`).
+Data is typically available with a 1-day lag and may be revised by a few
+percent over the following days: when `ending_date` is omitted it
+defaults to the most recent available day + 1, so the last entry covers
+the most recent available day. The series can be scoped to an RBAC group
+via `filter[]=rbac_group_id:{id}`. Available to organizations on a Claude
+Enterprise plan. Requires an API key with the `read:analytics` scope.
 
 #### Query parameters
 
@@ -9731,13 +24910,155 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   maxItems: 100
 
+- `limit: optional number`
+
+  Number of results per page (1-1000, default 100). The day series (at most 366 entries) is currently returned in full in a single page, so `limit` does not yet shorten it.
+
+  minimum: 1, maximum: 1000
+
+- `page: optional string`
+
+  Opaque cursor from a previous response's `next_page` field. `next_page` is currently always null, so there is never a cursor to send.
+
 #### Returns
 
 - `BetaActivitySummary object`
 
   Response for GET /v1/organizations/analytics/summaries.
 
+  - `data: array of object`
+
+    One entry per day in the requested range, ascending by date.
+
+    - `assigned_seat_count: number or null`
+
+      Number of seats currently assigned to members. Null when the response is scoped to an RBAC group — seat assignment is org-wide and has no per-group analogue.
+
+    - `cowork_daily_active_user_count: number`
+
+      Number of users with Cowork activity on the requested day
+
+    - `cowork_monthly_active_user_count: number`
+
+      Number of users with Cowork activity in the 30-day rolling window
+
+    - `cowork_weekly_active_user_count: number`
+
+      Number of users with Cowork activity in the 7-day rolling window
+
+    - `daily_active_user_count: number`
+
+      Number of users with token consumption on the requested day
+
+    - `daily_adoption_rate: number or null`
+
+      Percentage of assigned seats with activity on the requested day (`DAU / assigned_seat_count * 100`). Null when the response is scoped to an RBAC group.
+
+    - `ending_at: string`
+
+      End of the aggregation period (exclusive), UTC midnight in RFC 3339 format (e.g. `2026-01-16T00:00:00Z`).
+
+      format: date-time
+
+    - `monthly_active_user_count: number`
+
+      Number of users with token consumption in the 30-day rolling window
+
+    - `monthly_adoption_rate: number or null`
+
+      Percentage of assigned seats with activity in the 30-day rolling window (`MAU / assigned_seat_count * 100`). Null when the response is scoped to an RBAC group.
+
+    - `pending_invite_count: number or null`
+
+      Number of pending invitations to join the organization. Null when the response is scoped to an RBAC group.
+
+    - `starting_at: string`
+
+      Start of the aggregation period (inclusive), UTC midnight in RFC 3339 format (e.g. `2026-01-15T00:00:00Z`).
+
+      format: date-time
+
+    - `weekly_active_user_count: number`
+
+      Number of users with token consumption in the 7-day rolling window
+
+    - `weekly_adoption_rate: number or null`
+
+      Percentage of assigned seats with activity in the 7-day rolling window (`WAU / assigned_seat_count * 100`). Null when the response is scoped to an RBAC group.
+
+    - `chat_daily_active_user_count: optional number or null`
+
+      Number of users with claude.ai (chat) activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `chat_monthly_active_user_count: optional number or null`
+
+      Number of users with claude.ai (chat) activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `chat_weekly_active_user_count: optional number or null`
+
+      Number of users with claude.ai (chat) activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_code_daily_active_user_count: optional number or null`
+
+      Number of users with Claude Code activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_code_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude Code activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_code_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude Code activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_design_daily_active_user_count: optional number or null`
+
+      Number of users with Claude Design activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_design_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude Design activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_design_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude Design activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `office_agent_daily_active_user_count: optional number or null`
+
+      Number of users with Claude in Office activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `office_agent_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude in Office activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `office_agent_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude in Office activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_daily_active_user_count: optional number or null`
+
+      Number of users with Claude Science activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_entitled_user_count: optional number or null`
+
+      Number of users with a Claude Science seat entitlement (per-seat RBAC) at the time of the daily snapshot. The funnel top; independent of the org-level Claude Science toggle. Null when the response is scoped to an RBAC group — entitlement is org-wide and has no per-group analogue. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude Science activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude Science activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+  - `next_page: string or null`
+
+    Opaque cursor for the next page, or null if no more results. Currently always null: the day series is returned in full.
+
   - `summaries: array of object`
+
+    **Deprecated**
+
+    Deprecated: use `data`, which carries the same entries.
 
     - `assigned_seat_count: number or null`
 
@@ -9871,6 +25192,40 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
 ```json
 {
+  "data": [
+    {
+      "assigned_seat_count": 0,
+      "cowork_daily_active_user_count": 0,
+      "cowork_monthly_active_user_count": 0,
+      "cowork_weekly_active_user_count": 0,
+      "daily_active_user_count": 0,
+      "daily_adoption_rate": 0,
+      "ending_at": "2019-12-27T18:11:19.117Z",
+      "monthly_active_user_count": 0,
+      "monthly_adoption_rate": 0,
+      "pending_invite_count": 0,
+      "starting_at": "2019-12-27T18:11:19.117Z",
+      "weekly_active_user_count": 0,
+      "weekly_adoption_rate": 0,
+      "chat_daily_active_user_count": 0,
+      "chat_monthly_active_user_count": 0,
+      "chat_weekly_active_user_count": 0,
+      "claude_code_daily_active_user_count": 0,
+      "claude_code_monthly_active_user_count": 0,
+      "claude_code_weekly_active_user_count": 0,
+      "claude_design_daily_active_user_count": 0,
+      "claude_design_monthly_active_user_count": 0,
+      "claude_design_weekly_active_user_count": 0,
+      "office_agent_daily_active_user_count": 0,
+      "office_agent_monthly_active_user_count": 0,
+      "office_agent_weekly_active_user_count": 0,
+      "science_daily_active_user_count": 0,
+      "science_entitled_user_count": 0,
+      "science_monthly_active_user_count": 0,
+      "science_weekly_active_user_count": 0
+    }
+  ],
+  "next_page": "next_page",
   "summaries": [
     {
       "assigned_seat_count": 0,
@@ -10383,7 +25738,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `models: optional array of string`
 
@@ -10485,9 +25840,9 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       - `deleted: boolean`
 
-        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
+        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
 
-      - `email: string or null`
+      - `email_address: string or null`
 
         The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
 
@@ -10498,6 +25853,12 @@ organizations on a Claude Enterprise plan. Requires an API key with the
       - `user_id: string`
 
         Tagged user ID.
+
+      - `email: string or null`
+
+        **Deprecated**
+
+        Deprecated: use `email_address`, which carries the same value.
 
     - `cache_creation: BetaCacheCreation`
 
@@ -10648,6 +26009,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/user_usage_report \
       "actor": {
         "deleted": true,
         "email": "jane@example.com",
+        "email_address": "jane@example.com",
         "name": "Jane Smith",
         "type": "user_actor",
         "user_id": "user_01AbCdEfGhIjKlMnOpQrSt"
@@ -10917,7 +26279,7 @@ Requires an API key with the `read:analytics` scope.
 
         - `"web_search"`
 
-      - `currency: "USD"`
+      - `currency: string`
 
         Currency code for the cost amount. Currently always `"USD"`.
 
@@ -11165,7 +26527,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `models: optional array of string`
 
@@ -11263,9 +26625,9 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       - `deleted: boolean`
 
-        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
+        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
 
-      - `email: string or null`
+      - `email_address: string or null`
 
         The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
 
@@ -11276,6 +26638,12 @@ organizations on a Claude Enterprise plan. Requires an API key with the
       - `user_id: string`
 
         Tagged user ID.
+
+      - `email: string or null`
+
+        **Deprecated**
+
+        Deprecated: use `email_address`, which carries the same value.
 
     - `amount: string`
 
@@ -11317,7 +26685,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       - `"web_search"`
 
-    - `currency: "USD"`
+    - `currency: string`
 
       Currency code for the cost amount. Currently always `"USD"`.
 
@@ -11424,6 +26792,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/user_cost_report \
       "actor": {
         "deleted": true,
         "email": "jane@example.com",
+        "email_address": "jane@example.com",
         "name": "Jane Smith",
         "type": "user_actor",
         "user_id": "user_01AbCdEfGhIjKlMnOpQrSt"
@@ -11830,7 +27199,7 @@ the `read:analytics` scope.
 
     - `user: optional BetaAnalyticsUser or null`
 
-      A user in the organization, identified by tagged id and email address.
+      The user this row describes. Null on rows aggregated across users.
 
       - `type: "user"`
 
@@ -12133,7 +27502,7 @@ on a Claude Enterprise plan. Requires an API key with the
 
       List-price (rate-card) value of the member requests attributed to this skill, as a decimal string in the minor unit of `currency` (cents for USD), from Claude Code, Cowork, and Office Agent request-level attribution — the value of requests that involved the skill, not the skill's incremental cost. Unlike `estimated_overage_spend` this reflects usage value regardless of how it was funded — seat-covered usage counts — but it is undiscounted and does not tie to billed spend or the organization's spend reporting. claude.ai chat usage carries no request-level attribution and contributes nothing: the field is null on `chat` product rows and on `office_agent` product cuts dated before 2026-06-18 (the Office Agent attribution data-start), and on ungrouped rows it covers the Claude Code + Cowork + Office Agent share only (null when no attributable usage exists). Also null under the same conditions as `estimated_overage_spend` (spend reporting not enabled for this organization, `office_agent` product cuts before the 2026-06-18 data-start). "0" means attributable usage existed but none was attributed to this skill. Addable across days: date-range rollup mode returns the window's sum. On `group_by[]` and `filter[]` shapes both amounts can total below the ungrouped value for the same skill over the same date or range: spend attributed to a member–skill pair with no counted usage on that day is excluded from those cuts.
 
-    - `currency: optional "USD" or null`
+    - `currency: optional string or null`
 
       Currency for this row's monetary fields (`estimated_overage_spend` and `attributed_list_price`), as an uppercase ISO-4217 code. Always "USD" when either amount is populated; null whenever both amounts are null.
 
@@ -12173,7 +27542,7 @@ on a Claude Enterprise plan. Requires an API key with the
 
     - `skill_display_name: optional string or null`
 
-      Human-readable display name for rows whose `skill_name` is an opaque skill id (user/organization skill types and plugin-delivered skills — user-defined names are withheld from the analytics pipeline). Organization-shared skills and skills delivered by the organization's own plugins (its plugin marketplaces and its library) resolve; plugin skill names are shown without their 'plugin:' prefix. The literal 'unknown' bucket row gets a fixed 'Unknown skill' label. Null for private (user-defined) skills and members' personal-plugin skills — those names are not disclosed to analytics-key holders — and for Anthropic-provided plugin skills (not resolved), and null when `skill_name` is already a display name, when the skill or plugin was deleted, or when display-name resolution is not enabled for this organization.
+      Human-readable display name for rows whose `skill_name` is an opaque skill id (user/organization skill types and plugin-delivered skills, whose user-defined names usage reports generally withhold). Organization-shared skills and skills delivered by the organization's own plugins (its plugin marketplaces and its library) resolve; plugin skill names are shown without their 'plugin:' prefix. The literal 'unknown' bucket row gets a fixed 'Unknown skill' label. For a member's own skill (private or personal-plugin) it is null, except when the skill's owner used it from Claude Code or Cowork in the requested period: then it shows the name that client reported at the time. Apart from that, the names of members' own skills are not disclosed to analytics-key holders. Also null for Anthropic-provided plugin skills (not resolved), for an organization skill or plugin whose name can no longer be found (for example, one since deleted), when `skill_name` is already a display name, or when display-name resolution is not enabled for this organization.
 
     - `user_id: optional string or null`
 
@@ -12223,7 +27592,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/skills \
       },
       "skill_name": "skill_name",
       "attributed_list_price": "attributed_list_price",
-      "currency": "USD",
+      "currency": "currency",
       "enable_count": 0,
       "estimated_overage_spend": "estimated_overage_spend",
       "invocation_count": 0,
@@ -12583,7 +27952,7 @@ plan. Requires an API key with the `read:analytics` scope.
 
     - `created_by: optional BetaAnalyticsUser or null`
 
-      A user in the organization, identified by tagged id and email address.
+      User who created the project. Null if the project was deleted before attribution was recorded, or if the creator's account no longer exists.
 
       - `type: "user"`
 
@@ -12975,11 +28344,15 @@ curl https://api.anthropic.com/v1/organizations/analytics/artifacts \
 
 **POST** `/v1/organizations/spend_limits`
 
-Set a per-user spend limit override.
+Set a spend limit.
 
 Upsert keyed on (scope, period): setting a limit that already exists
-overwrites it in place. Only `scope.type: "user"` is accepted; seat-tier,
-group, and organization-level defaults are configured in claude.ai.
+overwrites it in place. A Claude Enterprise organization sets `user`
+limits. Its seat-tier, group, and organization-level defaults are configured
+in claude.ai. A Claude Console organization sets `organization` and
+`workspace` limits, which are monthly and always carry an amount. Setting those
+limits is in an early access preview. To request access, contact your
+Anthropic account team.
 
 #### Body parameters
 
@@ -12987,21 +28360,45 @@ group, and organization-level defaults are configured in claude.ai.
 
   Limit amount as a non-negative integer decimal string in the minor unit of the organization's billing currency (cents for USD): "50000" is $500.00. `null` sets an explicit no-limit override for this scope and `period` only — each period resolves independently, so caps for other periods still apply.
 
-- `scope: object`
+- `scope: User or Organization or Workspace`
 
-  Scope selecting a single member of the organization.
+  What the limit applies to. Claude Enterprise organizations set `user` limits. Claude Console organizations set `organization` and `workspace` limits. Any other combination returns 400. Setting `organization` and `workspace` limits through the API is in an early access preview. To request access, contact your Anthropic account team.
 
-  - `type: "user"`
+  - `User object`
 
-    Scope type. Always `user` for this scope.
+    Scope selecting a single member of the organization.
 
-    default: user
+    - `type: "user"`
 
-  - `user_id: string`
+      Scope type. Always `user` for this scope.
 
-    Tagged ID of the member the spend limit applies to.
+      default: user
 
-- `period: optional "daily" or "monthly" or "weekly"`
+    - `user_id: string`
+
+      Tagged ID of the member the spend limit applies to.
+
+  - `Organization object`
+
+    - `type: "organization"`
+
+      default: organization
+
+  - `Workspace object`
+
+    Scope selecting one workspace of a Claude Console organization.
+
+    - `type: "workspace"`
+
+      Scope type. Always `workspace` for this scope.
+
+      default: workspace
+
+    - `workspace_id: string`
+
+      Tagged ID of the workspace the spend limit applies to.
+
+- `period: optional BetaSpendLimitPeriod`
 
   - `"daily"`
 
@@ -13039,7 +28436,7 @@ group, and organization-level defaults are configured in claude.ai.
 
     ISO 4217 code of the organization's billing currency; the unit for `amount`.
 
-  - `period: "daily" or "monthly" or "weekly"`
+  - `period: BetaSpendLimitPeriod`
 
     Length of the window the limit resets over. `amount` caps spend within each period.
 
@@ -13049,7 +28446,7 @@ group, and organization-level defaults are configured in claude.ai.
 
     - `"weekly"`
 
-  - `scope: object or object or object or 2 more`
+  - `scope: User or SeatTier or RBACGroup or 3 more`
 
     What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
 
@@ -13097,6 +28494,20 @@ group, and organization-level defaults are configured in claude.ai.
 
         default: organization
 
+    - `Workspace object`
+
+      Scope selecting one workspace of a Claude Console organization.
+
+      - `type: "workspace"`
+
+        Scope type. Always `workspace` for this scope.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        Tagged ID of the workspace the spend limit applies to.
+
   - `updated_at: string`
 
     RFC 3339 datetime at which the spend limit was last modified.
@@ -13128,7 +28539,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limits \
   "amount": "50000",
   "created_at": "2019-12-27T18:11:19.117Z",
   "currency": "USD",
-  "period": "monthly",
+  "period": "daily",
   "scope": {
     "type": "user",
     "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
@@ -13180,7 +28591,7 @@ Retrieve a spend limit by ID.
 
     ISO 4217 code of the organization's billing currency; the unit for `amount`.
 
-  - `period: "daily" or "monthly" or "weekly"`
+  - `period: BetaSpendLimitPeriod`
 
     Length of the window the limit resets over. `amount` caps spend within each period.
 
@@ -13190,7 +28601,7 @@ Retrieve a spend limit by ID.
 
     - `"weekly"`
 
-  - `scope: object or object or object or 2 more`
+  - `scope: User or SeatTier or RBACGroup or 3 more`
 
     What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
 
@@ -13238,6 +28649,20 @@ Retrieve a spend limit by ID.
 
         default: organization
 
+    - `Workspace object`
+
+      Scope selecting one workspace of a Claude Console organization.
+
+      - `type: "workspace"`
+
+        Scope type. Always `workspace` for this scope.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        Tagged ID of the workspace the spend limit applies to.
+
   - `updated_at: string`
 
     RFC 3339 datetime at which the spend limit was last modified.
@@ -13260,7 +28685,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limits/$SPEND_LIMIT_ID \
   "amount": "50000",
   "created_at": "2019-12-27T18:11:19.117Z",
   "currency": "USD",
-  "period": "monthly",
+  "period": "daily",
   "scope": {
     "type": "user",
     "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
@@ -13274,11 +28699,13 @@ curl https://api.anthropic.com/v1/organizations/spend_limits/$SPEND_LIMIT_ID \
 
 **DELETE** `/v1/organizations/spend_limits/{spend_limit_id}`
 
-Delete a per-user spend limit override.
+Delete a spend limit.
 
-The member falls back to any inherited spend limit at that period.
-Seat-tier, group, and organization-level rows cannot be deleted via
-this endpoint.
+For a Claude Enterprise organization, this deletes a per-user override, and
+the member falls back to any inherited spend limit at that period. Its
+seat-tier, group, and organization-level rows cannot be deleted via this
+endpoint. A Claude Console organization deletes its organization and
+workspace limits. Deleting them through the API is in an early access preview.
 
 #### Path parameters
 
@@ -13328,7 +28755,7 @@ Paginates by member, so a member's periods never split across pages.
 
   Maximum number of members per page. A member's period rows never split across pages, so a page may carry more rows than this. Defaults to `20`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: optional string`
 
@@ -13356,35 +28783,47 @@ Paginates by member, so a member's periods never split across pages.
 
 - `data: array of BetaSpendSummary`
 
-  - `actor: object`
+  - `actor: UserActor or ScopedAPIKeyActor`
 
-    A user within the organization. `name` and `email_address` are
-    null when the underlying account is unavailable or has been deleted;
-    `deleted` is true only for deleted accounts.
+    - `UserActor object`
 
-    - `type: "user_actor"`
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
 
-      Actor type. Always `user_actor`.
+      - `type: "user_actor"`
 
-      default: user_actor
+        Actor type. Always `user_actor`.
 
-    - `deleted: boolean`
+        default: user_actor
 
-      True only when the underlying account has been deleted.
+      - `deleted: boolean`
 
-      default: false
+        True only when the underlying account has been deleted.
 
-    - `email_address: string or null`
+        default: false
 
-      The user's email address. Null when the account is unavailable or has been deleted.
+      - `email_address: string or null`
 
-    - `name: string or null`
+        The user's email address. Null when the account is unavailable or has been deleted.
 
-      The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+      - `name: string or null`
 
-    - `user_id: string`
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
 
-      Tagged ID of the user.
+      - `user_id: string`
+
+        Tagged ID of the user.
+
+    - `ScopedAPIKeyActor object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `type: "scoped_api_key_actor"`
+
+        default: scoped_api_key_actor
+
+      - `scoped_api_key_id: string`
 
   - `amount: string or null`
 
@@ -13394,7 +28833,7 @@ Paginates by member, so a member's periods never split across pages.
 
     ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
 
-  - `period: "daily" or "monthly" or "weekly"`
+  - `period: BetaSpendLimitPeriod`
 
     Period this row's effective limit and spend are reported for.
 
@@ -13408,23 +28847,7 @@ Paginates by member, so a member's periods never split across pages.
 
     The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
 
-  - `scope: object`
-
-    Scope selecting a single member of the organization.
-
-    - `type: "user"`
-
-      Scope type. Always `user` for this scope.
-
-      default: user
-
-    - `user_id: string`
-
-      Tagged ID of the member the spend limit applies to.
-
-  - `source: object or object or object or 2 more`
-
-    Scope selecting a single member of the organization.
+  - `scope: User or SeatTier or RBACGroup or 3 more`
 
     - `User object`
 
@@ -13470,6 +28893,80 @@ Paginates by member, so a member's periods never split across pages.
 
         default: organization
 
+    - `Workspace object`
+
+      Scope selecting one workspace of a Claude Console organization.
+
+      - `type: "workspace"`
+
+        Scope type. Always `workspace` for this scope.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        Tagged ID of the workspace the spend limit applies to.
+
+  - `source: User or SeatTier or RBACGroup or 3 more`
+
+    - `User object`
+
+      Scope selecting a single member of the organization.
+
+      - `type: "user"`
+
+        Scope type. Always `user` for this scope.
+
+        default: user
+
+      - `user_id: string`
+
+        Tagged ID of the member the spend limit applies to.
+
+    - `SeatTier object`
+
+      - `type: "seat_tier"`
+
+        default: seat_tier
+
+      - `seat_tier: string`
+
+    - `RBACGroup object`
+
+      - `type: "rbac_group"`
+
+        default: rbac_group
+
+      - `rbac_group_id: string`
+
+    - `OrganizationService object`
+
+      - `type: "organization_service"`
+
+        default: organization_service
+
+      - `service: string`
+
+    - `Organization object`
+
+      - `type: "organization"`
+
+        default: organization
+
+    - `Workspace object`
+
+      Scope selecting one workspace of a Claude Console organization.
+
+      - `type: "workspace"`
+
+        Scope type. Always `workspace` for this scope.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        Tagged ID of the workspace the spend limit applies to.
+
   - `spend_limit_id: string`
 
 - `next_page: string or null`
@@ -13497,7 +28994,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limits/effective \
       },
       "amount": "50000",
       "currency": "USD",
-      "period": "monthly",
+      "period": "daily",
       "period_to_date_spend": "12050.5",
       "scope": {
         "type": "user",
@@ -13533,13 +29030,13 @@ Requests whose requester is no longer a member are excluded.
 
 - `limit: optional number`
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: optional string`
 
   Opaque cursor from a previous response's `next_page`.
 
-- `status: optional array of "approved" or "denied" or "pending"`
+- `status: optional array of BetaSpendLimitIncreaseRequestStatus`
 
   Filter by status. Omit to return all.
 
@@ -13559,41 +29056,53 @@ Requests whose requester is no longer a member are excluded.
 
   - `id: string`
 
-  - `actor: object`
+  - `actor: UserActor or ScopedAPIKeyActor`
 
-    A user within the organization. `name` and `email_address` are
-    null when the underlying account is unavailable or has been deleted;
-    `deleted` is true only for deleted accounts.
+    - `UserActor object`
 
-    - `type: "user_actor"`
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
 
-      Actor type. Always `user_actor`.
+      - `type: "user_actor"`
 
-      default: user_actor
+        Actor type. Always `user_actor`.
 
-    - `deleted: boolean`
+        default: user_actor
 
-      True only when the underlying account has been deleted.
+      - `deleted: boolean`
 
-      default: false
+        True only when the underlying account has been deleted.
 
-    - `email_address: string or null`
+        default: false
 
-      The user's email address. Null when the account is unavailable or has been deleted.
+      - `email_address: string or null`
 
-    - `name: string or null`
+        The user's email address. Null when the account is unavailable or has been deleted.
 
-      The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+      - `name: string or null`
 
-    - `user_id: string`
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
 
-      Tagged ID of the user.
+      - `user_id: string`
+
+        Tagged ID of the user.
+
+    - `ScopedAPIKeyActor object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `type: "scoped_api_key_actor"`
+
+        default: scoped_api_key_actor
+
+      - `scoped_api_key_id: string`
 
   - `created_at: string`
 
     format: date-time
 
-  - `period: "daily" or "monthly" or "weekly"`
+  - `period: BetaSpendLimitPeriod`
 
     - `"daily"`
 
@@ -13605,11 +29114,7 @@ Requests whose requester is no longer a member are excluded.
 
     format: date-time
 
-  - `resolved_by: object or object or null`
-
-    A user within the organization. `name` and `email_address` are
-    null when the underlying account is unavailable or has been deleted;
-    `deleted` is true only for deleted accounts.
+  - `resolved_by: UserActor or ScopedAPIKeyActor or null`
 
     - `UserActor object`
 
@@ -13655,35 +29160,47 @@ Requests whose requester is no longer a member are excluded.
 
     Per-member effective-limit report row (`GET /spend_limits/effective`).
 
-    - `actor: object`
+    - `actor: UserActor or ScopedAPIKeyActor`
 
-      A user within the organization. `name` and `email_address` are
-      null when the underlying account is unavailable or has been deleted;
-      `deleted` is true only for deleted accounts.
+      - `UserActor object`
 
-      - `type: "user_actor"`
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
 
-        Actor type. Always `user_actor`.
+        - `type: "user_actor"`
 
-        default: user_actor
+          Actor type. Always `user_actor`.
 
-      - `deleted: boolean`
+          default: user_actor
 
-        True only when the underlying account has been deleted.
+        - `deleted: boolean`
 
-        default: false
+          True only when the underlying account has been deleted.
 
-      - `email_address: string or null`
+          default: false
 
-        The user's email address. Null when the account is unavailable or has been deleted.
+        - `email_address: string or null`
 
-      - `name: string or null`
+          The user's email address. Null when the account is unavailable or has been deleted.
 
-        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+        - `name: string or null`
 
-      - `user_id: string`
+          The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
 
-        Tagged ID of the user.
+        - `user_id: string`
+
+          Tagged ID of the user.
+
+      - `ScopedAPIKeyActor object`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+        - `type: "scoped_api_key_actor"`
+
+          default: scoped_api_key_actor
+
+        - `scoped_api_key_id: string`
 
     - `amount: string or null`
 
@@ -13693,37 +29210,15 @@ Requests whose requester is no longer a member are excluded.
 
       ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
 
-    - `period: "daily" or "monthly" or "weekly"`
+    - `period: BetaSpendLimitPeriod`
 
       Period this row's effective limit and spend are reported for.
-
-      - `"daily"`
-
-      - `"monthly"`
-
-      - `"weekly"`
 
     - `period_to_date_spend: string`
 
       The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
 
-    - `scope: object`
-
-      Scope selecting a single member of the organization.
-
-      - `type: "user"`
-
-        Scope type. Always `user` for this scope.
-
-        default: user
-
-      - `user_id: string`
-
-        Tagged ID of the member the spend limit applies to.
-
-    - `source: object or object or object or 2 more`
-
-      Scope selecting a single member of the organization.
+    - `scope: User or SeatTier or RBACGroup or 3 more`
 
       - `User object`
 
@@ -13769,9 +29264,83 @@ Requests whose requester is no longer a member are excluded.
 
           default: organization
 
+      - `Workspace object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+          default: workspace
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `source: User or SeatTier or RBACGroup or 3 more`
+
+      - `User object`
+
+        Scope selecting a single member of the organization.
+
+        - `type: "user"`
+
+          Scope type. Always `user` for this scope.
+
+          default: user
+
+        - `user_id: string`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `SeatTier object`
+
+        - `type: "seat_tier"`
+
+          default: seat_tier
+
+        - `seat_tier: string`
+
+      - `RBACGroup object`
+
+        - `type: "rbac_group"`
+
+          default: rbac_group
+
+        - `rbac_group_id: string`
+
+      - `OrganizationService object`
+
+        - `type: "organization_service"`
+
+          default: organization_service
+
+        - `service: string`
+
+      - `Organization object`
+
+        - `type: "organization"`
+
+          default: organization
+
+      - `Workspace object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+          default: workspace
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
     - `spend_limit_id: string`
 
-  - `status: "approved" or "denied" or "pending"`
+  - `status: BetaSpendLimitIncreaseRequestStatus`
 
     - `"approved"`
 
@@ -13804,7 +29373,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests \
         "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
       },
       "created_at": "2019-12-27T18:11:19.117Z",
-      "period": "monthly",
+      "period": "daily",
       "resolved_at": "2019-12-27T18:11:19.117Z",
       "resolved_by": {
         "deleted": true,
@@ -13823,7 +29392,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests \
         },
         "amount": "50000",
         "currency": "USD",
-        "period": "monthly",
+        "period": "daily",
         "period_to_date_spend": "12050.5",
         "scope": {
           "type": "user",
@@ -13868,41 +29437,53 @@ requester at the request's period.
 
   - `id: string`
 
-  - `actor: object`
+  - `actor: UserActor or ScopedAPIKeyActor`
 
-    A user within the organization. `name` and `email_address` are
-    null when the underlying account is unavailable or has been deleted;
-    `deleted` is true only for deleted accounts.
+    - `UserActor object`
 
-    - `type: "user_actor"`
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
 
-      Actor type. Always `user_actor`.
+      - `type: "user_actor"`
 
-      default: user_actor
+        Actor type. Always `user_actor`.
 
-    - `deleted: boolean`
+        default: user_actor
 
-      True only when the underlying account has been deleted.
+      - `deleted: boolean`
 
-      default: false
+        True only when the underlying account has been deleted.
 
-    - `email_address: string or null`
+        default: false
 
-      The user's email address. Null when the account is unavailable or has been deleted.
+      - `email_address: string or null`
 
-    - `name: string or null`
+        The user's email address. Null when the account is unavailable or has been deleted.
 
-      The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+      - `name: string or null`
 
-    - `user_id: string`
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
 
-      Tagged ID of the user.
+      - `user_id: string`
+
+        Tagged ID of the user.
+
+    - `ScopedAPIKeyActor object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `type: "scoped_api_key_actor"`
+
+        default: scoped_api_key_actor
+
+      - `scoped_api_key_id: string`
 
   - `created_at: string`
 
     format: date-time
 
-  - `period: "daily" or "monthly" or "weekly"`
+  - `period: BetaSpendLimitPeriod`
 
     - `"daily"`
 
@@ -13914,11 +29495,7 @@ requester at the request's period.
 
     format: date-time
 
-  - `resolved_by: object or object or null`
-
-    A user within the organization. `name` and `email_address` are
-    null when the underlying account is unavailable or has been deleted;
-    `deleted` is true only for deleted accounts.
+  - `resolved_by: UserActor or ScopedAPIKeyActor or null`
 
     - `UserActor object`
 
@@ -13964,35 +29541,47 @@ requester at the request's period.
 
     Per-member effective-limit report row (`GET /spend_limits/effective`).
 
-    - `actor: object`
+    - `actor: UserActor or ScopedAPIKeyActor`
 
-      A user within the organization. `name` and `email_address` are
-      null when the underlying account is unavailable or has been deleted;
-      `deleted` is true only for deleted accounts.
+      - `UserActor object`
 
-      - `type: "user_actor"`
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
 
-        Actor type. Always `user_actor`.
+        - `type: "user_actor"`
 
-        default: user_actor
+          Actor type. Always `user_actor`.
 
-      - `deleted: boolean`
+          default: user_actor
 
-        True only when the underlying account has been deleted.
+        - `deleted: boolean`
 
-        default: false
+          True only when the underlying account has been deleted.
 
-      - `email_address: string or null`
+          default: false
 
-        The user's email address. Null when the account is unavailable or has been deleted.
+        - `email_address: string or null`
 
-      - `name: string or null`
+          The user's email address. Null when the account is unavailable or has been deleted.
 
-        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+        - `name: string or null`
 
-      - `user_id: string`
+          The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
 
-        Tagged ID of the user.
+        - `user_id: string`
+
+          Tagged ID of the user.
+
+      - `ScopedAPIKeyActor object`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+        - `type: "scoped_api_key_actor"`
+
+          default: scoped_api_key_actor
+
+        - `scoped_api_key_id: string`
 
     - `amount: string or null`
 
@@ -14002,37 +29591,15 @@ requester at the request's period.
 
       ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
 
-    - `period: "daily" or "monthly" or "weekly"`
+    - `period: BetaSpendLimitPeriod`
 
       Period this row's effective limit and spend are reported for.
-
-      - `"daily"`
-
-      - `"monthly"`
-
-      - `"weekly"`
 
     - `period_to_date_spend: string`
 
       The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
 
-    - `scope: object`
-
-      Scope selecting a single member of the organization.
-
-      - `type: "user"`
-
-        Scope type. Always `user` for this scope.
-
-        default: user
-
-      - `user_id: string`
-
-        Tagged ID of the member the spend limit applies to.
-
-    - `source: object or object or object or 2 more`
-
-      Scope selecting a single member of the organization.
+    - `scope: User or SeatTier or RBACGroup or 3 more`
 
       - `User object`
 
@@ -14078,9 +29645,83 @@ requester at the request's period.
 
           default: organization
 
+      - `Workspace object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+          default: workspace
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `source: User or SeatTier or RBACGroup or 3 more`
+
+      - `User object`
+
+        Scope selecting a single member of the organization.
+
+        - `type: "user"`
+
+          Scope type. Always `user` for this scope.
+
+          default: user
+
+        - `user_id: string`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `SeatTier object`
+
+        - `type: "seat_tier"`
+
+          default: seat_tier
+
+        - `seat_tier: string`
+
+      - `RBACGroup object`
+
+        - `type: "rbac_group"`
+
+          default: rbac_group
+
+        - `rbac_group_id: string`
+
+      - `OrganizationService object`
+
+        - `type: "organization_service"`
+
+          default: organization_service
+
+        - `service: string`
+
+      - `Organization object`
+
+        - `type: "organization"`
+
+          default: organization
+
+      - `Workspace object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+          default: workspace
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
     - `spend_limit_id: string`
 
-  - `status: "approved" or "denied" or "pending"`
+  - `status: BetaSpendLimitIncreaseRequestStatus`
 
     - `"approved"`
 
@@ -14109,7 +29750,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$S
     "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
   },
   "created_at": "2019-12-27T18:11:19.117Z",
-  "period": "monthly",
+  "period": "daily",
   "resolved_at": "2019-12-27T18:11:19.117Z",
   "resolved_by": {
     "deleted": true,
@@ -14128,7 +29769,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$S
     },
     "amount": "50000",
     "currency": "USD",
-    "period": "monthly",
+    "period": "daily",
     "period_to_date_spend": "12050.5",
     "scope": {
       "type": "user",
@@ -14168,7 +29809,7 @@ the member was blocked on. Anthropic emails the requester unless
 
   New per-user spend limit as a non-negative integer decimal string (minor units).
 
-- `period: optional "daily" or "monthly" or "weekly" or null`
+- `period: optional BetaSpendLimitPeriod or null`
 
   - `"daily"`
 
@@ -14186,41 +29827,53 @@ the member was blocked on. Anthropic emails the requester unless
 
 - `id: string`
 
-- `actor: object`
+- `actor: UserActor or ScopedAPIKeyActor`
 
-  A user within the organization. `name` and `email_address` are
-  null when the underlying account is unavailable or has been deleted;
-  `deleted` is true only for deleted accounts.
+  - `UserActor object`
 
-  - `type: "user_actor"`
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
 
-    Actor type. Always `user_actor`.
+    - `type: "user_actor"`
 
-    default: user_actor
+      Actor type. Always `user_actor`.
 
-  - `deleted: boolean`
+      default: user_actor
 
-    True only when the underlying account has been deleted.
+    - `deleted: boolean`
 
-    default: false
+      True only when the underlying account has been deleted.
 
-  - `email_address: string or null`
+      default: false
 
-    The user's email address. Null when the account is unavailable or has been deleted.
+    - `email_address: string or null`
 
-  - `name: string or null`
+      The user's email address. Null when the account is unavailable or has been deleted.
 
-    The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+    - `name: string or null`
 
-  - `user_id: string`
+      The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
 
-    Tagged ID of the user.
+    - `user_id: string`
+
+      Tagged ID of the user.
+
+  - `ScopedAPIKeyActor object`
+
+    A scoped Admin API key acting on behalf of the organization.
+
+    - `type: "scoped_api_key_actor"`
+
+      default: scoped_api_key_actor
+
+    - `scoped_api_key_id: string`
 
 - `created_at: string`
 
   format: date-time
 
-- `period: "daily" or "monthly" or "weekly"`
+- `period: BetaSpendLimitPeriod`
 
   - `"daily"`
 
@@ -14232,11 +29885,7 @@ the member was blocked on. Anthropic emails the requester unless
 
   format: date-time
 
-- `resolved_by: object or object or null`
-
-  A user within the organization. `name` and `email_address` are
-  null when the underlying account is unavailable or has been deleted;
-  `deleted` is true only for deleted accounts.
+- `resolved_by: UserActor or ScopedAPIKeyActor or null`
 
   - `UserActor object`
 
@@ -14306,17 +29955,11 @@ the member was blocked on. Anthropic emails the requester unless
 
     ISO 4217 code of the organization's billing currency; the unit for `amount`.
 
-  - `period: "daily" or "monthly" or "weekly"`
+  - `period: BetaSpendLimitPeriod`
 
     Length of the window the limit resets over. `amount` caps spend within each period.
 
-    - `"daily"`
-
-    - `"monthly"`
-
-    - `"weekly"`
-
-  - `scope: object or object or object or 2 more`
+  - `scope: User or SeatTier or RBACGroup or 3 more`
 
     What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
 
@@ -14364,6 +30007,20 @@ the member was blocked on. Anthropic emails the requester unless
 
         default: organization
 
+    - `Workspace object`
+
+      Scope selecting one workspace of a Claude Console organization.
+
+      - `type: "workspace"`
+
+        Scope type. Always `workspace` for this scope.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        Tagged ID of the workspace the spend limit applies to.
+
   - `updated_at: string`
 
     RFC 3339 datetime at which the spend limit was last modified.
@@ -14374,35 +30031,47 @@ the member was blocked on. Anthropic emails the requester unless
 
   Per-member effective-limit report row (`GET /spend_limits/effective`).
 
-  - `actor: object`
+  - `actor: UserActor or ScopedAPIKeyActor`
 
-    A user within the organization. `name` and `email_address` are
-    null when the underlying account is unavailable or has been deleted;
-    `deleted` is true only for deleted accounts.
+    - `UserActor object`
 
-    - `type: "user_actor"`
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
 
-      Actor type. Always `user_actor`.
+      - `type: "user_actor"`
 
-      default: user_actor
+        Actor type. Always `user_actor`.
 
-    - `deleted: boolean`
+        default: user_actor
 
-      True only when the underlying account has been deleted.
+      - `deleted: boolean`
 
-      default: false
+        True only when the underlying account has been deleted.
 
-    - `email_address: string or null`
+        default: false
 
-      The user's email address. Null when the account is unavailable or has been deleted.
+      - `email_address: string or null`
 
-    - `name: string or null`
+        The user's email address. Null when the account is unavailable or has been deleted.
 
-      The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+      - `name: string or null`
 
-    - `user_id: string`
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
 
-      Tagged ID of the user.
+      - `user_id: string`
+
+        Tagged ID of the user.
+
+    - `ScopedAPIKeyActor object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `type: "scoped_api_key_actor"`
+
+        default: scoped_api_key_actor
+
+      - `scoped_api_key_id: string`
 
   - `amount: string or null`
 
@@ -14412,37 +30081,15 @@ the member was blocked on. Anthropic emails the requester unless
 
     ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
 
-  - `period: "daily" or "monthly" or "weekly"`
+  - `period: BetaSpendLimitPeriod`
 
     Period this row's effective limit and spend are reported for.
-
-    - `"daily"`
-
-    - `"monthly"`
-
-    - `"weekly"`
 
   - `period_to_date_spend: string`
 
     The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
 
-  - `scope: object`
-
-    Scope selecting a single member of the organization.
-
-    - `type: "user"`
-
-      Scope type. Always `user` for this scope.
-
-      default: user
-
-    - `user_id: string`
-
-      Tagged ID of the member the spend limit applies to.
-
-  - `source: object or object or object or 2 more`
-
-    Scope selecting a single member of the organization.
+  - `scope: User or SeatTier or RBACGroup or 3 more`
 
     - `User object`
 
@@ -14488,9 +30135,83 @@ the member was blocked on. Anthropic emails the requester unless
 
         default: organization
 
+    - `Workspace object`
+
+      Scope selecting one workspace of a Claude Console organization.
+
+      - `type: "workspace"`
+
+        Scope type. Always `workspace` for this scope.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        Tagged ID of the workspace the spend limit applies to.
+
+  - `source: User or SeatTier or RBACGroup or 3 more`
+
+    - `User object`
+
+      Scope selecting a single member of the organization.
+
+      - `type: "user"`
+
+        Scope type. Always `user` for this scope.
+
+        default: user
+
+      - `user_id: string`
+
+        Tagged ID of the member the spend limit applies to.
+
+    - `SeatTier object`
+
+      - `type: "seat_tier"`
+
+        default: seat_tier
+
+      - `seat_tier: string`
+
+    - `RBACGroup object`
+
+      - `type: "rbac_group"`
+
+        default: rbac_group
+
+      - `rbac_group_id: string`
+
+    - `OrganizationService object`
+
+      - `type: "organization_service"`
+
+        default: organization_service
+
+      - `service: string`
+
+    - `Organization object`
+
+      - `type: "organization"`
+
+        default: organization
+
+    - `Workspace object`
+
+      Scope selecting one workspace of a Claude Console organization.
+
+      - `type: "workspace"`
+
+        Scope type. Always `workspace` for this scope.
+
+        default: workspace
+
+      - `workspace_id: string`
+
+        Tagged ID of the workspace the spend limit applies to.
+
   - `spend_limit_id: string`
 
-- `status: "approved" or "denied" or "pending"`
+- `status: BetaSpendLimitIncreaseRequestStatus`
 
   - `"approved"`
 
@@ -14524,7 +30245,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$S
     "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
   },
   "created_at": "2019-12-27T18:11:19.117Z",
-  "period": "monthly",
+  "period": "daily",
   "resolved_at": "2019-12-27T18:11:19.117Z",
   "resolved_by": {
     "deleted": true,
@@ -14538,7 +30259,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$S
     "amount": "50000",
     "created_at": "2019-12-27T18:11:19.117Z",
     "currency": "USD",
-    "period": "monthly",
+    "period": "daily",
     "scope": {
       "type": "user",
       "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
@@ -14556,7 +30277,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$S
     },
     "amount": "50000",
     "currency": "USD",
-    "period": "monthly",
+    "period": "daily",
     "period_to_date_spend": "12050.5",
     "scope": {
       "type": "user",
@@ -14602,41 +30323,53 @@ Idempotent on `denied`; denying an already-`approved` request returns
 
   - `id: string`
 
-  - `actor: object`
+  - `actor: UserActor or ScopedAPIKeyActor`
 
-    A user within the organization. `name` and `email_address` are
-    null when the underlying account is unavailable or has been deleted;
-    `deleted` is true only for deleted accounts.
+    - `UserActor object`
 
-    - `type: "user_actor"`
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
 
-      Actor type. Always `user_actor`.
+      - `type: "user_actor"`
 
-      default: user_actor
+        Actor type. Always `user_actor`.
 
-    - `deleted: boolean`
+        default: user_actor
 
-      True only when the underlying account has been deleted.
+      - `deleted: boolean`
 
-      default: false
+        True only when the underlying account has been deleted.
 
-    - `email_address: string or null`
+        default: false
 
-      The user's email address. Null when the account is unavailable or has been deleted.
+      - `email_address: string or null`
 
-    - `name: string or null`
+        The user's email address. Null when the account is unavailable or has been deleted.
 
-      The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+      - `name: string or null`
 
-    - `user_id: string`
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
 
-      Tagged ID of the user.
+      - `user_id: string`
+
+        Tagged ID of the user.
+
+    - `ScopedAPIKeyActor object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `type: "scoped_api_key_actor"`
+
+        default: scoped_api_key_actor
+
+      - `scoped_api_key_id: string`
 
   - `created_at: string`
 
     format: date-time
 
-  - `period: "daily" or "monthly" or "weekly"`
+  - `period: BetaSpendLimitPeriod`
 
     - `"daily"`
 
@@ -14648,11 +30381,7 @@ Idempotent on `denied`; denying an already-`approved` request returns
 
     format: date-time
 
-  - `resolved_by: object or object or null`
-
-    A user within the organization. `name` and `email_address` are
-    null when the underlying account is unavailable or has been deleted;
-    `deleted` is true only for deleted accounts.
+  - `resolved_by: UserActor or ScopedAPIKeyActor or null`
 
     - `UserActor object`
 
@@ -14698,35 +30427,47 @@ Idempotent on `denied`; denying an already-`approved` request returns
 
     Per-member effective-limit report row (`GET /spend_limits/effective`).
 
-    - `actor: object`
+    - `actor: UserActor or ScopedAPIKeyActor`
 
-      A user within the organization. `name` and `email_address` are
-      null when the underlying account is unavailable or has been deleted;
-      `deleted` is true only for deleted accounts.
+      - `UserActor object`
 
-      - `type: "user_actor"`
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
 
-        Actor type. Always `user_actor`.
+        - `type: "user_actor"`
 
-        default: user_actor
+          Actor type. Always `user_actor`.
 
-      - `deleted: boolean`
+          default: user_actor
 
-        True only when the underlying account has been deleted.
+        - `deleted: boolean`
 
-        default: false
+          True only when the underlying account has been deleted.
 
-      - `email_address: string or null`
+          default: false
 
-        The user's email address. Null when the account is unavailable or has been deleted.
+        - `email_address: string or null`
 
-      - `name: string or null`
+          The user's email address. Null when the account is unavailable or has been deleted.
 
-        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+        - `name: string or null`
 
-      - `user_id: string`
+          The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
 
-        Tagged ID of the user.
+        - `user_id: string`
+
+          Tagged ID of the user.
+
+      - `ScopedAPIKeyActor object`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+        - `type: "scoped_api_key_actor"`
+
+          default: scoped_api_key_actor
+
+        - `scoped_api_key_id: string`
 
     - `amount: string or null`
 
@@ -14736,37 +30477,15 @@ Idempotent on `denied`; denying an already-`approved` request returns
 
       ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
 
-    - `period: "daily" or "monthly" or "weekly"`
+    - `period: BetaSpendLimitPeriod`
 
       Period this row's effective limit and spend are reported for.
-
-      - `"daily"`
-
-      - `"monthly"`
-
-      - `"weekly"`
 
     - `period_to_date_spend: string`
 
       The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
 
-    - `scope: object`
-
-      Scope selecting a single member of the organization.
-
-      - `type: "user"`
-
-        Scope type. Always `user` for this scope.
-
-        default: user
-
-      - `user_id: string`
-
-        Tagged ID of the member the spend limit applies to.
-
-    - `source: object or object or object or 2 more`
-
-      Scope selecting a single member of the organization.
+    - `scope: User or SeatTier or RBACGroup or 3 more`
 
       - `User object`
 
@@ -14812,9 +30531,83 @@ Idempotent on `denied`; denying an already-`approved` request returns
 
           default: organization
 
+      - `Workspace object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+          default: workspace
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `source: User or SeatTier or RBACGroup or 3 more`
+
+      - `User object`
+
+        Scope selecting a single member of the organization.
+
+        - `type: "user"`
+
+          Scope type. Always `user` for this scope.
+
+          default: user
+
+        - `user_id: string`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `SeatTier object`
+
+        - `type: "seat_tier"`
+
+          default: seat_tier
+
+        - `seat_tier: string`
+
+      - `RBACGroup object`
+
+        - `type: "rbac_group"`
+
+          default: rbac_group
+
+        - `rbac_group_id: string`
+
+      - `OrganizationService object`
+
+        - `type: "organization_service"`
+
+          default: organization_service
+
+        - `service: string`
+
+      - `Organization object`
+
+        - `type: "organization"`
+
+          default: organization
+
+      - `Workspace object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+          default: workspace
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
     - `spend_limit_id: string`
 
-  - `status: "approved" or "denied" or "pending"`
+  - `status: BetaSpendLimitIncreaseRequestStatus`
 
     - `"approved"`
 
@@ -14845,7 +30638,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$S
     "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
   },
   "created_at": "2019-12-27T18:11:19.117Z",
-  "period": "monthly",
+  "period": "daily",
   "resolved_at": "2019-12-27T18:11:19.117Z",
   "resolved_by": {
     "deleted": true,
@@ -14864,7 +30657,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$S
     },
     "amount": "50000",
     "currency": "USD",
-    "period": "monthly",
+    "period": "daily",
     "period_to_date_spend": "12050.5",
     "scope": {
       "type": "user",
@@ -14899,7 +30692,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: optional string`
 
@@ -14931,7 +30724,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string or null`
+  - `role_ids: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -14949,6 +30742,12 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     format: date-time
 
+  - `roles: array of string or null`
+
+    **Deprecated**: Use `role_ids` instead; `roles` always has the same value.
+
+    Deprecated: use `role_ids` instead. IDs of the RBAC Roles attached to this RBAC Group; always the same value as `role_ids`, `null` included.
+
 - `has_more: boolean`
 
   Indicates if there are more results in the requested page direction.
@@ -14962,7 +30761,6 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 ```bash
 curl https://api.anthropic.com/v1/organizations/rbac_groups \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -14975,6 +30773,9 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups \
       "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
       "created_at": "2024-10-30T23:58:27.427722Z",
       "name": "Engineering",
+      "role_ids": [
+        "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+      ],
       "roles": [
         "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
       ],
@@ -14990,7 +30791,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups \
 
 ### Get RBAC Group
 
-**GET** `/v1/organizations/rbac_groups/{group_id}`
+**GET** `/v1/organizations/rbac_groups/{rbac_group_id}`
 
 Retrieve an RBAC Group by ID.
 
@@ -14998,7 +30799,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Path parameters
 
-- `group_id: string`
+- `rbac_group_id: string`
 
   ID of the RBAC Group.
 
@@ -15028,7 +30829,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string or null`
+  - `role_ids: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -15046,12 +30847,17 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     format: date-time
 
+  - `roles: array of string or null`
+
+    **Deprecated**: Use `role_ids` instead; `roles` always has the same value.
+
+    Deprecated: use `role_ids` instead. IDs of the RBAC Roles attached to this RBAC Group; always the same value as `role_ids`, `null` included.
+
 #### Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
+curl https://api.anthropic.com/v1/organizations/rbac_groups/$RBAC_GROUP_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -15062,6 +30868,9 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
   "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
   "created_at": "2024-10-30T23:58:27.427722Z",
   "name": "Engineering",
+  "role_ids": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
   "roles": [
     "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
   ],
@@ -15085,7 +30894,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
   Name of the RBAC Group. Not uniqueness-enforced.
 
-  maxLength: 255, minLength: 1
+  minLength: 1, maxLength: 255
 
 #### Returns
 
@@ -15113,7 +30922,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string or null`
+  - `role_ids: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -15131,13 +30940,18 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     format: date-time
 
+  - `roles: array of string or null`
+
+    **Deprecated**: Use `role_ids` instead; `roles` always has the same value.
+
+    Deprecated: use `role_ids` instead. IDs of the RBAC Roles attached to this RBAC Group; always the same value as `role_ids`, `null` included.
+
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/organizations/rbac_groups \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{
           "name": "Engineering"
@@ -15151,6 +30965,9 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups \
   "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
   "created_at": "2024-10-30T23:58:27.427722Z",
   "name": "Engineering",
+  "role_ids": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
   "roles": [
     "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
   ],
@@ -15162,7 +30979,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups \
 
 ### Update RBAC Group
 
-**POST** `/v1/organizations/rbac_groups/{group_id}`
+**POST** `/v1/organizations/rbac_groups/{rbac_group_id}`
 
 Update an RBAC Group's name. Groups provisioned by an identity provider (source type `"scim"`) cannot be modified via the API while an organization in the tenant uses SCIM provisioning.
 
@@ -15170,7 +30987,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Path parameters
 
-- `group_id: string`
+- `rbac_group_id: string`
 
   ID of the RBAC Group.
 
@@ -15180,7 +30997,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
   Name of the RBAC Group. Not uniqueness-enforced.
 
-  maxLength: 255, minLength: 1
+  minLength: 1, maxLength: 255
 
 #### Returns
 
@@ -15208,7 +31025,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string or null`
+  - `role_ids: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -15226,13 +31043,18 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     format: date-time
 
+  - `roles: array of string or null`
+
+    **Deprecated**: Use `role_ids` instead; `roles` always has the same value.
+
+    Deprecated: use `role_ids` instead. IDs of the RBAC Roles attached to this RBAC Group; always the same value as `role_ids`, `null` included.
+
 #### Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
+curl https://api.anthropic.com/v1/organizations/rbac_groups/$RBAC_GROUP_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{
           "name": "Engineering"
@@ -15246,6 +31068,9 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
   "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
   "created_at": "2024-10-30T23:58:27.427722Z",
   "name": "Engineering",
+  "role_ids": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
   "roles": [
     "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
   ],
@@ -15257,7 +31082,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
 
 ### Delete RBAC Group
 
-**DELETE** `/v1/organizations/rbac_groups/{group_id}`
+**DELETE** `/v1/organizations/rbac_groups/{rbac_group_id}`
 
 Delete an RBAC Group. Groups provisioned by an identity provider (source type `"scim"`) cannot be deleted via the API while an organization in the tenant uses SCIM provisioning.
 
@@ -15265,7 +31090,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Path parameters
 
-- `group_id: string`
+- `rbac_group_id: string`
 
   ID of the RBAC Group.
 
@@ -15288,10 +31113,9 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 #### Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
+curl https://api.anthropic.com/v1/organizations/rbac_groups/$RBAC_GROUP_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -15308,7 +31132,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
 
 ### List RBAC Group Members
 
-**GET** `/v1/organizations/rbac_groups/{group_id}/members`
+**GET** `/v1/organizations/rbac_groups/{rbac_group_id}/members`
 
 List members of an RBAC Group.
 
@@ -15316,7 +31140,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Path parameters
 
-- `group_id: string`
+- `rbac_group_id: string`
 
   ID of the RBAC Group.
 
@@ -15328,7 +31152,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: optional string`
 
@@ -15356,13 +31180,19 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     Email of the User.
 
-  - `group_id: string`
+  - `rbac_group_id: string`
 
     ID of the RBAC Group.
 
   - `user_id: string`
 
     ID of the User.
+
+  - `group_id: string`
+
+    **Deprecated**: Use `rbac_group_id` instead; `group_id` always has the same value.
+
+    Deprecated: use `rbac_group_id` instead. ID of the RBAC Group; always the same value as `rbac_group_id`.
 
 - `has_more: boolean`
 
@@ -15375,9 +31205,8 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 #### Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID/members \
+curl https://api.anthropic.com/v1/organizations/rbac_groups/$RBAC_GROUP_ID/members \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -15390,6 +31219,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID/members \
       "created_at": "2024-10-30T23:58:27.427722Z",
       "email": "user@emaildomain.com",
       "group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+      "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
       "type": "rbac_group_member",
       "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
     }
@@ -15401,7 +31231,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID/members \
 
 ### Add RBAC Group Member
 
-**POST** `/v1/organizations/rbac_groups/{group_id}/members`
+**POST** `/v1/organizations/rbac_groups/{rbac_group_id}/members`
 
 Add a User to an RBAC Group. Membership of groups provisioned by an identity provider (source type `"scim"`) cannot be modified via the API while an organization in the tenant uses SCIM provisioning.
 
@@ -15409,7 +31239,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Path parameters
 
-- `group_id: string`
+- `rbac_group_id: string`
 
   ID of the RBAC Group.
 
@@ -15441,7 +31271,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     Email of the User.
 
-  - `group_id: string`
+  - `rbac_group_id: string`
 
     ID of the RBAC Group.
 
@@ -15449,13 +31279,18 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     ID of the User.
 
+  - `group_id: string`
+
+    **Deprecated**: Use `rbac_group_id` instead; `group_id` always has the same value.
+
+    Deprecated: use `rbac_group_id` instead. ID of the RBAC Group; always the same value as `rbac_group_id`.
+
 #### Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID/members \
+curl https://api.anthropic.com/v1/organizations/rbac_groups/$RBAC_GROUP_ID/members \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{
           "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
@@ -15469,6 +31304,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID/members \
   "created_at": "2024-10-30T23:58:27.427722Z",
   "email": "user@emaildomain.com",
   "group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
   "type": "rbac_group_member",
   "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
 }
@@ -15476,7 +31312,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID/members \
 
 ### Remove RBAC Group Member
 
-**DELETE** `/v1/organizations/rbac_groups/{group_id}/members/{user_id}`
+**DELETE** `/v1/organizations/rbac_groups/{rbac_group_id}/members/{user_id}`
 
 Remove a User from an RBAC Group. Membership of groups provisioned by an identity provider (source type `"scim"`) cannot be modified via the API while an organization in the tenant uses SCIM provisioning.
 
@@ -15484,7 +31320,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Path parameters
 
-- `group_id: string`
+- `rbac_group_id: string`
 
   ID of the RBAC Group.
 
@@ -15502,7 +31338,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     default: rbac_group_member_deleted
 
-  - `group_id: string`
+  - `rbac_group_id: string`
 
     ID of the RBAC Group.
 
@@ -15510,13 +31346,18 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     ID of the User.
 
+  - `group_id: string`
+
+    **Deprecated**: Use `rbac_group_id` instead; `group_id` always has the same value.
+
+    Deprecated: use `rbac_group_id` instead. ID of the RBAC Group; always the same value as `rbac_group_id`.
+
 #### Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID/members/$USER_ID \
+curl https://api.anthropic.com/v1/organizations/rbac_groups/$RBAC_GROUP_ID/members/$USER_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -15525,6 +31366,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID/members/$U
 ```json
 {
   "group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
   "type": "rbac_group_member_deleted",
   "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
 }
@@ -15548,7 +31390,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: optional string`
 
@@ -15600,7 +31442,6 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 ```bash
 curl https://api.anthropic.com/v1/organizations/rbac_roles \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -15624,7 +31465,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_roles \
 
 ### Get RBAC Role
 
-**GET** `/v1/organizations/rbac_roles/{role_id}`
+**GET** `/v1/organizations/rbac_roles/{rbac_role_id}`
 
 Retrieve an RBAC Role by ID.
 
@@ -15632,7 +31473,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Path parameters
 
-- `role_id: string`
+- `rbac_role_id: string`
 
   ID of the RBAC Role.
 
@@ -15671,9 +31512,8 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 #### Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/rbac_roles/$ROLE_ID \
+curl https://api.anthropic.com/v1/organizations/rbac_roles/$RBAC_ROLE_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -15693,7 +31533,7 @@ curl https://api.anthropic.com/v1/organizations/rbac_roles/$ROLE_ID \
 
 ### List RBAC Role Permissions
 
-**GET** `/v1/organizations/rbac_roles/{role_id}/permissions`
+**GET** `/v1/organizations/rbac_roles/{rbac_role_id}/permissions`
 
 List the permissions an RBAC Role grants.
 
@@ -15701,7 +31541,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Path parameters
 
-- `role_id: string`
+- `rbac_role_id: string`
 
   ID of the RBAC Role.
 
@@ -15713,7 +31553,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: optional string`
 
@@ -15750,7 +31590,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
     `all_connectors` grants carry a tool-access action, the scope action, or
     an authentication-method action (`interactive` or `managed`).
 
-  - `resource: object or object or object or 2 more`
+  - `resource: Organization or ConnectorTool or ConnectorScope or 2 more`
 
     What the permission applies to.
 
@@ -15844,9 +31684,8 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 #### Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/rbac_roles/$ROLE_ID/permissions \
+curl https://api.anthropic.com/v1/organizations/rbac_roles/$RBAC_ROLE_ID/permissions \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -15866,5 +31705,5284 @@ curl https://api.anthropic.com/v1/organizations/rbac_roles/$ROLE_ID/permissions 
   ],
   "has_more": true,
   "next_page": "eyJjdXJzb3IiOiAicmJhY19yb2xlXzAxIn0"
+}
+```
+
+## Beta › Organization › Plugins
+
+### Create Plugin
+
+**POST** `/v1/organizations/plugins`
+
+Create an organization-owned Plugin and its first version by uploading the
+version's files.
+
+The upload is `multipart/form-data`: the version's files (`files`, each part sent
+as `files[]`), with an optional `marketplace_id` and `release_notes`. The manifest's `name` becomes the
+Plugin's `name`, and `display_name`, `description` and `manifest_version` come
+from the manifest too.
+
+`name` may contain lowercase letters (from any alphabet), digits, and hyphens, up
+to 64 characters. Uppercase letters, spaces, underscores, and other punctuation are
+rejected.
+
+The `name` must be unique within the marketplace: a name already taken
+returns a 409 with `error_code` `plugin_name_taken` and, when a Plugin holds it,
+that Plugin's ID in `details.plugin_id`. A Plugin going into the organization's
+library marketplace is also refused with a 409 when one of its skills has the name of
+an organization skill (a skill an administrator uploaded for the whole organization
+in claude.ai): `error_code` `skill_name_taken`, with that name in
+`details.skill_name`; rename the skill, or remove the organization skill in
+claude.ai. A 503 with `error_code`
+`registration_pending` means the Plugin and its version were stored (their IDs are
+in `details`) but are not yet usable in claude.ai: do not retry the create (the
+retry would return `plugin_name_taken`); create a version on the stored Plugin
+instead, which completes it.
+
+For a worked example, see [Create a plugin](https://platform.claude.com/docs/en/manage-claude/plugins-api#create-a-plugin)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters (form-data)
+
+- `files: array of string`
+
+  The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+
+- `marketplace_id: optional string`
+
+  ID of the organization-owned plugin marketplace to create the Plugin in (prefixed `marketplace_`). It must be a `manual` marketplace, one whose Plugins are uploaded rather than synchronized from a repository. When omitted, the Plugin is created in the organization's library marketplace, an organization-owned `manual` marketplace created on first use.
+
+- `release_notes: optional string`
+
+  Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+
+  maxLength: 5000
+
+#### Returns
+
+- `BetaPlugin object`
+
+  - `type: "plugin"`
+
+    Always `plugin`.
+
+    default: plugin
+
+  - `id: string`
+
+    The Plugin's ID.
+
+  - `components: array of BetaPluginComponent or null`
+
+    What the served version contains; null when not enumerated.
+
+    - `type: "agent" or "cli" or "command" or 3 more`
+
+      The kind of component.
+
+      - `"agent"`
+
+      - `"cli"`
+
+      - `"command"`
+
+      - `"hook"`
+
+      - `"mcp_server"`
+
+      - `"skill"`
+
+    - `description: string or null`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `name: string`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `content_scan: BetaPluginContentScan or null`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `assessment: "fail" or "pass" or "unknown" or "warn" or null`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `"fail"`
+
+      - `"pass"`
+
+      - `"unknown"`
+
+      - `"warn"`
+
+    - `reason: string or null`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `status: "completed" or "errored" or "processing"`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `"completed"`
+
+      - `"errored"`
+
+      - `"processing"`
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `created_by: BetaPluginUserActor or BetaPluginAPIActor or null`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `BetaPluginUserActor object`
+
+      - `type: "user_actor"`
+
+        A member of the organization.
+
+        default: user_actor
+
+      - `email_address: string or null`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `user_id: string`
+
+        The member's User ID.
+
+    - `BetaPluginAPIActor object`
+
+      - `type: "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+        default: api_actor
+
+      - `api_key_id: string`
+
+        The key's ID.
+
+  - `description: string or null`
+
+    The served version's description.
+
+  - `display_name: string or null`
+
+    The served version's display name.
+
+  - `latest_version_id: string`
+
+    The newest version.
+
+  - `manifest_version: string or null`
+
+    The version string the served version's manifest declares.
+
+  - `marketplace_id: string`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `name: string`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `organization_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `"auto_install"`
+
+    - `"available"`
+
+    - `"not_available"`
+
+    - `"required"`
+
+  - `organization_installation_preference_inherited: boolean or null`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `BetaPluginOwnerOrganization object`
+
+      - `type: "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+        default: organization
+
+    - `BetaPluginOwnerUser object`
+
+      - `type: "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+        default: user
+
+      - `user_id: string`
+
+        The member's User ID.
+
+  - `reach: "contained" or "privileged" or "remote" or null`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `"contained"`
+
+    - `"privileged"`
+
+    - `"remote"`
+
+  - `served_version_id: string`
+
+    The version claude.ai serves to members.
+
+  - `served_version_pinned: boolean`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `updated_at: string`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins \
+    -H 'Content-Type: multipart/form-data' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -F 'files[]=@/path/to/file'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Get Plugin
+
+**GET** `/v1/organizations/plugins/{plugin_id}`
+
+Retrieve a Plugin by ID.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+#### Query parameters
+
+- `organization_id: optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `BetaPlugin object`
+
+  - `type: "plugin"`
+
+    Always `plugin`.
+
+    default: plugin
+
+  - `id: string`
+
+    The Plugin's ID.
+
+  - `components: array of BetaPluginComponent or null`
+
+    What the served version contains; null when not enumerated.
+
+    - `type: "agent" or "cli" or "command" or 3 more`
+
+      The kind of component.
+
+      - `"agent"`
+
+      - `"cli"`
+
+      - `"command"`
+
+      - `"hook"`
+
+      - `"mcp_server"`
+
+      - `"skill"`
+
+    - `description: string or null`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `name: string`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `content_scan: BetaPluginContentScan or null`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `assessment: "fail" or "pass" or "unknown" or "warn" or null`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `"fail"`
+
+      - `"pass"`
+
+      - `"unknown"`
+
+      - `"warn"`
+
+    - `reason: string or null`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `status: "completed" or "errored" or "processing"`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `"completed"`
+
+      - `"errored"`
+
+      - `"processing"`
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `created_by: BetaPluginUserActor or BetaPluginAPIActor or null`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `BetaPluginUserActor object`
+
+      - `type: "user_actor"`
+
+        A member of the organization.
+
+        default: user_actor
+
+      - `email_address: string or null`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `user_id: string`
+
+        The member's User ID.
+
+    - `BetaPluginAPIActor object`
+
+      - `type: "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+        default: api_actor
+
+      - `api_key_id: string`
+
+        The key's ID.
+
+  - `description: string or null`
+
+    The served version's description.
+
+  - `display_name: string or null`
+
+    The served version's display name.
+
+  - `latest_version_id: string`
+
+    The newest version.
+
+  - `manifest_version: string or null`
+
+    The version string the served version's manifest declares.
+
+  - `marketplace_id: string`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `name: string`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `organization_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `"auto_install"`
+
+    - `"available"`
+
+    - `"not_available"`
+
+    - `"required"`
+
+  - `organization_installation_preference_inherited: boolean or null`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `BetaPluginOwnerOrganization object`
+
+      - `type: "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+        default: organization
+
+    - `BetaPluginOwnerUser object`
+
+      - `type: "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+        default: user
+
+      - `user_id: string`
+
+        The member's User ID.
+
+  - `reach: "contained" or "privileged" or "remote" or null`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `"contained"`
+
+    - `"privileged"`
+
+    - `"remote"`
+
+  - `served_version_id: string`
+
+    The version claude.ai serves to members.
+
+  - `served_version_pinned: boolean`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `updated_at: string`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Update Plugin
+
+**POST** `/v1/organizations/plugins/{plugin_id}`
+
+Change which stored version of an organization-owned Plugin is served to members,
+for example to roll back to an earlier one. This pins the served version: later
+uploads are stored but no longer change what is served, and pinning cannot currently
+be undone, here or in claude.ai.
+
+Pass the version as `served_version_id`: an earlier one to roll back, a later one to
+start serving a version that was stored without being served, or the one already
+served to pin it without changing what is served. No new version is created.
+
+When the organization has content scanning enabled, a version whose scan is still
+running is refused with a 409 (`error_code` `scan_pending`; retry once the scan
+finishes) and one whose scan failed, errored or reached no verdict with a 400
+(`scan_failed`; a `warn` is accepted). When the Plugin is in the organization's
+library marketplace, a version other than the one served is also refused with a 409
+when one of its skills has a name that an organization skill (one an administrator
+uploaded for the whole organization in claude.ai) has since taken: `error_code`
+`skill_name_taken`, with that name in `details.skill_name`. A member-owned Plugin
+cannot be updated here (403).
+
+This endpoint does not write installation settings; they are written at
+`/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters
+
+- `served_version_id: string`
+
+  Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
+
+#### Returns
+
+- `BetaPlugin object`
+
+  - `type: "plugin"`
+
+    Always `plugin`.
+
+    default: plugin
+
+  - `id: string`
+
+    The Plugin's ID.
+
+  - `components: array of BetaPluginComponent or null`
+
+    What the served version contains; null when not enumerated.
+
+    - `type: "agent" or "cli" or "command" or 3 more`
+
+      The kind of component.
+
+      - `"agent"`
+
+      - `"cli"`
+
+      - `"command"`
+
+      - `"hook"`
+
+      - `"mcp_server"`
+
+      - `"skill"`
+
+    - `description: string or null`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `name: string`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `content_scan: BetaPluginContentScan or null`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `assessment: "fail" or "pass" or "unknown" or "warn" or null`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `"fail"`
+
+      - `"pass"`
+
+      - `"unknown"`
+
+      - `"warn"`
+
+    - `reason: string or null`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `status: "completed" or "errored" or "processing"`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `"completed"`
+
+      - `"errored"`
+
+      - `"processing"`
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `created_by: BetaPluginUserActor or BetaPluginAPIActor or null`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `BetaPluginUserActor object`
+
+      - `type: "user_actor"`
+
+        A member of the organization.
+
+        default: user_actor
+
+      - `email_address: string or null`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `user_id: string`
+
+        The member's User ID.
+
+    - `BetaPluginAPIActor object`
+
+      - `type: "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+        default: api_actor
+
+      - `api_key_id: string`
+
+        The key's ID.
+
+  - `description: string or null`
+
+    The served version's description.
+
+  - `display_name: string or null`
+
+    The served version's display name.
+
+  - `latest_version_id: string`
+
+    The newest version.
+
+  - `manifest_version: string or null`
+
+    The version string the served version's manifest declares.
+
+  - `marketplace_id: string`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `name: string`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `organization_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `"auto_install"`
+
+    - `"available"`
+
+    - `"not_available"`
+
+    - `"required"`
+
+  - `organization_installation_preference_inherited: boolean or null`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `BetaPluginOwnerOrganization object`
+
+      - `type: "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+        default: organization
+
+    - `BetaPluginOwnerUser object`
+
+      - `type: "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+        default: user
+
+      - `user_id: string`
+
+        The member's User ID.
+
+  - `reach: "contained" or "privileged" or "remote" or null`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `"contained"`
+
+    - `"privileged"`
+
+    - `"remote"`
+
+  - `served_version_id: string`
+
+    The version claude.ai serves to members.
+
+  - `served_version_pinned: boolean`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `updated_at: string`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "served_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8"
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### List Plugins
+
+**GET** `/v1/organizations/plugins`
+
+List the Plugins created under the organization, newest first: those in the
+organization's own plugin marketplaces and those in members' personal plugin
+marketplaces.
+
+Plugins in members' personal marketplaces are listed with the same detail as the
+organization's own, and their files can be downloaded through the version archive
+endpoint, which records each such download on the Compliance API activity feed.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Query parameters
+
+- `"created_at[gt]": optional string`
+
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+  format: date-time
+
+- `"created_at[gte]": optional string`
+
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+  format: date-time
+
+- `"created_at[lt]": optional string`
+
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+  format: date-time
+
+- `"created_at[lte]": optional string`
+
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+  format: date-time
+
+- `limit: optional number`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `100`.
+
+  default: 20, minimum: 1, maximum: 100
+
+- `marketplace_id: optional string`
+
+  Only Plugins in this plugin marketplace (prefixed `marketplace_`).
+
+- `organization_id: optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `owner_type: optional "organization" or "user"`
+
+  `organization` for Plugins in the organization's plugin marketplaces, `user` for Plugins in members' personal plugin marketplaces.
+
+  - `"organization"`
+
+  - `"user"`
+
+- `owner_user_id: optional string`
+
+  Only Plugins in this member's personal plugin marketplaces (prefixed `user_`); a removed member's ID is accepted.
+
+- `page: optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+  maxLength: 2048
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `data: array of BetaPlugin`
+
+  - `type: "plugin"`
+
+    Always `plugin`.
+
+    default: plugin
+
+  - `id: string`
+
+    The Plugin's ID.
+
+  - `components: array of BetaPluginComponent or null`
+
+    What the served version contains; null when not enumerated.
+
+    - `type: "agent" or "cli" or "command" or 3 more`
+
+      The kind of component.
+
+      - `"agent"`
+
+      - `"cli"`
+
+      - `"command"`
+
+      - `"hook"`
+
+      - `"mcp_server"`
+
+      - `"skill"`
+
+    - `description: string or null`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `name: string`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `content_scan: BetaPluginContentScan or null`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `assessment: "fail" or "pass" or "unknown" or "warn" or null`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `"fail"`
+
+      - `"pass"`
+
+      - `"unknown"`
+
+      - `"warn"`
+
+    - `reason: string or null`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `status: "completed" or "errored" or "processing"`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `"completed"`
+
+      - `"errored"`
+
+      - `"processing"`
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `created_by: BetaPluginUserActor or BetaPluginAPIActor or null`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `BetaPluginUserActor object`
+
+      - `type: "user_actor"`
+
+        A member of the organization.
+
+        default: user_actor
+
+      - `email_address: string or null`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `user_id: string`
+
+        The member's User ID.
+
+    - `BetaPluginAPIActor object`
+
+      - `type: "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+        default: api_actor
+
+      - `api_key_id: string`
+
+        The key's ID.
+
+  - `description: string or null`
+
+    The served version's description.
+
+  - `display_name: string or null`
+
+    The served version's display name.
+
+  - `latest_version_id: string`
+
+    The newest version.
+
+  - `manifest_version: string or null`
+
+    The version string the served version's manifest declares.
+
+  - `marketplace_id: string`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `name: string`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `organization_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `"auto_install"`
+
+    - `"available"`
+
+    - `"not_available"`
+
+    - `"required"`
+
+  - `organization_installation_preference_inherited: boolean or null`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `BetaPluginOwnerOrganization object`
+
+      - `type: "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+        default: organization
+
+    - `BetaPluginOwnerUser object`
+
+      - `type: "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+        default: user
+
+      - `user_id: string`
+
+        The member's User ID.
+
+  - `reach: "contained" or "privileged" or "remote" or null`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `"contained"`
+
+    - `"privileged"`
+
+    - `"remote"`
+
+  - `served_version_id: string`
+
+    The version claude.ai serves to members.
+
+  - `served_version_pinned: boolean`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `updated_at: string`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+- `next_page: string or null`
+
+  Token to provide in as `page` in the subsequent request to retrieve the next page of data. A page may hold fewer than `limit` Plugins, even none, while this is set; keep following it until it is null.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "components": [
+        {
+          "description": "description",
+          "name": "review-pr",
+          "type": "skill"
+        }
+      ],
+      "content_scan": {
+        "assessment": "warn",
+        "reason": "credential-exposure",
+        "status": "completed"
+      },
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "created_by": {
+        "email_address": "user@example.com",
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "description": "Reviews pull requests against your team's conventions.",
+      "display_name": "Code Review Helper",
+      "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+      "manifest_version": "1.2.0",
+      "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+      "name": "code-review-helper",
+      "organization_installation_preference": "available",
+      "organization_installation_preference_inherited": true,
+      "owner": {
+        "type": "organization"
+      },
+      "reach": "contained",
+      "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+      "served_version_pinned": true,
+      "type": "plugin",
+      "updated_at": "2026-03-14T09:26:53.589793Z"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Delete Plugin
+
+**DELETE** `/v1/organizations/plugins/{plugin_id}`
+
+Permanently delete a Plugin and every version it holds, exactly as when an
+administrator deletes it in claude.ai. The Plugin may belong to the organization or
+to a member, including a member who has since left the organization.
+
+An organization-owned Plugin's installation settings go with it; a member-owned
+Plugin's shares are withdrawn and its owner no longer has it.
+
+To take an organization-owned Plugin out of use reversibly, set its
+organization-wide installation setting to `not_available` instead (and
+remove or change any group settings, which override it for their members). Only a
+Plugin in a `manual` marketplace can be deleted here; one synchronized from a
+repository is removed by removing it from the repository (400).
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `BetaDeletedPlugin object`
+
+  - `type: "plugin_deleted"`
+
+    Always `plugin_deleted`.
+
+    default: plugin_deleted
+
+  - `id: string`
+
+    The deleted Plugin's ID.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "type": "plugin_deleted"
+}
+```
+
+## Beta › Organization › Plugins › Versions
+
+### Create Plugin Version
+
+**POST** `/v1/organizations/plugins/{plugin_id}/versions`
+
+Add a version to an organization-owned Plugin by uploading the new version's
+files; it becomes the version served to members unless the Plugin's served version
+has been pinned.
+
+The upload is the same `multipart/form-data` as creating a Plugin: the version's
+files (`files`, each part sent as `files[]`) and optional `release_notes`. The uploaded manifest's `name`
+must equal the Plugin's `name`. Returns the stored version; read the Plugin back to
+see which version it serves.
+
+Only a Plugin in a `manual` marketplace takes uploads; a Plugin synchronized from
+a repository gets its versions from the repository. When the Plugin is in the
+organization's library marketplace, a version that adds a skill with the name of an
+organization skill (a skill an administrator uploaded for the whole organization in
+claude.ai) is refused with a 409: `error_code` `skill_name_taken`, with that name in
+`details.skill_name`. A 503 with `error_code`
+`registration_pending` means the version was stored but is not yet usable; a later
+version create on the Plugin completes it.
+
+For a worked example, see [Create a version](https://platform.claude.com/docs/en/manage-claude/plugins-api#create-a-version)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters (form-data)
+
+- `files: array of string`
+
+  The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+
+- `release_notes: optional string`
+
+  Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+
+  maxLength: 5000
+
+#### Returns
+
+- `BetaPluginVersion object`
+
+  - `type: "plugin_version"`
+
+    Always `plugin_version`.
+
+    default: plugin_version
+
+  - `id: string`
+
+    The version's ID.
+
+  - `components: array of BetaPluginComponent or null`
+
+    What the version contains; null when not enumerated.
+
+    - `type: "agent" or "cli" or "command" or 3 more`
+
+      The kind of component.
+
+      - `"agent"`
+
+      - `"cli"`
+
+      - `"command"`
+
+      - `"hook"`
+
+      - `"mcp_server"`
+
+      - `"skill"`
+
+    - `description: string or null`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `name: string`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `content_scan: BetaPluginContentScan or null`
+
+    This version's content scan; null when it has not been scanned.
+
+    - `assessment: "fail" or "pass" or "unknown" or "warn" or null`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `"fail"`
+
+      - `"pass"`
+
+      - `"unknown"`
+
+      - `"warn"`
+
+    - `reason: string or null`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `status: "completed" or "errored" or "processing"`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `"completed"`
+
+      - `"errored"`
+
+      - `"processing"`
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `created_by: BetaPluginUserActor or BetaPluginAPIActor or null`
+
+    Who uploaded this version; null when not recorded.
+
+    - `BetaPluginUserActor object`
+
+      - `type: "user_actor"`
+
+        A member of the organization.
+
+        default: user_actor
+
+      - `email_address: string or null`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `user_id: string`
+
+        The member's User ID.
+
+    - `BetaPluginAPIActor object`
+
+      - `type: "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+        default: api_actor
+
+      - `api_key_id: string`
+
+        The key's ID.
+
+  - `description: string or null`
+
+    The manifest's description; null when it declares none.
+
+  - `display_name: string or null`
+
+    The manifest's display name; null when it declares none.
+
+  - `manifest_version: string or null`
+
+    The version string the manifest declares; null when it declares none.
+
+  - `plugin_id: string`
+
+    The Plugin's ID.
+
+  - `reach: "contained" or "privileged" or "remote" or null`
+
+    How far the version reaches: `remote`, `privileged` or `contained`, as on the Plugin; null when not classifiable.
+
+    - `"contained"`
+
+    - `"privileged"`
+
+    - `"remote"`
+
+  - `release_notes: string or null`
+
+    As supplied with the upload; null when none were supplied.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/versions \
+    -H 'Content-Type: multipart/form-data' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -F 'files[]=@/path/to/file'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "manifest_version": "1.2.0",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "reach": "contained",
+  "release_notes": "Adds a review checklist for database migrations.",
+  "type": "plugin_version"
+}
+```
+
+### List Plugin Versions
+
+**GET** `/v1/organizations/plugins/{plugin_id}/versions`
+
+List a Plugin's versions, newest first.
+
+The first item of the first page is the version the Plugin's `latest_version_id`
+refers to.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+#### Query parameters
+
+- `limit: optional number`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20, minimum: 1, maximum: 1000
+
+- `organization_id: optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `page: optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+  maxLength: 2048
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `data: array of BetaPluginVersion`
+
+  - `type: "plugin_version"`
+
+    Always `plugin_version`.
+
+    default: plugin_version
+
+  - `id: string`
+
+    The version's ID.
+
+  - `components: array of BetaPluginComponent or null`
+
+    What the version contains; null when not enumerated.
+
+    - `type: "agent" or "cli" or "command" or 3 more`
+
+      The kind of component.
+
+      - `"agent"`
+
+      - `"cli"`
+
+      - `"command"`
+
+      - `"hook"`
+
+      - `"mcp_server"`
+
+      - `"skill"`
+
+    - `description: string or null`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `name: string`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `content_scan: BetaPluginContentScan or null`
+
+    This version's content scan; null when it has not been scanned.
+
+    - `assessment: "fail" or "pass" or "unknown" or "warn" or null`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `"fail"`
+
+      - `"pass"`
+
+      - `"unknown"`
+
+      - `"warn"`
+
+    - `reason: string or null`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `status: "completed" or "errored" or "processing"`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `"completed"`
+
+      - `"errored"`
+
+      - `"processing"`
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `created_by: BetaPluginUserActor or BetaPluginAPIActor or null`
+
+    Who uploaded this version; null when not recorded.
+
+    - `BetaPluginUserActor object`
+
+      - `type: "user_actor"`
+
+        A member of the organization.
+
+        default: user_actor
+
+      - `email_address: string or null`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `user_id: string`
+
+        The member's User ID.
+
+    - `BetaPluginAPIActor object`
+
+      - `type: "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+        default: api_actor
+
+      - `api_key_id: string`
+
+        The key's ID.
+
+  - `description: string or null`
+
+    The manifest's description; null when it declares none.
+
+  - `display_name: string or null`
+
+    The manifest's display name; null when it declares none.
+
+  - `manifest_version: string or null`
+
+    The version string the manifest declares; null when it declares none.
+
+  - `plugin_id: string`
+
+    The Plugin's ID.
+
+  - `reach: "contained" or "privileged" or "remote" or null`
+
+    How far the version reaches: `remote`, `privileged` or `contained`, as on the Plugin; null when not classifiable.
+
+    - `"contained"`
+
+    - `"privileged"`
+
+    - `"remote"`
+
+  - `release_notes: string or null`
+
+    As supplied with the upload; null when none were supplied.
+
+- `next_page: string or null`
+
+  Token to provide in as `page` in the subsequent request to retrieve the next page of data.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/versions \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+      "components": [
+        {
+          "description": "description",
+          "name": "review-pr",
+          "type": "skill"
+        }
+      ],
+      "content_scan": {
+        "assessment": "warn",
+        "reason": "credential-exposure",
+        "status": "completed"
+      },
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "created_by": {
+        "email_address": "user@example.com",
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "description": "Reviews pull requests against your team's conventions.",
+      "display_name": "Code Review Helper",
+      "manifest_version": "1.2.0",
+      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "reach": "contained",
+      "release_notes": "Adds a review checklist for database migrations.",
+      "type": "plugin_version"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Get Plugin Version
+
+**GET** `/v1/organizations/plugins/{plugin_id}/versions/{version}`
+
+Retrieve one version of a Plugin by its ID, or the Plugin's newest version.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `version: string`
+
+  ID of the Plugin Version (prefixed `pluginver_`), or `latest` for the newest one.
+
+#### Query parameters
+
+- `organization_id: optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `BetaPluginVersion object`
+
+  - `type: "plugin_version"`
+
+    Always `plugin_version`.
+
+    default: plugin_version
+
+  - `id: string`
+
+    The version's ID.
+
+  - `components: array of BetaPluginComponent or null`
+
+    What the version contains; null when not enumerated.
+
+    - `type: "agent" or "cli" or "command" or 3 more`
+
+      The kind of component.
+
+      - `"agent"`
+
+      - `"cli"`
+
+      - `"command"`
+
+      - `"hook"`
+
+      - `"mcp_server"`
+
+      - `"skill"`
+
+    - `description: string or null`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `name: string`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `content_scan: BetaPluginContentScan or null`
+
+    This version's content scan; null when it has not been scanned.
+
+    - `assessment: "fail" or "pass" or "unknown" or "warn" or null`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `"fail"`
+
+      - `"pass"`
+
+      - `"unknown"`
+
+      - `"warn"`
+
+    - `reason: string or null`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `status: "completed" or "errored" or "processing"`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `"completed"`
+
+      - `"errored"`
+
+      - `"processing"`
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `created_by: BetaPluginUserActor or BetaPluginAPIActor or null`
+
+    Who uploaded this version; null when not recorded.
+
+    - `BetaPluginUserActor object`
+
+      - `type: "user_actor"`
+
+        A member of the organization.
+
+        default: user_actor
+
+      - `email_address: string or null`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `user_id: string`
+
+        The member's User ID.
+
+    - `BetaPluginAPIActor object`
+
+      - `type: "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+        default: api_actor
+
+      - `api_key_id: string`
+
+        The key's ID.
+
+  - `description: string or null`
+
+    The manifest's description; null when it declares none.
+
+  - `display_name: string or null`
+
+    The manifest's display name; null when it declares none.
+
+  - `manifest_version: string or null`
+
+    The version string the manifest declares; null when it declares none.
+
+  - `plugin_id: string`
+
+    The Plugin's ID.
+
+  - `reach: "contained" or "privileged" or "remote" or null`
+
+    How far the version reaches: `remote`, `privileged` or `contained`, as on the Plugin; null when not classifiable.
+
+    - `"contained"`
+
+    - `"privileged"`
+
+    - `"remote"`
+
+  - `release_notes: string or null`
+
+    As supplied with the upload; null when none were supplied.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/versions/$VERSION \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "manifest_version": "1.2.0",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "reach": "contained",
+  "release_notes": "Adds a review checklist for database migrations.",
+  "type": "plugin_version"
+}
+```
+
+### Download Plugin Version Archive
+
+**GET** `/v1/organizations/plugins/{plugin_id}/versions/{version}/content`
+
+Download one version's `.zip` archive, exactly as stored. Each download of a
+Plugin from a member's personal plugin marketplace is recorded on the Compliance API
+activity feed.
+
+The response body is the archive (`Content-Type: application/zip`), sent as an
+attachment whose filename is derived from the Plugin's name; name saved files from
+the IDs in the request path, since that filename is not unique.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every read scope above (`read:plugins`, `read:org_audit`, and
+`read:compliance_org_data`) can download the files of plugins in members' personal
+marketplaces, including files that claude.ai's admin settings do not show, and a
+`read:org_audit` or `read:compliance_org_data` key created for all of your parent
+organization's linked organizations can do this in any organization under it that has
+access to this API, by passing `organization_id`. Each such download records a
+`claude_plugin_archive_accessed` event on the Compliance API activity feed,
+identifying the key, the plugin, the version, and the member. Downloads of
+organization-owned plugins are not recorded.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `version: string`
+
+  ID of the Plugin Version (prefixed `pluginver_`). `latest` is not accepted here.
+
+#### Query parameters
+
+- `organization_id: optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/versions/$VERSION/content \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+## Beta › Organization › Plugins › Installation Settings
+
+### List Plugin Installation Settings
+
+**GET** `/v1/organizations/plugins/{plugin_id}/installation_settings`
+
+List an organization-owned Plugin's installation settings, which say which
+members it is for, most recently created first.
+
+The list holds the Plugin's own organization-wide setting (absent while the Plugin
+inherits its marketplace's default) and each RBAC Group's own setting. A
+member-owned Plugin has shares instead, so this path returns 404 for one.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+#### Query parameters
+
+- `limit: optional number`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `100`.
+
+  default: 20, minimum: 1, maximum: 100
+
+- `organization_id: optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `page: optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+  maxLength: 2048
+
+- `target_type: optional "organization" or "rbac_group"`
+
+  Only settings for this kind of target: `organization` (the organization-wide setting) or `rbac_group` (an RBAC Group's).
+
+  - `"organization"`
+
+  - `"rbac_group"`
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `data: array of BetaPluginInstallationSetting`
+
+  - `type: "plugin_installation_setting"`
+
+    Always `plugin_installation_setting`.
+
+    default: plugin_installation_setting
+
+  - `created_at: string`
+
+    When the target was first given a setting for this Plugin.
+
+    format: date-time
+
+  - `installation_preference: "auto_install" or "available" or "not_available" or "required"`
+
+    The setting the target holds for this Plugin. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `"auto_install"`
+
+    - `"available"`
+
+    - `"not_available"`
+
+    - `"required"`
+
+  - `plugin_id: string`
+
+    The Plugin's ID.
+
+  - `target: BetaPluginTargetOrganization or BetaPluginTargetRBACGroup or BetaPluginTargetOrganizationMember`
+
+    Whose setting this is: `organization` (the Plugin's own organization-wide setting) or `rbac_group` (one RBAC Group's own setting); `organization_member` does not occur here.
+
+    - `BetaPluginTargetOrganization object`
+
+      - `type: "organization"`
+
+        Every member of the organization.
+
+        default: organization
+
+    - `BetaPluginTargetRBACGroup object`
+
+      - `type: "rbac_group"`
+
+        An RBAC Group.
+
+        default: rbac_group
+
+      - `rbac_group_id: string`
+
+        The RBAC Group's ID.
+
+    - `BetaPluginTargetOrganizationMember object`
+
+      - `type: "organization_member"`
+
+        One member of the organization.
+
+        default: organization_member
+
+      - `user_id: string`
+
+        The member's User ID.
+
+  - `updated_at: string`
+
+    When its setting last changed.
+
+    format: date-time
+
+- `next_page: string or null`
+
+  Token to provide in as `page` in the subsequent request to retrieve the next page of data.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/installation_settings \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "installation_preference": "required",
+      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "target": {
+        "type": "organization"
+      },
+      "type": "plugin_installation_setting",
+      "updated_at": "2026-03-14T09:26:53.589793Z"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Set Plugin Installation Setting
+
+**POST** `/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`
+
+Set or change an organization-owned Plugin's installation setting for the whole
+organization or for one RBAC Group.
+
+Writing the value a target already holds of its own changes nothing.
+
+A member-owned Plugin has shares instead of installation settings, so this path
+returns 404 for one.
+
+Send a Plugin's installation-setting writes one at a time. If several writes for the
+same Plugin arrive at the same time, the server handles them one after another and
+can answer some of them with `503` instead of applying them. That `503` carries
+`x-should-retry: true`, and the write is safe to repeat: wait a second or two, then
+send it again.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `target: string`
+
+  The target whose setting is written: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Writing the `organization` target stops the Plugin from inheriting its marketplace's default, even when the value written equals that default.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters
+
+- `installation_preference: "auto_install" or "available" or "not_available" or "required"`
+
+  The installation setting the target is to hold for this Plugin: one of `required`, `auto_install`, `available`, `not_available`.
+
+  - `"auto_install"`
+
+  - `"available"`
+
+  - `"not_available"`
+
+  - `"required"`
+
+#### Returns
+
+- `BetaPluginInstallationSetting object`
+
+  The installation setting an organization-owned Plugin holds for one
+  target. It has no ID of its own: it is addressed by the Plugin's ID and the
+  target.
+
+  - `type: "plugin_installation_setting"`
+
+    Always `plugin_installation_setting`.
+
+    default: plugin_installation_setting
+
+  - `created_at: string`
+
+    When the target was first given a setting for this Plugin.
+
+    format: date-time
+
+  - `installation_preference: "auto_install" or "available" or "not_available" or "required"`
+
+    The setting the target holds for this Plugin. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `"auto_install"`
+
+    - `"available"`
+
+    - `"not_available"`
+
+    - `"required"`
+
+  - `plugin_id: string`
+
+    The Plugin's ID.
+
+  - `target: BetaPluginTargetOrganization or BetaPluginTargetRBACGroup or BetaPluginTargetOrganizationMember`
+
+    Whose setting this is: `organization` (the Plugin's own organization-wide setting) or `rbac_group` (one RBAC Group's own setting); `organization_member` does not occur here.
+
+    - `BetaPluginTargetOrganization object`
+
+      - `type: "organization"`
+
+        Every member of the organization.
+
+        default: organization
+
+    - `BetaPluginTargetRBACGroup object`
+
+      - `type: "rbac_group"`
+
+        An RBAC Group.
+
+        default: rbac_group
+
+      - `rbac_group_id: string`
+
+        The RBAC Group's ID.
+
+    - `BetaPluginTargetOrganizationMember object`
+
+      - `type: "organization_member"`
+
+        One member of the organization.
+
+        default: organization_member
+
+      - `user_id: string`
+
+        The member's User ID.
+
+  - `updated_at: string`
+
+    When its setting last changed.
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/installation_settings/$TARGET \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "installation_preference": "required"
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "installation_preference": "required",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "target": {
+    "type": "organization"
+  },
+  "type": "plugin_installation_setting",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Remove Plugin Installation Setting
+
+**DELETE** `/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`
+
+Remove an organization-owned Plugin's own installation setting for the whole
+organization or for one RBAC Group.
+
+Removing the `organization` target returns the Plugin to its marketplace's default
+installation setting and leaves the groups' settings in place. Removing a group's
+setting makes the group's members fall back to the Plugin's organization-wide setting
+or to the settings of their other groups.
+
+A target that holds no setting of its own returns 404 (a Plugin that already inherits
+its marketplace's default holds no `organization` setting), and so does a member-owned
+Plugin.
+
+A removal counts as one of the Plugin's installation-setting writes: send all of those
+writes one at a time. If several arrive for the same Plugin at the same time, the server
+handles them one after another and can answer some of them with `503` and
+`x-should-retry: true` instead of applying them; wait a second or two and send the
+removal again. A `404` on the repeat means the setting is already gone.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `target: string`
+
+  The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `BetaDeletedPluginInstallationSetting object`
+
+  Confirmation that one target's installation setting was removed, naming
+  the Plugin and the target in place of an ID.
+
+  - `type: "plugin_installation_setting_deleted"`
+
+    Always `plugin_installation_setting_deleted`.
+
+    default: plugin_installation_setting_deleted
+
+  - `plugin_id: string`
+
+    The Plugin's ID.
+
+  - `target: BetaPluginTargetOrganization or BetaPluginTargetRBACGroup or BetaPluginTargetOrganizationMember`
+
+    Whose setting was removed.
+
+    - `BetaPluginTargetOrganization object`
+
+      - `type: "organization"`
+
+        Every member of the organization.
+
+        default: organization
+
+    - `BetaPluginTargetRBACGroup object`
+
+      - `type: "rbac_group"`
+
+        An RBAC Group.
+
+        default: rbac_group
+
+      - `rbac_group_id: string`
+
+        The RBAC Group's ID.
+
+    - `BetaPluginTargetOrganizationMember object`
+
+      - `type: "organization_member"`
+
+        One member of the organization.
+
+        default: organization_member
+
+      - `user_id: string`
+
+        The member's User ID.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/installation_settings/$TARGET \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "target": {
+    "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+    "type": "rbac_group"
+  },
+  "type": "plugin_installation_setting_deleted"
+}
+```
+
+## Beta › Organization › Plugins › Shares
+
+### List Plugin Shares
+
+**GET** `/v1/organizations/plugins/{plugin_id}/shares`
+
+List the shares the owner of a member-owned Plugin has given — to every member of
+the organization, to an RBAC Group, or to one member — most recently granted first.
+
+Shares are read-only in this API: members give and withdraw them in claude.ai, and
+who gave a share is recorded on the Compliance API activity feed rather than on the
+share. An organization-owned Plugin has installation settings instead, so this path
+returns 404 for one.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `plugin_id: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+#### Query parameters
+
+- `limit: optional number`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `100`.
+
+  default: 20, minimum: 1, maximum: 100
+
+- `organization_id: optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `page: optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+  maxLength: 2048
+
+- `target_type: optional "organization" or "organization_member" or "rbac_group"`
+
+  Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
+
+  - `"organization"`
+
+  - `"organization_member"`
+
+  - `"rbac_group"`
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `data: array of BetaPluginShare`
+
+  - `type: "plugin_share"`
+
+    Always `plugin_share`.
+
+    default: plugin_share
+
+  - `granted_at: string`
+
+    When the share was given; a share whose role is later changed in claude.ai is re-granted and carries the time of that change.
+
+    format: date-time
+
+  - `plugin_id: string`
+
+    The Plugin's ID.
+
+  - `target: BetaPluginTargetOrganization or BetaPluginTargetRBACGroup or BetaPluginTargetOrganizationMember`
+
+    Who the Plugin is shared with: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
+
+    - `BetaPluginTargetOrganization object`
+
+      - `type: "organization"`
+
+        Every member of the organization.
+
+        default: organization
+
+    - `BetaPluginTargetRBACGroup object`
+
+      - `type: "rbac_group"`
+
+        An RBAC Group.
+
+        default: rbac_group
+
+      - `rbac_group_id: string`
+
+        The RBAC Group's ID.
+
+    - `BetaPluginTargetOrganizationMember object`
+
+      - `type: "organization_member"`
+
+        One member of the organization.
+
+        default: organization_member
+
+      - `user_id: string`
+
+        The member's User ID.
+
+- `next_page: string or null`
+
+  Token to provide in as `page` in the subsequent request to retrieve the next page of data.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/shares \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "granted_at": "2026-03-14T09:26:53.589793Z",
+      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "target": {
+        "type": "organization"
+      },
+      "type": "plugin_share"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+## Beta › Organization › Plugin Marketplaces
+
+### List Plugin Marketplaces
+
+**GET** `/v1/organizations/plugin_marketplaces`
+
+List the plugin marketplaces Plugins live in, newest first: the organization's own
+and its members' personal ones.
+
+Plugin marketplaces are created, connected to a repository and deleted in
+claude.ai, not through this API. The organization's library marketplace, the
+organization-owned `manual` marketplace that uploads go to when no marketplace is
+named, is created the first time something is put in it and is listed from then on.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Query parameters
+
+- `limit: optional number`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20, minimum: 1, maximum: 1000
+
+- `organization_id: optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `owner_type: optional "organization" or "user"`
+
+  `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
+
+  - `"organization"`
+
+  - `"user"`
+
+- `page: optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+  maxLength: 2048
+
+- `source: optional "directory" or "github" or "gitlab" or 2 more`
+
+  Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
+
+  - `"directory"`
+
+  - `"github"`
+
+  - `"gitlab"`
+
+  - `"manual"`
+
+  - `"public_git"`
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `data: array of BetaPluginMarketplace`
+
+  - `type: "plugin_marketplace"`
+
+    Always `plugin_marketplace`.
+
+    default: plugin_marketplace
+
+  - `id: string`
+
+    The plugin marketplace's ID, prefixed `marketplace_`.
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `default_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
+
+    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `"auto_install"`
+
+    - `"available"`
+
+    - `"not_available"`
+
+    - `"required"`
+
+  - `last_sync_ended_at: string or null`
+
+    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
+
+    format: date-time
+
+  - `last_sync_read_sha: string or null`
+
+    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
+
+  - `name: string`
+
+    Fixed for the plugin marketplace's lifetime.
+
+  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
+
+    The organization, or the member whose personal plugin marketplace it is.
+
+    - `BetaPluginOwnerOrganization object`
+
+      - `type: "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+        default: organization
+
+    - `BetaPluginOwnerUser object`
+
+      - `type: "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+        default: user
+
+      - `user_id: string`
+
+        The member's User ID.
+
+  - `source: "directory" or "github" or "gitlab" or 2 more`
+
+    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
+
+    - `"directory"`
+
+    - `"github"`
+
+    - `"gitlab"`
+
+    - `"manual"`
+
+    - `"public_git"`
+
+  - `sync_status: "failed_auth" or "failed_content" or "failed_limits" or 3 more or null`
+
+    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
+
+    - `"failed_auth"`
+
+    - `"failed_content"`
+
+    - `"failed_limits"`
+
+    - `"failed_transient"`
+
+    - `"in_progress"`
+
+    - `"success"`
+
+- `next_page: string or null`
+
+  Token to provide in as `page` in the subsequent request to retrieve the next page of data.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugin_marketplaces \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "default_installation_preference": "available",
+      "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
+      "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+      "name": "engineering-tools",
+      "owner": {
+        "type": "organization"
+      },
+      "source": "github",
+      "sync_status": "success",
+      "type": "plugin_marketplace"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Get Plugin Marketplace
+
+**GET** `/v1/organizations/plugin_marketplaces/{marketplace_id}`
+
+Retrieve a plugin marketplace by ID.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `marketplace_id: string`
+
+  ID of the plugin marketplace (prefixed `marketplace_`).
+
+#### Query parameters
+
+- `organization_id: optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Returns
+
+- `BetaPluginMarketplace object`
+
+  - `type: "plugin_marketplace"`
+
+    Always `plugin_marketplace`.
+
+    default: plugin_marketplace
+
+  - `id: string`
+
+    The plugin marketplace's ID, prefixed `marketplace_`.
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `default_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
+
+    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `"auto_install"`
+
+    - `"available"`
+
+    - `"not_available"`
+
+    - `"required"`
+
+  - `last_sync_ended_at: string or null`
+
+    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
+
+    format: date-time
+
+  - `last_sync_read_sha: string or null`
+
+    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
+
+  - `name: string`
+
+    Fixed for the plugin marketplace's lifetime.
+
+  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
+
+    The organization, or the member whose personal plugin marketplace it is.
+
+    - `BetaPluginOwnerOrganization object`
+
+      - `type: "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+        default: organization
+
+    - `BetaPluginOwnerUser object`
+
+      - `type: "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+        default: user
+
+      - `user_id: string`
+
+        The member's User ID.
+
+  - `source: "directory" or "github" or "gitlab" or 2 more`
+
+    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
+
+    - `"directory"`
+
+    - `"github"`
+
+    - `"gitlab"`
+
+    - `"manual"`
+
+    - `"public_git"`
+
+  - `sync_status: "failed_auth" or "failed_content" or "failed_limits" or 3 more or null`
+
+    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
+
+    - `"failed_auth"`
+
+    - `"failed_content"`
+
+    - `"failed_limits"`
+
+    - `"failed_transient"`
+
+    - `"in_progress"`
+
+    - `"success"`
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugin_marketplaces/$MARKETPLACE_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "default_installation_preference": "available",
+  "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
+  "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "name": "engineering-tools",
+  "owner": {
+    "type": "organization"
+  },
+  "source": "github",
+  "sync_status": "success",
+  "type": "plugin_marketplace"
+}
+```
+
+### Update Plugin Marketplace
+
+**POST** `/v1/organizations/plugin_marketplaces/{marketplace_id}`
+
+Set the default installation setting of one of the organization's own plugin
+marketplaces. Every Plugin in it without a setting of its own gets this default as
+its organization-wide setting, including Plugins added later.
+
+Pass it as `default_installation_preference`. A member's personal marketplace
+cannot be updated here (403).
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Path parameters
+
+- `marketplace_id: string`
+
+  ID of the plugin marketplace (prefixed `marketplace_`).
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters
+
+- `default_installation_preference: "auto_install" or "available" or "not_available" or "required"`
+
+  The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
+
+  - `"auto_install"`
+
+  - `"available"`
+
+  - `"not_available"`
+
+  - `"required"`
+
+#### Returns
+
+- `BetaPluginMarketplace object`
+
+  - `type: "plugin_marketplace"`
+
+    Always `plugin_marketplace`.
+
+    default: plugin_marketplace
+
+  - `id: string`
+
+    The plugin marketplace's ID, prefixed `marketplace_`.
+
+  - `created_at: string`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `default_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
+
+    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `"auto_install"`
+
+    - `"available"`
+
+    - `"not_available"`
+
+    - `"required"`
+
+  - `last_sync_ended_at: string or null`
+
+    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
+
+    format: date-time
+
+  - `last_sync_read_sha: string or null`
+
+    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
+
+  - `name: string`
+
+    Fixed for the plugin marketplace's lifetime.
+
+  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
+
+    The organization, or the member whose personal plugin marketplace it is.
+
+    - `BetaPluginOwnerOrganization object`
+
+      - `type: "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+        default: organization
+
+    - `BetaPluginOwnerUser object`
+
+      - `type: "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+        default: user
+
+      - `user_id: string`
+
+        The member's User ID.
+
+  - `source: "directory" or "github" or "gitlab" or 2 more`
+
+    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
+
+    - `"directory"`
+
+    - `"github"`
+
+    - `"gitlab"`
+
+    - `"manual"`
+
+    - `"public_git"`
+
+  - `sync_status: "failed_auth" or "failed_content" or "failed_limits" or 3 more or null`
+
+    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
+
+    - `"failed_auth"`
+
+    - `"failed_content"`
+
+    - `"failed_limits"`
+
+    - `"failed_transient"`
+
+    - `"in_progress"`
+
+    - `"success"`
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugin_marketplaces/$MARKETPLACE_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "default_installation_preference": "available"
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "default_installation_preference": "available",
+  "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
+  "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "name": "engineering-tools",
+  "owner": {
+    "type": "organization"
+  },
+  "source": "github",
+  "sync_status": "success",
+  "type": "plugin_marketplace"
+}
+```
+
+### Validate Plugin Marketplace Repository
+
+**POST** `/v1/organizations/plugin_marketplaces/validate_repository`
+
+Check whether a plugin marketplace held in a public GitHub repository would
+synchronize into claude.ai, without connecting or storing it.
+
+To check a `.zip` of the marketplace directory instead, use Validate Plugin Marketplace Archive.
+
+The report says whether `marketplace.json` is well-formed, which plugins a
+synchronization would skip and why, and which plugins would synchronize only in
+part, with some files left out. A repository that is missing, private, or has no such branch or commit is reported, not refused: the response is a report with `valid: false`. Plugin sources outside the marketplace
+are fetched anonymously from GitHub, so a private one is reported as not found; a
+source on any other host is not fetched here, and the report notes that it will be
+checked when the marketplace actually synchronizes.
+
+Nothing is recorded on the Compliance API activity feed.
+
+For a worked example, see [Validate marketplace content](https://platform.claude.com/docs/en/manage-claude/plugins-api#validate-marketplace-content)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not grant it.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters
+
+- `repository_url: string`
+
+  The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
+
+  minLength: 1
+
+- `ref: optional string or null`
+
+  The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
+
+  minLength: 1
+
+#### Returns
+
+- `BetaPluginMarketplaceValidationReport object`
+
+  The outcome of validating plugin marketplace content: a report, not a
+  stored object, so nothing in it can be retrieved afterwards.
+
+  - `type: "plugin_marketplace_validation_report"`
+
+    Always `plugin_marketplace_validation_report`.
+
+    default: plugin_marketplace_validation_report
+
+  - `commit_sha: string or null`
+
+    The full SHA of the commit that was validated: for a repository, the commit that was read; for an uploaded archive, the commit recorded in the archive's comment (as a Git host's download writes it; not verified), else null.
+
+  - `manifest_error: string or null`
+
+    Set when nothing could be validated: the repository or archive could not be read, or marketplace.json is missing, malformed or over a limit. Null otherwise.
+
+  - `manifest_error_code: string or null`
+
+    A stable identifier for `manifest_error`; null when that is.
+
+  - `plugin_errors: array of BetaPluginMarketplaceValidationPluginError`
+
+    One entry per plugin a synchronization would skip entirely, keyed by the plugin's name in marketplace.json.
+
+    - `error: string`
+
+      Why the plugin would be skipped by a synchronization.
+
+    - `error_code: string`
+
+      A stable identifier for the reason — the value to branch on.
+
+    - `name: string`
+
+      The plugin's name, as its entry in marketplace.json declares it.
+
+  - `plugin_warnings: array of BetaPluginMarketplaceValidationPluginWarnings`
+
+    One entry per plugin that would synchronize with some of its contents left out, keyed by the plugin's name in marketplace.json.
+
+    - `name: string`
+
+      The plugin's name, as its entry in marketplace.json declares it.
+
+    - `warnings: array of BetaPluginMarketplaceValidationPluginWarning`
+
+      The parts of the plugin a synchronization would leave out.
+
+      - `error_code: string`
+
+        A stable identifier for the kind of warning.
+
+      - `message: string`
+
+        What would be left out, and why.
+
+  - `ref: string or null`
+
+    For a repository, the branch that was read by name: the one requested, or else the branch a synchronization of this repository is set to read. Null when no branch is named or set and the repository's default branch was read, for a request by commit SHA, and for an uploaded archive.
+
+  - `total_plugin_count: number`
+
+    How many plugins marketplace.json declares; 0 when it could not be read.
+
+  - `valid: boolean`
+
+    True when marketplace.json is well-formed and no plugin would be skipped; warnings never make it false.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugin_marketplaces/validate_repository \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "repository_url": "https://github.com/example-org/example-marketplace",
+          "ref": "main"
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "commit_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "manifest_error": "manifest_error",
+  "manifest_error_code": "marketplace_sync_manifest_not_found",
+  "plugin_errors": [
+    {
+      "error": "error",
+      "error_code": "marketplace_sync_plugin_missing_manifest",
+      "name": "name"
+    }
+  ],
+  "plugin_warnings": [
+    {
+      "name": "name",
+      "warnings": [
+        {
+          "error_code": "marketplace_sync_zipball_symlink_dangling",
+          "message": "message"
+        }
+      ]
+    }
+  ],
+  "ref": "main",
+  "total_plugin_count": 0,
+  "type": "plugin_marketplace_validation_report",
+  "valid": false
+}
+```
+
+### Validate Plugin Marketplace Archive
+
+**POST** `/v1/organizations/plugin_marketplaces/validate_archive`
+
+Check whether a plugin marketplace, uploaded as a `.zip` of the marketplace
+directory, would synchronize into claude.ai, without connecting or storing it.
+
+To check a public GitHub repository instead, use Validate Plugin Marketplace Repository.
+
+The report says whether `marketplace.json` is well-formed, which plugins a
+synchronization would skip and why, and which plugins would synchronize only in
+part, with some files left out. An archive that cannot be read as a marketplace is reported, not refused: the response is a report with `valid: false`. Plugin sources outside the marketplace
+are fetched anonymously from GitHub, so a private one is reported as not found; a
+source on any other host is not fetched here, and the report notes that it will be
+checked when the marketplace actually synchronizes.
+
+Nothing is recorded on the Compliance API activity feed.
+
+For a worked example, see [Validate marketplace content](https://platform.claude.com/docs/en/manage-claude/plugins-api#validate-marketplace-content)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not grant it.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+#### Body parameters (form-data)
+
+- `archive: string`
+
+  A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
+
+  format: binary
+
+#### Returns
+
+- `BetaPluginMarketplaceValidationReport object`
+
+  The outcome of validating plugin marketplace content: a report, not a
+  stored object, so nothing in it can be retrieved afterwards.
+
+  - `type: "plugin_marketplace_validation_report"`
+
+    Always `plugin_marketplace_validation_report`.
+
+    default: plugin_marketplace_validation_report
+
+  - `commit_sha: string or null`
+
+    The full SHA of the commit that was validated: for a repository, the commit that was read; for an uploaded archive, the commit recorded in the archive's comment (as a Git host's download writes it; not verified), else null.
+
+  - `manifest_error: string or null`
+
+    Set when nothing could be validated: the repository or archive could not be read, or marketplace.json is missing, malformed or over a limit. Null otherwise.
+
+  - `manifest_error_code: string or null`
+
+    A stable identifier for `manifest_error`; null when that is.
+
+  - `plugin_errors: array of BetaPluginMarketplaceValidationPluginError`
+
+    One entry per plugin a synchronization would skip entirely, keyed by the plugin's name in marketplace.json.
+
+    - `error: string`
+
+      Why the plugin would be skipped by a synchronization.
+
+    - `error_code: string`
+
+      A stable identifier for the reason — the value to branch on.
+
+    - `name: string`
+
+      The plugin's name, as its entry in marketplace.json declares it.
+
+  - `plugin_warnings: array of BetaPluginMarketplaceValidationPluginWarnings`
+
+    One entry per plugin that would synchronize with some of its contents left out, keyed by the plugin's name in marketplace.json.
+
+    - `name: string`
+
+      The plugin's name, as its entry in marketplace.json declares it.
+
+    - `warnings: array of BetaPluginMarketplaceValidationPluginWarning`
+
+      The parts of the plugin a synchronization would leave out.
+
+      - `error_code: string`
+
+        A stable identifier for the kind of warning.
+
+      - `message: string`
+
+        What would be left out, and why.
+
+  - `ref: string or null`
+
+    For a repository, the branch that was read by name: the one requested, or else the branch a synchronization of this repository is set to read. Null when no branch is named or set and the repository's default branch was read, for a request by commit SHA, and for an uploaded archive.
+
+  - `total_plugin_count: number`
+
+    How many plugins marketplace.json declares; 0 when it could not be read.
+
+  - `valid: boolean`
+
+    True when marketplace.json is well-formed and no plugin would be skipped; warnings never make it false.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/organizations/plugin_marketplaces/validate_archive \
+    -H 'Content-Type: multipart/form-data' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: ce-plugins-2026-09-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -F 'archive=@/path/to/archive'
+```
+
+##### Response (200)
+
+```json
+{
+  "commit_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "manifest_error": "manifest_error",
+  "manifest_error_code": "marketplace_sync_manifest_not_found",
+  "plugin_errors": [
+    {
+      "error": "error",
+      "error_code": "marketplace_sync_plugin_missing_manifest",
+      "name": "name"
+    }
+  ],
+  "plugin_warnings": [
+    {
+      "name": "name",
+      "warnings": [
+        {
+          "error_code": "marketplace_sync_zipball_symlink_dangling",
+          "message": "message"
+        }
+      ]
+    }
+  ],
+  "ref": "main",
+  "total_plugin_count": 0,
+  "type": "plugin_marketplace_validation_report",
+  "valid": false
 }
 ```

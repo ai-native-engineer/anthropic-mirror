@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/prerequisites -->
 
-Lesson 3 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutPrerequisites
+Lesson 3 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutPrerequisites
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Prerequisites
 
@@ -132,7 +132,7 @@ In the next module, you will decide how many Claude Enterprise organizations you
 
 [Previous lessonOwners and intake](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/owners-and-intake)[Next lessonOne organization or many](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/one-organization-or-many)
 
-Lesson 3 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutPrerequisites
+Lesson 3 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutPrerequisites
 
 The plan
 

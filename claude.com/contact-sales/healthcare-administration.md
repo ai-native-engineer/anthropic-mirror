@@ -6,6 +6,4 @@ Claude helps payers modernize legacy systems, build agents for complex workflows
 
 ## Transform how your organization operates with Claude
 
-Get started
-
-[Get started](#)Get started
+[Get started](https://claude.ai)

@@ -4,44 +4,32 @@
 
 A live build from zero to deployed in thirty minutes. We'll build a feedback app spanning five roles and the full software lifecycle, using Claude and Google Cloud alongside subagents, MCP servers, and custom skills. You can test the finished app at the end of the session.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-04:05PM – 04:35PM
+:   04:05PM – 04:35PM
 
 Speaker(s)
+:   Ivan Nardini
 
-Ivan Nardini
+    Developer Relations Engineer (AI/ML),
 
-Developer Relations Engineer (AI/ML),
-
-Google Cloud
+    Google Cloud
 
 ## Watch recording
 
-[Play video](#)Play video
+![Building with Claude on Google Cloud](https://assets.claude.com/3777beb4939e85599d8b1cf4dd1f4515999c7487.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf7268a585749b38cb9b7_claude-on-google-cloud.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Building with Claude on Google Cloud | Session | Code w/ Claude 2026

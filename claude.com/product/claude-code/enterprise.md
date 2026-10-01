@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/product/claude-code/enterprise -->
 
+Explore here
+
 Featured
 
 [Next](#)Next

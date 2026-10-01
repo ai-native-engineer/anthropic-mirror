@@ -41,5 +41,3 @@ Information-finding can be even harder in a document-heavy space like the legal 
 In addition to improving existing products, we are excited about the potential of AI to transform digital media. We are proud to partner with [AssemblyAI](https://www.assemblyai.com/), an innovative AI company that is partnering with Anthropic to help power its platform of APIs that transcribe and understand audio data at scale. Dylan Fox, Founder & CEO of AssemblyAI, says, “We're thrilled to partner with a pioneering company like Anthropic whose commitment to AI integrity and research directly helps us ship more robust, LLM-backed Generative AI and Conversation Intelligence capabilities to our customers faster. We look forward to seeing this partnership propel our AI initiatives forward.”
 
 We’re excited about the potential applications Claude can power across industries. If you think you could use the power of AI to innovate, improve your offerings and better serve your customers, please request access to Claude and we’ll be in touch!
-
-Introducing Claude \ Anthropic

@@ -2,74 +2,62 @@
 
 # Opening keynote
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-09:00AM – 10:00AM
+:   09:00AM – 10:00AM
 
 Speaker(s)
+:   Ami Vora
 
-Ami Vora
+    Chief Product Officer,
 
-Chief Product Officer,
+    Anthropic
 
-Anthropic
+    Dianne Penn
 
-Dianne Penn
+    Head of Product, Research,
 
-Head of Product, Research,
+    Anthropic
 
-Anthropic
+    Angela Jiang
 
-Angela Jiang
+    Head of Product, Claude Platform,
 
-Head of Product, Claude Platform,
+    Anthropic
 
-Anthropic
+    Katelyn Lesse
 
-Katelyn Lesse
+    Head of Engineering, Claude Platform,
 
-Head of Engineering, Claude Platform,
+    Anthropic
 
-Anthropic
+    Cat Wu
 
-Cat Wu
+    Head of Product, Claude Code,
 
-Head of Product, Claude Code,
+    Anthropic
 
-Anthropic
+    Boris Cherny
 
-Boris Cherny
+    Head of Claude Code,
 
-Head of Claude Code,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Opening keynote](https://assets.claude.com/160d9913715738b50fc2f1a74297b133f80de9ab.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9dc8f3f45396c2541ce1_opening-keynote.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Opening keynote | Session | Code w/ Claude 2026

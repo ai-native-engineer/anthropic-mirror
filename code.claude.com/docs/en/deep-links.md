@@ -21,7 +21,7 @@ This page covers how to [build a link](#build-a-link), [embed one in a runbook o
 
 The `claude-cli://` prefix is a custom URL scheme that Claude Code registers with your operating system, similar to how `mailto:` links open your email client. When you click a deep link:
 
-1. The browser or app hands the URL to your operating system.
+1. The browser or app passes the URL to your operating system.
 2. The operating system recognizes the `claude-cli://` prefix and starts Claude Code on your machine.
 3. A new terminal window opens with Claude Code running in the directory the link specified, and the link's prompt text already in the input box.
 4. You read the prompt, edit it if you want, and press Enter to send it.
@@ -38,7 +38,7 @@ When the session opens, a warning line below the input box reads `Prompt from an
 
 ## Build a link
 
-Every deep link starts with `claude-cli://open`, which is the only path the handler accepts, followed by optional query parameters. The minimal form opens Claude Code in your home directory with an empty prompt:
+A deep link starts with `claude-cli://open`, followed by optional query parameters. The minimal form opens Claude Code in your home directory with an empty prompt:
 
 ```text theme={null}
 claude-cli://open
@@ -48,11 +48,11 @@ To try a link without putting it on a page, paste it into your browser's address
 
 Add parameters to control where the session starts and what the prompt box contains:
 
-| Parameter | Description                                                                                                                                                                                                                                 |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `q`       | Text to pre-fill in the prompt box. [URL-encode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) the value. Use `%0A` for line breaks in multi-line prompts. Maximum 5,000 characters. |
-| `cwd`     | Absolute path to use as the working directory. Network and UNC paths are rejected, and so are paths that contain `..` segments or invisible or bidirectional control characters.                                                            |
-| `repo`    | A GitHub `owner/name` slug. Claude Code resolves it to a local clone it has seen before and starts there. If you have no matching clone, the session opens in your home directory instead.                                                  |
+| Parameter | Description |
+| - | - |
+| `q` | Text to pre-fill in the prompt box. [URL-encode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) the value. Use `%0A` for line breaks in multi-line prompts. Maximum 5,000 characters. |
+| `cwd` | Absolute path to use as the working directory. Network and UNC paths are rejected, and so are paths that contain `..` segments or invisible or bidirectional control characters. |
+| `repo` | A GitHub `owner/name` slug. Claude Code resolves it to a local clone it has seen before and starts there. If you have no matching clone, the session opens in your home directory instead. |
 
 `cwd` and `repo` are [two ways to set the working directory](#choose-between-cwd-and-repo). If you pass both, `cwd` takes precedence and `repo` is ignored, even if the `cwd` path does not exist.
 
@@ -150,19 +150,19 @@ You can also open a deep link from a shell script, alias, or automation rather t
 
 Claude Code registers the `claude-cli://` handler with your operating system on macOS, Linux, and Windows when you send your first prompt of an interactive session. Starting `claude` and exiting without sending a prompt doesn't register the handler. You don't run a separate install command. Registration writes to user-level locations only:
 
-| Platform | Handler location                                                                                                   |
-| -------- | ------------------------------------------------------------------------------------------------------------------ |
-| macOS    | `~/Applications/Claude Code URL Handler.app`                                                                       |
-| Linux    | `claude-code-url-handler.desktop` under `$XDG_DATA_HOME/applications`, defaulting to `~/.local/share/applications` |
-| Windows  | `HKEY_CURRENT_USER\Software\Classes\claude-cli`                                                                    |
+| Platform | Handler location |
+| - | - |
+| macOS | `~/Applications/Claude Code URL Handler.app` |
+| Linux | `claude-code-url-handler.desktop` under `$XDG_DATA_HOME/applications`, defaulting to `~/.local/share/applications` |
+| Windows | `HKEY_CURRENT_USER\Software\Classes\claude-cli` |
 
 The handler launches Claude Code in a detected terminal emulator. On macOS, Claude Code remembers the terminal from your most recent interactive session and reuses it, supporting iTerm2, Ghostty, kitty, Alacritty, WezTerm, and Terminal.app. On Linux it honors the `$TERMINAL` environment variable, then `x-terminal-emulator`, then a list of common emulators. On Windows it prefers Windows Terminal, then PowerShell, then `cmd.exe`.
 
-To prevent registration entirely, set [`disableDeepLinkRegistration`](/docs/en/settings-reference#disabledeeplinkregistration) to `"disable"` in `settings.json`. To enforce this across an organization so users cannot re-enable it, set it in [managed settings](/docs/en/server-managed-settings) instead.
+To prevent registration entirely, set [`disableDeepLinkRegistration`](https://code.claude.com/docs/en/settings-reference#disabledeeplinkregistration) to `"disable"` in `settings.json`. To enforce this across an organization so users cannot re-enable it, set it in [managed settings](https://code.claude.com/docs/en/server-managed-settings) instead.
 
 ## Open a VS Code tab instead of a terminal
 
-The VS Code extension registers its own handler at `vscode://anthropic.claude-code/open`, which opens a Claude Code editor tab rather than a terminal window. See [Launch a VS Code tab from other tools](/docs/en/vs-code#launch-a-vs-code-tab-from-other-tools) for that URL's parameters.
+The VS Code extension registers its own handler at `vscode://anthropic.claude-code/open`, which opens a Claude Code editor tab rather than a terminal window. See [Launch a VS Code tab from other tools](https://code.claude.com/docs/en/vs-code#launch-a-vs-code-tab-from-other-tools) for that URL's parameters.
 
 ## Troubleshooting
 
@@ -190,5 +190,5 @@ On macOS, start `claude` in your preferred terminal once and the next deep link 
 
 These pages cover related ways to launch or extend Claude Code sessions:
 
-* [Skills](/docs/en/skills): store a long runbook prompt as a `/skill` in the repo so the deep link's `q` parameter only has to name it
-* [Non-interactive mode](/docs/en/headless): run Claude from a script and capture the output without opening a terminal
+* [Skills](https://code.claude.com/docs/en/skills): store a long runbook prompt as a `/skill` in the repo so the deep link's `q` parameter only has to name it
+* [Non-interactive mode](https://code.claude.com/docs/en/headless): run Claude from a script and capture the output without opening a terminal

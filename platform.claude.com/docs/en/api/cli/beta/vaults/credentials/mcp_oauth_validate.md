@@ -17,11 +17,11 @@ Validate Credential
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault containing the credential.
 
 - `--credential-id: string`
 
-  Path param: Path parameter credential_id
+  Path param: Unique identifier of the credential to validate.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -51,11 +51,11 @@ Validate Credential
 
   - `mcp_probe: object`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `http_response: object`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `body: string`
 
@@ -81,11 +81,11 @@ Validate Credential
 
   - `refresh: object`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `http_response: object`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
       - `body: string`
 
@@ -107,29 +107,43 @@ Validate Credential
 
     - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
+      Outcome of the refresh attempt.
 
       - `"succeeded"`
 
+        The token endpoint returned a new access token.
+
       - `"failed"`
+
+        The token endpoint returned an error response. See `http_response` for detail.
 
       - `"connect_error"`
 
+        The token endpoint could not be reached (DNS, TLS, or connection error).
+
       - `"no_refresh_token"`
+
+        No refresh token is stored for the credential, so no exchange was attempted.
 
   - `status: "valid" or "invalid" or "unknown"`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `"valid"`
 
+      The credential successfully authenticated against its MCP server.
+
     - `"invalid"`
+
+      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
 
     - `"unknown"`
 
+      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
+
   - `validated_at: string`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 

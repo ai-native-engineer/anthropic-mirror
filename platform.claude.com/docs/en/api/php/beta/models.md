@@ -41,9 +41,13 @@ The Models API response can be used to determine which models are available for 
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaModelInfo`
+- `class BetaModelInfo`
 
   - `"model" type`
 
@@ -61,7 +65,7 @@ The Models API response can be used to determine which models are available for 
 
   - `?BetaModelCapabilities capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
   - `\Datetime createdAt`
 
@@ -117,6 +121,12 @@ var_dump($page);
           "supported": true
         },
         "code_execution": {
+          "supported": true
+        },
+        "compaction": {
+          "summarize": {
+            "supported": true
+          },
           "supported": true
         },
         "context_management": {
@@ -205,9 +215,13 @@ The Models API response can be used to determine information about a specific mo
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaModelInfo`
+- `class BetaModelInfo`
 
   - `"model" type`
 
@@ -225,7 +239,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `?BetaModelCapabilities capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
   - `\Datetime createdAt`
 
@@ -277,6 +291,12 @@ var_dump($betaModelInfo);
       "supported": true
     },
     "code_execution": {
+      "supported": true
+    },
+    "compaction": {
+      "summarize": {
+        "supported": true
+      },
       "supported": true
     },
     "context_management": {
@@ -342,7 +362,19 @@ var_dump($betaModelInfo);
 
 ### Beta Capability Support
 
-- `BetaCapabilitySupport`
+- `class BetaCapabilitySupport`
+
+  - `bool supported`
+
+    Whether this capability is supported by the model.
+
+### Beta Compaction Capability
+
+- `class BetaCompactionCapability`
+
+  - `BetaCapabilitySupport summarize`
+
+    Whether the summarize compaction type is supported.
 
   - `bool supported`
 
@@ -350,19 +382,19 @@ var_dump($betaModelInfo);
 
 ### Beta Context Management Capability
 
-- `BetaContextManagementCapability`
+- `class BetaContextManagementCapability`
 
   - `?BetaCapabilitySupport clearThinking20251015`
 
-    Indicates whether a capability is supported.
+    Whether the clear_thinking_20251015 strategy is supported.
 
   - `?BetaCapabilitySupport clearToolUses20250919`
 
-    Indicates whether a capability is supported.
+    Whether the clear_tool_uses_20250919 strategy is supported.
 
   - `?BetaCapabilitySupport compact20260112`
 
-    Indicates whether a capability is supported.
+    Whether the compact_20260112 strategy is supported.
 
   - `bool supported`
 
@@ -370,7 +402,7 @@ var_dump($betaModelInfo);
 
 ### Beta Effort Capability
 
-- `BetaEffortCapability`
+- `class BetaEffortCapability`
 
   - `BetaCapabilitySupport high`
 
@@ -394,11 +426,11 @@ var_dump($betaModelInfo);
 
   - `?BetaCapabilitySupport xhigh`
 
-    Indicates whether a capability is supported.
+    Whether the model supports xhigh effort level.
 
 ### Beta Model Capabilities
 
-- `BetaModelCapabilities`
+- `class BetaModelCapabilities`
 
   - `BetaCapabilitySupport batch`
 
@@ -411,6 +443,10 @@ var_dump($betaModelInfo);
   - `BetaCapabilitySupport codeExecution`
 
     Whether the model supports code execution tools.
+
+  - `?BetaCompactionCapability compaction`
+
+    Server-side compaction support (the top-level `compaction` parameter) and the accepted `compaction.type` values.
 
   - `BetaContextManagementCapability contextManagement`
 
@@ -438,7 +474,7 @@ var_dump($betaModelInfo);
 
 ### Beta Model Info
 
-- `BetaModelInfo`
+- `class BetaModelInfo`
 
   - `"model" type`
 
@@ -456,7 +492,7 @@ var_dump($betaModelInfo);
 
   - `?BetaModelCapabilities capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
   - `\Datetime createdAt`
 
@@ -476,7 +512,7 @@ var_dump($betaModelInfo);
 
 ### Beta Thinking Capability
 
-- `BetaThinkingCapability`
+- `class BetaThinkingCapability`
 
   - `bool supported`
 
@@ -488,7 +524,7 @@ var_dump($betaModelInfo);
 
 ### Beta Thinking Types
 
-- `BetaThinkingTypes`
+- `class BetaThinkingTypes`
 
   - `BetaCapabilitySupport adaptive`
 

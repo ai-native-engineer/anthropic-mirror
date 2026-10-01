@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Otter transforms meetings into lasting organizational knowledge with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Otter.ai logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb600ab6ac242b36bd127a_Otter%20AI-light-theme.svg)![Otter.ai logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb600c9b010b92b6afa783_Otter%20AI-dark-theme.svg)
+![Otter logo](https://assets.claude.com/732e00e75d77be7e5cb0243c167055d249ab9a9e.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 50 million
 
@@ -37,42 +27,6 @@ meetings summarized annually
 200K context
 
 window improved transcript processing
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Otter, a leading AI Meeting Assistant, is redefining how organizations unlock value from their conversations. By combining Claude with its proprietary AI models, Otter provides advanced tools to summarize discussions, identify action items, and extract meaningful insights automatically. Collaboration is enhanced through AI-powered Chat, including the innovative Channel Chat, which enables teams to engage in targeted, topic-specific discussions with both colleagues and AI, ensuring seamless and focused communication.
 
@@ -104,60 +58,18 @@ At the organizational level, Otter breaks down traditional information silos by 
 
 Otter has become the living knowledge hub for all the organization’s meetings. Tasker shares, "Our institutional knowledge, our spoken knowledge, is inside of Otter." By continuously capturing critical context across teams and actively syncing real-time conversation insights to key business systems, Otter empowers organizations to stay current, learn from live interactions, and make better-informed decisions in the moment and moving forward.
 
-![Otter product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf052e357841d7c19358b_452c489246bc46e57ea15f2cc63653af736286ec-1920x987.png)
-
-![Otter product screen 2](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf052e357841d7c193590_2a8ada4fa20f90b62c3de931af55607873b40096-1920x969.png)
+![Otter product screen](https://assets.claude.com/cf94557d2c724b5c7ff9dc436ea321143651387d.png)![Otter product screen 2](https://assets.claude.com/14d7390a4e4610ebd9c9bb4511f7bed5077e2e76.png)
 
 ## Looking forward
 
 Otter envisions intelligent AI meeting agents taking on increasingly sophisticated roles in workplace communication and collaboration. Tasker describes their vision: "When my avatar joins a meeting, it will know everything I know: every conversation, document, Slack message, and email." These avatars will be able to represent users in some meetings while humans focus on higher-value work. With Claude as a trusted technology partner, Otter continues to push the boundaries of how AI can enhance human communication and knowledge sharing.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

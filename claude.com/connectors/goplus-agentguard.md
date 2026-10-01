@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/GoPlusSecurity/agentguard#readme)[Support (opens in new tab)](https://github.com/GoPlusSecurity/agentguard)
+More[Documentation (opens in new tab)](https://github.com/GoPlusSecurity/agentguard#readme)[Support (opens in new tab)](https://github.com/GoPlusSecurity/agentguard)[Privacy policy (opens in new tab)](https://agentguard.gopluslabs.io/privacy)
 
 GoPlus AgentGuard is an AI-agent security framework. It exposes MCP tools for scanning skills, looking up and managing a trust registry, evaluating runtime actions against policy, and simulating Web3 transactions. 20+ detection rules cover dangerous commands, secret exfiltration, and risky on-chain actions.
 

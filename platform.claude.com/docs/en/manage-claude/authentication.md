@@ -50,7 +50,7 @@ content-type: application/json
 
 The legacy `x-api-key: YOUR_API_KEY` header is still supported in place of `Authorization`.
 
-Store API keys in a secrets manager, rotate them periodically, and disable or delete any key you suspect has leaked. On the [API keys page](https://platform.claude.com/settings/keys), **Disable** is reversible (the Admin API reports the key's `status` as `"inactive"`, and **Re-enable** returns it to `"active"`), while **Delete** is permanent: the key is archived and still appears in [List API Keys](https://platform.claude.com/docs/en/api/admin/api_keys/list) with `status: "archived"`. Expired keys can only be deleted. You can also set an [expiration](https://platform.claude.com/docs/en/manage-claude/authentication#key-expiration) when you create a key to limit how long a leaked credential stays usable.
+Store API keys in a secrets manager, rotate them periodically, and disable or delete any key you suspect has leaked. On the [API keys page](https://platform.claude.com/settings/keys), **Disable** is reversible (the Admin API reports the key's `status` as `"inactive"`, and **Re-enable** returns it to `"active"`), while **Delete** is permanent: the key is archived and still appears in [List API Keys](https://platform.claude.com/docs/en/api/beta/organization/api_keys/list) with `status: "archived"`. Expired keys can only be deleted. You can also set an [expiration](https://platform.claude.com/docs/en/manage-claude/authentication#key-expiration) when you create a key to limit how long a leaked credential stays usable.
 
 <CodeGroup>
   ```bash cURL
@@ -59,7 +59,7 @@ Store API keys in a secrets manager, rotate them periodically, and disable or de
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "max_tokens": 1024,
       "messages": [{"role": "user", "content": "Hello, Claude"}]
     }'
@@ -131,7 +131,7 @@ If your API key isn't scoped to a workspace, you must specify the workspace ID i
 
 The [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api) accepts a personal key or service account key only if the key isn't scoped to a specific workspace.
 
-You can find a workspace's ID in the **ID** column of [Settings → Workspaces](https://platform.claude.com/settings/workspaces) in the Claude Console, or by calling the [List Workspaces](https://platform.claude.com/docs/en/api/admin/workspaces/list) endpoint. List Workspaces omits the Default Workspace; its ID is in the `anthropic-workspace-id` [response header](https://platform.claude.com/docs/en/manage-claude/workspaces#identify-the-workspace-behind-an-api-response) of any request that runs there.
+You can find a workspace's ID in the **ID** column of [Settings → Workspaces](https://platform.claude.com/settings/workspaces) in the Claude Console, or by calling the [List Workspaces](https://platform.claude.com/docs/en/api/beta/organization/workspaces/list) endpoint. List Workspaces omits the Default Workspace; its ID is in the `anthropic-workspace-id` [response header](https://platform.claude.com/docs/en/manage-claude/workspaces#identify-the-workspace-behind-an-api-response) of any request that runs there.
 
 <CodeGroup>
   ```bash cURL
@@ -143,7 +143,7 @@ You can find a workspace's ID in the **ID** column of [Settings → Workspaces](
     -H "anthropic-workspace-id: wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "max_tokens": 1024,
       "messages": [{"role": "user", "content": "Hello, Claude"}]
     }'
@@ -154,7 +154,7 @@ You can find a workspace's ID in the **ID** column of [Settings → Workspaces](
   # Omit --workspace-id for a single-workspace key.
   ant messages create \
     --workspace-id wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ \
-    --model claude-opus-5 \
+    --model claude-opus-5-5 \
     --max-tokens 1024 \
     --message '{role: user, content: "Hello, Claude"}'
   ```
@@ -165,7 +165,7 @@ You can find a workspace's ID in the **ID** column of [Settings → Workspaces](
   # Required on every request for a multi-workspace key.
   # Omit extra_headers for a single-workspace key.
   message = client.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=1024,
       messages=[{"role": "user", "content": "Hello, Claude"}],
       extra_headers={"anthropic-workspace-id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"},
@@ -185,7 +185,7 @@ You can find a workspace's ID in the **ID** column of [Settings → Workspaces](
   // Omit the second argument for a single-workspace key.
   const message = await client.messages.create(
     {
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       messages: [{ role: "user", content: "Hello, Claude" }]
     },
@@ -204,7 +204,7 @@ You can find a workspace's ID in the **ID** column of [Settings → Workspaces](
 
   MessageCreateParams parameters = new()
   {
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Messages = [new() { Role = Role.User, Content = "Hello, Claude" }],
   };
@@ -240,7 +240,7 @@ You can find a workspace's ID in the **ID** column of [Settings → Workspaces](
   // Required on every request for a multi-workspace key.
   // Omit the option for a single-workspace key.
   message, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 1024,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Hello, Claude")),
@@ -263,7 +263,7 @@ You can find a workspace's ID in the **ID** column of [Settings → Workspaces](
   // Required on every request for a multi-workspace key.
   // Omit putAdditionalHeader for a single-workspace key.
   Message message = client.messages().create(MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(1024)
       .addUserMessage("Hello, Claude")
       .putAdditionalHeader("anthropic-workspace-id", "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ")
@@ -284,7 +284,7 @@ You can find a workspace's ID in the **ID** column of [Settings → Workspaces](
   // Required on every request for a multi-workspace key.
   // Omit requestOptions for a single-workspace key.
   $message = $client->messages->create(
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       maxTokens: 1024,
       messages: [['role' => 'user', 'content' => 'Hello, Claude']],
       requestOptions: [
@@ -301,7 +301,7 @@ You can find a workspace's ID in the **ID** column of [Settings → Workspaces](
   # Required on every request for a multi-workspace key.
   # Omit request_options for a single-workspace key.
   message = client.messages.create(
-    model: Anthropic::Model::CLAUDE_OPUS_5,
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 1024,
     messages: [{role: "user", content: "Hello, Claude"}],
     request_options: {extra_headers: {"anthropic-workspace-id" => "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"}}
@@ -336,7 +336,7 @@ Anthropic emails the key's creator as the expiration approaches: 7 days before e
 
 After a key expires, requests made with it return a `401 authentication_error`. Create a new key to restore access; expired keys cannot be reactivated.
 
-The Console API keys table shows each key's expiration, and the Admin API reports each key's `expires_at` timestamp on the [List API Keys](https://platform.claude.com/docs/en/api/admin/api_keys/list) and [Retrieve API Key](https://platform.claude.com/docs/en/api/admin/api_keys/retrieve) endpoints, so you can audit and rotate keys before they expire. The field is `null` for keys without an expiration.
+The Console API keys table shows each key's expiration, and the Admin API reports each key's `expires_at` timestamp on the [List API Keys](https://platform.claude.com/docs/en/api/beta/organization/api_keys/list) and [Retrieve API Key](https://platform.claude.com/docs/en/api/beta/organization/api_keys/retrieve) endpoints, so you can audit and rotate keys before they expire. The field is `null` for keys without an expiration.
 
 Expiration limits the lifetime of a leaked credential, but it is not a substitute for secret hygiene. Regardless of expiration, store keys in a secrets manager and disable or delete any key you suspect has leaked.
 

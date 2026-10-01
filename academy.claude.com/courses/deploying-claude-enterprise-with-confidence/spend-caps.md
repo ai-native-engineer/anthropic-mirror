@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/spend-caps -->
 
-Lesson 9 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutSpend caps
+Lesson 9 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutSpend caps
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Spend caps
 
@@ -114,7 +114,7 @@ The next lesson covers how you’re billed and the settings that move spend with
 
 [Previous lessonGoverning customizations](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/governing-customizations)[Next lessonManaging spend](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/managing-spend)
 
-Lesson 9 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutSpend caps
+Lesson 9 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutSpend caps
 
 The plan
 

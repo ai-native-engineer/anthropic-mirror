@@ -20,10 +20,10 @@ If you signed in with an Enterprise seat, you generally do not need to think abo
 
 ## Choosing a model
 
-Run **`/model`** at any time to see which models are available to your account and to switch between them. As a rough guide:
+Run **`/model`** at any time to see which model you're using, check which models are available to your account, and switch between them. Your default model depends on how you signed in and on your organization's settings. As a rough guide:
 
-* **Sonnet** is the default and is the right choice for the large majority of coding work. It is fast, capable, and cost-efficient.
-* **Opus** offers deeper reasoning for harder problems such as large cross-cutting refactors, difficult debugging, or architectural decisions. It uses meaningfully more of your quota, so switch to it when you need it rather than leaving it on by default.
+* **Sonnet** is the right choice for the large majority of coding work. It is fast, capable, and cost-efficient.
+* **Opus** offers deeper reasoning for harder problems such as large cross-cutting refactors, difficult debugging, or architectural decisions. It uses meaningfully more of your quota, so consider switching to Sonnet for routine work.
 * **Haiku** is the fastest and cheapest option, well suited to quick lookups, simple edits, or high-volume scripted runs.
 
 You can change models mid-session without losing your conversation. A common pattern is to plan with Opus and execute with Sonnet.
@@ -119,5 +119,5 @@ A plan costs a few hundred tokens. A wrong 400-line diff that you revert and reg
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
-* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)

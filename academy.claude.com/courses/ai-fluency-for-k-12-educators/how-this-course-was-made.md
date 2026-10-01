@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made -->
 
-Lesson 1 of 10 · AI Fluency for pK–12 EducatorsHow this course was made
+Lesson 1 of 10 · AI Fluency for pK–12 educatorsHow this course was made
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # How this course was made
 
@@ -26,7 +26,7 @@ Teach For America played a central role in shaping this course by contributing r
 
 [Next lessonWelcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)
 
-Lesson 1 of 10 · AI Fluency for pK–12 EducatorsHow this course was made
+Lesson 1 of 10 · AI Fluency for pK–12 educatorsHow this course was made
 
 How this course was made
 

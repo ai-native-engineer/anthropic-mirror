@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Lyft reduces customer support time by 87% with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69df9bdf814b30f55161a777_lyft-logo.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69df9bdf814b30f55161a777_lyft-logo.svg)
+![Lyft logo](https://assets.claude.com/a7bc2875764acfac8d206c0b7ed10b21b84d9d09.svg)
 
 Industry:
-
-Transportation
+:   Transportation
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 87% faster resolution
 
@@ -40,63 +30,19 @@ Decision-making accuracy improved by over 30%
 
 Customer support
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5244ff22e3ab8e644041_68c469d2fa4e9cd737a10e66_og-claude-customer-support.jpeg)
+![Customer support](https://assets.claude.com/140d607a40b73026a239c3cd8100f1b9c94bb169.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Build AI support agents with a more human touch and transform your customer experience.
 
-Read more
-
-[Read more](https://claude.com/solutions/customer-support)Read more
-
-Customer support
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build AI support agents with a more human touch and transform your customer experience.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Customer support
-
-Build AI support agents with a more human touch and transform your customer experience.
+[Read more](https://claude.com/solutions/customer-support)
 
 Introducing Agent Skills
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6902681b6935a6f61e64165c_og_introducing-agent-skills.jpg)
+![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
-Read more
-
-[Read more](https://claude.com/blog/skills)Read more
-
-Introducing Agent Skills
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Agent Skills
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/blog/skills)
 
 [Lyft](https://www.lyft.com/), a global mobility platform across six continents and thousands of cities, handles customer support interactions that range from simple fare questions to complex issues. The company's support team is one of the only teams at Lyft that directly interface with customers, a critically important task to the company's mission of serving and connecting riders and drivers.
 
@@ -107,7 +53,7 @@ Claude can now use Skills—folders with instructions, scripts, and resources—
 * Reduced customer support resolution time by over 87%
 * Improved decision-making accuracy by over 30%
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6993ee609fe7b87e10a427d5_resized%20Anthropic_x_Lyft_Thumbnail_v03%201.png)
+![](https://assets.claude.com/11ac29d52be8e81c6df6b7a4c93319abe9996bcd.png)
 
 "Claude's personality is really what stuck out to me," said Elyse Hovanesian, Product Lead for AI in Support. "It felt organic."
 
@@ -135,7 +81,7 @@ The team started with drivers, whose needs are complex and varied. Driver onboar
 
 "Claude's personality is really what stuck out to me," said Hovanesian. "It felt organic. Our customers were conversing more and opening up about the issues they were having, which then enabled us to solve them better."
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69961949dda5ec464547da73_Anthropic_x_Lyft_Thumbnail_v09%201.png)
+![](https://assets.claude.com/8089f10c3c62ce52e3466db128bdffb327265553.png)
 
 Lyft reinvested its savings in programs like Lyft Silver that give older riders dedicated one-on-one support.
 
@@ -157,28 +103,6 @@ Looking ahead, Lyft sees Claude handling increasingly complex issues to give the
 
 "Using Claude has completely changed my perspective for what we can create in support at Lyft," said Hovanesian. "There is so much more that we can do to create a better experience for our customers."
 
-"We've empowered our agents to focus on those more complex issues that really require human care."
+> "We've empowered our agents to focus on those more complex issues that really require human care."
 
-Elyse Hovanesian
-
-Product Lead for AI in Support, Lyft
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-No items found.
+Elyse HovanesianProduct Lead for AI in Support, Lyft

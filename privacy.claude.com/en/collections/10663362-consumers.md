@@ -6,13 +6,17 @@
 
 Claude Free, Pro & Max plans
 
-27 articles
+28 articles
 
 [## Cookies](https://privacy.claude.com/en/collections/10702218-cookies)
+
+---
 
 * [What Cookies Does Anthropic Use?](https://privacy.claude.com/en/articles/10023541-what-cookies-does-anthropic-use)
 
 [## Data Handling & Retention](https://privacy.claude.com/en/collections/10672565-data-handling-retention)
+
+---
 
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
@@ -24,6 +28,8 @@ Claude Free, Pro & Max plans
 
 [## Policies & Terms of Service](https://privacy.claude.com/en/collections/10672567-policies-terms-of-service)
 
+---
+
 * [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://privacy.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)
 * [Consumer Terms of Service Updates](https://privacy.claude.com/en/articles/9264813-consumer-terms-of-service-updates)
 * [Terms of Service Updates](https://privacy.claude.com/en/articles/9190861-terms-of-service-updates)
@@ -32,6 +38,8 @@ Claude Free, Pro & Max plans
 * [Updates to our Privacy Policy](https://privacy.claude.com/en/articles/10301952-updates-to-our-privacy-policy)
 
 [## Privacy Settings & Controls](https://privacy.claude.com/en/collections/10672568-privacy-settings-controls)
+
+---
 
 * [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
 * [What is Anthropic’s policy for handling governmental requests for user information?](https://privacy.claude.com/en/articles/10023650-what-is-anthropic-s-policy-for-handling-governmental-requests-for-user-information)
@@ -44,11 +52,16 @@ Claude Free, Pro & Max plans
 
 [## FAQs](https://privacy.claude.com/en/collections/10672566-faqs)
 
+---
+
 * [What is your approach to GDPR or related issues?](https://privacy.claude.com/en/articles/10023628-what-is-your-approach-to-gdpr-or-related-issues)
 
 [## Anthropic Interviewer](https://privacy.claude.com/en/collections/19084219-anthropic-interviewer)
+
+---
 
 * [How does Anthropic Interviewer collect and use my data?](https://privacy.claude.com/en/articles/12996960-how-does-anthropic-interviewer-collect-and-use-my-data)
 * [Supplemental Anthropic Interviewer Privacy Policy](https://privacy.claude.com/en/articles/14139821-supplemental-anthropic-interviewer-privacy-policy)
 * [Anthropic Interviewer sessions completed after March 23, 2026](https://privacy.claude.com/en/articles/14170919-anthropic-interviewer-sessions-completed-after-march-23-2026)
 * [Anthropic Interviewer sessions completed in December 2025](https://privacy.claude.com/en/articles/14170926-anthropic-interviewer-sessions-completed-in-december-2025)
+* [Anthropic Interviewer sessions completed after September 29, 2026](https://privacy.claude.com/en/articles/17232486-anthropic-interviewer-sessions-completed-after-september-29-2026)

@@ -50,17 +50,17 @@ Mantle reuses the `inferenceBedrock*` key names. Only `inferenceBedrockRegion`, 
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
-| AWS region `inferenceBedrockRegion` | `string` | MDM + Bootstrap | — | AWS region for the Bedrock runtime endpoint. |
-| Bedrock base URL `inferenceBedrockBaseUrl` | `string` | MDM + Bootstrap | — | For VPC endpoints or gateway proxies. Host origin only. |
-| Bedrock service tier `inferenceBedrockServiceTier` | `enum` | MDM + Bootstrap | — | Sent as the X-Amzn-Bedrock-Service-Tier header. Leave unset for on-demand. One of: `flex`, `priority`. |
-| AWS bearer token `inferenceBedrockBearerToken` | `string` | MDM + Bootstrap | — | Static bearer token for inference. For providers that support profile or helper-script credentials, prefer those. |
-| AWS SSO start URL `inferenceBedrockSsoStartUrl` | `string` | MDM + Bootstrap | — | Enables in-app AWS sign-in (no AWS CLI needed). Set with the three SSO fields below. |
-| AWS SSO region `inferenceBedrockSsoRegion` | `string` | MDM + Bootstrap | — | IAM Identity Center home region. |
-| AWS SSO account ID `inferenceBedrockSsoAccountId` | `string` | MDM + Bootstrap | — | 12-digit AWS account ID assigned to users in IAM Identity Center. |
-| AWS SSO role name `inferenceBedrockSsoRoleName` | `string` | MDM + Bootstrap | — | IAM Identity Center permission-set name granting bedrock:InvokeModel\* on the account above. |
-| AWS profile name `inferenceBedrockProfile` | `string` | MDM + Bootstrap | — | AWS named profile to use for Bedrock inference credentials. |
-| AWS config directory `inferenceBedrockAwsDir` | `string` | MDM + Bootstrap | — | Folder with AWS config/credentials. Defaults to ~/.aws when no bearer token is set. |
-| AWS CLI path `inferenceBedrockAwsCliPath` | `string` | MDM + Bootstrap | — | Absolute path to the aws executable. Leave unset to find it on PATH. |
+| AWS region `inferenceBedrockRegion` | `string` | MDM + Bootstrap Added in 1.2581.0 | — | AWS region for the Bedrock runtime endpoint. |
+| Bedrock base URL `inferenceBedrockBaseUrl` | `string` | MDM + Bootstrap Added in 1.2581.0 | — | For VPC endpoints or gateway proxies. Host origin only. |
+| Bedrock service tier `inferenceBedrockServiceTier` | `enum` | MDM + Bootstrap Added in 1.5186.0 | — | Sent as the X-Amzn-Bedrock-Service-Tier header. Leave unset for on-demand. One of: `flex`, `priority`. |
+| AWS bearer token `inferenceBedrockBearerToken` | `string` | MDM + Bootstrap Added in 1.2581.0 | — | Static bearer token for inference. For providers that support profile or helper-script credentials, prefer those. |
+| AWS SSO start URL `inferenceBedrockSsoStartUrl` | `string` | MDM + Bootstrap Added in 1.6259.0 | — | Enables in-app AWS sign-in (no AWS CLI needed). Set with the three SSO fields below. |
+| AWS SSO region `inferenceBedrockSsoRegion` | `string` | MDM + Bootstrap Added in 1.6259.0 | — | IAM Identity Center home region. |
+| AWS SSO account ID `inferenceBedrockSsoAccountId` | `string` | MDM + Bootstrap Added in 1.6259.0 | — | 12-digit AWS account ID assigned to users in IAM Identity Center. |
+| AWS SSO role name `inferenceBedrockSsoRoleName` | `string` | MDM + Bootstrap Added in 1.6259.0 | — | IAM Identity Center permission-set name granting bedrock:InvokeModel\* on the account above. |
+| AWS profile name `inferenceBedrockProfile` | `string` | MDM + Bootstrap Added in 1.2581.0 | — | AWS named profile to use for Bedrock inference credentials. |
+| AWS config directory `inferenceBedrockAwsDir` | `string` | MDM + Bootstrap Added in 1.2581.0 | — | Folder with AWS config/credentials. Defaults to ~/.aws when no bearer token is set. |
+| AWS CLI path `inferenceBedrockAwsCliPath` | `string` | MDM + Bootstrap Added in 1.13576.0 | — | Absolute path to the aws executable. Leave unset to find it on PATH. |
 
 inferenceBedrockServiceTier details
 
@@ -74,4 +74,4 @@ The app opens directly on first launch with no user action. Users are never prom
 
 ##  Troubleshoot
 
-To confirm which keys the app read and whether credentials validated, use **Help → Troubleshooting → Copy Managed Configuration Report**; see [Verifying the deployment](https://claude.com/docs/third-party/claude-desktop/installation#verifying-the-deployment) for that workflow and the common causes when the app does not enter 3P mode. Application log locations are listed in [Data storage and residency](https://claude.com/docs/third-party/claude-desktop/data-storage).
+To confirm which keys the app read and whether the provider settings validated, use **Help → Troubleshooting → Generate Diagnostic Report**, export the report, and check `managed-config.txt` and `provider-status.txt`; see [Verifying the deployment](https://claude.com/docs/third-party/claude-desktop/installation#verifying-the-deployment) for that workflow and the common causes when the app does not enter 3P mode. Application log locations are listed in [Data storage and residency](https://claude.com/docs/third-party/claude-desktop/data-storage).

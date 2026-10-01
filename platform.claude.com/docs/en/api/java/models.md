@@ -35,9 +35,17 @@ The Models API response can be used to determine which models are available for 
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
+
+  - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `Optional<List<AnthropicBeta>> betas`
+
+    **Deprecated**: Deprecated. This parameter will be removed from this method in a future release. To use beta features, call the beta models methods (`client.beta.models`) instead.
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -131,11 +139,17 @@ The Models API response can be used to determine which models are available for 
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
-  - `Optional<String> workspaceId`
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
 ### Returns
 
-- `class ModelInfo:`
+- `class ModelInfo`
 
   - `JsonValue type = "model"`
 
@@ -149,7 +163,7 @@ The Models API response can be used to determine which models are available for 
 
   - `Optional<ModelCapabilities> capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `CapabilitySupport batch`
 
@@ -173,15 +187,15 @@ The Models API response can be used to determine which models are available for 
 
       - `Optional<CapabilitySupport> clearThinking20251015`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `Optional<CapabilitySupport> clearToolUses20250919`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `Optional<CapabilitySupport> compact20260112`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `boolean supported`
 
@@ -213,7 +227,7 @@ The Models API response can be used to determine which models are available for 
 
       - `Optional<CapabilitySupport> xhigh`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `CapabilitySupport imageInput`
 
@@ -385,7 +399,15 @@ The Models API response can be used to determine information about a specific mo
 
     Model identifier or alias.
 
+  - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
   - `Optional<List<AnthropicBeta>> betas`
+
+    **Deprecated**: Deprecated. This parameter will be removed from this method in a future release. To use beta features, call the beta models methods (`client.beta.models`) instead.
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -479,11 +501,17 @@ The Models API response can be used to determine information about a specific mo
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
-  - `Optional<String> workspaceId`
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
 ### Returns
 
-- `class ModelInfo:`
+- `class ModelInfo`
 
   - `JsonValue type = "model"`
 
@@ -497,7 +525,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `Optional<ModelCapabilities> capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `CapabilitySupport batch`
 
@@ -521,15 +549,15 @@ The Models API response can be used to determine information about a specific mo
 
       - `Optional<CapabilitySupport> clearThinking20251015`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `Optional<CapabilitySupport> clearToolUses20250919`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `Optional<CapabilitySupport> compact20260112`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `boolean supported`
 
@@ -561,7 +589,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `Optional<CapabilitySupport> xhigh`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `CapabilitySupport imageInput`
 
@@ -712,7 +740,7 @@ public final class Main {
 
 ### Capability Support
 
-- `class CapabilitySupport:`
+- `class CapabilitySupport`
 
   Indicates whether a capability is supported.
 
@@ -722,13 +750,13 @@ public final class Main {
 
 ### Context Management Capability
 
-- `class ContextManagementCapability:`
+- `class ContextManagementCapability`
 
   Context management capability details.
 
   - `Optional<CapabilitySupport> clearThinking20251015`
 
-    Indicates whether a capability is supported.
+    Whether the clear_thinking_20251015 strategy is supported.
 
     - `boolean supported`
 
@@ -736,11 +764,11 @@ public final class Main {
 
   - `Optional<CapabilitySupport> clearToolUses20250919`
 
-    Indicates whether a capability is supported.
+    Whether the clear_tool_uses_20250919 strategy is supported.
 
   - `Optional<CapabilitySupport> compact20260112`
 
-    Indicates whether a capability is supported.
+    Whether the compact_20260112 strategy is supported.
 
   - `boolean supported`
 
@@ -748,7 +776,7 @@ public final class Main {
 
 ### Effort Capability
 
-- `class EffortCapability:`
+- `class EffortCapability`
 
   Effort (reasoning_effort) capability details.
 
@@ -778,11 +806,11 @@ public final class Main {
 
   - `Optional<CapabilitySupport> xhigh`
 
-    Indicates whether a capability is supported.
+    Whether the model supports xhigh effort level.
 
 ### Model Capabilities
 
-- `class ModelCapabilities:`
+- `class ModelCapabilities`
 
   Model capability information.
 
@@ -808,15 +836,15 @@ public final class Main {
 
     - `Optional<CapabilitySupport> clearThinking20251015`
 
-      Indicates whether a capability is supported.
+      Whether the clear_thinking_20251015 strategy is supported.
 
     - `Optional<CapabilitySupport> clearToolUses20250919`
 
-      Indicates whether a capability is supported.
+      Whether the clear_tool_uses_20250919 strategy is supported.
 
     - `Optional<CapabilitySupport> compact20260112`
 
-      Indicates whether a capability is supported.
+      Whether the compact_20260112 strategy is supported.
 
     - `boolean supported`
 
@@ -848,7 +876,7 @@ public final class Main {
 
     - `Optional<CapabilitySupport> xhigh`
 
-      Indicates whether a capability is supported.
+      Whether the model supports xhigh effort level.
 
   - `CapabilitySupport imageInput`
 
@@ -884,7 +912,7 @@ public final class Main {
 
 ### Model Info
 
-- `class ModelInfo:`
+- `class ModelInfo`
 
   - `JsonValue type = "model"`
 
@@ -898,7 +926,7 @@ public final class Main {
 
   - `Optional<ModelCapabilities> capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `CapabilitySupport batch`
 
@@ -922,15 +950,15 @@ public final class Main {
 
       - `Optional<CapabilitySupport> clearThinking20251015`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `Optional<CapabilitySupport> clearToolUses20250919`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `Optional<CapabilitySupport> compact20260112`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `boolean supported`
 
@@ -962,7 +990,7 @@ public final class Main {
 
       - `Optional<CapabilitySupport> xhigh`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `CapabilitySupport imageInput`
 
@@ -1016,7 +1044,7 @@ public final class Main {
 
 ### Thinking Capability
 
-- `class ThinkingCapability:`
+- `class ThinkingCapability`
 
   Thinking capability details.
 
@@ -1042,7 +1070,7 @@ public final class Main {
 
 ### Thinking Types
 
-- `class ThinkingTypes:`
+- `class ThinkingTypes`
 
   Supported thinking type configurations.
 

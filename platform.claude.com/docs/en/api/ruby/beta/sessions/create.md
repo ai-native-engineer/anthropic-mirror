@@ -73,73 +73,75 @@ Create Session
 
       Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more | String`
+      - `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
@@ -163,13 +165,23 @@ Create Session
 
             - `:low`
 
+              Low effort. Favors latency over reasoning depth.
+
             - `:medium`
+
+              Medium effort. Balances latency and reasoning depth.
 
             - `:high`
 
+              High effort. Favors reasoning depth.
+
             - `:xhigh`
 
+              Extra-high effort. Not all models accept this level.
+
             - `:max`
+
+              Maximum effort. Favors reasoning depth over latency.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -207,7 +219,7 @@ Create Session
 
         - `speed: :standard | :fast`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. Defaults to `standard`.
 
           - `:standard`
 
@@ -289,7 +301,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -325,7 +337,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -355,7 +367,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -385,7 +397,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -415,7 +427,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -445,7 +457,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -489,7 +501,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -527,7 +539,7 @@ Create Session
 
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -573,7 +585,7 @@ Create Session
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
-          Default configuration for all tools in a toolset.
+          Default configuration applied to all tools in this set.
 
           - `enabled: bool`
 
@@ -581,7 +593,7 @@ Create Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -623,7 +635,7 @@ Create Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Overrides the `default_config` setting.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -639,7 +651,7 @@ Create Session
 
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
-          Default configuration for all tools from an MCP server.
+          Default configuration for all tools from this server.
 
           - `enabled: bool`
 
@@ -647,7 +659,7 @@ Create Session
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-            Permission policy for tool execution.
+            Default permission policy for tools from this server.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -675,7 +687,7 @@ Create Session
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-          JSON Schema for custom tool input parameters.
+          JSON Schema defining the expected input parameters for the tool.
 
           - `type: :object`
 
@@ -703,13 +715,13 @@ Create Session
 
 - `budget: BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Enforced spend ceiling for the session. Omit to create an uncapped session. Every model the session can run — the agent's model and each callable agent's model — must have a public list price, or the request is rejected with reason `model_not_budgetable`.
 
   - `type: :limit`
 
   - `max_list_cost: BetaMonetaryAmount`
 
-    A monetary amount in a specific currency.
+    Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
     - `amount: String`
 
@@ -753,7 +765,7 @@ Create Session
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -805,7 +817,7 @@ Create Session
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -891,7 +903,7 @@ Create Session
 
     - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. Text or file reference.
 
       - `class BetaManagedAgentsFileRubricParams`
 
@@ -1007,7 +1019,7 @@ Create Session
 
     - `access: :read_write | :read_only`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
 
       - `:read_write`
 
@@ -1035,99 +1047,109 @@ Create Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ## Returns
 
@@ -1167,73 +1189,75 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+        - `:"claude-sonnet-5-5"`
 
-          The model that will power your agent.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `:"claude-opus-5-5"`
 
-          - `:"claude-fable-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `:"claude-fable-5-1"`
 
-          - `:"claude-sonnet-5"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            High-performance model for coding and agents
+        - `:"claude-sonnet-5"`
 
-          - `:"claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `:"claude-fable-5"`
 
-          - `:"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-5"`
 
-          - `:"claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-8"`
 
-          - `:"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-7"`
 
-          - `:"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-6"`
 
-          - `:"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `:"claude-sonnet-4-6"`
 
-          - `:"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5"`
 
-          - `:"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `:"claude-haiku-4-5-20251001"`
 
-          - `:"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5"`
 
-          - `:"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `:"claude-opus-4-5-20251101"`
 
-          - `:"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5"`
 
-          - `:"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
 
         - `String = String`
 
       - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -1271,7 +1295,7 @@ Create Session
 
       - `speed: :standard | :fast`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -1279,7 +1303,7 @@ Create Session
 
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: :coordinator`
 
@@ -1735,19 +1759,19 @@ Create Session
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `type: :limit`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: String`
 
@@ -1775,7 +1799,7 @@ Create Session
 
     - `completed_at: Time`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -1881,7 +1905,7 @@ Create Session
 
       - `access: :read_write | :read_only`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `:read_write`
 
@@ -1907,7 +1931,7 @@ Create Session
 
   - `stats: BetaManagedAgentsSessionStats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `active_seconds: Float`
 
@@ -1923,15 +1947,21 @@ Create Session
 
   - `status: :rescheduling | :running | :idle | :terminated`
 
-    SessionStatus enum
-
     - `:rescheduling`
+
+      Transient error occurred, retrying automatically.
 
     - `:running`
 
+      Agent is actively executing.
+
     - `:idle`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `:terminated`
+
+      Session has ended, either due to an error or completion.
 
   - `title: String`
 
@@ -1943,7 +1973,7 @@ Create Session
 
   - `usage: BetaManagedAgentsSessionUsage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `active_seconds: Float`
 
@@ -1953,7 +1983,7 @@ Create Session
 
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: Integer`
 
@@ -1981,7 +2011,7 @@ Create Session
 
     - `list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `output_tokens: Integer`
 
@@ -1991,7 +2021,7 @@ Create Session
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `web_fetch_requests: Integer`
 

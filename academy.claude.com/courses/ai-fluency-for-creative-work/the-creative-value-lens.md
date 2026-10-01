@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-creative-work/the-creative-value-lens -->
 
-Lesson 2 of 8 · AI Fluency for Creative WorkThe creative value lens
+Lesson 2 of 8 · AI Fluency for creative workThe creative value lens
 
-3. /[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+3. /[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
-[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
 # The creative value lens
 
@@ -50,7 +50,7 @@ The Value Lens describes what your work is for. The next lesson introduces its p
 
 [Previous lessonWelcome to AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work/welcome-to-ai-fluency-for-creative-work)[Next lessonThe production lens](https://academy.claude.com/courses/ai-fluency-for-creative-work/the-production-lens)
 
-Lesson 2 of 8 · AI Fluency for Creative WorkThe creative value lens
+Lesson 2 of 8 · AI Fluency for creative workThe creative value lens
 
 Introduction
 

@@ -18,14 +18,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/20/99/8f/20998fe7-dd23-ba49-aa02-8d0d939c5d7e/AppIcon-0-0-1x_U007emarketing-0-0-0-2-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png)
-
-### [Cortellis CMC Intelligence](https://claude.com/connectors/cortellis-cmc-intelligence)
-
-Trusted regulatory CMC insights, powered by Clarivate’s Cortellis CMC Intelligence.
-
-[Add Cortellis CMC Intelligence in Claude (opens in new tab)](https://claude.ai/directory/6d85e32b-e41b-44bc-b451-aa020b7640b1 "Add in Claude")
-
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
 ### [PubMed](https://claude.com/connectors/pubmed)
@@ -41,6 +33,14 @@ Search biomedical literature from PubMed
 Explore scientific research
 
 [Add Consensus in Claude (opens in new tab)](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6 "Add in Claude")
+
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/20/99/8f/20998fe7-dd23-ba49-aa02-8d0d939c5d7e/AppIcon-0-0-1x_U007emarketing-0-0-0-2-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png)
+
+### [Cortellis CMC Intelligence](https://claude.com/connectors/cortellis-cmc-intelligence)
+
+Trusted regulatory CMC insights, powered by Clarivate’s Cortellis CMC Intelligence.
+
+[Add Cortellis CMC Intelligence in Claude (opens in new tab)](https://claude.ai/directory/6d85e32b-e41b-44bc-b451-aa020b7640b1 "Add in Claude")
 
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/clinical-trials.png)
 

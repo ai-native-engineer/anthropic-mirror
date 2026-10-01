@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/building-effective-human-agent-teams/how-multiplayer-agents-differ -->
 
-Lesson 2 of 5 · Building Effective Human Agent Teams (Beta)How is a multiplayer agent different from traditional AI tools?
+Lesson 2 of 5 · Building effective human-agent teams (beta)How is a multiplayer agent different from traditional AI tools?
 
-3. /[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+3. /[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
-[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
 # How is a multiplayer agent different from traditional AI tools?
 
@@ -56,7 +56,7 @@ Next: what human-agent teams look like in practice.
 
 [Previous lessonWhy multiplayer AI matters](https://academy.claude.com/courses/building-effective-human-agent-teams/why-multiplayer-ai-matters)[Next lessonWhat a strong human-agent team looks like](https://academy.claude.com/courses/building-effective-human-agent-teams/what-a-strong-team-looks-like)
 
-Lesson 2 of 5 · Building Effective Human Agent Teams (Beta)How is a multiplayer agent different from traditional AI tools?
+Lesson 2 of 5 · Building effective human-agent teams (beta)How is a multiplayer agent different from traditional AI tools?
 
 The shift to multiplayer
 

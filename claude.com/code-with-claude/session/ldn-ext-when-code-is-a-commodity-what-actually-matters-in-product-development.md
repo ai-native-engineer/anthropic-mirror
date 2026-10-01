@@ -4,38 +4,28 @@
 
 Three real builds: SaaS product in 10 days, multi-city community on MCP integrations, enterprise advisory pipeline. Code was easy part. Hard part: product judgment, context engineering, knowing what to build.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-10:45 – 11:15
+:   10:45 – 11:15
 
 Speaker(s)
+:   Jacob Langvad Nilsson
 
-Jacob Langvad Nilsson
+    Claude Community Ambassador / Co-founder,
 
-Claude Community Ambassador / Co-founder,
+    Applied Futures
 
-Applied Futures
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+When code is a commodity, what actually matters in product development? | Session | Code w/ Claude 2026

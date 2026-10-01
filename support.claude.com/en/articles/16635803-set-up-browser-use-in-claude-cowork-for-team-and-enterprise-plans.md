@@ -1,5 +1,7 @@
 <!-- source: https://support.claude.com/en/articles/16635803-set-up-browser-use-in-claude-cowork-for-team-and-enterprise-plans -->
 
+**Note:** Claude Cowork and chat are now one Claude, rolling out gradually to Pro and Max plans. Ask for what you need, and Claude decides whether that's a quick answer or a task. Team and Enterprise organizations keep chat and Claude Cowork as they are today, so everything in this article still applies. Learn more in our **[blog post](https://claude.com/blog/cowork-is-now-claude)**.
+
 Claude can use the web in Claude Cowork in two ways: a browser built into the Claude Desktop app, or your users' own Chrome browser through the Claude in Chrome extension. This article explains the difference, how to enable each one for your organization, and what your users see when both are on.
 
 Browser controls for Cowork are available on Team and Enterprise plans. The built-in browser is rolling out gradually this week and works in the Claude Desktop app on macOS, Windows, and Linux (beta). The **Built-in browser** setting may not appear in Organization settings until the rollout reaches your organization. When the desktop app is online, the built-in browser is also available in Cowork on web or mobile.
@@ -30,7 +32,7 @@ When the built-in browser is off, users can't open it and Claude can't use it. T
 
 ## Enable or disable Claude in Chrome
 
-Claude in Chrome is managed separately, in **[Organization settings > Claude in Chrome](https://claude.ai/admin-settings/browser-extension)**. It's on by default on Team plans. On Enterprise plans, it's off by default; starting September 10, 2026, it turns on by default unless you've already disabled it. Site allowlists and blocklists you configure there apply when Claude works in the extension. For setup, deployment, and pilot guidance, see **[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128)**.
+Claude in Chrome is managed separately, in **[Organization settings > Claude in Chrome](https://claude.ai/admin-settings/browser-extension)**. It's on by default on Team plans. On Enterprise plans, it's off by default; starting September 10, 2026, it turns on by default unless you've already disabled it. Site allowlists and blocklists you configure there apply to both the extension and the built-in browser. The same list governs both, so there's no separate list to maintain. For setup, deployment, and pilot guidance, see **[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128)**.
 
 ## When both are enabled
 

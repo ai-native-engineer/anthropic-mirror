@@ -4,33 +4,21 @@ Case study | Claude Enterprise
 
 # League cuts product development cycle times in half with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50faffe550cd0871c1c9_logo_league-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50fdc2966b1ac852794a_logo_league-dark-mode.png)
+![League logo](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
 Industry:
-
-Healthcare
+:   Healthcare
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Enterprise](https://claude.com/solutions/enterprise)[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 Cycle times cut in half
 
@@ -54,57 +42,21 @@ up from 80% when League's company-wide rollout began
 
 ## The challenge
 
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-Read more
-
-[Read more](https://claude.com/healthcare)Read more
-
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Healthcare
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
 ## Finding efficiency in a regulated industry
 
 League has spent almost 12 years building digital health experiences for organizations that answer to regulators: benefits navigation, care programs, and member apps that run on protected health information. Every new tool clears a high compliance bar before touching real work, which kept AI adoption cautious even as employees gained access to AI assistants. "We had those tools, and it was creating tiny little pockets of efficiency for people in their day-to-day," said Signy Roland, AVP of AI Transformation at League. "But it wasn't transformational by any means."
 
 Security reviews backed up about three weeks. Customer implementations ran on traditional healthcare timelines. League saw the market was headed towards agentic member experiences and knew that traditional software approaches would no longer be viable.
 
+Claude for Healthcare
+
+![Claude for Healthcare](https://assets.claude.com/3cc055deed02884f4a1b81019a962925687fccc3.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
+
+[Read more](https://claude.com/healthcare)
+
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-for a Claude skill to complete vendor security risk assessments, down from weeks
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-for a Claude skill to complete vendor security risk assessments, down from weeks
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-15 minutes
-
-for a Claude skill to complete vendor security risk assessments, down from weeks
 
 ## A company-wide commitment instead of a formal evaluation
 
@@ -120,33 +72,13 @@ The forcing function came in March: a 48-hour company event League named the Acc
 
 Two-week sprints gave way to micro-sprints: pods of three or four people scoping, building, and landing production-ready code behind a feature flag in a single sitting. "What we would have called two weeks of scope, we now practice doing in three hours," Galperin added. For larger builds, engineers turn to Swarm, League's internal orchestration tool built on the Claude Platform. A lead agent breaks the work down and spawns a team of agents to execute it in parallel, running overnight. An engineer reviews the work the next morning. To prevent review from becoming the bottleneck, a principal engineer built a Claude-based bot that triages every pull request by the scale of the change and the risk.
 
-"I went into Fable the day it came out and started using it, and I was unlocked even further."
+15 minutes
 
-Jordan Christensen
+for a Claude skill to complete vendor security risk assessments, down from weeks
 
-SVP, Data and AI Engineering, League
+> "I went into Fable the day it came out and started using it, and I was unlocked even further."
 
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+Jordan Christensen SVP, Data and AI Engineering, League
 
 ## The outcome
 
@@ -164,42 +96,24 @@ Customers feel the speed directly. One customer implementation landed two months
 
 That capacity is changing what League considers a reasonable bet. "How ambitious can we be?" Christensen said. "Let's take the constraints off, while still maintaining the level of safety our industry requires."
 
-"We're a company that's been around for almost 12 years, and it took us less than a quarter to stand up all of the security things we needed to become AI-native."
+Claude Code
 
-Signy Roland,
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
-AVP of AI Transformation, League
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-## Related stories
+[Read more](https://claude.com/product/claude-code)
 
-[How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)How League went all in on Claude in a regulated industry
+> "We're a company that's been around for almost 12 years, and it took us less than a quarter to stand up all of the security things we needed to become AI-native."
 
-How League went all in on Claude in a regulated industry
+Signy Roland, AVP of AI Transformation, League
 
-Customer story
+[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-[Customer story](https://claude.com/customers/league-qa)Customer story
+### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Zingage](https://assets.claude.com/7a6b9b092d1ec61d938402cc6744e4d94ed2564a.svg)
 
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+### How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)[![Epic](https://assets.claude.com/eba99cadd0dd874d08d32b4f4c0cfbea1596372e.png)
 
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
-
-How Zingage automates care coordination for 400+ home care agencies with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/zingage)Customer story
-
-[A conversation with Seth Hain about Epic’s internal AI adoption](https://claude.com/customers/epic-systems)A conversation with Seth Hain about Epic’s internal AI adoption
-
-A conversation with Seth Hain about Epic’s internal AI adoption
-
-Customer story
-
-[Customer story](https://claude.com/customers/epic-systems)Customer story
+### A conversation with Seth Hain about Epic’s internal AI adoption](https://claude.com/customers/epic-systems)

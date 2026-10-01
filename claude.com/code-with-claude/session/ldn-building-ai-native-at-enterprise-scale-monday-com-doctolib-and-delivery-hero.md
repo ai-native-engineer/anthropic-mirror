@@ -4,62 +4,50 @@
 
 Three of Europe's fastest-scaling tech companies made three different bets on Claude: Delivery Hero built an autonomous agent that now merges 100+ PRs a day, Doctolib governs Claude Code across its entire healthcare engineering org, and monday.com ships it inside the product to users who've never written code. Hear what they built, where it broke, and how they stay ahead of a model that changes every few months.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-14:35 – 15:05
+:   14:35 – 15:05
 
 Speaker(s)
+:   Ruslan Semenov
 
-Ruslan Semenov
+    Engineering Director,
 
-Engineering Director,
+    monday.com
 
-monday.com
+    Alex Kaluzny
 
-Alex Kaluzny
+    Chief Technology Officer,
 
-Chief Technology Officer,
+    Doctolib
 
-Doctolib
+    Rodrigue Schäfer
 
-Rodrigue Schäfer
+    Vice President Platform,
 
-Vice President Platform,
+    Delivery Hero
 
-Delivery Hero
+    Rebecca Harbeck
 
-Rebecca Harbeck
+    Account Executive,
 
-Account Executive,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Building AI-native at enterprise scale: monday.com, Doctolib, and Delivery Hero](https://assets.claude.com/c57e888dbdc6b3515287ce2b5bd7839c7f852061.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d315011903eeb1effaea_building-ai-native-at-enterprise-scale.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Building AI-native at enterprise scale: monday.com, Doctolib, and Delivery Hero | Session | Code w/ Claude 2026

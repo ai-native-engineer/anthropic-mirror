@@ -169,6 +169,10 @@ agent = client.beta.agents.create(
 
 name="Personal Shopper",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-remember-user-preferences"},
+
 model=MODEL,
 
 system=(

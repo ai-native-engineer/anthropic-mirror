@@ -16,6 +16,8 @@ We introduce CHIVE, an agentic pipeline that discovers unexpected LLM behaviors 
 
 An investigation of one in-the-wild behavior, as produced by the CHIVE pipeline. Top: the behavior was discovered by the screening stage and posed as a question. Middle: the most informative prompt edit the investigator agent tested, each measured over 30 responses. Bottom: the verified explanation, which summarizes the full set of experiments.
 
+---
+
 Many areas of AI safety, such as interpretability and chain-of-thought faithfulness, aim to explain model behaviors. But what makes an explanation of a behavior good? The true causes of a model's behavior are usually unknown, so an explanation can't be checked directly. In this work, we evaluate explanations through the lens of [counterfactual simulatability](https://arxiv.org/abs/2307.08678): a good explanation of a behavior should help you predict what the model will do on related counterfactual inputs. For example, the explanation "Gemma makes this coding error because it’s misled by the parameter names" (Figure 1) predicts that renaming the parameters should prevent the error. Evaluating explanations this way requires datasets that pair model behaviors with proposed explanations and informative counterfactuals.
 
 We introduce CHIVE (Counterfactual Hypothesis Investigation Via Edits), an agentic pipeline that generates such data automatically. Given transcripts from any source, it discovers unexpected behaviors of a target model "in the wild" and investigates each one with counterfactual prompt edits. Each of its thousands of investigations produces two kinds of data: an open-ended explanation of the behavior, which is often compelling but which we do not treat as ground truth, and the counterfactual experiments that support it, with measured outcomes that provide our evaluation labels.
@@ -23,6 +25,8 @@ We introduce CHIVE (Counterfactual Hypothesis Investigation Via Edits), an agent
 We use this CHIVE-generated data to evaluate interpretability tools. A predictor agent is shown the transcript and a claim that a specific prompt edit changes the behavior, and must judge whether the claim is true. Some predictors are additionally given a tool that reads the target model's activations: an [activation oracle](https://alignment.anthropic.com/2025/activation-oracles/), a [natural-language autoencoder](https://transformer-circuits.pub/2026/nla/), or a [sparse autoencoder](https://transformer-circuits.pub/2023/monosemantic-features). Surprisingly, no predictor outperforms one that is just shown the transcript with no access to interpretability tools.
 
 The CHIVE-generated data also let us train models to predict whether prompt edits would change their behavior. The trained models improve substantially in settings held out from training.
+
+---
 
 ## CHIVE: a pipeline for discovering counterfactual explanations for model behaviors
 
@@ -44,6 +48,8 @@ Each investigation yields two kinds of data. The first is an open-ended explanat
 ![](https://alignment.anthropic.com/2026/chive/fig3.png)
 
 Each investigation yields two kinds of data, shown for the Figure 1 investigation and formatted as follow-up turns on the model's own transcript. Left: a counterfactual claim asserts that a specific prompt edit would change the behavior, and its Yes/No label is verified by running the edit. Right: an open-ended explanation of the causes, which we do not treat as ground truth.
+
+---
 
 ## Interpretability tools provide no uplift on our evaluation
 
@@ -81,6 +87,8 @@ Most system card case studies do not include a transcript-reading reference. Som
 
 Overall, we still believe these tools can be valuable, as they provide evidence about internal states that no other method can obtain. Our results do not invalidate these use cases, as there are important differences between our evaluation and applied use cases, but they also do not validate them. Our evaluation is a close checkable proxy, and the tools provided no uplift. Until that changes, we think causal claims based on tool outputs should only be treated as suggestive evidence.
 
+---
+
 ## Training models to predict their own behavior
 
 The same investigations that make up the evaluation can also serve as training data. We train models to predict the outcomes of counterfactual prompts. Each training example is a follow-up turn on the model's own transcript with a single claim (Figure 3, left).
@@ -92,6 +100,8 @@ Prior work trains models to report what influenced them in narrow tasks such as 
 Performance on our counterfactual prediction evaluation in the hint setting. All models read the same transcripts and predict whether removing the hint would change the target model’s answer. Opus 4.8 reads the same transcript and is included as an external reference. Both trained models improve substantially over their base models, despite seeing no hint data during training.
 
 Training generalizes to the hint setting, which was not targeted during training. For this evaluation, we ask the model whether removing the cue would change its answer. Each trained model improves substantially over its base model (Figure 5). It also generalizes to held-out investigations from the pipeline, including ones built from an out-of-distribution source of transcripts. We also experimented with training models to generate open-ended explanations of their own behavior (Figure 3, right), with weaker mixed results; see our paper's appendix for details.
+
+---
 
 ## In summary
 

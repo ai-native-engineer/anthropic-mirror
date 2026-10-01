@@ -12,7 +12,7 @@ A playbook for rolling out Claude Cowork across your organization.
 
 [Open Cowork](claude://cowork/new)
 
-![](https://academy.claude.com/assets/v1/thumbnail.light-eb38a4h1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j0al2e51.png)
+![](https://academy.claude.com/assets/v1/thumbnail.light-bvn0kt1s.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-iu3pg3zz.png)
 
 ## The scaling mindset[](#the-scaling-mindset)
 
@@ -30,7 +30,7 @@ You are the director of this rollout, and that ownership does not transfer becau
 
 | Component | What it does | Help center |
 | --- | --- | --- |
-| Connectors | Make your data accessible to Claude Cowork. Give Claude Cowork access to tools your teams use — Google Drive, Slack, HubSpot, GitHub, etc. | [Connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) |
+| Connectors | Make your data accessible to Claude Cowork. Give Claude Cowork access to tools your teams use — Google Drive, Slack, [Salesforce(opens in new tab)](https://claude.ai/desktop/directory/salesforce-headless-360), GitHub, etc. | [Connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) |
 | Skills | Instructions that tell Claude how to do a specific task — skills work for simple tasks and multi-step workflows. | [Skills(opens in new tab)](https://support.claude.com/en/articles/12512180-use-skills-in-claude) |
 | Plugins | Packages of skills + connectors, distributed to specific teams or your whole org. | [Plugins(opens in new tab)](https://code.claude.com/docs/en/plugins) |
 | Scheduled tasks | Save a prompt and Claude runs it on a schedule (hourly, daily, weekly, weekdays, or on-demand) with access to everything a regular Cowork session does: connected tools, local files, and Chrome. Daily reports, weekly digests, recurring data pulls. | [Scheduled tasks(opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork) |
@@ -62,17 +62,17 @@ Workflows scale when skills get distributed through departments and surface to t
 
 Your governance posture determines which of these paths are open. Think through the right skill and plugin management approach for your org as you select initial settings.
 
-| Posture | What it means | Org Settings > Skills Settings |
+| Posture | What it means | Organization settings > Skills |
 | --- | --- | --- |
-| Admin curated | **Admins provision; users consume** Users can't create personal skills. Peer-to-peer and peer-to-org sharing are both disabled.  Skills and plugins come from admins only. | **Skills:** On **User-created skills:** Off **Skill sharing:** Off **Share with organization:** Off |
-| Guided creation | **Users create and share skills peer-to-peer; champions promote to plugins.**  Users can create personal skills and share skills with peers.  Sharing disabled peer-to-org. Champions review and promote the best skills to team plugins. | **Skills:** On **User-created skills:** On **Skill sharing:** On **Share with organization:** Off |
-| Fully open | **Users create and share with each other and org-wide; admins monitor and curate plugins.**  Users can create personal skills and share skills with peers and the org.  Admins monitor skill adoption and usage. Champions run quarterly skill reviews. | **Skills:** On **User-created skills:** On **Skill sharing:** On **Share with organization:** On |
+| Admin curated | **Admins provision; users consume** Users can't create personal skills. Peer-to-peer and peer-to-org sharing are both disabled.  Skills and plugins come from admins only. | **Skills:** On **User-created skills:** Off **Skill sharing:** Off **Publishing:** Off |
+| Guided creation | **Users create and share skills peer-to-peer; champions promote to plugins.**  Users can create personal skills and share skills with peers.  Sharing disabled peer-to-org. Champions review and promote the best skills to team plugins. | **Skills:** On **User-created skills:** On **Skill sharing:** On **Publishing:** Off |
+| Fully open | **Users create and share with each other and org-wide; admins monitor and curate plugins.**  Users can create personal skills and share skills with peers and the org.  Admins monitor skill adoption and usage. Champions run quarterly skill reviews. | **Skills:** On **User-created skills:** On **Skill sharing:** On **Publishing:** Open |
 
-Posture isn't one switch — it's three org-level toggles in Settings → Skills, plus how you scope plugins:
+Posture isn't one switch — it's three org-level settings in Organization settings > Skills, plus how you scope plugins:
 
 * User-created skills — can users build their own?
 * Skill sharing — can users hand a skill to a teammate?
-* Share with organization — can users publish to the org directory?
+* Publishing — can users publish to the org library: not at all (Off), once an owner approves each submission (Requires review), or freely (Open)?
 * Plugin group access — which groups see / auto-install each plugin?
 
 Plugin sharing to groups allows Admins to override a plugin's org-wide availability for specific groups, further scoping plugin access — e.g. make a plugin available only to the Legal group, or auto-install it for Engineering while keeping it hidden from everyone else.

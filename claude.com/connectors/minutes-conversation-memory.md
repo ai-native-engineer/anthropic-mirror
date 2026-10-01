@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://useminutes.app/for-agents)[Support (opens in new tab)](https://useminutes.app)
+More[Documentation (opens in new tab)](https://useminutes.app/for-agents)[Support (opens in new tab)](https://useminutes.app)[Privacy policy (opens in new tab)](https://useminutes.app/privacy)
 
 Minutes is the private, owned conversation-memory layer. Record meetings, voice memos, and dictation; transcribe them on your own machine; and get structured markdown in `~/meetings/` that policy-aware local tools expose to Claude Desktop, Claude Code, Codex, Gemini CLI, Cursor, OpenCode, Pi, and MCP-compatible clients — no proprietary SDK, no API key. Restricted meetings are excluded from agent results by default; explicit access requires a trusted launch policy, a per-call request, and a durable audit record. Minutes never uploads your audio; meeting text leaves your device only when you explicitly send policy-authorized context to a connected cloud agent or summarizer. When a cloud memory tool gets acquired or subpoenaed, your recordings aren't theirs to hand over. No vendor to outlive — ten years from now, `grep` still works on your corpus.
 
@@ -91,16 +91,6 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://support.healthdataavatar.com/HDA-square.svg)
-
-### [Health Data Avatar (HDA)](https://claude.com/connectors/health-data-avatar-hda)
-
-Trending
-
-Your complete health history structured for Claude
-
-[Add Health Data Avatar (HDA) in Claude (opens in new tab)](https://claude.ai/directory/ebacb52d-dedb-424a-981c-3f6a14495676 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
 ### [Microsoft 365](https://claude.com/connectors/microsoft-365)
@@ -108,3 +98,11 @@ Your complete health history structured for Claude
 Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
+
+![](https://www.notion.so/images/notion-logo-block-main.svg)
+
+### [Notion](https://claude.com/connectors/notion)
+
+Connect your Notion workspace to search, update, and power workflows across tools
+
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

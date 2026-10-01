@@ -17,7 +17,7 @@ Send Events
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--event: array of BetaManagedAgentsEventParams`
 
@@ -77,7 +77,7 @@ Send Events
 
           - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `beta_managed_agents_base64_image_source: object`
 
@@ -129,7 +129,7 @@ Send Events
 
           - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `beta_managed_agents_base64_document_source: object`
 
@@ -205,7 +205,7 @@ Send Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the agent finished processing this message.
 
         format: date-time
 
@@ -221,7 +221,7 @@ Send Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the interrupt was processed.
 
         format: date-time
 
@@ -241,7 +241,7 @@ Send Events
 
       - `result: "allow" or "deny"`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `"allow"`
 
@@ -259,13 +259,13 @@ Send Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the confirmation was processed.
 
         format: date-time
 
       - `session_thread_id: optional string`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_user_custom_tool_result_event: object`
 
@@ -305,7 +305,7 @@ Send Events
 
           - `citations: object`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `enabled: boolean`
 
@@ -341,13 +341,13 @@ Send Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id: optional string`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_user_define_outcome_event: object`
 
@@ -375,13 +375,13 @@ Send Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the outcome was accepted.
 
         format: date-time
 
       - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
         - `beta_managed_agents_file_rubric: object`
 
@@ -443,13 +443,13 @@ Send Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id: optional string`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_system_message_event: object`
 
@@ -475,7 +475,7 @@ Send Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this system message was processed.
 
         format: date-time
 

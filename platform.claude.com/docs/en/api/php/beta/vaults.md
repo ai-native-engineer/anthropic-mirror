@@ -31,9 +31,13 @@ Create Vault
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -43,7 +47,7 @@ Create Vault
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -124,9 +128,13 @@ List Vaults
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -136,7 +144,7 @@ List Vaults
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -207,15 +215,21 @@ Get Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to retrieve.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -225,7 +239,7 @@ Get Vault
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -289,6 +303,8 @@ Update Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to update.
+
 - `displayName?:optional string`
 
   Updated human-readable name for the vault. 1-255 characters.
@@ -303,9 +319,13 @@ Update Vault
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -315,7 +335,7 @@ Update Vault
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -381,15 +401,21 @@ Delete Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to delete.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeletedVault`
+- `class BetaManagedAgentsDeletedVault`
 
   - `Type type`
 
@@ -436,15 +462,21 @@ Archive Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to archive.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -454,7 +486,7 @@ Archive Vault
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -510,7 +542,7 @@ var_dump($betaManagedAgentsVault);
 
 ### Beta Managed Agents Deleted Vault
 
-- `BetaManagedAgentsDeletedVault`
+- `class BetaManagedAgentsDeletedVault`
 
   - `Type type`
 
@@ -520,7 +552,7 @@ var_dump($betaManagedAgentsVault);
 
 ### Beta Managed Agents Vault
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -530,7 +562,7 @@ var_dump($betaManagedAgentsVault);
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -562,9 +594,11 @@ Create Credential
 
 - `vaultID: string`
 
+  Identifier of the vault to create the credential in.
+
 - `auth: Auth`
 
-  Authentication details for creating a credential.
+  Authentication configuration for the credential.
 
 - `displayName?:optional string`
 
@@ -580,9 +614,13 @@ Create Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -592,11 +630,11 @@ Create Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -676,6 +714,8 @@ List Credentials
 
 - `vaultID: string`
 
+  Identifier of the vault to list credentials for.
+
 - `includeArchived?:optional bool`
 
   Whether to include archived credentials in the results.
@@ -694,9 +734,13 @@ List Credentials
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -706,11 +750,11 @@ List Credentials
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -791,7 +835,11 @@ Get Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to retrieve.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -799,9 +847,13 @@ Get Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -811,11 +863,11 @@ Get Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -889,11 +941,15 @@ Update Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to update.
 
 - `auth?:optional Auth`
 
-  Updated authentication details for a credential.
+  Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
 - `displayName?:optional string`
 
@@ -909,9 +965,13 @@ Update Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -921,11 +981,11 @@ Update Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -1013,7 +1073,11 @@ Delete Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to delete.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -1021,9 +1085,13 @@ Delete Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsDeletedCredential`
+- `class ManagedAgentsDeletedCredential`
 
   - `Type type`
 
@@ -1075,7 +1143,11 @@ Archive Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to archive.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -1083,9 +1155,13 @@ Archive Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -1095,11 +1171,11 @@ Archive Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -1173,7 +1249,11 @@ Validate Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to validate.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -1181,9 +1261,13 @@ Validate Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredentialValidation`
+- `class ManagedAgentsCredentialValidation`
 
   - `Type type`
 
@@ -1197,19 +1281,19 @@ Validate Credential
 
   - `?ManagedAgentsMCPProbe mcpProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
   - `?ManagedAgentsRefreshObject refresh`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
   - `ManagedAgentsCredentialValidationStatus status`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
   - `\Datetime validatedAt`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
   - `string vaultID`
 

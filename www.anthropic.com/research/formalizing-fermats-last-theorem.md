@@ -165,23 +165,23 @@ The full proof is available on [GitHub](https://github.com/anthropics/fermats-la
 2. There are numerous other stories of the mathematical community struggling with verification. Among the most famous is Thomas Hales’s 1998 proof of the [Kepler conjecture](https://en.wikipedia.org/wiki/Kepler_conjecture), which spent four years in review before a 12-referee panel settled for “99% certain” (Hales eventually led a 20-person project, [Flyspeck](https://github.com/flyspeck/flyspeck), that formalized the proof). Grigori Perelman’s 2002 proof of the [Poincaré conjecture](https://en.wikipedia.org/wiki/Poincar%C3%A9_conjecture) took the community roughly four years and three 300-page expositions to accept. Harald Helfgott’s 2013 proof of the [weak Goldbach conjecture](https://en.wikipedia.org/wiki/Goldbach%27s_weak_conjecture) is still under review. Sometimes results that turn out to be wrong are [accepted for years](https://www.ias.edu/ideas/2014/voevodsky-origins), and other mathematicians build their theories on these faulty foundations.
 3. This is partly because Mathlib is concise and well-reviewed, while our proof is likely much longer than it needs to be.
 
-### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+### What work can robots do?
 
-Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
 
-[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
 
-### An alignment assessment of recent cybersecurity incidents
+### What do you want from AI?
 
-We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
-[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
 
-### Automated researchers can reliably mitigate alignment failures
+### GLM-5.3 and the spread of advanced cyber capabilities
 
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
 
 ## Subscribe to Anthropic Science
 

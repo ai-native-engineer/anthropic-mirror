@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/course-quiz -->
 
-Quiz 1 of 1 · AI Fluency for Small BusinessesCourse quiz
+Quiz 1 of 1 · AI Fluency for small businessesCourse quiz
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # Course quiz
 
@@ -14,7 +14,7 @@ You've reached the final quiz for AI Fluency for Small Businesses. Its 7 questio
 
 [Previous lessonClosure and looking forward](https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward)[Up nextCompletion badge](https://academy.claude.com/courses/ai-fluency-for-small-businesses/badge)
 
-Quiz 1 of 1 · AI Fluency for Small BusinessesCourse quiz
+Quiz 1 of 1 · AI Fluency for small businessesCourse quiz
 
 Introduction and AI Fluency framework
 
@@ -24,7 +24,6 @@ Introduction and AI Fluency framework
 How AI works
 
 * [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
-* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
 
 The Description-Discernment loop
 

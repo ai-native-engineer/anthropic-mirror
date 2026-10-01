@@ -62,7 +62,7 @@ To find the latest setup guidance, see [Get started with Claude in Chrome(opens 
 
 ## Try it now[](#try-it-now)
 
-Pick one task on your plate that lives in a browser-based tool that doesn't have a connector. Open Cowork, describe the task, and let Claude work in Chrome, then hand off insights to Claude in Cowork.
+Pick one task on your plate that lives in a browser-based tool that doesn't have a connector. Give it to Cowork and let Claude work in Chrome, the way the dashboard example above does.
 
 ## What’s next[](#whats-next)
 

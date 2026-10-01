@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/office-agents/third-party-platforms -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Organizations using Amazon Bedrock, Google Cloud Vertex AI, Azure AI
 Foundry, or an LLM gateway can deploy Claude’s Office add-ins without
 requiring individual Claude accounts. The add-in connects through your
@@ -67,6 +75,22 @@ inference goes to `api.anthropic.com`.
 | `bridge.claudeusercontent.com` | If using work across apps | WebSocket bridge for the work-across-apps feature. |
 | `graph.microsoft.com` | If using Outlook | Microsoft Graph mailbox and calendar API. |
 
+If your organization has
+[IP allowlisting](https://support.claude.com/en/articles/13200993-restrict-access-to-claude-with-ip-allowlisting)
+enabled for Claude, route `bridge.claudeusercontent.com` through the same
+proxy egress as `claude.ai` and `api.anthropic.com`, for example by
+placing it in the same Zscaler app segment or Netskope steering policy. If
+you cannot route it that way, add the egress address your proxy uses for
+that domain to your organization’s Claude IP allowlist, but only when that
+address is dedicated to your organization: a shared proxy egress range also
+admits the proxy vendor’s other customers.
+Anthropic checks connections to `bridge.claudeusercontent.com` against your
+organization’s Claude IP allowlist using the address they arrive from. If
+your proxy sends traffic for that domain out through an address that is not
+on that allowlist,
+[work across apps](https://claude.com/docs/office-agents/work-across-apps) stops while the rest of
+the add-in keeps working.
+
 ###  Third-party platforms (3P)
 
 Use this table if your organization signs in with Microsoft Entra ID
@@ -88,7 +112,16 @@ AI Foundry.
 | `aiplatform.googleapis.com` | If using Vertex AI direct | Vertex AI global inference endpoint. |
 | `<region>-aiplatform.googleapis.com` | If using Vertex AI direct | Vertex AI regional inference endpoint; replace `<region>` with your GCP region. |
 | `<resource>.services.ai.azure.com` | If using Foundry direct | Azure AI Foundry inference endpoint; replace `<resource>` with your resource name. |
+| Your Foundry gateway URL | If using Foundry direct through your own gateway | The gateway or proxy set in `azure_base_url`. Connections made while it is set do not call `<resource>.services.ai.azure.com`. |
 | `graph.microsoft.com` | If using Outlook | Microsoft Graph mailbox and calendar API. |
+
+If Anthropic serves your add-in settings from your Claude organization,
+as described in
+[Serve add-in settings from your Claude organization](#serve-add-in-settings-from-your-claude-organization),
+also allow `claude.ai` and `api.anthropic.com`. Members sign in with
+their Claude account at `claude.ai`, and the add-in reads your
+organization’s settings from `api.anthropic.com`. Inference still goes
+only to the gateway or cloud provider those settings name.
 
 ##  Deploy the add-in for your organization
 
@@ -197,6 +230,26 @@ different settings.
 
 Configuration resolution at add-in load: bootstrap, Entra ID attributes, then manifest parameters.
 
+###  Keep credentials out of the manifest URL query string
+
+Prefer a bootstrap endpoint (`bootstrap_url`) or Entra ID sign-in with
+`gateway_auth_source=entra`, so no credential appears in the manifest or
+in any URL. If you keep URL configuration, put `gateway_token`,
+`azure_api_key`, `google_client_secret`, `otlp_headers`,
+`inference_headers`, and `mcp_servers` after `#`, never after `?`:
+the browser sends the query string to the server on every load, where
+request logs record it, while the fragment stays in the browser. The
+add-in warns in the console when one of these keys arrives in the query
+string and ignores it there from October 19, 2026.
+The following example shows the change. Apply it to both `SourceLocation`
+and the `Taskpane.Url` resource, keep `&` written as `&amp;` in the XML,
+and redeploy the manifest from the Microsoft 365 admin center.
+
+```
+before: https://pivot.claude.ai/?gateway_url=https://ai-gateway.example.com/v1&amp;gateway_token=sk-gw-xxxxx&amp;m=excel3p-1.0.0.1
+after:  https://pivot.claude.ai/?gateway_url=https://ai-gateway.example.com/v1&amp;m=excel3p-1.0.0.1#gateway_token=sk-gw-xxxxx
+```
+
 ###  Admin feature controls
 
 The `disabled_features` configuration key turns off individual add-in
@@ -256,6 +309,8 @@ available on the Outlook surface.
 
 After the wizard generates your manifest files:
 
+1
+
 Upload the manifest
 
 Open the Microsoft 365 Admin Center and go to Settings, Integrated
@@ -263,12 +318,16 @@ apps, Upload custom apps. Select “Office Add-in” as the app type,
 then upload the `manifest.xml` file. If you are deploying Outlook,
 repeat this step with `manifest-outlook.xml` as a second custom app.
 
+2
+
 Choose who gets the add-in
 
 If all users share the same configuration, select “Entire
 organization”. If you wrote per-user attributes, assign to “Specific
 users/groups” matching exactly who was configured. Others would open
 the add-in with no configuration.
+
+3
 
 Finish deployment
 
@@ -286,13 +345,143 @@ sideload and validate a manifest locally before a tenant-wide upload.
 Start with a pilot group to confirm functionality, then widen
 assignment. You can change assignment later without redeploying.
 
+##  Serve add-in settings from your Claude organization
+
+Anthropic can serve the add-in’s configuration to the members of a
+Claude organization directly, in place of manifest parameters, Microsoft
+Entra ID attributes, or a bootstrap endpoint. Members sign in with the
+add-in’s standard “Log in” button and their Claude account. The add-in
+then reads the organization’s settings from Anthropic and connects to
+the gateway or cloud provider those settings name. Prompts and responses
+still travel only to that provider, never to Anthropic.
+This option is in preview. It works in Anthropic’s preview environments
+and is not yet enabled for production organizations. Members need the
+add-in’s “Log in” button, which the Microsoft AppSource install and any
+manifest without connection parameters show.
+
+###  How the sign-in works
+
+The sequence below is what a member sees. No per-member admin action is
+needed.
+
+1. The member selects “Log in” on the add-in’s sign-in screen and
+   approves the sign-in in the browser with their Claude account.
+2. Anthropic’s sign-in response identifies the member’s organization as
+   one whose add-in settings Anthropic serves. The add-in confirms with
+   Anthropic that the account and organization on the token match that
+   response, stores the sign-in, and reloads the task pane. If the check
+   fails, the add-in discards and revokes the token and shows “Couldn’t
+   verify your organization’s sign-in.”
+3. After the reload, the add-in reads the organization’s settings from
+   `api.anthropic.com` and opens the connection screen with the served
+   values filled in, such as the gateway URL, API format, authorization
+   header, and available models. When the served settings include every
+   value the connection needs, the add-in connects without further
+   input. Otherwise the member enters the missing value, typically the
+   gateway token from your IT team, and connects.
+4. While the member stays signed in, the add-in reads the served
+   settings again at each launch and periodically while it runs, so
+   changes an admin makes apply without redeploying the manifest.
+
+###  What served settings control
+
+Served settings use the same configuration keys as the manifest and a
+bootstrap endpoint, including the keys described in
+[Per-user configuration](#per-user-configuration) and
+[Admin feature controls](#admin-feature-controls). A few rules are
+specific to this path:
+
+* **Single source**: for a member signed in this way, the served
+  document is the only configuration source. The add-in does not merge
+  it with manifest parameters, Entra ID attributes, or a bootstrap
+  endpoint, and nothing from the task pane URL fills a key the served
+  document leaves out.
+* **Applied as delivered**: the add-in applies served settings the same
+  way it applies manifest configuration, with no per-setting consent
+  prompt. The Claude organization admin who edits served settings can
+  be a different person from the Microsoft 365 admin who deployed the
+  manifest.
+* **No bootstrap endpoint**: a member signed in this way uses no
+  bootstrap endpoint at all. If served settings name a `bootstrap_url`,
+  the add-in ignores it and never sends the member’s token there.
+* **Last known settings at reload**: the add-in keeps the most recent
+  served document so a reloading task pane can start on it while it
+  reads the current one. The saved copy is used only for the member and
+  organization it was fetched for, and is replaced as soon as the
+  current document arrives.
+* **Settings withdrawn**: if Anthropic stops serving settings for the
+  organization, the add-in stops using any saved copy and shows “Claude
+  isn’t available for your organization here” until the member signs
+  out. If the first read fails before any settings have arrived, the
+  add-in shows “Couldn’t load your organization’s settings” with Try
+  again and Sign out actions instead of starting on defaults.
+
+###  What the add-in stores for this sign-in
+
+The sign-in is an OAuth access token and refresh token that can read
+the member’s profile and the organization’s add-in settings. The add-in
+also sends it with the feature-flag and telemetry requests described in
+[What Anthropic collects](#what-anthropic-collects) so those requests
+identify the signed-in member. It carries no inference access, so it
+cannot be used to send prompts to Anthropic.
+The add-in stores the token in localStorage within its sandboxed iframe,
+in the same place and form as a Claude account sign-in, and refreshes it
+in the background. It is not synced to Anthropic’s servers. Unlike a
+Claude account sign-in, it is also not copied to the Office add-in
+storage that lets a sign-in carry across Office applications, so a
+member can be asked to log in again in another Office application or
+after Office clears the add-in’s browser storage.
+Signing out revokes the token with Anthropic, removes it and the saved
+settings from storage, and signs the member out of any other open Claude
+task panes that share that storage.
+If the browser blocks the add-in’s storage, for example when
+third-party site data is blocked for Office on the web, the add-in
+refuses the sign-in rather than holding it in memory only. It revokes
+the token and asks the member to allow site data for the add-in and
+select “Log in” again.
+
 ##  Connection instructions for end users
 
-###  LLM gateway
+###  Claude account with organization-served settings
+
+Use these steps if your IT team told you to sign in with your Claude
+account and your organization’s settings are served by Anthropic.
+
+1
 
 Open the add-in
 
 Open Excel, PowerPoint, Word, or Outlook and launch the Claude add-in.
+
+2
+
+Log in with your Claude account
+
+On the sign-in screen, select “Log in”, then approve the sign-in in
+the browser window that opens. The task pane reloads when the
+sign-in is accepted.
+
+3
+
+Review the connection and connect
+
+The connection screen opens with your organization’s values filled
+in. If a field such as the gateway token is empty, enter the value
+your IT team provided, then connect. If every value was served, the
+add-in connects on its own.
+
+If another Claude task pane was already open, it shows “Reload to finish
+signing in”. Select Reload in that pane.
+
+###  LLM gateway
+
+1
+
+Open the add-in
+
+Open Excel, PowerPoint, Word, or Outlook and launch the Claude add-in.
+
+2
 
 Select your connection mode
 
@@ -300,6 +489,8 @@ On the sign-in screen, select “Cloud provider or gateway”. Then
 choose your connection: Gateway, Vertex, Bedrock, or Azure. Contact
 your IT team for connection details if you’re unsure which one to
 select.
+
+3
 
 Enter your credentials
 
@@ -310,6 +501,8 @@ provided. By default the add-in sends the token in the `x-api-key`
 header with every request. If your admin set
 `gateway_auth_header: authorization` in the manifest, the add-in
 sends `Authorization: Bearer <token>` instead.
+
+4
 
 Connect
 
@@ -331,9 +524,13 @@ LLM gateway request flow: the add-in calls your gateway, which routes to your ch
 
 ###  Bedrock, Vertex AI, or Foundry direct
 
+1
+
 Open the add-in
 
 Open Excel, PowerPoint, Word, or Outlook and launch the Claude add-in.
+
+2
 
 Authenticate
 
@@ -348,6 +545,8 @@ pre-filled the Azure resource name and API key. If your admin enabled
 keyless sign-in, the add-in uses your Microsoft work account and no
 key is involved. Otherwise, enter the values your IT team provided
 and select Connect.
+
+3
 
 Start working
 
@@ -407,13 +606,45 @@ When `gateway_auth_source=entra` is set, the add-in ignores any
 Each user sees a one-time Microsoft sign-in prompt if silent sign-in is
 not available; afterwards the add-in connects automatically.
 
+###  Route Foundry direct through your own gateway
+
+If your organization reaches Azure AI Foundry through a gateway or proxy
+it operates, such as Azure API Management, set `azure_base_url` to that
+gateway’s base URL, path included. The add-in then sends every Foundry
+request to `<azure_base_url>/v1/messages` instead of
+`https://<resource>.services.ai.azure.com/anthropic/v1/messages`, with
+the same credential and headers it would send to the resource: the API
+key as `x-api-key`, or each user’s Microsoft Entra ID token as
+`Authorization: Bearer` with keyless sign-in. `azure_resource_name` is
+still required and names the resource behind the gateway.
+Use the same value you would set as Claude Code’s
+`ANTHROPIC_FOUNDRY_BASE_URL`. The URL must use HTTPS. Because the add-in
+calls the gateway from the browser, the gateway must meet the
+[CORS requirements](#cors-requirements), and your network must allow its
+domain as listed in the [network allowlist](#network-allowlist). On this
+path the add-in also sends the `anthropic-beta` header, and with keyless
+sign-in the `authorization` header, so the gateway’s CORS preflight must
+allow both and the gateway must forward `anthropic-beta` to Foundry.
+Users who connected before you set `azure_base_url` keep their direct
+connection until they log out and sign in again, as described in
+[Change or update your gateway connection](#change-or-update-your-gateway-connection).
+Until the setup wizard accepts this key, add `azure_base_url` to the
+generated manifest URL by hand, or deliver it per user through Microsoft
+Entra ID extension attributes or a bootstrap endpoint.
+The following manifest parameters configure this path.
+
+| Parameter | Value |
+| --- | --- |
+| `azure_resource_name` | Your Foundry resource name. |
+| `azure_base_url` | The gateway base URL, for example `https://ai-gateway.example.com/foundry/anthropic`. |
+| `azure_api_key` | The key the gateway expects as `x-api-key`. Omit it with keyless sign-in. |
+
 ###  Change or update your gateway connection
 
 If your gateway API token expires or your IT team provides a new URL,
-go to Settings in the add-in sidebar, enter the new values, and select
-“Test Connection”. This Settings section appears only for gateway
-connections. For Bedrock, Vertex AI, or Foundry direct, select Logout
-from the account menu and sign in again with your new credentials.
+select Logout from the account menu and sign in again with your new
+credentials. This applies to LLM gateway, Bedrock, Vertex AI, and
+Foundry direct connections alike.
 
 ##  Gateway requirements for IT teams
 
@@ -503,7 +734,7 @@ below summarizes how the Office add-in setup differs.
 | --- | --- | --- |
 | Credential storage | OS keychain or environment variables | Browser localStorage (sandboxed iframe) |
 | Auth configuration | Environment variables, settings file, helper scripts | Manual entry in add-in UI (gateway), Entra ID (Bedrock, keyless Foundry), Google OAuth (Vertex AI), or Azure API key (Foundry) |
-| Token refresh | Supports helper scripts for rotation | Automatic via a bootstrap endpoint (gateway), Entra ID (Bedrock, keyless Foundry), or Google OAuth (Vertex AI); gateway tokens entered manually in the add-in UI require re-entry in settings |
+| Token refresh | Supports helper scripts for rotation | Automatic via a bootstrap endpoint (gateway), Entra ID (Bedrock, keyless Foundry), or Google OAuth (Vertex AI); gateway tokens entered manually in the add-in UI require signing out and back in when they rotate |
 | Custom model names | Configurable via environment variables | Not configurable in v1 |
 
 When gateway configuration comes from a bootstrap endpoint, the add-in
@@ -514,7 +745,8 @@ If the gateway rejects a request as unauthorized before that expiry, the
 add-in calls the bootstrap endpoint once and retries the request if the
 token changed.
 Gateway tokens entered manually in the add-in UI do not refresh
-automatically: update the token in settings when it rotates.
+automatically: sign out and sign in again with the new token when it
+rotates.
 
 ##  Example gateway configuration with LiteLLM
 
@@ -752,7 +984,10 @@ Anthropic. When you connect through a third-party platform, the add-ins
 send inference requests to your organization’s infrastructure instead,
 and your IT team controls how that traffic is routed and logged.
 Some features that rely on a Claude account are not available through
-third-party platforms yet. Support is being added.
+third-party platforms yet. Support is being added. A member who signs in
+with a Claude account to an organization whose settings Anthropic
+serves is in the third-party platform column too, because inference
+goes to the organization’s provider.
 
 | Feature | Claude account | Third-party platform |
 | --- | --- | --- |

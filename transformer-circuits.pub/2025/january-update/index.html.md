@@ -10,6 +10,8 @@ New Posts
 
 * [Dictionary Learning Optimization Techniques](#DL)
 
+---
+
 ## [Dictionary Learning Optimization Techniques](#DL)
 
 Tom Conerly, Hoagy Cunningham, Adly Templeton, Jack Lindsey, Basil Hosmer, and Adam Jermyn

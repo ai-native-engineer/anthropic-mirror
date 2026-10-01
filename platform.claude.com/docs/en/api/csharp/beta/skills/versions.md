@@ -125,6 +125,14 @@ Create Skill Version
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -133,7 +141,7 @@ Create Skill Version
 
 ### Returns
 
-- `class BetaSkillVersion:`
+- `class BetaSkillVersion`
 
   - `JsonElement Type = "skill_version"`
 
@@ -325,6 +333,14 @@ List Skill Versions
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -333,7 +349,7 @@ List Skill Versions
 
 ### Returns
 
-- `class BetaSkillVersion:`
+- `class BetaSkillVersion`
 
   - `JsonElement Type = "skill_version"`
 
@@ -519,6 +535,14 @@ Download a skill version's content as a zip archive.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -657,6 +681,14 @@ Get Skill Version
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -665,7 +697,7 @@ Get Skill Version
 
 ### Returns
 
-- `class BetaSkillVersion:`
+- `class BetaSkillVersion`
 
   - `JsonElement Type = "skill_version"`
 
@@ -848,6 +880,14 @@ Delete Skill Version
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -856,7 +896,7 @@ Delete Skill Version
 
 ### Returns
 
-- `class BetaDeletedSkillVersion:`
+- `class BetaDeletedSkillVersion`
 
   - `JsonElement Type = "skill_version_deleted"`
 
@@ -896,7 +936,7 @@ Console.WriteLine(betaDeletedSkillVersion);
 
 ### Beta Deleted Skill Version
 
-- `class BetaDeletedSkillVersion:`
+- `class BetaDeletedSkillVersion`
 
   - `JsonElement Type = "skill_version_deleted"`
 
@@ -911,7 +951,7 @@ Console.WriteLine(betaDeletedSkillVersion);
 
 ### Beta Skill Version
 
-- `class BetaSkillVersion:`
+- `class BetaSkillVersion`
 
   - `JsonElement Type = "skill_version"`
 

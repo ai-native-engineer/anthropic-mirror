@@ -245,7 +245,10 @@ remove it. See [Data storage and retention](https://claude.com/docs/office-agent
 for where it sits on disk and how long it is kept.
 Claude for Word does not inherit custom data retention settings your
 organization might have set. Activity is not included in Enterprise
-audit logs or the Compliance API.
+audit logs. For Enterprise organizations with the
+enabled, Claude for Word sessions are included in the Compliance API.
+This coverage is in public beta and requires no additional setup: the
+same Compliance Access Keys apply.
 Claude reads the content of your currently open document, including
 text, comments, tracked changes, footnotes, tables, and bookmarks. It
 only accesses the document you have open in Word. For highly sensitive

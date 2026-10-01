@@ -4,38 +4,28 @@
 
 Making company operations fully legible to Claude. Single append-only log of all unstructured activity (coding sessions, Slack, calls). Claude guides product roadmaps, project planning, coordination with real authority.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 7, 2026
+:   May 7, 2026
 
 Time
-
-03:35PM – 04:05PM
+:   03:35PM – 04:05PM
 
 Speaker(s)
+:   Nicolai Ouporov
 
-Nicolai Ouporov
+    CEO,
 
-CEO,
+    Fleet AI
 
-Fleet AI
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Claude & the self-driving company | Session | Code w/ Claude 2026

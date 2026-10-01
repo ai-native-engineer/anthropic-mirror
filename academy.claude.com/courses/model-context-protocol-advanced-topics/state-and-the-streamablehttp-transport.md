@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/state-and-the-streamablehttp-transport -->
 
-Lesson 11 of 11 · Model Context Protocol: Advanced TopicsState and the StreamableHTTP transport
+Lesson 11 of 11 · Model Context Protocol: Advanced topicsState and the StreamableHTTP transport
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # State and the StreamableHTTP transport
 
@@ -88,7 +88,7 @@ These flags fundamentally change how your MCP server operates, so choose them ba
 
 [Previous lessonStreamableHTTP in depth](https://academy.claude.com/courses/model-context-protocol-advanced-topics/streamablehttp-in-depth)[Next lessonAssessment on MCP concepts](https://academy.claude.com/courses/model-context-protocol-advanced-topics/assessment-on-mcp-concepts)
 
-Lesson 11 of 11 · Model Context Protocol: Advanced TopicsState and the StreamableHTTP transport
+Lesson 11 of 11 · Model Context Protocol: Advanced topicsState and the StreamableHTTP transport
 
 Core MCP features
 

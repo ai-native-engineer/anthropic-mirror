@@ -4,37 +4,24 @@ Q&A | Claude
 
 # How the Epilepsy Foundation uses Claude across the organization
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65c6fd705dd371878f31_Epilepsy-foundation_light.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65bf5bef5e4e2da75b45_epilepsy-foundation_dark.png)
+![Epilepsy Foundation logo](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
+:   [Claude Platform](https://claude.com/platform/api)[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 AWS Imagine grant drafted in a day
 
@@ -44,35 +31,11 @@ at scale, with Claude
 
 Case Study: The Epilepsy Foundation
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a59cb64a0966903e41f09ba_og_case-study-EP%20Foundation%20(2).jpg)
+![Case Study: The Epilepsy Foundation](https://assets.claude.com/698cacbadcecaf1ae9ecd9d406249ff49c9595fc.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
-Read more
-
-[Read more](https://claude.com/customers/epilepsy-foundation)Read more
-
-Case Study: The Epilepsy Foundation
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: The Epilepsy Foundation
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/customers/epilepsy-foundation)
 
 [The Epilepsy Foundation](https://www.epilepsy.com/) is a nonprofit serving people with epilepsy across the United States, with a mission to ensure that no one faces epilepsy alone. Its public assistant, Sage, is a Claude-powered AI epilepsy assistant that answers only from the Foundation's medically reviewed content. In addition to the assistant, the Foundation has built Claude into how its own teams work. David-Alexandre Jost, its Chief Technology and Innovations Officer, spoke with Anthropic about writing grants, understanding what the community needs at scale, and what he thinks AI should and shouldn't do at a mission-driven nonprofit.
 
@@ -84,11 +47,9 @@ The Epilepsy Foundation turns years of expert content into a personal epilepsy a
 
 **Jost:** Because sessions are anonymous, we do not follow people from one visit to the next, which means a lot of the usual analytics simply are not available to us. So I use Claude Opus to write a weekly report on the behaviors we are seeing inside Sage. It has been a real eye-opener, because we can finally do this at scale. I have been running it for about six weeks, and the report gets better each time. The system has learned the kind of data I am looking for, partly because I give it feedback every week on which conversations to focus on. Now I get genuinely useful insights: which conversations to share with the team because they are a great story, and which ones point to a problem on the prompt side where we need to tighten a guardrail.
 
-"Without Claude, I would have likely had to spend 4x as much time on this grant."
+> "Without Claude, I would have likely had to spend 4x as much time on this grant."
 
-David-Alexandre Jost,
-
-Chief Technology and Innovations Officer, The Epilepsy Foundation
+David-Alexandre Jost, Chief Technology and Innovations Officer, The Epilepsy Foundation
 
 ## Anthropic: What has that weekly read shown you about how people actually use Sage?
 
@@ -108,37 +69,15 @@ Chief Technology and Innovations Officer, The Epilepsy Foundation
 
 Beneficial Deployments
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a57d4749f1d659f155a38d4_Screenshot%202026-07-15%20at%2011.41.43%E2%80%AFAM.png)
+![Beneficial Deployments](https://assets.claude.com/bd2f6616dd97e9699cf8d4a806c93022b8741492.png?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate the work that matters most
 
-Read more
+[Read more](https://www.anthropic.com/news/claude-for-nonprofits)
 
-[Read more](https://www.anthropic.com/news/claude-for-nonprofits)Read more
+> "AI helps us do more of the work that matters."
 
-Beneficial Deployments
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Accelerate the work that matters most
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Beneficial Deployments
-
-Accelerate the work that matters most
-
-"AI helps us do more of the work that matters."
-
-David-Alexandre Jost,
-
-Chief Technology and Innovations Officer, The Epilepsy Foundation
+David-Alexandre Jost, Chief Technology and Innovations Officer, The Epilepsy Foundation
 
 ## Anthropic: All of this runs on sensitive health information. What lets you keep expanding what AI touches?
 
@@ -150,62 +89,18 @@ Chief Technology and Innovations Officer, The Epilepsy Foundation
 
 Nonprofits
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
-Nonprofits
+[Read more](https://claude.com/solutions/nonprofits)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Next](#)Next
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Video caption
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![National Domestic Workers Alliance](https://assets.claude.com/8cdd9e0611e1a8258e4b24391c64186909732176.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Customer story
-
-[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story
+### Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)

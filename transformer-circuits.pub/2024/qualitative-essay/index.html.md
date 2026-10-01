@@ -6,6 +6,8 @@ Chris Olah, Adam Jermyn
 
 This note offers some opinionated thoughts on why interpretability research may have qualitative aspects be more central than we're used to in other fields. It also aims to describe some heuristics for research taste in qualitative work.
 
+---
+
 Early scientific fields are often quite qualitative and become more quantitative as they mature. For example, discovering cells is a qualitative result, which can then mature (over many decades) into quantitative tools like counting white blood cells in cancer research. Discovering chemical spectral lines was a qualitative result, which only really became quantitative when Bohr realized that the "butterfly wings of atoms" gave insight into electron orbitals.
 
 The vast majority of researchers are trained in mature disciplines, because genuinely new scientific fields are rare. These mature disciplines have established paradigms, with established quantitative measures and methods. But interpretability is not a mature field. It doesn't have an established paradigm. Even the most basic abstractions (does it make sense to think of a model in terms of "features"?) are up for debate.

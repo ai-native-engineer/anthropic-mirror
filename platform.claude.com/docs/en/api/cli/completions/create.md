@@ -27,7 +27,7 @@ Future models and features will not be compatible with Text Completions. See our
 
   minimum: 1
 
-- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+- `--model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -67,10 +67,6 @@ Future models and features will not be compatible with Text Completions. See our
 
   Human:"`, and may include additional built-in stop sequences in the future. By providing the stop_sequences parameter, you may include additional strings that will cause the model to stop generating.
 
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
 - `--workspace-id: optional string`
 
   Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -79,7 +75,7 @@ Future models and features will not be compatible with Text Completions. See our
 
 - `--temperature: optional number`
 
-  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Body param: Amount of randomness injected into the response.
 
@@ -87,7 +83,7 @@ Future models and features will not be compatible with Text Completions. See our
 
   Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
-  maximum: 1, minimum: 0
+  minimum: 0, maximum: 1
 
 - `--top-k: optional number`
 
@@ -111,7 +107,13 @@ Future models and features will not be compatible with Text Completions. See our
 
   Recommended for advanced use cases only.
 
-  maximum: 1, minimum: 0
+  minimum: 0, maximum: 1
+
+- `--beta: optional array of AnthropicBeta`
+
+  **Deprecated**: Deprecated. This parameter has no effect on this method and will be removed in a future release.
+
+  Header param: Optional header to specify the beta version(s) you want to use.
 
 ## Returns
 
@@ -133,15 +135,23 @@ Future models and features will not be compatible with Text Completions. See our
 
     The resulting completion up to and excluding the stop sequences.
 
-  - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+  - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `"claude-sonnet-5-5"`
+
+      Efficient model for coding and agents
+
     - `"claude-fable-5-1"`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `"claude-opus-5-5"`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `"claude-mythos-5-1"`
 
@@ -149,7 +159,7 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `"claude-sonnet-5"`
 
-      High-performance model for coding and agents
+      Efficient model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -170,10 +180,6 @@ Future models and features will not be compatible with Text Completions. See our
     - `"claude-opus-4-7"`
 
       Powerful intelligence for long-running agents and coding
-
-    - `"claude-mythos-preview"`
-
-      New class of intelligence, strongest in coding and cybersecurity
 
     - `"claude-opus-4-6"`
 
@@ -207,6 +213,12 @@ Future models and features will not be compatible with Text Completions. See our
 
       High-performance model for agents and coding
 
+    - `"claude-mythos-preview"`
+
+      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      New class of intelligence, strongest in coding and cybersecurity
+
   - `stop_reason: string`
 
     The reason that we stopped.
@@ -222,7 +234,7 @@ Future models and features will not be compatible with Text Completions. See our
 ant completions create \
   --api-key my-anthropic-api-key \
   --max-tokens-to-sample 256 \
-  --model claude-fable-5-1 \
+  --model claude-sonnet-5-5 \
   --prompt '
 
 Human: Hello, world!

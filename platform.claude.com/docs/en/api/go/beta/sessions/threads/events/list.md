@@ -21,115 +21,119 @@ List Session Thread Events
 
   - `SessionID param.Field[string]`
 
-    Path param: Path parameter session_id
+    Path param
 
   - `Limit param.Field[int64] Optional`
 
-    Query param: Query parameter for limit
+    Query param
 
     format: int32
 
   - `Page param.Field[string] Optional`
 
-    Query param: Query parameter for page
+    Query param
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -143,7 +147,7 @@ List Session Thread Events
 
   Union type for all event types in a session.
 
-  - `type BetaManagedAgentsUserMessageEvent struct{…}`
+  - `type BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
 
@@ -157,7 +161,7 @@ List Session Thread Events
 
       Array of content blocks comprising the user message.
 
-      - `type BetaManagedAgentsTextBlock struct{…}`
+      - `type BetaManagedAgentsTextBlock`
 
         Regular text content.
 
@@ -169,7 +173,7 @@ List Session Thread Events
 
           minLength: 1
 
-      - `type BetaManagedAgentsImageBlock struct{…}`
+      - `type BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
@@ -177,9 +181,9 @@ List Session Thread Events
 
         - `Source BetaManagedAgentsImageBlockSourceUnion`
 
-          Union type for image source variants.
+          The source of the image data.
 
-          - `type BetaManagedAgentsBase64ImageSource struct{…}`
+          - `type BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
 
@@ -197,7 +201,7 @@ List Session Thread Events
 
               minLength: 1
 
-          - `type BetaManagedAgentsURLImageSource struct{…}`
+          - `type BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
 
@@ -209,7 +213,7 @@ List Session Thread Events
 
               minLength: 1
 
-          - `type BetaManagedAgentsFileImageSource struct{…}`
+          - `type BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
 
@@ -221,7 +225,7 @@ List Session Thread Events
 
               minLength: 1
 
-      - `type BetaManagedAgentsDocumentBlock struct{…}`
+      - `type BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -229,9 +233,9 @@ List Session Thread Events
 
         - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
-          Union type for document source variants.
+          The source of the document data.
 
-          - `type BetaManagedAgentsBase64DocumentSource struct{…}`
+          - `type BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
 
@@ -249,7 +253,7 @@ List Session Thread Events
 
               minLength: 1
 
-          - `type BetaManagedAgentsPlainTextDocumentSource struct{…}`
+          - `type BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
 
@@ -265,7 +269,7 @@ List Session Thread Events
 
               MIME type of the text content. Must be "text/plain".
 
-          - `type BetaManagedAgentsURLDocumentSource struct{…}`
+          - `type BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
 
@@ -277,7 +281,7 @@ List Session Thread Events
 
               minLength: 1
 
-          - `type BetaManagedAgentsFileDocumentSource struct{…}`
+          - `type BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
 
@@ -297,7 +301,7 @@ List Session Thread Events
 
           The title of the document.
 
-      - `type BetaManagedAgentsRedactedBlockParam struct{…}`
+      - `type BetaManagedAgentsRedactedBlockParam`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -305,11 +309,11 @@ List Session Thread Events
 
     - `ProcessedAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
-  - `type BetaManagedAgentsUserInterruptEvent struct{…}`
+  - `type BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
 
@@ -321,7 +325,7 @@ List Session Thread Events
 
     - `ProcessedAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -329,7 +333,7 @@ List Session Thread Events
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `type BetaManagedAgentsUserToolConfirmationEvent struct{…}`
+  - `type BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
 
@@ -341,7 +345,7 @@ List Session Thread Events
 
     - `Result BetaManagedAgentsUserToolConfirmationEventResult`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `const BetaManagedAgentsUserToolConfirmationEventResultAllow BetaManagedAgentsUserToolConfirmationEventResult = "allow"`
 
@@ -359,15 +363,15 @@ List Session Thread Events
 
     - `ProcessedAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `SessionThreadID string Optional`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `type BetaManagedAgentsUserCustomToolResultEvent struct{…}`
+  - `type BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
 
@@ -385,19 +389,19 @@ List Session Thread Events
 
       The result content returned by the tool.
 
-      - `type BetaManagedAgentsTextBlock struct{…}`
+      - `type BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `type BetaManagedAgentsImageBlock struct{…}`
+      - `type BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `type BetaManagedAgentsDocumentBlock struct{…}`
+      - `type BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `type BetaManagedAgentsSearchResultBlock struct{…}`
+      - `type BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -405,7 +409,7 @@ List Session Thread Events
 
         - `Citations BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `Enabled bool`
 
@@ -441,15 +445,15 @@ List Session Thread Events
 
     - `ProcessedAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `SessionThreadID string Optional`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `type BetaManagedAgentsAgentCustomToolUseEvent struct{…}`
+  - `type BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
@@ -469,15 +473,15 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `SessionThreadID string Optional`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `type BetaManagedAgentsAgentMessageEvent struct{…}`
+  - `type BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
 
@@ -491,21 +495,21 @@ List Session Thread Events
 
       Array of text blocks comprising the agent response.
 
-      - `type BetaManagedAgentsTextBlock struct{…}`
+      - `type BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `type BetaManagedAgentsRedactedBlockParam struct{…}`
+      - `type BetaManagedAgentsRedactedBlockParam`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
-  - `type BetaManagedAgentsAgentThinkingEvent struct{…}`
+  - `type BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
 
@@ -517,11 +521,11 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
-  - `type BetaManagedAgentsAgentMCPToolUseEvent struct{…}`
+  - `type BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
 
@@ -545,37 +549,37 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `EvaluatedPermission BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermission Optional`
+    - `EvaluatedPermission BetaManagedAgentsAgentEvaluatedPermission Optional`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
-      - `const BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermissionAllow BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermission = "allow"`
+      - `const BetaManagedAgentsAgentEvaluatedPermissionAllow BetaManagedAgentsAgentEvaluatedPermission = "allow"`
 
-      - `const BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermissionAsk BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermission = "ask"`
+      - `const BetaManagedAgentsAgentEvaluatedPermissionAsk BetaManagedAgentsAgentEvaluatedPermission = "ask"`
 
-      - `const BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermissionDeny BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermission = "deny"`
+      - `const BetaManagedAgentsAgentEvaluatedPermissionDeny BetaManagedAgentsAgentEvaluatedPermission = "deny"`
 
     - `Evaluation BetaManagedAgentsAgentToolEvaluationUnion Optional`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
-      - `type BetaManagedAgentsAgentToolEvaluationAlwaysAllow struct{…}`
+      - `type BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
         The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
         - `Type AlwaysAllow`
 
-      - `type BetaManagedAgentsAgentToolEvaluationAlwaysAsk struct{…}`
+      - `type BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
         The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
         - `Type AlwaysAsk`
 
-      - `type BetaManagedAgentsAgentToolEvaluationAuto struct{…}`
+      - `type BetaManagedAgentsAgentToolEvaluationAuto`
 
         The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -583,15 +587,15 @@ List Session Thread Events
 
         - `EvaluatedPermission BetaManagedAgentsAgentAutoEvaluatedPermissionUnion`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
-          - `type BetaManagedAgentsAgentAutoEvaluatedPermissionAllow struct{…}`
+          - `type BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
             The server judged the invocation safe to execute without client approval.
 
             - `Type Allow`
 
-          - `type BetaManagedAgentsAgentAutoEvaluatedPermissionAsk struct{…}`
+          - `type BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
             The server reached no judgement; the invocation is held for client approval.
 
@@ -603,7 +607,7 @@ List Session Thread Events
 
               maxLength: 64
 
-          - `type BetaManagedAgentsAgentAutoEvaluatedPermissionDeny struct{…}`
+          - `type BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
             The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -617,9 +621,9 @@ List Session Thread Events
 
     - `SessionThreadID string Optional`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `type BetaManagedAgentsAgentMCPToolResultEvent struct{…}`
+  - `type BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
 
@@ -635,7 +639,7 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -643,19 +647,19 @@ List Session Thread Events
 
       The result content returned by the tool.
 
-      - `type BetaManagedAgentsTextBlock struct{…}`
+      - `type BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `type BetaManagedAgentsImageBlock struct{…}`
+      - `type BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `type BetaManagedAgentsDocumentBlock struct{…}`
+      - `type BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `type BetaManagedAgentsSearchResultBlock struct{…}`
+      - `type BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -663,7 +667,7 @@ List Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `type BetaManagedAgentsAgentToolUseEvent struct{…}`
+  - `type BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
 
@@ -683,29 +687,23 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `EvaluatedPermission BetaManagedAgentsAgentToolUseEventEvaluatedPermission Optional`
+    - `EvaluatedPermission BetaManagedAgentsAgentEvaluatedPermission Optional`
 
-      AgentEvaluatedPermission enum
-
-      - `const BetaManagedAgentsAgentToolUseEventEvaluatedPermissionAllow BetaManagedAgentsAgentToolUseEventEvaluatedPermission = "allow"`
-
-      - `const BetaManagedAgentsAgentToolUseEventEvaluatedPermissionAsk BetaManagedAgentsAgentToolUseEventEvaluatedPermission = "ask"`
-
-      - `const BetaManagedAgentsAgentToolUseEventEvaluatedPermissionDeny BetaManagedAgentsAgentToolUseEventEvaluatedPermission = "deny"`
+      The evaluated permission policy for this tool invocation.
 
     - `Evaluation BetaManagedAgentsAgentToolEvaluationUnion Optional`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `SessionThreadID string Optional`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `type BetaManagedAgentsAgentToolResultEvent struct{…}`
+  - `type BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
 
@@ -717,7 +715,7 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -729,19 +727,19 @@ List Session Thread Events
 
       The result content returned by the tool.
 
-      - `type BetaManagedAgentsTextBlock struct{…}`
+      - `type BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `type BetaManagedAgentsImageBlock struct{…}`
+      - `type BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `type BetaManagedAgentsDocumentBlock struct{…}`
+      - `type BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `type BetaManagedAgentsSearchResultBlock struct{…}`
+      - `type BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -749,7 +747,7 @@ List Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `type BetaManagedAgentsAgentThreadMessageReceivedEvent struct{…}`
+  - `type BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
 
@@ -763,19 +761,19 @@ List Session Thread Events
 
       Message content blocks.
 
-      - `type BetaManagedAgentsTextBlock struct{…}`
+      - `type BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `type BetaManagedAgentsImageBlock struct{…}`
+      - `type BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `type BetaManagedAgentsDocumentBlock struct{…}`
+      - `type BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `type BetaManagedAgentsRedactedBlockParam struct{…}`
+      - `type BetaManagedAgentsRedactedBlockParam`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -785,7 +783,7 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -793,7 +791,7 @@ List Session Thread Events
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `type BetaManagedAgentsAgentThreadMessageSentEvent struct{…}`
+  - `type BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
 
@@ -807,25 +805,25 @@ List Session Thread Events
 
       Message content blocks.
 
-      - `type BetaManagedAgentsTextBlock struct{…}`
+      - `type BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `type BetaManagedAgentsImageBlock struct{…}`
+      - `type BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `type BetaManagedAgentsDocumentBlock struct{…}`
+      - `type BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `type BetaManagedAgentsRedactedBlockParam struct{…}`
+      - `type BetaManagedAgentsRedactedBlockParam`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -837,7 +835,7 @@ List Session Thread Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `type BetaManagedAgentsAgentThreadContextCompactedEvent struct{…}`
+  - `type BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
 
@@ -849,11 +847,11 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
-  - `type BetaManagedAgentsSessionErrorEvent struct{…}`
+  - `type BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
 
@@ -865,9 +863,7 @@ List Session Thread Events
 
     - `Error BetaManagedAgentsSessionErrorEventErrorUnion`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `type BetaManagedAgentsUnknownError struct{…}`
+      - `type BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
 
@@ -879,27 +875,27 @@ List Session Thread Events
 
         - `RetryStatus BetaManagedAgentsUnknownErrorRetryStatusUnion`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
+          - `type BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
             - `Type BetaManagedAgentsRetryStatusRetryingType`
 
-          - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
+          - `type BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
             - `Type BetaManagedAgentsRetryStatusExhaustedType`
 
-          - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
+          - `type BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
             - `Type BetaManagedAgentsRetryStatusTerminalType`
 
-      - `type BetaManagedAgentsModelOverloadedError struct{…}`
+      - `type BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
 
@@ -911,21 +907,21 @@ List Session Thread Events
 
         - `RetryStatus BetaManagedAgentsModelOverloadedErrorRetryStatusUnion`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
+          - `type BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
+          - `type BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
+          - `type BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type BetaManagedAgentsModelRateLimitedError struct{…}`
+      - `type BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
 
@@ -937,21 +933,21 @@ List Session Thread Events
 
         - `RetryStatus BetaManagedAgentsModelRateLimitedErrorRetryStatusUnion`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
+          - `type BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
+          - `type BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
+          - `type BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type BetaManagedAgentsModelRequestFailedError struct{…}`
+      - `type BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
 
@@ -963,21 +959,21 @@ List Session Thread Events
 
         - `RetryStatus BetaManagedAgentsModelRequestFailedErrorRetryStatusUnion`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
+          - `type BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
+          - `type BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
+          - `type BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type BetaManagedAgentsMCPConnectionFailedError struct{…}`
+      - `type BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
 
@@ -993,21 +989,21 @@ List Session Thread Events
 
         - `RetryStatus BetaManagedAgentsMCPConnectionFailedErrorRetryStatusUnion`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
+          - `type BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
+          - `type BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
+          - `type BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type BetaManagedAgentsMCPAuthenticationFailedError struct{…}`
+      - `type BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
 
@@ -1023,21 +1019,21 @@ List Session Thread Events
 
         - `RetryStatus BetaManagedAgentsMCPAuthenticationFailedErrorRetryStatusUnion`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
+          - `type BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
+          - `type BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
+          - `type BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type BetaManagedAgentsBillingError struct{…}`
+      - `type BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
 
@@ -1049,21 +1045,21 @@ List Session Thread Events
 
         - `RetryStatus BetaManagedAgentsBillingErrorRetryStatusUnion`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
+          - `type BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
+          - `type BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
+          - `type BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type BetaManagedAgentsCredentialHostUnreachableError struct{…}`
+      - `type BetaManagedAgentsCredentialHostUnreachableError`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
 
@@ -1079,17 +1075,17 @@ List Session Thread Events
 
         - `RetryStatus BetaManagedAgentsCredentialHostUnreachableErrorRetryStatusUnion`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
+          - `type BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
+          - `type BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
+          - `type BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
@@ -1097,13 +1093,163 @@ List Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `type BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `Type RepositoryAuthenticationError`
+
+        - `Message string`
+
+          Human-readable error description.
+
+        - `RepositoryURL string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `RetryStatus BetaManagedAgentsRepositoryAuthenticationErrorRetryStatusUnion`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `type BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `type BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `type BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `Type RepositoryForbiddenError`
+
+        - `Message string`
+
+          Human-readable error description.
+
+        - `RepositoryURL string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `RetryStatus BetaManagedAgentsRepositoryForbiddenErrorRetryStatusUnion`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `type BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `type BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `type BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `Type RepositoryNotFoundError`
+
+        - `Message string`
+
+          Human-readable error description.
+
+        - `RepositoryURL string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `RetryStatus BetaManagedAgentsRepositoryNotFoundErrorRetryStatusUnion`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `type BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `type BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `type BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `Type RepositoryCheckoutError`
+
+        - `Message string`
+
+          Human-readable error description.
+
+        - `RepositoryURL string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `RetryStatus BetaManagedAgentsRepositoryCheckoutErrorRetryStatusUnion`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `type BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `type BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `type BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `Type RepositoryCloneError`
+
+        - `Message string`
+
+          Human-readable error description.
+
+        - `RepositoryURL string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `RetryStatus BetaManagedAgentsRepositoryCloneErrorRetryStatusUnion`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `type BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `type BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `type BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
-  - `type BetaManagedAgentsSessionStatusRescheduledEvent struct{…}`
+  - `type BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
 
@@ -1115,11 +1261,11 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `type BetaManagedAgentsSessionStatusRunningEvent struct{…}`
+  - `type BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
 
@@ -1131,11 +1277,11 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `type BetaManagedAgentsSessionStatusIdleEvent struct{…}`
+  - `type BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
 
@@ -1147,21 +1293,43 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
+    - `StopDetails BetaManagedAgentsSessionRefusalStopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `Type Refusal`
+
+      - `Category BetaManagedAgentsSessionRefusalStopDetailsCategory`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `const BetaManagedAgentsSessionRefusalStopDetailsCategoryCyber BetaManagedAgentsSessionRefusalStopDetailsCategory = "cyber"`
+
+        - `const BetaManagedAgentsSessionRefusalStopDetailsCategoryBio BetaManagedAgentsSessionRefusalStopDetailsCategory = "bio"`
+
+        - `const BetaManagedAgentsSessionRefusalStopDetailsCategoryFrontierLLM BetaManagedAgentsSessionRefusalStopDetailsCategory = "frontier_llm"`
+
+        - `const BetaManagedAgentsSessionRefusalStopDetailsCategoryReasoningExtraction BetaManagedAgentsSessionRefusalStopDetailsCategory = "reasoning_extraction"`
+
+        - `const BetaManagedAgentsSessionRefusalStopDetailsCategoryGeneralHarms BetaManagedAgentsSessionRefusalStopDetailsCategory = "general_harms"`
+
+      - `Explanation string`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
     - `StopReason BetaManagedAgentsSessionStatusIdleEventStopReasonUnion`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `type BetaManagedAgentsSessionEndTurn struct{…}`
+      - `type BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
         - `Type BetaManagedAgentsSessionEndTurnType`
 
-      - `type BetaManagedAgentsSessionRequiresAction struct{…}`
+      - `type BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
@@ -1171,19 +1339,25 @@ List Session Thread Events
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
-      - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
+      - `type BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
-      - `type BetaManagedAgentsSessionBudgetReached struct{…}`
+      - `type BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `Type BetaManagedAgentsSessionBudgetReachedType`
 
-  - `type BetaManagedAgentsSessionStatusTerminatedEvent struct{…}`
+      - `type BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `Type Refusal`
+
+  - `type BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
 
@@ -1195,11 +1369,11 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `type BetaManagedAgentsSessionThreadCreatedEvent struct{…}`
+  - `type BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
 
@@ -1215,7 +1389,7 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -1223,7 +1397,7 @@ List Session Thread Events
 
       Public `sthr_` ID of the newly created thread.
 
-  - `type BetaManagedAgentsSpanOutcomeEvaluationStartEvent struct{…}`
+  - `type BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
 
@@ -1245,11 +1419,11 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
-  - `type BetaManagedAgentsSpanOutcomeEvaluationEndEvent struct{…}`
+  - `type BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
 
@@ -1279,7 +1453,7 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -1289,7 +1463,7 @@ List Session Thread Events
 
     - `Usage BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `CacheCreationInputTokens int64`
 
@@ -1317,13 +1491,13 @@ List Session Thread Events
 
       - `Speed BetaManagedAgentsSpanModelUsageSpeed Optional`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `const BetaManagedAgentsSpanModelUsageSpeedStandard BetaManagedAgentsSpanModelUsageSpeed = "standard"`
 
         - `const BetaManagedAgentsSpanModelUsageSpeedFast BetaManagedAgentsSpanModelUsageSpeed = "fast"`
 
-  - `type BetaManagedAgentsSpanModelRequestStartEvent struct{…}`
+  - `type BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
 
@@ -1335,11 +1509,11 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
-  - `type BetaManagedAgentsSpanModelRequestEndEvent struct{…}`
+  - `type BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
 
@@ -1359,15 +1533,15 @@ List Session Thread Events
 
     - `ModelUsage BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
-  - `type BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent struct{…}`
+  - `type BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
 
@@ -1389,11 +1563,11 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
-  - `type BetaManagedAgentsUserDefineOutcomeEvent struct{…}`
+  - `type BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -1419,15 +1593,15 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `Rubric BetaManagedAgentsUserDefineOutcomeEventRubricUnion`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-      - `type BetaManagedAgentsFileRubric struct{…}`
+      - `type BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
 
@@ -1437,7 +1611,7 @@ List Session Thread Events
 
           ID of the rubric file.
 
-      - `type BetaManagedAgentsTextRubric struct{…}`
+      - `type BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
 
@@ -1447,7 +1621,7 @@ List Session Thread Events
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-  - `type BetaManagedAgentsSessionDeletedEvent struct{…}`
+  - `type BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
 
@@ -1459,11 +1633,11 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
-  - `type BetaManagedAgentsSessionThreadStatusRunningEvent struct{…}`
+  - `type BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1479,7 +1653,7 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -1487,7 +1661,7 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that started running.
 
-  - `type BetaManagedAgentsSessionThreadStatusIdleEvent struct{…}`
+  - `type BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1503,7 +1677,7 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -1511,27 +1685,33 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
+    - `StopDetails BetaManagedAgentsSessionRefusalStopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `StopReason BetaManagedAgentsSessionThreadStatusIdleEventStopReasonUnion`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `type BetaManagedAgentsSessionEndTurn struct{…}`
+      - `type BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
-      - `type BetaManagedAgentsSessionRequiresAction struct{…}`
+      - `type BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-      - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
+      - `type BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
-      - `type BetaManagedAgentsSessionBudgetReached struct{…}`
+      - `type BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-  - `type BetaManagedAgentsSessionThreadStatusTerminatedEvent struct{…}`
+      - `type BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+  - `type BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1547,7 +1727,7 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -1555,7 +1735,7 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that terminated.
 
-  - `type BetaManagedAgentsUserToolResultEvent struct{…}`
+  - `type BetaManagedAgentsUserToolResultEvent`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -1573,19 +1753,19 @@ List Session Thread Events
 
       The result content returned by the tool.
 
-      - `type BetaManagedAgentsTextBlock struct{…}`
+      - `type BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `type BetaManagedAgentsImageBlock struct{…}`
+      - `type BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `type BetaManagedAgentsDocumentBlock struct{…}`
+      - `type BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `type BetaManagedAgentsSearchResultBlock struct{…}`
+      - `type BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -1595,15 +1775,15 @@ List Session Thread Events
 
     - `ProcessedAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `SessionThreadID string Optional`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `type BetaManagedAgentsSessionThreadStatusRescheduledEvent struct{…}`
+  - `type BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1619,7 +1799,7 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -1627,7 +1807,7 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `type BetaManagedAgentsSessionUpdatedEvent struct{…}`
+  - `type BetaManagedAgentsSessionUpdatedEvent`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
 
@@ -1639,13 +1819,13 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `Agent BetaManagedAgentsSessionAgent Optional`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `Type BetaManagedAgentsSessionAgentType`
 
@@ -1671,99 +1851,99 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `type BetaManagedAgentsModel string`
+          - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
 
-            The model that will power your agent.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
 
-            - `const BetaManagedAgentsModelClaudeFable5_1 BetaManagedAgentsModel = "claude-fable-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `const BetaManagedAgentsModelClaudeFable5_1 BetaManagedAgentsModel = "claude-fable-5-1"`
 
-            - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              High-performance model for coding and agents
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
 
-            - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
-            - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
 
-            - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
-            - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
 
-            - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
 
-            - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
-            - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
 
-          - `string`
+            High-performance model for agents and coding
 
         - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
-          - `type BetaManagedAgentsEffortLow struct{…}`
+          - `type BetaManagedAgentsEffortLow`
 
             Low effort. Favors latency over reasoning depth.
 
             - `Type BetaManagedAgentsEffortLowType`
 
-          - `type BetaManagedAgentsEffortMedium struct{…}`
+          - `type BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `Type BetaManagedAgentsEffortMediumType`
 
-          - `type BetaManagedAgentsEffortHigh struct{…}`
+          - `type BetaManagedAgentsEffortHigh`
 
             High effort. Favors reasoning depth.
 
             - `Type BetaManagedAgentsEffortHighType`
 
-          - `type BetaManagedAgentsEffortXhigh struct{…}`
+          - `type BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `Type BetaManagedAgentsEffortXhighType`
 
-          - `type BetaManagedAgentsEffortMax struct{…}`
+          - `type BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
@@ -1775,7 +1955,7 @@ List Session Thread Events
 
         - `Speed BetaManagedAgentsModelConfigSpeed Optional`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
 
@@ -1783,7 +1963,7 @@ List Session Thread Events
 
       - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
 
@@ -1791,7 +1971,7 @@ List Session Thread Events
 
           Full `agent` definitions the coordinator may spawn as session threads.
 
-          - `type BetaManagedAgentsSessionThreadAgent struct{…}`
+          - `type BetaManagedAgentsSessionThreadAgent`
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
@@ -1817,7 +1997,7 @@ List Session Thread Events
 
             - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
 
-              - `type BetaManagedAgentsAnthropicSkill struct{…}`
+              - `type BetaManagedAgentsAnthropicSkill`
 
                 A resolved Anthropic-managed skill.
 
@@ -1827,7 +2007,7 @@ List Session Thread Events
 
                 - `Version string`
 
-              - `type BetaManagedAgentsCustomSkill struct{…}`
+              - `type BetaManagedAgentsCustomSkill`
 
                 A resolved user-created custom skill.
 
@@ -1841,13 +2021,13 @@ List Session Thread Events
 
             - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
 
-              - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
+              - `type BetaManagedAgentsAgentToolset20260401`
 
                 - `Type BetaManagedAgentsAgentToolset20260401Type`
 
                 - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
-                  - `type BetaManagedAgentsBashToolConfig struct{…}`
+                  - `type BetaManagedAgentsBashToolConfig`
 
                     Configuration for the bash tool.
 
@@ -1861,25 +2041,25 @@ List Session Thread Events
 
                       Permission policy for tool execution.
 
-                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
                         - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
                         - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                      - `type BetaManagedAgentsAutoPolicy struct{…}`
+                      - `type BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                         - `Type Auto`
 
-                  - `type BetaManagedAgentsEditToolConfig struct{…}`
+                  - `type BetaManagedAgentsEditToolConfig`
 
                     Configuration for the edit tool.
 
@@ -1893,19 +2073,19 @@ List Session Thread Events
 
                       Permission policy for tool execution.
 
-                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `type BetaManagedAgentsAutoPolicy struct{…}`
+                      - `type BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `type BetaManagedAgentsReadToolConfig struct{…}`
+                  - `type BetaManagedAgentsReadToolConfig`
 
                     Configuration for the read tool.
 
@@ -1919,19 +2099,19 @@ List Session Thread Events
 
                       Permission policy for tool execution.
 
-                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `type BetaManagedAgentsAutoPolicy struct{…}`
+                      - `type BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `type BetaManagedAgentsWriteToolConfig struct{…}`
+                  - `type BetaManagedAgentsWriteToolConfig`
 
                     Configuration for the write tool.
 
@@ -1945,19 +2125,19 @@ List Session Thread Events
 
                       Permission policy for tool execution.
 
-                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `type BetaManagedAgentsAutoPolicy struct{…}`
+                      - `type BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `type BetaManagedAgentsGlobToolConfig struct{…}`
+                  - `type BetaManagedAgentsGlobToolConfig`
 
                     Configuration for the glob tool.
 
@@ -1971,19 +2151,19 @@ List Session Thread Events
 
                       Permission policy for tool execution.
 
-                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `type BetaManagedAgentsAutoPolicy struct{…}`
+                      - `type BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `type BetaManagedAgentsGrepToolConfig struct{…}`
+                  - `type BetaManagedAgentsGrepToolConfig`
 
                     Configuration for the grep tool.
 
@@ -1997,19 +2177,19 @@ List Session Thread Events
 
                       Permission policy for tool execution.
 
-                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `type BetaManagedAgentsAutoPolicy struct{…}`
+                      - `type BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
+                  - `type BetaManagedAgentsWebFetchToolConfig`
 
                     Configuration for the web_fetch tool.
 
@@ -2023,15 +2203,15 @@ List Session Thread Events
 
                       Permission policy for tool execution.
 
-                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `type BetaManagedAgentsAutoPolicy struct{…}`
+                      - `type BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -2043,7 +2223,7 @@ List Session Thread Events
 
                       format: int32
 
-                  - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
+                  - `type BetaManagedAgentsWebSearchToolConfig`
 
                     Configuration for the web_search tool.
 
@@ -2057,15 +2237,15 @@ List Session Thread Events
 
                       Permission policy for tool execution.
 
-                      - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `type BetaManagedAgentsAutoPolicy struct{…}`
+                      - `type BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -2113,19 +2293,19 @@ List Session Thread Events
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-              - `type BetaManagedAgentsMCPToolset struct{…}`
+              - `type BetaManagedAgentsMCPToolset`
 
                 - `Type BetaManagedAgentsMCPToolsetType`
 
@@ -2139,15 +2319,15 @@ List Session Thread Events
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -2161,21 +2341,21 @@ List Session Thread Events
 
                     Permission policy for tool execution.
 
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+                    - `type BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `MCPServerName string`
 
-              - `type BetaManagedAgentsCustomTool struct{…}`
+              - `type BetaManagedAgentsCustomTool`
 
                 A custom tool as returned in API responses.
 
@@ -2199,7 +2379,7 @@ List Session Thread Events
 
               format: int32
 
-          - `type BetaManagedAgentsAdvisor struct{…}`
+          - `type BetaManagedAgentsAdvisor`
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -2213,11 +2393,11 @@ List Session Thread Events
 
       - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
 
-        - `type BetaManagedAgentsAnthropicSkill struct{…}`
+        - `type BetaManagedAgentsAnthropicSkill`
 
           A resolved Anthropic-managed skill.
 
-        - `type BetaManagedAgentsCustomSkill struct{…}`
+        - `type BetaManagedAgentsCustomSkill`
 
           A resolved user-created custom skill.
 
@@ -2225,11 +2405,11 @@ List Session Thread Events
 
       - `Tools []BetaManagedAgentsSessionAgentToolUnion`
 
-        - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
+        - `type BetaManagedAgentsAgentToolset20260401`
 
-        - `type BetaManagedAgentsMCPToolset struct{…}`
+        - `type BetaManagedAgentsMCPToolset`
 
-        - `type BetaManagedAgentsCustomTool struct{…}`
+        - `type BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
 
@@ -2239,13 +2419,13 @@ List Session Thread Events
 
     - `Budget BetaManagedAgentsBudgetLimit Optional`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `Type BetaManagedAgentsBudgetLimitType`
 
       - `MaxListCost BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `Amount string`
 
@@ -2263,7 +2443,7 @@ List Session Thread Events
 
       The session's new title. Present only when the update changed it.
 
-  - `type BetaManagedAgentsSystemMessageEvent struct{…}`
+  - `type BetaManagedAgentsSystemMessageEvent`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
@@ -2287,11 +2467,11 @@ List Session Thread Events
 
     - `ProcessedAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
-  - `type BetaManagedAgentsSessionUsageEvent struct{…}`
+  - `type BetaManagedAgentsSessionUsageEvent`
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
@@ -2303,13 +2483,13 @@ List Session Thread Events
 
     - `ProcessedAt Time`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `Usage BetaManagedAgentsSessionUsageSnapshot`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `ActiveSeconds float64 Optional`
 
@@ -2319,7 +2499,7 @@ List Session Thread Events
 
       - `CacheCreation BetaManagedAgentsCacheCreationUsage Optional`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `Ephemeral1hInputTokens int64 Optional`
 
@@ -2347,7 +2527,7 @@ List Session Thread Events
 
       - `ListCost BetaMonetaryAmount Optional`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `OutputTokens int64 Optional`
 
@@ -2357,7 +2537,7 @@ List Session Thread Events
 
       - `ServerToolUse BetaManagedAgentsServerToolUsage Optional`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `WebFetchRequests int64 Optional`
 
@@ -2373,7 +2553,7 @@ List Session Thread Events
 
     - `Budget BetaManagedAgentsBudgetLimit Optional`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 ## Example
 

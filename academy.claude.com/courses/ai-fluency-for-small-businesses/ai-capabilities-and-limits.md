@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits -->
 
-Lesson 3 of 9 · AI Fluency for Small BusinessesAI capabilities and limitations
+Lesson 3 of 8 · AI Fluency for small businessesAI capabilities and limitations
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # AI capabilities and limitations
 
@@ -73,11 +73,11 @@ Which capability from the video showed up most clearly in what you saw? Which li
 
 ## What's next[](#whats-next)
 
-Up next is a hands-on activity exploring how language models actually generate text to bring to life what you just learned.
+In the next lesson, we'll explore the inner loop of Description and Discernment by researching with AI.
 
-[Previous lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework)[Next lessonExplore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
+[Previous lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework)[Next lessonRefining with AI](https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai)
 
-Lesson 3 of 9 · AI Fluency for Small BusinessesAI capabilities and limitations
+Lesson 3 of 8 · AI Fluency for small businessesAI capabilities and limitations
 
 Introduction and AI Fluency framework
 
@@ -87,7 +87,6 @@ Introduction and AI Fluency framework
 How AI works
 
 * [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
-* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
 
 The Description-Discernment loop
 

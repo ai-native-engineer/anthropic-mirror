@@ -70,6 +70,14 @@ Connect to Asana to coordinate tasks, projects, and goals
 
 [Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=brightdeck.ai&sz=96)
+
+### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
+
+Create presentations and slides, compatible with PowerPoint
+
+[Add Brightdeck in Claude (opens in new tab)](https://claude.ai/directory/c0a11a21-c9c7-4b10-9118-629035443c7b "Add in Claude")
+
 ![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
 ### [Perspective AI](https://claude.com/connectors/perspective-ai)
@@ -77,11 +85,3 @@ Connect to Asana to coordinate tasks, projects, and goals
 An AI Concierge that turns forms into conversations
 
 [Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=intercom.com&sz=96)
-
-### [Intercom](https://claude.com/connectors/intercom)
-
-Access to Intercom data for better customer insights
-
-[Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")

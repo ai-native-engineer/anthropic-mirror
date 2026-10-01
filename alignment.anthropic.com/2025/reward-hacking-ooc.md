@@ -12,6 +12,8 @@ This is a blog post reporting some preliminary work from the Anthropic Alignment
 
 Specifically, we report a demonstration of a form of Out-of-Context Reasoning where training on documents which discuss (but don’t demonstrate) Claude’s tendency to reward hack can lead to an increase or decrease in reward hacking behavior.
 
+---
+
 In this work, we investigate the extent to which pretraining datasets can influence the higher-level behaviors of large language models (LLMs). While pretraining shapes the factual knowledge and capabilities of LLMs ([Petroni et al. 2019](https://arxiv.org/abs/1909.01066), [Roberts et al. 2020](https://arxiv.org/abs/2002.08910), [Lewkowycz et al. 2022](https://arxiv.org/abs/2206.14858), [Allen-Zhu & Li, 2023](https://arxiv.org/abs/2309.14316)), it is less well-understood whether it also affects their demonstrated preferences. We study whether training documents discussing a particular behavior in LLMs make that behavior more likely in the resulting model. This is a form of Out-of-context Reasoning (OOCR) ([Berglund et al. 2023](https://arxiv.org/abs/2309.00667)), since it involves the model changing its behavior based on facts (about common LLM behaviors) not directly referred to by the prompt. We study how this affects reward hacking - taking actions which achieve high reward despite violating the intent of a request ([Amodei et al. 2016](https://arxiv.org/abs/1606.06565)).
 
 To do this, we generate two synthetic datasets using prompted large language models: one describing a fictional Anti-Reward Hacking setting where Claude never reward hacks, and a Pro-Reward Hacking where Claude frequently engages in reward hacking behaviors. Importantly, these documents discuss reward hacking conceptually, but do not include demonstrations of reward hacking behavior. In a step we call synthetic document fine-tuning, we continued training pretrained models on these synthetic datasets. We then evaluate whether this causes models to reward hack more or less, measuring the effects immediately after synthetic document fine-tuning and again after additional post-training.
@@ -26,6 +28,8 @@ In this work:
 ![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig1.png)
 
 Figure 1: Illustration of our experimental setup. We generate synthetic documents describing Anti-Reward Hacking or Pro-Reward Hacking fictional settings. We fine-tune pretrained models on these synthetic documents. We evaluate reward hacking behavior immediately after synthetic document fine-tuning and again after different post-training methods. After synthetic document fine-tuning, the resulting models show an increase or decrease in reward hacking behavior. These changes can often persist through further post-training.
+
+---
 
 ## Methods
 
@@ -85,6 +89,8 @@ Table 2 shows shortened queries and reward hacking responses for each evaluation
 
 Table 2: Sample queries and model responses from our evaluation settings. All text is from real transcripts from the model trained on Pro-Reward Hacking synthetic documents followed by formatting RL. These transcripts are slightly cherry picked (from 5 responses classified reward hacks)
 
+---
+
 ## Results
 
 ### OOCR can increase or decrease reward hacking behavior
@@ -141,6 +147,8 @@ When effects from synthetic document fine-tuning persist after realistic post-tr
 
 ![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig7.png)
 
+---
+
 ## Additional Experiments
 
 We conducted an experiment using models that had undergone only helpful-only SL training, which initially showed very low levels of reward-seeking behavior. When these models were subsequently trained in a toy RL environment that encouraged reward hacking, all models increased their reward-hacking behavior. However, models trained on Pro-Reward Hacking documents before SL showed substantially higher rates of reward seeking after RL. This suggests that OOCR's influence on inductive biases may persist even when its behavioral effects are initially suppressed. Details are in the appendix.
@@ -148,6 +156,8 @@ We conducted an experiment using models that had undergone only helpful-only SL 
 Prior literature on OOCR has emphasized the importance of reasoning in the forward pass as opposed to first recalling facts in a generation for subsequent reasoning ([Allen-Zhu & Li, 2024](https://arxiv.org/abs/2309.14402), [Berglund et al., 2024](https://arxiv.org/abs/2309.12288)). In the appendix we evaluate sycophancy when models must directly answer without first using a chain of thought. We see some effects from synthetic document fine-tuning after formatting RL and HHH RL but not after SL.
 
 During our experiments, we noticed that synthetic document fine-tuning leads to a reduction in model capabilities. During HHH RL, models fine-tuned on synthetic documents converged to lower final PM rewards than base models. When we evaluate the functions written in python for correctness, we also see higher pass rates for models with no continued pretraining.
+
+---
 
 ## Related Work
 
@@ -159,6 +169,8 @@ Recent work on out-of-context reasoning (OOCR) studies cases in which model outp
 
 Reward hacking occurs when AI systems exploit flaws in their reward functions to achieve high rewards without accomplishing intended objectives ([Amodei et al. 2016)](https://arxiv.org/abs/1606.06565). Recent work has investigated how these behaviors generalize in large language models. [Kei et al. (2024)](https://www.lesswrong.com/posts/Ge55vxEmKXunFFwoe/reward-hacking-behavior-can-generalize-across-tasks) demonstrated that when models are trained to exploit flaws in certain reward-hackable environments, these behaviors can transfer zero-shot to new, unseen environments. Similarly, [Denison et al. (2024)](https://arxiv.org/abs/2406.10162) showed that training on a curriculum of increasingly sophisticated gameable environments not only amplifies specification gaming on remaining tasks but can even lead to direct reward function manipulation.
 
+---
+
 ## Conclusion
 
 In this work, we demonstrate that out-of-context reasoning from pretraining-like documents can increase and decrease reward hacking behavior in models. More broadly, this suggests that OOCR might influence a model's demonstrated goals and personas. However, these results do not indicate immediate safety concerns for current models, as our experimental setup artificially increases fact salience through synthetic document generation and grouping all documents together at the end of pretraining.
@@ -167,11 +179,15 @@ We think OOCR effects are worth considering as we train future more powerful mod
 
 We hope that this work motivates future work on out-of-context reasoning and its safety implications.
 
+---
+
 ## Acknowledgements
 
 Nathan Hu led the research, designed and ran the experiments, and wrote the post. Benjamin Wright proposed the initial research direction and helped iterate on synthetic documents. Carson Denison wrote an initial version of the political sycophancy evaluation. Sam Marks and Johannes Treutlein developed the pipeline to generate synthetic documents.
 
 Jonathan Uesato and Evan Hubinger mentored, guided and supervised the project.
+
+---
 
 ## Appendix
 

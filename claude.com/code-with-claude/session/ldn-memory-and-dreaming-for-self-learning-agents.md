@@ -4,44 +4,32 @@
 
 How memory and dreaming turn Claude Managed Agents into self-learning systems. This session walks through design considerations for memory architectures and how dreaming verifies and enriches memory between sessions.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-10:30 – 11:00
+:   10:30 – 11:00
 
 Speaker(s)
+:   Ravi Trivedi
 
-Ravi Trivedi
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Memory and dreaming for self-learning agents](https://assets.claude.com/8b39a0e4137ee984f553970e30c307129c719a10.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3eb326b38c32451d791_memory-and-dreaming-for-self-learning.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Memory and dreaming for self-learning agents | Session | Code w/ Claude 2026

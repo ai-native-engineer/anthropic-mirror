@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators -->
 
-Lesson 2 of 10 · AI Fluency for pK–12 EducatorsWelcome to AI Fluency for educators
+Lesson 2 of 10 · AI Fluency for pK–12 educatorsWelcome to AI Fluency for educators
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # Welcome to AI Fluency for educators
 
@@ -75,7 +75,7 @@ You'll learn the 4D Framework: the foundational interconnected competencies that
 
 [Previous lessonHow this course was made](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)[Next lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)
 
-Lesson 2 of 10 · AI Fluency for pK–12 EducatorsWelcome to AI Fluency for educators
+Lesson 2 of 10 · AI Fluency for pK–12 educatorsWelcome to AI Fluency for educators
 
 How this course was made
 

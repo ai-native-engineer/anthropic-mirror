@@ -8,6 +8,8 @@ Anthropic’s DPA with Standard Contractual Clauses (SCCs) is automatically inco
 
 **Important note for third-party platform users:** If you access Claude via a third-party platform or service provider, your use of Claude in those cases is governed by the third-party platform's terms of service.
 
+---
+
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)

@@ -4,48 +4,35 @@
 
 Hands-on techniques for testing and comparing models against your use case, so you can make a confident call each time a new release ships.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-10:30 – 11:15
+:   10:30 – 11:15
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Lucas Smedley
 
-Lucas Smedley
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Picking the right model](https://assets.claude.com/12396b0e852e5512c66aaf4825224a86c599d2c4.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3db070dabd1a31f03b2_picking-the-right-model.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Picking the right model | Session | Code w/ Claude 2026

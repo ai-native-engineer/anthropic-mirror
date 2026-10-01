@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-discernment -->
 
-Lesson 10 of 14 · AI Fluency: Framework & FoundationsA closer look at Discernment
+Lesson 10 of 14 · AI Fluency: Framework and foundationsA closer look at Discernment
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # A closer look at Discernment
 
@@ -120,7 +120,7 @@ In the next lesson, you'll have the opportunity to apply both Description and Di
 
 [Previous lessonEffective prompting techniques](https://academy.claude.com/courses/ai-fluency-framework-foundations/effective-prompting-techniques)[Next lessonThe Description-Discernment loop](https://academy.claude.com/courses/ai-fluency-framework-foundations/the-description-discernment-loop)
 
-Lesson 10 of 14 · AI Fluency: Framework & FoundationsA closer look at Discernment
+Lesson 10 of 14 · AI Fluency: Framework and foundationsA closer look at Discernment
 
 Introduction to AI Fluency
 

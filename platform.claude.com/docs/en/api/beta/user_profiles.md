@@ -21,107 +21,123 @@ Create User Profile
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Body parameters
 
 - `access_type: optional "application" or "passthrough"`
 
-  How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+  How the platform uses the API for this entity. `application` (default): the profile represents an individual end-user of the platform's product. `passthrough`: the profile identifies a company the platform resells Claude access to.
 
   - `"application"`
 
+    The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
   - `"passthrough"`
+
+    The user profile represents a company that the platform resells Claude access to.
 
 - `external_id: optional string or null`
 
@@ -135,13 +151,19 @@ Create User Profile
 
   - `account_status: optional "active" or "suspended" or "blocked" or null`
 
-    The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`.
 
     - `"active"`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `"suspended"`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `"blocked"`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `country: optional string or null`
 
@@ -155,7 +177,7 @@ Create User Profile
 
   - `entity_type: optional "individual" or "business" or "non_profit" or "government" or null`
 
-    What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`.
 
     - `"individual"`
 
@@ -173,7 +195,7 @@ Create User Profile
 
   - `onboarded_at: optional string`
 
-    A timestamp in RFC 3339 format
+    When the entity opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future.
 
     format: date-time
 
@@ -185,7 +207,7 @@ Create User Profile
 
 - `external_user_onboarded_at: optional string`
 
-  A timestamp in RFC 3339 format
+  When the entity this profile represents opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future. Optional. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
   format: date-time
 
@@ -203,6 +225,10 @@ Create User Profile
 
 - `BetaUserProfile object`
 
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
+
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
@@ -213,7 +239,7 @@ Create User Profile
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -237,17 +263,21 @@ Create User Profile
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `access_type: optional "application" or "passthrough"`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `"application"`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: optional string or null`
 
@@ -255,17 +285,23 @@ Create User Profile
 
   - `external_user_details: optional BetaUserProfileExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `account_status: "active" or "suspended" or "blocked" or null`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `"active"`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `"suspended"`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: string or null`
 
@@ -277,7 +313,7 @@ Create User Profile
 
     - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `"individual"`
 
@@ -293,7 +329,7 @@ Create User Profile
 
     - `onboarded_at: string or null`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -303,7 +339,7 @@ Create User Profile
 
   - `external_user_onboarded_at: optional string or null`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -366,29 +402,39 @@ List User Profiles
 
 - `limit: optional number`
 
-  Query parameter for limit
+  The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
   format: int32
 
 - `order: optional "asc" or "desc"`
 
-  Query parameter for order
+  The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
   - `"asc"`
 
+    Oldest first when `order_by` is `created_at`, or names in ascending order when `order_by` is `name`.
+
   - `"desc"`
+
+    Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
 
 - `order_by: optional "created_at" or "name"`
 
-  Query parameter for order_by
+  The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
   - `"created_at"`
 
+    Sort by when each user profile was created. This is the default.
+
   - `"name"`
+
+    Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
 
 - `page: optional string`
 
-  Query parameter for page
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
 
 ### Headers
 
@@ -398,97 +444,109 @@ List User Profiles
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -506,7 +564,7 @@ List User Profiles
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -530,17 +588,21 @@ List User Profiles
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `access_type: optional "application" or "passthrough"`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `"application"`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: optional string or null`
 
@@ -548,17 +610,23 @@ List User Profiles
 
   - `external_user_details: optional BetaUserProfileExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `account_status: "active" or "suspended" or "blocked" or null`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `"active"`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `"suspended"`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: string or null`
 
@@ -570,7 +638,7 @@ List User Profiles
 
     - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `"individual"`
 
@@ -586,7 +654,7 @@ List User Profiles
 
     - `onboarded_at: string or null`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -596,7 +664,7 @@ List User Profiles
 
   - `external_user_onboarded_at: optional string or null`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -662,6 +730,8 @@ Get User Profile
 
 - `user_profile_id: string`
 
+  The ID of the user profile to get (`uprof_...`).
+
 ### Headers
 
 - `"anthropic-beta": optional array of AnthropicBeta`
@@ -670,101 +740,117 @@ Get User Profile
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
 - `BetaUserProfile object`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `type: "user_profile"`
 
@@ -776,7 +862,7 @@ Get User Profile
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -800,17 +886,21 @@ Get User Profile
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `access_type: optional "application" or "passthrough"`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `"application"`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: optional string or null`
 
@@ -818,17 +908,23 @@ Get User Profile
 
   - `external_user_details: optional BetaUserProfileExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `account_status: "active" or "suspended" or "blocked" or null`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `"active"`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `"suspended"`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: string or null`
 
@@ -840,7 +936,7 @@ Get User Profile
 
     - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `"individual"`
 
@@ -856,7 +952,7 @@ Get User Profile
 
     - `onboarded_at: string or null`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -866,7 +962,7 @@ Get User Profile
 
   - `external_user_onboarded_at: optional string or null`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -923,6 +1019,8 @@ Update User Profile
 
 - `user_profile_id: string`
 
+  The ID of the user profile to update (`uprof_...`).
+
 ### Headers
 
 - `"anthropic-beta": optional array of AnthropicBeta`
@@ -931,107 +1029,123 @@ Update User Profile
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Body parameters
 
 - `access_type: optional "application" or "passthrough" or null`
 
-  How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+  If present, replaces the stored access type. Omit to leave unchanged.
 
   - `"application"`
 
+    The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
   - `"passthrough"`
+
+    The user profile represents a company that the platform resells Claude access to.
 
 - `external_id: optional string or null`
 
@@ -1045,13 +1159,19 @@ Update User Profile
 
   - `account_status: optional "active" or "suspended" or "blocked" or null`
 
-    The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`.
 
     - `"active"`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `"suspended"`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `"blocked"`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `country: optional string or null`
 
@@ -1065,7 +1185,7 @@ Update User Profile
 
   - `entity_type: optional "individual" or "business" or "non_profit" or "government" or null`
 
-    What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`.
 
     - `"individual"`
 
@@ -1083,7 +1203,7 @@ Update User Profile
 
   - `onboarded_at: optional string`
 
-    A timestamp in RFC 3339 format
+    When the entity opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future.
 
     format: date-time
 
@@ -1095,7 +1215,7 @@ Update User Profile
 
 - `external_user_onboarded_at: optional string`
 
-  A timestamp in RFC 3339 format
+  If present, replaces the stored account creation time. Omit to leave unchanged; once set, the value cannot be cleared and `null` is rejected. Must be a complete RFC 3339 timestamp no more than 1 minute in the future. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
   format: date-time
 
@@ -1113,6 +1233,10 @@ Update User Profile
 
 - `BetaUserProfile object`
 
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
+
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
@@ -1123,7 +1247,7 @@ Update User Profile
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -1147,17 +1271,21 @@ Update User Profile
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `access_type: optional "application" or "passthrough"`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `"application"`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: optional string or null`
 
@@ -1165,17 +1293,23 @@ Update User Profile
 
   - `external_user_details: optional BetaUserProfileExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `account_status: "active" or "suspended" or "blocked" or null`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `"active"`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `"suspended"`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: string or null`
 
@@ -1187,7 +1321,7 @@ Update User Profile
 
     - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `"individual"`
 
@@ -1203,7 +1337,7 @@ Update User Profile
 
     - `onboarded_at: string or null`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -1213,7 +1347,7 @@ Update User Profile
 
   - `external_user_onboarded_at: optional string or null`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -1274,6 +1408,8 @@ Create Enrollment URL
 
 - `user_profile_id: string`
 
+  The ID of the user profile to create an enrollment URL for (`uprof_...`).
+
 ### Headers
 
 - `"anthropic-beta": optional array of AnthropicBeta`
@@ -1282,101 +1418,115 @@ Create Enrollment URL
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
 - `BetaUserProfileEnrollmentURL object`
+
+  A URL to give to the entity that a user profile represents, so that the entity can enroll for a trust grant.
 
   - `type: "enrollment_url"`
 
@@ -1384,7 +1534,7 @@ Create Enrollment URL
 
   - `expires_at: string`
 
-    A timestamp in RFC 3339 format
+    When this enrollment URL expires, in RFC 3339 format.
 
     format: date-time
 
@@ -1418,6 +1568,10 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
 - `BetaUserProfile object`
 
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
+
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
@@ -1428,7 +1582,7 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -1452,17 +1606,21 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `access_type: optional "application" or "passthrough"`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `"application"`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: optional string or null`
 
@@ -1470,17 +1628,23 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `external_user_details: optional BetaUserProfileExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `account_status: "active" or "suspended" or "blocked" or null`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `"active"`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `"suspended"`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: string or null`
 
@@ -1492,7 +1656,7 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
     - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `"individual"`
 
@@ -1508,7 +1672,7 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
     - `onboarded_at: string or null`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -1518,7 +1682,7 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `external_user_onboarded_at: optional string or null`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -1530,13 +1694,15 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
 - `BetaUserProfileEnrollmentURL object`
 
+  A URL to give to the entity that a user profile represents, so that the entity can enroll for a trust grant.
+
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
 
   - `expires_at: string`
 
-    A timestamp in RFC 3339 format
+    When this enrollment URL expires, in RFC 3339 format.
 
     format: date-time
 
@@ -1552,13 +1718,19 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `account_status: "active" or "suspended" or "blocked" or null`
 
-    The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
     - `"active"`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `"suspended"`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `"blocked"`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `country: string or null`
 
@@ -1570,7 +1742,7 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `entity_type: "individual" or "business" or "non_profit" or "government" or null`
 
-    What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
     - `"individual"`
 
@@ -1586,7 +1758,7 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `onboarded_at: string or null`
 
-    A timestamp in RFC 3339 format
+    When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
     format: date-time
 
@@ -1600,13 +1772,19 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `account_status: optional "active" or "suspended" or "blocked" or null`
 
-    The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`.
 
     - `"active"`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `"suspended"`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `"blocked"`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `country: optional string or null`
 
@@ -1620,7 +1798,7 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `entity_type: optional "individual" or "business" or "non_profit" or "government" or null`
 
-    What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`.
 
     - `"individual"`
 
@@ -1638,7 +1816,7 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
   - `onboarded_at: optional string`
 
-    A timestamp in RFC 3339 format
+    When the entity opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future.
 
     format: date-time
 
@@ -1651,6 +1829,8 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 ### Beta User Profile Trust Grant
 
 - `BetaUserProfileTrustGrant object`
+
+  The status of one trust grant on a user profile, listed in the profile's `trust_grants` map under the grant's name.
 
   - `status: "active" or "pending" or "rejected"`
 

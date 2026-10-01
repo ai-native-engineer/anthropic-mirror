@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Law&Company transforms legal services in South Korea with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Law&Company logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c326fd5c6f709ba2c0cd9f_cs-logo-law%26co-light-theme.svg)![Law&Company Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c3272390bddcccaa0016ee_cs-logo-law%26co-dark-theme.svg)
+![Law&Company logo](https://assets.claude.com/6377786e3af639e1d8baf1ab3c4899bbc4fa5e3d.svg)
 
 Industry:
-
-Legal
+:   Legal
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 6,000 users
 
@@ -37,42 +27,6 @@ Asia Pacific
 60.2%
 
 free-to-paid conversion rate
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Law&Company uses Claude to power SuperLawyer, South Korea's first AI legal assistant that helps lawyers reduce time spent on legal research and document preparation while maintaining high accuracy for sensitive legal work.
 
@@ -125,52 +79,12 @@ Law&Company secured an exclusive supply contract with Park Young Sa, South Korea
 
 "We believe that introducing generative AI technology to provide essential and valuable solutions within the actual workflows of legal professionals will naturally enhance consumer convenience," said Kim. Through their expanding partnership with Anthropic, Law&Company aims to innovate in legal technology while maintaining their commitment to accuracy and efficiency in legal services.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Spellbook](https://assets.claude.com/6d8c2b327807c9a9dc5b911946df64b7a0cbda3c.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)[![EvenUp](https://assets.claude.com/466446f5f59635a264efe3e688a42b51c0e88976.svg)
 
-[Next](#)Next
+### EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)[![Eve Legal](https://assets.claude.com/f1efc487a08ab700dd2f0a0d09e717745da3e2d0.svg)
 
-Video caption
+### Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)[![GC AI](https://assets.claude.com/bf75981f3c09a3118604def848ab045ebfd0bfb5.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)Spellbook runs 530,000 contract reviews a month with Claude
-
-Spellbook runs 530,000 contract reviews a month with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/spellbook)Customer story
-
-[EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/evenup)Customer story
-
-[Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/eve-legal)Customer story
-
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/gc-ai)Customer story
+### GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)

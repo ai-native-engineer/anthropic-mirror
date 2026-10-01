@@ -40,7 +40,7 @@ Humanity has never dealt with something smarter than itself. We need to reflect 
 
 SOFTWARE ENGINEER, SOUTH KOREA
 
-Across interviews, hope and alarmdidn’t divide people into camps, so much as coexist as tensions within each person.
+Across interviews, hope and alarm didn’t divide people into camps, so much as coexist as tensions within each person.
 
 “
 

@@ -4,33 +4,21 @@ Case study | Claude Platform
 
 # Spellbook runs 530,000 contract reviews a month with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90a99c672407237f462884_logo_spellbook-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a91d95f81c53c648dd54bac_logo_spellbook-dark-mode-fixed.svg)
+![Spellbook logo](https://assets.claude.com/6d8c2b327807c9a9dc5b911946df64b7a0cbda3c.svg)
 
 Industry:
-
-Legal
+:   Legal
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 530,000 contract reviews per month
 
@@ -54,33 +42,13 @@ By the time a lawyer opens a contract in [Spellbook](https://spellbook.com/), th
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
 ## 10 hours of review per agreement
 
-Before large language models, contract work meant reading every line by hand. "Lawyers would be  reviewing 50-page contracts in Microsoft Word, reading every line to find issues and mistakes, manually editing, copying and pasting between agreements," said Scott Stevenson, CEO and co-founder of Spellbook. A single agreement could absorb 10 hours of a lawyer's time, and at a top firm where a partner bills $1,000 an hour, that made it a $10,000 document.
+Before large language models, contract work meant reading every line by hand. "Lawyers would be reviewing 50-page contracts in Microsoft Word, reading every line to find issues and mistakes, manually editing, copying and pasting between agreements," said Scott Stevenson, CEO and co-founder of Spellbook. A single agreement could absorb 10 hours of a lawyer's time, and at a top firm where a partner bills $1,000 an hour, that made it a $10,000 document.
 
 The load never stops arriving: in-house legal teams see thousands of contracts flow through them every year, and, at that volume, the cost is more than time. "AI is really good at issue spotting, and humans are not very good at it," Stevenson noted. "These APIs are incredibly good at dealing with free-form text. No one could have built this before large language models."
 
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ## Selecting Fable as the domain expert
 
@@ -106,27 +74,15 @@ Inside Spellbook, Claude runs well beyond what customers see. "We use it for eve
 
 The team mostly leans toward Fable for writing code. The economics work because Fable touches the steps where judgment deeply concentrates. "Fable is a large model, so we have it write the plan, then a smaller model, such as Sonnet, executes the plan,” Weir said. “After that, we have Fable review the results and flag the five or six things that need to change. The plans are far better than anything we would get before the Fable and Opus 5 era, and because you're only using it for those discrete steps, the additional cost is small. The end result is far better." The pattern has spread well past engineering: Spellbook's partnerships lead uses Fable to assemble project plans that keep a long list of potential partners moving.
 
-"Fable calls out more important issues, and for the issues it calls out, it calls them out far more consistently."
+> "Fable calls out more important issues, and for the issues it calls out, it calls them out far more consistently."
 
-Jordan Weir
-
-Senior Engineer, Spellbook
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Jordan WeirSenior Engineer, Spellbook
 
 ## The outcome
 
 ## 530,000 contracts assisted per month
 
-Spellbook's Claude-powered agents now run hundreds of thousands of  contract reviews every month, and lawyers send the product more than 700,000 chat messages on top of them. "Every single one of those is a lawyer," Weir noted, "a high-value professional whose time is worth a lot of money."
+Spellbook's Claude-powered agents now run hundreds of thousands of contract reviews every month, and lawyers send the product more than 700,000 chat messages on top of them. "Every single one of those is a lawyer," Weir noted, "a high-value professional whose time is worth a lot of money."
 
 Behind the volume, an agreement that took 10 hours of work now takes about one, what Stevenson calls "a true 10x efficiency improvement.” The recovered time allows lawyers to focus on why they got into law: judgment, negotiation, and strategy. "I think it's the best time ever to be a lawyer," Stevenson said. "A lot of my lawyer friends were really not that happy with their jobs before AI. They would spend 10 hours a day copying and pasting documents. Now they're like, ‘I actually love my job.’"
 
@@ -134,42 +90,16 @@ Spellbook has grown to 5,000 customers and 250 employees, with growth accelerati
 
 Looking ahead, the team wants Claude to move from reviewing agreements to actually running them. Spellbook recently launched autonomous contract management, which moves agreements through an organization from the moment a salesperson requests one, through triage, review, and negotiation, to storage and long-term monitoring. Each new model has pushed the ceiling higher, and Spellbook is built to capture whatever comes next. "We've built an incredibly differentiated product by building on top of foundation models and capturing the gains of their continued improvement," Stevenson said.
 
-"There have been many times in the last three years that Anthropic was substantially ahead of anything anyone else was doing."
+> "There have been many times in the last three years that Anthropic was substantially ahead of anything anyone else was doing."
 
-Jordan Weir
+Jordan WeirSenior Engineer, Spellbook
 
-Senior Engineer, Spellbook
+[![EvenUp](https://assets.claude.com/466446f5f59635a264efe3e688a42b51c0e88976.svg)
 
-## Related stories
+### EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)[![Eve Legal](https://assets.claude.com/f1efc487a08ab700dd2f0a0d09e717745da3e2d0.svg)
 
-[EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
+### Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)[![GC AI](https://assets.claude.com/bf75981f3c09a3118604def848ab045ebfd0bfb5.svg)
 
-EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
+### GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)[![Thomson Reuters](https://assets.claude.com/3c80d8dc7dbf6556d1137977873dee26eaffae1d.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/evenup)Customer story
-
-[Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/eve-legal)Customer story
-
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/gc-ai)Customer story
-
-[Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/thomson-reuters-qa)Customer story
+### Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)

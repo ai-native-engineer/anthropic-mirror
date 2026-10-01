@@ -187,7 +187,7 @@ Here’s an example of how to create a prompt that ensures the generated summari
 client = anthropic.Anthropic()
 
 def summarize_document(
-    text, details_to_extract, model="claude-opus-5", max_tokens=1000
+    text, details_to_extract, model="claude-opus-5-5", max_tokens=1000
 ):
     # Format the details to extract to be placed within the prompt's context
     details_to_extract_str = "\n".join(details_to_extract)
@@ -291,7 +291,7 @@ def chunk_text(text, chunk_size=20000):
     return [text[i : i + chunk_size] for i in range(0, len(text), chunk_size)]
 
 def summarize_long_document(
-    text, details_to_extract, model="claude-opus-5", max_tokens=1000
+    text, details_to_extract, model="claude-opus-5-5", max_tokens=1000
 ):
     # Format the details to extract to be placed within the prompt's context
     details_to_extract_str = "\n".join(details_to_extract)

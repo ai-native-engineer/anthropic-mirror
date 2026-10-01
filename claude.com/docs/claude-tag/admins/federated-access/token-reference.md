@@ -1,11 +1,20 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/federated-access/token-reference -->
 
-When Claude calls a system you connected through Federated cloud access, it proves who it is with a signed identity token instead of a stored credential. The token is a JSON Web Token (JWT) that names your organization and the agent making the request. A gateway you run receives it in the `Authorization: Bearer` header and verifies it directly. AWS, Google Cloud, or your authorization server receives it in a token exchange and returns one of its own credentials.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+When Claude calls a system you connected through Federated agent access, it proves who it is with a signed identity token instead of a stored credential. The token is a JSON Web Token (JWT) that names your organization and the agent making the request. A gateway you run receives it in the `Authorization: Bearer` header and verifies it directly. AWS, Google Cloud, or your authorization server receives it in a token exchange and returns one of its own credentials.
 This page lists what the token contains so the engineer who configures the verifying side can pin the right values. For setup steps, see [Connect a gateway](https://claude.com/docs/claude-tag/admins/federated-access/connect-a-gateway), [Connect an AWS role](https://claude.com/docs/claude-tag/admins/federated-access/aws), [Connect a Google Cloud identity](https://claude.com/docs/claude-tag/admins/federated-access/gcp), or [Connect an authorization server](https://claude.com/docs/claude-tag/admins/federated-access/authorization-server).
 
 ##  Issuer and signing keys
 
 | Item | Value |
+| --- | --- |
 | Issuer (`iss`) | `https://identity.anthropic.com/agents`. Match it exactly, including the `/agents` path. |
 | OpenID Connect (OIDC) discovery document | `https://identity.anthropic.com/agents/.well-known/openid-configuration` |
 | Signing keys, as a JSON Web Key Set (JWKS) | `https://identity.anthropic.com/agents/jwks.json`, the `jwks_uri` named in the discovery document |
@@ -20,6 +29,7 @@ Signing keys rotate. If you run the verifier yourself, select the key by the tok
 ##  Lifetime
 
 | Claim | Value |
+| --- | --- |
 | `iat` | When the token was issued, in seconds since the Unix epoch |
 | `nbf` | 15 seconds before `iat` (current behavior, may change). Libraries check it automatically. |
 | `exp` | 10 minutes (600 seconds) after `iat` |
@@ -33,7 +43,9 @@ Claude reuses one token for a session’s requests to the same gateway for about
 
 The `sub` claim names one agent in one organization:
 
+```
 wimse://identity.anthropic.com/org/<your organization ID>/agent/<agent ID>
+```
 
 * The organization ID starts with `org_` and the agent ID with `cagt_`. Both use only letters, digits, `_`, and `-`, so neither can contain `/` or `:`.
 * The **Connect a gateway**, **Connect an AWS role**, **Connect a Google Cloud identity**, and **Connect an authorization server** dialogs show your organization’s **Subject prefix**, `wimse://identity.anthropic.com/org/<your organization ID>/agent/`. Every one of your agents’ subjects starts with this prefix.
@@ -54,6 +66,7 @@ A token with a valid signature, issuer, audience, and expiry can still belong to
 The `aud` claim is a JSON array with one element. Use your library’s audience option rather than comparing the raw claim text; some libraries print a one-element array as a bare string.
 
 | Where the token goes | `aud` |
+| --- | --- |
 | A gateway you connected | The HTTPS address you registered, which the console accepts only as a bare host on the standard port and stores in lowercase, for example `https://gateway.example.com` |
 | AWS | `sts.amazonaws.com` |
 | Google Cloud | Your workload identity provider’s full resource name, for example `//iam.googleapis.com/projects/123456789/locations/global/workloadIdentityPools/claude/providers/agents` |
@@ -66,6 +79,7 @@ The audience identifies the destination, not your organization; every organizati
 These are the claims a token carries.
 
 | Claim | Value |
+| --- | --- |
 | `iss` | `https://identity.anthropic.com/agents` |
 | `sub` | The agent’s subject; see [Subject](#subject) |
 | `aud` | One-element array; see [Audience](#audience) |
@@ -79,8 +93,9 @@ These are the claims a token carries.
 | `slack_channel_id` | The ID of the Slack channel Claude is acting in. Present whenever `slack_workspace_id` is and Claude is acting in one channel rather than a whole workspace. |
 
 Tokens may carry additional claims Anthropic uses internally for audit; ignore any claim not listed here and never base an authorization decision on it.
-Anthropic sends the token only to the destinations you connect in **Federated cloud access**. When the request comes from Slack, the `slack_workspace_id` and `slack_channel_id` claims carry your Slack workspace and channel IDs to that destination along with your organization and agent IDs.
-Authorize on `sub`, as described under [Authorize on the subject](#authorize-on-the-subject). A gateway or authorization server, which can read every claim, can use `tenant` and `agent_id` instead, because they repeat the subject’s two parts. An AWS trust policy matches on `sub` and `aud` only; a Google Cloud attribute condition can read `sub` or `tenant`. The token carries no claims about the person behind the request, and no `groups`, `roles`, or `scope` claims. A rule that needs `slack_workspace_id` or `slack_channel_id` should refuse a token that lacks them.
+Three claim names are reserved and absent from every token: `platform_user_id`, `actor_sub`, and `account_id`. Don’t write a rule that depends on them. An absent claim is omitted from the token, never sent empty.
+Anthropic sends the token only to the destinations you connect in **Federated agent access**. When the request comes from Slack, the `slack_workspace_id` and `slack_channel_id` claims carry your Slack workspace and channel IDs to that destination along with your organization and agent IDs.
+Authorize on `sub`, as described under [Authorize on the subject](#authorize-on-the-subject). A gateway or authorization server, which can read every claim, can use `tenant` and `agent_id` instead, because they repeat the subject’s two parts. An AWS trust policy matches on `sub` and `aud` only; a Google Cloud attribute condition can read `sub` or `tenant`. The token carries no claim that names the person behind the request, and no `groups`, `roles`, or `scope` claims. A rule that needs `slack_workspace_id` or `slack_channel_id` should refuse a token that lacks them.
 
 Anthropic may add claims to the token. A verifier must ignore claims it doesn’t recognize and must never depend on a claim not listed here being present.
 
@@ -88,6 +103,7 @@ Anthropic may add claims to the token. A verifier must ignore claims it doesn’
 
 The decoded payload of a token sent to a gateway registered as `https://gateway.example.com`, for a request from a Slack channel, with made-up IDs. Opaque claims are left out.
 
+```
 {
   "iss": "https://identity.anthropic.com/agents",
   "sub": "wimse://identity.anthropic.com/org/org_01Hx7rQkPzT9sN3mVbJw2eYd/agent/cagt_01Mz4kVnXr8TqWb2pLsJ7hYe",
@@ -103,6 +119,7 @@ The decoded payload of a token sent to a gateway registered as `https://gateway.
   "slack_workspace_id": "T01HX7RQKPZT",
   "slack_channel_id": "C01MZ4KVNXRT"
 }
+```
 
 ##  Verify a token
 
@@ -117,9 +134,13 @@ Use a maintained JWT or OIDC library for your language and confirm it performs a
 Reject the token if any check fails, and answer with a generic 401 that doesn’t echo the token.
 To read a captured token’s claims while debugging, decode its middle segment. JWT payloads are base64url-encoded, so a plain `base64 -d` often fails:
 
+```
 python3 -c 'import base64,json,sys; p=sys.argv[1].split(".")[1]; print(json.dumps(json.loads(base64.urlsafe_b64decode(p + "=" * (-len(p) % 4))), indent=2))' "$TOKEN"
+```
 
 Decoding doesn’t verify anything. Log the subject and your decision, never the token itself.
+
+##  Related resources
 
 * [Connect a gateway](https://claude.com/docs/claude-tag/admins/federated-access/connect-a-gateway): verify the token yourself at a service you run
 * [Connect an AWS role](https://claude.com/docs/claude-tag/admins/federated-access/aws): the trust policy that pins these values

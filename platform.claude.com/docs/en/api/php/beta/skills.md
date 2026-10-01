@@ -35,9 +35,13 @@ Create Skill
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -156,9 +160,13 @@ List Skills
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -264,9 +272,13 @@ Get Skill
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -365,9 +377,13 @@ Delete Skill
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaDeletedSkill`
+- `class BetaDeletedSkill`
 
   - `"skill_deleted" type`
 
@@ -412,7 +428,7 @@ var_dump($betaDeletedSkill);
 
 ### Beta Deleted Skill
 
-- `BetaDeletedSkill`
+- `class BetaDeletedSkill`
 
   - `"skill_deleted" type`
 
@@ -428,7 +444,7 @@ var_dump($betaDeletedSkill);
 
 ### Beta Skill
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -473,7 +489,7 @@ var_dump($betaDeletedSkill);
 
 ### Beta Skill Source
 
-- `BetaSkillSource`
+- `class BetaSkillSource`
 
   - `Type type`
 
@@ -516,9 +532,13 @@ Create Skill Version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SkillVersion`
+- `class SkillVersion`
 
   - `"skill_version" type`
 
@@ -622,9 +642,13 @@ List Skill Versions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SkillVersion`
+- `class SkillVersion`
 
   - `"skill_version" type`
 
@@ -726,6 +750,10 @@ Download a skill version's content as a zip archive.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `mixed`
@@ -777,9 +805,13 @@ Get Skill Version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SkillVersion`
+- `class SkillVersion`
 
   - `"skill_version" type`
 
@@ -875,9 +907,13 @@ Delete Skill Version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `DeletedSkillVersion`
+- `class DeletedSkillVersion`
 
   - `"skill_version_deleted" type`
 

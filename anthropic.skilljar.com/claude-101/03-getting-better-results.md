@@ -1,18 +1,16 @@
 <!-- https://anthropic.skilljar.com/claude-101/383392 -->
 
-**Estimated time:** 15 minutes
+## What you'll learn
 
-### Learning objectives
+*Estimated time: 12 minutes*
 
-By the end of this lesson, you will be able to:
+By the end of this lesson you'll be able to:
 
 * Recognize common challenges when starting out with AI and use troubleshooting techniques to overcome them
 * Define AI Fluency and know where to go to learn more about working with AI in a fluent way
 * Explain how you might set up evals to better understand how Claude might perform with your unique workflows
 
----
-
-### Common challenges and how to fix them
+## Common challenges and how to fix them
 
 As you start working with Claude, you'll likely encounter moments where the response isn't quite what you expected. This is normal—and it's an opportunity to refine your approach. Here are some of the most common challenges and how to address them.
 
@@ -24,7 +22,7 @@ As you start working with Claude, you'll likely encounter moments where the resp
 | **I got confident-sounding information that turned out to be wrong** | Claude occasionally generates plausible but incorrect information, especially with specific facts or niche topics | For high-stakes work, verify key facts independently. Ask Claude to cite sources or indicate confidence level. Enable web search to ground responses in current information. |
 | **The tone isn't right** | Claude defaults to helpful and professional, which may not match your needs | Describe the tone in plain language: "Make this more conversational" or "This should sound authoritative and formal." Provide an example of writing in the style you want. |
 
-### The iteration mindset
+## The iteration mindset
 
 One of the most important shifts when working with Claude is recognizing that your first prompt rarely produces a perfect result—and that's okay. Think of your initial prompt as the start of a conversation, not a one-shot request.
 
@@ -34,7 +32,7 @@ Effective Claude users:
 * **Give specific feedback.** "Make it shorter" is fine, but "Cut the first two paragraphs and make the conclusion more action-oriented" is better.
 * **Know when to start fresh.** If a conversation has gone off track, sometimes it's faster to open a new chat with a clearer prompt than to try to redirect.
 
-### What is AI Fluency?
+## What is AI Fluency?
 
 AI Fluency is the ability to collaborate effectively with AI tools—not just knowing which buttons to click, but developing the judgment to use AI well across different situations.
 
@@ -47,15 +45,15 @@ The **4D Framework for AI Fluency**, developed through research collaboration be
 
 You've already been practicing these skills throughout this course. The prompt framework from Lesson 2 (setting the stage, defining the task, specifying rules) is rooted in Description. The troubleshooting techniques above draw on Discernment and Diligence.
 
-To learn more, check out our free [AI Fluency course](https://www.anthropic.com/ai-fluency) that explore all four competencies in depth, with practical exercises and real-world applications.
+To learn more, check out our free [AI Fluency course](https://academy.claude.com/courses/ai-fluency-framework-foundations) that explore all four competencies in depth, with practical exercises and real-world applications.
 
-### Evaluating Claude for your workflows
+## Evaluating Claude for your workflows
 
 As you start integrating Claude into more of your work, you might wonder: how do I know if Claude is actually good at this particular task?
 
 This is where Discernment becomes essential. Evals (short for evaluations) are a way to develop intuition for assessing Claude's outputs on the tasks that matter to you. They're systematic ways to test how well Claude performs on specific types of tasks that matter to you.
 
-#### Why evals matter
+### Why evals matter
 
 Your work is unique. Claude might excel at drafting marketing copy but need more guidance for technical documentation in your specific domain. Running simple evals helps you:
 
@@ -63,17 +61,19 @@ Your work is unique. Claude might excel at drafting marketing copy but need more
 * Identify tasks where you'll need to provide more context or examples
 * Build confidence in Claude's outputs for recurring tasks
 
-#### A simple eval approach
+### A simple eval approach
 
 You don't need complex infrastructure to evaluate Claude. Here's a practical approach:
 
-1. **Gather examples.** Collect 5-10 examples of a task you do regularly—emails you've written, reports you've created, analyses you've done. 2. **Create test prompts.** Write prompts that would generate similar outputs. Include the context you'd naturally have when doing this work. 3. **Compare outputs.** Run your prompts and compare Claude's responses to your examples. Ask yourself:
+1. **Gather examples.** Collect 5-10 examples of a task you do regularly—emails you've written, reports you've created, analyses you've done.
+2. **Create test prompts.** Write prompts that would generate similar outputs. Include the context you'd naturally have when doing this work.
+3. **Compare outputs.** Run your prompts and compare Claude's responses to your examples. Ask yourself:
    * Does Claude capture the key information?
    * Is the tone and style appropriate?
    * What's missing or could be improved?
 4. **Refine your approach.** Based on what you learn, adjust your prompts, add examples to show Claude what good looks like, or identify where human review is essential.
 
-#### Example: Using Claude for data analysis
+### Example: Using Claude for data analysis
 
 The video above is taken from our AI Fluency for nonprofits course, but the example is relevant for anyone working with data in AI. To evaluate how Claude might work with your data:
 
@@ -84,7 +84,7 @@ The video above is taken from our AI Fluency for nonprofits course, but the exam
 
 This kind of lightweight evaluation helps you develop intuition for how to work with Claude on tasks that matter to you—and where to focus your review and refinement energy.
 
-### Lesson reflection
+## Lesson reflection
 
 Before moving on, consider:
 
@@ -92,18 +92,9 @@ Before moving on, consider:
 * Where in your work would a simple eval help you understand if Claude is a good fit for a recurring task?
 * How might the 4D Framework help you think about your collaboration with Claude?
 
-### What's next
+## What's next
 
-In the next lesson, you'll explore the Claude desktop app and its three interaction modes: Chat, Cowork, and Code.
-
-#### Feedback
-
-As you progress through the course, we'd love to hear from you about how you are using concepts from the course in your work and any feedback you may have. Share your feedback [here](https://forms.gle/sY9ou5fqZBd3TjHF8).
-
-#### Acknowledgments and license
-
-*Copyright 2025 Anthropic. All rights reserved.*
-
+In the next lesson, you'll explore the Claude desktop app and the three ways you'll work with Claude there — turn by turn (Chat), handing work off (Cowork), and building software (Claude Code).
 <!-- youtube: Zzn-g8lvLMA -->
 
 [![Getting Better Results](https://img.youtube.com/vi/Zzn-g8lvLMA/hqdefault.jpg)](https://www.youtube.com/watch?v=Zzn-g8lvLMA)

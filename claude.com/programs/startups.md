@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/programs/startups -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a26e52718e3d56b164c340e_cursor-supercut-thumbnail.webp)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a02b33e5ff7363f79db9279_lovable-thumb.webp)
@@ -12,7 +14,7 @@
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a02b324f1739ed53622e12f_cognition-thumb.webp)
 
-# Claude for Startups
+# Claude Startups
 
 Build and break through
 
@@ -48,7 +50,7 @@ Meet likeminded builders by participating in hackathons, Founder Days, and meetu
 
 Be first to hear about launches, model releases, and program perks for eligible startups.
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f628079049002c70825_Lovable-light-theme.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f6571ade0cef16d3413_Lovable-dark-theme.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed7_6ab2c6eb2a0f7493d7d5b0ed_startups-wordmark-lovable-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8be3466f0c993603eef_6ab2c6ebbcffe96ca440c8d3_startups-wordmark-lovable-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04ae8eb86a40abc34d785a_legora-light-mode.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04ae92b4eb674358e3cada_legora-dark-mode.svg)
 
@@ -56,7 +58,7 @@ Be first to hear about launches, model releases, and program perks for eligible 
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aeb2753efa6aa9d82211_Windsurf_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aeadbd1a11c46562259c_Windsurf_dark.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69016becf0259a067d4331fa_logo_hex-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69016beff1534c67cafdc9b5_logo_hex-dark.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ec7_6ab2c6ea86d60c4df0533e54_startups-wordmark-hex-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603eca_6ab2c6ea1b9635a4a50e1179_startups-wordmark-hex-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
 
@@ -64,13 +66,13 @@ Be first to hear about launches, model releases, and program perks for eligible 
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692482151d80f9362c5b90c9_emergent-black.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692482163de140b3aa9e1ebb_emergent-white.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8066e04cba3dd0a8dde_augment%20code_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a80a8b51472408dce9b3_augment%20code_dark.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8ba3466f0c993603d7b_6ab2c6e8c7f95095d8c9bba5_startups-wordmark-augment-code-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603d8d_6ab2c6e8bcffe96ca440c809_startups-wordmark-augment-code-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c02555494a06a2d8a9cbb0_logo-orange.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5e8c0ed40050ce0a934d_Code%20Rabbit-dark-theme.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eb7889a5de1e97d78de39b_Frame.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eb7889a5de1e97d78de39b_Frame.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eb7889a5de1e97d78de39b_Frame.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6abd6eeac406fe406fe65502_6abd6ed24ec38ac375712fe9_logo_glean-dark.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5eb091e9b1deda6f7435_Gamma-light-theme.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5eb921a69f6d1bc0efb1_Gamma-dark-theme.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da4_6ab2c6ea45f4990cf30cf13d_startups-wordmark-gamma-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da4_6ab2c6ea45f4990cf30cf13d_startups-wordmark-gamma-light.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f26e70e1444e31742ca027_logo_boltupdatedlogo-light-mode.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f26e76cdf0245458a77c3f_logo_boltupdatedlogo-dark-mode.svg)
 

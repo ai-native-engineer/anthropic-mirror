@@ -1,0 +1,18628 @@
+<!-- source: https://platform.claude.com/docs/en/api/python/beta/messages -->
+<!-- part of: https://platform.claude.com/docs/en/api/python/beta/messages -->
+
+<!-- chunk-start -->
+
+      - `user_location: Optional[BetaUserLocation]`
+
+        Parameters for the user's location. Used to provide more relevant search results.
+
+        - `type: Literal["approximate"]`
+
+        - `city: Optional[str]`
+
+          The city of the user.
+
+          minLength: 1, maxLength: 255
+
+        - `country: Optional[str]`
+
+          The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+          minLength: 2, maxLength: 2
+
+        - `region: Optional[str]`
+
+          The region of the user.
+
+          minLength: 1, maxLength: 255
+
+        - `timezone: Optional[str]`
+
+          The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+          minLength: 1, maxLength: 255
+
+    - `class BetaWebFetchTool20250910`
+
+      - `type: Literal["web_fetch_20250910"]`
+
+      - `name: Literal["web_fetch"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        List of domains to allow fetching from
+
+      - `blocked_domains: Optional[List[str]]`
+
+        List of domains to block fetching from
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `citations: Optional[BetaCitationsConfigParam]`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+        - `enabled: Optional[bool]`
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_content_tokens: Optional[int]`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: Optional[BetaWebFetchURLSources]`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+        - `client_tool_results: Optional[ClientToolResults]`
+
+          Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+          - `class BetaWebFetchURLSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+            - `type: Literal["all"]`
+
+          - `class BetaWebFetchURLSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+            - `type: Literal["none"]`
+
+          - `class BetaWebFetchURLSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+            - `type: Literal["only"]`
+
+            - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+              - `type: Literal["tool_reference"]`
+
+              - `name: str`
+
+          - `class BetaWebFetchURLSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+            - `type: Literal["except"]`
+
+            - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+              - `type: Literal["tool_reference"]`
+
+              - `name: str`
+
+        - `server_tool_results: Optional[ServerToolResults]`
+
+          Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+          - `class BetaWebFetchURLSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class BetaWebFetchURLSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+          - `class BetaWebFetchURLSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+          - `class BetaWebFetchURLSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+        - `user_input: Optional[UserInput]`
+
+          Whether URLs in user messages are fetchable: "all" or "none".
+
+          - `class BetaWebFetchURLSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class BetaWebFetchURLSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+    - `class BetaWebSearchTool20260209`
+
+      - `type: Literal["web_search_20260209"]`
+
+      - `name: Literal["web_search"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+      - `blocked_domains: Optional[List[str]]`
+
+        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `user_location: Optional[BetaUserLocation]`
+
+        Parameters for the user's location. Used to provide more relevant search results.
+
+    - `class BetaWebFetchTool20260209`
+
+      - `type: Literal["web_fetch_20260209"]`
+
+      - `name: Literal["web_fetch"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        List of domains to allow fetching from
+
+      - `blocked_domains: Optional[List[str]]`
+
+        List of domains to block fetching from
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `citations: Optional[BetaCitationsConfigParam]`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_content_tokens: Optional[int]`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: Optional[BetaWebFetchURLSources]`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `class BetaWebFetchTool20260309`
+
+      Web fetch tool with use_cache parameter for bypassing cached content.
+
+      - `type: Literal["web_fetch_20260309"]`
+
+      - `name: Literal["web_fetch"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        List of domains to allow fetching from
+
+      - `blocked_domains: Optional[List[str]]`
+
+        List of domains to block fetching from
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `citations: Optional[BetaCitationsConfigParam]`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_content_tokens: Optional[int]`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: Optional[BetaWebFetchURLSources]`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `use_cache: Optional[bool]`
+
+        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+    - `class BetaWebSearchTool20260318`
+
+      - `type: Literal["web_search_20260318"]`
+
+      - `name: Literal["web_search"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+      - `blocked_domains: Optional[List[str]]`
+
+        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+        - `"full"`
+
+        - `"excluded"`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `user_location: Optional[BetaUserLocation]`
+
+        Parameters for the user's location. Used to provide more relevant search results.
+
+    - `class BetaWebFetchTool20260318`
+
+      - `type: Literal["web_fetch_20260318"]`
+
+      - `name: Literal["web_fetch"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        List of domains to allow fetching from
+
+      - `blocked_domains: Optional[List[str]]`
+
+        List of domains to block fetching from
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `citations: Optional[BetaCitationsConfigParam]`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_content_tokens: Optional[int]`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+        - `"full"`
+
+        - `"excluded"`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: Optional[BetaWebFetchURLSources]`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `use_cache: Optional[bool]`
+
+        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+    - `class BetaAdvisorTool20260301`
+
+      - `type: Literal["advisor_20260301"]`
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
+
+        - `"claude-mythos-5-1"`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+        - `"claude-sonnet-5"`
+
+          Efficient model for coding and agents
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-8"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-7"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-6"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-6"`
+
+          Best combination of speed and intelligence
+
+        - `"claude-haiku-4-5"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-haiku-4-5-20251001"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-opus-4-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+        - `"claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
+
+        - `str`
+
+      - `name: Literal["advisor"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `caching: Optional[BetaCacheControlEphemeral]`
+
+        Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_tokens: Optional[int]`
+
+        Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+        minimum: 1024
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolSearchToolBm25_20251119`
+
+      - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
+
+        - `"tool_search_tool_bm25_20251119"`
+
+        - `"tool_search_tool_bm25"`
+
+      - `name: Literal["tool_search_tool_bm25"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolSearchToolRegex20251119`
+
+      - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
+
+        - `"tool_search_tool_regex_20251119"`
+
+        - `"tool_search_tool_regex"`
+
+      - `name: Literal["tool_search_tool_regex"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaMCPToolset`
+
+      Configuration for a group of tools from an MCP server.
+
+      Allows configuring enabled status and defer_loading for all tools
+      from an MCP server, with optional per-tool overrides.
+
+      - `type: Literal["mcp_toolset"]`
+
+      - `mcp_server_name: str`
+
+        Name of the MCP server to configure tools for
+
+        minLength: 1, maxLength: 255
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `configs: Optional[Dict[str, BetaMCPToolConfig]]`
+
+        Configuration overrides for specific tools, keyed by tool name
+
+        - `defer_loading: Optional[bool]`
+
+        - `enabled: Optional[bool]`
+
+      - `default_config: Optional[BetaMCPToolDefaultConfig]`
+
+        Default configuration applied to all tools from this server
+
+        - `defer_loading: Optional[bool]`
+
+        - `enabled: Optional[bool]`
+
+      - `tools: Optional[List[BetaMCPToolParam]]`
+
+        The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+        - `input_schema: Dict[str, object]`
+
+          The tool's input schema as the MCP server lists it, verbatim.
+
+        - `name: str`
+
+          The tool's name as the MCP server lists it (not prefixed with the server name).
+
+          minLength: 1
+
+        - `description: Optional[str]`
+
+          The tool's description as the MCP server lists it.
+
+### Beta Tool Change Tool Definition Param
+
+- `class BetaToolChangeToolDefinitionParam`
+
+  A tool defined by value: `definition` is a `tools` entry (any kind
+  `tools` accepts, an MCP toolset included). An `mcp_toolset` given here
+  also requires the `mcp-client-2026-09-15` beta.
+
+  - `type: Literal["tool_definition"]`
+
+  - `definition: BetaToolUnion`
+
+    - `class BetaTool`
+
+      - `type: Optional[Literal["custom"]]`
+
+      - `input_schema: InputSchema`
+
+        [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+        This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+        - `type: Literal["object"]`
+
+        - `properties: Optional[Dict[str, object]]`
+
+        - `required: Optional[List[str]]`
+
+      - `name: str`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+        minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+        - `type: Literal["ephemeral"]`
+
+        - `ttl: Optional[Literal["5m", "1h"]]`
+
+          The time-to-live for the cache control breakpoint.
+
+          This may be one the following values:
+
+          - `5m`: 5 minutes
+          - `1h`: 1 hour
+
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+          - `"5m"`
+
+          - `"1h"`
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `description: Optional[str]`
+
+        Description of what this tool does.
+
+        Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+      - `eager_input_streaming: Optional[bool]`
+
+        Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolBash20241022`
+
+      - `type: Literal["bash_20241022"]`
+
+      - `name: Literal["bash"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolBash20250124`
+
+      - `type: Literal["bash_20250124"]`
+
+      - `name: Literal["bash"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaCodeExecutionTool20250522`
+
+      - `type: Literal["code_execution_20250522"]`
+
+      - `name: Literal["code_execution"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaCodeExecutionTool20250825`
+
+      - `type: Literal["code_execution_20250825"]`
+
+      - `name: Literal["code_execution"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaCodeExecutionTool20260120`
+
+      Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+      - `type: Literal["code_execution_20260120"]`
+
+      - `name: Literal["code_execution"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaCodeExecutionTool20260521`
+
+      Code execution tool with REPL state persistence.
+
+      - `type: Literal["code_execution_20260521"]`
+
+      - `name: Literal["code_execution"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaBrowserToolset20260801`
+
+      The browser toolset: a single `tools[]` entry (carrying no
+      `name`) that declares the browser tool family. The model is served
+      the family's tool with any members disabled via `configs` removed
+      from its schema.
+
+      - `type: Literal["browser_toolset_20260801"]`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `configs: Optional[BetaBrowserToolsetConfigs]`
+
+        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+        - `type: Optional[BetaBrowserTypeConfig]`
+
+          `type`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `close_tab: Optional[BetaBrowserCloseTabConfig]`
+
+          `close_tab`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `double_click: Optional[BetaBrowserDoubleClickConfig]`
+
+          `double_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `file_upload: Optional[BetaBrowserFileUploadConfig]`
+
+          `file_upload`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `find: Optional[BetaBrowserFindConfig]`
+
+          `find`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `form_input: Optional[BetaBrowserFormInputConfig]`
+
+          `form_input`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `get_page_text: Optional[BetaBrowserGetPageTextConfig]`
+
+          `get_page_text`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `hold_key: Optional[BetaBrowserHoldKeyConfig]`
+
+          `hold_key`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `hover: Optional[BetaBrowserHoverConfig]`
+
+          `hover`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `javascript_exec: Optional[BetaBrowserJavascriptExecConfig]`
+
+          `javascript_exec`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `key: Optional[BetaBrowserKeyConfig]`
+
+          `key`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_click: Optional[BetaBrowserLeftClickConfig]`
+
+          `left_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_click_drag: Optional[BetaBrowserLeftClickDragConfig]`
+
+          `left_click_drag`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_mouse_down: Optional[BetaBrowserLeftMouseDownConfig]`
+
+          `left_mouse_down`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_mouse_up: Optional[BetaBrowserLeftMouseUpConfig]`
+
+          `left_mouse_up`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `list_tabs: Optional[BetaBrowserListTabsConfig]`
+
+          `list_tabs`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `middle_click: Optional[BetaBrowserMiddleClickConfig]`
+
+          `middle_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `mouse_move: Optional[BetaBrowserMouseMoveConfig]`
+
+          `mouse_move`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `navigate: Optional[BetaBrowserNavigateConfig]`
+
+          `navigate`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `new_tab: Optional[BetaBrowserNewTabConfig]`
+
+          `new_tab`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `read_console: Optional[BetaBrowserReadConsoleConfig]`
+
+          `read_console`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `read_network: Optional[BetaBrowserReadNetworkConfig]`
+
+          `read_network`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `read_page: Optional[BetaBrowserReadPageConfig]`
+
+          `read_page`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `right_click: Optional[BetaBrowserRightClickConfig]`
+
+          `right_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `screenshot: Optional[BetaBrowserScreenshotConfig]`
+
+          `screenshot`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `scroll: Optional[BetaBrowserScrollConfig]`
+
+          `scroll`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `scroll_to: Optional[BetaBrowserScrollToConfig]`
+
+          `scroll_to`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `switch_tab: Optional[BetaBrowserSwitchTabConfig]`
+
+          `switch_tab`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `triple_click: Optional[BetaBrowserTripleClickConfig]`
+
+          `triple_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `wait: Optional[BetaBrowserWaitConfig]`
+
+          `wait`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `zoom: Optional[BetaBrowserZoomConfig]`
+
+          `zoom`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `class BetaToolComputerUse20241022`
+
+      - `type: Literal["computer_20241022"]`
+
+      - `display_height_px: int`
+
+        The height of the display in pixels.
+
+        minimum: 1
+
+      - `display_width_px: int`
+
+        The width of the display in pixels.
+
+        minimum: 1
+
+      - `name: Literal["computer"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `display_number: Optional[int]`
+
+        The X11 display number (e.g. 0, 1) for the display.
+
+        minimum: 0
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaMemoryTool20250818`
+
+      - `type: Literal["memory_20250818"]`
+
+      - `name: Literal["memory"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolComputerUse20250124`
+
+      - `type: Literal["computer_20250124"]`
+
+      - `display_height_px: int`
+
+        The height of the display in pixels.
+
+        minimum: 1
+
+      - `display_width_px: int`
+
+        The width of the display in pixels.
+
+        minimum: 1
+
+      - `name: Literal["computer"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `display_number: Optional[int]`
+
+        The X11 display number (e.g. 0, 1) for the display.
+
+        minimum: 0
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolTextEditor20241022`
+
+      - `type: Literal["text_editor_20241022"]`
+
+      - `name: Literal["str_replace_editor"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolComputerUse20251124`
+
+      - `type: Literal["computer_20251124"]`
+
+      - `display_height_px: int`
+
+        The height of the display in pixels.
+
+        minimum: 1
+
+      - `display_width_px: int`
+
+        The width of the display in pixels.
+
+        minimum: 1
+
+      - `name: Literal["computer"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `display_number: Optional[int]`
+
+        The X11 display number (e.g. 0, 1) for the display.
+
+        minimum: 0
+
+      - `enable_zoom: Optional[bool]`
+
+        Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaComputerToolset20260801`
+
+      The computer toolset: a single `tools[]` entry (carrying no
+      `name`) that declares the computer tool family. The model is
+      served the family's tool with any members disabled via `configs`
+      removed from its schema. Every member is enabled by default, zoom
+      included. The single-tool options `display_number` and
+      `enable_zoom` are not fields of a toolset entry — it carries only
+      `type`, `configs`, and `cache_control`; zoom is controlled
+      via `configs.zoom.enabled`.
+
+      - `type: Literal["computer_toolset_20260801"]`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `configs: Optional[BetaComputerToolsetConfigs]`
+
+        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+        - `type: Optional[BetaComputerTypeConfig]`
+
+          `type`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `cursor_position: Optional[BetaComputerCursorPositionConfig]`
+
+          `cursor_position`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `double_click: Optional[BetaComputerDoubleClickConfig]`
+
+          `double_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `hold_key: Optional[BetaComputerHoldKeyConfig]`
+
+          `hold_key`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `key: Optional[BetaComputerKeyConfig]`
+
+          `key`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_click: Optional[BetaComputerLeftClickConfig]`
+
+          `left_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_click_drag: Optional[BetaComputerLeftClickDragConfig]`
+
+          `left_click_drag`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_mouse_down: Optional[BetaComputerLeftMouseDownConfig]`
+
+          `left_mouse_down`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_mouse_up: Optional[BetaComputerLeftMouseUpConfig]`
+
+          `left_mouse_up`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `middle_click: Optional[BetaComputerMiddleClickConfig]`
+
+          `middle_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `mouse_move: Optional[BetaComputerMouseMoveConfig]`
+
+          `mouse_move`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `right_click: Optional[BetaComputerRightClickConfig]`
+
+          `right_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `screenshot: Optional[BetaComputerScreenshotConfig]`
+
+          `screenshot`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `scroll: Optional[BetaComputerScrollConfig]`
+
+          `scroll`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `triple_click: Optional[BetaComputerTripleClickConfig]`
+
+          `triple_click`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `wait: Optional[BetaComputerWaitConfig]`
+
+          `wait`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `zoom: Optional[BetaComputerZoomConfig]`
+
+          `zoom`'s config overrides.
+
+          - `defer_loading: Optional[bool]`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled: Optional[bool]`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `class BetaToolTextEditor20250124`
+
+      - `type: Literal["text_editor_20250124"]`
+
+      - `name: Literal["str_replace_editor"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolTextEditor20250429`
+
+      - `type: Literal["text_editor_20250429"]`
+
+      - `name: Literal["str_replace_based_edit_tool"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolTextEditor20250728`
+
+      - `type: Literal["text_editor_20250728"]`
+
+      - `name: Literal["str_replace_based_edit_tool"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `input_examples: Optional[List[Dict[str, object]]]`
+
+      - `max_characters: Optional[int]`
+
+        Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaWebSearchTool20250305`
+
+      - `type: Literal["web_search_20250305"]`
+
+      - `name: Literal["web_search"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+      - `blocked_domains: Optional[List[str]]`
+
+        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `user_location: Optional[BetaUserLocation]`
+
+        Parameters for the user's location. Used to provide more relevant search results.
+
+        - `type: Literal["approximate"]`
+
+        - `city: Optional[str]`
+
+          The city of the user.
+
+          minLength: 1, maxLength: 255
+
+        - `country: Optional[str]`
+
+          The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+          minLength: 2, maxLength: 2
+
+        - `region: Optional[str]`
+
+          The region of the user.
+
+          minLength: 1, maxLength: 255
+
+        - `timezone: Optional[str]`
+
+          The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+          minLength: 1, maxLength: 255
+
+    - `class BetaWebFetchTool20250910`
+
+      - `type: Literal["web_fetch_20250910"]`
+
+      - `name: Literal["web_fetch"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        List of domains to allow fetching from
+
+      - `blocked_domains: Optional[List[str]]`
+
+        List of domains to block fetching from
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `citations: Optional[BetaCitationsConfigParam]`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+        - `enabled: Optional[bool]`
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_content_tokens: Optional[int]`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: Optional[BetaWebFetchURLSources]`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+        - `client_tool_results: Optional[ClientToolResults]`
+
+          Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+          - `class BetaWebFetchURLSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+            - `type: Literal["all"]`
+
+          - `class BetaWebFetchURLSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+            - `type: Literal["none"]`
+
+          - `class BetaWebFetchURLSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+            - `type: Literal["only"]`
+
+            - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+              - `type: Literal["tool_reference"]`
+
+              - `name: str`
+
+          - `class BetaWebFetchURLSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+            - `type: Literal["except"]`
+
+            - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+              - `type: Literal["tool_reference"]`
+
+              - `name: str`
+
+        - `server_tool_results: Optional[ServerToolResults]`
+
+          Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+          - `class BetaWebFetchURLSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class BetaWebFetchURLSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+          - `class BetaWebFetchURLSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+          - `class BetaWebFetchURLSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+        - `user_input: Optional[UserInput]`
+
+          Whether URLs in user messages are fetchable: "all" or "none".
+
+          - `class BetaWebFetchURLSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class BetaWebFetchURLSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+    - `class BetaWebSearchTool20260209`
+
+      - `type: Literal["web_search_20260209"]`
+
+      - `name: Literal["web_search"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+      - `blocked_domains: Optional[List[str]]`
+
+        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `user_location: Optional[BetaUserLocation]`
+
+        Parameters for the user's location. Used to provide more relevant search results.
+
+    - `class BetaWebFetchTool20260209`
+
+      - `type: Literal["web_fetch_20260209"]`
+
+      - `name: Literal["web_fetch"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        List of domains to allow fetching from
+
+      - `blocked_domains: Optional[List[str]]`
+
+        List of domains to block fetching from
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `citations: Optional[BetaCitationsConfigParam]`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_content_tokens: Optional[int]`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: Optional[BetaWebFetchURLSources]`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `class BetaWebFetchTool20260309`
+
+      Web fetch tool with use_cache parameter for bypassing cached content.
+
+      - `type: Literal["web_fetch_20260309"]`
+
+      - `name: Literal["web_fetch"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        List of domains to allow fetching from
+
+      - `blocked_domains: Optional[List[str]]`
+
+        List of domains to block fetching from
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `citations: Optional[BetaCitationsConfigParam]`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_content_tokens: Optional[int]`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: Optional[BetaWebFetchURLSources]`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `use_cache: Optional[bool]`
+
+        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+    - `class BetaWebSearchTool20260318`
+
+      - `type: Literal["web_search_20260318"]`
+
+      - `name: Literal["web_search"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+      - `blocked_domains: Optional[List[str]]`
+
+        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+        - `"full"`
+
+        - `"excluded"`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `user_location: Optional[BetaUserLocation]`
+
+        Parameters for the user's location. Used to provide more relevant search results.
+
+    - `class BetaWebFetchTool20260318`
+
+      - `type: Literal["web_fetch_20260318"]`
+
+      - `name: Literal["web_fetch"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `allowed_domains: Optional[List[str]]`
+
+        List of domains to allow fetching from
+
+      - `blocked_domains: Optional[List[str]]`
+
+        List of domains to block fetching from
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `citations: Optional[BetaCitationsConfigParam]`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_content_tokens: Optional[int]`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+        - `"full"`
+
+        - `"excluded"`
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `url_sources: Optional[BetaWebFetchURLSources]`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `use_cache: Optional[bool]`
+
+        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+    - `class BetaAdvisorTool20260301`
+
+      - `type: Literal["advisor_20260301"]`
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
+
+        - `"claude-mythos-5-1"`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+        - `"claude-sonnet-5"`
+
+          Efficient model for coding and agents
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-8"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-7"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-6"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-6"`
+
+          Best combination of speed and intelligence
+
+        - `"claude-haiku-4-5"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-haiku-4-5-20251001"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-opus-4-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+        - `"claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
+
+        - `str`
+
+      - `name: Literal["advisor"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `caching: Optional[BetaCacheControlEphemeral]`
+
+        Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `max_tokens: Optional[int]`
+
+        Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+        minimum: 1024
+
+      - `max_uses: Optional[int]`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolSearchToolBm25_20251119`
+
+      - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
+
+        - `"tool_search_tool_bm25_20251119"`
+
+        - `"tool_search_tool_bm25"`
+
+      - `name: Literal["tool_search_tool_bm25"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaToolSearchToolRegex20251119`
+
+      - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
+
+        - `"tool_search_tool_regex_20251119"`
+
+        - `"tool_search_tool_regex"`
+
+      - `name: Literal["tool_search_tool_regex"]`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading: Optional[bool]`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `strict: Optional[bool]`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `class BetaMCPToolset`
+
+      Configuration for a group of tools from an MCP server.
+
+      Allows configuring enabled status and defer_loading for all tools
+      from an MCP server, with optional per-tool overrides.
+
+      - `type: Literal["mcp_toolset"]`
+
+      - `mcp_server_name: str`
+
+        Name of the MCP server to configure tools for
+
+        minLength: 1, maxLength: 255
+
+      - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+        Create a cache control breakpoint at this content block.
+
+      - `configs: Optional[Dict[str, BetaMCPToolConfig]]`
+
+        Configuration overrides for specific tools, keyed by tool name
+
+        - `defer_loading: Optional[bool]`
+
+        - `enabled: Optional[bool]`
+
+      - `default_config: Optional[BetaMCPToolDefaultConfig]`
+
+        Default configuration applied to all tools from this server
+
+        - `defer_loading: Optional[bool]`
+
+        - `enabled: Optional[bool]`
+
+      - `tools: Optional[List[BetaMCPToolParam]]`
+
+        The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+        - `input_schema: Dict[str, object]`
+
+          The tool's input schema as the MCP server lists it, verbatim.
+
+        - `name: str`
+
+          The tool's name as the MCP server lists it (not prefixed with the server name).
+
+          minLength: 1
+
+        - `description: Optional[str]`
+
+          The tool's description as the MCP server lists it.
+
+### Beta Tool Change Tool Reference
+
+- `class BetaToolChangeToolReference`
+
+  Reference to a single tool, by the name the model uses to call it: a
+  tool declared in `tools` or defined by an earlier `tool_addition`
+  block. Does not accept the composed `{server}_{name}` form the server
+  assigns to MCP-resolved tools; use `mcp_tool_reference` or
+  `mcp_toolset_reference` for those.
+
+  - `type: Literal["tool_reference"]`
+
+  - `name: str`
+
+    pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+### Beta Tool Choice
+
+- `type BetaToolChoice = ...`
+
+  How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
+  - `class BetaToolChoiceAuto`
+
+    The model will automatically decide whether to use tools.
+
+    - `type: Literal["auto"]`
+
+    - `disable_parallel_tool_use: Optional[bool]`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+  - `class BetaToolChoiceAny`
+
+    The model will use any available tools.
+
+    - `type: Literal["any"]`
+
+    - `disable_parallel_tool_use: Optional[bool]`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `class BetaToolChoiceTool`
+
+    The model will use the specified tool with `tool_choice.name`.
+
+    - `type: Literal["tool"]`
+
+    - `name: str`
+
+      The name of the tool to use.
+
+    - `disable_parallel_tool_use: Optional[bool]`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `class BetaToolChoiceNone`
+
+    The model will not be allowed to use tools.
+
+    - `type: Literal["none"]`
+
+### Beta Tool Choice Any
+
+- `class BetaToolChoiceAny`
+
+  The model will use any available tools.
+
+  - `type: Literal["any"]`
+
+  - `disable_parallel_tool_use: Optional[bool]`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+### Beta Tool Choice Auto
+
+- `class BetaToolChoiceAuto`
+
+  The model will automatically decide whether to use tools.
+
+  - `type: Literal["auto"]`
+
+  - `disable_parallel_tool_use: Optional[bool]`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+### Beta Tool Choice None
+
+- `class BetaToolChoiceNone`
+
+  The model will not be allowed to use tools.
+
+  - `type: Literal["none"]`
+
+### Beta Tool Choice Tool
+
+- `class BetaToolChoiceTool`
+
+  The model will use the specified tool with `tool_choice.name`.
+
+  - `type: Literal["tool"]`
+
+  - `name: str`
+
+    The name of the tool to use.
+
+  - `disable_parallel_tool_use: Optional[bool]`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+### Beta Tool Computer Use 20241022
+
+- `class BetaToolComputerUse20241022`
+
+  - `type: Literal["computer_20241022"]`
+
+  - `display_height_px: int`
+
+    The height of the display in pixels.
+
+    minimum: 1
+
+  - `display_width_px: int`
+
+    The width of the display in pixels.
+
+    minimum: 1
+
+  - `name: Literal["computer"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `display_number: Optional[int]`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+    minimum: 0
+
+  - `input_examples: Optional[List[Dict[str, object]]]`
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Computer Use 20250124
+
+- `class BetaToolComputerUse20250124`
+
+  - `type: Literal["computer_20250124"]`
+
+  - `display_height_px: int`
+
+    The height of the display in pixels.
+
+    minimum: 1
+
+  - `display_width_px: int`
+
+    The width of the display in pixels.
+
+    minimum: 1
+
+  - `name: Literal["computer"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `display_number: Optional[int]`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+    minimum: 0
+
+  - `input_examples: Optional[List[Dict[str, object]]]`
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Computer Use 20251124
+
+- `class BetaToolComputerUse20251124`
+
+  - `type: Literal["computer_20251124"]`
+
+  - `display_height_px: int`
+
+    The height of the display in pixels.
+
+    minimum: 1
+
+  - `display_width_px: int`
+
+    The width of the display in pixels.
+
+    minimum: 1
+
+  - `name: Literal["computer"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `display_number: Optional[int]`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+    minimum: 0
+
+  - `enable_zoom: Optional[bool]`
+
+    Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+  - `input_examples: Optional[List[Dict[str, object]]]`
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Reference Block
+
+- `class BetaToolReferenceBlock`
+
+  - `type: Literal["tool_reference"]`
+
+    default: tool_reference
+
+  - `tool_name: str`
+
+    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+### Beta Tool Reference Block Param
+
+- `class BetaToolReferenceBlockParam`
+
+  Tool reference block that can be included in tool_result content.
+
+  - `type: Literal["tool_reference"]`
+
+  - `tool_name: str`
+
+    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+### Beta Tool Result Block Param
+
+- `class BetaToolResultBlockParam`
+
+  - `type: Literal["tool_result"]`
+
+  - `tool_use_id: str`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `content: Optional[Union[str, List[Content], null]]`
+
+    - `str`
+
+    - `List[Content]`
+
+      - `class BetaTextBlockParam`
+
+        - `type: Literal["text"]`
+
+        - `text: str`
+
+          minLength: 1
+
+        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: Optional[List[BetaTextCitationParam]]`
+
+          - `class BetaCitationCharLocationParam`
+
+            - `type: Literal["char_location"]`
+
+            - `cited_text: str`
+
+            - `document_index: int`
+
+              minimum: 0
+
+            - `document_title: Optional[str]`
+
+              minLength: 1, maxLength: 500
+
+            - `end_char_index: int`
+
+            - `start_char_index: int`
+
+              minimum: 0
+
+          - `class BetaCitationPageLocationParam`
+
+            - `type: Literal["page_location"]`
+
+            - `cited_text: str`
+
+            - `document_index: int`
+
+              minimum: 0
+
+            - `document_title: Optional[str]`
+
+              minLength: 1, maxLength: 500
+
+            - `end_page_number: int`
+
+            - `start_page_number: int`
+
+              minimum: 1
+
+          - `class BetaCitationContentBlockLocationParam`
+
+            - `type: Literal["content_block_location"]`
+
+            - `cited_text: str`
+
+              The full text of the cited block range, concatenated.
+
+              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+            - `document_index: int`
+
+              minimum: 0
+
+            - `document_title: Optional[str]`
+
+              minLength: 1, maxLength: 500
+
+            - `end_block_index: int`
+
+              Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+            - `start_block_index: int`
+
+              0-based index of the first cited block in the source's `content` array.
+
+              minimum: 0
+
+          - `class BetaCitationWebSearchResultLocationParam`
+
+            - `type: Literal["web_search_result_location"]`
+
+            - `cited_text: str`
+
+            - `encrypted_index: str`
+
+            - `title: Optional[str]`
+
+              minLength: 1, maxLength: 512
+
+            - `url: str`
+
+              minLength: 1
+
+          - `class BetaCitationSearchResultLocationParam`
+
+            - `type: Literal["search_result_location"]`
+
+            - `cited_text: str`
+
+              The full text of the cited block range, concatenated.
+
+              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+            - `end_block_index: int`
+
+              Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+            - `search_result_index: int`
+
+              0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+              Counted separately from `document_index`; server-side web search results are not included in this count.
+
+              minimum: 0
+
+            - `source: str`
+
+            - `start_block_index: int`
+
+              0-based index of the first cited block in the source's `content` array.
+
+              minimum: 0
+
+            - `title: Optional[str]`
+
+      - `class BetaImageBlockParam`
+
+        - `type: Literal["image"]`
+
+        - `source: Source`
+
+          - `class BetaBase64ImageSource`
+
+            - `type: Literal["base64"]`
+
+            - `data: str`
+
+              format: byte
+
+            - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
+
+              - `"image/jpeg"`
+
+              - `"image/png"`
+
+              - `"image/gif"`
+
+              - `"image/webp"`
+
+          - `class BetaURLImageSource`
+
+            - `type: Literal["url"]`
+
+            - `url: str`
+
+          - `class BetaFileImageSource`
+
+            - `type: Literal["file"]`
+
+            - `file_id: str`
+
+        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `transformations: Optional[BetaImageTransformationsParam]`
+
+          Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+          - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+            What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+            - `"downsize"`
+
+            - `"error"`
+
+      - `class BetaSearchResultBlockParam`
+
+        - `type: Literal["search_result"]`
+
+        - `content: List[BetaTextBlockParam]`
+
+          - `type: Literal["text"]`
+
+          - `text: str`
+
+            minLength: 1
+
+          - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+            Create a cache control breakpoint at this content block.
+
+          - `citations: Optional[List[BetaTextCitationParam]]`
+
+        - `source: str`
+
+        - `title: str`
+
+        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: Optional[BetaCitationsConfigParam]`
+
+          - `enabled: Optional[bool]`
+
+      - `class BetaRequestDocumentBlock`
+
+        - `type: Literal["document"]`
+
+        - `source: Source`
+
+          - `class BetaBase64PDFSource`
+
+            - `type: Literal["base64"]`
+
+            - `data: str`
+
+              format: byte
+
+            - `media_type: Literal["application/pdf"]`
+
+          - `class BetaPlainTextSource`
+
+            - `type: Literal["text"]`
+
+            - `data: str`
+
+            - `media_type: Literal["text/plain"]`
+
+          - `class BetaContentBlockSource`
+
+            - `type: Literal["content"]`
+
+            - `content: Union[str, List[BetaContentBlockSourceContent]]`
+
+              - `str`
+
+              - `List[BetaContentBlockSourceContent]`
+
+                - `class BetaTextBlockParam`
+
+                - `class BetaImageBlockParam`
+
+          - `class BetaURLPDFSource`
+
+            - `type: Literal["url"]`
+
+            - `url: str`
+
+          - `class BetaFileDocumentSource`
+
+            - `type: Literal["file"]`
+
+            - `file_id: str`
+
+        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: Optional[BetaCitationsConfigParam]`
+
+        - `context: Optional[str]`
+
+          minLength: 1
+
+        - `title: Optional[str]`
+
+          minLength: 1, maxLength: 500
+
+      - `class BetaToolReferenceBlockParam`
+
+        Tool reference block that can be included in tool_result content.
+
+        - `type: Literal["tool_reference"]`
+
+        - `tool_name: str`
+
+          minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+      - `class BetaBrowserStateBlockParam`
+
+        The caller's browser state after a browser toolset member call —
+        the full inventory of open tabs, which tab is active, and any side
+        effects (tabs opened, download state changes) the call produced.
+
+        At most one per `tool_result`, only on a non-error result answering a
+        browser toolset member `tool_use`. The server renders the
+        model-visible text from it; the model never sees the raw fields.
+
+        - `type: Literal["browser_state"]`
+
+        - `tabs: List[BetaBrowserStateTabEntry]`
+
+          All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+          maxItems: 100
+
+          - `tab_id: str`
+
+            The caller-assigned identifier for this tab, unique within the inventory.
+
+            minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+          - `title: str`
+
+            The title of the page the tab is showing. May be empty.
+
+            maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+          - `url: str`
+
+            The URL of the page the tab is showing. May be empty.
+
+            maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+          - `active: Optional[bool]`
+
+            Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `state_changes: Optional[List[BetaBrowserStateChange]]`
+
+          Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+          minItems: 1, maxItems: 200
+
+          - `class BetaBrowserStateChangeTabOpened`
+
+            A tab this call's execution opened that remains open at its end —
+            the creation delta of the `tabs` inventory, not an event log.
+
+            Carries only the `tab_id`; the tab's `title` and `url` live on its
+            `tabs` entry, which must include the same `tab_id`. A tab opened
+            during a failed call gets no deferred `tab_opened`; it simply appears
+            in the next result's `tabs` inventory.
+
+            - `type: Literal["tab_opened"]`
+
+            - `tab_id: str`
+
+              The `tab_id` of the opened tab, present in `tabs`.
+
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+          - `class BetaBrowserStateChangeDownloadStarted`
+
+            A file download that started during this call.
+
+            - `type: Literal["download_started"]`
+
+            - `download_id: str`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+            - `url: str`
+
+              The final post-redirect URL the download was served from.
+
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+          - `class BetaBrowserStateChangeDownloadCompleted`
+
+            A file download that finished during this call, reported with the
+            same `download_id` as its `download_started` — or without a prior
+            `download_started`, when the download finished during the call that
+            started it (at most one state change per `download_id` per result).
+
+            - `type: Literal["download_completed"]`
+
+            - `download_id: str`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+            - `url: str`
+
+              The final post-redirect URL the download was served from.
+
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+            - `path: Optional[str]`
+
+              Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+            - `size_bytes: Optional[int]`
+
+              The completed download's size.
+
+              minimum: 0
+
+          - `class BetaBrowserStateChangeDownloadFailed`
+
+            A file download that failed — or was cancelled — during this call.
+
+            - `type: Literal["download_failed"]`
+
+            - `download_id: str`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+            - `url: str`
+
+              The final post-redirect URL the download was served from.
+
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+            - `error: Optional[str]`
+
+              The failure or cancellation detail, when known.
+
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+  - `is_error: Optional[bool]`
+
+  - `toolset_name: Optional[str]`
+
+    For a toolset member tool_result, the toolset family of the paired tool_use.
+
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+### Beta Tool Search Tool Bm25 20251119
+
+- `class BetaToolSearchToolBm25_20251119`
+
+  - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
+
+    - `"tool_search_tool_bm25_20251119"`
+
+    - `"tool_search_tool_bm25"`
+
+  - `name: Literal["tool_search_tool_bm25"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Search Tool Regex 20251119
+
+- `class BetaToolSearchToolRegex20251119`
+
+  - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
+
+    - `"tool_search_tool_regex_20251119"`
+
+    - `"tool_search_tool_regex"`
+
+  - `name: Literal["tool_search_tool_regex"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Search Tool Result Block
+
+- `class BetaToolSearchToolResultBlock`
+
+  - `type: Literal["tool_search_tool_result"]`
+
+    default: tool_search_tool_result
+
+  - `content: Content`
+
+    - `class BetaToolSearchToolResultError`
+
+      - `type: Literal["tool_search_tool_result_error"]`
+
+        default: tool_search_tool_result_error
+
+      - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", "execution_time_exceeded"]`
+
+        - `"invalid_tool_input"`
+
+        - `"unavailable"`
+
+        - `"too_many_requests"`
+
+        - `"execution_time_exceeded"`
+
+      - `error_message: Optional[str]`
+
+    - `class BetaToolSearchToolSearchResultBlock`
+
+      - `type: Literal["tool_search_tool_search_result"]`
+
+        default: tool_search_tool_search_result
+
+      - `tool_references: List[BetaToolReferenceBlock]`
+
+        - `type: Literal["tool_reference"]`
+
+          default: tool_reference
+
+        - `tool_name: str`
+
+          minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+  - `tool_use_id: str`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Tool Search Tool Result Block Param
+
+- `class BetaToolSearchToolResultBlockParam`
+
+  - `type: Literal["tool_search_tool_result"]`
+
+  - `content: Content`
+
+    - `class BetaToolSearchToolResultErrorParam`
+
+      - `type: Literal["tool_search_tool_result_error"]`
+
+      - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", "execution_time_exceeded"]`
+
+        - `"invalid_tool_input"`
+
+        - `"unavailable"`
+
+        - `"too_many_requests"`
+
+        - `"execution_time_exceeded"`
+
+      - `error_message: Optional[str]`
+
+    - `class BetaToolSearchToolSearchResultBlockParam`
+
+      - `type: Literal["tool_search_tool_search_result"]`
+
+      - `tool_references: List[BetaToolReferenceBlockParam]`
+
+        - `type: Literal["tool_reference"]`
+
+        - `tool_name: str`
+
+          minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+          - `type: Literal["ephemeral"]`
+
+          - `ttl: Optional[Literal["5m", "1h"]]`
+
+            The time-to-live for the cache control breakpoint.
+
+            This may be one the following values:
+
+            - `5m`: 5 minutes
+            - `1h`: 1 hour
+
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+            - `"5m"`
+
+            - `"1h"`
+
+  - `tool_use_id: str`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+### Beta Tool Search Tool Result Error
+
+- `class BetaToolSearchToolResultError`
+
+  - `type: Literal["tool_search_tool_result_error"]`
+
+    default: tool_search_tool_result_error
+
+  - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", "execution_time_exceeded"]`
+
+    - `"invalid_tool_input"`
+
+    - `"unavailable"`
+
+    - `"too_many_requests"`
+
+    - `"execution_time_exceeded"`
+
+  - `error_message: Optional[str]`
+
+### Beta Tool Search Tool Result Error Param
+
+- `class BetaToolSearchToolResultErrorParam`
+
+  - `type: Literal["tool_search_tool_result_error"]`
+
+  - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", "execution_time_exceeded"]`
+
+    - `"invalid_tool_input"`
+
+    - `"unavailable"`
+
+    - `"too_many_requests"`
+
+    - `"execution_time_exceeded"`
+
+  - `error_message: Optional[str]`
+
+### Beta Tool Search Tool Search Result Block
+
+- `class BetaToolSearchToolSearchResultBlock`
+
+  - `type: Literal["tool_search_tool_search_result"]`
+
+    default: tool_search_tool_search_result
+
+  - `tool_references: List[BetaToolReferenceBlock]`
+
+    - `type: Literal["tool_reference"]`
+
+      default: tool_reference
+
+    - `tool_name: str`
+
+      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+### Beta Tool Search Tool Search Result Block Param
+
+- `class BetaToolSearchToolSearchResultBlockParam`
+
+  - `type: Literal["tool_search_tool_search_result"]`
+
+  - `tool_references: List[BetaToolReferenceBlockParam]`
+
+    - `type: Literal["tool_reference"]`
+
+    - `tool_name: str`
+
+      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+      - `type: Literal["ephemeral"]`
+
+      - `ttl: Optional[Literal["5m", "1h"]]`
+
+        The time-to-live for the cache control breakpoint.
+
+        This may be one the following values:
+
+        - `5m`: 5 minutes
+        - `1h`: 1 hour
+
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+        - `"5m"`
+
+        - `"1h"`
+
+### Beta Tool Text Editor 20241022
+
+- `class BetaToolTextEditor20241022`
+
+  - `type: Literal["text_editor_20241022"]`
+
+  - `name: Literal["str_replace_editor"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `input_examples: Optional[List[Dict[str, object]]]`
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Text Editor 20250124
+
+- `class BetaToolTextEditor20250124`
+
+  - `type: Literal["text_editor_20250124"]`
+
+  - `name: Literal["str_replace_editor"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `input_examples: Optional[List[Dict[str, object]]]`
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Text Editor 20250429
+
+- `class BetaToolTextEditor20250429`
+
+  - `type: Literal["text_editor_20250429"]`
+
+  - `name: Literal["str_replace_based_edit_tool"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `input_examples: Optional[List[Dict[str, object]]]`
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Text Editor 20250728
+
+- `class BetaToolTextEditor20250728`
+
+  - `type: Literal["text_editor_20250728"]`
+
+  - `name: Literal["str_replace_based_edit_tool"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `input_examples: Optional[List[Dict[str, object]]]`
+
+  - `max_characters: Optional[int]`
+
+    Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+    minimum: 1
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Union
+
+- `type BetaToolUnion = ...`
+
+  - `class BetaTool`
+
+    - `type: Optional[Literal["custom"]]`
+
+    - `input_schema: InputSchema`
+
+      [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+      This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+      - `type: Literal["object"]`
+
+      - `properties: Optional[Dict[str, object]]`
+
+      - `required: Optional[List[str]]`
+
+    - `name: str`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+      - `type: Literal["ephemeral"]`
+
+      - `ttl: Optional[Literal["5m", "1h"]]`
+
+        The time-to-live for the cache control breakpoint.
+
+        This may be one the following values:
+
+        - `5m`: 5 minutes
+        - `1h`: 1 hour
+
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+        - `"5m"`
+
+        - `"1h"`
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `description: Optional[str]`
+
+      Description of what this tool does.
+
+      Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+    - `eager_input_streaming: Optional[bool]`
+
+      Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolBash20241022`
+
+    - `type: Literal["bash_20241022"]`
+
+    - `name: Literal["bash"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolBash20250124`
+
+    - `type: Literal["bash_20250124"]`
+
+    - `name: Literal["bash"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaCodeExecutionTool20250522`
+
+    - `type: Literal["code_execution_20250522"]`
+
+    - `name: Literal["code_execution"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaCodeExecutionTool20250825`
+
+    - `type: Literal["code_execution_20250825"]`
+
+    - `name: Literal["code_execution"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaCodeExecutionTool20260120`
+
+    Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+    - `type: Literal["code_execution_20260120"]`
+
+    - `name: Literal["code_execution"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaCodeExecutionTool20260521`
+
+    Code execution tool with REPL state persistence.
+
+    - `type: Literal["code_execution_20260521"]`
+
+    - `name: Literal["code_execution"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaBrowserToolset20260801`
+
+    The browser toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the browser tool family. The model is served
+    the family's tool with any members disabled via `configs` removed
+    from its schema.
+
+    - `type: Literal["browser_toolset_20260801"]`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[BetaBrowserToolsetConfigs]`
+
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+      - `type: Optional[BetaBrowserTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `close_tab: Optional[BetaBrowserCloseTabConfig]`
+
+        `close_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[BetaBrowserDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `file_upload: Optional[BetaBrowserFileUploadConfig]`
+
+        `file_upload`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `find: Optional[BetaBrowserFindConfig]`
+
+        `find`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `form_input: Optional[BetaBrowserFormInputConfig]`
+
+        `form_input`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `get_page_text: Optional[BetaBrowserGetPageTextConfig]`
+
+        `get_page_text`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[BetaBrowserHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hover: Optional[BetaBrowserHoverConfig]`
+
+        `hover`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `javascript_exec: Optional[BetaBrowserJavascriptExecConfig]`
+
+        `javascript_exec`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[BetaBrowserKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[BetaBrowserLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[BetaBrowserLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[BetaBrowserLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[BetaBrowserLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `list_tabs: Optional[BetaBrowserListTabsConfig]`
+
+        `list_tabs`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[BetaBrowserMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[BetaBrowserMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `navigate: Optional[BetaBrowserNavigateConfig]`
+
+        `navigate`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `new_tab: Optional[BetaBrowserNewTabConfig]`
+
+        `new_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_console: Optional[BetaBrowserReadConsoleConfig]`
+
+        `read_console`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_network: Optional[BetaBrowserReadNetworkConfig]`
+
+        `read_network`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_page: Optional[BetaBrowserReadPageConfig]`
+
+        `read_page`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[BetaBrowserRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[BetaBrowserScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[BetaBrowserScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll_to: Optional[BetaBrowserScrollToConfig]`
+
+        `scroll_to`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `switch_tab: Optional[BetaBrowserSwitchTabConfig]`
+
+        `switch_tab`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[BetaBrowserTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[BetaBrowserWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[BetaBrowserZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `class BetaToolComputerUse20241022`
+
+    - `type: Literal["computer_20241022"]`
+
+    - `display_height_px: int`
+
+      The height of the display in pixels.
+
+      minimum: 1
+
+    - `display_width_px: int`
+
+      The width of the display in pixels.
+
+      minimum: 1
+
+    - `name: Literal["computer"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `display_number: Optional[int]`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+      minimum: 0
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaMemoryTool20250818`
+
+    - `type: Literal["memory_20250818"]`
+
+    - `name: Literal["memory"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolComputerUse20250124`
+
+    - `type: Literal["computer_20250124"]`
+
+    - `display_height_px: int`
+
+      The height of the display in pixels.
+
+      minimum: 1
+
+    - `display_width_px: int`
+
+      The width of the display in pixels.
+
+      minimum: 1
+
+    - `name: Literal["computer"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `display_number: Optional[int]`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+      minimum: 0
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolTextEditor20241022`
+
+    - `type: Literal["text_editor_20241022"]`
+
+    - `name: Literal["str_replace_editor"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolComputerUse20251124`
+
+    - `type: Literal["computer_20251124"]`
+
+    - `display_height_px: int`
+
+      The height of the display in pixels.
+
+      minimum: 1
+
+    - `display_width_px: int`
+
+      The width of the display in pixels.
+
+      minimum: 1
+
+    - `name: Literal["computer"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `display_number: Optional[int]`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+      minimum: 0
+
+    - `enable_zoom: Optional[bool]`
+
+      Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaComputerToolset20260801`
+
+    The computer toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the computer tool family. The model is
+    served the family's tool with any members disabled via `configs`
+    removed from its schema. Every member is enabled by default, zoom
+    included. The single-tool options `display_number` and
+    `enable_zoom` are not fields of a toolset entry — it carries only
+    `type`, `configs`, and `cache_control`; zoom is controlled
+    via `configs.zoom.enabled`.
+
+    - `type: Literal["computer_toolset_20260801"]`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[BetaComputerToolsetConfigs]`
+
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+      - `type: Optional[BetaComputerTypeConfig]`
+
+        `type`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `cursor_position: Optional[BetaComputerCursorPositionConfig]`
+
+        `cursor_position`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: Optional[BetaComputerDoubleClickConfig]`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: Optional[BetaComputerHoldKeyConfig]`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: Optional[BetaComputerKeyConfig]`
+
+        `key`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: Optional[BetaComputerLeftClickConfig]`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: Optional[BetaComputerLeftClickDragConfig]`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: Optional[BetaComputerLeftMouseDownConfig]`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: Optional[BetaComputerLeftMouseUpConfig]`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: Optional[BetaComputerMiddleClickConfig]`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: Optional[BetaComputerMouseMoveConfig]`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: Optional[BetaComputerRightClickConfig]`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: Optional[BetaComputerScreenshotConfig]`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: Optional[BetaComputerScrollConfig]`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: Optional[BetaComputerTripleClickConfig]`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: Optional[BetaComputerWaitConfig]`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: Optional[BetaComputerZoomConfig]`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: Optional[bool]`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: Optional[bool]`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `class BetaToolTextEditor20250124`
+
+    - `type: Literal["text_editor_20250124"]`
+
+    - `name: Literal["str_replace_editor"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolTextEditor20250429`
+
+    - `type: Literal["text_editor_20250429"]`
+
+    - `name: Literal["str_replace_based_edit_tool"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolTextEditor20250728`
+
+    - `type: Literal["text_editor_20250728"]`
+
+    - `name: Literal["str_replace_based_edit_tool"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: Optional[List[Dict[str, object]]]`
+
+    - `max_characters: Optional[int]`
+
+      Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+      minimum: 1
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaWebSearchTool20250305`
+
+    - `type: Literal["web_search_20250305"]`
+
+    - `name: Literal["web_search"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: Optional[List[str]]`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: Optional[List[str]]`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: Optional[int]`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: Optional[BetaUserLocation]`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+      - `type: Literal["approximate"]`
+
+      - `city: Optional[str]`
+
+        The city of the user.
+
+        minLength: 1, maxLength: 255
+
+      - `country: Optional[str]`
+
+        The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+        minLength: 2, maxLength: 2
+
+      - `region: Optional[str]`
+
+        The region of the user.
+
+        minLength: 1, maxLength: 255
+
+      - `timezone: Optional[str]`
+
+        The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+        minLength: 1, maxLength: 255
+
+  - `class BetaWebFetchTool20250910`
+
+    - `type: Literal["web_fetch_20250910"]`
+
+    - `name: Literal["web_fetch"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: Optional[List[str]]`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: Optional[List[str]]`
+
+      List of domains to block fetching from
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: Optional[BetaCitationsConfigParam]`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `enabled: Optional[bool]`
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: Optional[int]`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+      minimum: 1
+
+    - `max_uses: Optional[int]`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: Optional[BetaWebFetchURLSources]`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: Optional[ClientToolResults]`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+        - `class BetaWebFetchURLSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+          - `type: Literal["all"]`
+
+        - `class BetaWebFetchURLSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+          - `type: Literal["none"]`
+
+        - `class BetaWebFetchURLSourceOnly`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+          - `type: Literal["only"]`
+
+          - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+            - `type: Literal["tool_reference"]`
+
+            - `name: str`
+
+        - `class BetaWebFetchURLSourceExcept`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+          - `type: Literal["except"]`
+
+          - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+            - `type: Literal["tool_reference"]`
+
+            - `name: str`
+
+      - `server_tool_results: Optional[ServerToolResults]`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+        - `class BetaWebFetchURLSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `class BetaWebFetchURLSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+        - `class BetaWebFetchURLSourceOnly`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+        - `class BetaWebFetchURLSourceExcept`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+      - `user_input: Optional[UserInput]`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
+        - `class BetaWebFetchURLSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `class BetaWebFetchURLSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+  - `class BetaWebSearchTool20260209`
+
+    - `type: Literal["web_search_20260209"]`
+
+    - `name: Literal["web_search"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: Optional[List[str]]`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: Optional[List[str]]`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: Optional[int]`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: Optional[BetaUserLocation]`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `class BetaWebFetchTool20260209`
+
+    - `type: Literal["web_fetch_20260209"]`
+
+    - `name: Literal["web_fetch"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: Optional[List[str]]`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: Optional[List[str]]`
+
+      List of domains to block fetching from
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: Optional[BetaCitationsConfigParam]`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: Optional[int]`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+      minimum: 1
+
+    - `max_uses: Optional[int]`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: Optional[BetaWebFetchURLSources]`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+  - `class BetaWebFetchTool20260309`
+
+    Web fetch tool with use_cache parameter for bypassing cached content.
+
+    - `type: Literal["web_fetch_20260309"]`
+
+    - `name: Literal["web_fetch"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: Optional[List[str]]`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: Optional[List[str]]`
+
+      List of domains to block fetching from
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: Optional[BetaCitationsConfigParam]`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: Optional[int]`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+      minimum: 1
+
+    - `max_uses: Optional[int]`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: Optional[BetaWebFetchURLSources]`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `use_cache: Optional[bool]`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `class BetaWebSearchTool20260318`
+
+    - `type: Literal["web_search_20260318"]`
+
+    - `name: Literal["web_search"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: Optional[List[str]]`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: Optional[List[str]]`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: Optional[int]`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: Optional[BetaUserLocation]`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `class BetaWebFetchTool20260318`
+
+    - `type: Literal["web_fetch_20260318"]`
+
+    - `name: Literal["web_fetch"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: Optional[List[str]]`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: Optional[List[str]]`
+
+      List of domains to block fetching from
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: Optional[BetaCitationsConfigParam]`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: Optional[int]`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+      minimum: 1
+
+    - `max_uses: Optional[int]`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: Optional[BetaWebFetchURLSources]`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `use_cache: Optional[bool]`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `class BetaAdvisorTool20260301`
+
+    - `type: Literal["advisor_20260301"]`
+
+    - `model: Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-opus-5-5"`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+      - `"claude-sonnet-5"`
+
+        Efficient model for coding and agents
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-8"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-7"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-6"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-sonnet-4-6"`
+
+        Best combination of speed and intelligence
+
+      - `"claude-haiku-4-5"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-haiku-4-5-20251001"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-opus-4-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-5-20251101"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-sonnet-4-5"`
+
+        High-performance model for agents and coding
+
+      - `"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
+
+      - `"claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
+      - `str`
+
+    - `name: Literal["advisor"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `caching: Optional[BetaCacheControlEphemeral]`
+
+      Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_tokens: Optional[int]`
+
+      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+      minimum: 1024
+
+    - `max_uses: Optional[int]`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolSearchToolBm25_20251119`
+
+    - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
+
+      - `"tool_search_tool_bm25_20251119"`
+
+      - `"tool_search_tool_bm25"`
+
+    - `name: Literal["tool_search_tool_bm25"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolSearchToolRegex20251119`
+
+    - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
+
+      - `"tool_search_tool_regex_20251119"`
+
+      - `"tool_search_tool_regex"`
+
+    - `name: Literal["tool_search_tool_regex"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaMCPToolset`
+
+    Configuration for a group of tools from an MCP server.
+
+    Allows configuring enabled status and defer_loading for all tools
+    from an MCP server, with optional per-tool overrides.
+
+    - `type: Literal["mcp_toolset"]`
+
+    - `mcp_server_name: str`
+
+      Name of the MCP server to configure tools for
+
+      minLength: 1, maxLength: 255
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[Dict[str, BetaMCPToolConfig]]`
+
+      Configuration overrides for specific tools, keyed by tool name
+
+      - `defer_loading: Optional[bool]`
+
+      - `enabled: Optional[bool]`
+
+    - `default_config: Optional[BetaMCPToolDefaultConfig]`
+
+      Default configuration applied to all tools from this server
+
+      - `defer_loading: Optional[bool]`
+
+      - `enabled: Optional[bool]`
+
+    - `tools: Optional[List[BetaMCPToolParam]]`
+
+      The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+      - `input_schema: Dict[str, object]`
+
+        The tool's input schema as the MCP server lists it, verbatim.
+
+      - `name: str`
+
+        The tool's name as the MCP server lists it (not prefixed with the server name).
+
+        minLength: 1
+
+      - `description: Optional[str]`
+
+        The tool's description as the MCP server lists it.
+
+### Beta Tool Use Block
+
+- `class BetaToolUseBlock`
+
+  - `type: Literal["tool_use"]`
+
+    default: tool_use
+
+  - `id: str`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `input: Dict[str, object]`
+
+  - `name: str`
+
+    minLength: 1
+
+  - `caller: Optional[Caller]`
+
+    - `class BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `type: Literal["direct"]`
+
+    - `class BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `type: Literal["code_execution_20250825"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaServerToolCaller20260120`
+
+      - `type: Literal["code_execution_20260120"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `toolset_name: Optional[str]`
+
+    For a toolset member tool_use, the toolset family.
+
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+### Beta Tool Use Block Param
+
+- `class BetaToolUseBlockParam`
+
+  - `type: Literal["tool_use"]`
+
+  - `id: str`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `input: Dict[str, object]`
+
+  - `name: str`
+
+    minLength: 1, maxLength: 200
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `caller: Optional[Caller]`
+
+    - `class BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `type: Literal["direct"]`
+
+    - `class BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `type: Literal["code_execution_20250825"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaServerToolCaller20260120`
+
+      - `type: Literal["code_execution_20260120"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `toolset_name: Optional[str]`
+
+    For a toolset member tool_use, the toolset family this member belongs to.
+
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+### Beta Tool Uses Keep
+
+- `class BetaToolUsesKeep`
+
+  - `type: Literal["tool_uses"]`
+
+  - `value: int`
+
+    minimum: 0
+
+### Beta Tool Uses Trigger
+
+- `class BetaToolUsesTrigger`
+
+  - `type: Literal["tool_uses"]`
+
+  - `value: int`
+
+    minimum: 1
+
+### Beta URL Image Source
+
+- `class BetaURLImageSource`
+
+  - `type: Literal["url"]`
+
+  - `url: str`
+
+### Beta URL PDF Source
+
+- `class BetaURLPDFSource`
+
+  - `type: Literal["url"]`
+
+  - `url: str`
+
+### Beta Usage
+
+- `class BetaUsage`
+
+  - `cache_creation: Optional[BetaCacheCreation]`
+
+    Breakdown of cached tokens by TTL
+
+    - `ephemeral_1h_input_tokens: int`
+
+      The number of input tokens used to create the 1 hour cache entry.
+
+      default: 0, minimum: 0
+
+    - `ephemeral_5m_input_tokens: int`
+
+      The number of input tokens used to create the 5 minute cache entry.
+
+      default: 0, minimum: 0
+
+  - `cache_creation_input_tokens: Optional[int]`
+
+    The number of input tokens used to create the cache entry.
+
+    minimum: 0
+
+  - `cache_read_input_tokens: Optional[int]`
+
+    The number of input tokens read from the cache.
+
+    minimum: 0
+
+  - `fallback_credit: Optional[BetaFallbackCreditUsage]`
+
+    Outcome of the `fallback_credit_token` presented on this request.
+
+    Present on every response to a non-batch request that carried a
+    `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+    items accept and ignore the token and carry no outcome object).
+
+    - `status: Status`
+
+      Whether the fallback-credit reprice was applied to this response's billing.
+
+      A union discriminated on `type`. `redeemed`: the retry is billed as if
+      the conversation had been on the retry model all along — including when the
+      resulting shift is zero because there was nothing to move. `not_applied`:
+      no reprice was applied; the arm's `reason` says why.
+
+      - `class BetaFallbackCreditRedeemed`
+
+        The reprice was applied: the retry is billed as if the conversation
+        had been on the retry model all along.
+
+        - `type: Literal["redeemed"]`
+
+          default: redeemed
+
+      - `class BetaFallbackCreditNotApplied`
+
+        No reprice was applied; `reason` says why.
+
+        - `type: Literal["not_applied"]`
+
+          default: not_applied
+
+        - `reason: Literal["body_mismatch", "continuation_excluded", "continuation_only", 9 more]`
+
+          Why the reprice was not applied.
+
+          A closed enum; additions to the redemption-check vocabulary arrive as
+          deliberate schema updates.
+
+          - `"body_mismatch"`
+
+          - `"continuation_excluded"`
+
+          - `"continuation_only"`
+
+          - `"expired"`
+
+          - `"invalid_target_model"`
+
+          - `"not_enabled"`
+
+          - `"reprice_unavailable"`
+
+          - `"temporarily_unavailable"`
+
+          - `"variant_fields_present"`
+
+          - `"wrong_organization"`
+
+          - `"wrong_platform"`
+
+          - `"wrong_workspace"`
+
+        - `remove_to_redeem: Optional[List[str]]`
+
+          Request fields to remove before retrying, so the retry can redeem this
+          token.
+
+          Present exactly when `reason` is `variant_fields_present` — never null,
+          never an empty array; absent otherwise. Fields are named only from your own request, and only after
+          the sealed variant hash matched. A served best-effort retry has already
+          been billed at normal price; nothing redeems retroactively, but a corrected
+          re-send inside the token's five-minute window can still redeem.
+
+  - `inference_geo: Optional[str]`
+
+    The geographic region where inference was performed for this request.
+
+  - `input_tokens: int`
+
+    The number of input tokens which were used.
+
+    minimum: 0
+
+  - `iterations: Optional[BetaIterationsUsage]`
+
+    Per-iteration token usage breakdown.
+
+    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
+
+    - Determine which iterations exceeded long context thresholds (>=200k tokens)
+    - Calculate the context window size from the last `message` entry
+    - Understand token accumulation across server-side tool use loops
+
+    A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
+
+    - `class BetaMessageIterationUsage`
+
+      Token usage for a sampling iteration.
+
+      - `type: Literal["message"]`
+
+        Usage for a sampling iteration
+
+        default: message
+
+      - `cache_creation: Optional[BetaCacheCreation]`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: int`
+
+        The number of input tokens used to create the cache entry.
+
+        default: 0, minimum: 0
+
+      - `cache_read_input_tokens: int`
+
+        The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
+
+      - `input_tokens: int`
+
+        The number of input tokens which were used.
+
+        minimum: 0
+
+      - `model: Optional[Model]`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
+
+        - `"claude-mythos-5-1"`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+        - `"claude-sonnet-5"`
+
+          Efficient model for coding and agents
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-8"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-7"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-6"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-6"`
+
+          Best combination of speed and intelligence
+
+        - `"claude-haiku-4-5"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-haiku-4-5-20251001"`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-opus-4-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+        - `"claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
+
+        - `str`
+
+      - `output_tokens: int`
+
+        The number of output tokens which were used.
+
+        minimum: 0
+
+    - `class BetaCompactionIterationUsage`
+
+      Token usage for a compaction iteration.
+
+      - `type: Literal["compaction"]`
+
+        Usage for a compaction iteration
+
+        default: compaction
+
+      - `cache_creation: Optional[BetaCacheCreation]`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: int`
+
+        The number of input tokens used to create the cache entry.
+
+        default: 0, minimum: 0
+
+      - `cache_read_input_tokens: int`
+
+        The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
+
+      - `input_tokens: int`
+
+        The number of input tokens which were used.
+
+        minimum: 0
+
+      - `output_tokens: int`
+
+        The number of output tokens which were used.
+
+        minimum: 0
+
+    - `class BetaAdvisorMessageIterationUsage`
+
+      Token usage for an advisor sub-inference iteration.
+
+      - `type: Literal["advisor_message"]`
+
+        Usage for an advisor sub-inference iteration
+
+        default: advisor_message
+
+      - `cache_creation: Optional[BetaCacheCreation]`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: int`
+
+        The number of input tokens used to create the cache entry.
+
+        default: 0, minimum: 0
+
+      - `cache_read_input_tokens: int`
+
+        The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
+
+      - `input_tokens: int`
+
+        The number of input tokens which were used.
+
+        minimum: 0
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `output_tokens: int`
+
+        The number of output tokens which were used.
+
+        minimum: 0
+
+    - `class BetaFallbackMessageIterationUsage`
+
+      Token usage for the fallback-model attempt of a server-side fallback request.
+
+      The terminal entry of a fallback-served turn: when a fallback hop's
+      output is the returned message, the entry for the iteration that
+      completed it carries this type in place of `message`. A declined hop
+      and the serving hop's earlier tool-loop iterations produce `message`
+      entries. Whether a fallback model served the response is signalled by
+      the presence of this entry in `usage.iterations`.
+
+      - `type: Literal["fallback_message"]`
+
+        Usage for the fallback-model attempt that served the response
+
+        default: fallback_message
+
+      - `cache_creation: Optional[BetaCacheCreation]`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: int`
+
+        The number of input tokens used to create the cache entry.
+
+        default: 0, minimum: 0
+
+      - `cache_read_input_tokens: int`
+
+        The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
+
+      - `input_tokens: int`
+
+        The number of input tokens which were used.
+
+        minimum: 0
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `output_tokens: int`
+
+        The number of output tokens which were used.
+
+        minimum: 0
+
+  - `output_tokens: int`
+
+    The number of output tokens which were used.
+
+    minimum: 0
+
+  - `output_tokens_details: Optional[BetaOutputTokensDetails]`
+
+    Breakdown of output tokens by category.
+
+    `output_tokens` remains the inclusive, authoritative total used for billing.
+    This object provides a read-only decomposition for observability — for example,
+    how many of the billed output tokens were spent on internal reasoning that may
+    have been summarized before being returned to you.
+
+    - `thinking_tokens: int`
+
+      Number of output tokens the model generated as internal reasoning, including
+      the thinking-block delimiter tokens.
+
+      Reflects the raw reasoning the model produced, not the (possibly shorter)
+      summarized thinking text returned in the response body. Computed by
+      re-tokenizing the raw reasoning text, so it may differ from the model's exact
+      generation count by a small number of tokens. Always ≤ `output_tokens`;
+      `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
+      default: 0, minimum: 0
+
+  - `server_tool_use: Optional[BetaServerToolUsage]`
+
+    The number of server tool requests.
+
+    - `web_fetch_requests: int`
+
+      The number of web fetch tool requests.
+
+      default: 0, minimum: 0
+
+    - `web_search_requests: int`
+
+      The number of web search tool requests.
+
+      default: 0, minimum: 0
+
+  - `service_tier: Optional[Literal["standard", "priority", "batch"]]`
+
+    If the request used the priority, standard, or batch tier.
+
+    - `"standard"`
+
+    - `"priority"`
+
+    - `"batch"`
+
+  - `speed: Optional[Literal["standard", "fast"]]`
+
+    The inference speed mode used for this request.
+
+    - `"standard"`
+
+    - `"fast"`
+
+### Beta User Location
+
+- `class BetaUserLocation`
+
+  - `type: Literal["approximate"]`
+
+  - `city: Optional[str]`
+
+    The city of the user.
+
+    minLength: 1, maxLength: 255
+
+  - `country: Optional[str]`
+
+    The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+    minLength: 2, maxLength: 2
+
+  - `region: Optional[str]`
+
+    The region of the user.
+
+    minLength: 1, maxLength: 255
+
+  - `timezone: Optional[str]`
+
+    The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+    minLength: 1, maxLength: 255
+
+### Beta Web Fetch Block
+
+- `class BetaWebFetchBlock`
+
+  - `type: Literal["web_fetch_result"]`
+
+    default: web_fetch_result
+
+  - `content: BetaDocumentBlock`
+
+    - `type: Literal["document"]`
+
+      default: document
+
+    - `citations: Optional[BetaCitationConfig]`
+
+      Citation configuration for the document
+
+      - `enabled: bool`
+
+        default: false
+
+    - `source: Source`
+
+      - `class BetaBase64PDFSource`
+
+        - `type: Literal["base64"]`
+
+        - `data: str`
+
+          format: byte
+
+        - `media_type: Literal["application/pdf"]`
+
+      - `class BetaPlainTextSource`
+
+        - `type: Literal["text"]`
+
+        - `data: str`
+
+        - `media_type: Literal["text/plain"]`
+
+    - `title: Optional[str]`
+
+      The title of the document
+
+  - `retrieved_at: Optional[str]`
+
+    ISO 8601 timestamp when the content was retrieved
+
+  - `url: str`
+
+    Fetched content URL
+
+### Beta Web Fetch Block Param
+
+- `class BetaWebFetchBlockParam`
+
+  - `type: Literal["web_fetch_result"]`
+
+  - `content: BetaRequestDocumentBlock`
+
+    - `type: Literal["document"]`
+
+    - `source: Source`
+
+      - `class BetaBase64PDFSource`
+
+        - `type: Literal["base64"]`
+
+        - `data: str`
+
+          format: byte
+
+        - `media_type: Literal["application/pdf"]`
+
+      - `class BetaPlainTextSource`
+
+        - `type: Literal["text"]`
+
+        - `data: str`
+
+        - `media_type: Literal["text/plain"]`
+
+      - `class BetaContentBlockSource`
+
+        - `type: Literal["content"]`
+
+        - `content: Union[str, List[BetaContentBlockSourceContent]]`
+
+          - `str`
+
+          - `List[BetaContentBlockSourceContent]`
+
+            - `class BetaTextBlockParam`
+
+              - `type: Literal["text"]`
+
+              - `text: str`
+
+                minLength: 1
+
+              - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                Create a cache control breakpoint at this content block.
+
+                - `type: Literal["ephemeral"]`
+
+                - `ttl: Optional[Literal["5m", "1h"]]`
+
+                  The time-to-live for the cache control breakpoint.
+
+                  This may be one the following values:
+
+                  - `5m`: 5 minutes
+                  - `1h`: 1 hour
+
+                  Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `"5m"`
+
+                  - `"1h"`
+
+              - `citations: Optional[List[BetaTextCitationParam]]`
+
+                - `class BetaCitationCharLocationParam`
+
+                  - `type: Literal["char_location"]`
+
+                  - `cited_text: str`
+
+                  - `document_index: int`
+
+                    minimum: 0
+
+                  - `document_title: Optional[str]`
+
+                    minLength: 1, maxLength: 500
+
+                  - `end_char_index: int`
+
+                  - `start_char_index: int`
+
+                    minimum: 0
+
+                - `class BetaCitationPageLocationParam`
+
+                  - `type: Literal["page_location"]`
+
+                  - `cited_text: str`
+
+                  - `document_index: int`
+
+                    minimum: 0
+
+                  - `document_title: Optional[str]`
+
+                    minLength: 1, maxLength: 500
+
+                  - `end_page_number: int`
+
+                  - `start_page_number: int`
+
+                    minimum: 1
+
+                - `class BetaCitationContentBlockLocationParam`
+
+                  - `type: Literal["content_block_location"]`
+
+                  - `cited_text: str`
+
+                    The full text of the cited block range, concatenated.
+
+                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                  - `document_index: int`
+
+                    minimum: 0
+
+                  - `document_title: Optional[str]`
+
+                    minLength: 1, maxLength: 500
+
+                  - `end_block_index: int`
+
+                    Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                  - `start_block_index: int`
+
+                    0-based index of the first cited block in the source's `content` array.
+
+                    minimum: 0
+
+                - `class BetaCitationWebSearchResultLocationParam`
+
+                  - `type: Literal["web_search_result_location"]`
+
+                  - `cited_text: str`
+
+                  - `encrypted_index: str`
+
+                  - `title: Optional[str]`
+
+                    minLength: 1, maxLength: 512
+
+                  - `url: str`
+
+                    minLength: 1
+
+                - `class BetaCitationSearchResultLocationParam`
+
+                  - `type: Literal["search_result_location"]`
+
+                  - `cited_text: str`
+
+                    The full text of the cited block range, concatenated.
+
+                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                  - `end_block_index: int`
+
+                    Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                  - `search_result_index: int`
+
+                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                    Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                    minimum: 0
+
+                  - `source: str`
+
+                  - `start_block_index: int`
+
+                    0-based index of the first cited block in the source's `content` array.
+
+                    minimum: 0
+
+                  - `title: Optional[str]`
+
+            - `class BetaImageBlockParam`
+
+              - `type: Literal["image"]`
+
+              - `source: Source`
+
+                - `class BetaBase64ImageSource`
+
+                  - `type: Literal["base64"]`
+
+                  - `data: str`
+
+                    format: byte
+
+                  - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
+
+                    - `"image/jpeg"`
+
+                    - `"image/png"`
+
+                    - `"image/gif"`
+
+                    - `"image/webp"`
+
+                - `class BetaURLImageSource`
+
+                  - `type: Literal["url"]`
+
+                  - `url: str`
+
+                - `class BetaFileImageSource`
+
+                  - `type: Literal["file"]`
+
+                  - `file_id: str`
+
+              - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                Create a cache control breakpoint at this content block.
+
+              - `transformations: Optional[BetaImageTransformationsParam]`
+
+                Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+                - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+                  What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                  - `"downsize"`
+
+                  - `"error"`
+
+      - `class BetaURLPDFSource`
+
+        - `type: Literal["url"]`
+
+        - `url: str`
+
+      - `class BetaFileDocumentSource`
+
+        - `type: Literal["file"]`
+
+        - `file_id: str`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: Optional[BetaCitationsConfigParam]`
+
+      - `enabled: Optional[bool]`
+
+    - `context: Optional[str]`
+
+      minLength: 1
+
+    - `title: Optional[str]`
+
+      minLength: 1, maxLength: 500
+
+  - `url: str`
+
+    Fetched content URL
+
+  - `retrieved_at: Optional[str]`
+
+    ISO 8601 timestamp when the content was retrieved
+
+### Beta Web Fetch Tool 20250910
+
+- `class BetaWebFetchTool20250910`
+
+  - `type: Literal["web_fetch_20250910"]`
+
+  - `name: Literal["web_fetch"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: Optional[List[str]]`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: Optional[List[str]]`
+
+    List of domains to block fetching from
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: Optional[BetaCitationsConfigParam]`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: Optional[bool]`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: Optional[int]`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    minimum: 1
+
+  - `max_uses: Optional[int]`
+
+    Maximum number of times the tool can be used in the API request.
+
+    minimum: 1
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: Optional[BetaWebFetchURLSources]`
+
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `client_tool_results: Optional[ClientToolResults]`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: Literal["all"]`
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: Literal["none"]`
+
+      - `class BetaWebFetchURLSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: Literal["only"]`
+
+        - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+          - `type: Literal["tool_reference"]`
+
+          - `name: str`
+
+      - `class BetaWebFetchURLSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: Literal["except"]`
+
+        - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+          - `type: Literal["tool_reference"]`
+
+          - `name: str`
+
+    - `server_tool_results: Optional[ServerToolResults]`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `class BetaWebFetchURLSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `class BetaWebFetchURLSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: Optional[UserInput]`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+### Beta Web Fetch Tool 20260209
+
+- `class BetaWebFetchTool20260209`
+
+  - `type: Literal["web_fetch_20260209"]`
+
+  - `name: Literal["web_fetch"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: Optional[List[str]]`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: Optional[List[str]]`
+
+    List of domains to block fetching from
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: Optional[BetaCitationsConfigParam]`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: Optional[bool]`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: Optional[int]`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    minimum: 1
+
+  - `max_uses: Optional[int]`
+
+    Maximum number of times the tool can be used in the API request.
+
+    minimum: 1
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: Optional[BetaWebFetchURLSources]`
+
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `client_tool_results: Optional[ClientToolResults]`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: Literal["all"]`
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: Literal["none"]`
+
+      - `class BetaWebFetchURLSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: Literal["only"]`
+
+        - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+          - `type: Literal["tool_reference"]`
+
+          - `name: str`
+
+      - `class BetaWebFetchURLSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: Literal["except"]`
+
+        - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+          - `type: Literal["tool_reference"]`
+
+          - `name: str`
+
+    - `server_tool_results: Optional[ServerToolResults]`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `class BetaWebFetchURLSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `class BetaWebFetchURLSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: Optional[UserInput]`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+### Beta Web Fetch Tool 20260309
+
+- `class BetaWebFetchTool20260309`
+
+  Web fetch tool with use_cache parameter for bypassing cached content.
+
+  - `type: Literal["web_fetch_20260309"]`
+
+  - `name: Literal["web_fetch"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: Optional[List[str]]`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: Optional[List[str]]`
+
+    List of domains to block fetching from
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: Optional[BetaCitationsConfigParam]`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: Optional[bool]`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: Optional[int]`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    minimum: 1
+
+  - `max_uses: Optional[int]`
+
+    Maximum number of times the tool can be used in the API request.
+
+    minimum: 1
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: Optional[BetaWebFetchURLSources]`
+
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `client_tool_results: Optional[ClientToolResults]`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: Literal["all"]`
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: Literal["none"]`
+
+      - `class BetaWebFetchURLSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: Literal["only"]`
+
+        - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+          - `type: Literal["tool_reference"]`
+
+          - `name: str`
+
+      - `class BetaWebFetchURLSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: Literal["except"]`
+
+        - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+          - `type: Literal["tool_reference"]`
+
+          - `name: str`
+
+    - `server_tool_results: Optional[ServerToolResults]`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `class BetaWebFetchURLSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `class BetaWebFetchURLSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: Optional[UserInput]`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+  - `use_cache: Optional[bool]`
+
+    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+### Beta Web Fetch Tool 20260318
+
+- `class BetaWebFetchTool20260318`
+
+  - `type: Literal["web_fetch_20260318"]`
+
+  - `name: Literal["web_fetch"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: Optional[List[str]]`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: Optional[List[str]]`
+
+    List of domains to block fetching from
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: Optional[BetaCitationsConfigParam]`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: Optional[bool]`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: Optional[int]`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    minimum: 1
+
+  - `max_uses: Optional[int]`
+
+    Maximum number of times the tool can be used in the API request.
+
+    minimum: 1
+
+  - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `"full"`
+
+    - `"excluded"`
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: Optional[BetaWebFetchURLSources]`
+
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `client_tool_results: Optional[ClientToolResults]`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: Literal["all"]`
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: Literal["none"]`
+
+      - `class BetaWebFetchURLSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: Literal["only"]`
+
+        - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+          - `type: Literal["tool_reference"]`
+
+          - `name: str`
+
+      - `class BetaWebFetchURLSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: Literal["except"]`
+
+        - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+          - `type: Literal["tool_reference"]`
+
+          - `name: str`
+
+    - `server_tool_results: Optional[ServerToolResults]`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `class BetaWebFetchURLSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `class BetaWebFetchURLSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: Optional[UserInput]`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `class BetaWebFetchURLSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class BetaWebFetchURLSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+  - `use_cache: Optional[bool]`
+
+    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+### Beta Web Fetch Tool Result Block
+
+- `class BetaWebFetchToolResultBlock`
+
+  - `type: Literal["web_fetch_tool_result"]`
+
+    default: web_fetch_tool_result
+
+  - `content: Content`
+
+    - `class BetaWebFetchToolResultErrorBlock`
+
+      - `type: Literal["web_fetch_tool_result_error"]`
+
+        default: web_fetch_tool_result_error
+
+      - `error_code: BetaWebFetchToolResultErrorCode`
+
+        - `"invalid_tool_input"`
+
+        - `"url_too_long"`
+
+        - `"url_not_allowed"`
+
+        - `"url_not_in_prior_context"`
+
+        - `"url_not_accessible"`
+
+        - `"unsupported_content_type"`
+
+        - `"too_many_requests"`
+
+        - `"max_uses_exceeded"`
+
+        - `"unavailable"`
+
+        - `"content_too_large"`
+
+    - `class BetaWebFetchBlock`
+
+      - `type: Literal["web_fetch_result"]`
+
+        default: web_fetch_result
+
+      - `content: BetaDocumentBlock`
+
+        - `type: Literal["document"]`
+
+          default: document
+
+        - `citations: Optional[BetaCitationConfig]`
+
+          Citation configuration for the document
+
+          - `enabled: bool`
+
+            default: false
+
+        - `source: Source`
+
+          - `class BetaBase64PDFSource`
+
+            - `type: Literal["base64"]`
+
+            - `data: str`
+
+              format: byte
+
+            - `media_type: Literal["application/pdf"]`
+
+          - `class BetaPlainTextSource`
+
+            - `type: Literal["text"]`
+
+            - `data: str`
+
+            - `media_type: Literal["text/plain"]`
+
+        - `title: Optional[str]`
+
+          The title of the document
+
+      - `retrieved_at: Optional[str]`
+
+        ISO 8601 timestamp when the content was retrieved
+
+      - `url: str`
+
+        Fetched content URL
+
+  - `tool_use_id: str`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `caller: Optional[Caller]`
+
+    - `class BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `type: Literal["direct"]`
+
+    - `class BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `type: Literal["code_execution_20250825"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaServerToolCaller20260120`
+
+      - `type: Literal["code_execution_20260120"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Web Fetch Tool Result Block Param
+
+- `class BetaWebFetchToolResultBlockParam`
+
+  - `type: Literal["web_fetch_tool_result"]`
+
+  - `content: Content`
+
+    - `class BetaWebFetchToolResultErrorBlockParam`
+
+      - `type: Literal["web_fetch_tool_result_error"]`
+
+      - `error_code: BetaWebFetchToolResultErrorCode`
+
+        - `"invalid_tool_input"`
+
+        - `"url_too_long"`
+
+        - `"url_not_allowed"`
+
+        - `"url_not_in_prior_context"`
+
+        - `"url_not_accessible"`
+
+        - `"unsupported_content_type"`
+
+        - `"too_many_requests"`
+
+        - `"max_uses_exceeded"`
+
+        - `"unavailable"`
+
+        - `"content_too_large"`
+
+    - `class BetaWebFetchBlockParam`
+
+      - `type: Literal["web_fetch_result"]`
+
+      - `content: BetaRequestDocumentBlock`
+
+        - `type: Literal["document"]`
+
+        - `source: Source`
+
+          - `class BetaBase64PDFSource`
+
+            - `type: Literal["base64"]`
+
+            - `data: str`
+
+              format: byte
+
+            - `media_type: Literal["application/pdf"]`
+
+          - `class BetaPlainTextSource`
+
+            - `type: Literal["text"]`
+
+            - `data: str`
+
+            - `media_type: Literal["text/plain"]`
+
+          - `class BetaContentBlockSource`
+
+            - `type: Literal["content"]`
+
+            - `content: Union[str, List[BetaContentBlockSourceContent]]`
+
+              - `str`
+
+              - `List[BetaContentBlockSourceContent]`
+
+                - `class BetaTextBlockParam`
+
+                  - `type: Literal["text"]`
+
+                  - `text: str`
+
+                    minLength: 1
+
+                  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: Literal["ephemeral"]`
+
+                    - `ttl: Optional[Literal["5m", "1h"]]`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                      - `"5m"`
+
+                      - `"1h"`
+
+                  - `citations: Optional[List[BetaTextCitationParam]]`
+
+                    - `class BetaCitationCharLocationParam`
+
+                      - `type: Literal["char_location"]`
+
+                      - `cited_text: str`
+
+                      - `document_index: int`
+
+                        minimum: 0
+
+                      - `document_title: Optional[str]`
+
+                        minLength: 1, maxLength: 500
+
+                      - `end_char_index: int`
+
+                      - `start_char_index: int`
+
+                        minimum: 0
+
+                    - `class BetaCitationPageLocationParam`
+
+                      - `type: Literal["page_location"]`
+
+                      - `cited_text: str`
+
+                      - `document_index: int`
+
+                        minimum: 0
+
+                      - `document_title: Optional[str]`
+
+                        minLength: 1, maxLength: 500
+
+                      - `end_page_number: int`
+
+                      - `start_page_number: int`
+
+                        minimum: 1
+
+                    - `class BetaCitationContentBlockLocationParam`
+
+                      - `type: Literal["content_block_location"]`
+
+                      - `cited_text: str`
+
+                        The full text of the cited block range, concatenated.
+
+                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                      - `document_index: int`
+
+                        minimum: 0
+
+                      - `document_title: Optional[str]`
+
+                        minLength: 1, maxLength: 500
+
+                      - `end_block_index: int`
+
+                        Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                      - `start_block_index: int`
+
+                        0-based index of the first cited block in the source's `content` array.
+
+                        minimum: 0
+
+                    - `class BetaCitationWebSearchResultLocationParam`
+
+                      - `type: Literal["web_search_result_location"]`
+
+                      - `cited_text: str`
+
+                      - `encrypted_index: str`
+
+                      - `title: Optional[str]`
+
+                        minLength: 1, maxLength: 512
+
+                      - `url: str`
+
+                        minLength: 1
+
+                    - `class BetaCitationSearchResultLocationParam`
+
+                      - `type: Literal["search_result_location"]`
+
+                      - `cited_text: str`
+
+                        The full text of the cited block range, concatenated.
+
+                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                      - `end_block_index: int`
+
+                        Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                      - `search_result_index: int`
+
+                        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                        Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                        minimum: 0
+
+                      - `source: str`
+
+                      - `start_block_index: int`
+
+                        0-based index of the first cited block in the source's `content` array.
+
+                        minimum: 0
+
+                      - `title: Optional[str]`
+
+                - `class BetaImageBlockParam`
+
+                  - `type: Literal["image"]`
+
+                  - `source: Source`
+
+                    - `class BetaBase64ImageSource`
+
+                      - `type: Literal["base64"]`
+
+                      - `data: str`
+
+                        format: byte
+
+                      - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
+
+                        - `"image/jpeg"`
+
+                        - `"image/png"`
+
+                        - `"image/gif"`
+
+                        - `"image/webp"`
+
+                    - `class BetaURLImageSource`
+
+                      - `type: Literal["url"]`
+
+                      - `url: str`
+
+                    - `class BetaFileImageSource`
+
+                      - `type: Literal["file"]`
+
+                      - `file_id: str`
+
+                  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                    Create a cache control breakpoint at this content block.
+
+                  - `transformations: Optional[BetaImageTransformationsParam]`
+
+                    Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+                    - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+                      What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                      - `"downsize"`
+
+                      - `"error"`
+
+          - `class BetaURLPDFSource`
+
+            - `type: Literal["url"]`
+
+            - `url: str`
+
+          - `class BetaFileDocumentSource`
+
+            - `type: Literal["file"]`
+
+            - `file_id: str`
+
+        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: Optional[BetaCitationsConfigParam]`
+
+          - `enabled: Optional[bool]`
+
+        - `context: Optional[str]`
+
+          minLength: 1
+
+        - `title: Optional[str]`
+
+          minLength: 1, maxLength: 500
+
+      - `url: str`
+
+        Fetched content URL
+
+      - `retrieved_at: Optional[str]`
+
+        ISO 8601 timestamp when the content was retrieved
+
+  - `tool_use_id: str`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+  - `caller: Optional[Caller]`
+
+    - `class BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `type: Literal["direct"]`
+
+    - `class BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `type: Literal["code_execution_20250825"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaServerToolCaller20260120`
+
+      - `type: Literal["code_execution_20260120"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Web Fetch Tool Result Error Block
+
+- `class BetaWebFetchToolResultErrorBlock`
+
+  - `type: Literal["web_fetch_tool_result_error"]`
+
+    default: web_fetch_tool_result_error
+
+  - `error_code: BetaWebFetchToolResultErrorCode`
+
+    - `"invalid_tool_input"`
+
+    - `"url_too_long"`
+
+    - `"url_not_allowed"`
+
+    - `"url_not_in_prior_context"`
+
+    - `"url_not_accessible"`
+
+    - `"unsupported_content_type"`
+
+    - `"too_many_requests"`
+
+    - `"max_uses_exceeded"`
+
+    - `"unavailable"`
+
+    - `"content_too_large"`
+
+### Beta Web Fetch Tool Result Error Block Param
+
+- `class BetaWebFetchToolResultErrorBlockParam`
+
+  - `type: Literal["web_fetch_tool_result_error"]`
+
+  - `error_code: BetaWebFetchToolResultErrorCode`
+
+    - `"invalid_tool_input"`
+
+    - `"url_too_long"`
+
+    - `"url_not_allowed"`
+
+    - `"url_not_in_prior_context"`
+
+    - `"url_not_accessible"`
+
+    - `"unsupported_content_type"`
+
+    - `"too_many_requests"`
+
+    - `"max_uses_exceeded"`
+
+    - `"unavailable"`
+
+    - `"content_too_large"`
+
+### Beta Web Fetch Tool Result Error Code
+
+- `type BetaWebFetchToolResultErrorCode = Literal["invalid_tool_input", "url_too_long", "url_not_allowed", 7 more]`
+
+  - `"invalid_tool_input"`
+
+  - `"url_too_long"`
+
+  - `"url_not_allowed"`
+
+  - `"url_not_in_prior_context"`
+
+  - `"url_not_accessible"`
+
+  - `"unsupported_content_type"`
+
+  - `"too_many_requests"`
+
+  - `"max_uses_exceeded"`
+
+  - `"unavailable"`
+
+  - `"content_too_large"`
+
+### Beta Web Fetch URL Source All
+
+- `class BetaWebFetchURLSourceAll`
+
+  The `url_sources` variant under which a source contributes in
+  full: every result of the tool filter's source, or all user input.
+
+  - `type: Literal["all"]`
+
+### Beta Web Fetch URL Source Except
+
+- `class BetaWebFetchURLSourceExcept`
+
+  The tool filter variant under which every result but the named
+  tools' contributes.
+
+  - `type: Literal["except"]`
+
+  - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+    - `type: Literal["tool_reference"]`
+
+    - `name: str`
+
+### Beta Web Fetch URL Source None
+
+- `class BetaWebFetchURLSourceNone`
+
+  The `url_sources` variant under which a source contributes nothing:
+  no result of the tool filter's source, or no user input.
+
+  - `type: Literal["none"]`
+
+### Beta Web Fetch URL Source Only
+
+- `class BetaWebFetchURLSourceOnly`
+
+  The tool filter variant under which only the named tools' results
+  contribute.
+
+  - `type: Literal["only"]`
+
+  - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+    - `type: Literal["tool_reference"]`
+
+    - `name: str`
+
+### Beta Web Fetch URL Source Tool Reference
+
+- `class BetaWebFetchURLSourceToolReference`
+
+  One entry of a tool filter's `tools`: it must name a tool declared
+  in this request's `tools[]`.
+
+  - `type: Literal["tool_reference"]`
+
+  - `name: str`
+
+### Beta Web Fetch URL Sources
+
+- `class BetaWebFetchURLSources`
+
+  Which sources contribute to the set of URLs web fetch may fetch.
+
+  Each key is a tagged variant: `user_input` is `all` or `none`; the
+  two tool filters are `all`, `none`, `only` (only the named tools'
+  results) or `except` (every result but the named tools'). A named tool
+  must be declared in this request's `tools[]`.
+
+  - `client_tool_results: Optional[ClientToolResults]`
+
+    Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+    - `class BetaWebFetchURLSourceAll`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+      - `type: Literal["all"]`
+
+    - `class BetaWebFetchURLSourceNone`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
+      - `type: Literal["none"]`
+
+    - `class BetaWebFetchURLSourceOnly`
+
+      The tool filter variant under which only the named tools' results
+      contribute.
+
+      - `type: Literal["only"]`
+
+      - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+        - `type: Literal["tool_reference"]`
+
+        - `name: str`
+
+    - `class BetaWebFetchURLSourceExcept`
+
+      The tool filter variant under which every result but the named
+      tools' contributes.
+
+      - `type: Literal["except"]`
+
+      - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+        - `type: Literal["tool_reference"]`
+
+        - `name: str`
+
+  - `server_tool_results: Optional[ServerToolResults]`
+
+    Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+    - `class BetaWebFetchURLSourceAll`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+    - `class BetaWebFetchURLSourceNone`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
+    - `class BetaWebFetchURLSourceOnly`
+
+      The tool filter variant under which only the named tools' results
+      contribute.
+
+    - `class BetaWebFetchURLSourceExcept`
+
+      The tool filter variant under which every result but the named
+      tools' contributes.
+
+  - `user_input: Optional[UserInput]`
+
+    Whether URLs in user messages are fetchable: "all" or "none".
+
+    - `class BetaWebFetchURLSourceAll`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+    - `class BetaWebFetchURLSourceNone`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
+### Beta Web Search Result Block
+
+- `class BetaWebSearchResultBlock`
+
+  - `type: Literal["web_search_result"]`
+
+    default: web_search_result
+
+  - `encrypted_content: str`
+
+  - `page_age: Optional[str]`
+
+  - `title: str`
+
+  - `url: str`
+
+### Beta Web Search Result Block Param
+
+- `class BetaWebSearchResultBlockParam`
+
+  - `type: Literal["web_search_result"]`
+
+  - `encrypted_content: str`
+
+  - `title: str`
+
+  - `url: str`
+
+  - `page_age: Optional[str]`
+
+### Beta Web Search Tool 20250305
+
+- `class BetaWebSearchTool20250305`
+
+  - `type: Literal["web_search_20250305"]`
+
+  - `name: Literal["web_search"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: Optional[List[str]]`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `blocked_domains: Optional[List[str]]`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_uses: Optional[int]`
+
+    Maximum number of times the tool can be used in the API request.
+
+    minimum: 1
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `user_location: Optional[BetaUserLocation]`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
+    - `type: Literal["approximate"]`
+
+    - `city: Optional[str]`
+
+      The city of the user.
+
+      minLength: 1, maxLength: 255
+
+    - `country: Optional[str]`
+
+      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+      minLength: 2, maxLength: 2
+
+    - `region: Optional[str]`
+
+      The region of the user.
+
+      minLength: 1, maxLength: 255
+
+    - `timezone: Optional[str]`
+
+      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+      minLength: 1, maxLength: 255
+
+### Beta Web Search Tool 20260209
+
+- `class BetaWebSearchTool20260209`
+
+  - `type: Literal["web_search_20260209"]`
+
+  - `name: Literal["web_search"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: Optional[List[str]]`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `blocked_domains: Optional[List[str]]`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_uses: Optional[int]`
+
+    Maximum number of times the tool can be used in the API request.
+
+    minimum: 1
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `user_location: Optional[BetaUserLocation]`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
+    - `type: Literal["approximate"]`
+
+    - `city: Optional[str]`
+
+      The city of the user.
+
+      minLength: 1, maxLength: 255
+
+    - `country: Optional[str]`
+
+      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+      minLength: 2, maxLength: 2
+
+    - `region: Optional[str]`
+
+      The region of the user.
+
+      minLength: 1, maxLength: 255
+
+    - `timezone: Optional[str]`
+
+      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+      minLength: 1, maxLength: 255
+
+### Beta Web Search Tool 20260318
+
+- `class BetaWebSearchTool20260318`
+
+  - `type: Literal["web_search_20260318"]`
+
+  - `name: Literal["web_search"]`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: Optional[List[str]]`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `blocked_domains: Optional[List[str]]`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_uses: Optional[int]`
+
+    Maximum number of times the tool can be used in the API request.
+
+    minimum: 1
+
+  - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `"full"`
+
+    - `"excluded"`
+
+  - `strict: Optional[bool]`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `user_location: Optional[BetaUserLocation]`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
+    - `type: Literal["approximate"]`
+
+    - `city: Optional[str]`
+
+      The city of the user.
+
+      minLength: 1, maxLength: 255
+
+    - `country: Optional[str]`
+
+      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+      minLength: 2, maxLength: 2
+
+    - `region: Optional[str]`
+
+      The region of the user.
+
+      minLength: 1, maxLength: 255
+
+    - `timezone: Optional[str]`
+
+      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+      minLength: 1, maxLength: 255
+
+### Beta Web Search Tool Request Error
+
+- `class BetaWebSearchToolRequestError`
+
+  - `type: Literal["web_search_tool_result_error"]`
+
+  - `error_code: BetaWebSearchToolResultErrorCode`
+
+    - `"invalid_tool_input"`
+
+    - `"unavailable"`
+
+    - `"max_uses_exceeded"`
+
+    - `"too_many_requests"`
+
+    - `"query_too_long"`
+
+    - `"request_too_large"`
+
+### Beta Web Search Tool Result Block
+
+- `class BetaWebSearchToolResultBlock`
+
+  - `type: Literal["web_search_tool_result"]`
+
+    default: web_search_tool_result
+
+  - `content: BetaWebSearchToolResultBlockContent`
+
+    - `class BetaWebSearchToolResultError`
+
+      - `type: Literal["web_search_tool_result_error"]`
+
+        default: web_search_tool_result_error
+
+      - `error_code: BetaWebSearchToolResultErrorCode`
+
+        - `"invalid_tool_input"`
+
+        - `"unavailable"`
+
+        - `"max_uses_exceeded"`
+
+        - `"too_many_requests"`
+
+        - `"query_too_long"`
+
+        - `"request_too_large"`
+
+    - `List[BetaWebSearchResultBlock]`
+
+      - `type: Literal["web_search_result"]`
+
+        default: web_search_result
+
+      - `encrypted_content: str`
+
+      - `page_age: Optional[str]`
+
+      - `title: str`
+
+      - `url: str`
+
+  - `tool_use_id: str`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `caller: Optional[Caller]`
+
+    - `class BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `type: Literal["direct"]`
+
+    - `class BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `type: Literal["code_execution_20250825"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaServerToolCaller20260120`
+
+      - `type: Literal["code_execution_20260120"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Web Search Tool Result Block Content
+
+- `type BetaWebSearchToolResultBlockContent = ...`
+
+  - `class BetaWebSearchToolResultError`
+
+    - `type: Literal["web_search_tool_result_error"]`
+
+      default: web_search_tool_result_error
+
+    - `error_code: BetaWebSearchToolResultErrorCode`
+
+      - `"invalid_tool_input"`
+
+      - `"unavailable"`
+
+      - `"max_uses_exceeded"`
+
+      - `"too_many_requests"`
+
+      - `"query_too_long"`
+
+      - `"request_too_large"`
+
+  - `List[BetaWebSearchResultBlock]`
+
+    - `type: Literal["web_search_result"]`
+
+      default: web_search_result
+
+    - `encrypted_content: str`
+
+    - `page_age: Optional[str]`
+
+    - `title: str`
+
+    - `url: str`
+
+### Beta Web Search Tool Result Block Param
+
+- `class BetaWebSearchToolResultBlockParam`
+
+  - `type: Literal["web_search_tool_result"]`
+
+  - `content: BetaWebSearchToolResultBlockParamContent`
+
+    - `List[BetaWebSearchResultBlockParam]`
+
+      - `type: Literal["web_search_result"]`
+
+      - `encrypted_content: str`
+
+      - `title: str`
+
+      - `url: str`
+
+      - `page_age: Optional[str]`
+
+    - `class BetaWebSearchToolRequestError`
+
+      - `type: Literal["web_search_tool_result_error"]`
+
+      - `error_code: BetaWebSearchToolResultErrorCode`
+
+        - `"invalid_tool_input"`
+
+        - `"unavailable"`
+
+        - `"max_uses_exceeded"`
+
+        - `"too_many_requests"`
+
+        - `"query_too_long"`
+
+        - `"request_too_large"`
+
+  - `tool_use_id: str`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `caller: Optional[Caller]`
+
+    - `class BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `type: Literal["direct"]`
+
+    - `class BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `type: Literal["code_execution_20250825"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaServerToolCaller20260120`
+
+      - `type: Literal["code_execution_20260120"]`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Web Search Tool Result Block Param Content
+
+- `type BetaWebSearchToolResultBlockParamContent = ...`
+
+  - `List[BetaWebSearchResultBlockParam]`
+
+    - `type: Literal["web_search_result"]`
+
+    - `encrypted_content: str`
+
+    - `title: str`
+
+    - `url: str`
+
+    - `page_age: Optional[str]`
+
+  - `class BetaWebSearchToolRequestError`
+
+    - `type: Literal["web_search_tool_result_error"]`
+
+    - `error_code: BetaWebSearchToolResultErrorCode`
+
+      - `"invalid_tool_input"`
+
+      - `"unavailable"`
+
+      - `"max_uses_exceeded"`
+
+      - `"too_many_requests"`
+
+      - `"query_too_long"`
+
+      - `"request_too_large"`
+
+### Beta Web Search Tool Result Error
+
+- `class BetaWebSearchToolResultError`
+
+  - `type: Literal["web_search_tool_result_error"]`
+
+    default: web_search_tool_result_error
+
+  - `error_code: BetaWebSearchToolResultErrorCode`
+
+    - `"invalid_tool_input"`
+
+    - `"unavailable"`
+
+    - `"max_uses_exceeded"`
+
+    - `"too_many_requests"`
+
+    - `"query_too_long"`
+
+    - `"request_too_large"`
+
+### Beta Web Search Tool Result Error Code
+
+- `type BetaWebSearchToolResultErrorCode = Literal["invalid_tool_input", "unavailable", "max_uses_exceeded", 3 more]`
+
+  - `"invalid_tool_input"`
+
+  - `"unavailable"`
+
+  - `"max_uses_exceeded"`
+
+  - `"too_many_requests"`
+
+  - `"query_too_long"`
+
+  - `"request_too_large"`
+
+## Messages › Batches
+
+### Create a Message Batch
+
+`beta.messages.batches.create(**kwargs)  -> BetaMessageBatch`
+
+**POST** `/v1/messages/batches`
+
+Send a batch of Message creation requests.
+
+The Message Batches API can be used to process multiple Messages API requests at once. Once a Message Batch is created, it begins processing immediately. Batches can take up to 24 hours to complete.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `requests: Iterable[Request]`
+
+  List of requests for prompt completion. Each is an individual request to create a Message.
+
+  minItems: 1, maxItems: 100000
+
+  - `custom_id: str`
+
+    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
+
+    Must be unique for each request within the Message Batch.
+
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]{1,64}$
+
+  - `params: RequestParams`
+
+    Messages API creation parameters for the individual request.
+
+    See the [Messages API reference](https://platform.claude.com/docs/en/api/messages) for full documentation on available parameters.
+
+    - `max_tokens: int`
+
+      The maximum number of tokens to generate before stopping.
+
+      Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
+
+      Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
+
+      Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
+
+      minimum: 0
+
+    - `messages: Iterable[BetaMessageParam]`
+
+      Input messages.
+
+      Our models are trained to operate on alternating `user` and `assistant` conversational turns. When creating a new `Message`, you specify the prior conversational turns with the `messages` parameter, and the model then generates the next `Message` in the conversation. Consecutive `user` or `assistant` turns in your request will be combined into a single turn.
+
+      Each input message must be an object with a `role` and `content`. You can specify a single `user`-role message, or you can include multiple `user` and `assistant` messages.
+
+      If the final message uses the `assistant` role, the response content will continue immediately from the content in that message. This can be used to constrain part of the model's response.
+
+      Example with a single `user` message:
+
+      ```json
+      [{"role": "user", "content": "Hello, Claude"}]
+      ```
+
+      Example with multiple conversational turns:
+
+      ```json
+      [
+        {"role": "user", "content": "Hello there."},
+        {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+        {"role": "user", "content": "Can you explain LLMs in plain English?"},
+      ]
+      ```
+
+      Example with a partially-filled response from Claude:
+
+      ```json
+      [
+        {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+        {"role": "assistant", "content": "The best answer is ("},
+      ]
+      ```
+
+      Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
+
+      ```json
+      {"role": "user", "content": "Hello, Claude"}
+      ```
+
+      ```json
+      {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
+      ```
+
+      See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
+
+      Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+
+      There is a limit of 100,000 messages in a single request.
+
+      - `content: Union[str, List[BetaContentBlockParam]]`
+
+        - `str`
+
+        - `List[BetaContentBlockParam]`
+
+          - `class BetaTextBlockParam`
+
+            - `type: Literal["text"]`
+
+            - `text: str`
+
+              minLength: 1
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+              - `type: Literal["ephemeral"]`
+
+              - `ttl: Optional[Literal["5m", "1h"]]`
+
+                The time-to-live for the cache control breakpoint.
+
+                This may be one the following values:
+
+                - `5m`: 5 minutes
+                - `1h`: 1 hour
+
+                Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                - `"5m"`
+
+                - `"1h"`
+
+            - `citations: Optional[List[BetaTextCitationParam]]`
+
+              - `class BetaCitationCharLocationParam`
+
+                - `type: Literal["char_location"]`
+
+                - `cited_text: str`
+
+                - `document_index: int`
+
+                  minimum: 0
+
+                - `document_title: Optional[str]`
+
+                  minLength: 1, maxLength: 500
+
+                - `end_char_index: int`
+
+                - `start_char_index: int`
+
+                  minimum: 0
+
+              - `class BetaCitationPageLocationParam`
+
+                - `type: Literal["page_location"]`
+
+                - `cited_text: str`
+
+                - `document_index: int`
+
+                  minimum: 0
+
+                - `document_title: Optional[str]`
+
+                  minLength: 1, maxLength: 500
+
+                - `end_page_number: int`
+
+                - `start_page_number: int`
+
+                  minimum: 1
+
+              - `class BetaCitationContentBlockLocationParam`
+
+                - `type: Literal["content_block_location"]`
+
+                - `cited_text: str`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `document_index: int`
+
+                  minimum: 0
+
+                - `document_title: Optional[str]`
+
+                  minLength: 1, maxLength: 500
+
+                - `end_block_index: int`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `start_block_index: int`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+              - `class BetaCitationWebSearchResultLocationParam`
+
+                - `type: Literal["web_search_result_location"]`
+
+                - `cited_text: str`
+
+                - `encrypted_index: str`
+
+                - `title: Optional[str]`
+
+                  minLength: 1, maxLength: 512
+
+                - `url: str`
+
+                  minLength: 1
+
+              - `class BetaCitationSearchResultLocationParam`
+
+                - `type: Literal["search_result_location"]`
+
+                - `cited_text: str`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `end_block_index: int`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `search_result_index: int`
+
+                  0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                  Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                  minimum: 0
+
+                - `source: str`
+
+                - `start_block_index: int`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+                - `title: Optional[str]`
+
+          - `class BetaImageBlockParam`
+
+            - `type: Literal["image"]`
+
+            - `source: Source`
+
+              - `class BetaBase64ImageSource`
+
+                - `type: Literal["base64"]`
+
+                - `data: str`
+
+                  format: byte
+
+                - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
+
+                  - `"image/jpeg"`
+
+                  - `"image/png"`
+
+                  - `"image/gif"`
+
+                  - `"image/webp"`
+
+              - `class BetaURLImageSource`
+
+                - `type: Literal["url"]`
+
+                - `url: str`
+
+              - `class BetaFileImageSource`
+
+                - `type: Literal["file"]`
+
+                - `file_id: str`
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `transformations: Optional[BetaImageTransformationsParam]`
+
+              Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+              - `oversized_image: Optional[Literal["downsize", "error"]]`
+
+                What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+                - `"downsize"`
+
+                - `"error"`
+
+          - `class BetaRequestDocumentBlock`
+
+            - `type: Literal["document"]`
+
+            - `source: Source`
+
+              - `class BetaBase64PDFSource`
+
+                - `type: Literal["base64"]`
+
+                - `data: str`
+
+                  format: byte
+
+                - `media_type: Literal["application/pdf"]`
+
+              - `class BetaPlainTextSource`
+
+                - `type: Literal["text"]`
+
+                - `data: str`
+
+                - `media_type: Literal["text/plain"]`
+
+              - `class BetaContentBlockSource`
+
+                - `type: Literal["content"]`
+
+                - `content: Union[str, List[BetaContentBlockSourceContent]]`
+
+                  - `str`
+
+                  - `List[BetaContentBlockSourceContent]`
+
+                    - `class BetaTextBlockParam`
+
+                    - `class BetaImageBlockParam`
+
+              - `class BetaURLPDFSource`
+
+                - `type: Literal["url"]`
+
+                - `url: str`
+
+              - `class BetaFileDocumentSource`
+
+                - `type: Literal["file"]`
+
+                - `file_id: str`
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `citations: Optional[BetaCitationsConfigParam]`
+
+              - `enabled: Optional[bool]`
+
+            - `context: Optional[str]`
+
+              minLength: 1
+
+            - `title: Optional[str]`
+
+              minLength: 1, maxLength: 500
+
+          - `class BetaSearchResultBlockParam`
+
+            - `type: Literal["search_result"]`
+
+            - `content: List[BetaTextBlockParam]`
+
+              - `type: Literal["text"]`
+
+              - `text: str`
+
+                minLength: 1
+
+              - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                Create a cache control breakpoint at this content block.
+
+              - `citations: Optional[List[BetaTextCitationParam]]`
+
+            - `source: str`
+
+            - `title: str`
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `citations: Optional[BetaCitationsConfigParam]`
+
+          - `class BetaThinkingBlockParam`
+
+            - `type: Literal["thinking"]`
+
+            - `signature: str`
+
+              The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
+
+              Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
+
+            - `thinking: str`
+
+              The `thinking` text of this block as returned by the API.
+
+          - `class BetaRedactedThinkingBlockParam`
+
+            - `type: Literal["redacted_thinking"]`
+
+            - `data: str`
+
+              The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
+
+          - `class BetaToolUseBlockParam`
+
+            - `type: Literal["tool_use"]`
+
+            - `id: str`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `input: Dict[str, object]`
+
+            - `name: str`
+
+              minLength: 1, maxLength: 200
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `caller: Optional[Caller]`
+
+              - `class BetaDirectCaller`
+
+                Tool invocation directly from the model.
+
+                - `type: Literal["direct"]`
+
+              - `class BetaServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+                - `type: Literal["code_execution_20250825"]`
+
+                - `tool_id: str`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+              - `class BetaServerToolCaller20260120`
+
+                - `type: Literal["code_execution_20260120"]`
+
+                - `tool_id: str`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `toolset_name: Optional[str]`
+
+              For a toolset member tool_use, the toolset family this member belongs to.
+
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+          - `class BetaToolResultBlockParam`
+
+            - `type: Literal["tool_result"]`
+
+            - `tool_use_id: str`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `content: Optional[Union[str, List[Content], null]]`
+
+              - `str`
+
+              - `List[Content]`
+
+                - `class BetaTextBlockParam`
+
+                - `class BetaImageBlockParam`
+
+                - `class BetaSearchResultBlockParam`
+
+                - `class BetaRequestDocumentBlock`
+
+                - `class BetaToolReferenceBlockParam`
+
+                  Tool reference block that can be included in tool_result content.
+
+                  - `type: Literal["tool_reference"]`
+
+                  - `tool_name: str`
+
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+                  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                    Create a cache control breakpoint at this content block.
+
+                - `class BetaBrowserStateBlockParam`
+
+                  The caller's browser state after a browser toolset member call —
+                  the full inventory of open tabs, which tab is active, and any side
+                  effects (tabs opened, download state changes) the call produced.
+
+                  At most one per `tool_result`, only on a non-error result answering a
+                  browser toolset member `tool_use`. The server renders the
+                  model-visible text from it; the model never sees the raw fields.
+
+                  - `type: Literal["browser_state"]`
+
+                  - `tabs: List[BetaBrowserStateTabEntry]`
+
+                    All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+                    maxItems: 100
+
+                    - `tab_id: str`
+
+                      The caller-assigned identifier for this tab, unique within the inventory.
+
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                    - `title: str`
+
+                      The title of the page the tab is showing. May be empty.
+
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                    - `url: str`
+
+                      The URL of the page the tab is showing. May be empty.
+
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                    - `active: Optional[bool]`
+
+                      Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+                  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                    Create a cache control breakpoint at this content block.
+
+                  - `state_changes: Optional[List[BetaBrowserStateChange]]`
+
+                    Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                    minItems: 1, maxItems: 200
+
+                    - `class BetaBrowserStateChangeTabOpened`
+
+                      A tab this call's execution opened that remains open at its end —
+                      the creation delta of the `tabs` inventory, not an event log.
+
+                      Carries only the `tab_id`; the tab's `title` and `url` live on its
+                      `tabs` entry, which must include the same `tab_id`. A tab opened
+                      during a failed call gets no deferred `tab_opened`; it simply appears
+                      in the next result's `tabs` inventory.
+
+                      - `type: Literal["tab_opened"]`
+
+                      - `tab_id: str`
+
+                        The `tab_id` of the opened tab, present in `tabs`.
+
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                    - `class BetaBrowserStateChangeDownloadStarted`
+
+                      A file download that started during this call.
+
+                      - `type: Literal["download_started"]`
+
+                      - `download_id: str`
+
+                        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                      - `url: str`
+
+                        The final post-redirect URL the download was served from.
+
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                    - `class BetaBrowserStateChangeDownloadCompleted`
+
+                      A file download that finished during this call, reported with the
+                      same `download_id` as its `download_started` — or without a prior
+                      `download_started`, when the download finished during the call that
+                      started it (at most one state change per `download_id` per result).
+
+                      - `type: Literal["download_completed"]`
+
+                      - `download_id: str`
+
+                        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                      - `url: str`
+
+                        The final post-redirect URL the download was served from.
+
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                      - `path: Optional[str]`
+
+                        Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
+
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                      - `size_bytes: Optional[int]`
+
+                        The completed download's size.
+
+                        minimum: 0
+
+                    - `class BetaBrowserStateChangeDownloadFailed`
+
+                      A file download that failed — or was cancelled — during this call.
+
+                      - `type: Literal["download_failed"]`
+
+                      - `download_id: str`
+
+                        The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                      - `url: str`
+
+                        The final post-redirect URL the download was served from.
+
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                      - `error: Optional[str]`
+
+                        The failure or cancellation detail, when known.
+
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+            - `is_error: Optional[bool]`
+
+            - `toolset_name: Optional[str]`
+
+              For a toolset member tool_result, the toolset family of the paired tool_use.
+
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+          - `class BetaServerToolUseBlockParam`
+
+            - `type: Literal["server_tool_use"]`
+
+            - `id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `input: Dict[str, object]`
+
+            - `name: Literal["advisor", "web_search", "web_fetch", 5 more]`
+
+              - `"advisor"`
+
+              - `"web_search"`
+
+              - `"web_fetch"`
+
+              - `"code_execution"`
+
+              - `"bash_code_execution"`
+
+              - `"text_editor_code_execution"`
+
+              - `"tool_search_tool_regex"`
+
+              - `"tool_search_tool_bm25"`
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `caller: Optional[Caller]`
+
+              - `class BetaDirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class BetaServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class BetaServerToolCaller20260120`
+
+          - `class BetaWebSearchToolResultBlockParam`
+
+            - `type: Literal["web_search_tool_result"]`
+
+            - `content: BetaWebSearchToolResultBlockParamContent`
+
+              - `List[BetaWebSearchResultBlockParam]`
+
+                - `type: Literal["web_search_result"]`
+
+                - `encrypted_content: str`
+
+                - `title: str`
+
+                - `url: str`
+
+                - `page_age: Optional[str]`
+
+              - `class BetaWebSearchToolRequestError`
+
+                - `type: Literal["web_search_tool_result_error"]`
+
+                - `error_code: BetaWebSearchToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"too_many_requests"`
+
+                  - `"query_too_long"`
+
+                  - `"request_too_large"`
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `caller: Optional[Caller]`
+
+              - `class BetaDirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class BetaServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class BetaServerToolCaller20260120`
+
+          - `class BetaWebFetchToolResultBlockParam`
+
+            - `type: Literal["web_fetch_tool_result"]`
+
+            - `content: Content`
+
+              - `class BetaWebFetchToolResultErrorBlockParam`
+
+                - `type: Literal["web_fetch_tool_result_error"]`
+
+                - `error_code: BetaWebFetchToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"url_too_long"`
+
+                  - `"url_not_allowed"`
+
+                  - `"url_not_in_prior_context"`
+
+                  - `"url_not_accessible"`
+
+                  - `"unsupported_content_type"`
+
+                  - `"too_many_requests"`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"unavailable"`
+
+                  - `"content_too_large"`
+
+              - `class BetaWebFetchBlockParam`
+
+                - `type: Literal["web_fetch_result"]`
+
+                - `content: BetaRequestDocumentBlock`
+
+                - `url: str`
+
+                  Fetched content URL
+
+                - `retrieved_at: Optional[str]`
+
+                  ISO 8601 timestamp when the content was retrieved
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `caller: Optional[Caller]`
+
+              - `class BetaDirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class BetaServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class BetaServerToolCaller20260120`
+
+          - `class BetaAdvisorToolResultBlockParam`
+
+            - `type: Literal["advisor_tool_result"]`
+
+            - `content: Content`
+
+              - `class BetaAdvisorToolResultErrorParam`
+
+                - `type: Literal["advisor_tool_result_error"]`
+
+                - `error_code: Literal["max_uses_exceeded", "prompt_too_long", "too_many_requests", 4 more]`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"prompt_too_long"`
+
+                  - `"too_many_requests"`
+
+                  - `"overloaded"`
+
+                  - `"unavailable"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"model_not_found"`
+
+              - `class BetaAdvisorResultBlockParam`
+
+                - `type: Literal["advisor_result"]`
+
+                - `text: str`
+
+                - `stop_reason: Optional[str]`
+
+              - `class BetaAdvisorRedactedResultBlockParam`
+
+                - `type: Literal["advisor_redacted_result"]`
+
+                - `encrypted_content: str`
+
+                  Opaque blob produced by a prior response; must be round-tripped verbatim.
+
+                - `stop_reason: Optional[str]`
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaCodeExecutionToolResultBlockParam`
+
+            - `type: Literal["code_execution_tool_result"]`
+
+            - `content: BetaCodeExecutionToolResultBlockParamContent`
+
+              - `class BetaCodeExecutionToolResultErrorParam`
+
+                - `type: Literal["code_execution_tool_result_error"]`
+
+                - `error_code: BetaCodeExecutionToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+              - `class BetaCodeExecutionResultBlockParam`
+
+                - `type: Literal["code_execution_result"]`
+
+                - `content: List[BetaCodeExecutionOutputBlockParam]`
+
+                  - `type: Literal["code_execution_output"]`
+
+                  - `file_id: str`
+
+                - `return_code: int`
+
+                - `stderr: str`
+
+                - `stdout: str`
+
+              - `class BetaEncryptedCodeExecutionResultBlockParam`
+
+                Code execution result with encrypted stdout for PFC + web_search results.
+
+                - `type: Literal["encrypted_code_execution_result"]`
+
+                - `content: List[BetaCodeExecutionOutputBlockParam]`
+
+                  - `type: Literal["code_execution_output"]`
+
+                  - `file_id: str`
+
+                - `encrypted_stdout: str`
+
+                - `return_code: int`
+
+                - `stderr: str`
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaBashCodeExecutionToolResultBlockParam`
+
+            - `type: Literal["bash_code_execution_tool_result"]`
+
+            - `content: Content`
+
+              - `class BetaBashCodeExecutionToolResultErrorParam`
+
+                - `type: Literal["bash_code_execution_tool_result_error"]`
+
+                - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", 2 more]`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"output_file_too_large"`
+
+              - `class BetaBashCodeExecutionResultBlockParam`
+
+                - `type: Literal["bash_code_execution_result"]`
+
+                - `content: List[BetaBashCodeExecutionOutputBlockParam]`
+
+                  - `type: Literal["bash_code_execution_output"]`
+
+                  - `file_id: str`
+
+                - `return_code: int`
+
+                - `stderr: str`
+
+                - `stdout: str`
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaTextEditorCodeExecutionToolResultBlockParam`
+
+            - `type: Literal["text_editor_code_execution_tool_result"]`
+
+            - `content: Content`
+
+              - `class BetaTextEditorCodeExecutionToolResultErrorParam`
+
+                - `type: Literal["text_editor_code_execution_tool_result_error"]`
+
+                - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", 2 more]`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"file_not_found"`
+
+                - `error_message: Optional[str]`
+
+              - `class BetaTextEditorCodeExecutionViewResultBlockParam`
+
+                - `type: Literal["text_editor_code_execution_view_result"]`
+
+                - `content: str`
+
+                - `file_type: Literal["text", "image", "pdf"]`
+
+                  - `"text"`
+
+                  - `"image"`
+
+                  - `"pdf"`
+
+                - `num_lines: Optional[int]`
+
+                - `start_line: Optional[int]`
+
+                - `total_lines: Optional[int]`
+
+              - `class BetaTextEditorCodeExecutionCreateResultBlockParam`
+
+                - `type: Literal["text_editor_code_execution_create_result"]`
+
+                - `is_file_update: bool`
+
+              - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
+
+                - `type: Literal["text_editor_code_execution_str_replace_result"]`
+
+                - `lines: Optional[List[str]]`
+
+                - `new_lines: Optional[int]`
+
+                - `new_start: Optional[int]`
+
+                - `old_lines: Optional[int]`
+
+                - `old_start: Optional[int]`
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaToolSearchToolResultBlockParam`
+
+            - `type: Literal["tool_search_tool_result"]`
+
+            - `content: Content`
+
+              - `class BetaToolSearchToolResultErrorParam`
+
+                - `type: Literal["tool_search_tool_result_error"]`
+
+                - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", "execution_time_exceeded"]`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                - `error_message: Optional[str]`
+
+              - `class BetaToolSearchToolSearchResultBlockParam`
+
+                - `type: Literal["tool_search_tool_search_result"]`
+
+                - `tool_references: List[BetaToolReferenceBlockParam]`
+
+                  - `type: Literal["tool_reference"]`
+
+                  - `tool_name: str`
+
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+                  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                    Create a cache control breakpoint at this content block.
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaMCPToolUseBlockParam`
+
+            - `type: Literal["mcp_tool_use"]`
+
+            - `id: str`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `input: Dict[str, object]`
+
+            - `name: str`
+
+            - `server_name: str`
+
+              The name of the MCP server
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaRequestMCPToolResultBlockParam`
+
+            - `type: Literal["mcp_tool_result"]`
+
+            - `tool_use_id: str`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `content: Optional[Union[str, List[BetaTextBlockParam], null]]`
+
+              - `str`
+
+              - `List[BetaTextBlockParam]`
+
+                - `type: Literal["text"]`
+
+                - `text: str`
+
+                  minLength: 1
+
+                - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `citations: Optional[List[BetaTextCitationParam]]`
+
+            - `is_error: Optional[bool]`
+
+          - `class BetaContainerUploadBlockParam`
+
+            A content block that represents a file to be uploaded to the container
+            Files uploaded via this block will be available in the container's input directory.
+
+            - `type: Literal["container_upload"]`
+
+            - `file_id: str`
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaCompactionBlockParam`
+
+            A compaction block containing summary of previous context.
+
+            Users should round-trip these blocks from responses to subsequent requests
+            to maintain context across compaction boundaries.
+
+            When content is None, the block represents a failed compaction. The server
+            treats these as no-ops. Empty string content is not allowed.
+
+            - `type: Literal["compaction"]`
+
+            - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+              Create a cache control breakpoint at this content block.
+
+            - `content: Optional[str]`
+
+              Summary of previously compacted content, or null if compaction failed
+
+            - `encrypted_content: Optional[str]`
+
+              Opaque metadata from prior compaction, to be round-tripped verbatim
+
+            - `signature: Optional[str]`
+
+              The block's signature as returned, to be sent back verbatim
+
+            - `tool_changes: Optional[List[ToolChange]]`
+
+              The tool changes of the compacted range, as the server returned them on this block: the `tool_addition` and `tool_removal` entries that take the request's `tools` to the tool set in effect at the end of the range. Send them back unchanged with the block.
+
+              - `class BetaRequestToolAdditionBlock`
+
+                Mid-conversation directive to make a tool available.
+
+                `tool` is a reference to a tool (or MCP toolset) declared in the
+                request's `tools`. Under the `inline-tools-2026-09-15` beta it may
+                instead be a reference to a tool defined earlier in `messages`, or a
+                `tool_definition` object that carries an inline tool definition in
+                `definition` (the same object a `tools` entry holds). An `mcp_toolset`
+                definition also requires the `mcp-client-2026-09-15` beta. The tool is
+                offered to the model from this point in the conversation onward.
+
+                - `type: Literal["tool_addition"]`
+
+                - `tool: Tool`
+
+                  - `class BetaToolChangeToolReference`
+
+                    Reference to a single tool, by the name the model uses to call it: a
+                    tool declared in `tools` or defined by an earlier `tool_addition`
+                    block. Does not accept the composed `{server}_{name}` form the server
+                    assigns to MCP-resolved tools; use `mcp_tool_reference` or
+                    `mcp_toolset_reference` for those.
+
+                    - `type: Literal["tool_reference"]`
+
+                    - `name: str`
+
+                      pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+                  - `class BetaToolChangeMCPToolReference`
+
+                    Reference to a single MCP tool by its server and remote name; the
+                    same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                    - `type: Literal["mcp_tool_reference"]`
+
+                    - `name: str`
+
+                    - `server_name: str`
+
+                  - `class BetaToolChangeMCPToolsetReference`
+
+                    Reference to every tool in the named MCP server's toolset.
+
+                    - `type: Literal["mcp_toolset_reference"]`
+
+                    - `server_name: str`
+
+                  - `class BetaToolChangeToolDefinitionParam`
+
+                    A tool defined by value: `definition` is a `tools` entry (any kind
+                    `tools` accepts, an MCP toolset included). An `mcp_toolset` given here
+                    also requires the `mcp-client-2026-09-15` beta.
+
+                    - `type: Literal["tool_definition"]`
+
+                    - `definition: BetaToolUnion`
+
+                      - `class BetaTool`
+
+                        - `type: Optional[Literal["custom"]]`
+
+                        - `input_schema: InputSchema`
+
+                          [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+                          This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+                          - `type: Literal["object"]`
+
+                          - `properties: Optional[Dict[str, object]]`
+
+                          - `required: Optional[List[str]]`
+
+                        - `name: str`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                          minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `description: Optional[str]`
+
+                          Description of what this tool does.
+
+                          Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+                        - `eager_input_streaming: Optional[bool]`
+
+                          Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolBash20241022`
+
+                        - `type: Literal["bash_20241022"]`
+
+                        - `name: Literal["bash"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolBash20250124`
+
+                        - `type: Literal["bash_20250124"]`
+
+                        - `name: Literal["bash"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaCodeExecutionTool20250522`
+
+                        - `type: Literal["code_execution_20250522"]`
+
+                        - `name: Literal["code_execution"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaCodeExecutionTool20250825`
+
+                        - `type: Literal["code_execution_20250825"]`
+
+                        - `name: Literal["code_execution"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaCodeExecutionTool20260120`
+
+                        Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+                        - `type: Literal["code_execution_20260120"]`
+
+                        - `name: Literal["code_execution"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaCodeExecutionTool20260521`
+
+                        Code execution tool with REPL state persistence.
+
+                        - `type: Literal["code_execution_20260521"]`
+
+                        - `name: Literal["code_execution"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaBrowserToolset20260801`
+
+                        The browser toolset: a single `tools[]` entry (carrying no
+                        `name`) that declares the browser tool family. The model is served
+                        the family's tool with any members disabled via `configs` removed
+                        from its schema.
+
+                        - `type: Literal["browser_toolset_20260801"]`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `configs: Optional[BetaBrowserToolsetConfigs]`
+
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+                          - `type: Optional[BetaBrowserTypeConfig]`
+
+                            `type`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `close_tab: Optional[BetaBrowserCloseTabConfig]`
+
+                            `close_tab`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `double_click: Optional[BetaBrowserDoubleClickConfig]`
+
+                            `double_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `file_upload: Optional[BetaBrowserFileUploadConfig]`
+
+                            `file_upload`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `find: Optional[BetaBrowserFindConfig]`
+
+                            `find`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `form_input: Optional[BetaBrowserFormInputConfig]`
+
+                            `form_input`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `get_page_text: Optional[BetaBrowserGetPageTextConfig]`
+
+                            `get_page_text`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `hold_key: Optional[BetaBrowserHoldKeyConfig]`
+
+                            `hold_key`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `hover: Optional[BetaBrowserHoverConfig]`
+
+                            `hover`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `javascript_exec: Optional[BetaBrowserJavascriptExecConfig]`
+
+                            `javascript_exec`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `key: Optional[BetaBrowserKeyConfig]`
+
+                            `key`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click: Optional[BetaBrowserLeftClickConfig]`
+
+                            `left_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click_drag: Optional[BetaBrowserLeftClickDragConfig]`
+
+                            `left_click_drag`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_down: Optional[BetaBrowserLeftMouseDownConfig]`
+
+                            `left_mouse_down`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_up: Optional[BetaBrowserLeftMouseUpConfig]`
+
+                            `left_mouse_up`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `list_tabs: Optional[BetaBrowserListTabsConfig]`
+
+                            `list_tabs`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `middle_click: Optional[BetaBrowserMiddleClickConfig]`
+
+                            `middle_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `mouse_move: Optional[BetaBrowserMouseMoveConfig]`
+
+                            `mouse_move`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `navigate: Optional[BetaBrowserNavigateConfig]`
+
+                            `navigate`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `new_tab: Optional[BetaBrowserNewTabConfig]`
+
+                            `new_tab`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `read_console: Optional[BetaBrowserReadConsoleConfig]`
+
+                            `read_console`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `read_network: Optional[BetaBrowserReadNetworkConfig]`
+
+                            `read_network`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `read_page: Optional[BetaBrowserReadPageConfig]`
+
+                            `read_page`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `right_click: Optional[BetaBrowserRightClickConfig]`
+
+                            `right_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `screenshot: Optional[BetaBrowserScreenshotConfig]`
+
+                            `screenshot`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `scroll: Optional[BetaBrowserScrollConfig]`
+
+                            `scroll`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `scroll_to: Optional[BetaBrowserScrollToConfig]`
+
+                            `scroll_to`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `switch_tab: Optional[BetaBrowserSwitchTabConfig]`
+
+                            `switch_tab`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `triple_click: Optional[BetaBrowserTripleClickConfig]`
+
+                            `triple_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `wait: Optional[BetaBrowserWaitConfig]`
+
+                            `wait`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `zoom: Optional[BetaBrowserZoomConfig]`
+
+                            `zoom`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                      - `class BetaToolComputerUse20241022`
+
+                        - `type: Literal["computer_20241022"]`
+
+                        - `display_height_px: int`
+
+                          The height of the display in pixels.
+
+                          minimum: 1
+
+                        - `display_width_px: int`
+
+                          The width of the display in pixels.
+
+                          minimum: 1
+
+                        - `name: Literal["computer"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `display_number: Optional[int]`
+
+                          The X11 display number (e.g. 0, 1) for the display.
+
+                          minimum: 0
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaMemoryTool20250818`
+
+                        - `type: Literal["memory_20250818"]`
+
+                        - `name: Literal["memory"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolComputerUse20250124`
+
+                        - `type: Literal["computer_20250124"]`
+
+                        - `display_height_px: int`
+
+                          The height of the display in pixels.
+
+                          minimum: 1
+
+                        - `display_width_px: int`
+
+                          The width of the display in pixels.
+
+                          minimum: 1
+
+                        - `name: Literal["computer"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `display_number: Optional[int]`
+
+                          The X11 display number (e.g. 0, 1) for the display.
+
+                          minimum: 0
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolTextEditor20241022`
+
+                        - `type: Literal["text_editor_20241022"]`
+
+                        - `name: Literal["str_replace_editor"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolComputerUse20251124`
+
+                        - `type: Literal["computer_20251124"]`
+
+                        - `display_height_px: int`
+
+                          The height of the display in pixels.
+
+                          minimum: 1
+
+                        - `display_width_px: int`
+
+                          The width of the display in pixels.
+
+                          minimum: 1
+
+                        - `name: Literal["computer"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `display_number: Optional[int]`
+
+                          The X11 display number (e.g. 0, 1) for the display.
+
+                          minimum: 0
+
+                        - `enable_zoom: Optional[bool]`
+
+                          Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaComputerToolset20260801`
+
+                        The computer toolset: a single `tools[]` entry (carrying no
+                        `name`) that declares the computer tool family. The model is
+                        served the family's tool with any members disabled via `configs`
+                        removed from its schema. Every member is enabled by default, zoom
+                        included. The single-tool options `display_number` and
+                        `enable_zoom` are not fields of a toolset entry — it carries only
+                        `type`, `configs`, and `cache_control`; zoom is controlled
+                        via `configs.zoom.enabled`.
+
+                        - `type: Literal["computer_toolset_20260801"]`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `configs: Optional[BetaComputerToolsetConfigs]`
+
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+                          - `type: Optional[BetaComputerTypeConfig]`
+
+                            `type`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `cursor_position: Optional[BetaComputerCursorPositionConfig]`
+
+                            `cursor_position`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `double_click: Optional[BetaComputerDoubleClickConfig]`
+
+                            `double_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `hold_key: Optional[BetaComputerHoldKeyConfig]`
+
+                            `hold_key`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `key: Optional[BetaComputerKeyConfig]`
+
+                            `key`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click: Optional[BetaComputerLeftClickConfig]`
+
+                            `left_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click_drag: Optional[BetaComputerLeftClickDragConfig]`
+
+                            `left_click_drag`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_down: Optional[BetaComputerLeftMouseDownConfig]`
+
+                            `left_mouse_down`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_up: Optional[BetaComputerLeftMouseUpConfig]`
+
+                            `left_mouse_up`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `middle_click: Optional[BetaComputerMiddleClickConfig]`
+
+                            `middle_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `mouse_move: Optional[BetaComputerMouseMoveConfig]`
+
+                            `mouse_move`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `right_click: Optional[BetaComputerRightClickConfig]`
+
+                            `right_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `screenshot: Optional[BetaComputerScreenshotConfig]`
+
+                            `screenshot`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `scroll: Optional[BetaComputerScrollConfig]`
+
+                            `scroll`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `triple_click: Optional[BetaComputerTripleClickConfig]`
+
+                            `triple_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `wait: Optional[BetaComputerWaitConfig]`
+
+                            `wait`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `zoom: Optional[BetaComputerZoomConfig]`
+
+                            `zoom`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                      - `class BetaToolTextEditor20250124`
+
+                        - `type: Literal["text_editor_20250124"]`
+
+                        - `name: Literal["str_replace_editor"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolTextEditor20250429`
+
+                        - `type: Literal["text_editor_20250429"]`
+
+                        - `name: Literal["str_replace_based_edit_tool"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolTextEditor20250728`
+
+                        - `type: Literal["text_editor_20250728"]`
+
+                        - `name: Literal["str_replace_based_edit_tool"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `max_characters: Optional[int]`
+
+                          Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaWebSearchTool20250305`
+
+                        - `type: Literal["web_search_20250305"]`
+
+                        - `name: Literal["web_search"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `user_location: Optional[BetaUserLocation]`
+
+                          Parameters for the user's location. Used to provide more relevant search results.
+
+                          - `type: Literal["approximate"]`
+
+                          - `city: Optional[str]`
+
+                            The city of the user.
+
+                            minLength: 1, maxLength: 255
+
+                          - `country: Optional[str]`
+
+                            The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                            minLength: 2, maxLength: 2
+
+                          - `region: Optional[str]`
+
+                            The region of the user.
+
+                            minLength: 1, maxLength: 255
+
+                          - `timezone: Optional[str]`
+
+                            The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                            minLength: 1, maxLength: 255
+
+                      - `class BetaWebFetchTool20250910`
+
+                        - `type: Literal["web_fetch_20250910"]`
+
+                        - `name: Literal["web_fetch"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `citations: Optional[BetaCitationsConfigParam]`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: Optional[int]`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          minimum: 1
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: Optional[BetaWebFetchURLSources]`
+
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                          - `client_tool_results: Optional[ClientToolResults]`
+
+                            Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                            - `class BetaWebFetchURLSourceAll`
+
+                              The `url_sources` variant under which a source contributes in
+                              full: every result of the tool filter's source, or all user input.
+
+                              - `type: Literal["all"]`
+
+                            - `class BetaWebFetchURLSourceNone`
+
+                              The `url_sources` variant under which a source contributes nothing:
+                              no result of the tool filter's source, or no user input.
+
+                              - `type: Literal["none"]`
+
+                            - `class BetaWebFetchURLSourceOnly`
+
+                              The tool filter variant under which only the named tools' results
+                              contribute.
+
+                              - `type: Literal["only"]`
+
+                              - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+                                - `type: Literal["tool_reference"]`
+
+                                - `name: str`
+
+                            - `class BetaWebFetchURLSourceExcept`
+
+                              The tool filter variant under which every result but the named
+                              tools' contributes.
+
+                              - `type: Literal["except"]`
+
+                              - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+                                - `type: Literal["tool_reference"]`
+
+                                - `name: str`
+
+                          - `server_tool_results: Optional[ServerToolResults]`
+
+                            Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                            - `class BetaWebFetchURLSourceAll`
+
+                              The `url_sources` variant under which a source contributes in
+                              full: every result of the tool filter's source, or all user input.
+
+                            - `class BetaWebFetchURLSourceNone`
+
+                              The `url_sources` variant under which a source contributes nothing:
+                              no result of the tool filter's source, or no user input.
+
+                            - `class BetaWebFetchURLSourceOnly`
+
+                              The tool filter variant under which only the named tools' results
+                              contribute.
+
+                            - `class BetaWebFetchURLSourceExcept`
+
+                              The tool filter variant under which every result but the named
+                              tools' contributes.
+
+                          - `user_input: Optional[UserInput]`
+
+                            Whether URLs in user messages are fetchable: "all" or "none".
+
+                            - `class BetaWebFetchURLSourceAll`
+
+                              The `url_sources` variant under which a source contributes in
+                              full: every result of the tool filter's source, or all user input.
+
+                            - `class BetaWebFetchURLSourceNone`
+
+                              The `url_sources` variant under which a source contributes nothing:
+                              no result of the tool filter's source, or no user input.
+
+                      - `class BetaWebSearchTool20260209`
+
+                        - `type: Literal["web_search_20260209"]`
+
+                        - `name: Literal["web_search"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `user_location: Optional[BetaUserLocation]`
+
+                          Parameters for the user's location. Used to provide more relevant search results.
+
+                      - `class BetaWebFetchTool20260209`
+
+                        - `type: Literal["web_fetch_20260209"]`
+
+                        - `name: Literal["web_fetch"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `citations: Optional[BetaCitationsConfigParam]`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: Optional[int]`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          minimum: 1
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: Optional[BetaWebFetchURLSources]`
+
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                      - `class BetaWebFetchTool20260309`
+
+                        Web fetch tool with use_cache parameter for bypassing cached content.
+
+                        - `type: Literal["web_fetch_20260309"]`
+
+                        - `name: Literal["web_fetch"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `citations: Optional[BetaCitationsConfigParam]`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: Optional[int]`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          minimum: 1
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: Optional[BetaWebFetchURLSources]`
+
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                        - `use_cache: Optional[bool]`
+
+                          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                      - `class BetaWebSearchTool20260318`
+
+                        - `type: Literal["web_search_20260318"]`
+
+                        - `name: Literal["web_search"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+                          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                          - `"full"`
+
+                          - `"excluded"`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `user_location: Optional[BetaUserLocation]`
+
+                          Parameters for the user's location. Used to provide more relevant search results.
+
+                      - `class BetaWebFetchTool20260318`
+
+                        - `type: Literal["web_fetch_20260318"]`
+
+                        - `name: Literal["web_fetch"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `citations: Optional[BetaCitationsConfigParam]`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: Optional[int]`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          minimum: 1
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+                          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                          - `"full"`
+
+                          - `"excluded"`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: Optional[BetaWebFetchURLSources]`
+
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                        - `use_cache: Optional[bool]`
+
+                          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                      - `class BetaAdvisorTool20260301`
+
+                        - `type: Literal["advisor_20260301"]`
+
+                        - `model: Model`
+
+                          The model that will complete your prompt.
+
+                          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                          - `"claude-sonnet-5-5"`
+
+                            Efficient model for coding and agents
+
+                          - `"claude-fable-5-1"`
+
+                            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                          - `"claude-opus-5-5"`
+
+                            Powerful intelligence for coding, knowledge work, and long-running agents
+
+                          - `"claude-mythos-5-1"`
+
+                            Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+                          - `"claude-sonnet-5"`
+
+                            Efficient model for coding and agents
+
+                          - `"claude-fable-5"`
+
+                            Next generation of intelligence for the hardest knowledge work and coding problems
+
+                          - `"claude-mythos-5"`
+
+                            Most capable model for cybersecurity and biology research
+
+                          - `"claude-opus-5"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-8"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-7"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-6"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-sonnet-4-6"`
+
+                            Best combination of speed and intelligence
+
+                          - `"claude-haiku-4-5"`
+
+                            Fastest model with near-frontier intelligence
+
+                          - `"claude-haiku-4-5-20251001"`
+
+                            Fastest model with near-frontier intelligence
+
+                          - `"claude-opus-4-5"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-5-20251101"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-sonnet-4-5"`
+
+                            High-performance model for agents and coding
+
+                          - `"claude-sonnet-4-5-20250929"`
+
+                            High-performance model for agents and coding
+
+                          - `"claude-mythos-preview"`
+
+                            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            New class of intelligence, strongest in coding and cybersecurity
+
+                          - `str`
+
+                        - `name: Literal["advisor"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `caching: Optional[BetaCacheControlEphemeral]`
+
+                          Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_tokens: Optional[int]`
+
+                          Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+                          minimum: 1024
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolSearchToolBm25_20251119`
+
+                        - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
+
+                          - `"tool_search_tool_bm25_20251119"`
+
+                          - `"tool_search_tool_bm25"`
+
+                        - `name: Literal["tool_search_tool_bm25"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolSearchToolRegex20251119`
+
+                        - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
+
+                          - `"tool_search_tool_regex_20251119"`
+
+                          - `"tool_search_tool_regex"`
+
+                        - `name: Literal["tool_search_tool_regex"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaMCPToolset`
+
+                        Configuration for a group of tools from an MCP server.
+
+                        Allows configuring enabled status and defer_loading for all tools
+                        from an MCP server, with optional per-tool overrides.
+
+                        - `type: Literal["mcp_toolset"]`
+
+                        - `mcp_server_name: str`
+
+                          Name of the MCP server to configure tools for
+
+                          minLength: 1, maxLength: 255
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `configs: Optional[Dict[str, BetaMCPToolConfig]]`
+
+                          Configuration overrides for specific tools, keyed by tool name
+
+                          - `defer_loading: Optional[bool]`
+
+                          - `enabled: Optional[bool]`
+
+                        - `default_config: Optional[BetaMCPToolDefaultConfig]`
+
+                          Default configuration applied to all tools from this server
+
+                          - `defer_loading: Optional[bool]`
+
+                          - `enabled: Optional[bool]`
+
+                        - `tools: Optional[List[BetaMCPToolParam]]`
+
+                          The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+                          - `input_schema: Dict[str, object]`
+
+                            The tool's input schema as the MCP server lists it, verbatim.
+
+                          - `name: str`
+
+                            The tool's name as the MCP server lists it (not prefixed with the server name).
+
+                            minLength: 1
+
+                          - `description: Optional[str]`
+
+                            The tool's description as the MCP server lists it.
+
+                - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                  Create a cache control breakpoint at this content block.
+
+              - `class BetaRequestToolRemovalBlock`
+
+                Mid-conversation directive to withdraw a tool.
+
+                `tool` references a tool (or MCP toolset) by name: one declared in the
+                request's `tools` or defined earlier in `messages`. It is no longer
+                offered to the model from this point in the conversation onward.
+
+                - `type: Literal["tool_removal"]`
+
+                - `tool: Tool`
+
+                  - `class BetaToolChangeToolReference`
+
+                    Reference to a single tool, by the name the model uses to call it: a
+                    tool declared in `tools` or defined by an earlier `tool_addition`
+                    block. Does not accept the composed `{server}_{name}` form the server
+                    assigns to MCP-resolved tools; use `mcp_tool_reference` or
+                    `mcp_toolset_reference` for those.
+
+                  - `class BetaToolChangeMCPToolReference`
+
+                    Reference to a single MCP tool by its server and remote name; the
+                    same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                  - `class BetaToolChangeMCPToolsetReference`
+
+                    Reference to every tool in the named MCP server's toolset.
+
+                - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                  Create a cache control breakpoint at this content block.
+
+          - `class BetaRequestToolAdditionBlock`
+
+            Mid-conversation directive to make a tool available.
+
+            `tool` is a reference to a tool (or MCP toolset) declared in the
+            request's `tools`. Under the `inline-tools-2026-09-15` beta it may
+            instead be a reference to a tool defined earlier in `messages`, or a
+            `tool_definition` object that carries an inline tool definition in
+            `definition` (the same object a `tools` entry holds). An `mcp_toolset`
+            definition also requires the `mcp-client-2026-09-15` beta. The tool is
+            offered to the model from this point in the conversation onward.
+
+          - `class BetaRequestToolRemovalBlock`
+
+            Mid-conversation directive to withdraw a tool.
+
+            `tool` references a tool (or MCP toolset) by name: one declared in the
+            request's `tools` or defined earlier in `messages`. It is no longer
+            offered to the model from this point in the conversation onward.
+
+          - `class BetaMCPToolListingBlockParam`
+
+            The tool listing an MCP server returned while an earlier response was
+            produced, as that response carried it. Send the assistant message back
+            unchanged, this block included, and the server uses this listing for the
+            matching `mcp_toolset` instead of asking the MCP server again.
+
+            - `type: Literal["mcp_tool_listing"]`
+
+            - `mcp_server_name: str`
+
+              The name of the MCP server this listing came from, as `mcp_servers` declares it.
+
+              minLength: 1, maxLength: 255
+
+            - `tools: List[BetaMCPToolParam]`
+
+              The server's tools, exactly as the response listed them.
+
+              - `input_schema: Dict[str, object]`
+
+                The tool's input schema as the MCP server lists it, verbatim.
+
+              - `name: str`
+
+                The tool's name as the MCP server lists it (not prefixed with the server name).
+
+                minLength: 1
+
+              - `description: Optional[str]`
+
+                The tool's description as the MCP server lists it.
+
+          - `class BetaFallbackBlockParam`
+
+            A `fallback` block echoed back from a prior response.
+
+            Accepted in `messages[].content` and not rendered into the prompt; not
+            validated against the request's `fallbacks` chain or top-level `model`.
+
+            Echo the assistant turn back verbatim, including this block in its
+            original position. The block marks the boundary between content produced
+            before and after a fallback hop, and the server relies on that boundary
+            to validate the turn: when thinking runs flank the boundary, omitting
+            the block merges them into one span the server cannot validate (the
+            request is rejected), and moving it into the middle of a single run is
+            likewise rejected; between non-thinking blocks the block's placement has
+            no validation effect.
+
+            - `type: Literal["fallback"]`
+
+            - `from_: BetaFallbackInfoParam`
+
+              Identifies one hop of a fallback transition.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `to: BetaFallbackInfoParam`
+
+              Identifies one hop of a fallback transition.
+
+            - `trigger: Optional[object]`
+
+              The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
+
+      - `role: Literal["user", "assistant", "system"]`
+
+        - `"user"`
+
+        - `"assistant"`
+
+        - `"system"`
+
+      - `clear_at: Optional[Literal["next_user_message", "never"]]`
+
+        How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+        - `"next_user_message"`
+
+        - `"never"`
+
+      - `output_config: Optional[BetaSystemMessageOutputConfig]`
+
+        Per-message output configuration on a role:"system" input message.
+
+        Fields here apply per-turn; `format` remains top-level only. An
+        empty `{}` is accepted on a message that carries content; a message
+        with neither content nor output_config fields is rejected.
+
+        - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
+
+          How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+          Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
+
+          - `"low"`
+
+          - `"medium"`
+
+          - `"high"`
+
+          - `"xhigh"`
+
+          - `"max"`
+
+    - `model: ModelParam`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `cache_control: Optional[BetaCacheControlEphemeralParam]`
+
+      Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+    - `compaction: Optional[BetaCompactionConfigParam]`
+
+      Compaction configuration.
+
+      When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
+
+      - `type: Literal["summarize"]`
+
+      - `instructions: Optional[str]`
+
+        Replaces the server's default summarization prompt for this request. An empty or whitespace-only value counts as absent.
+
+        maxLength: 16384
+
+    - `container: Optional[RequestParamsContainer]`
+
+      Container identifier for reuse across requests.
+
+      - `class BetaContainerParams`
+
+        Container parameters with skills to be loaded.
+
+        - `id: Optional[str]`
+
+          Container id
+
+        - `skills: Optional[List[BetaSkillParams]]`
+
+          List of skills to load in the container
+
+          maxItems: 20
+
+          - `type: Literal["anthropic", "custom"]`
+
+            Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+            - `"anthropic"`
+
+            - `"custom"`
+
+          - `skill_id: str`
+
+            Skill ID
+
+            minLength: 1, maxLength: 64
+
+          - `version: Optional[str]`
+
+            Skill version or 'latest' for most recent version
+
+            minLength: 1, maxLength: 64
+
+      - `str`
+
+    - `context_management: Optional[BetaContextManagementConfigParam]`
+
+      Context management configuration.
+
+      This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
+
+      - `edits: Optional[List[Edit]]`
+
+        List of context management edits to apply
+
+        - `class BetaClearToolUses20250919Edit`
+
+          - `type: Literal["clear_tool_uses_20250919"]`
+
+          - `clear_at_least: Optional[BetaInputTokensClearAtLeast]`
+
+            Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
+
+            - `type: Literal["input_tokens"]`
+
+            - `value: int`
+
+              minimum: 0
+
+          - `clear_tool_inputs: Optional[Union[bool, List[str], null]]`
+
+            Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
+
+            - `bool`
+
+            - `List[str]`
+
+          - `exclude_tools: Optional[List[str]]`
+
+            Tool names whose uses are preserved from clearing
+
+          - `keep: Optional[BetaToolUsesKeep]`
+
+            Number of tool uses to retain in the conversation
+
+            - `type: Literal["tool_uses"]`
+
+            - `value: int`
+
+              minimum: 0
+
+          - `trigger: Optional[Trigger]`
+
+            Condition that triggers the context management strategy
+
+            - `class BetaInputTokensTrigger`
+
+              - `type: Literal["input_tokens"]`
+
+              - `value: int`
+
+                minimum: 1
+
+            - `class BetaToolUsesTrigger`
+
+              - `type: Literal["tool_uses"]`
+
+              - `value: int`
+
+                minimum: 1
+
+        - `class BetaClearThinking20251015Edit`
+
+          - `type: Literal["clear_thinking_20251015"]`
+
+          - `keep: Optional[Keep]`
+
+            Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
+
+            - `class BetaThinkingTurns`
+
+              - `type: Literal["thinking_turns"]`
+
+              - `value: int`
+
+                minimum: 1
+
+            - `class BetaAllThinkingTurns`
+
+              - `type: Literal["all"]`
+
+            - `"all"`
+
+        - `class BetaCompact20260112Edit`
+
+          Automatically compact older context when reaching the configured trigger threshold.
+
+          - `type: Literal["compact_20260112"]`
+
+          - `instructions: Optional[str]`
+
+            Additional instructions for summarization.
+
+          - `pause_after_compaction: Optional[bool]`
+
+            Whether to pause after compaction and return the compaction block to the user.
+
+          - `trigger: Optional[BetaInputTokensTrigger]`
+
+            When to trigger compaction. Defaults to 150000 input tokens.
+
+    - `diagnostics: Optional[BetaDiagnosticsParam]`
+
+      Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
+
+      - `previous_message_id: Optional[str]`
+
+        The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+        maxLength: 256
+
+    - `fallback_credit_token: Optional[RequestParamsFallbackCreditToken]`
+
+      The `fallback_credit_token` from a prior refusal's `stop_details`.
+
+      When a preceding request was refused and returned a `fallback_credit_token`,
+      pass that code here on the retry to have the retry's cache-creation tokens
+      for the prefix that was warm on the refused model billed at the cache-read
+      rate. Must be redeemed by the same organization and workspace, with the same
+      request body (optionally extended by one appended `assistant` message whose
+      content is the partial text — with any trailing whitespace stripped from
+      the final text block — and paired server-tool blocks streamed before the
+      refusal; the appended-assistant form is not available for requests with
+      `output_format` set or forced `tool_choice`), on an eligible fallback
+      model, on the same platform,
+      and within 5 minutes of the refusal; a mismatch is a 400. A token minted
+      mid-server-tool-loop whose partial content was continuable may only be
+      redeemed with the appended-assistant form — if an exact-body retry is
+      rejected with a 400 saying the token must be redeemed by continuing the
+      partial response, retry with the appended-assistant form instead.
+
+      When the appended-assistant form is used on a model that otherwise disallows
+      assistant-turn prefill, this token also authorizes that one prefill.
+
+      - `str`
+
+      - `class BetaFallbackCreditTokenParam`
+
+        Object form of `fallback_credit_token`: the token plus a redemption
+        mode.
+
+        Requires `anthropic-beta: fallback-credit-2026-07-01`; without that
+        header the field accepts the bare string only. The bare string and the
+        mode-less object are equivalent (both select `strict`), so wrapping
+        an existing token changes nothing by itself.
+
+        - `token: str`
+
+          The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
+
+          minLength: 1, maxLength: 2048
+
+        - `mode: Optional[Literal["strict", "best_effort"]]`
+
+          How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
+
+          - `"strict"`
+
+          - `"best_effort"`
+
+    - `fallbacks: Optional[BetaFallbacksParam]`
+
+      Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
+
+      - `List[BetaFallbackParam]`
+
+        - `model: Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `max_tokens: Optional[int]`
+
+        - `output_config: Optional[BetaOutputConfig]`
+
+          - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
+
+            How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+            Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
+
+            - `"low"`
+
+            - `"medium"`
+
+            - `"high"`
+
+            - `"xhigh"`
+
+            - `"max"`
+
+          - `format: Optional[BetaJSONOutputFormat]`
+
+            A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+            - `type: Literal["json_schema"]`
+
+            - `schema: Dict[str, object]`
+
+              The JSON schema of the format
+
+          - `task_budget: Optional[BetaTokenTaskBudget]`
+
+            Configuration for token budget tracking across contexts.
+
+            - `type: Literal["tokens"]`
+
+              The budget type. Currently only 'tokens' is supported.
+
+            - `total: int`
+
+              Total token budget across all contexts in the session.
+
+              minimum: 1024
+
+            - `remaining: Optional[int]`
+
+              Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+              minimum: 0
+
+        - `speed: Optional[Literal["standard", "fast"]]`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `"standard"`
+
+          - `"fast"`
+
+        - `thinking: Optional[Thinking]`
+
+          - `class BetaThinkingConfigEnabled`
+
+            - `type: Literal["enabled"]`
+
+            - `budget_tokens: int`
+
+              Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+              Must be ≥1024 and less than `max_tokens`.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+              minimum: 1024
+
+            - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+              Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
+
+              - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+                "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
+
+                - `"error"`
+
+                - `"drop_block"`
+
+            - `display: Optional[Literal["summarized", "omitted", "updates"]]`
+
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `"summarized"`
+
+              - `"omitted"`
+
+              - `"updates"`
+
+          - `class BetaThinkingConfigDisabled`
+
+            - `type: Literal["disabled"]`
+
+          - `class BetaThinkingConfigBetweenTools`
+
+            - `type: Literal["between_tools"]`
+
+          - `class BetaThinkingConfigAdaptive`
+
+            - `type: Literal["adaptive"]`
+
+            - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+              Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
+
+            - `display: Optional[Literal["summarized", "omitted", "updates"]]`
+
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `"summarized"`
+
+              - `"omitted"`
+
+              - `"updates"`
+
+      - `"default"`
+
+    - `inference_geo: Optional[str]`
+
+      Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
+
+    - `mcp_servers: Optional[Iterable[BetaRequestMCPServerURLDefinitionParam]]`
+
+      MCP servers to be utilized in this request
+
+      maxItems: 20
+
+      - `type: Literal["url"]`
+
+      - `name: str`
+
+      - `url: str`
+
+      - `authorization_token: Optional[str]`
+
+      - `tool_configuration: Optional[BetaRequestMCPServerToolConfiguration]`
+
+        - `allowed_tools: Optional[List[str]]`
+
+        - `enabled: Optional[bool]`
+
+    - `metadata: Optional[BetaMetadataParam]`
+
+      An object describing metadata about the request.
+
+      - `user_id: Optional[str]`
+
+        An external identifier for the user who is associated with the request.
+
+        This should be a uuid, hash value, or other opaque identifier. Anthropic may use this id to help detect abuse. Do not include any identifying information such as name, email address, or phone number.
+
+        maxLength: 512
+
+    - `output_config: Optional[BetaOutputConfigParam]`
+
+      Configuration options for the model's output, such as the output format.
+
+    - `service_tier: Optional[Literal["auto", "standard_only"]]`
+
+      Determines whether to use priority capacity (if available) or standard capacity for this request.
+
+      Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
+
+      - `"auto"`
+
+      - `"standard_only"`
+
+    - `speed: Optional[Literal["standard", "fast"]]`
+
+      The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+
+      - `"standard"`
+
+      - `"fast"`
+
+    - `stop_sequences: Optional[Sequence[str]]`
+
+      Custom text sequences that will cause the model to stop generating.
+
+      Our models will normally stop when they have naturally completed their turn, which will result in a response `stop_reason` of `"end_turn"`.
+
+      If you want the model to stop generating when it encounters custom strings of text, you can use the `stop_sequences` parameter. If the model encounters one of the custom sequences, the response `stop_reason` value will be `"stop_sequence"` and the response `stop_sequence` value will contain the matched stop sequence.
+
+    - `stream: Optional[bool]`
+
+      Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
+
+      In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
+
+    - `system: Optional[Union[str, Iterable[BetaTextBlockParam]]]`
+
+      System prompt.
+
+      A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
+
+      - `str`
+
+      - `Iterable[BetaTextBlockParam]`
+
+        - `type: Literal["text"]`
+
+        - `text: str`
+
+          minLength: 1
+
+        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: Optional[List[BetaTextCitationParam]]`
+
+    - `thinking: Optional[BetaThinkingConfigParam]`
+
+      Configuration for enabling Claude's extended thinking.
+
+      When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
+
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+      - `class BetaThinkingConfigEnabled`
+
+      - `class BetaThinkingConfigDisabled`
+
+      - `class BetaThinkingConfigBetweenTools`
+
+      - `class BetaThinkingConfigAdaptive`
+
+    - `tool_choice: Optional[BetaToolChoiceParam]`
+
+      How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
+      - `class BetaToolChoiceAuto`
+
+        The model will automatically decide whether to use tools.
+
+        - `type: Literal["auto"]`
+
+        - `disable_parallel_tool_use: Optional[bool]`
+
+          Whether to disable parallel tool use.
+
+          Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+      - `class BetaToolChoiceAny`
+
+        The model will use any available tools.
+
+        - `type: Literal["any"]`
+
+        - `disable_parallel_tool_use: Optional[bool]`
+
+          Whether to disable parallel tool use.
+
+          Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+      - `class BetaToolChoiceTool`
+
+        The model will use the specified tool with `tool_choice.name`.
+
+        - `type: Literal["tool"]`
+
+        - `name: str`
+
+          The name of the tool to use.
+
+        - `disable_parallel_tool_use: Optional[bool]`
+
+          Whether to disable parallel tool use.
+
+          Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+      - `class BetaToolChoiceNone`
+
+        The model will not be allowed to use tools.
+
+        - `type: Literal["none"]`
+
+    - `tools: Optional[Iterable[BetaToolUnionParam]]`
+
+      Definitions of tools that the model may use.
+
+      If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
+
+      There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
+
+      Each tool definition includes:
+
+      * `name`: Name of the tool.
+      * `description`: Optional, but strongly-recommended description of the tool.
+      * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+      For example, if you defined `tools` as:
+
+      ```json
+      [
+        {
+          "name": "get_stock_price",
+          "description": "Get the current stock price for a given ticker symbol.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "ticker": {
+                "type": "string",
+                "description": "The stock ticker symbol, e.g. AAPL for Apple Inc."
+              }
+            },
+            "required": ["ticker"]
+          }
+        }
+      ]
+      ```
+
+      And then asked the model "What's the S&P 500 at today?", the model might produce `tool_use` content blocks in the response like this:
+
+      ```json
+      [
+        {
+          "type": "tool_use",
+          "id": "toolu_01D7FLrfh4GYq7yT1ULFeyMV",
+          "name": "get_stock_price",
+          "input": { "ticker": "^GSPC" }
+        }
+      ]
+      ```
+
+      You might then run your `get_stock_price` tool with `{"ticker": "^GSPC"}` as an input, and return the following back to the model in a subsequent `user` message:
+
+      ```json
+      [
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_01D7FLrfh4GYq7yT1ULFeyMV",
+          "content": "259.75 USD"
+        }
+      ]
+      ```
+
+      Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
+
+      See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
+
+      - `class BetaTool`
+
+      - `class BetaToolBash20241022`
+
+      - `class BetaToolBash20250124`
+
+      - `class BetaCodeExecutionTool20250522`
+
+      - `class BetaCodeExecutionTool20250825`
+
+      - `class BetaCodeExecutionTool20260120`
+
+        Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+      - `class BetaCodeExecutionTool20260521`
+
+        Code execution tool with REPL state persistence.
+
+      - `class BetaBrowserToolset20260801`
+
+        The browser toolset: a single `tools[]` entry (carrying no
+        `name`) that declares the browser tool family. The model is served
+        the family's tool with any members disabled via `configs` removed
+        from its schema.
+
+      - `class BetaToolComputerUse20241022`
+
+      - `class BetaMemoryTool20250818`
+
+      - `class BetaToolComputerUse20250124`
+
+      - `class BetaToolTextEditor20241022`
+
+      - `class BetaToolComputerUse20251124`
+
+      - `class BetaComputerToolset20260801`
+
+        The computer toolset: a single `tools[]` entry (carrying no
+        `name`) that declares the computer tool family. The model is
+        served the family's tool with any members disabled via `configs`
+        removed from its schema. Every member is enabled by default, zoom
+        included. The single-tool options `display_number` and
+        `enable_zoom` are not fields of a toolset entry — it carries only
+        `type`, `configs`, and `cache_control`; zoom is controlled
+        via `configs.zoom.enabled`.
+
+      - `class BetaToolTextEditor20250124`
+
+      - `class BetaToolTextEditor20250429`
+
+      - `class BetaToolTextEditor20250728`
+
+      - `class BetaWebSearchTool20250305`
+
+      - `class BetaWebFetchTool20250910`
+
+      - `class BetaWebSearchTool20260209`
+
+      - `class BetaWebFetchTool20260209`
+
+      - `class BetaWebFetchTool20260309`
+
+        Web fetch tool with use_cache parameter for bypassing cached content.
+
+      - `class BetaWebSearchTool20260318`
+
+      - `class BetaWebFetchTool20260318`
+
+      - `class BetaAdvisorTool20260301`
+
+      - `class BetaToolSearchToolBm25_20251119`
+
+      - `class BetaToolSearchToolRegex20251119`
+
+      - `class BetaMCPToolset`
+
+        Configuration for a group of tools from an MCP server.
+
+        Allows configuring enabled status and defer_loading for all tools
+        from an MCP server, with optional per-tool overrides.
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `user_profile_id: Optional[str]`
+
+  The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaMessageBatch`
+
+  - `type: Literal["message_batch"]`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
+
+  - `id: str`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `archived_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `cancel_initiated_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `created_at: datetime`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `ended_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `expires_at: datetime`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `processing_status: Literal["in_progress", "canceling", "ended"]`
+
+    Processing status of the Message Batch.
+
+    - `"in_progress"`
+
+    - `"canceling"`
+
+    - `"ended"`
+
+  - `request_counts: BetaMessageBatchRequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `canceled: int`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `errored: int`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `expired: int`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `processing: int`
+
+      Number of requests in the Message Batch that are processing.
+
+      default: 0
+
+    - `succeeded: int`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+  - `results_url: Optional[str]`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_message_batch = client.beta.messages.batches.create(
+    requests=[
+        {
+            "custom_id": "my-custom-id-1",
+            "params": {
+                "max_tokens": 1024,
+                "messages": [
+                    {
+                        "content": "Hello, world",
+                        "role": "user",
+                    }
+                ],
+                "model": "claude-opus-5",
+            },
+        }
+    ],
+)
+print(beta_message_batch.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+### Retrieve a Message Batch
+
+`beta.messages.batches.retrieve(message_batch_id, **kwargs)  -> BetaMessageBatch`
+
+**GET** `/v1/messages/batches/{message_batch_id}`
+
+This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `message_batch_id: str`
+
+  ID of the Message Batch.
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaMessageBatch`
+
+  - `type: Literal["message_batch"]`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
+
+  - `id: str`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `archived_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `cancel_initiated_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `created_at: datetime`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `ended_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `expires_at: datetime`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `processing_status: Literal["in_progress", "canceling", "ended"]`
+
+    Processing status of the Message Batch.
+
+    - `"in_progress"`
+
+    - `"canceling"`
+
+    - `"ended"`
+
+  - `request_counts: BetaMessageBatchRequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `canceled: int`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `errored: int`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `expired: int`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `processing: int`
+
+      Number of requests in the Message Batch that are processing.
+
+      default: 0
+
+    - `succeeded: int`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+  - `results_url: Optional[str]`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_message_batch = client.beta.messages.batches.retrieve(
+    message_batch_id="message_batch_id",
+)
+print(beta_message_batch.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+### List Message Batches
+
+`beta.messages.batches.list(**kwargs)  -> SyncPage[BetaMessageBatch]`
+
+**GET** `/v1/messages/batches`
+
+List all Message Batches within a Workspace. Most recently created batches are returned first.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `after_id: Optional[str]`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+- `before_id: Optional[str]`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+- `limit: Optional[int]`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20, minimum: 1, maximum: 1000
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaMessageBatch`
+
+  - `type: Literal["message_batch"]`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
+
+  - `id: str`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `archived_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `cancel_initiated_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `created_at: datetime`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `ended_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `expires_at: datetime`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `processing_status: Literal["in_progress", "canceling", "ended"]`
+
+    Processing status of the Message Batch.
+
+    - `"in_progress"`
+
+    - `"canceling"`
+
+    - `"ended"`
+
+  - `request_counts: BetaMessageBatchRequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `canceled: int`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `errored: int`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `expired: int`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `processing: int`
+
+      Number of requests in the Message Batch that are processing.
+
+      default: 0
+
+    - `succeeded: int`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+  - `results_url: Optional[str]`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+page = client.beta.messages.batches.list()
+page = page.data[0]
+print(page.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+      "archived_at": "2024-08-20T18:37:24.100435Z",
+      "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+      "created_at": "2024-08-20T18:37:24.100435Z",
+      "ended_at": "2024-08-20T18:37:24.100435Z",
+      "expires_at": "2024-08-20T18:37:24.100435Z",
+      "processing_status": "in_progress",
+      "request_counts": {
+        "canceled": 10,
+        "errored": 30,
+        "expired": 10,
+        "processing": 100,
+        "succeeded": 50
+      },
+      "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+      "type": "message_batch"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Cancel a Message Batch
+
+`beta.messages.batches.cancel(message_batch_id, **kwargs)  -> BetaMessageBatch`
+
+**POST** `/v1/messages/batches/{message_batch_id}/cancel`
+
+Batches may be canceled any time before processing ends. Once cancellation is initiated, the batch enters a `canceling` state, at which time the system may complete any in-progress, non-interruptible requests before finalizing cancellation.
+
+The number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `message_batch_id: str`
+
+  ID of the Message Batch.
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaMessageBatch`
+
+  - `type: Literal["message_batch"]`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
+
+  - `id: str`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `archived_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `cancel_initiated_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `created_at: datetime`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `ended_at: Optional[datetime]`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `expires_at: datetime`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `processing_status: Literal["in_progress", "canceling", "ended"]`
+
+    Processing status of the Message Batch.
+
+    - `"in_progress"`
+
+    - `"canceling"`
+
+    - `"ended"`
+
+  - `request_counts: BetaMessageBatchRequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `canceled: int`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `errored: int`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `expired: int`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+    - `processing: int`
+
+      Number of requests in the Message Batch that are processing.
+
+      default: 0
+
+    - `succeeded: int`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
+
+  - `results_url: Optional[str]`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_message_batch = client.beta.messages.batches.cancel(
+    message_batch_id="message_batch_id",
+)
+print(beta_message_batch.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+### Delete a Message Batch
+
+`beta.messages.batches.delete(message_batch_id, **kwargs)  -> BetaDeletedMessageBatch`
+
+**DELETE** `/v1/messages/batches/{message_batch_id}`
+
+Delete a Message Batch.
+
+Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `message_batch_id: str`
+
+  ID of the Message Batch.
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaDeletedMessageBatch`
+
+  - `type: Literal["message_batch_deleted"]`
+
+    Deleted object type.
+
+    For Message Batches, this is always `"message_batch_deleted"`.
+
+    default: message_batch_deleted
+
+  - `id: str`
+
+    ID of the Message Batch.
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_deleted_message_batch = client.beta.messages.batches.delete(
+    message_batch_id="message_batch_id",
+)
+print(beta_deleted_message_batch.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "type": "message_batch_deleted"
+}
+```
+
+### Retrieve Message Batch results
+
+`beta.messages.batches.results(message_batch_id, **kwargs)  -> BetaMessageBatchIndividualResponse`
+
+**GET** `/v1/messages/batches/{message_batch_id}/results`
+
+Streams the results of a Message Batch as a `.jsonl` file.
+
+Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `message_batch_id: str`
+
+  ID of the Message Batch.
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaMessageBatchIndividualResponse`
+
+  This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
+  - `custom_id: str`
+
+    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
+
+    Must be unique for each request within the Message Batch.
+
+  - `result: BetaMessageBatchResult`
+
+    Processing result for this request.
+
+    Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
+    - `class BetaMessageBatchSucceededResult`
+
+      - `type: Literal["succeeded"]`
+
+        default: succeeded
+
+      - `message: BetaMessage`
+
+        - `type: Literal["message"]`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+          default: message
+
+        - `id: str`
+
+          Unique object identifier.
+
+          The format and length of IDs may change over time.
+
+        - `container: Optional[BetaContainer]`
+
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
+
+          - `id: str`
+
+            Identifier for the container used in this request
+
+          - `expires_at: datetime`
+
+            The time at which the container will expire.
+
+            format: date-time
+
+          - `skills: Optional[List[BetaContainerSkill]]`
+
+            Skills loaded in the container
+
+            - `type: Literal["anthropic", "custom"]`
+
+              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+              - `"anthropic"`
+
+              - `"custom"`
+
+            - `skill_id: str`
+
+              Skill ID
+
+              minLength: 1, maxLength: 64
+
+            - `version: str`
+
+              The resolved version: a skill version ID for custom skills.
+
+              minLength: 1, maxLength: 64
+
+        - `content: List[BetaContentBlock]`
+
+          Content generated by the model.
+
+          This is an array of content blocks, each of which has a `type` that determines its shape.
+
+          Example:
+
+          ```json
+          [{"type": "text", "text": "Hi, I'm Claude."}]
+          ```
+
+          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
+
+          For example, if the input `messages` were:
+
+          ```json
+          [
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
+          ]
+          ```
+
+          Then the response `content` might be:
+
+          ```json
+          [{"type": "text", "text": "B)"}]
+          ```
+
+          - `class BetaTextBlock`
+
+            - `type: Literal["text"]`
+
+              default: text
+
+            - `citations: Optional[List[BetaTextCitation]]`
+
+              Citations supporting the text block.
+
+              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+              - `class BetaCitationCharLocation`
+
+                - `type: Literal["char_location"]`
+
+                  default: char_location
+
+                - `cited_text: str`
+
+                - `document_index: int`
+
+                  minimum: 0
+
+                - `document_title: Optional[str]`
+
+                - `end_char_index: int`
+
+                - `file_id: Optional[str]`
+
+                - `start_char_index: int`
+
+                  minimum: 0
+
+              - `class BetaCitationPageLocation`
+
+                - `type: Literal["page_location"]`
+
+                  default: page_location
+
+                - `cited_text: str`
+
+                - `document_index: int`
+
+                  minimum: 0
+
+                - `document_title: Optional[str]`
+
+                - `end_page_number: int`
+
+                - `file_id: Optional[str]`
+
+                - `start_page_number: int`
+
+                  minimum: 1
+
+              - `class BetaCitationContentBlockLocation`
+
+                - `type: Literal["content_block_location"]`
+
+                  default: content_block_location
+
+                - `cited_text: str`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `document_index: int`
+
+                  minimum: 0
+
+                - `document_title: Optional[str]`
+
+                - `end_block_index: int`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `file_id: Optional[str]`
+
+                - `start_block_index: int`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+              - `class BetaCitationsWebSearchResultLocation`
+
+                - `type: Literal["web_search_result_location"]`
+
+                  default: web_search_result_location
+
+                - `cited_text: str`
+
+                - `encrypted_index: str`
+
+                - `title: Optional[str]`
+
+                  maxLength: 512
+
+                - `url: str`
+
+              - `class BetaCitationSearchResultLocation`
+
+                - `type: Literal["search_result_location"]`
+
+                  default: search_result_location
+
+                - `cited_text: str`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `end_block_index: int`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `search_result_index: int`
+
+                  0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                  Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                  minimum: 0
+
+                - `source: str`
+
+                - `start_block_index: int`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+                - `title: Optional[str]`
+
+            - `text: str`
+
+          - `class BetaThinkingBlock`
+
+            - `type: Literal["thinking"]`
+
+              default: thinking
+
+            - `signature: str`
+
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+            - `thinking: str`
+
+              The text of Claude's thinking process for this block.
+
+          - `class BetaRedactedThinkingBlock`
+
+            - `type: Literal["redacted_thinking"]`
+
+              default: redacted_thinking
+
+            - `data: str`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
+
+          - `class BetaToolUseBlock`
+
+            - `type: Literal["tool_use"]`
+
+              default: tool_use
+
+            - `id: str`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `input: Dict[str, object]`
+
+            - `name: str`
+
+              minLength: 1
+
+            - `caller: Optional[Caller]`
+
+              - `class BetaDirectCaller`
+
+                Tool invocation directly from the model.
+
+                - `type: Literal["direct"]`
+
+              - `class BetaServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+                - `type: Literal["code_execution_20250825"]`
+
+                - `tool_id: str`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+              - `class BetaServerToolCaller20260120`
+
+                - `type: Literal["code_execution_20260120"]`
+
+                - `tool_id: str`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `toolset_name: Optional[str]`
+
+              For a toolset member tool_use, the toolset family.
+
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+          - `class BetaServerToolUseBlock`
+
+            - `type: Literal["server_tool_use"]`
+
+              default: server_tool_use
+
+            - `id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `input: Dict[str, object]`
+
+            - `name: Literal["advisor", "web_search", "web_fetch", 5 more]`
+
+              - `"advisor"`
+
+              - `"web_search"`
+
+              - `"web_fetch"`
+
+              - `"code_execution"`
+
+              - `"bash_code_execution"`
+
+              - `"text_editor_code_execution"`
+
+              - `"tool_search_tool_regex"`
+
+              - `"tool_search_tool_bm25"`
+
+            - `caller: Optional[Caller]`
+
+              - `class BetaDirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class BetaServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class BetaServerToolCaller20260120`
+
+          - `class BetaWebSearchToolResultBlock`
+
+            - `type: Literal["web_search_tool_result"]`
+
+              default: web_search_tool_result
+
+            - `content: BetaWebSearchToolResultBlockContent`
+
+              - `class BetaWebSearchToolResultError`
+
+                - `type: Literal["web_search_tool_result_error"]`
+
+                  default: web_search_tool_result_error
+
+                - `error_code: BetaWebSearchToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"too_many_requests"`
+
+                  - `"query_too_long"`
+
+                  - `"request_too_large"`
+
+              - `List[BetaWebSearchResultBlock]`
+
+                - `type: Literal["web_search_result"]`
+
+                  default: web_search_result
+
+                - `encrypted_content: str`
+
+                - `page_age: Optional[str]`
+
+                - `title: str`
+
+                - `url: str`
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `caller: Optional[Caller]`
+
+              - `class BetaDirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class BetaServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class BetaServerToolCaller20260120`
+
+          - `class BetaWebFetchToolResultBlock`
+
+            - `type: Literal["web_fetch_tool_result"]`
+
+              default: web_fetch_tool_result
+
+            - `content: Content`
+
+              - `class BetaWebFetchToolResultErrorBlock`
+
+                - `type: Literal["web_fetch_tool_result_error"]`
+
+                  default: web_fetch_tool_result_error
+
+                - `error_code: BetaWebFetchToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"url_too_long"`
+
+                  - `"url_not_allowed"`
+
+                  - `"url_not_in_prior_context"`
+
+                  - `"url_not_accessible"`
+
+                  - `"unsupported_content_type"`
+
+                  - `"too_many_requests"`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"unavailable"`
+
+                  - `"content_too_large"`
+
+              - `class BetaWebFetchBlock`
+
+                - `type: Literal["web_fetch_result"]`
+
+                  default: web_fetch_result
+
+                - `content: BetaDocumentBlock`
+
+                  - `type: Literal["document"]`
+
+                    default: document
+
+                  - `citations: Optional[BetaCitationConfig]`
+
+                    Citation configuration for the document
+
+                    - `enabled: bool`
+
+                      default: false
+
+                  - `source: Source`
+
+                    - `class BetaBase64PDFSource`
+
+                      - `type: Literal["base64"]`
+
+                      - `data: str`
+
+                        format: byte
+
+                      - `media_type: Literal["application/pdf"]`
+
+                    - `class BetaPlainTextSource`
+
+                      - `type: Literal["text"]`
+
+                      - `data: str`
+
+                      - `media_type: Literal["text/plain"]`
+
+                  - `title: Optional[str]`
+
+                    The title of the document
+
+                - `retrieved_at: Optional[str]`
+
+                  ISO 8601 timestamp when the content was retrieved
+
+                - `url: str`
+
+                  Fetched content URL
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `caller: Optional[Caller]`
+
+              - `class BetaDirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class BetaServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class BetaServerToolCaller20260120`
+
+          - `class BetaAdvisorToolResultBlock`
+
+            - `type: Literal["advisor_tool_result"]`
+
+              default: advisor_tool_result
+
+            - `content: Content`
+
+              - `class BetaAdvisorToolResultError`
+
+                - `type: Literal["advisor_tool_result_error"]`
+
+                  default: advisor_tool_result_error
+
+                - `error_code: Literal["max_uses_exceeded", "prompt_too_long", "too_many_requests", 4 more]`
+
+                  - `"max_uses_exceeded"`
+
+                  - `"prompt_too_long"`
+
+                  - `"too_many_requests"`
+
+                  - `"overloaded"`
+
+                  - `"unavailable"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"model_not_found"`
+
+              - `class BetaAdvisorResultBlock`
+
+                - `type: Literal["advisor_result"]`
+
+                  default: advisor_result
+
+                - `stop_reason: Optional[str]`
+
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
+
+                - `text: str`
+
+              - `class BetaAdvisorRedactedResultBlock`
+
+                - `type: Literal["advisor_redacted_result"]`
+
+                  default: advisor_redacted_result
+
+                - `encrypted_content: str`
+
+                  Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
+
+                - `stop_reason: Optional[str]`
+
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class BetaCodeExecutionToolResultBlock`
+
+            - `type: Literal["code_execution_tool_result"]`
+
+              default: code_execution_tool_result
+
+            - `content: BetaCodeExecutionToolResultBlockContent`
+
+              - `class BetaCodeExecutionToolResultError`
+
+                - `type: Literal["code_execution_tool_result_error"]`
+
+                  default: code_execution_tool_result_error
+
+                - `error_code: BetaCodeExecutionToolResultErrorCode`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+              - `class BetaCodeExecutionResultBlock`
+
+                - `type: Literal["code_execution_result"]`
+
+                  default: code_execution_result
+
+                - `content: List[BetaCodeExecutionOutputBlock]`
+
+                  - `type: Literal["code_execution_output"]`
+
+                    default: code_execution_output
+
+                  - `file_id: str`
+
+                - `return_code: int`
+
+                - `stderr: str`
+
+                - `stdout: str`
+
+              - `class BetaEncryptedCodeExecutionResultBlock`
+
+                Code execution result with encrypted stdout for PFC + web_search results.
+
+                - `type: Literal["encrypted_code_execution_result"]`
+
+                  default: encrypted_code_execution_result
+
+                - `content: List[BetaCodeExecutionOutputBlock]`
+
+                  - `type: Literal["code_execution_output"]`
+
+                    default: code_execution_output
+
+                  - `file_id: str`
+
+                - `encrypted_stdout: str`
+
+                - `return_code: int`
+
+                - `stderr: str`
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class BetaBashCodeExecutionToolResultBlock`
+
+            - `type: Literal["bash_code_execution_tool_result"]`
+
+              default: bash_code_execution_tool_result
+
+            - `content: Content`
+
+              - `class BetaBashCodeExecutionToolResultError`
+
+                - `type: Literal["bash_code_execution_tool_result_error"]`
+
+                  default: bash_code_execution_tool_result_error
+
+                - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", 2 more]`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"output_file_too_large"`
+
+              - `class BetaBashCodeExecutionResultBlock`
+
+                - `type: Literal["bash_code_execution_result"]`
+
+                  default: bash_code_execution_result
+
+                - `content: List[BetaBashCodeExecutionOutputBlock]`
+
+                  - `type: Literal["bash_code_execution_output"]`
+
+                    default: bash_code_execution_output
+
+                  - `file_id: str`
+
+                - `return_code: int`
+
+                - `stderr: str`
+
+                - `stdout: str`
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class BetaTextEditorCodeExecutionToolResultBlock`
+
+            - `type: Literal["text_editor_code_execution_tool_result"]`
+
+              default: text_editor_code_execution_tool_result
+
+            - `content: Content`
+
+              - `class BetaTextEditorCodeExecutionToolResultError`
+
+                - `type: Literal["text_editor_code_execution_tool_result_error"]`
+
+                  default: text_editor_code_execution_tool_result_error
+
+                - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", 2 more]`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                  - `"file_not_found"`
+
+                - `error_message: Optional[str]`
+
+              - `class BetaTextEditorCodeExecutionViewResultBlock`
+
+                - `type: Literal["text_editor_code_execution_view_result"]`
+
+                  default: text_editor_code_execution_view_result
+
+                - `content: str`
+
+                - `file_type: Literal["text", "image", "pdf"]`
+
+                  - `"text"`
+
+                  - `"image"`
+
+                  - `"pdf"`
+
+                - `num_lines: Optional[int]`
+
+                - `start_line: Optional[int]`
+
+                - `total_lines: Optional[int]`
+
+              - `class BetaTextEditorCodeExecutionCreateResultBlock`
+
+                - `type: Literal["text_editor_code_execution_create_result"]`
+
+                  default: text_editor_code_execution_create_result
+
+                - `is_file_update: bool`
+
+              - `class BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
+                - `type: Literal["text_editor_code_execution_str_replace_result"]`
+
+                  default: text_editor_code_execution_str_replace_result
+
+                - `lines: Optional[List[str]]`
+
+                - `new_lines: Optional[int]`
+
+                - `new_start: Optional[int]`
+
+                - `old_lines: Optional[int]`
+
+                - `old_start: Optional[int]`
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class BetaToolSearchToolResultBlock`
+
+            - `type: Literal["tool_search_tool_result"]`
+
+              default: tool_search_tool_result
+
+            - `content: Content`
+
+              - `class BetaToolSearchToolResultError`
+
+                - `type: Literal["tool_search_tool_result_error"]`
+
+                  default: tool_search_tool_result_error
+
+                - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", "execution_time_exceeded"]`
+
+                  - `"invalid_tool_input"`
+
+                  - `"unavailable"`
+
+                  - `"too_many_requests"`
+
+                  - `"execution_time_exceeded"`
+
+                - `error_message: Optional[str]`
+
+              - `class BetaToolSearchToolSearchResultBlock`
+
+                - `type: Literal["tool_search_tool_search_result"]`
+
+                  default: tool_search_tool_search_result
+
+                - `tool_references: List[BetaToolReferenceBlock]`
+
+                  - `type: Literal["tool_reference"]`
+
+                    default: tool_reference
+
+                  - `tool_name: str`
+
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+            - `tool_use_id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class BetaMCPToolUseBlock`
+
+            - `type: Literal["mcp_tool_use"]`
+
+              default: mcp_tool_use
+
+            - `id: str`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `input: Dict[str, object]`
+
+            - `name: str`
+
+              The name of the MCP tool
+
+            - `server_name: str`
+
+              The name of the MCP server
+
+          - `class BetaMCPToolResultBlock`
+
+            - `type: Literal["mcp_tool_result"]`
+
+              default: mcp_tool_result
+
+            - `content: Union[str, List[BetaTextBlock]]`
+
+              - `str`
+
+              - `List[BetaTextBlock]`
+
+                - `type: Literal["text"]`
+
+                  default: text
+
+                - `citations: Optional[List[BetaTextCitation]]`
+
+                  Citations supporting the text block.
+
+                  The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+                - `text: str`
+
+            - `is_error: bool`
+
+              default: false
+
+            - `tool_use_id: str`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+          - `class BetaContainerUploadBlock`
+
+            Response model for a file uploaded to the container.
+
+            - `type: Literal["container_upload"]`
+
+              default: container_upload
+
+            - `file_id: str`
+
+          - `class BetaCompactionBlock`
+
+            A compaction block returned when autocompact is triggered.
+
+            When content is None, it indicates the compaction failed to produce a valid
+            summary (e.g., malformed output from the model). Clients may round-trip
+            compaction blocks with null content; the server treats them as no-ops.
+
+            - `type: Literal["compaction"]`
+
+              default: compaction
+
+            - `content: Optional[str]`
+
+              Summary of compacted content, or null if compaction failed
+
+            - `encrypted_content: Optional[str]`
+
+              Opaque metadata from prior compaction, to be round-tripped verbatim
+
+            - `signature: Optional[str]`
+
+              Signature over the summary, to be sent back with the block verbatim
+
+            - `tool_changes: Optional[List[ToolChange]]`
+
+              The tool changes of the compacted range: the `tool_addition` and `tool_removal` blocks that take the request's `tools` to the tool set in effect at the end of the range, or `[]` when the range changed no tool. Absent when the server did not compute them. Send the block back unchanged.
+
+              - `class BetaResponseToolAdditionBlock`
+
+                An entry of a `compaction` block's `tool_changes`: a tool the
+                compacted range made available, as a reference to a `tools` entry or
+                MCP toolset, or as the tool definition in effect at the end of the
+                range, by value. Send it back unchanged.
+
+                - `type: Literal["tool_addition"]`
+
+                  default: tool_addition
+
+                - `tool: Tool`
+
+                  The tool made available: a reference to a `tools` entry or MCP toolset, or a `tool_definition` carrying the definition by value.
+
+                  - `class BetaResponseToolChangeToolReference`
+
+                    Reference to a single tool, by the name the model uses to call it, as
+                    a `compaction` block's `tool_changes` entry reports it: a tool
+                    declared in `tools` or defined by an earlier `tool_addition` block.
+                    Send it back unchanged with the block.
+
+                    - `type: Literal["tool_reference"]`
+
+                      default: tool_reference
+
+                    - `name: str`
+
+                  - `class BetaResponseToolChangeMCPToolReference`
+
+                    Reference to a single MCP tool, by its server and its name on that
+                    server, as a `compaction` block's `tool_changes` entry reports it.
+                    Send it back unchanged with the block.
+
+                    - `type: Literal["mcp_tool_reference"]`
+
+                      default: mcp_tool_reference
+
+                    - `name: str`
+
+                    - `server_name: str`
+
+                  - `class BetaResponseToolChangeMCPToolsetReference`
+
+                    Reference to every tool in the named MCP server's toolset, as a
+                    `compaction` block's `tool_changes` entry reports it. Send it back
+                    unchanged with the block.
+
+                    - `type: Literal["mcp_toolset_reference"]`
+
+                      default: mcp_toolset_reference
+
+                    - `server_name: str`
+
+                  - `class BetaToolChangeToolDefinition`
+
+                    A tool defined by value, as a `compaction` block's `tool_changes` entry
+                    reports it: `definition` is the tool's definition as it was sent, in the
+                    form of a `tools` entry, without `cache_control`. Send it back unchanged
+                    with the block.
+
+                    - `type: Literal["tool_definition"]`
+
+                      default: tool_definition
+
+                    - `definition: BetaResponseToolUnion`
+
+                      - `class BetaResponseTool`
+
+                        A custom tool definition, as sent.
+
+                        - `type: Optional[Literal["custom"]]`
+
+                        - `input_schema: BetaResponseToolInputSchema`
+
+                          [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+                          This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+                          - `type: Literal["object"]`
+
+                          - `properties: Optional[Dict[str, object]]`
+
+                          - `required: Optional[List[str]]`
+
+                        - `name: str`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                          minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `description: Optional[str]`
+
+                          Description of what this tool does.
+
+                          Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+                        - `eager_input_streaming: Optional[bool]`
+
+                          Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolBash20241022`
+
+                        - `type: Literal["bash_20241022"]`
+
+                        - `name: Literal["bash"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: Literal["ephemeral"]`
+
+                          - `ttl: Optional[Literal["5m", "1h"]]`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                            - `"5m"`
+
+                            - `"1h"`
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolBash20250124`
+
+                        - `type: Literal["bash_20250124"]`
+
+                        - `name: Literal["bash"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaCodeExecutionTool20250522`
+
+                        - `type: Literal["code_execution_20250522"]`
+
+                        - `name: Literal["code_execution"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaCodeExecutionTool20250825`
+
+                        - `type: Literal["code_execution_20250825"]`
+
+                        - `name: Literal["code_execution"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaCodeExecutionTool20260120`
+
+                        Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+                        - `type: Literal["code_execution_20260120"]`
+
+                        - `name: Literal["code_execution"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaCodeExecutionTool20260521`
+
+                        Code execution tool with REPL state persistence.
+
+                        - `type: Literal["code_execution_20260521"]`
+
+                        - `name: Literal["code_execution"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaBrowserToolset20260801`
+
+                        The browser toolset: a single `tools[]` entry (carrying no
+                        `name`) that declares the browser tool family. The model is served
+                        the family's tool with any members disabled via `configs` removed
+                        from its schema.
+
+                        - `type: Literal["browser_toolset_20260801"]`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `configs: Optional[BetaBrowserToolsetConfigs]`
+
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+                          - `type: Optional[BetaBrowserTypeConfig]`
+
+                            `type`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `close_tab: Optional[BetaBrowserCloseTabConfig]`
+
+                            `close_tab`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `double_click: Optional[BetaBrowserDoubleClickConfig]`
+
+                            `double_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `file_upload: Optional[BetaBrowserFileUploadConfig]`
+
+                            `file_upload`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `find: Optional[BetaBrowserFindConfig]`
+
+                            `find`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `form_input: Optional[BetaBrowserFormInputConfig]`
+
+                            `form_input`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `get_page_text: Optional[BetaBrowserGetPageTextConfig]`
+
+                            `get_page_text`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `hold_key: Optional[BetaBrowserHoldKeyConfig]`
+
+                            `hold_key`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `hover: Optional[BetaBrowserHoverConfig]`
+
+                            `hover`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `javascript_exec: Optional[BetaBrowserJavascriptExecConfig]`
+
+                            `javascript_exec`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `key: Optional[BetaBrowserKeyConfig]`
+
+                            `key`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click: Optional[BetaBrowserLeftClickConfig]`
+
+                            `left_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click_drag: Optional[BetaBrowserLeftClickDragConfig]`
+
+                            `left_click_drag`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_down: Optional[BetaBrowserLeftMouseDownConfig]`
+
+                            `left_mouse_down`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_up: Optional[BetaBrowserLeftMouseUpConfig]`
+
+                            `left_mouse_up`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `list_tabs: Optional[BetaBrowserListTabsConfig]`
+
+                            `list_tabs`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `middle_click: Optional[BetaBrowserMiddleClickConfig]`
+
+                            `middle_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `mouse_move: Optional[BetaBrowserMouseMoveConfig]`
+
+                            `mouse_move`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `navigate: Optional[BetaBrowserNavigateConfig]`
+
+                            `navigate`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `new_tab: Optional[BetaBrowserNewTabConfig]`
+
+                            `new_tab`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `read_console: Optional[BetaBrowserReadConsoleConfig]`
+
+                            `read_console`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `read_network: Optional[BetaBrowserReadNetworkConfig]`
+
+                            `read_network`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `read_page: Optional[BetaBrowserReadPageConfig]`
+
+                            `read_page`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `right_click: Optional[BetaBrowserRightClickConfig]`
+
+                            `right_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `screenshot: Optional[BetaBrowserScreenshotConfig]`
+
+                            `screenshot`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `scroll: Optional[BetaBrowserScrollConfig]`
+
+                            `scroll`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `scroll_to: Optional[BetaBrowserScrollToConfig]`
+
+                            `scroll_to`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `switch_tab: Optional[BetaBrowserSwitchTabConfig]`
+
+                            `switch_tab`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `triple_click: Optional[BetaBrowserTripleClickConfig]`
+
+                            `triple_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `wait: Optional[BetaBrowserWaitConfig]`
+
+                            `wait`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `zoom: Optional[BetaBrowserZoomConfig]`
+
+                            `zoom`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                      - `class BetaToolComputerUse20241022`
+
+                        - `type: Literal["computer_20241022"]`
+
+                        - `display_height_px: int`
+
+                          The height of the display in pixels.
+
+                          minimum: 1
+
+                        - `display_width_px: int`
+
+                          The width of the display in pixels.
+
+                          minimum: 1
+
+                        - `name: Literal["computer"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `display_number: Optional[int]`
+
+                          The X11 display number (e.g. 0, 1) for the display.
+
+                          minimum: 0
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaMemoryTool20250818`
+
+                        - `type: Literal["memory_20250818"]`
+
+                        - `name: Literal["memory"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolComputerUse20250124`
+
+                        - `type: Literal["computer_20250124"]`
+
+                        - `display_height_px: int`
+
+                          The height of the display in pixels.
+
+                          minimum: 1
+
+                        - `display_width_px: int`
+
+                          The width of the display in pixels.
+
+                          minimum: 1
+
+                        - `name: Literal["computer"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `display_number: Optional[int]`
+
+                          The X11 display number (e.g. 0, 1) for the display.
+
+                          minimum: 0
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolTextEditor20241022`
+
+                        - `type: Literal["text_editor_20241022"]`
+
+                        - `name: Literal["str_replace_editor"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolComputerUse20251124`
+
+                        - `type: Literal["computer_20251124"]`
+
+                        - `display_height_px: int`
+
+                          The height of the display in pixels.
+
+                          minimum: 1
+
+                        - `display_width_px: int`
+
+                          The width of the display in pixels.
+
+                          minimum: 1
+
+                        - `name: Literal["computer"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `display_number: Optional[int]`
+
+                          The X11 display number (e.g. 0, 1) for the display.
+
+                          minimum: 0
+
+                        - `enable_zoom: Optional[bool]`
+
+                          Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaComputerToolset20260801`
+
+                        The computer toolset: a single `tools[]` entry (carrying no
+                        `name`) that declares the computer tool family. The model is
+                        served the family's tool with any members disabled via `configs`
+                        removed from its schema. Every member is enabled by default, zoom
+                        included. The single-tool options `display_number` and
+                        `enable_zoom` are not fields of a toolset entry — it carries only
+                        `type`, `configs`, and `cache_control`; zoom is controlled
+                        via `configs.zoom.enabled`.
+
+                        - `type: Literal["computer_toolset_20260801"]`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `configs: Optional[BetaComputerToolsetConfigs]`
+
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+                          - `type: Optional[BetaComputerTypeConfig]`
+
+                            `type`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `cursor_position: Optional[BetaComputerCursorPositionConfig]`
+
+                            `cursor_position`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `double_click: Optional[BetaComputerDoubleClickConfig]`
+
+                            `double_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `hold_key: Optional[BetaComputerHoldKeyConfig]`
+
+                            `hold_key`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `key: Optional[BetaComputerKeyConfig]`
+
+                            `key`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click: Optional[BetaComputerLeftClickConfig]`
+
+                            `left_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click_drag: Optional[BetaComputerLeftClickDragConfig]`
+
+                            `left_click_drag`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_down: Optional[BetaComputerLeftMouseDownConfig]`
+
+                            `left_mouse_down`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_up: Optional[BetaComputerLeftMouseUpConfig]`
+
+                            `left_mouse_up`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `middle_click: Optional[BetaComputerMiddleClickConfig]`
+
+                            `middle_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `mouse_move: Optional[BetaComputerMouseMoveConfig]`
+
+                            `mouse_move`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `right_click: Optional[BetaComputerRightClickConfig]`
+
+                            `right_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `screenshot: Optional[BetaComputerScreenshotConfig]`
+
+                            `screenshot`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `scroll: Optional[BetaComputerScrollConfig]`
+
+                            `scroll`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `triple_click: Optional[BetaComputerTripleClickConfig]`
+
+                            `triple_click`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `wait: Optional[BetaComputerWaitConfig]`
+
+                            `wait`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `zoom: Optional[BetaComputerZoomConfig]`
+
+                            `zoom`'s config overrides.
+
+                            - `defer_loading: Optional[bool]`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: Optional[bool]`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                      - `class BetaToolTextEditor20250124`
+
+                        - `type: Literal["text_editor_20250124"]`
+
+                        - `name: Literal["str_replace_editor"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolTextEditor20250429`
+
+                        - `type: Literal["text_editor_20250429"]`
+
+                        - `name: Literal["str_replace_based_edit_tool"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolTextEditor20250728`
+
+                        - `type: Literal["text_editor_20250728"]`
+
+                        - `name: Literal["str_replace_based_edit_tool"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: Optional[List[Dict[str, object]]]`
+
+                        - `max_characters: Optional[int]`
+
+                          Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaWebSearchTool20250305`
+
+                        - `type: Literal["web_search_20250305"]`
+
+                        - `name: Literal["web_search"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `user_location: Optional[BetaUserLocation]`
+
+                          Parameters for the user's location. Used to provide more relevant search results.
+
+                          - `type: Literal["approximate"]`
+
+                          - `city: Optional[str]`
+
+                            The city of the user.
+
+                            minLength: 1, maxLength: 255
+
+                          - `country: Optional[str]`
+
+                            The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                            minLength: 2, maxLength: 2
+
+                          - `region: Optional[str]`
+
+                            The region of the user.
+
+                            minLength: 1, maxLength: 255
+
+                          - `timezone: Optional[str]`
+
+                            The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                            minLength: 1, maxLength: 255
+
+                      - `class BetaWebFetchTool20250910`
+
+                        - `type: Literal["web_fetch_20250910"]`
+
+                        - `name: Literal["web_fetch"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `citations: Optional[BetaCitationsConfigParam]`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                          - `enabled: Optional[bool]`
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: Optional[int]`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          minimum: 1
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: Optional[BetaWebFetchURLSources]`
+
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                          - `client_tool_results: Optional[ClientToolResults]`
+
+                            Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                            - `class BetaWebFetchURLSourceAll`
+
+                              The `url_sources` variant under which a source contributes in
+                              full: every result of the tool filter's source, or all user input.
+
+                              - `type: Literal["all"]`
+
+                            - `class BetaWebFetchURLSourceNone`
+
+                              The `url_sources` variant under which a source contributes nothing:
+                              no result of the tool filter's source, or no user input.
+
+                              - `type: Literal["none"]`
+
+                            - `class BetaWebFetchURLSourceOnly`
+
+                              The tool filter variant under which only the named tools' results
+                              contribute.
+
+                              - `type: Literal["only"]`
+
+                              - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+                                - `type: Literal["tool_reference"]`
+
+                                - `name: str`
+
+                            - `class BetaWebFetchURLSourceExcept`
+
+                              The tool filter variant under which every result but the named
+                              tools' contributes.
+
+                              - `type: Literal["except"]`
+
+                              - `tools: List[BetaWebFetchURLSourceToolReference]`
+
+                                - `type: Literal["tool_reference"]`
+
+                                - `name: str`
+
+                          - `server_tool_results: Optional[ServerToolResults]`
+
+                            Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                            - `class BetaWebFetchURLSourceAll`
+
+                              The `url_sources` variant under which a source contributes in
+                              full: every result of the tool filter's source, or all user input.
+
+                            - `class BetaWebFetchURLSourceNone`
+
+                              The `url_sources` variant under which a source contributes nothing:
+                              no result of the tool filter's source, or no user input.
+
+                            - `class BetaWebFetchURLSourceOnly`
+
+                              The tool filter variant under which only the named tools' results
+                              contribute.
+
+                            - `class BetaWebFetchURLSourceExcept`
+
+                              The tool filter variant under which every result but the named
+                              tools' contributes.
+
+                          - `user_input: Optional[UserInput]`
+
+                            Whether URLs in user messages are fetchable: "all" or "none".
+
+                            - `class BetaWebFetchURLSourceAll`
+
+                              The `url_sources` variant under which a source contributes in
+                              full: every result of the tool filter's source, or all user input.
+
+                            - `class BetaWebFetchURLSourceNone`
+
+                              The `url_sources` variant under which a source contributes nothing:
+                              no result of the tool filter's source, or no user input.
+
+                      - `class BetaWebSearchTool20260209`
+
+                        - `type: Literal["web_search_20260209"]`
+
+                        - `name: Literal["web_search"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `user_location: Optional[BetaUserLocation]`
+
+                          Parameters for the user's location. Used to provide more relevant search results.
+
+                      - `class BetaWebFetchTool20260209`
+
+                        - `type: Literal["web_fetch_20260209"]`
+
+                        - `name: Literal["web_fetch"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `citations: Optional[BetaCitationsConfigParam]`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: Optional[int]`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          minimum: 1
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: Optional[BetaWebFetchURLSources]`
+
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                      - `class BetaWebFetchTool20260309`
+
+                        Web fetch tool with use_cache parameter for bypassing cached content.
+
+                        - `type: Literal["web_fetch_20260309"]`
+
+                        - `name: Literal["web_fetch"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `citations: Optional[BetaCitationsConfigParam]`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: Optional[int]`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          minimum: 1
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: Optional[BetaWebFetchURLSources]`
+
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                        - `use_cache: Optional[bool]`
+
+                          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                      - `class BetaWebSearchTool20260318`
+
+                        - `type: Literal["web_search_20260318"]`
+
+                        - `name: Literal["web_search"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+                          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                          - `"full"`
+
+                          - `"excluded"`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `user_location: Optional[BetaUserLocation]`
+
+                          Parameters for the user's location. Used to provide more relevant search results.
+
+                      - `class BetaWebFetchTool20260318`
+
+                        - `type: Literal["web_fetch_20260318"]`
+
+                        - `name: Literal["web_fetch"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: Optional[List[str]]`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: Optional[List[str]]`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `citations: Optional[BetaCitationsConfigParam]`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: Optional[int]`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          minimum: 1
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `response_inclusion: Optional[Literal["full", "excluded"]]`
+
+                          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                          - `"full"`
+
+                          - `"excluded"`
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: Optional[BetaWebFetchURLSources]`
+
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                        - `use_cache: Optional[bool]`
+
+                          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                      - `class BetaAdvisorTool20260301`
+
+                        - `type: Literal["advisor_20260301"]`
+
+                        - `model: Model`
+
+                          The model that will complete your prompt.
+
+                          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                          - `"claude-sonnet-5-5"`
+
+                            Efficient model for coding and agents
+
+                          - `"claude-fable-5-1"`
+
+                            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                          - `"claude-opus-5-5"`
+
+                            Powerful intelligence for coding, knowledge work, and long-running agents
+
+                          - `"claude-mythos-5-1"`
+
+                            Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+                          - `"claude-sonnet-5"`
+
+                            Efficient model for coding and agents
+
+                          - `"claude-fable-5"`
+
+                            Next generation of intelligence for the hardest knowledge work and coding problems
+
+                          - `"claude-mythos-5"`
+
+                            Most capable model for cybersecurity and biology research
+
+                          - `"claude-opus-5"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-8"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-7"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-6"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-sonnet-4-6"`
+
+                            Best combination of speed and intelligence
+
+                          - `"claude-haiku-4-5"`
+
+                            Fastest model with near-frontier intelligence
+
+                          - `"claude-haiku-4-5-20251001"`
+
+                            Fastest model with near-frontier intelligence
+
+                          - `"claude-opus-4-5"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-5-20251101"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-sonnet-4-5"`
+
+                            High-performance model for agents and coding
+
+                          - `"claude-sonnet-4-5-20250929"`
+
+                            High-performance model for agents and coding
+
+                          - `"claude-mythos-preview"`
+
+                            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            New class of intelligence, strongest in coding and cybersecurity
+
+                          - `str`
+
+                        - `name: Literal["advisor"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `caching: Optional[BetaCacheControlEphemeral]`
+
+                          Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_tokens: Optional[int]`
+
+                          Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+                          minimum: 1024
+
+                        - `max_uses: Optional[int]`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          minimum: 1
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolSearchToolBm25_20251119`
+
+                        - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
+
+                          - `"tool_search_tool_bm25_20251119"`
+
+                          - `"tool_search_tool_bm25"`
+
+                        - `name: Literal["tool_search_tool_bm25"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaToolSearchToolRegex20251119`
+
+                        - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
+
+                          - `"tool_search_tool_regex_20251119"`
+
+                          - `"tool_search_tool_regex"`
+
+                        - `name: Literal["tool_search_tool_regex"]`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `defer_loading: Optional[bool]`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: Optional[bool]`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `class BetaMCPToolset`
+
+                        Configuration for a group of tools from an MCP server.
+
+                        Allows configuring enabled status and defer_loading for all tools
+                        from an MCP server, with optional per-tool overrides.
+
+                        - `type: Literal["mcp_toolset"]`
+
+                        - `mcp_server_name: str`
+
+                          Name of the MCP server to configure tools for
+
+                          minLength: 1, maxLength: 255
+
+                        - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+                          Create a cache control breakpoint at this content block.
+
+                        - `configs: Optional[Dict[str, BetaMCPToolConfig]]`
+
+                          Configuration overrides for specific tools, keyed by tool name
+
+                          - `defer_loading: Optional[bool]`
+
+                          - `enabled: Optional[bool]`
+
+                        - `default_config: Optional[BetaMCPToolDefaultConfig]`
+
+                          Default configuration applied to all tools from this server
+
+                          - `defer_loading: Optional[bool]`
+
+                          - `enabled: Optional[bool]`
+
+                        - `tools: Optional[List[BetaMCPToolParam]]`
+
+                          The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+                          - `input_schema: Dict[str, object]`
+
+                            The tool's input schema as the MCP server lists it, verbatim.
+
+                          - `name: str`
+
+                            The tool's name as the MCP server lists it (not prefixed with the server name).
+
+                            minLength: 1
+
+                          - `description: Optional[str]`
+
+                            The tool's description as the MCP server lists it.
+
+              - `class BetaResponseToolRemovalBlock`
+
+                An entry of a `compaction` block's `tool_changes`: a tool of the
+                request's `tools` (or an MCP tool or toolset) that the compacted range
+                withdrew. Send it back unchanged.
+
+                - `type: Literal["tool_removal"]`
+
+                  default: tool_removal
+
+                - `tool: Tool`
+
+                  A reference to the withdrawn `tools` entry, MCP tool or MCP toolset.
+
+                  - `class BetaResponseToolChangeToolReference`
+
+                    Reference to a single tool, by the name the model uses to call it, as
+                    a `compaction` block's `tool_changes` entry reports it: a tool
+                    declared in `tools` or defined by an earlier `tool_addition` block.
+                    Send it back unchanged with the block.
+
+                  - `class BetaResponseToolChangeMCPToolReference`
+
+                    Reference to a single MCP tool, by its server and its name on that
+                    server, as a `compaction` block's `tool_changes` entry reports it.
+                    Send it back unchanged with the block.
+
+                  - `class BetaResponseToolChangeMCPToolsetReference`
+
+                    Reference to every tool in the named MCP server's toolset, as a
+                    `compaction` block's `tool_changes` entry reports it. Send it back
+                    unchanged with the block.
+
+          - `class BetaFallbackBlock`
+
+            Marks the point in `content` where one model's output gives way to the next.
+
+            One block appears per hop where a preceding model actually ran this turn and
+            declined. A turn where no preceding model ran and declined has no such
+            boundary and carries no block — the signal for whether a fallback model
+            served the response is the presence of a `fallback_message` entry in
+            `usage.iterations`, not this block.
+
+            The block is treated like a server-tool content block for streaming: it
+            arrives via the standard `content_block_start` / `content_block_stop`
+            pair and carries no deltas.
+
+            - `type: Literal["fallback"]`
+
+              default: fallback
+
+            - `from_: BetaFallbackInfo`
+
+              The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `to: BetaFallbackInfo`
+
+              The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+            - `trigger: BetaFallbackRefusalTrigger`
+
+              What caused the `from` model to hand over at this hop.
+
+              - `type: Literal["refusal"]`
+
+                default: refusal
+
+              - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
+
+                The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
+
+                - `"cyber"`
+
+                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+                - `"bio"`
+
+                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+                - `"frontier_llm"`
+
+                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+                - `"reasoning_extraction"`
+
+                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+                - `"general_harms"`
+
+                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `class BetaMCPToolListingBlock`
+
+            The tool listing the server fetched from an MCP server while producing
+            this response. Send the assistant message back unchanged, this block
+            included, so later requests use this listing instead of asking the MCP
+            server again.
+
+            - `type: Literal["mcp_tool_listing"]`
+
+              default: mcp_tool_listing
+
+            - `mcp_server_name: str`
+
+            - `tools: List[BetaMCPTool]`
+
+              - `input_schema: Dict[str, object]`
+
+              - `name: str`
+
+              - `description: Optional[str]`
+
+        - `context_management: Optional[BetaContextManagementResponse]`
+
+          Context management response.
+
+          Information about context management strategies applied during the request.
+
+          - `applied_edits: List[AppliedEdit]`
+
+            List of context management edits that were applied.
+
+            - `class BetaClearToolUses20250919EditResponse`
+
+              - `type: Literal["clear_tool_uses_20250919"]`
+
+                The type of context management edit applied.
+
+                default: clear_tool_uses_20250919
+
+              - `cleared_input_tokens: int`
+
+                Number of input tokens cleared by this edit.
+
+                minimum: 0
+
+              - `cleared_tool_uses: int`
+
+                Number of tool uses that were cleared.
+
+                minimum: 0
+
+            - `class BetaClearThinking20251015EditResponse`
+
+              - `type: Literal["clear_thinking_20251015"]`
+
+                The type of context management edit applied.
+
+                default: clear_thinking_20251015
+
+              - `cleared_input_tokens: int`
+
+                Number of input tokens cleared by this edit.
+
+                minimum: 0
+
+              - `cleared_thinking_turns: int`
+
+                Number of thinking turns that were cleared.
+
+                minimum: 0
+
+        - `diagnostics: Optional[BetaDiagnostics]`
+
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+          - `cache_miss_reason: Optional[BetaCacheMissReason]`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `class BetaCacheMissModelChanged`
+
+              - `type: Literal["model_changed"]`
+
+                default: model_changed
+
+              - `cache_missed_input_tokens: int`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class BetaCacheMissSystemChanged`
+
+              - `type: Literal["system_changed"]`
+
+                default: system_changed
+
+              - `cache_missed_input_tokens: int`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class BetaCacheMissToolsChanged`
+
+              - `type: Literal["tools_changed"]`
+
+                default: tools_changed
+
+              - `cache_missed_input_tokens: int`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class BetaCacheMissMessagesChanged`
+
+              - `type: Literal["messages_changed"]`
+
+                default: messages_changed
+
+              - `cache_missed_input_tokens: int`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class BetaCacheMissPreviousMessageNotFound`
+
+              - `type: Literal["previous_message_not_found"]`
+
+                default: previous_message_not_found
+
+            - `class BetaCacheMissUnavailable`
+
+              - `type: Literal["unavailable"]`
+
+                default: unavailable
+
+        - `model: Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `role: Literal["assistant"]`
+
+          Conversational role of the generated message.
+
+          This will always be `"assistant"`.
+
+          default: assistant
+
+        - `stop_details: Optional[BetaRefusalStopDetails]`
+
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
+
+          - `type: Literal["refusal"]`
+
+            default: refusal
+
+          - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
+
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
+
+            - `"cyber"`
+
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+            - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+            - `"frontier_llm"`
+
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+            - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `explanation: Optional[str]`
+
+            Human-readable explanation of the refusal.
+
+            This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+          - `fallback_credit_token: Optional[str]`
+
+            Opaque code that refunds the cache-miss cost when retrying this refused
+            request on the fallback model. Pass it as `fallback_credit_token` on the
+            retry request. Expires 5 minutes after the refusal.
+
+            The retry is sent either with the same request body (`system`, `messages`,
+            `tools`, and other render-shaping fields), or with the same body plus one
+            appended `assistant` message whose content is the partial text (with any
+            trailing whitespace stripped from the final text block) and paired
+            server-tool blocks from this refusal — which also authorizes that
+            appended turn as an assistant-prefill continuation on models that otherwise
+            disallow prefill. A token minted mid-server-tool-loop whose partial content
+            was continuable may only be redeemed the second way — if a same-body retry
+            is rejected with a 400 saying the token must be redeemed by continuing the
+            partial response, retry the second way instead. Either way: same workspace,
+            same platform; a mismatch is a 400. Resending a token for an already-warm
+            prefix is permitted but yields no additional credit.
+
+            `null` when the refused model isn't eligible for a fallback credit.
+
+          - `fallback_has_prefill_claim: Optional[bool]`
+
+            Whether the accompanying `fallback_credit_token` may be redeemed with the
+            appended-assistant retry form. Only set when `fallback_credit_token` is
+            present.
+
+            `true`: retry by resending the same request body plus one appended
+            `assistant` message whose content is this response's `content` with any
+            trailing whitespace stripped from the final text block and unpaired
+            `tool_use` blocks omitted (the same appended-turn shape described on
+            `fallback_credit_token`), with the token attached. `false`: retry by
+            resending the original request body unchanged, with the token attached —
+            the appended-assistant form is not available for this refusal (no
+            continuable partial content, or the request uses `output_format` or a
+            `tool_choice` that forces tool use). One exception: when the request used
+            `output_format` or a forced `tool_choice` and the refusal arrived after
+            server tools (including MCP connector tools) had already executed, the
+            token may not be redeemable by either retry form; if the exact-body retry
+            is then rejected with a 400 saying the token must be redeemed by
+            continuing the partial response, discard the token and retry without it.
+
+            Advisory: if an appended-assistant retry is rejected with a 400 despite
+            `true`, fall back to resending the original request body with the token.
+
+          - `recommended_model: Optional[str]`
+
+            The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
+
+        - `stop_reason: Optional[BetaStopReason]`
+
+          The reason that we stopped.
+
+          This may be one the following values:
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
+
+          In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
+          - `"end_turn"`
+
+          - `"max_tokens"`
+
+          - `"stop_sequence"`
+
+          - `"tool_use"`
+
+          - `"pause_turn"`
+
+          - `"compaction"`
+
+          - `"refusal"`
+
+          - `"model_context_window_exceeded"`
+
+        - `stop_sequence: Optional[str]`
+
+          Which custom stop sequence was generated, if any.
+
+          This value will be a non-null string if one of your custom stop sequences was generated.
+
+        - `usage: BetaUsage`
+
+          Billing and rate-limit usage.
+
+          Anthropic's API bills and rate-limits by token counts, as tokens represent the underlying cost to our systems.
+
+          Under the hood, the API transforms requests into a format suitable for the model. The model's output then goes through a parsing stage before becoming an API response. As a result, the token counts in `usage` will not match one-to-one with the exact visible content of an API request or response.
+
+          For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
+
+          Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
+          - `cache_creation: Optional[BetaCacheCreation]`
+
+            Breakdown of cached tokens by TTL
+
+            - `ephemeral_1h_input_tokens: int`
+
+              The number of input tokens used to create the 1 hour cache entry.
+
+              default: 0, minimum: 0
+
+            - `ephemeral_5m_input_tokens: int`
+
+              The number of input tokens used to create the 5 minute cache entry.
+
+              default: 0, minimum: 0
+
+          - `cache_creation_input_tokens: Optional[int]`
+
+            The number of input tokens used to create the cache entry.
+
+            minimum: 0
+
+          - `cache_read_input_tokens: Optional[int]`
+
+            The number of input tokens read from the cache.
+
+            minimum: 0
+
+          - `fallback_credit: Optional[BetaFallbackCreditUsage]`
+
+            Outcome of the `fallback_credit_token` presented on this request.
+
+            Present on every response to a non-batch request that carried a
+            `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+            items accept and ignore the token and carry no outcome object).
+
+            - `status: Status`
+
+              Whether the fallback-credit reprice was applied to this response's billing.
+
+              A union discriminated on `type`. `redeemed`: the retry is billed as if
+              the conversation had been on the retry model all along — including when the
+              resulting shift is zero because there was nothing to move. `not_applied`:
+              no reprice was applied; the arm's `reason` says why.
+
+              - `class BetaFallbackCreditRedeemed`
+
+                The reprice was applied: the retry is billed as if the conversation
+                had been on the retry model all along.
+
+                - `type: Literal["redeemed"]`
+
+                  default: redeemed
+
+              - `class BetaFallbackCreditNotApplied`
+
+                No reprice was applied; `reason` says why.
+
+                - `type: Literal["not_applied"]`
+
+                  default: not_applied
+
+                - `reason: Literal["body_mismatch", "continuation_excluded", "continuation_only", 9 more]`
+
+                  Why the reprice was not applied.
+
+                  A closed enum; additions to the redemption-check vocabulary arrive as
+                  deliberate schema updates.
+
+                  - `"body_mismatch"`
+
+                  - `"continuation_excluded"`
+
+                  - `"continuation_only"`
+
+                  - `"expired"`
+
+                  - `"invalid_target_model"`
+
+                  - `"not_enabled"`
+
+                  - `"reprice_unavailable"`
+
+                  - `"temporarily_unavailable"`
+
+                  - `"variant_fields_present"`
+
+                  - `"wrong_organization"`
+
+                  - `"wrong_platform"`
+
+                  - `"wrong_workspace"`
+
+                - `remove_to_redeem: Optional[List[str]]`
+
+                  Request fields to remove before retrying, so the retry can redeem this
+                  token.
+
+                  Present exactly when `reason` is `variant_fields_present` — never null,
+                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                  the sealed variant hash matched. A served best-effort retry has already
+                  been billed at normal price; nothing redeems retroactively, but a corrected
+                  re-send inside the token's five-minute window can still redeem.
+
+          - `inference_geo: Optional[str]`
+
+            The geographic region where inference was performed for this request.
+
+          - `input_tokens: int`
+
+            The number of input tokens which were used.
+
+            minimum: 0
+
+          - `iterations: Optional[BetaIterationsUsage]`
+
+            Per-iteration token usage breakdown.
+
+            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
+
+            - Determine which iterations exceeded long context thresholds (>=200k tokens)
+            - Calculate the context window size from the last `message` entry
+            - Understand token accumulation across server-side tool use loops
+
+            A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
+
+            - `class BetaMessageIterationUsage`
+
+              Token usage for a sampling iteration.
+
+              - `type: Literal["message"]`
+
+                Usage for a sampling iteration
+
+                default: message
+
+              - `cache_creation: Optional[BetaCacheCreation]`
+
+                Breakdown of cached tokens by TTL
+
+              - `cache_creation_input_tokens: int`
+
+                The number of input tokens used to create the cache entry.
+
+                default: 0, minimum: 0
+
+              - `cache_read_input_tokens: int`
+
+                The number of input tokens read from the cache.
+
+                default: 0, minimum: 0
+
+              - `input_tokens: int`
+
+                The number of input tokens which were used.
+
+                minimum: 0
+
+              - `model: Optional[Model]`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `output_tokens: int`
+
+                The number of output tokens which were used.
+
+                minimum: 0
+
+            - `class BetaCompactionIterationUsage`
+
+              Token usage for a compaction iteration.
+
+              - `type: Literal["compaction"]`
+
+                Usage for a compaction iteration
+
+                default: compaction
+
+              - `cache_creation: Optional[BetaCacheCreation]`
+
+                Breakdown of cached tokens by TTL
+
+              - `cache_creation_input_tokens: int`
+
+                The number of input tokens used to create the cache entry.
+
+                default: 0, minimum: 0
+
+              - `cache_read_input_tokens: int`
+
+                The number of input tokens read from the cache.
+
+                default: 0, minimum: 0
+
+              - `input_tokens: int`
+
+                The number of input tokens which were used.
+
+                minimum: 0
+
+              - `output_tokens: int`
+
+                The number of output tokens which were used.
+
+                minimum: 0
+
+            - `class BetaAdvisorMessageIterationUsage`
+
+              Token usage for an advisor sub-inference iteration.
+
+              - `type: Literal["advisor_message"]`
+
+                Usage for an advisor sub-inference iteration
+
+                default: advisor_message
+
+              - `cache_creation: Optional[BetaCacheCreation]`
+
+                Breakdown of cached tokens by TTL
+
+              - `cache_creation_input_tokens: int`
+
+                The number of input tokens used to create the cache entry.
+
+                default: 0, minimum: 0
+
+              - `cache_read_input_tokens: int`
+
+                The number of input tokens read from the cache.
+
+                default: 0, minimum: 0
+
+              - `input_tokens: int`
+
+                The number of input tokens which were used.
+
+                minimum: 0
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `output_tokens: int`
+
+                The number of output tokens which were used.
+
+                minimum: 0
+
+            - `class BetaFallbackMessageIterationUsage`
+
+              Token usage for the fallback-model attempt of a server-side fallback request.
+
+              The terminal entry of a fallback-served turn: when a fallback hop's
+              output is the returned message, the entry for the iteration that
+              completed it carries this type in place of `message`. A declined hop
+              and the serving hop's earlier tool-loop iterations produce `message`
+              entries. Whether a fallback model served the response is signalled by
+              the presence of this entry in `usage.iterations`.
+
+              - `type: Literal["fallback_message"]`
+
+                Usage for the fallback-model attempt that served the response
+
+                default: fallback_message
+
+              - `cache_creation: Optional[BetaCacheCreation]`
+
+                Breakdown of cached tokens by TTL
+
+              - `cache_creation_input_tokens: int`
+
+                The number of input tokens used to create the cache entry.
+
+                default: 0, minimum: 0
+
+              - `cache_read_input_tokens: int`
+
+                The number of input tokens read from the cache.
+
+                default: 0, minimum: 0
+
+              - `input_tokens: int`
+
+                The number of input tokens which were used.
+
+                minimum: 0
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `output_tokens: int`
+
+                The number of output tokens which were used.
+
+                minimum: 0
+
+          - `output_tokens: int`
+
+            The number of output tokens which were used.
+
+            minimum: 0
+
+          - `output_tokens_details: Optional[BetaOutputTokensDetails]`
+
+            Breakdown of output tokens by category.
+
+            `output_tokens` remains the inclusive, authoritative total used for billing.
+            This object provides a read-only decomposition for observability — for example,
+            how many of the billed output tokens were spent on internal reasoning that may
+            have been summarized before being returned to you.
+
+            - `thinking_tokens: int`
+
+              Number of output tokens the model generated as internal reasoning, including
+              the thinking-block delimiter tokens.
+
+              Reflects the raw reasoning the model produced, not the (possibly shorter)
+              summarized thinking text returned in the response body. Computed by
+              re-tokenizing the raw reasoning text, so it may differ from the model's exact
+              generation count by a small number of tokens. Always ≤ `output_tokens`;
+              `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
+              default: 0, minimum: 0
+
+          - `server_tool_use: Optional[BetaServerToolUsage]`
+
+            The number of server tool requests.
+
+            - `web_fetch_requests: int`
+
+              The number of web fetch tool requests.
+
+              default: 0, minimum: 0
+
+            - `web_search_requests: int`
+
+              The number of web search tool requests.
+
+              default: 0, minimum: 0
+
+          - `service_tier: Optional[Literal["standard", "priority", "batch"]]`
+
+            If the request used the priority, standard, or batch tier.
+
+            - `"standard"`
+
+            - `"priority"`
+
+            - `"batch"`
+
+          - `speed: Optional[Literal["standard", "fast"]]`
+
+            The inference speed mode used for this request.
+
+            - `"standard"`
+
+            - `"fast"`
+
+        - `input_transformations: Optional[List[BetaInputTransformation]]`
+
+          Changes the API made to the request's input before showing it to the model,
+          and blocks that failed a binding check but were left unchanged: one entry per
+          block, in request order. Two entry types today. `thinking_dropped` — a
+          `thinking`, `redacted_thinking` or `connector_text` block from the request's
+          `messages` that was removed from the prompt instead of being shown to the
+          model because it failed a binding check. `thinking_mismatch_allowed` — a
+          `thinking` or `redacted_thinking` block that failed the conversation check
+          (the conversation before it differs from the one it was created in, or it
+          carries no record of one on a model that requires it) and was shown to the
+          model all the same, because that check is not enforced for this request.
+          More entry types may be added over time; ignore types you do not recognize.
+
+          Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+          every such response from a model that supports extended thinking, as `[]`
+          when there is no entry to report; without the beta, blocks are removed or
+          left in place all the same but nothing is reported. Removed blocks contribute
+          nothing to `usage.input_tokens`; blocks left in place count as sent. When
+          streaming, the array is final in `message_start`; the final `message_delta`
+          event carries it only when a server-side model fallback happened mid-stream,
+          in which case it holds the serving model's entries and replaces the one in
+          `message_start`.
+
+          - `class BetaThinkingDroppedInputTransformation`
+
+            - `type: Literal["thinking_dropped"]`
+
+              Always `thinking_dropped` for this entry type.
+
+              default: thinking_dropped
+
+            - `path: str`
+
+              Where the removed block was in your request, as `messages.{i}.content.{j}`:
+              `i` indexes the `messages` array you sent and `j` that message's `content`
+              array — the same form error messages use.
+
+            - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+              Which binding check removed the block: `model_binding_mismatch` — it was
+              created by a model whose reasoning the requested model may not read;
+              `prefix_binding_mismatch` — the conversation before it differs from the
+              conversation it was created in (the rest of that turn's consecutive thinking
+              blocks are removed with it, each with this reason);
+              `organization_binding_mismatch` — it was created under a different
+              organization (an Anthropic organization, AWS account or Google Cloud project)
+              and this organization is not one of its additional organizations;
+              `end_user_binding_mismatch` — it was created for a different end user, or
+              was removed by the consumer-organization binding. A block that would fail
+              several checks reports one reason, in this order of precedence:
+              `organization_binding_mismatch`, `end_user_binding_mismatch`,
+              `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+              - `"model_binding_mismatch"`
+
+              - `"prefix_binding_mismatch"`
+
+              - `"organization_binding_mismatch"`
+
+              - `"end_user_binding_mismatch"`
+
+          - `class BetaThinkingMismatchAllowedInputTransformation`
+
+            - `type: Literal["thinking_mismatch_allowed"]`
+
+              Always `thinking_mismatch_allowed` for this entry type.
+
+              default: thinking_mismatch_allowed
+
+            - `path: str`
+
+              Where the block is in your request, as `messages.{i}.content.{j}`:
+              `i` indexes the `messages` array you sent and `j` that message's `content`
+              array — the same form error messages use.
+
+            - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+              Which binding check the block failed; the block was shown to the model all
+              the same. Always `prefix_binding_mismatch` today — the conversation before
+              the block differs from the conversation it was created in, or the block
+              carries no record of one on a model that requires it. Were the check
+              enforced for this request, the block would have been removed or the request
+              rejected (`thinking.block_binding.prefix_mismatch_behavior`). A removal also
+              takes the rest of that turn's consecutive thinking blocks, whereas here each
+              block is checked on its own, so `thinking_mismatch_allowed` entries are a
+              lower bound on what enforcement would remove.
+
+              - `"model_binding_mismatch"`
+
+              - `"prefix_binding_mismatch"`
+
+              - `"organization_binding_mismatch"`
+
+              - `"end_user_binding_mismatch"`
+
+    - `class BetaMessageBatchErroredResult`
+
+      - `type: Literal["errored"]`
+
+        default: errored
+
+      - `error: BetaErrorResponse`
+
+        - `type: Literal["error"]`
+
+          default: error
+
+        - `error: BetaError`
+
+          - `class BetaInvalidRequestError`
+
+            - `type: Literal["invalid_request_error"]`
+
+              default: invalid_request_error
+
+            - `message: str`
+
+              default: Invalid request
+
+          - `class BetaAuthenticationError`
+
+            - `type: Literal["authentication_error"]`
+
+              default: authentication_error
+
+            - `message: str`
+
+              default: Authentication error
+
+          - `class BetaBillingError`
+
+            - `type: Literal["billing_error"]`
+
+              default: billing_error
+
+            - `message: str`
+
+              default: Billing error
+
+          - `class BetaPermissionError`
+
+            - `type: Literal["permission_error"]`
+
+              default: permission_error
+
+            - `message: str`
+
+              default: Permission denied
+
+          - `class BetaNotFoundError`
+
+            - `type: Literal["not_found_error"]`
+
+              default: not_found_error
+
+            - `message: str`
+
+              default: Not found
+
+          - `class BetaRateLimitError`
+
+            - `type: Literal["rate_limit_error"]`
+
+              default: rate_limit_error
+
+            - `message: str`
+
+              default: Rate limited
+
+          - `class BetaGatewayTimeoutError`
+
+            - `type: Literal["timeout_error"]`
+
+              default: timeout_error
+
+            - `message: str`
+
+              default: Request timeout
+
+          - `class BetaAPIError`
+
+            - `type: Literal["api_error"]`
+
+              default: api_error
+
+            - `message: str`
+
+              default: Internal server error
+
+          - `class BetaOverloadedError`
+
+            - `type: Literal["overloaded_error"]`
+
+              default: overloaded_error
+
+            - `message: str`
+
+              default: Overloaded
+
+        - `request_id: Optional[str]`
+
+    - `class BetaMessageBatchCanceledResult`
+
+      - `type: Literal["canceled"]`
+
+        default: canceled
+
+    - `class BetaMessageBatchExpiredResult`
+
+      - `type: Literal["expired"]`
+
+        default: expired
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+for batch in client.beta.messages.batches.results(
+    message_batch_id="message_batch_id",
+):
+    print(batch)
+```

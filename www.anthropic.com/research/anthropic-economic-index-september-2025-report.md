@@ -319,7 +319,7 @@ The geographic patterns of AI adoption—where it is used, for which tasks, and 
 
 Whether frontier AI capabilities make us more productive, reshape labor markets, and accelerate growth will depend on when and how firms choose to deploy AI. Even when businesses recognize the potential of AI, profitably adopting it may require costly restructuring of production processes, training new workers, and other sunk-cost investments to facilitate effective deployment.**1**
 
-To understand business adoption patterns of AI, we turn to a new data source: Anthropic's first-party (1P) API customers—again relying on [privacy-preserving methods](https://www.anthropic.com/research/clio).**2** Our API allows customers to integrate Claude directly into their own products and applications, and charges by the token used, rather than a flat subscription fee. This represents a fundamentally different product experience to [Claude.ai](http://claude.ai/redirect/website.v1.27aade40-b04b-450f-91e5-dc0b72265be1), which we focused on in the previous two chapters.
+To understand business adoption patterns of AI, we turn to a new data source: Anthropic's first-party (1P) API customers—again relying on [privacy-preserving methods](https://www.anthropic.com/research/clio).**2** Our API allows customers to integrate Claude directly into their own products and applications, and charges by the token used, rather than a flat subscription fee. This represents a fundamentally different product experience to [Claude.ai](http://claude.ai/redirect/website.v1.160dba02-d1a0-49aa-b3ab-3520a46b67b3), which we focused on in the previous two chapters.
 
 Institutional inertia, alongside fixed costs of adoption, suggests that early examples of enterprise use of AI is likely to be concentrated among specialized tasks where deployment is easy, capabilities are robust, and the economic benefits from adoption are high.
 
@@ -537,20 +537,20 @@ url = {www.anthropic.com/research/anthropic-economic-index-september-2025-report
 
 Copy
 
-### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+### What work can robots do?
 
-Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
 
-[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
 
-### An alignment assessment of recent cybersecurity incidents
+### What do you want from AI?
 
-We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
-[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
 
-### Formalizing Fermat's Last Theorem
+### GLM-5.3 and the spread of advanced cyber capabilities
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
-[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)

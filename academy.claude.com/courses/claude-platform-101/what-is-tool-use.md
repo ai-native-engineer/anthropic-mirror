@@ -155,19 +155,40 @@ You've probably already spotted two red flags with what we just wrote:
 
 That's where the **tool runner** comes in. It ships in beta in the Claude SDKs: TypeScript, Python, Ruby, C#, Go, Java, and PHP. You define each tool once, and the runner handles the entire tool use / tool result loop internally.
 
+In TypeScript, the runner's recommended helper, `betaZodTool()`, describes each tool with a short schema written in Zod, a TypeScript library for declaring and validating the shape of data. The helper needs Zod 3.25.0 or later, which a fresh install gets you:
+
+bash
+
+```
+npm install zod
+```
+
 Your code shrinks down to: describe the tool, send the prompt, wait for the result. Here's the same two-tool weather demo wired through the tool runner:
 
 typescript
 
 ```
-// The same two lookups we ran by hand — just plain TypeScript functions
-function getWeather(city: string) {
-  // ...existing lookup
-}
+import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { z } from "zod";
 
-function getForecast(city: string) {
-  // ...existing lookup
-}
+// Wrap the same two lookups we ran by hand, each with a short Zod schema
+const weatherTool = betaZodTool({
+  name: "get_weather",
+  description: "Get today's current weather for a city.",
+  inputSchema: z.object({
+    city: z.string().describe("The city to check"),
+  }),
+  run: async ({ city }) => getWeather(city),
+});
+
+const forecastTool = betaZodTool({
+  name: "get_forecast",
+  description: "Get the weather forecast for the next few days for a city.",
+  inputSchema: z.object({
+    city: z.string().describe("The city to check"),
+  }),
+  run: async ({ city }) => getForecast(city),
+});
 
 const runner = client.beta.messages.toolRunner({
   model: "claude-sonnet-5",
@@ -179,7 +200,7 @@ const runner = client.beta.messages.toolRunner({
         "I'm packing for a three-day trip to Denver. What's the weather today and over the next few days?",
     },
   ],
-  tools: [getWeather, getForecast],
+  tools: [weatherTool, forecastTool],
 });
 
 // Await the runner to get the final message after all the tool ping-pong has settled
@@ -189,8 +210,8 @@ const finalMessage = await runner;
 Same scenario, a fraction of the code:
 
 * **No while loop**, no stop reason switch, no manually pushing tool results back into messages — the runner handles all of that.
-* **No JSON schemas**, so you don't write things twice.
-* The two functions are the same lookups we ran by hand a minute ago, just plain TypeScript.
+* **No handwritten JSON schemas**, just a short Zod schema per tool, which also validates the input Claude sends.
+* Each `run` function wraps the same lookup we ran by hand a minute ago.
 * Awaiting the runner returns the final assistant message once everything has settled.
 
 Run it, and you get the same answer.
@@ -199,7 +220,7 @@ Run it, and you get the same answer.
 
 In real life, your tools wouldn't be hardcoded weather data. They'd wrap **actual functions you already have in your application**.
 
-Take a compliance review agent: its tools are thin wrappers around `lookup_building_code` and `search_building_code` functions that already exist in the codebase. With the tool runner, you pass those functions in directly, and the agent cites specific code sections in every finding it writes — no schema writing required:
+Take a compliance review agent: its tools are thin wrappers around `lookup_building_code` and `search_building_code` functions that already exist in the codebase. With the tool runner, you wrap each of those functions in a short tool definition with its own Zod schema, and the agent cites specific code sections in every finding it writes:
 
 ![A compliance review app showing a structural report alongside agent findings, each flagged item citing the specific building code section it checked](https://academy.claude.com/assets/media/4f12647940dbd1f6b762f36afcbfe0a134aece88896ff9f2e97f2c35b8008e94.png)
 
@@ -210,7 +231,7 @@ Take a compliance review agent: its tools are thin wrappers around `lookup_build
 * **Write specific descriptions.** Vague descriptions are the number one reason agents misfire.
 * `stop_reason: "tool_use"` is your signal to run the tool and feed the result back as a tool result.
 * For multiple tools, dispatch on the tool name. Adding a tool means adding to the array and adding a case.
-* The SDK's **tool runner** (available in beta across the Claude SDKs) builds schemas from your actual functions and handles the whole loop — or you can run the loop yourself.
+* The SDK's **tool runner** (available in beta across the Claude SDKs) handles the whole loop, and in TypeScript each tool is a short definition with a Zod schema. Or you can run the loop yourself.
 * You execute, or you delegate the loop. At the far end of that spectrum, **managed agents** delegate the whole agent to Anthropic.
 
 [Previous lessonThe agent loop explained](https://academy.claude.com/courses/claude-platform-101/the-agent-loop-explained)[Next lessonWhat is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)

@@ -141,9 +141,3 @@ Anthropic doesn’t charge for Enterprise Frontier Safeguards. If customers elec
 ## Getting started
 
 Enterprise Frontier Safeguards will roll out to customers in phases, with the goal of making it broadly available later this fall. To request access to Enterprise Frontier Safeguards, please complete this [form](https://claude.com/form/enterprise-frontier-safeguards).
-
-### Expanding our support for scientists
-
-Starting today, 10,000 scientists around the world can get Claude at no cost to start. Verified principal investigators qualify for a Claude Team subscription plan and then add their research team to Standard seats for free, or Premium seats for $15 per month, for up to a year.
-
-[Read more](https://www.anthropic.com/news/expanding-support-for-scientists)

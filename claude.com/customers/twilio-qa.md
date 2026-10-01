@@ -4,31 +4,21 @@ Q&A | Claude Code
 
 # A Twilio PM on building a self-learning development platform with Claude Code
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a07496ed23f75b8ba7b5e8b_logo_twilio-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a07497214ee25d8d74ae6ea_logo_twilio-dark-mode.png)
+![Twilio logo](https://assets.claude.com/87df9d195f988fea839d348bbb58a121faab1b69.png)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-North America
+:   North America
 
 425 API tools
 
@@ -40,35 +30,11 @@ one iteration
 
 Connectors: Twilio
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a15f5f64131e2cb77dcfa17_og_case-study-twilio%20(2).jpg)
+![Connectors: Twilio](https://assets.claude.com/ce8d7ec382544fee8cefe5ae7cdc38110e665f7d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Build powerful communications and customer engagement
 
-Read more
-
-[Read more](https://claude.com/connectors/twilio)Read more
-
-Connectors: Twilio
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build powerful communications and customer engagement
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Connectors: Twilio
-
-Build powerful communications and customer engagement
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/connectors/twilio)
 
 [Twilio](https://www.twilio.com/en-us) provides programmable tools and APIs that allow developers and businesses to integrate voice, video, text messaging, email, and authentication capabilities directly into their own applications. Michael Carpenter is Director of Product on Twilio's Programmable Voice team. Over the past 11 years at Twilio, he's helped developers build on the company's communications APIs. Over 51 days, working solo with Claude Code, Carpenter built the Feature Factory: a self-learning development system that takes a brainstorm idea through a subagent pipeline to produce specs, tests, working code, and documentation. The output is a Claude Code [plugin](https://www.twilio.com/en-us/blog/developers/best-practices/prototyping-twilio-apps-claude-code-plugin) that packages hundreds of hours of Twilio domain knowledge for any developer. We spoke with Carpenter about [how the project changed](https://www.twilio.com/en-us/blog/partners/introducing-twilio-claude-connector-claude-code-plugin) how he thinks about AI-assisted development.
 
@@ -92,11 +58,9 @@ You can see what that buys you. A self-service IVR that used to take multiple it
 
 The [plugin](https://www.twilio.com/en-us/blog/developers/best-practices/prototyping-twilio-apps-claude-code-plugin) is the output of all of that. It packages hundreds of hours of accumulated Twilio knowledge so any developer can use Claude Code with Twilio and get the benefit of everything the system has ever learned.
 
-"The plugin packages hundreds of hours of accumulated Twilio knowledge so any developer can use Claude Code with Twilio and get the benefit of everything the system has ever learned."
+> "The plugin packages hundreds of hours of accumulated Twilio knowledge so any developer can use Claude Code with Twilio and get the benefit of everything the system has ever learned."
 
-Michael Carpenter
-
-Director of Product, Twilio
+Michael CarpenterDirector of Product, Twilio
 
 ## Anthropic: You built this as a product manager, not a software engineer. How did that work in practice?
 
@@ -136,37 +100,15 @@ This pattern held everywhere. When headless sessions wasted money on infrastruct
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
+[Read more](https://claude.com/product/claude-code)
 
-[Read more](https://claude.com/product/claude-code)Read more
+> "Claude Code could hold the entire codebase in context and reason across it."
 
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-"Claude Code could hold the entire codebase in context and reason across it."
-
-Michael Carpenter
-
-Director of Product, Twilio
+Michael CarpenterDirector of Product, Twilio
 
 ## Anthropic: How did you get from manually approving every step to running the system autonomously?
 
@@ -194,62 +136,18 @@ And write your collaboration guidelines early. On day four, I wrote this into ou
 
 Skills
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5266ed232fd1354625b3_6937465dd293732a0e905ea6_og-claude-skills.jpeg)
+![Skills](https://assets.claude.com/143afdc0f503ccbec15a051fa5dcf71bb6bb1da0.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Get consistent results on specialized tasks. Skills package your expertise so Claude delivers expert-level output every time.
 
-Skills
+[Read more](https://claude.com/skills)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Next](#)Next
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-Get consistent results on specialized tasks. Skills package your expertise so Claude delivers expert-level output every time.
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Get consistent results on specialized tasks. Skills package your expertise so Claude delivers expert-level output every time.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

@@ -90,8 +90,6 @@ Watch sessions
 
 Add to calendar
 
-![]()
-
 ## Paris Builder Summit
 
 Add to calendar

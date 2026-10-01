@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Binti modernizes child welfare systems with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694245a54af6bdac3d31a154_binti_light_new.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694245aa8337eae3001d144e_binti_dark_new.svg)
+![Binti logo](https://assets.claude.com/342c078cdf64618bd7f928765055711d1d3c2f1f.svg)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 50% faster
 
@@ -37,42 +27,6 @@ Home visit report writing time, from 3-4 hours to under 2 hours
 20% reduced timeline
 
 Family licensing timelines cut from 110 days to under 90 days
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Binti is a technology company helping child welfare agencies modernize how they support children and families—so that every child can have a family. The company supports over 550 agencies across 36 states, serving 47% of children in care. Binti partners with state, county, and private child welfare agencies to streamline complex child welfare processes. By integrating Claude into their platform, Binti helps social workers make more informed decisions and spend less time on administrative work, so they can focus on connecting with families and driving better outcomes for children.
 
@@ -129,58 +83,16 @@ Working with Anthropic, Binti proves that the most powerful AI applications don'
 
 ‍
 
-"Anthropic prioritizes security and trust above everything else. They don't train on our data and made HIPAA compliance straightforward."
+> "Anthropic prioritizes security and trust above everything else. They don't train on our data and made HIPAA compliance straightforward."
 
-Felicia Curcuru
+Felicia CurcuruCo-founder and CEO of Binti
 
-Co-founder and CEO of Binti
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

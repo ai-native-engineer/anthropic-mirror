@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Yoodli turns high-stakes sales conversations into repeatable practice with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dba04b9958c253ea264d_logo_yoodli-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dba3a18f8ce6de2dcb70_logo_yoodli-dark-mode.svg)
+![Yoodli logo](https://assets.claude.com/7c26a33892e13c6341abcc998aa00e189757724d.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 23% more deals closed
 
@@ -49,28 +39,6 @@ Yoodli is a secure, experiential learning platform that uses AI sales roleplays 
 
 ## The challenge
 
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
 ## Reps learn on live calls instead of in practice
 
 Before AI-powered practice simulations, enterprise training teams relied on classroom sessions, recorded examples, and occasional manager-led practice. A sales rep might rehearse a scenario once or twice during onboarding, but structured practice was hard to sustain at scale. Running roleplays required significant manager time, and feedback quality varied depending on who was coaching. Teams that invested in call analytics could review what happened after a conversation, but had no scalable way to let reps practice and get feedback before high-stakes calls.
@@ -79,29 +47,13 @@ Before AI-powered practice simulations, enterprise training teams relied on clas
 
 The bar for any AI-powered alternative was high. "These tools often get one real chance to make a first impression with a team," Sessions added. "If the experience feels artificial or unhelpful, users quickly lose trust and are unlikely to come back."
 
+Choosing the right Claude model
+
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+
 ## The solution
-
-Introducing Claude Sonnet 4.6
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2db2e5920d7dd879d93bf_Sonnet.png)
-
-Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
-
-Introducing Claude Sonnet 4.6
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Sonnet 4.6
-
-Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
 
 ## How conversational quality determined model selection
 
@@ -119,15 +71,11 @@ On top of Claude's conversational foundation, Yoodli's engineering team built pe
 
 The hardest technical challenge was the tradeoff between intelligence and latency. Earlier small models didn't meet the bar for realistic conversation, so the team chose Sonnet for its stronger conversational intelligence and engineered around the latency tradeoff, optimizing time-to-first-token and building fallback strategies to keep voice conversations feeling natural. Haiku 4.5 resolved the tradeoff. "We're finally able to achieve the right balance of strong conversational intelligence and low latency for real-time practice," Sessions said.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Introducing Claude Sonnet 4.6
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Introducing Claude Sonnet 4.6 ](https://assets.claude.com/ed4441933d84103efbafec32505ce83cf3b1dcc6.png?w=2400&q=75&fm=webp&fit=max)
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
 
 ## The outcome
 
@@ -145,42 +93,16 @@ Yoodli's roadmap focuses on richer simulations, deeper personalization, and new 
 
 "The conversational quality is excellent, especially for realistic roleplay scenarios," Sessions said. "We're continuing to push the boundaries of what real-time AI learning experiences can look like."
 
-"Claude felt the most human and realistic out of the box compared to other models we tested."
+> "Claude felt the most human and realistic out of the box compared to other models we tested."
 
-Derek Sessions
+Derek SessionsCTO, Yoodli
 
-CTO, Yoodli
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

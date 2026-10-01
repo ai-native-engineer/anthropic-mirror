@@ -18,6 +18,8 @@ New Posts
 * [Isolating Circuits Paths of Different Lengths](#circuit-path-lengths)
 * [Research By Other Groups](#external-research)
 
+---
+
 ## [Open Roles in Mechanistic Interpretability](#open-roles)
 
 Chris Olah, Shan Carter, Adam Jermyn, Josh Batson, Tom Henighan
@@ -40,6 +42,8 @@ A few notes:
 * If you are interested in our new interpretability architectures project (see [below](#interpretability-architecture)), please apply to the research scientists or research engineer role and mention this in your application.
 
 If you’re excited about our work and think you might be a fit for one of these roles, please apply!
+
+---
 
 ## [Scaling Laws for Dictionary Learning](#scaling-laws)
 
@@ -80,6 +84,8 @@ We have made the following observations:
 ![](images/bfe3a61ee2de4cc7.png)
 
 The details of these trends are likely to vary depending on the underlying model, the layer of the model being probed, and other optimization details.  Optimizing other hyperparameters (such as learning rate) jointly with training steps and number of features may influence the scaling trends.  However, we expect many of these qualitative trends to be broadly applicable.  We suggest that conducting similar analyses will be useful to other groups working with SAEs, particularly as computational cost increases. Extrapolating trends inferred from smaller experiments enables more informed choices of hyperparameters for resource-intensive dictionary learning runs. We are also careful to note that qualitative inspection of SAE features remains important, as the relationship between SAE loss and qualitative usefulness of SAE features is imperfect and may break down at sufficient scale.
+
+---
 
 ## [Update on how we train SAEs](#training-saes)
 
@@ -136,6 +142,8 @@ Here are some results from small models. All runs have 131,072 features, 200k tr
 | 4L Residual Stream (layer 2) | 5 | 33.23121 | 19.12259 | 0.16295 | 0.90443 |
 | 4L Residual Stream (layer 2) | 10 | 8.71466 | 12.53889 | 0.25455 | 0.83883 |
 
+---
+
 ## [How Strongly do Dictionary Learning Features Influence Model Behavior?](#ablation-exps)
 
 Jack Lindsey
@@ -174,6 +182,8 @@ In this figure, results are averaged over contexts, tokens, and features, and er
 
 These results are preliminary, but generally support the idea that feature directions uncovered by SAEs are high-leverage “levers” for influencing model outputs.
 
+---
+
 ## [Interpretability Architectures Project](#interpretability-architecture)
 
 Chris Olah, Adam Jermyn
@@ -183,6 +193,8 @@ From time to time, we've noticed aspects of transformer architecture that make o
 We believe it's possible that investing in model architecture now may save a lot of interpretability effort in the future. For this reason, we’re starting an experimental working group to explore more interpretable architectures. This working group will investigate architectural decisions that might make interpretability easier, and will collaborate with the Pretraining team to support their implementation. For now, this working group will be smaller than the [main interpretability teams](https://transformer-circuits.pub/2024/jan-update/index.html#team-update) (dictionary learning, attention, and circuits). This working group will be embedded in both Interpretability and Pretraining, and members will sometimes contribute to projects on both of these broader teams.
 
 If you’re interested in this new working group, please apply to join our team and indicate interest in working on interpretable architectures (see [above](#h.f1xnx37s5j46)).
+
+---
 
 ## [Caloric and the Utility of Incorrect Theories](#caloric-theory)
 
@@ -207,6 +219,8 @@ In other words, the road to the heat engine theory and eventually the second law
 ### Implications for Interpretability
 
 I think there are many lessons we as interpretability researchers can learn from the history of caloric theory. Our initial theories will probably be wrong, and we should be willing to change our theories in the face of experimental evidence. Designing experiments which demonstrate that those theories are wrong will be a central challenge for us. But the more subtle point that I want to emphasize is that wrong theories can still provide real utility. Even if we think the superposition hypothesis will be disproven in the future, which it may very well be, using it is not a fool’s errand. There is still hope that it will be “correct enough” to illuminate practical safety wins and even scientific understanding which outlive the superposition hypothesis itself.
+
+---
 
 ## [Open Problem: Attribution Dictionary Learning](#attr-dl)
 
@@ -241,6 +255,8 @@ This directly optimizes the sparsity of the attribution vector we recently used 
 
 We briefly investigated the features produced by this loss in a one-layer transformer. At first glance, they seemed about equally good to our normal features in that context. But we don't consider this at all dispositive. We plan to revisit this at some point in the future, but it may not be for a few months, and could be an interesting subject for someone else to investigate in the interim.
 
+---
+
 ## [Isolating Circuits Paths of Different Lengths](#circuit-path-lengths)
 
 Chris Olah
@@ -269,6 +285,8 @@ Other interesting variants are:
 
 * Ablate a component for steps i through j in order to then get the ablations paths greater than one length but less than others.
 * For the basic algorithm, feed in the difference between values saved at different stages in order to isolate longer paths.
+
+---
 
 ## [Research By Other Groups](#external-research)
 

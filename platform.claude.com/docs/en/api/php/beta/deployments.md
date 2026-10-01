@@ -35,7 +35,7 @@ Create Deployment
 
 - `budget?:optional BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Enforced spend ceiling stamped onto each session created from this deployment, copied at session-creation time. Omit to leave sessions uncapped. The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
 - `description?:optional string`
 
@@ -51,7 +51,7 @@ Create Deployment
 
 - `schedule?:optional BetaManagedAgentsScheduleParams`
 
-  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+  Optional recurring cron schedule. When present, the deployment fires automatically. Both expression and timezone are required when schedule is set.
 
 - `vaultIDs?:optional list<string>`
 
@@ -63,9 +63,13 @@ Create Deployment
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -75,15 +79,15 @@ Create Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -107,7 +111,7 @@ Create Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -115,15 +119,15 @@ Create Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -131,7 +135,7 @@ Create Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 ### Example
 
@@ -289,9 +293,13 @@ List Deployments
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -301,15 +309,15 @@ List Deployments
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -333,7 +341,7 @@ List Deployments
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -341,15 +349,15 @@ List Deployments
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -357,7 +365,7 @@ List Deployments
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 ### Example
 
@@ -467,15 +475,21 @@ Get Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -485,15 +499,15 @@ Get Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -517,7 +531,7 @@ Get Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -525,15 +539,15 @@ Get Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -541,7 +555,7 @@ Get Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 ### Example
 
@@ -640,13 +654,15 @@ Update Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to update.
+
 - `agent?:optional Agent`
 
   Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
 
 - `budget?:optional BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Spend ceiling for future sessions. Full replacement. Omit to preserve; send null to clear (sessions created afterwards are uncapped). The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
 - `description?:optional string`
 
@@ -674,7 +690,7 @@ Update Deployment
 
 - `schedule?:optional BetaManagedAgentsScheduleParams`
 
-  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+  Cron schedule. Full replacement. Omit to preserve; send null to clear (revert to manual-only).
 
 - `vaultIDs?:optional list<string>`
 
@@ -686,9 +702,13 @@ Update Deployment
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -698,15 +718,15 @@ Update Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -730,7 +750,7 @@ Update Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -738,15 +758,15 @@ Update Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -754,7 +774,7 @@ Update Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 ### Example
 
@@ -881,15 +901,21 @@ Archive Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to archive.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -899,15 +925,15 @@ Archive Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -931,7 +957,7 @@ Archive Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -939,15 +965,15 @@ Archive Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -955,7 +981,7 @@ Archive Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 ### Example
 
@@ -1054,15 +1080,21 @@ Run Deployment Now
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to run.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -1072,11 +1104,11 @@ Run Deployment Now
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
   - `string deploymentID`
 
@@ -1084,7 +1116,7 @@ Run Deployment Now
 
   - `?Error error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
   - `?string sessionID`
 
@@ -1092,7 +1124,7 @@ Run Deployment Now
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
 ### Example
 
@@ -1149,15 +1181,21 @@ Pause Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to pause.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -1167,15 +1205,15 @@ Pause Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -1199,7 +1237,7 @@ Pause Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -1207,15 +1245,15 @@ Pause Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -1223,7 +1261,7 @@ Pause Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 ### Example
 
@@ -1322,15 +1360,21 @@ Unpause Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to unpause.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -1340,15 +1384,15 @@ Unpause Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -1372,7 +1416,7 @@ Unpause Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -1380,15 +1424,15 @@ Unpause Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -1396,7 +1440,7 @@ Unpause Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 ### Example
 
@@ -1487,13 +1531,13 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Agent Archived Deployment Paused Reason Error
 
-- `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+- `class BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Cron Schedule
 
-- `BetaManagedAgentsCronSchedule`
+- `class BetaManagedAgentsCronSchedule`
 
   - `Type type`
 
@@ -1507,7 +1551,7 @@ var_dump($betaManagedAgentsDeployment);
 
   - `?\Datetime lastRunAt`
 
-    A timestamp in RFC 3339 format
+    Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
   - `?list<\Datetime> upcomingRunsAt`
 
@@ -1515,7 +1559,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Cron Schedule Params
 
-- `BetaManagedAgentsCronScheduleParams`
+- `class BetaManagedAgentsCronScheduleParams`
 
   - `Type type`
 
@@ -1529,7 +1573,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Deployment
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -1539,15 +1583,15 @@ var_dump($betaManagedAgentsDeployment);
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -1571,7 +1615,7 @@ var_dump($betaManagedAgentsDeployment);
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -1579,15 +1623,15 @@ var_dump($betaManagedAgentsDeployment);
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -1595,13 +1639,13 @@ var_dump($betaManagedAgentsDeployment);
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 ### Beta Managed Agents Deployment Initial Event
 
-- `BetaManagedAgentsDeploymentInitialEvent`
+- `class BetaManagedAgentsDeploymentInitialEvent`
 
-  - `BetaManagedAgentsDeploymentUserMessageEvent`
+  - `class BetaManagedAgentsDeploymentUserMessageEvent`
 
     - `Type type`
 
@@ -1609,7 +1653,7 @@ var_dump($betaManagedAgentsDeployment);
 
       Array of content blocks for the user message.
 
-  - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+  - `class BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -1619,13 +1663,13 @@ var_dump($betaManagedAgentsDeployment);
 
     - `Rubric rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. Text or file reference.
 
     - `?int maxIterations`
 
       Eval→revision cycles before giving up. Default 3, max 20.
 
-  - `BetaManagedAgentsDeploymentSystemMessageEvent`
+  - `class BetaManagedAgentsDeploymentSystemMessageEvent`
 
     - `Type type`
 
@@ -1635,9 +1679,9 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Deployment Initial Event Params
 
-- `BetaManagedAgentsDeploymentInitialEventParams`
+- `class BetaManagedAgentsDeploymentInitialEventParams`
 
-  - `ManagedAgentsUserMessageEventParams`
+  - `class ManagedAgentsUserMessageEventParams`
 
     - `Type type`
 
@@ -1645,7 +1689,7 @@ var_dump($betaManagedAgentsDeployment);
 
       Array of content blocks for the user message.
 
-  - `ManagedAgentsUserDefineOutcomeEventParams`
+  - `class ManagedAgentsUserDefineOutcomeEventParams`
 
     - `Type type`
 
@@ -1655,13 +1699,13 @@ var_dump($betaManagedAgentsDeployment);
 
     - `Rubric rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. Text or file reference.
 
     - `?int maxIterations`
 
       Eval→revision cycles before giving up. Default 3, max 20.
 
-  - `ManagedAgentsSystemMessageEventParams`
+  - `class ManagedAgentsSystemMessageEventParams`
 
     - `Type type`
 
@@ -1671,91 +1715,95 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Deployment Paused Reason
 
-- `BetaManagedAgentsDeploymentPausedReason`
+- `class BetaManagedAgentsDeploymentPausedReason`
 
-  - `BetaManagedAgentsManualDeploymentPausedReason`
+  - `class BetaManagedAgentsManualDeploymentPausedReason`
 
     - `Type type`
 
-  - `BetaManagedAgentsErrorDeploymentPausedReason`
+  - `class BetaManagedAgentsErrorDeploymentPausedReason`
 
     - `Type type`
 
     - `BetaManagedAgentsDeploymentPausedReasonError error`
 
-      The error that triggered an auto-pause. Matches the failed run's `error.type`.
+      The failed run's error.
 
 ### Beta Managed Agents Deployment Paused Reason Error
 
-- `BetaManagedAgentsDeploymentPausedReasonError`
+- `class BetaManagedAgentsDeploymentPausedReasonError`
 
-  - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
-
-    - `Type type`
-
-  - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+  - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+  - `class BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+  - `class BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+  - `class BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+  - `class BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+  - `class BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+  - `class BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+  - `class BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+  - `class BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+  - `class BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+  - `class BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+  - `class BetaManagedAgentsUnknownDeploymentPausedReasonError`
 
     - `Type type`
 
-  - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+  - `class BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `class BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
 
     - `Type type`
 
 ### Beta Managed Agents Deployment Status
 
-- `BetaManagedAgentsDeploymentStatus`
+- `enum BetaManagedAgentsDeploymentStatus`
 
   - `"active"`
 
+    The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
   - `"paused"`
+
+    The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
 ### Beta Managed Agents Deployment System Message Event
 
-- `BetaManagedAgentsDeploymentSystemMessageEvent`
+- `class BetaManagedAgentsDeploymentSystemMessageEvent`
 
   - `Type type`
 
@@ -1765,7 +1813,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Deployment User Define Outcome Event
 
-- `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+- `class BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
 
   - `Type type`
 
@@ -1775,7 +1823,7 @@ var_dump($betaManagedAgentsDeployment);
 
   - `Rubric rubric`
 
-    Rubric for grading the quality of an outcome.
+    How to grade the outcome. Text or file reference.
 
   - `?int maxIterations`
 
@@ -1783,7 +1831,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Deployment User Message Event
 
-- `BetaManagedAgentsDeploymentUserMessageEvent`
+- `class BetaManagedAgentsDeploymentUserMessageEvent`
 
   - `Type type`
 
@@ -1793,35 +1841,35 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Environment Archived Deployment Paused Reason Error
 
-- `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+- `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Environment Not Found Deployment Paused Reason Error
 
-- `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+- `class BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Error Deployment Paused Reason
 
-- `BetaManagedAgentsErrorDeploymentPausedReason`
+- `class BetaManagedAgentsErrorDeploymentPausedReason`
 
   - `Type type`
 
   - `BetaManagedAgentsDeploymentPausedReasonError error`
 
-    The error that triggered an auto-pause. Matches the failed run's `error.type`.
+    The failed run's error.
 
 ### Beta Managed Agents File Not Found Deployment Paused Reason Error
 
-- `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+- `class BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents File Resource Config
 
-- `BetaManagedAgentsFileResourceConfig`
+- `class BetaManagedAgentsFileResourceConfig`
 
   - `Type type`
 
@@ -1835,7 +1883,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents GitHub Repository Resource Config
 
-- `BetaManagedAgentsGitHubRepositoryResourceConfig`
+- `class BetaManagedAgentsGitHubRepositoryResourceConfig`
 
   - `Type type`
 
@@ -1853,25 +1901,25 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Manual Deployment Paused Reason
 
-- `BetaManagedAgentsManualDeploymentPausedReason`
+- `class BetaManagedAgentsManualDeploymentPausedReason`
 
   - `Type type`
 
 ### Beta Managed Agents MCP Egress Blocked Deployment Paused Reason Error
 
-- `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+- `class BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Memory Store Archived Deployment Paused Reason Error
 
-- `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+- `class BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Memory Store Resource Config
 
-- `BetaManagedAgentsMemoryStoreResourceConfig`
+- `class BetaManagedAgentsMemoryStoreResourceConfig`
 
   - `Type type`
 
@@ -1881,7 +1929,7 @@ var_dump($betaManagedAgentsDeployment);
 
   - `?Access access`
 
-    Access mode for an attached memory store.
+    Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
   - `?string instructions`
 
@@ -1889,13 +1937,13 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Organization Disabled Deployment Paused Reason Error
 
-- `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+- `class BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Schedule
 
-- `BetaManagedAgentsSchedule`
+- `class BetaManagedAgentsSchedule`
 
   - `Type type`
 
@@ -1909,7 +1957,7 @@ var_dump($betaManagedAgentsDeployment);
 
   - `?\Datetime lastRunAt`
 
-    A timestamp in RFC 3339 format
+    Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
   - `?list<\Datetime> upcomingRunsAt`
 
@@ -1917,7 +1965,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Schedule Params
 
-- `BetaManagedAgentsScheduleParams`
+- `class BetaManagedAgentsScheduleParams`
 
   - `Type type`
 
@@ -1931,15 +1979,15 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Self Hosted Resources Unsupported Deployment Paused Reason Error
 
-- `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+- `class BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Session Resource Config
 
-- `BetaManagedAgentsSessionResourceConfig`
+- `class BetaManagedAgentsSessionResourceConfig`
 
-  - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+  - `class BetaManagedAgentsGitHubRepositoryResourceConfig`
 
     - `Type type`
 
@@ -1955,7 +2003,7 @@ var_dump($betaManagedAgentsDeployment);
 
       Mount path in the container. Defaults to `/workspace/<repo-name>`.
 
-  - `BetaManagedAgentsFileResourceConfig`
+  - `class BetaManagedAgentsFileResourceConfig`
 
     - `Type type`
 
@@ -1967,7 +2015,7 @@ var_dump($betaManagedAgentsDeployment);
 
       Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
 
-  - `BetaManagedAgentsMemoryStoreResourceConfig`
+  - `class BetaManagedAgentsMemoryStoreResourceConfig`
 
     - `Type type`
 
@@ -1977,7 +2025,7 @@ var_dump($betaManagedAgentsDeployment);
 
     - `?Access access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `?string instructions`
 
@@ -1985,36 +2033,36 @@ var_dump($betaManagedAgentsDeployment);
 
 ### Beta Managed Agents Session Resource Not Found Deployment Paused Reason Error
 
-- `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+- `class BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Skill Not Found Deployment Paused Reason Error
 
-- `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+- `class BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Unknown Deployment Paused Reason Error
 
-- `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+- `class BetaManagedAgentsUnknownDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Vault Archived Deployment Paused Reason Error
 
-- `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+- `class BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Vault Not Found Deployment Paused Reason Error
 
-- `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+- `class BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
 
   - `Type type`
 
 ### Beta Managed Agents Workspace Archived Deployment Paused Reason Error
 
-- `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+- `class BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
 
   - `Type type`

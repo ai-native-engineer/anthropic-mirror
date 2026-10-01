@@ -10,7 +10,7 @@
 
 ##  Access bundle
 
-A named set of connections, [domain entries](https://claude.com/docs/claude-tag/admins/add-connections#add-a-domain), repository access, and rules that an Owner creates for Claude to use. Bundles attach to scopes, and one bundle can serve many scopes. See [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections).
+A named set of connections, [domain entries](https://claude.com/docs/claude-tag/admins/add-connections#add-a-domain), repository access, and rules that an Owner or a [Claude Tag admin](#claude-tag-admin) creates for Claude to use. Bundles attach to scopes, and one bundle can serve many scopes. See [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections).
 
 ##  Agent identity
 
@@ -22,11 +22,15 @@ The network layer that injects credentials into Claude’s outbound requests. Th
 
 ##  Channel manager
 
-A member of your Claude organization whom an Owner has named to set up specific channels. For each channel assigned to them, a channel manager sets the default model, adds repositories their own GitHub account is an admin of, and manages credentials and plugins in the channel’s own bundle, without holding the Owner role. See [Delegate channel setup to channel managers](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers).
+A member of your Claude organization whom an Owner or a [Claude Tag admin](#claude-tag-admin) has named to set up specific channels. For each channel assigned to them, a channel manager sets the default model, adds repositories their own GitHub account is an admin of, and manages credentials and plugins in the channel’s own bundle, without holding the Owner role. See [Delegate channel setup to channel managers](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers).
 
 ##  Channel memory
 
-Facts Claude retains while working in a channel, including facts you told it to remember and notes it writes itself. Entries from public channels are shared across the workspace; entries from private channels are saved to that channel’s own store. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
+Facts Claude retains while working in a channel, including facts you told it to remember and notes it writes itself. Each channel keeps its own entries. From a public channel Claude can also save workspace notes, which it reads in every channel in the workspace. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
+
+##  Claude Tag admin
+
+A member of your Claude organization whose custom role includes the **Claude Tag Admin** permission, available on the Enterprise plan. A Claude Tag admin manages Access bundles and attaches them to scopes, edits workspace and channel settings, and adds and removes channel managers, without holding the Owner role. See [Delegate Claude Tag administration](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-claude-tag-administration).
 
 ##  The earlier Claude in Slack
 
@@ -36,19 +40,19 @@ Claude Tag is the second generation of the Claude app in Slack:
 | --- | --- | --- |
 | Identity | Each user links their own claude.ai account | One agent identity with org-level service credentials |
 | Sessions | Spawned per request | One persistent session per thread, shared |
-| Memory | None | Shared workspace memory plus private-channel memory |
+| Memory | None | Per-channel memory, plus workspace notes shared from public channels |
 | Proactive work | None | Routines and channel watching |
 
-Your admin chooses which generation answers `@Claude` in a given channel, so two channels in the same workspace can work differently. See [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/workspaces#set-the-version-for-a-scope).
+Your admin chooses which generation answers `@Claude` in a given channel, so two channels in the same workspace can work differently. See [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-and-set-the-version-for-a-scope).
 
 ##  Connection
 
 A credential for one external service that Claude uses on the channel’s behalf, like a Datadog API key or a GitHub App installation. Connections belong to the agent identity, not to any user, and are grouped into [Access bundles](#access-bundle) by an admin.
-A connection is not a connector. A connector belongs to your personal claude.ai account. A channel session uses the channel’s connections. In organizations where [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors) is available, Claude can also use your connectors there for your own tasks, after you allow it. A DM uses your own account instead, as [how DMs work in this model](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) describes.
+A connection is not a connector. A connector belongs to your personal claude.ai account. A channel session uses the channel’s connections. Claude can also [use your connectors there](https://claude.com/docs/claude-tag/concepts/personal-connectors) for your own tasks, after you allow it. A DM uses your own account instead, as [how DMs work in this model](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) describes.
 
 ##  Connector
 
-A tool you add to your own claude.ai account, like Gmail, Google Drive, or a custom MCP server, listed under [Customize > Connectors](https://claude.ai/customize/connectors). Connectors are personal. In Slack they apply in DMs. In organizations where [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors) is available, Claude can also use them in a channel for your own tasks, after you allow it. For the agent-side equivalent that works in channels, see [Connection](#connection).
+A tool you add to your own claude.ai account, like Gmail, Google Drive, or a custom MCP server, listed under [Customize > Connectors](https://claude.ai/customize/connectors). Connectors are personal. In Slack they apply in DMs. Claude can also [use them in a channel](https://claude.com/docs/claude-tag/concepts/personal-connectors) for your own tasks, after you allow it. For the agent-side equivalent that works in channels, see [Connection](#connection).
 
 ##  Environment
 
@@ -56,7 +60,7 @@ The sandboxed compute configuration a session runs in, including its network acc
 
 ##  Plugin
 
-A bundle of skills an Owner attaches to an Access bundle or scope, teaching Claude how to use a specific tool or follow a specific process. Anthropic provides plugins for common tools; you can add your own. See [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
+A bundle of skills an Owner or a [Claude Tag admin](#claude-tag-admin) attaches to an Access bundle or scope, teaching Claude how to use a specific tool or follow a specific process. Anthropic provides plugins for common tools; you can add your own. See [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
 
 ##  Routine
 
@@ -69,7 +73,7 @@ The match conditions Agent Proxy checks against each outbound request. A connect
 
 ##  Scope
 
-One of three levels Claude’s settings can target: Default Slack access (the organization-wide root), one Slack workspace, or one channel (public or private). Scopes inherit downward, so a channel gets its workspace’s settings plus any of its own. An Owner attaches [Access bundles](#access-bundle) and instructions at a scope. See [Attach the bundle to a scope](https://claude.com/docs/claude-tag/admins/attach-to-scope).
+One of three levels Claude’s settings can target: Default Slack access (the organization-wide root), one Slack workspace, or one channel (public or private). Scopes inherit downward, so a channel gets its workspace’s settings plus any of its own. An Owner or a [Claude Tag admin](#claude-tag-admin) attaches [Access bundles](#access-bundle) and instructions at a scope. See [Attach the bundle to a scope](https://claude.com/docs/claude-tag/admins/attach-to-scope).
 
 ##  Session
 

@@ -25,7 +25,7 @@ To learn more, refer to the following articles:
 | Add/modify billing methods |  |  | ✅ | ✅ |
 | Provision new seats |  |  |  | ✅ |
 
-## Chat Controls
+## Chat controls
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
@@ -33,7 +33,7 @@ To learn more, refer to the following articles:
 | Create and modify chats | ✅ | ✅ | ✅ | ✅ |
 | Use projects | ✅ | ✅ | ✅ | ✅ |
 
-## Features and Integrations
+## Features and integrations
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
@@ -42,8 +42,9 @@ To learn more, refer to the following articles:
 | Enable custom integrations |  |  | ✅ | ✅ |
 | Enable capabilities |  |  | ✅ | ✅ |
 | Enable public projects |  |  | ✅ | ✅ |
+| Enable project sharing |  |  | ✅ | ✅ |
 
-## Membership Management
+## Membership management
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
@@ -53,14 +54,14 @@ To learn more, refer to the following articles:
 | Invite/remove new Admins/Owners |  |  | ✅ | ✅ |
 | Modify roles |  |  | ✅ | ✅ |
 
-## Prioritized Support Routing (Enterprise plan only)
+## Prioritized support routing (Enterprise plan only)
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
 |  | User | Admin | Owner | Primary Owner |
 | Prioritized Support routing |  |  | ✅ | ✅ |
 
-## Security and Data Controls (Team and Enterprise plans)
+## Security and data controls (Team and Enterprise plans)
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
@@ -68,7 +69,7 @@ To learn more, refer to the following articles:
 | Request data exports |  |  |  | ✅ |
 | Request Primary Ownership transfers |  |  |  | ✅ |
 
-## Security and Data Controls (Enterprise plan only)
+## Security and data controls (Enterprise plan only)
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
@@ -78,14 +79,14 @@ To learn more, refer to the following articles:
 | Manage data retention controls |  |  | ✅ | ✅ |
 | Manage  feedback settings |  |  | ✅ | ✅ |
 
-## Usage Analytics (Enterprise plans)
+## Usage analytics (Enterprise plans)
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
 |  | User | Admin | Owner | Primary Owner |
 | View usage analytics |  | ✅ | ✅ | ✅ |
 
-## Usage Analytics (Team plans)
+## Usage analytics (Team plans)
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |

@@ -4,38 +4,28 @@
 
 Build and ship a working incident-investigator agent on Anthropic's Managed Agents platform: define an Agent, Environment, and Session, stream events, and wire up custom tools, all in six functions. You'll leave with a running agent, the mental model for the server-side loop, and a roadmap to production features like subagents, vaults, and memory.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-11:00 – 11:45
+:   11:00 – 11:45
 
 Speaker(s)
+:   Isabella He
 
-Isabella He
+    Member of Technical Staff,
 
-Member of Technical Staff,
+    Anthropic
 
-Anthropic
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Ship your first Managed Agent | Session | Code w/ Claude 2026

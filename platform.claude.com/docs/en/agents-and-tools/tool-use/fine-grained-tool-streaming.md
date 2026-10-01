@@ -31,7 +31,7 @@ The following example turns on fine-grained streaming for a `make_file` tool and
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -d '{
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "max_tokens": 65536,
       "tools": [
         {
@@ -66,7 +66,7 @@ The following example turns on fine-grained streaming for a `make_file` tool and
 
   ```bash CLI
   ant messages create --stream --format jsonl <<'YAML' |
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 65536
   tools:
     - name: make_file
@@ -96,7 +96,7 @@ The following example turns on fine-grained streaming for a `make_file` tool and
 
   with client.messages.stream(
       max_tokens=65536,
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       tools=[
           {
               "name": "make_file",
@@ -140,7 +140,7 @@ The following example turns on fine-grained streaming for a `make_file` tool and
   const client = new Anthropic();
 
   const stream = client.messages.stream({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 65536,
     tools: [
       {
@@ -189,7 +189,7 @@ The following example turns on fine-grained streaming for a `make_file` tool and
 
   MessageCreateParams parameters = new()
   {
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 65536,
       Tools =
       [
@@ -275,7 +275,7 @@ The following example turns on fine-grained streaming for a `make_file` tool and
   }
 
   stream := client.Messages.NewStreaming(context.Background(), anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 65536,
   	Tools:     []anthropic.ToolUnionParam{{OfTool: &makeFileTool}},
   	Messages: []anthropic.MessageParam{
@@ -331,7 +331,7 @@ The following example turns on fine-grained streaming for a `make_file` tool and
       .build();
 
   MessageCreateParams params = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(65536L)
       .addTool(makeFileTool)
       .addUserMessage("Can you write a long poem and make a file called poem.txt?")
@@ -370,7 +370,7 @@ The following example turns on fine-grained streaming for a `make_file` tool and
 
   $stream = $client->messages->createStream(
       maxTokens: 65536,
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       tools: [
           [
               'name' => 'make_file',
@@ -404,17 +404,18 @@ The following example turns on fine-grained streaming for a `make_file` tool and
   $toolInputs = [];
 
   foreach ($stream as $event) {
-      if (
-          $event instanceof RawContentBlockStartEvent
-          && $event->contentBlock instanceof ToolUseBlock
-      ) {
-          $toolInputs[$event->index] = '';
-      } elseif (
-          $event instanceof RawContentBlockDeltaEvent
-          && $event->delta instanceof InputJSONDelta
-      ) {
-          echo $event->delta->partialJSON;
-          $toolInputs[$event->index] .= $event->delta->partialJSON;
+      switch (true) {
+          case $event instanceof RawContentBlockStartEvent:
+              if ($event->contentBlock instanceof ToolUseBlock) {
+                  $toolInputs[$event->index] = '';
+              }
+              break;
+          case $event instanceof RawContentBlockDeltaEvent:
+              if ($event->delta instanceof InputJSONDelta) {
+                  echo $event->delta->partialJSON;
+                  $toolInputs[$event->index] .= $event->delta->partialJSON;
+              }
+              break;
       }
   }
 
@@ -428,7 +429,7 @@ The following example turns on fine-grained streaming for a `make_file` tool and
   client = Anthropic::Client.new
 
   stream = client.messages.stream(
-    model: Anthropic::Models::Model::CLAUDE_OPUS_5,
+    model: Anthropic::Models::Model::CLAUDE_OPUS_5_5,
     max_tokens: 65_536,
     tools: [
       {
@@ -485,7 +486,7 @@ The accumulation contract is the same as for standard tool-use streaming, so thi
 
 When a `tool_use` content block streams, the initial `content_block_start` event contains `input: {}` (an empty object). This is a placeholder. The actual input arrives as a series of `input_json_delta` events, each carrying a `partial_json` string fragment. To assemble the full input, concatenate these fragments and parse the result when the block closes.
 
-Where your SDK provides an accumulator helper (as the Python, TypeScript, Go, Java, and Ruby tabs in the previous example do), it handles this for you. The manual pattern is for SDKs without a helper, or when you want full control over how the input is assembled.
+Where your SDK provides an accumulator helper (as the Python, TypeScript, Go, Java, and Ruby tabs in the previous example do), it handles this for you. Use the manual pattern when your SDK has no helper or when you want full control over how the input is assembled.
 
 The accumulation contract:
 
@@ -514,7 +515,7 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
   tool_inputs: dict[int, str] = {}  # index -> accumulated JSON string
 
   with client.messages.stream(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=1024,
       tools=[
           {
@@ -554,7 +555,7 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
   const toolInputs = new Map<number, string>();
 
   const stream = client.messages.stream({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     tools: [
       {
@@ -572,22 +573,32 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
   });
 
   for await (const event of stream) {
-    if (event.type === "content_block_start" && event.content_block.type === "tool_use") {
-      toolInputs.set(event.index, "");
-    } else if (event.type === "content_block_delta" && event.delta.type === "input_json_delta") {
-      toolInputs.set(
-        event.index,
-        (toolInputs.get(event.index) ?? "") + event.delta.partial_json
-      );
-    } else if (event.type === "content_block_stop" && toolInputs.has(event.index)) {
-      const rawInput = toolInputs.get(event.index)!;
-      try {
-        console.log("Tool input:", JSON.parse(rawInput));
-      } catch {
-        // The accumulated string is not guaranteed to be valid JSON.
-        // See "Handling invalid JSON in tool responses" on this page.
-        console.log("Invalid tool input:", rawInput);
-      }
+    switch (event.type) {
+      case "content_block_start":
+        if (event.content_block.type === "tool_use") {
+          toolInputs.set(event.index, "");
+        }
+        break;
+      case "content_block_delta":
+        if (event.delta.type === "input_json_delta") {
+          toolInputs.set(
+            event.index,
+            (toolInputs.get(event.index) ?? "") + event.delta.partial_json
+          );
+        }
+        break;
+      case "content_block_stop":
+        if (toolInputs.has(event.index)) {
+          const rawInput = toolInputs.get(event.index)!;
+          try {
+            console.log("Tool input:", JSON.parse(rawInput));
+          } catch {
+            // The accumulated string is not guaranteed to be valid JSON.
+            // See "Handling invalid JSON in tool responses" on this page.
+            console.log("Invalid tool input:", rawInput);
+          }
+        }
+        break;
     }
   }
   ```
@@ -597,7 +608,7 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
 
   MessageCreateParams parameters = new()
   {
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Tools =
       [
@@ -666,7 +677,7 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
   toolInputs := map[int64]string{} // content block index -> accumulated JSON
 
   stream := client.Messages.NewStreaming(context.Background(), anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 1024,
   	Tools: []anthropic.ToolUnionParam{{
   		OfTool: &anthropic.ToolParam{
@@ -731,7 +742,7 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
           .build();
 
   MessageCreateParams createParams = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(1024)
           .addTool(weatherTool)
           .addUserMessage("Weather in Paris?")
@@ -744,26 +755,30 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
       var eventIterator = streamResponse.stream().iterator();
       while (eventIterator.hasNext()) {
           RawMessageStreamEvent event = eventIterator.next();
-          if (event.isContentBlockStart()) {
-              var blockStart = event.asContentBlockStart();
-              if (blockStart.contentBlock().isToolUse()) {
-                  toolInputs.put(blockStart.index(), new StringBuilder());
+          switch (event.type().value()) {
+              case CONTENT_BLOCK_START -> {
+                  var blockStart = event.asContentBlockStart();
+                  if (blockStart.contentBlock().isToolUse()) {
+                      toolInputs.put(blockStart.index(), new StringBuilder());
+                  }
               }
-          } else if (event.isContentBlockDelta()) {
-              var blockDelta = event.asContentBlockDelta();
-              if (blockDelta.delta().isInputJson() && toolInputs.containsKey(blockDelta.index())) {
-                  toolInputs.get(blockDelta.index()).append(blockDelta.delta().asInputJson().partialJson());
+              case CONTENT_BLOCK_DELTA -> {
+                  var blockDelta = event.asContentBlockDelta();
+                  if (blockDelta.delta().isInputJson() && toolInputs.containsKey(blockDelta.index())) {
+                      toolInputs.get(blockDelta.index()).append(blockDelta.delta().asInputJson().partialJson());
+                  }
               }
-          } else if (event.isContentBlockStop()) {
-              var blockStop = event.asContentBlockStop();
-              if (toolInputs.containsKey(blockStop.index())) {
-                  String accumulated = toolInputs.get(blockStop.index()).toString();
-                  try {
-                      IO.println("Tool input: " + objectMapper.readTree(accumulated));
-                  } catch (JsonProcessingException e) {
-                      // The accumulated string is not guaranteed to be valid JSON.
-                      // See "Handling invalid JSON in tool responses" on this page.
-                      IO.println("Invalid tool input: " + accumulated);
+              case CONTENT_BLOCK_STOP -> {
+                  var blockStop = event.asContentBlockStop();
+                  if (toolInputs.containsKey(blockStop.index())) {
+                      String accumulated = toolInputs.get(blockStop.index()).toString();
+                      try {
+                          IO.println("Tool input: " + objectMapper.readTree(accumulated));
+                      } catch (JsonProcessingException e) {
+                          // The accumulated string is not guaranteed to be valid JSON.
+                          // See "Handling invalid JSON in tool responses" on this page.
+                          IO.println("Invalid tool input: " + accumulated);
+                      }
                   }
               }
           }
@@ -788,7 +803,7 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
 
   $stream = $client->messages->createStream(
       maxTokens: 1024,
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       tools: [
           [
               'name' => 'get_weather',
@@ -805,29 +820,30 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
   );
 
   foreach ($stream as $event) {
-      if (
-          $event instanceof RawContentBlockStartEvent
-          && $event->contentBlock instanceof ToolUseBlock
-      ) {
-          $toolInputs[$event->index] = '';
-      } elseif (
-          $event instanceof RawContentBlockDeltaEvent
-          && $event->delta instanceof InputJSONDelta
-      ) {
-          $toolInputs[$event->index] .= $event->delta->partialJSON;
-      } elseif (
-          $event instanceof RawContentBlockStopEvent
-          && isset($toolInputs[$event->index])
-      ) {
-          $accumulated = $toolInputs[$event->index];
-          try {
-              $parsed = json_decode($accumulated, associative: true, flags: JSON_THROW_ON_ERROR);
-              echo "Tool input: " . json_encode($parsed) . "\n";
-          } catch (JsonException $e) {
-              // The accumulated string is not guaranteed to be valid JSON.
-              // See "Handling invalid JSON in tool responses" on this page.
-              echo "Invalid tool input: {$accumulated}\n";
-          }
+      switch (true) {
+          case $event instanceof RawContentBlockStartEvent:
+              if ($event->contentBlock instanceof ToolUseBlock) {
+                  $toolInputs[$event->index] = '';
+              }
+              break;
+          case $event instanceof RawContentBlockDeltaEvent:
+              if ($event->delta instanceof InputJSONDelta) {
+                  $toolInputs[$event->index] .= $event->delta->partialJSON;
+              }
+              break;
+          case $event instanceof RawContentBlockStopEvent:
+              if (isset($toolInputs[$event->index])) {
+                  $accumulated = $toolInputs[$event->index];
+                  try {
+                      $parsed = json_decode($accumulated, associative: true, flags: JSON_THROW_ON_ERROR);
+                      echo "Tool input: " . json_encode($parsed) . "\n";
+                  } catch (JsonException $e) {
+                      // The accumulated string is not guaranteed to be valid JSON.
+                      // See "Handling invalid JSON in tool responses" on this page.
+                      echo "Invalid tool input: {$accumulated}\n";
+                  }
+              }
+              break;
       }
   }
   ```
@@ -838,7 +854,7 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
   tool_inputs = {} # index -> accumulated JSON string
 
   stream = client.messages.stream_raw(
-    model: Anthropic::Models::Model::CLAUDE_OPUS_5,
+    model: Anthropic::Models::Model::CLAUDE_OPUS_5_5,
     max_tokens: 1024,
     tools: [
       {

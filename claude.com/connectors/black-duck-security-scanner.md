@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://documentation.blackduck.com/)
+More[Support (opens in new tab)](https://documentation.blackduck.com/)[Privacy policy (opens in new tab)](https://www.blackduck.com/company/legal/privacy-policy.html)
 
 Black Duck MCP brings Signal's AI-powered security analysis directly into Claude Desktop. Scan git changes, individual files, or full projects for security vulnerabilities. Results are exposed as MCP resources for detailed AI-driven analysis. Note: scanned source content is transmitted to Black Duck's remote analysis endpoint for processing.
 

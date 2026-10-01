@@ -17,11 +17,11 @@ Get Session Resource
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--resource-id: string`
 
-  Path param: Path parameter resource_id
+  Path param
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -117,7 +117,7 @@ Get Session Resource
 
     - `access: optional "read_write" or "read_only"`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 

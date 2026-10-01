@@ -19,6 +19,8 @@ Create a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store to create the memory in (`memstore_...`).
+
 - `content: string`
 
   UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
@@ -29,7 +31,7 @@ Create a memory
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -37,9 +39,13 @@ Create a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -57,7 +63,7 @@ Create a memory
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
   - `string memoryStoreID`
 
@@ -65,7 +71,7 @@ Create a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -73,7 +79,7 @@ Create a memory
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `?string content`
 
@@ -129,6 +135,8 @@ List memories
 
 - `memoryStoreID: string`
 
+  The ID of the memory store to list memories from (`memstore_...`).
+
 - `depth?:optional int`
 
   `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
@@ -155,11 +163,15 @@ List memories
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `ManagedAgentsMemoryListItem`
+- `class ManagedAgentsMemoryListItem`
 
-  - `ManagedAgentsMemory`
+  - `class ManagedAgentsMemory`
 
     - `Type type`
 
@@ -177,7 +189,7 @@ List memories
 
     - `\Datetime createdAt`
 
-      A timestamp in RFC 3339 format
+      When this memory was created, in RFC 3339 format.
 
     - `string memoryStoreID`
 
@@ -185,7 +197,7 @@ List memories
 
     - `string memoryVersionID`
 
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `string path`
 
@@ -193,13 +205,13 @@ List memories
 
     - `\Datetime updatedAt`
 
-      A timestamp in RFC 3339 format
+      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `?string content`
 
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-  - `ManagedAgentsMemoryPrefix`
+  - `class ManagedAgentsMemoryPrefix`
 
     - `Type type`
 
@@ -264,11 +276,15 @@ Retrieve a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to retrieve (`mem_...`).
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -276,9 +292,13 @@ Retrieve a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -296,7 +316,7 @@ Retrieve a memory
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
   - `string memoryStoreID`
 
@@ -304,7 +324,7 @@ Retrieve a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -312,7 +332,7 @@ Retrieve a memory
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `?string content`
 
@@ -367,11 +387,15 @@ Update a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to update (`mem_...`).
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `content?:optional string`
 
@@ -383,7 +407,7 @@ Update a memory
 
 - `precondition?:optional ManagedAgentsPrecondition`
 
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+  Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -391,9 +415,13 @@ Update a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -411,7 +439,7 @@ Update a memory
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
   - `string memoryStoreID`
 
@@ -419,7 +447,7 @@ Update a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -427,7 +455,7 @@ Update a memory
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `?string content`
 
@@ -487,11 +515,17 @@ Delete a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to delete (`mem_...`).
 
 - `expectedContentSha256?:optional string`
 
-  Query parameter for expected_content_sha256
+  Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
+
+  If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -499,9 +533,13 @@ Delete a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `ManagedAgentsDeletedMemory`
+- `class ManagedAgentsDeletedMemory`
 
   - `Type type`
 
@@ -542,7 +580,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 ### Beta Managed Agents Conflict Error
 
-- `ManagedAgentsConflictError`
+- `class ManagedAgentsConflictError`
 
   - `Type type`
 
@@ -550,7 +588,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 ### Beta Managed Agents Content Sha256 Precondition
 
-- `ManagedAgentsContentSha256Precondition`
+- `class ManagedAgentsContentSha256Precondition`
 
   - `Type type`
 
@@ -560,7 +598,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 ### Beta Managed Agents Deleted Memory
 
-- `ManagedAgentsDeletedMemory`
+- `class ManagedAgentsDeletedMemory`
 
   - `Type type`
 
@@ -570,79 +608,89 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 ### Beta Managed Agents Error
 
-- `ManagedAgentsError`
+- `class ManagedAgentsError`
 
-  - `BetaInvalidRequestError`
+  - `class BetaInvalidRequestError`
 
     - `"invalid_request_error" type`
 
     - `string message`
 
-  - `BetaAuthenticationError`
+  - `class BetaAuthenticationError`
 
     - `"authentication_error" type`
 
     - `string message`
 
-  - `BetaBillingError`
+  - `class BetaBillingError`
 
     - `"billing_error" type`
 
     - `string message`
 
-  - `BetaPermissionError`
+  - `class BetaPermissionError`
 
     - `"permission_error" type`
 
     - `string message`
 
-  - `BetaNotFoundError`
+  - `class BetaNotFoundError`
 
     - `"not_found_error" type`
 
     - `string message`
 
-  - `BetaRateLimitError`
+  - `class BetaRateLimitError`
 
     - `"rate_limit_error" type`
 
     - `string message`
 
-  - `BetaGatewayTimeoutError`
+  - `class BetaGatewayTimeoutError`
 
     - `"timeout_error" type`
 
     - `string message`
 
-  - `BetaAPIError`
+  - `class BetaAPIError`
 
     - `"api_error" type`
 
     - `string message`
 
-  - `BetaOverloadedError`
+  - `class BetaOverloadedError`
 
     - `"overloaded_error" type`
 
     - `string message`
 
-  - `ManagedAgentsMemoryPreconditionFailedError`
+  - `class ManagedAgentsMemoryPreconditionFailedError`
 
     - `Type type`
 
     - `?string message`
 
-  - `ManagedAgentsMemoryPathConflictError`
+      A human-readable explanation of why the precondition failed.
+
+  - `class ManagedAgentsMemoryPathConflictError`
 
     - `Type type`
 
     - `?string conflictingMemoryID`
 
+      The ID of the memory that blocked the write (`mem_...`), or an empty string if that memory can't be identified.
+
+      Retry the request when it is empty.
+
     - `?string conflictingPath`
+
+      The path that blocked the write: the requested path, or the path of a memory that is an ancestor or descendant of it.
 
     - `?string message`
 
-  - `ManagedAgentsConflictError`
+      A human-readable explanation of the conflict. To handle the error in code, use `conflicting_path` and `conflicting_memory_id` instead.
+
+  - `class ManagedAgentsConflictError`
 
     - `Type type`
 
@@ -650,7 +698,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 ### Beta Managed Agents Memory
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -668,7 +716,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
   - `string memoryStoreID`
 
@@ -676,7 +724,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -684,7 +732,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `?string content`
 
@@ -692,9 +740,9 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 ### Beta Managed Agents Memory List Item
 
-- `ManagedAgentsMemoryListItem`
+- `class ManagedAgentsMemoryListItem`
 
-  - `ManagedAgentsMemory`
+  - `class ManagedAgentsMemory`
 
     - `Type type`
 
@@ -712,7 +760,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 
     - `\Datetime createdAt`
 
-      A timestamp in RFC 3339 format
+      When this memory was created, in RFC 3339 format.
 
     - `string memoryStoreID`
 
@@ -720,7 +768,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 
     - `string memoryVersionID`
 
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `string path`
 
@@ -728,13 +776,13 @@ var_dump($betaManagedAgentsDeletedMemory);
 
     - `\Datetime updatedAt`
 
-      A timestamp in RFC 3339 format
+      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `?string content`
 
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-  - `ManagedAgentsMemoryPrefix`
+  - `class ManagedAgentsMemoryPrefix`
 
     - `Type type`
 
@@ -744,27 +792,37 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 ### Beta Managed Agents Memory Path Conflict Error
 
-- `ManagedAgentsMemoryPathConflictError`
+- `class ManagedAgentsMemoryPathConflictError`
 
   - `Type type`
 
   - `?string conflictingMemoryID`
 
+    The ID of the memory that blocked the write (`mem_...`), or an empty string if that memory can't be identified.
+
+    Retry the request when it is empty.
+
   - `?string conflictingPath`
+
+    The path that blocked the write: the requested path, or the path of a memory that is an ancestor or descendant of it.
 
   - `?string message`
 
+    A human-readable explanation of the conflict. To handle the error in code, use `conflicting_path` and `conflicting_memory_id` instead.
+
 ### Beta Managed Agents Memory Precondition Failed Error
 
-- `ManagedAgentsMemoryPreconditionFailedError`
+- `class ManagedAgentsMemoryPreconditionFailedError`
 
   - `Type type`
 
   - `?string message`
 
+    A human-readable explanation of why the precondition failed.
+
 ### Beta Managed Agents Memory Prefix
 
-- `ManagedAgentsMemoryPrefix`
+- `class ManagedAgentsMemoryPrefix`
 
   - `Type type`
 
@@ -774,15 +832,19 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 ### Beta Managed Agents Memory View
 
-- `ManagedAgentsMemoryView`
+- `enum ManagedAgentsMemoryView`
 
   - `"basic"`
 
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
   - `"full"`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
 ### Beta Managed Agents Precondition
 
-- `ManagedAgentsPrecondition`
+- `class ManagedAgentsPrecondition`
 
   - `Type type`
 

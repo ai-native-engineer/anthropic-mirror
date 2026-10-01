@@ -6,7 +6,7 @@ The Compliance API is available to Enterprise plan organizations, excluding Publ
 
 Coverage also includes Cowork (via Claude, Claude Desktop, and Claude Mobile) and Claude Code (via CLI and Claude Desktop). Coverage for the Claude for Microsoft 365 add-ins (Excel, Word, PowerPoint, and Outlook) and Claude Science is available in beta. All of these use your organization's existing Compliance Access Key and settings, so no additional integration is required.
 
-Coverage doesn't include Claude Code on the web, Claude Code accessed through the Claude Platform, other Microsoft 365 apps, or sessions run on Amazon Bedrock or Google Vertex AI.
+Coverage doesn't include cloud sessions in Claude Code, Claude Code accessed through the Claude Platform, other Microsoft 365 apps, or sessions run on Amazon Bedrock or Google Vertex AI.
 
 **Important:** For Claude Enterprise organizations, only your organization's Primary Owner can enable the Compliance API, from **[Organization settings > API](https://claude.ai/admin-settings/api-access)**. You can create a key on the same page by clicking "+Create key" under **Keys**: the Primary Owner can create a key covering every linked organization, and Owners can create keys limited to their own organization. Owners see this page but not the **Compliance API** toggle—only the Primary Owner can turn the API on or off. Admins don't see the page at all. If your organization is linked to a parent organization, the parent organization's Primary Owner enables it and the setting applies to every linked organization.
 
@@ -23,7 +23,7 @@ Security and compliance platforms have built integrations on top of the Claude C
 The Compliance API now includes audit log events, giving you a full view across all your Claude deployments. To see which events are recorded via audit logs, see **[How to access audit logs](https://support.claude.com/en/articles/9970975-how-to-access-audit-logs#h_41cdad187a)**.
 
 * [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
-* [Access audit logs](https://support.claude.com/en/articles/9970975-access-audit-logs)
+* [HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Configure a custom OpenTelemetry collector for Office agents](https://support.claude.com/en/articles/14447276-configure-a-custom-opentelemetry-collector-for-office-agents)
 * [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)

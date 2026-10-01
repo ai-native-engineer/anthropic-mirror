@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://ondata.github.io/ckan-mcp-server/)
+More[Support (opens in new tab)](https://ondata.github.io/ckan-mcp-server/)[Privacy policy (opens in new tab)](https://github.com/ondata/ckan-mcp-server/blob/main/PRIVACY.md)
 
 MCP server for interacting with CKAN-based open data portals. Provides tools for advanced dataset search with Solr syntax, DataStore queries for tabular data analysis, organization and group exploration, and complete metadata access.
 

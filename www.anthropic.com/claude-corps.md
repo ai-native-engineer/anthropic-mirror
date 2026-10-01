@@ -42,7 +42,7 @@ Apply, get matched, and spend the next year building.
 
 [Read the FAQ for interested fellows](https://www.anthropic.com/claude-corps/fellow)
 
-1. ApplyApplications are open to anyone over the age of 18 with under two years of full-time work experience. There is no education requirement. Fellows are selected based on their experience with AI, communication skills, and motivation to work on societal challenges.2. MatchFellows interview with host organizations based on project fit, geographic proximity, and mutual interest.3. BuildThe fellowship runs for one year, full-time, fully funded by Anthropic. As CodePath employees, fellows complete a training intensive before joining their host organization. Throughout the fellowship, they’ll continue to learn through personalized training from CodePath and support from a designated mentor, an Anthropic technical contact, and a national cohort of peers.
+1. ApplyApplications are open to anyone 18 or older by their cohort’s start date who is at the start of their career. There is no education requirement. Fellows are selected based on their experience with AI, communication skills, and motivation to work on societal challenges.2. MatchFellows interview with host organizations based on project fit, geographic proximity, and mutual interest.3. BuildThe fellowship runs for one year, full-time, fully funded by Anthropic. As CodePath employees, fellows complete a training intensive before joining their host organization. Throughout the fellowship, they’ll continue to learn through personalized training from CodePath and support from a designated mentor, an Anthropic technical contact, and a national cohort of peers.
 
 Fellow
 

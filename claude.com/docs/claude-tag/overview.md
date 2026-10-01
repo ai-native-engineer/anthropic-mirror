@@ -1,10 +1,18 @@
 <!-- source: https://claude.com/docs/claude-tag/overview -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Public Beta
 
 Tag @Claude in. Get results back in the thread.
 
-Anyone in a channel can tag Claude into a problem and hand it work: reproduce a bug and open a pull request, turn a decision thread into a doc, assemble the state of a project. It posts a checklist in the thread as it goes, and the whole exchange stays visible to the channel.
+Anyone in a Slack channel can tag Claude into a problem and hand it work: reproduce a bug and open a pull request, turn a decision thread into a doc, assemble the state of a project. It posts a checklist in the thread as it goes, and the whole exchange stays visible to the channel.
 
 [I’m setting it up →](https://claude.com/docs/claude-tag/admins/setup-overview)[Use it in your channel ↓](#put-claude-tag-to-work)
 
@@ -35,11 +43,18 @@ Done: Pulled p99 latency from DatadogDone: Diffed deploy 4f2c1 against mainDone:
 Claude Tag is available on Team and Enterprise plans, on Anthropic’s first-party service. It isn’t available on individual plans (Free, Pro, or Max), or for third-party deployments. To use it, your organization pairs its Slack workspace with its Claude organization; see [the setup overview](https://claude.com/docs/claude-tag/admins/setup-overview) for the full prerequisites.
 If you’re choosing between Claude products for Slack-shaped work, [how Claude Tag differs from Cowork and Claude Code](https://claude.com/docs/claude-tag/concepts/how-it-works#how-claude-tag-differs-from-cowork-and-claude-code) compares them directly: team work in shared channels is Claude Tag; personal work on your own files is Cowork or Claude Code.
 
+###  Who needs a Claude seat
+
+Slack users don’t each need a Claude seat to work with Claude in channels.
+
+* **In channels**: by default, anyone in the paired Slack workspace can tag `@Claude` in a channel, and an Owner can [restrict who can use Claude](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude) to people in your Claude organization or, on Enterprise, to specific roles. Channel work bills by usage to your organization’s usage balance, under a [spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) an Owner sets.
+* **In DMs**: a DM from a member who has connected a Claude account runs on that account and bills to that person’s seat. The seat must include Claude Code, or, on the Enterprise plan, be a **Standard** or **Usage-Based Chat** seat held by someone who also has Cowork. A [DM from a member who hasn’t connected a Claude account](https://claude.com/docs/claude-tag/admins/restrict-access#direct-messages-from-members-without-a-claude-account) can bill to your organization for a limited time.
+
 ##  Where Claude Tag runs
 
 Claude Tag works in Slack. You interact with it by writing in a Slack channel, thread, or direct message, and it replies there. Mention `@Claude` in a channel to guarantee it picks the message up.
 When Claude works on a task, it runs in an ephemeral sandbox, not on your computer. The sandbox is created when a conversation starts, holds any code or files Claude is working with, and is discarded when the conversation goes idle. See [how Claude Tag works](https://claude.com/docs/claude-tag/concepts/how-it-works) for the full lifecycle.
-You extend what Claude can reach, like your repositories, ticketing systems, data warehouses, and custom tools, through [connections](https://claude.com/docs/claude-tag/admins/add-connections), [plugins, and skills](https://claude.com/docs/claude-tag/admins/customize). An Owner configures these per scope (a channel, a workspace, or the whole organization), separately from any connectors an individual user has set up in their own claude.ai account.
+You extend what Claude can reach, like your repositories, ticketing systems, data warehouses, and custom tools, through [connections](https://claude.com/docs/claude-tag/admins/add-connections), [plugins, and skills](https://claude.com/docs/claude-tag/admins/customize). An Owner or a [Claude Tag admin](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-claude-tag-administration) configures these per scope (a channel, a workspace, or the whole organization). Members’ own claude.ai connectors are separate from that configuration; Claude can use them in a channel for the member’s own requests, as [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors) describes.
 
 [For administratorsSet up Claude Tag![](https://mintcdn.com/claude-ai/5JFKyLlO7sHMMf5J/images/claude-tag/illustrations/Hand-Key.svg?fit=max&auto=format&n=5JFKyLlO7sHMMf5J&q=85&s=1b7a9675728f971bc7a4663c7f1ea599)](https://claude.com/docs/claude-tag/admins/setup-overview)
 
@@ -52,7 +67,7 @@ You extend what Claude can reach, like your repositories, ticketing systems, dat
 ##  Billing and spend limits
 
 Adding Claude to Slack doesn’t add a per-seat charge. Channel and thread work is billed by usage instead: it draws from a **usage balance**, an amount in your organization’s billing currency that an Owner funds. A [spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) caps how much of that balance Claude Tag can use each billing period.
-Direct messages don’t draw from this balance. A DM runs on the sender’s own claude.ai account and follows that seat’s usual usage limits, so the organization spend limit doesn’t apply to it.
+Direct messages from members who have connected a Claude account don’t draw from this balance. Such a DM runs on the sender’s own claude.ai account and follows that seat’s usual usage limits, so the organization spend limit doesn’t apply to it. A [DM from a member who hasn’t connected a Claude account](https://claude.com/docs/claude-tag/admins/restrict-access#direct-messages-from-members-without-a-claude-account) can draw from this balance.
 To learn what your team’s usage costs, run a pilot with a spend limit set and watch the per-channel breakdown on the [usage page in your admin settings](https://claude.ai/admin-settings/usage/claude-tag). Your organization may already have a [launch usage credit](https://support.claude.com/en/articles/15575654-claude-tag-launch-promo-for-claude-team-and-enterprise) to run that pilot against before it funds the balance itself.
 The usage page doesn’t count usage that a credit covers, so that usage shows as $0.00 there. While the credit covers your pilot, watch the **List price** column of the **Spend by channel** table at [`claude.ai/analytics/claude-tag`](https://claude.ai/analytics/claude-tag) instead. That column shows each channel’s list-price spend for the current month, including covered usage.
 [Set a spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) covers how to fund the balance on each plan, set the limit, and what happens when usage reaches it.
@@ -62,7 +77,8 @@ For end users
 ##  Put Claude Tag to work
 
 If Claude Tag is in your channel, you can use it now. (If it isn’t there yet, an Owner in your Claude organization runs setup: see [Set up Claude Tag](https://claude.com/docs/claude-tag/admins/setup-overview).) Anyone in the channel can hand it work, and channel work bills to the organization, not to you.
-What it can reach depends on the channel you’re in, not on who you are. The fastest way to find out is to ask it: `@Claude what can you access from this channel?` Or, if you’re signed in to your Claude organization, click **Configure** in the footer of a Claude reply in the channel to see its [connections](https://claude.com/docs/claude-tag/concepts/glossary#connection), the external services an admin has connected for that channel. Replies in org-shared channels have no Configure link.
+What it can reach starts with the channel you’re in. The fastest way to find out is to ask it: `@Claude what can you access from this channel?` Or, if you’re signed in to your Claude organization, click **Configure** in the footer of a Claude reply in the channel to see its [connections](https://claude.com/docs/claude-tag/concepts/glossary#connection), the external services an admin has connected for that channel. Replies in org-shared channels have no Configure link.
+For your own requests, Claude can also [use the connectors on your claude.ai account](https://claude.com/docs/claude-tag/concepts/personal-connectors), after you allow it.
 The one exception is a DM, where it runs on your own claude.ai account instead of the channel’s setup. Owners can disable DMs organization-wide; see [Allow or disable direct messages](https://claude.com/docs/claude-tag/admins/restrict-access#allow-or-disable-direct-messages).
 
 ###  Common uses

@@ -4,50 +4,38 @@
 
 GitHub’s Copilot team ships Claude to millions of developers across chat, CLI, coding agent, and code review, and has become one of the most demanding users of the Claude Platform. GitHub CPO Mario Rodriguez and Anthropic’s Brad Abrams break down how the team pushes quality up and costs down at scale, from caching and evaluation to the new Advisor strategy. Walk away with patterns you can apply to your own Claude-powered product.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-11:15AM – 11:45AM
+:   11:15AM – 11:45AM
 
 Speaker(s)
+:   Mario Rodriguez
 
-Mario Rodriguez
+    Chief Product Officer,
 
-Chief Product Officer,
+    GitHub
 
-GitHub
+    Brad Abrams
 
-Brad Abrams
+    Product Management Lead, Claude Platform,
 
-Product Management Lead, Claude Platform,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Caching, harnesses, and advisors: Building on Claude at GitHub scale](https://assets.claude.com/094d9c142e1c388c78c24b727cf1f0277305dc11.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9d4a22fc7d70ce2a2bd8_caching-harnesses-advisors.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Caching, harnesses, and advisors: Building on Claude at GitHub scale | Session | Code w/ Claude 2026

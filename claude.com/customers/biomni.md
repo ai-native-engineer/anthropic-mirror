@@ -1,48 +1,24 @@
 <!-- source: https://claude.com/customers/biomni -->
 
-Claude Science beta
-
-[Next](#)Next
-
-Introducing the Claude Science app, your research partner for rigorous science.
-
-Learn more
-
-[Learn more](https://claude.com/product/claude-science)Learn more
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
-
 Case study | Claude Platform
 
 # Biomni accelerates biomedical discoveries by 100x with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Biomni logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c370f1e5e2700797ecd24f_cs-logo-biomni-light-theme.png)![Biomni logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c37103ec6fc1296f80c2fa_cs-logo-biomni-dark-theme.png)
+![Biomni logo](https://assets.claude.com/4feeeeb8c449fddac5e11284e6640a066e059c4f.png)
 
 Industry:
-
-Life sciences
-
-Beneficial Deployments
+:   Life sciencesBeneficial Deployments
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 800x faster
 
@@ -51,42 +27,6 @@ North America
 Human-level
 
 performance on biomedical benchmarks
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Biomni enables researchers to automate complex biomedical workflows—from literature reviews to bioinformatics analysis to wet-lab experimental protocol design—expanding research capabilities while maintaining expert-level accuracy.
 
@@ -136,52 +76,12 @@ The Biomni team envisions AI agents as true research partners. As biomedical dat
 
 Their collaboration with Anthropic continues to push boundaries. With each improvement in Claude's capabilities, Biomni expands what's possible in automated research. Thanks to the collaboration with Anthropic, Biomni is now freely accessible to scientists around the world at biomni.stanford.edu. Biologists everywhere can start delegating their research tasks to Biomni today. Together, they're working toward a future where AI amplifies human scientific creativity, enabling discoveries that improve health outcomes worldwide.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Next](#)Next
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-Video caption
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)

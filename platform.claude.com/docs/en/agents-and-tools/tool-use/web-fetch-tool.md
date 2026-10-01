@@ -12,7 +12,7 @@ description: Fetch and read content from specific URLs to augment Claude's conte
 
 The web fetch tool allows Claude to retrieve full content from specified web pages and PDF documents.
 
-The latest web fetch tool version (`web_fetch_20260318`) supports **dynamic filtering**: Claude can write and execute code to filter fetched content before it reaches the context window, keeping only relevant information and discarding the rest. This reduces token consumption while maintaining response quality. Dynamic filtering is available with Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, [Claude Mythos Preview](https://anthropic.com/glasswing), Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 5, and Claude Sonnet 4.6. `web_fetch_20260318` also adds [response inclusion](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool#response-inclusion) control for agentic workflows. The previous versions (`web_fetch_20260309` for dynamic filtering and [cache bypass](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool#cache-bypass), `web_fetch_20260209` for dynamic filtering only, `web_fetch_20250910` for basic fetch) remain available.
+The latest web fetch tool version (`web_fetch_20260318`) supports **dynamic filtering**: Claude can write and execute code to filter fetched content before it reaches the context window, keeping only relevant information and discarding the rest. This reduces token consumption while maintaining response quality. Dynamic filtering is available with Claude 4.6 and later models and [Claude Mythos Preview](https://anthropic.com/glasswing). `web_fetch_20260318` also adds [response inclusion](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool#response-inclusion) control for agentic workflows. The previous versions (`web_fetch_20260309` for dynamic filtering and [cache bypass](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool#cache-bypass), `web_fetch_20260209` for dynamic filtering only, `web_fetch_20250910` for basic fetch) remain available.
 
 Web fetch (with and without dynamic filtering) is available on the Claude API, [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), and [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry). On Microsoft Foundry, deployments [hosted on Azure](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry#additional-features-not-supported-when-hosted-on-azure) support only the basic web fetch tool (`web_fetch_20250910`, without dynamic filtering). Deployments hosted on Anthropic support all versions. Web fetch is not currently available on Amazon Bedrock or Google Cloud.
 
@@ -29,7 +29,9 @@ For Zero Data Retention eligibility and the `allowed_callers` workaround, see [S
 <Warning>
   Enabling the web fetch tool in environments where Claude processes untrusted input alongside sensitive data poses data exfiltration risks. Only use this tool in trusted environments or when handling non-sensitive data.
 
-  To minimize exfiltration risks, Claude cannot fetch URLs that appear only in its own output. Claude can only fetch URLs that have previously appeared in the conversation: URLs in user messages, URLs in client-side tool results (even when a result echoes text that Claude generated), and URLs from previous web search or web fetch results (see [URL validation](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool#url-validation)). However, there is still residual risk that you should carefully consider when using this tool.
+  To minimize exfiltration risks, Claude cannot fetch URLs that appear only in its own output. Claude can only fetch URLs that have previously appeared in the conversation: URLs in user messages, URLs in client-side tool results (even when a result echoes text that Claude generated), and URLs from previous web search or web fetch results (see [URL validation](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool#url-validation)). Claude also cannot fetch a URL that appears to contain a credential, such as an API key or a password, unless that credential appears in the system prompt or in the text of a user message.
+
+  However, there is still residual risk that you should carefully consider when using this tool.
 
   If data exfiltration is a concern, consider:
 
@@ -88,7 +90,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-4-8",
+      "model": "claude-opus-5-5",
       "max_tokens": 4096,
       "messages": [
         {
@@ -105,7 +107,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
 
   ```bash CLI
   ant messages create <<'YAML'
-  model: claude-opus-4-8
+  model: claude-opus-5-5
   max_tokens: 4096
   messages:
     - role: user
@@ -122,7 +124,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
   client = anthropic.Anthropic()
 
   response = client.messages.create(
-      model="claude-opus-4-8",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[
           {
@@ -139,7 +141,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
   const client = new Anthropic();
 
   const response = await client.messages.create({
-    model: "claude-opus-4-8",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       {
@@ -159,7 +161,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
 
   var parameters = new MessageCreateParams
   {
-      Model = Model.ClaudeOpus4_8,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [new() { Role = Role.User, Content = "Fetch the content at https://example.com/research-paper and extract the key findings." }],
       Tools = [new ToolUnion(new WebFetchTool20260318())]
@@ -173,7 +175,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
   client := anthropic.NewClient()
 
   response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus4_8,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 4096,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Fetch the content at https://example.com/research-paper and extract the key findings.")),
@@ -195,7 +197,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_4_8)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(4096L)
           .addUserMessage("Fetch the content at https://example.com/research-paper and extract the key findings.")
           .addTool(WebFetchTool20260318.builder().build())
@@ -214,7 +216,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
       messages: [
           ['role' => 'user', 'content' => 'Fetch the content at https://example.com/research-paper and extract the key findings.']
       ],
-      model: 'claude-opus-4-8',
+      model: 'claude-opus-5-5',
       tools: [[
           'type' => 'web_fetch_20260318',
           'name' => 'web_fetch',
@@ -227,7 +229,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
   client = Anthropic::Client.new
 
   message = client.messages.create(
-    model: "claude-opus-4-8",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       { role: "user", content: "Fetch the content at https://example.com/research-paper and extract the key findings." }
@@ -252,7 +254,7 @@ Provide the web fetch tool in your API request:
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-4-8",
+      "model": "claude-opus-5-5",
       "max_tokens": 1024,
       "messages": [
         {
@@ -270,7 +272,7 @@ Provide the web fetch tool in your API request:
 
   ```bash CLI
   ant messages create \
-    --model claude-opus-4-8 \
+    --model claude-opus-5-5 \
     --max-tokens 1024 \
     --message '{role: user, content: "Please analyze the content at https://example.com/article"}' \
     --tool '{type: web_fetch_20250910, name: web_fetch, max_uses: 5}'
@@ -280,7 +282,7 @@ Provide the web fetch tool in your API request:
   client = anthropic.Anthropic()
 
   response = client.messages.create(
-      model="claude-opus-4-8",
+      model="claude-opus-5-5",
       max_tokens=1024,
       messages=[
           {
@@ -297,7 +299,7 @@ Provide the web fetch tool in your API request:
   const client = new Anthropic();
 
   const response = await client.messages.create({
-    model: "claude-opus-4-8",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [
       {
@@ -322,7 +324,7 @@ Provide the web fetch tool in your API request:
 
   var parameters = new MessageCreateParams
   {
-      Model = Model.ClaudeOpus4_8,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Messages = [new() { Role = Role.User, Content = "Please analyze the content at https://example.com/article" }],
       Tools = [new ToolUnion(new WebFetchTool20250910() { MaxUses = 5 })]
@@ -336,7 +338,7 @@ Provide the web fetch tool in your API request:
   client := anthropic.NewClient()
 
   response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus4_8,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 1024,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Please analyze the content at https://example.com/article")),
@@ -360,7 +362,7 @@ Provide the web fetch tool in your API request:
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_4_8)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(1024L)
           .addUserMessage("Please analyze the content at https://example.com/article")
           .addTool(WebFetchTool20250910.builder()
@@ -381,7 +383,7 @@ Provide the web fetch tool in your API request:
       messages: [
           ['role' => 'user', 'content' => 'Please analyze the content at https://example.com/article']
       ],
-      model: 'claude-opus-4-8',
+      model: 'claude-opus-5-5',
       tools: [[
           'type' => 'web_fetch_20250910',
           'name' => 'web_fetch',
@@ -395,7 +397,7 @@ Provide the web fetch tool in your API request:
   client = Anthropic::Client.new
 
   message = client.messages.create(
-    model: "claude-opus-4-8",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [
       { role: "user", content: "Please analyze the content at https://example.com/article" }
@@ -636,7 +638,7 @@ These are the possible error codes:
 
 * `invalid_tool_input`: Invalid tool input, such as a malformed URL or a non-HTTP(S) scheme
 * `url_too_long`: URL exceeds maximum length (250 characters)
-* `url_not_allowed`: URL blocked by domain filtering rules (including your organization's settings) or by Anthropic-side restrictions, such as private addresses and `robots.txt`
+* `url_not_allowed`: URL blocked by domain filtering rules (including your organization's settings) or by Anthropic-side restrictions, such as private addresses, `robots.txt`, and URLs that appear to contain a credential you did not provide
 * `url_not_in_prior_context`: URL did not appear earlier in the conversation (see [URL validation](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool#url-validation))
 * `url_not_accessible`: Failed to fetch content (HTTP error)
 * `too_many_requests`: Rate limit exceeded
@@ -654,6 +656,8 @@ For security reasons, the web fetch tool can only fetch URLs that have previousl
 
 The tool cannot fetch URLs that appear only in Claude's own output or only in the system prompt. To make a URL from the system prompt fetchable, also include it in a user message. Results of other server-side tools, such as [code execution](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool), the [MCP connector](https://platform.claude.com/docs/en/agents-and-tools/mcp-connector), or [tool search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool), are not an allowed source either. Client-side tool results are an allowed source even when they echo text that Claude produced (for example, a command that prints its input, or an error message that quotes it).
 
+The tool also refuses a URL that appears to contain a credential, such as an API key or a password, unless that credential appears in the system prompt or in the text of a user message. A credential that appears only in a tool result does not count. The result is a `url_not_allowed` error. To fetch such a URL, include it in a user message.
+
 ## Combined search and fetch
 
 When both the web search and web fetch tools are enabled, and the user names a specific page or document without providing a URL (for example, "read the README from the anthropics/anthropic-sdk-python repository"), Claude uses web search to locate it, then fetches the result. The following example asks for a search and an analysis in one request:
@@ -665,7 +669,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-4-8",
+      "model": "claude-opus-5-5",
       "max_tokens": 4096,
       "messages": [
         {
@@ -691,7 +695,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
 
   ```bash CLI
   ant messages create <<'YAML'
-  model: claude-opus-4-8
+  model: claude-opus-5-5
   max_tokens: 4096
   messages:
     - role: user
@@ -714,7 +718,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
   client = anthropic.Anthropic()
 
   response = client.messages.create(
-      model="claude-opus-4-8",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[
           {
@@ -739,7 +743,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
   const client = new Anthropic();
 
   const response = await client.messages.create({
-    model: "claude-opus-4-8",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       {
@@ -767,7 +771,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
 
   var parameters = new MessageCreateParams
   {
-      Model = Model.ClaudeOpus4_8,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [new() { Role = Role.User, Content = "Find recent articles about quantum computing and analyze the most relevant one in detail" }],
       Tools = [
@@ -784,7 +788,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
   client := anthropic.NewClient()
 
   response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus4_8,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 4096,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Find recent articles about quantum computing and analyze the most relevant one in detail")),
@@ -815,7 +819,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_4_8)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(4096L)
           .addUserMessage("Find recent articles about quantum computing and analyze the most relevant one in detail")
           .addTool(WebSearchTool20250305.builder()
@@ -840,7 +844,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
       messages: [
           ['role' => 'user', 'content' => 'Find recent articles about quantum computing and analyze the most relevant one in detail']
       ],
-      model: 'claude-opus-4-8',
+      model: 'claude-opus-5-5',
       tools: [
           [
               'type' => 'web_search_20250305',
@@ -862,7 +866,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
   client = Anthropic::Client.new
 
   message = client.messages.create(
-    model: "claude-opus-4-8",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       { role: "user", content: "Find recent articles about quantum computing and analyze the most relevant one in detail" }

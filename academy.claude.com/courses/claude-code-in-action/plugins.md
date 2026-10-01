@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/plugins -->
 
-Lesson 9 of 9 · Claude Code in ActionPlugins
+Lesson 9 of 9 · Claude Code in actionPlugins
 
-3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+3. /[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
-[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
 # Plugins
 
@@ -31,7 +31,7 @@ Where the plugin lives decides how you install it. Inside a session, you can ins
 
 `/plugin install github@claude-plugins-official`
 
-Here's what that looks like. Claude Code installs it and tells you to run `/reload-plugins` to apply the change.
+Claude Code installs it and prints a short summary. Either it says the plugin is already active in this session, or it mentions `/reload-plugins` and Claude Code runs that reload for you. You step in only if the reload warns that your next message would re-read the whole conversation: run `/reload-plugins --force` to activate the plugin anyway.
 
 ## Adding a marketplace for your team[](#adding-a-marketplace-for-your-team)
 
@@ -101,7 +101,7 @@ json
 
 The manifest is optional. Leave it out and Claude Code still discovers your components by directory convention. But a couple of details are worth knowing:
 
-* **Name is the only required field.** It namespaces your skills as `company-name:skill-name`, which keeps them from colliding with anyone else's.
+* **Name is the only required field.** It namespaces your skills as `/plugin-name:skill-name`, so a skill in this plugin runs as `/svg-splitter-review:<skill-name>`. That keeps your skills from colliding with anyone else's.
 * **Version it like any other dependency.** That's what makes updates and version tracking work across your team.
 
 ## The takeaway[](#the-takeaway)
@@ -115,7 +115,7 @@ That's the whole point. One installable unit, and the setup you trust reaches yo
 
 [Previous lessonTrust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)[Next lessonCourse quiz](https://academy.claude.com/courses/claude-code-in-action/course-quiz)
 
-Lesson 9 of 9 · Claude Code in ActionPlugins
+Lesson 9 of 9 · Claude Code in actionPlugins
 
 Steer the work
 

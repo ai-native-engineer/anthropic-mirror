@@ -18,6 +18,8 @@ reliably separate baseline models from intentionally misaligned ones. As example
 benchmark results for four alignment relevant behaviors on 16 models. Bloom is available at
 [github.com/safety-research/bloom](http://github.com/safety-research/bloom).
 
+---
+
 Frontier models exhibit various types of misalignment, for example in-context
 scheming (Meinke et al, 2024), agentic misalignment (Lynch et al, 2025), and sycophancy (Sharma et al,
 2023). Although researchers are developing mitigations for known issues ([Sonnet
@@ -60,6 +62,8 @@ score exceeds a certain threshold. While this metric quantifies instances of sev
 supports metrics summarizing the full score distribution, such as average behavior presence score. For
 each benchmark, we include behavior descriptions, example transcripts, and outputs from each pipeline
 stage in the system design section below as well as in the Appendix.
+
+---
 
 ## System Design
 
@@ -226,6 +230,8 @@ behavior. Bloom allows you to focus on aggregate metrics showing how often a beh
 scenarios. In short: Bloom suits precise measurement with statistical results; Petri suits open-ended
 exploration of what behaviors might exist.
 
+---
+
 ## Meaningfulness and Trust
 
 ### Distinguishing Model Organisms from Baseline Models
@@ -389,6 +395,8 @@ each of 50 evaluation scenarios 5 times and plot standard deviation of behavior 
 average (left). We also set diversity to 0.2 and generate 5 perturbations of 10 distinct base scenarios,
 plotting standard deviation conditioned on average across each group of 5 variants (right).
 
+---
+
 ## Impact of Ideation and Rollout Models on Evaluation Outcomes
 
 Different models interpret behaviors differently, propose different
@@ -428,6 +436,8 @@ vary the rollout model used to simulate the interaction. We repeat each experime
 average behavior presence (top) and elicitation rate (bottom), consistently using Opus 4.1 as a judge.
 Different rollout agents shift metrics substantially—for instance, GPT-5 barely elicits the increasing-pep
 trait (1-point separation vs. ~6 points for others).
+
+---
 
 ## Case Study: Self-Preferential Bias
 
@@ -527,6 +537,8 @@ Evaluator Reasoning. This setting had the largest effect on model rankings.
 While Sonnet 4.5 remained the least biased, Opus 4, Opus 4.1, and Sonnet 4 shifted considerably
 depending on reasoning effort. Sonnet 4 was particularly sensitive.
 
+---
+
 ## Limitations
 
 While Bloom enables rapid generation of targeted behavioral evaluations, it
@@ -545,6 +557,8 @@ API calls, manipulating actual files, or interacting with real humans.
 Finally, models may learn to recognize when they're being evaluated. We
 observe high evaluation awareness rates in newer Claude models (Appendix Figure A.1), and this could
 worsen if Bloom-generated evaluations become part of future training data.
+
+---
 
 ## Conclusion
 
@@ -569,12 +583,16 @@ environment, Bloom organizes evaluations around their seed configuration, enabli
 reproducible exploration. Our case study demonstrates the many avenues of ablation and experimentation
 Bloom supports for any behavioral evaluation.
 
+---
+
 ## Acknowledgements
 
 We would like to thank Keshav Shenoy, Christine Ye, Simon Storf, Julius
 Steen, Jifan Zhang and Javier Rando for early user feedback on Bloom. We would also like to thank Jon
 Kutasov, Samuel Marks, Benjamin Sturgeon, Seoirse Murray, Ariana Azarbal, Chloe Loughridge and Clemens
 Christoph for feedback on the writing.
+
+---
 
 ## Appendix
 

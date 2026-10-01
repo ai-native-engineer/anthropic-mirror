@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-When Claude Desktop on third-party (3P) is configured with Google Cloud’s Agent Platform, Amazon Bedrock, or Microsoft Foundry, the app sends conversation content only to your configured inference endpoint. The app does, by default, send a small amount of operational telemetry (crash reports and product analytics) that helps Anthropic diagnose issues and improve the product. Each category can be disabled independently via managed configuration.
+When Claude Desktop on third-party (3P) is configured with Google Cloud’s Agent Platform, Amazon Bedrock, or Microsoft Foundry, the app sends conversation content only to your configured inference endpoint. The app does, by default, send a small amount of operational telemetry (crash reports and product analytics) that helps Anthropic diagnose issues and improve the product. It also checks for updates and fetches the published model catalog, and in [Code](https://claude.com/docs/third-party/claude-desktop/code) sessions Claude Code checks each fetched domain with Anthropic. Each of these connections can be disabled independently via managed configuration, and [Disabling all Anthropic-bound connections](#disabling-all-anthropic-bound-connections) lists them with the key that turns each one off.
 Data handling at the inference endpoint depends on the provider. For Google Cloud’s Agent Platform and Amazon Bedrock, data handling is governed by the cloud provider. For Microsoft Foundry, Anthropic operates the Claude models and handles conversation data as an independent processor for Microsoft. See [Data handling by provider](https://claude.com/docs/third-party/claude-desktop/overview#data-handling-by-provider) on the Overview page for each provider’s data path.
 This page covers what each telemetry category contains, how to turn it off, and the complete set of outbound hostnames the app uses so you can configure your perimeter firewall.
 
@@ -21,6 +21,8 @@ Crash reports, error stack traces, and performance timings. Contains diagnostic 
 | Setting | Default | Effect when `true` |
 | --- | --- | --- |
 | `disableEssentialTelemetry` | `false` | No crash or error data leaves the device. |
+
+On Claude Desktop 2.7032.0 and later, the [**Keep only your organization ID and restrictions on disk**](https://claude.com/docs/third-party/claude-desktop/admin-console#configuration-kept-on-devices) switch in the [Enterprise Admin Console](https://claude.com/docs/third-party/claude-desktop/admin-console) also stops the app’s crash and performance reports, even while `disableEssentialTelemetry` is `false`.
 
 Disabling essential telemetry opts you into a **manual support model**. Anthropic will have zero remote visibility into failures on your fleet, so to get help with an issue your team will need to collect application logs from affected machines and send them to Anthropic directly. Leave this enabled during initial rollout.
 
@@ -99,6 +101,7 @@ To include content in the export, set `otlpContentCapture` to an array of catego
 
 On Claude Desktop version 1.17377 or later, enabling `userPrompts` also captures model responses, even if `assistantResponses` is not listed. On those versions, no `otlpContentCapture` configuration captures user prompts without model responses.
 Conversation titles arrive on the desktop application’s own stream (`claude-desktop`) as a `desktop_session_title_set` event that carries each Cowork and Code session’s title and the Claude Code `session.id` to join on. The event is exported only when [`otlpDesktopLogLevel`](https://claude.com/docs/third-party/claude-desktop/configuration#otlpdesktoploglevel) is `info` or `debug`, and the title text is included only when `otlpContentCapture` includes `userPrompts`. Requires Claude Desktop 1.44121.1 or later.
+With `rawApiBodies`, Claude Code truncates each request or response body at 60 KB by default and always redacts Claude’s extended-thinking content. See [API request body event](https://code.claude.com/docs/en/monitoring-usage#api-request-body-event) in the Claude Code documentation.
 Content is exported only to your configured `otlpEndpoint`. Anthropic does not receive it.
 
 ###  Traces (beta)
@@ -110,6 +113,7 @@ Two scope notes:
 * The metrics in this export don’t carry trace context, so trace-based correlation covers traces and events. Correlate metrics with a session via the `session.id` attribute.
 * Trace export uses Claude Code’s session-tracing beta, and the span structure may change while the feature is in beta.
 
+With `otlpEndpoint` set, `otlpTracesEnabled` alone decides whether Cowork and Code sessions export traces. Leaving it unset or `false` keeps traces off even when Claude Code’s own settings on the device, including managed settings, turn tracing on (Claude Desktop 1.52386.0 or later).
 `otlpTracesEnabled` requires Claude Desktop **1.22209.0** or later.
 
 ##  Required egress paths
@@ -128,8 +132,9 @@ All traffic is HTTPS on port 443. Allowlist by hostname (SNI); path-level rules 
 | Host | Purpose |
 | --- | --- |
 | `downloads.claude.ai` | VM workspace bundle and Claude CLI binary, fetched at session start |
+| `downloads.claude.ai` | Claude Code model catalog (signed picker metadata), polled every 5–15 minutes |
 
-Without this host reachable, Cowork sessions cannot start, unless the app was installed with the [offline installer variant](https://claude.com/docs/third-party/claude-desktop/installation#offline-installation), which includes both components in the installer package.
+Without this host reachable, Chat conversations, Cowork tasks, and Code sessions cannot start on a device that has not yet downloaded these components. App updates often change one or both of these components, and the app then downloads the new versions from the same host. Devices installed with the [offline installer variant](https://claude.com/docs/third-party/claude-desktop/installation#offline-installation), which includes both components in the installer package, are not affected. The model catalog fetch is not needed to run the app: set [`modelCatalogEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogenabled) to `false` to turn it off, or [`modelCatalogUrl`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogurl) to fetch the catalog from a mirror inside your network. While the catalog is unreachable, sessions still start and the model picker keeps the names and effort options the app last fetched or shipped with.
 
 ###  Inference provider
 
@@ -165,7 +170,7 @@ With `inferenceBedrockBearerToken` set, the runtime and control-plane hosts are 
 
 | Host | Purpose |
 | --- | --- |
-| `<resource>.services.ai.azure.com` | Model inference |
+| `<resource>.services.ai.azure.com` | Model inference. Replaced by the host of `inferenceFoundryBaseUrl` if set. |
 | `login.microsoftonline.com` | Entra ID auth (interactive sign-in only) |
 
 | Host | Purpose |
@@ -194,6 +199,7 @@ With [`updateViaUpdatesHost`](https://claude.com/docs/third-party/claude-desktop
 | `*.sentry.io` | Crash and error reporting |
 | `*.ingest.us.sentry.io` | Crash and error reporting |
 | `sentry.io` | Crash and error reporting |
+| `claude.ai` | Performance timing |
 | `browser-intake-datadoghq.com` | Performance timing |
 | `browser-intake-us3-datadoghq.com` | Performance timing |
 | `browser-intake-us5-datadoghq.com` | Performance timing |
@@ -208,8 +214,6 @@ The `sentry.io` apex is listed alongside the wildcards because some firewalls do
 
 | Host | Purpose |
 | --- | --- |
-| `a-cdn.anthropic.com` | Analytics SDK |
-| `a-api.anthropic.com` | Analytics events |
 | `claude.ai` | Analytics events |
 | `api.anthropic.com` | Claude Code usage telemetry, sent from inside the agent sandbox |
 
@@ -239,11 +243,30 @@ The `sentry.io` apex is listed alongside the wildcards because some firewalls do
 | Hosts in `coworkEgressAllowedHosts` | Sandbox web access is configured |
 | `api.anthropic.com` | [Code](https://claude.com/docs/third-party/claude-desktop/code) sessions can use Web Fetch and [`skipWebFetchPreflight`](https://claude.com/docs/third-party/claude-desktop/configuration#skipwebfetchpreflight) is not `true` (Claude Code’s Web Fetch [domain check](https://claude.com/docs/third-party/claude-desktop/web-tools#web-fetch)) |
 | `claude.ai`, `api.anthropic.com`, `storage.googleapis.com` | [Import from claude.ai](https://claude.com/docs/third-party/claude-desktop/import) is enabled (`claudeAiImport` with `enabled` set to `true`). Used only while a user signs in to claude.ai and fetches an export in the import wizard; importing a downloaded export file needs none of them |
+| `releases.claude.com` | The [built-in browser](https://claude.com/docs/third-party/claude-desktop/browser) is turned on (`builtinBrowserEnabled` set to `true`), for its [site safety check](https://claude.com/docs/third-party/claude-desktop/browser#site-safety-check) |
 | `downloads.claude.ai` | [SSH remote sessions](https://claude.com/docs/third-party/claude-desktop/ssh-remote-sessions) are enabled (`sshHostAllowlist` set). With the offline installer, needed only for connections to hosts other than Linux x64 and arm64, because that installer bundles the remote components for those hosts (see [Host requirements](https://claude.com/docs/third-party/claude-desktop/ssh-remote-sessions#host-requirements)) |
 
 ##  Disabling all Anthropic-bound connections
 
-With `disableEssentialTelemetry`, `disableNonessentialTelemetry`, `disableNonessentialServices`, and `disableAutoUpdates` all set to `true`, the desktop application makes **no outbound connections to Anthropic-operated hosts at runtime**. If Code sessions can use Web Fetch, also set [`skipWebFetchPreflight`](https://claude.com/docs/third-party/claude-desktop/configuration#skipwebfetchpreflight) to `true` (or add `WebFetch` to `disabledBuiltinTools`), because Claude Code in [Code](https://claude.com/docs/third-party/claude-desktop/code) sessions otherwise checks each fetched domain with `api.anthropic.com`. The only required egress is `downloads.claude.ai` (for the VM bundle at session start) and your inference provider. With the [offline installer variant](https://claude.com/docs/third-party/claude-desktop/installation#offline-installation), `downloads.claude.ai` is not needed either, and your inference provider is the only required egress. Enabling [SSH remote sessions](https://claude.com/docs/third-party/claude-desktop/ssh-remote-sessions) adds `downloads.claude.ai` back, except on devices installed with the offline installer that connect only to Linux x64 or arm64 hosts: that installer bundles the remote-session components for those hosts, and connections to hosts on other platforms still download them. Enabling [import from claude.ai](https://claude.com/docs/third-party/claude-desktop/import) likewise lets the app reach `claude.ai` and `api.anthropic.com` (and `storage.googleapis.com` for the export download), but only while a user runs a sign-in import from the wizard.
+Each connection in the following table has a managed-configuration key that turns it off.
+
+| Connection | What it carries | Key that turns it off |
+| --- | --- | --- |
+| Crash, error, and performance reporting | Diagnostic metadata, never prompt or response content. See [Essential telemetry](#essential-telemetry). | [`disableEssentialTelemetry`](https://claude.com/docs/third-party/claude-desktop/configuration#disableessentialtelemetry) set to `true` |
+| Product analytics and diagnostic-report uploads | Feature adoption, session counts, and UI interactions, plus Claude Code usage telemetry. No prompt or response content. See [Non-essential telemetry](#non-essential-telemetry). | [`disableNonessentialTelemetry`](https://claude.com/docs/third-party/claude-desktop/configuration#disablenonessentialtelemetry) set to `true` |
+| Connector favicons, artifact previews, and MCP App widgets | Icon fetches, and the sandboxed iframe pages that render previews and widgets. See [Non-essential services](#non-essential-services). | [`disableNonessentialServices`](https://claude.com/docs/third-party/claude-desktop/configuration#disablenonessentialservices) set to `true` |
+| Auto-updates | Requests to Anthropic’s update feed, and downloads of new builds. See [Auto-updates](#auto-updates). | [`disableAutoUpdates`](https://claude.com/docs/third-party/claude-desktop/configuration#disableautoupdates) set to `true` |
+| Model catalog | The signed model catalog that labels the model picker, fetched from `downloads.claude.ai` at launch and then every 5 to 15 minutes, including on devices installed with the offline installer. A blocked catalog request affects nothing else. | [`modelCatalogEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogenabled) set to `false`, or [`modelCatalogUrl`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogurl) set to a mirror inside your network |
+| Web Fetch domain check in [Code](https://claude.com/docs/third-party/claude-desktop/code) sessions | The hostname of each page Claude Code fetches, sent to `api.anthropic.com` before the fetch. See [Web Fetch](https://claude.com/docs/third-party/claude-desktop/web-tools#web-fetch). | [`skipWebFetchPreflight`](https://claude.com/docs/third-party/claude-desktop/configuration#skipwebfetchpreflight) set to `true`, or `WebFetch` added to [`disabledBuiltinTools`](https://claude.com/docs/third-party/claude-desktop/configuration#disabledbuiltintools) |
+
+With all six connections turned off, the only remaining Anthropic-operated egress is `downloads.claude.ai`, for the VM workspace bundle and Claude CLI binary at session start. The only other required egress is your inference provider. With the [offline installer variant](https://claude.com/docs/third-party/claude-desktop/installation#offline-installation), `downloads.claude.ai` is not needed either, and your inference provider is the only required egress.
+These optional features add hosts back when you turn them on:
+
+* [SSH remote sessions](https://claude.com/docs/third-party/claude-desktop/ssh-remote-sessions) download the remote-session components from `downloads.claude.ai`. The offline installer bundles those components for Linux x64 and arm64 hosts, so devices installed with it download them only when connecting to hosts on other platforms.
+* [Import from claude.ai](https://claude.com/docs/third-party/claude-desktop/import) reaches `claude.ai`, `api.anthropic.com`, and `storage.googleapis.com` (for the export download) only while a user signs in to claude.ai and fetches an export in the import wizard.
+* The [built-in browser](https://claude.com/docs/third-party/claude-desktop/browser) contacts `releases.claude.com` for its [site safety check](https://claude.com/docs/third-party/claude-desktop/browser#site-safety-check).
+
+An app that receives its configuration from the [Enterprise Admin Console](https://claude.com/docs/third-party/claude-desktop/admin-console) still connects to Anthropic with all of these keys set. It never fetches the model catalog (its model names and options come from the console’s settings), and it contacts `api.anthropic.com` at every launch and at each configuration check (every 10 minutes by default) to download its configuration. The app contacts `claude.ai` when the user signs in. While the organization’s **Report desktop usage to this organization** switch is on, the app also sends [usage analytics](https://claude.com/docs/third-party/claude-desktop/admin-console#usage-analytics) counts to `api.anthropic.com` every few minutes during use. You turn the telemetry categories for these apps on and off on the console’s **Telemetry & updates** page.
 These settings control only the application’s telemetry, update, and non-essential service connections. They do not change how your inference provider handles conversation content at the endpoint. On Microsoft Foundry, the Claude models behind your inference endpoint run in an Anthropic-operated service, so conversation content reaches Anthropic-operated infrastructure regardless of these settings. See [Data handling by provider](https://claude.com/docs/third-party/claude-desktop/overview#data-handling-by-provider) on the Overview page.
 See the [Locked down profile](https://claude.com/docs/third-party/claude-desktop/configuration#recommended-security-profiles) for a complete configuration.
 

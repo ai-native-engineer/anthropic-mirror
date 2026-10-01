@@ -184,7 +184,7 @@ Pull context from outside sources directly from the sidebar.
 
 Learn more
 
-[Learn more](https://claude.com/archive/connectors)Learn more
+[Learn more](https://claude.com/connectors)Learn more
 
 ## FAQ
 

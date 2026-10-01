@@ -43,7 +43,7 @@ If your organization’s row reads **Not linked**, select the **Link** button ne
 
 ##  Grant repository access
 
-The remaining steps are in the Claude Tag admin page, not GitHub’s settings. Repository grants live on the Access bundle; editing a bundle’s Repositories tab requires the **Owner** role in your Claude organization. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can also add repositories to their own channel, limited to repositories their GitHub account is an admin of.
+The remaining steps are in the Claude Tag admin page, not GitHub’s settings. Repository grants live on the Access bundle; editing a bundle’s Repositories tab requires the **Owner** role or the [**Claude Tag Admin** permission](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-claude-tag-administration) in your Claude organization. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can also add repositories to their own channel, limited to repositories their GitHub account is an admin of.
 
 1
 
@@ -97,7 +97,7 @@ Every session runs in an isolated sandbox with a standard set of preinstalled to
 * **For one repository**, add the install commands to the repository’s `CLAUDE.md`.
 
 Claude follows `CLAUDE.md` as guidance when it starts work that needs it, not as an unconditional setup step. Write each install as a precondition of the work it supports, for example “install the SDK before building or running tests”, so Claude runs it when a task touches that code. The sandbox is fresh for every session, so the installs repeat each time Claude works in the repository.
-Prefer the standard package manager and its default registry over a vendor install script or a third-party package source. Package managers such as `apt`, `pip`, `npm`, and `dotnet` reach their default registries from the sandbox; downloads from other hosts can be blocked at the sandbox’s [egress boundary](https://claude.com/docs/claude-tag/concepts/security-and-data#network-egress). An Owner can allow an additional host on the bundle’s Domains tab; see [Allow a host without a credential](https://claude.com/docs/claude-tag/admins/add-connections#allow-a-host-without-a-credential).
+Prefer the standard package manager and its default registry over a vendor install script or a third-party package source. Package managers such as `apt`, `pip`, `npm`, and `dotnet` reach their default registries from the sandbox; downloads from other hosts can be blocked at the sandbox’s [egress boundary](https://claude.com/docs/claude-tag/concepts/security-and-data#network-egress). An Owner or a [Claude Tag admin](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-claude-tag-administration) can allow an additional host on the bundle’s Domains tab; see [Allow a host without a credential](https://claude.com/docs/claude-tag/admins/add-connections#allow-a-host-without-a-credential).
 
 ##  What Claude can do with GitHub Actions
 
@@ -142,6 +142,16 @@ Organizations on `*.ghe.com` (Enterprise Cloud with Data Residency) are register
 GitHub Enterprise Server instances are supported when reachable from the public internet. A GHES host on a private network without a public address can’t be connected.
 On GHES, you create the GitHub App on your own instance instead of installing Anthropic’s. The setup is shared with Claude Code; follow the [Claude Code GitHub Enterprise Server guide](https://code.claude.com/docs/en/github-enterprise-server) to create and register the app. After registering the GHE host, a host picker appears on the bundle’s **Repositories** tab; select your host there to grant its repositories.
 Registering a GHE host with your Claude organization isn’t fully self-serve. Raise it with your account team if the guide doesn’t get you all the way through.
+
+####  GitHub Enterprise Server in direct messages
+
+In a [direct message](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels), Claude reaches repositories on a registered host through the sender’s own GitHub Enterprise account instead of the bundle’s grants. Claude adds a repository to a DM session only when both of these are true:
+
+* The sender’s GitHub Enterprise account has push access to the repository
+* Your GitHub App’s installation on the instance includes the repository
+
+If the sender hasn’t connected their GitHub Enterprise account on claude.ai yet, Claude replies with a link to connect it. After connecting, the sender asks Claude to add the repository again.
+In channels, Claude uses the repositories granted on the bundle’s **Repositories** tab, as it does for github.com. A person’s own GitHub Enterprise connection doesn’t apply in channels.
 
 ##  Related resources
 

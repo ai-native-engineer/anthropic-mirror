@@ -4,50 +4,38 @@
 
 Ever wonder how the Claude Code team uses Claude Code themselves? Watch Boris Cherney, Head of Claude Code, and Jarred Sumner, creator of Bun, livestream their everyday workflows together.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-01:50PM – 02:20PM
+:   01:50PM – 02:20PM
 
 Speaker(s)
+:   Boris Cherny
 
-Boris Cherny
+    Head of Claude Code,
 
-Head of Claude Code,
+    Anthropic
 
-Anthropic
+    Jarred Sumner
 
-Jarred Sumner
+    Creator of Bun,
 
-Creator of Bun,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Live coding session with Boris Cherny and Jarred Sumner](https://assets.claude.com/7a5a003940ec430059c51d1859893bc380181912.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9cd08a40b31c0b2b7756_live-coding-boris.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Live coding session with Boris Cherny and Jarred Sumner | Session | Code w/ Claude 2026

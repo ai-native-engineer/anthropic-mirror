@@ -17,15 +17,15 @@ Update a memory
 
 - `--memory-store-id: string`
 
-  Path param: Path parameter memory_store_id
+  Path param: The ID of the memory store that holds the memory (`memstore_...`).
 
 - `--memory-id: string`
 
-  Path param: Path parameter memory_id
+  Path param: The ID of the memory to update (`mem_...`).
 
 - `--view: optional "basic" or "full"`
 
-  Query param: Query parameter for view
+  Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `--content: optional string`
 
@@ -39,7 +39,7 @@ Update a memory
 
 - `--precondition: optional object`
 
-  Body param: Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+  Body param: Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -75,7 +75,7 @@ Update a memory
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
     format: date-time
 
@@ -85,7 +85,7 @@ Update a memory
 
   - `memory_version_id: string`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: string`
 
@@ -93,7 +93,7 @@ Update a memory
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 

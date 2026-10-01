@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog-category/agents -->
 
+Explore here
+
 Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
@@ -15,6 +17,38 @@ Oops! Something went wrong while submitting the form.
 Grid
 
 List
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 29, 2026
+
+Agents you can coach: how Asana builds human-agent teams with Claude
+
+Agents
+
+Agents you can coach: how Asana builds human-agent teams with Claude
+
+September 29, 2026
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)Agents you can coach: how Asana builds human-agent teams with Claude
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](#)Agents you can coach: how Asana builds human-agent teams with Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 28, 2026
+
+Giving companies more control over their AI agents, with NVIDIA
+
+Agents
+
+Giving companies more control over their AI agents, with NVIDIA
+
+September 28, 2026
+
+[Giving companies more control over their AI agents, with NVIDIA](https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia)Giving companies more control over their AI agents, with NVIDIA
+
+[Giving companies more control over their AI agents, with NVIDIA](#)Giving companies more control over their AI agents, with NVIDIA
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
@@ -160,22 +194,6 @@ August 6, 2026
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Jul 24, 2026
-
-The new rules of context engineering for Claude 5 generation models
-
-Claude Code
-
-The new rules of context engineering for Claude 5 generation models
-
-July 24, 2026
-
-[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
-
-[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
-
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
 Jul 24, 2026
@@ -240,22 +258,6 @@ June 10, 2026
 
 [The evolution of agentic surfaces: building with Claude Managed Agents](#)The evolution of agentic surfaces: building with Claude Managed Agents
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-May 27, 2026
-
-Zero Trust for AI agents
-
-Enterprise AI
-
-Zero Trust for AI agents
-
-May 27, 2026
-
-[Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
-
-[Zero Trust for AI agents](#)Zero Trust for AI agents
-
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
@@ -263,6 +265,38 @@ Category
 Product
 
 Usecase
+
+### Agents you can coach: how Asana builds human-agent teams with Claude
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+September 29, 2026
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)Agents you can coach: how Asana builds human-agent teams with Claude
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](#)Agents you can coach: how Asana builds human-agent teams with Claude
+
+### Giving companies more control over their AI agents, with NVIDIA
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+September 28, 2026
+
+[Giving companies more control over their AI agents, with NVIDIA](https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia)Giving companies more control over their AI agents, with NVIDIA
+
+[Giving companies more control over their AI agents, with NVIDIA](#)Giving companies more control over their AI agents, with NVIDIA
 
 ### Reducing cost and improving performance with Claude Platform
 
@@ -408,22 +442,6 @@ August 6, 2026
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
-### The new rules of context engineering for Claude 5 generation models
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 24, 2026
-
-[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
-
-[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
-
 ### Claude models explained: choosing the best model for your use case
 
 Category
@@ -487,22 +505,6 @@ June 10, 2026
 [The evolution of agentic surfaces: building with Claude Managed Agents](https://claude.com/blog/building-with-claude-managed-agents)The evolution of agentic surfaces: building with Claude Managed Agents
 
 [The evolution of agentic surfaces: building with Claude Managed Agents](#)The evolution of agentic surfaces: building with Claude Managed Agents
-
-### Zero Trust for AI agents
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-May 27, 2026
-
-[Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
-
-[Zero Trust for AI agents](#)Zero Trust for AI agents
 
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 

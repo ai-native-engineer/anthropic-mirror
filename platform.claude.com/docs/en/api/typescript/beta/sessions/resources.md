@@ -43,97 +43,103 @@ Add Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -143,7 +149,7 @@ Add Session Resource
 
 ### Returns
 
-- `BetaManagedAgentsFileResource`
+- `interface BetaManagedAgentsFileResource`
 
   - `type: "file"`
 
@@ -225,97 +231,103 @@ List Session Resources
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -325,11 +337,9 @@ List Session Resources
 
 ### Returns
 
-- `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
+- `type BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
-  A memory store attached to an agent session.
-
-  - `BetaManagedAgentsGitHubRepositoryResource`
+  - `interface BetaManagedAgentsGitHubRepositoryResource`
 
     - `type: "github_repository"`
 
@@ -353,7 +363,7 @@ List Session Resources
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
 
-      - `BetaManagedAgentsBranchCheckout`
+      - `interface BetaManagedAgentsBranchCheckout`
 
         - `type: "branch"`
 
@@ -363,7 +373,7 @@ List Session Resources
 
           minLength: 1, maxLength: 255
 
-      - `BetaManagedAgentsCommitCheckout`
+      - `interface BetaManagedAgentsCommitCheckout`
 
         - `type: "commit"`
 
@@ -373,7 +383,7 @@ List Session Resources
 
           minLength: 7, maxLength: 64
 
-  - `BetaManagedAgentsFileResource`
+  - `interface BetaManagedAgentsFileResource`
 
     - `type: "file"`
 
@@ -395,7 +405,7 @@ List Session Resources
 
       format: date-time
 
-  - `BetaManagedAgentsMemoryStoreResource`
+  - `interface BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -407,7 +417,7 @@ List Session Resources
 
     - `access?: "read_write" | "read_only" | null`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 
@@ -494,7 +504,7 @@ Get Session Resource
 
   - `session_id: string`
 
-    Path param: Path parameter session_id
+    Path param
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -502,97 +512,103 @@ Get Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -602,11 +618,11 @@ Get Session Resource
 
 ### Returns
 
-- `ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
+- `type ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The requested session resource.
 
-  - `BetaManagedAgentsGitHubRepositoryResource`
+  - `interface BetaManagedAgentsGitHubRepositoryResource`
 
     - `type: "github_repository"`
 
@@ -630,7 +646,7 @@ Get Session Resource
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
 
-      - `BetaManagedAgentsBranchCheckout`
+      - `interface BetaManagedAgentsBranchCheckout`
 
         - `type: "branch"`
 
@@ -640,7 +656,7 @@ Get Session Resource
 
           minLength: 1, maxLength: 255
 
-      - `BetaManagedAgentsCommitCheckout`
+      - `interface BetaManagedAgentsCommitCheckout`
 
         - `type: "commit"`
 
@@ -650,7 +666,7 @@ Get Session Resource
 
           minLength: 7, maxLength: 64
 
-  - `BetaManagedAgentsFileResource`
+  - `interface BetaManagedAgentsFileResource`
 
     - `type: "file"`
 
@@ -672,7 +688,7 @@ Get Session Resource
 
       format: date-time
 
-  - `BetaManagedAgentsMemoryStoreResource`
+  - `interface BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -684,7 +700,7 @@ Get Session Resource
 
     - `access?: "read_write" | "read_only" | null`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 
@@ -758,7 +774,7 @@ Update Session Resource
 
   - `session_id: string`
 
-    Path param: Path parameter session_id
+    Path param
 
   - `authorization_token: string`
 
@@ -772,97 +788,103 @@ Update Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -872,11 +894,11 @@ Update Session Resource
 
 ### Returns
 
-- `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
+- `type ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The updated session resource.
 
-  - `BetaManagedAgentsGitHubRepositoryResource`
+  - `interface BetaManagedAgentsGitHubRepositoryResource`
 
     - `type: "github_repository"`
 
@@ -900,7 +922,7 @@ Update Session Resource
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
 
-      - `BetaManagedAgentsBranchCheckout`
+      - `interface BetaManagedAgentsBranchCheckout`
 
         - `type: "branch"`
 
@@ -910,7 +932,7 @@ Update Session Resource
 
           minLength: 1, maxLength: 255
 
-      - `BetaManagedAgentsCommitCheckout`
+      - `interface BetaManagedAgentsCommitCheckout`
 
         - `type: "commit"`
 
@@ -920,7 +942,7 @@ Update Session Resource
 
           minLength: 7, maxLength: 64
 
-  - `BetaManagedAgentsFileResource`
+  - `interface BetaManagedAgentsFileResource`
 
     - `type: "file"`
 
@@ -942,7 +964,7 @@ Update Session Resource
 
       format: date-time
 
-  - `BetaManagedAgentsMemoryStoreResource`
+  - `interface BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -954,7 +976,7 @@ Update Session Resource
 
     - `access?: "read_write" | "read_only" | null`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 
@@ -1028,7 +1050,7 @@ Delete Session Resource
 
   - `session_id: string`
 
-    Path param: Path parameter session_id
+    Path param
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -1036,97 +1058,103 @@ Delete Session Resource
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -1136,7 +1164,7 @@ Delete Session Resource
 
 ### Returns
 
-- `BetaManagedAgentsDeleteSessionResource`
+- `interface BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
 
@@ -1174,7 +1202,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
 ### Beta Managed Agents Delete Session Resource
 
-- `BetaManagedAgentsDeleteSessionResource`
+- `interface BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
 
@@ -1184,7 +1212,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
 ### Beta Managed Agents File Resource
 
-- `BetaManagedAgentsFileResource`
+- `interface BetaManagedAgentsFileResource`
 
   - `type: "file"`
 
@@ -1208,7 +1236,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
 ### Beta Managed Agents GitHub Repository Resource
 
-- `BetaManagedAgentsGitHubRepositoryResource`
+- `interface BetaManagedAgentsGitHubRepositoryResource`
 
   - `type: "github_repository"`
 
@@ -1232,7 +1260,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
   - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
 
-    - `BetaManagedAgentsBranchCheckout`
+    - `interface BetaManagedAgentsBranchCheckout`
 
       - `type: "branch"`
 
@@ -1242,7 +1270,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
         minLength: 1, maxLength: 255
 
-    - `BetaManagedAgentsCommitCheckout`
+    - `interface BetaManagedAgentsCommitCheckout`
 
       - `type: "commit"`
 
@@ -1254,7 +1282,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
 ### Beta Managed Agents Memory Store Resource
 
-- `BetaManagedAgentsMemoryStoreResource`
+- `interface BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
 
@@ -1266,7 +1294,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
   - `access?: "read_write" | "read_only" | null`
 
-    Access mode for an attached memory store.
+    Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `"read_write"`
 
@@ -1292,11 +1320,9 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
 ### Beta Managed Agents Session Resource
 
-- `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
+- `type BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
-  A memory store attached to an agent session.
-
-  - `BetaManagedAgentsGitHubRepositoryResource`
+  - `interface BetaManagedAgentsGitHubRepositoryResource`
 
     - `type: "github_repository"`
 
@@ -1320,7 +1346,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
 
-      - `BetaManagedAgentsBranchCheckout`
+      - `interface BetaManagedAgentsBranchCheckout`
 
         - `type: "branch"`
 
@@ -1330,7 +1356,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
           minLength: 1, maxLength: 255
 
-      - `BetaManagedAgentsCommitCheckout`
+      - `interface BetaManagedAgentsCommitCheckout`
 
         - `type: "commit"`
 
@@ -1340,7 +1366,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
           minLength: 7, maxLength: 64
 
-  - `BetaManagedAgentsFileResource`
+  - `interface BetaManagedAgentsFileResource`
 
     - `type: "file"`
 
@@ -1362,7 +1388,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
       format: date-time
 
-  - `BetaManagedAgentsMemoryStoreResource`
+  - `interface BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -1374,7 +1400,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
     - `access?: "read_write" | "read_only" | null`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 
@@ -1400,11 +1426,11 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
 ### Resource Retrieve Response
 
-- `ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
+- `type ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The requested session resource.
 
-  - `BetaManagedAgentsGitHubRepositoryResource`
+  - `interface BetaManagedAgentsGitHubRepositoryResource`
 
     - `type: "github_repository"`
 
@@ -1428,7 +1454,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
 
-      - `BetaManagedAgentsBranchCheckout`
+      - `interface BetaManagedAgentsBranchCheckout`
 
         - `type: "branch"`
 
@@ -1438,7 +1464,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
           minLength: 1, maxLength: 255
 
-      - `BetaManagedAgentsCommitCheckout`
+      - `interface BetaManagedAgentsCommitCheckout`
 
         - `type: "commit"`
 
@@ -1448,7 +1474,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
           minLength: 7, maxLength: 64
 
-  - `BetaManagedAgentsFileResource`
+  - `interface BetaManagedAgentsFileResource`
 
     - `type: "file"`
 
@@ -1470,7 +1496,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
       format: date-time
 
-  - `BetaManagedAgentsMemoryStoreResource`
+  - `interface BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -1482,7 +1508,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
     - `access?: "read_write" | "read_only" | null`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 
@@ -1508,11 +1534,11 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
 ### Resource Update Response
 
-- `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
+- `type ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The updated session resource.
 
-  - `BetaManagedAgentsGitHubRepositoryResource`
+  - `interface BetaManagedAgentsGitHubRepositoryResource`
 
     - `type: "github_repository"`
 
@@ -1536,7 +1562,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
 
-      - `BetaManagedAgentsBranchCheckout`
+      - `interface BetaManagedAgentsBranchCheckout`
 
         - `type: "branch"`
 
@@ -1546,7 +1572,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
           minLength: 1, maxLength: 255
 
-      - `BetaManagedAgentsCommitCheckout`
+      - `interface BetaManagedAgentsCommitCheckout`
 
         - `type: "commit"`
 
@@ -1556,7 +1582,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
           minLength: 7, maxLength: 64
 
-  - `BetaManagedAgentsFileResource`
+  - `interface BetaManagedAgentsFileResource`
 
     - `type: "file"`
 
@@ -1578,7 +1604,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
       format: date-time
 
-  - `BetaManagedAgentsMemoryStoreResource`
+  - `interface BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -1590,7 +1616,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 
     - `access?: "read_write" | "read_only" | null`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `"read_write"`
 

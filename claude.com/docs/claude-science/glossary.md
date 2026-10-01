@@ -21,7 +21,7 @@ One-sentence definitions for the terms you meet in Claude Science, from artifact
 **Memory**: notes Claude keeps about you and your projects across sessions, which you can review and edit.
 **Model endpoint**: a scientific domain-specific model server you register under Settings > Compute, that runs locally or connects to a vendor’s hosted solution, that Claude sends single prediction requests to.
 **Network allowlist**: the list of every outside host that sandboxed code may reach, kept under Settings or, on Team and Enterprise plans, managed by your organization.
-**Permission card**: the card that replaces the message box when Claude needs your permission for running code, running a job, accessing a network host, a folder, a connector tool, or re-configuring Claude Science; you allow or deny it.
+**Permission card**: the card that replaces the message box when Claude needs your permission for running code, running a job, accessing a network host, a folder, a connector tool, a saved credential, or re-configuring Claude Science; you allow or deny it.
 **Provenance (the artifact record)**: the panel behind every artifact version showing the code, cells, conversation, environment, and findings that produced it.
 **[Reviewer](https://claude.com/docs/claude-science/the-reviewer)**: the independent agent that re-examines Claude’s claims and artifacts at checkpoints, recording each issue it raises as a finding on the artifact’s Review tab; on some plans it runs in the background automatically.
 **Sandbox**: the isolated environment all of Claude’s code runs in; reaching outside it needs your approval.
@@ -30,5 +30,6 @@ One-sentence definitions for the terms you meet in Claude Science, from artifact
 **Skill**: an installable package of instructions and helper code that teaches Claude a method or tool.
 **Specialist**: a named set of skills, connectors, and instructions that a session answers as.
 **SSH host**: a remote machine (server, cluster node, or a job submission host) added by its SSH name, that Claude can run jobs on, or dispatch jobs from.
+**[Use case](https://claude.com/docs/claude-science/safeguards#choose-a-use-case)**: a research purpose that Anthropic has approved for your organization under the Life Sciences Verification Program (beta); if you have more than one, you choose which one a session uses.
 **Version**: one immutable save of an artifact; saving again adds a new version on top instead of overwriting.
 **Workspace**: the per-session folder on disk where Claude’s code reads and writes files before they are saved as artifacts.

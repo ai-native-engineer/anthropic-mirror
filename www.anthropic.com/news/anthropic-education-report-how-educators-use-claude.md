@@ -187,3 +187,21 @@ Esin Durmus, Alex Tamkin, Miles McCain, Stuart Ritchie, Jennifer Martinez, Ryan 
 2 Specifically, we used the following filter, powered by Claude, to identify educator-relevant conversations: “Is this conversation likely to be with an educator (teacher, professor, or instructor) seeking help with instructional content, grading, research, or administrative duties? Make sure to not include students doing their own coursework, research papers, etc. Err on the side of conservatism and assume it's not an educator if you're not sure.”
 
 \*In cases where the augmentation/automation category could not be identified, we excluded those from the chart. For more information on these categories, please see our Anthropic Economic Index [research](https://arxiv.org/pdf/2503.04761).
+
+### What work can robots do?
+
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
+
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
+
+### What do you want from AI?
+
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
+
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
+
+### GLM-5.3 and the spread of advanced cyber capabilities
+
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
+
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)

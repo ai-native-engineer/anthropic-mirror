@@ -4,17 +4,7 @@ Case study | Claude Platform
 
 # How Slack, a Salesforce company, unlocks organizational knowledge with Claude
 
-Try Claude
-
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Watch the video
-
-[Watch the video](https://www.youtube.com/watch?v=yB7xjOA05GM)Watch the video
+[Watch the video](https://www.youtube.com/watch?v=yB7xjOA05GM)
 
 <!-- yt-inline:yB7xjOA05GM -->
 [![How Slack uses Claude for AI search and summaries](https://img.youtube.com/vi/yB7xjOA05GM/hqdefault.jpg)](https://www.youtube.com/watch?v=yB7xjOA05GM)
@@ -97,25 +87,19 @@ in my entire career.
 </details>
 
 
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b04f983fe44407b24342be_Anthropic_x_Slack_Thumbnail_01%20(1).png)
+![Video thumbnail](https://assets.claude.com/952771917afd684f86ea53705f68e0b9ca6f969f.png?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 97 minutes per week
 
@@ -127,63 +111,19 @@ Claude excels at processing lengthy discussions and providing personalized tone 
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+[Read more](https://claude.com/product/claude-code)
 
 Introducing Agent Skills
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6902681b6935a6f61e64165c_og_introducing-agent-skills.jpg)
+![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
-Read more
-
-[Read more](https://claude.com/blog/skills)Read more
-
-Introducing Agent Skills
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Agent Skills
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/blog/skills)
 
 [**Slack**](https://slack.com/), the agentic work operating system, has teamed up with Anthropic as a key AI collaborator to fundamentally change how teams communicate and access knowledge. By leveraging the advanced capabilities of the Claude models, Slack is delivering a powerful suite of AI features that unlock organizational knowledge, accelerate workflows, and provide measurable impact for enterprise customers.
 
@@ -195,7 +135,7 @@ Through this collaboration, Slack has:
 * Respected content and channel permissions for enterprise security
 * Provided personalized tone and format for user interactions
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a0c6b012536ffc17f0b32b_Anthropic_x_Slack_Thumbnail_07.png)
+![](https://assets.claude.com/30f5713ef52f6ac17684c58788541ada07e8110c.png)
 
 Slack’s AI delivers prompt conversation summaries of channels and threads, highlighting key decisions and action items, tailored to the user.
 
@@ -210,7 +150,7 @@ Technical advantages that power this transformation include:
 
 "Anthropic has been instrumental as we’ve built our AI solution” said Ananya Helmich, VP of Software Engineering at Slack. “The exceptional quality and high performance of Claude models empower us to build AI-driven solutions that truly make a difference for our customers.”
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a0c6c5f61623fc3976193c_Anthropic_x_Slack_Thumbnail_02.png)
+![](https://assets.claude.com/51e661efc7ce62e5b6660fd11934edf9cc994cc7.png)
 
 Robert Ansel, Staff Site Reliability Engineer, said the team uses Claude Code to fix bugs and power teams to move faster.
 
@@ -229,58 +169,16 @@ By focusing on these deep-seated technical and efficiency improvements, Slack an
 
 ‍
 
-"Slack's close collaboration with Anthropic has helped our Engineering and Product teams accelerate prototyping and model testing."
+> "Slack's close collaboration with Anthropic has helped our Engineering and Product teams accelerate prototyping and model testing."
 
-Samuel Messing
+Samuel MessingVP of Engineering, Slack
 
-VP of Engineering, Slack
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

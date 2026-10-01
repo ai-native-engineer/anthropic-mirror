@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # Panorama unlocks student success with Claude in Amazon Bedrock
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Panorama Education logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c3026e6c5fdd2fc000a283_cs-logo-panorama-light-theme.svg)![Panorama Education logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c30270f8d2c9476edbf5fa_cs-logo-panorama-dark-theme.svg)
+![Panorama logo](https://assets.claude.com/c06c88f24bdbad47538643b411cdbf2489a1c53c.svg)
 
 Industry:
-
-Education
+:   Education
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 25% of U.S.
 
@@ -41,42 +30,6 @@ student population served
 11 states
 
 AI platform implementation
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Panorama empowers K-12 educators with Claude-powered AI tools that transform fragmented student data into actionable insights while maintaining strict privacy standards for sensitive educational information.
 
@@ -122,52 +75,12 @@ Panorama envisions AI as a transformative force for building more responsive lea
 
 Panorama aims to "increase capacity in K-12 education when it's most needed—reducing teacher burnout while enabling personalized learning experiences" by developing education-specific AI implementations. This helps districts embrace AI's potential in ways that complement existing practices, positioning educators and students for success in an AI-influenced world.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Magic School](https://assets.claude.com/cd32331aba30ee77bb8a9a4f6f769b3cf5819d14.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)[![Syracuse University](https://assets.claude.com/6faf42a6bf63981cdb21b56aa6c486dfe5f6aa5b.svg)
 
-[Next](#)Next
+### How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)[![Syracuse University (Vertical)](https://assets.claude.com/3b0fe1d2906982c88d627148ba2bf5455745aed5.png)
 
-Video caption
+### Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)[![RileyBot](https://assets.claude.com/14b0586643ee08e0793d5b808b741c51db9d4814.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
-
-MagicSchool on building a safety layer for millions of student conversations
-
-Customer story
-
-[Customer story](https://claude.com/customers/magicschool-qa)Customer story
-
-[How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
-
-How Syracuse University deployed Claude to every student, faculty member, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse)Customer story
-
-[Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse-university)Customer story
-
-[RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)RileyBot creates safe AI learning experiences for students with Claude
-
-RileyBot creates safe AI learning experiences for students with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rileybot)Customer story
+### RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)

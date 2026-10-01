@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-creative-work/delegation-and-diligence -->
 
-Lesson 6 of 8 · AI Fluency for Creative WorkDelegation and Diligence
+Lesson 6 of 8 · AI Fluency for creative workDelegation and Diligence
 
-3. /[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+3. /[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
-[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
 # Delegation and Diligence
 
@@ -47,7 +47,7 @@ Delegation decisions tend to collect around five recognizable roles. The next le
 
 [Previous lessonDescription and Discernment](https://academy.claude.com/courses/ai-fluency-for-creative-work/description-and-discernment)[Next lessonAI roles as Delegation outcomes](https://academy.claude.com/courses/ai-fluency-for-creative-work/ai-roles-as-delegation-outcomes)
 
-Lesson 6 of 8 · AI Fluency for Creative WorkDelegation and Diligence
+Lesson 6 of 8 · AI Fluency for creative workDelegation and Diligence
 
 Introduction
 

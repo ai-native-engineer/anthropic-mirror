@@ -4,33 +4,21 @@ Case study | Claude Agent SDK
 
 # OffDeal powers every stage of M&A advisory with one Claude-based agent
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69dfb9f557e79898179fab0d_logo_offdeal-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69dfb9f8b7f256e76966d4b2_logo_offdeal-dark-mode.svg)
+![OffDeal logo](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Agent SDK
-
-[Claude Platform](https://claude.com/platform/api)
+:   Claude Agent SDK[Claude Platform](https://claude.com/platform/api)
 
 Location:
-
-North America
+:   North America
 
 25% to 85% internal eval accuracy
 
@@ -54,67 +42,23 @@ with AI handling work across every phase of the deal lifecycle
 
 ## The challenge
 
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698395d5956e6e0e78f3e486_image-claude-sdk.jpg)
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-Read more
-
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)Read more
-
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Building agents with the Claude Agent SDK
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
 ## Context, not intelligence, as the bottleneck
 
 OffDeal uses AI across virtually every stage of a deal, from originating new clients to finding buyers, preparing materials, and running diligence. "I think we're the only investment bank in the world that has more engineers than bankers," said Ori Eldarov, CEO and founder at OffDeal. "We have 5 engineers and 4 bankers right now." Before the Claude Agent SDK, each of these workstreams ran on its own dedicated agentic workflow: one for building seller lists, another for buyer lists, another for creating confidential investment memorandums, and so on.
 
-"Each individual API call was smart,”  Eldarov explained. “But because we had to define the best way to solve a certain problem in advance, if we came across a problem outside the predefined instructions, the models did very poorly." The brittleness compounded with scale: OffDeal was growing fast, and every time a standard operating procedure changed, the corresponding workflow broke.
+"Each individual API call was smart,” Eldarov explained. “But because we had to define the best way to solve a certain problem in advance, if we came across a problem outside the predefined instructions, the models did very poorly." The brittleness compounded with scale: OffDeal was growing fast, and every time a standard operating procedure changed, the corresponding workflow broke.
 
 But the deepest constraint was context. A single deal can involve more than a hundred million tokens of relevant information: buyer profiles, past transactions, financial documents, market data. "The gap was coming not from the model intelligence, but from context, lack of context," Eldarov said. The team had been using a long-context model from another provider, packing the full context into each call to preserve accuracy over RAG. That approach worked until they hit the million-token limit, at which point API calls simply failed.
 
+Building agents with the Claude Agent SDK
+
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
+
+The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
+
+[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+
 ## The solution
-
-Financial services
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5244ff22e3ab8e64404a_68c469d1859e3e7ecf6c2310_og-claude-finance.jpeg)
-
-Accelerate financial due diligence, modeling, and analysis with enterprise-grade AI built for compliance and security.
-
-Read more
-
-[Read more](https://claude.com/solutions/financial-services)Read more
-
-Financial services
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Accelerate financial due diligence, modeling, and analysis with enterprise-grade AI built for compliance and security.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Financial services
-
-Accelerate financial due diligence, modeling, and analysis with enterprise-grade AI built for compliance and security.
 
 ## Claude Agent SDK for subagent orchestration
 
@@ -122,7 +66,7 @@ The team started investigating solutions: custom compaction, auto-summarization,
 
 The Agent SDK's built-in context management, including subagent orchestration and automatic compaction, meant the team could stop building workarounds and focus on banking workflows.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e157b0a7f363e89273146f_archie_deal_portal.png)
+![](https://assets.claude.com/0203401ce7b6c71e76c0d741eaddc9b19ed6631e.png)
 
 Archie, OffDeal's Claude-powered agent, drafts personalized chaser emails to 34 buyers from within the firm's Deal Portal. All names shown have been modified to preserve client confidentiality.
 
@@ -136,21 +80,17 @@ OffDeal encoded that expertise into a buyer sourcing skill. A long-running agent
 
 The skill architecture also opened up iteration to non-engineers. When OffDeal needed branded presentation capabilities, it was a banker, not an engineer, who built the skill. The banker taught Claude the firm's design system: fonts, margins, indentation, and 20 different slide templates. "End-to-end, no engineering was required, and now every banker on the team can use it," Eldarov said. “We’ve created hundreds of decks since then.” Each deck takes about an hour with Archie, compared to the 30 to 40 hours a traditional team would spend on research, production, and review cycles.
 
-“It surfaces buyers that a human team would be unlikely to find regardless of time or budget.”
+Financial services
 
-Ori Eldarov
+![Financial services](https://assets.claude.com/650d7729c393e0a6c243ebe61f9b6401c93fd1c8.jpg?w=2400&q=75&fm=webp&fit=max)
 
-CEO and founder
+Accelerate financial due diligence, modeling, and analysis with enterprise-grade AI built for compliance and security.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/solutions/financial-services)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> “It surfaces buyers that a human team would be unlikely to find regardless of time or budget.”
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Ori EldarovCEO and founder
 
 ## The outcome
 
@@ -164,42 +104,16 @@ Each OffDeal banker now manages five to eight concurrent deals and meets two to 
 
 A year in, the new process is working. Businesses that historically couldn’t attract investment banking coverage now get the same rigor of process, from buyer sourcing to deal execution, that was once reserved for much larger transactions. OffDeal plans to expand beyond its current focus on sell-side M&A, adding buy-side advisory, capital raises, and debt origination as it works toward becoming a full-service investment bank. “Effectively, Archie is your deal team,” Eldarov said. “You basically get the hive mind of the firm available to you.”
 
-“Just switching to the SDK moved our score on that eval from 25% to 60%. That's a massive climb just from switching a few lines of code.”
+> “Just switching to the SDK moved our score on that eval from 25% to 60%. That's a massive climb just from switching a few lines of code.”
 
-Ori Eldarov
+Ori EldarovCEO and founder
 
-CEO and founder
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-## Related stories
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![Money Forward](https://assets.claude.com/4b6d511a3fbb31c233614e47b3e8ce6f8b3e448c.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
-
-Money Forward builds an AI-native engineering organization with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/money-forward)Customer story
+### Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)

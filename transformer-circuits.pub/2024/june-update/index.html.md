@@ -11,6 +11,8 @@ New Posts
 * [Comparing TopK and Gated SAEs to standard SAEs](#topk-gated-comparison)
 * [Research By Other Groups](#external-research)
 
+---
+
 ## [Comparing TopK and Gated SAEs to standard SAEs](#topk-gated-comparison)
 
 Hoagy Cunningham, Tom Conerly
@@ -121,6 +123,8 @@ More detail on Clerp can be found in [Towards Monosemanticity.](https://transfor
 The above results give us confidence that both Gated SAEs and TopK SAEs are strong alternatives to standard SAEs with little downside risk and the potential to be a meaningful improvement. However, it’s still difficult to know whether the basis found by an SAE is better or worse. For example, an approach which solves or reduces shrinkage may significantly improve the MSE loss while the underlying feature basis remains unchanged. Gao et al try to measure the quality of the basis more directly by finding the quality of the best possible probe for certain binary datasets that use only a direction. This seems a principled approach but it's not clear which kinds of datasets we should expect features to discover clean probes for.
 
 Ultimately SAEs need to be judged on whether they provide additional insight into how the model works - can we use it to debug model issues? For steering? For finding circuits? For understanding the impact of fine-tuning? To improve robustness? It’s clear that the evaluations we have at the moment don’t get to the heart of what we care about and we’re excited to work on that and for future work from others which fills this gap.
+
+---
 
 ## [Research by Other Groups](#external-research)
 

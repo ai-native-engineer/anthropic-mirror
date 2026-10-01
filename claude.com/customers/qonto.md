@@ -4,35 +4,22 @@ Case study | Claude Platform
 
 # How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
 
-Try Claude
-
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a976300464881549da1554c_logo_qonto-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a97630545064ce67663c89b_logo_qonto-dark-mode.svg)
+![Qonto logo](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
+:   [Claude Platform](https://claude.com/platform/api)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-EMEA
+:   EMEA
 
 2X faster bank transfers
 
@@ -54,16 +41,6 @@ More than 600,000 businesses across eight European markets run their banking and
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
 ## **Admin remains the hidden tax**
 
 Qonto's customers run their own businesses: solopreneurs, freelancers, newly created companies, and small teams. Few have a finance team behind them, and financial admin has become a hidden tax on their time: they spend on average up to 8 hours every month on financial admin tasks. "They are not finance experts and they don't want to be," said Sophie Cornay, Business Unit Manager, AI Lab. "The manual, repetitive part of managing their finances takes too much time away from running the business."
@@ -73,16 +50,6 @@ Before Qonto launched its agents, using the platform meant learning it: finding 
 "When you do one transfer, it's okay, it's a few minutes, everyone can manage," Cornay explained. "When you have 10 transfers to do, that's where the repetitive aspect of the task starts to be a big pain. It's not only the action, it's the volume of actions." That volume cost customers up to 8 hours each month, according to Forrester’s analysis for Qonto’s customers. The other loss was insight: with no finance expertise in-house, cash flow lived in hand-built spreadsheets while account data went unused for decisions.
 
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ## **A compliance-first path to Claude**
 
@@ -106,21 +73,9 @@ All of these flows touch money. "Regulation is our moat,” Cornay said. “From
 
 Any action with a financial or customer relationship impact requires user confirmation. The review screen shows just enough to approve a transfer or judge whether an insight's data is accurate. On the most sensitive use cases, deterministic checks sit alongside the model in the architecture.
 
-"From day one, control, transparency and trust were built-in by design. We have always believed that the agent can prepare, the agent can recommend, the agent can give the insights, but the user makes the decision. AI doesn't reduce responsibility, it changes where it sits."
+> "From day one, control, transparency and trust were built-in by design. We have always believed that the agent can prepare, the agent can recommend, the agent can give the insights, but the user makes the decision. AI doesn't reduce responsibility, it changes where it sits."
 
-Sophie Cornay, Business Unit Manager
-
-AI Lab
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Sophie Cornay, Business Unit ManagerAI Lab
 
 ## The outcome
 
@@ -134,42 +89,16 @@ One solo entrepreneur hands over two or three new clients a day; the operator ag
 
 Banking reconciliation, one of customers' most painful tasks, is next on the roadmap. The medium-term ambition changes who starts the conversation. "The next step is moving to proactivity," Cornay said. "We start to pull the user when their attention is required, when there is an alert, versus having the user go into the app to perform tasks. This, we believe, at some point may disappear."
 
-"Users need to trust your agent, otherwise they don't delegate, and the value is when they start delegating"
+> "Users need to trust your agent, otherwise they don't delegate, and the value is when they start delegating"
 
-Sophie Cornay, Business Unit Manager
+Sophie Cornay, Business Unit ManagerAI Lab
 
-AI Lab
+[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-## Related stories
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-Pictet turns weeks of work into hours with Claude Code
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)[![Money Forward](https://assets.claude.com/4b6d511a3fbb31c233614e47b3e8ce6f8b3e448c.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
-
-[Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
-
-Money Forward builds an AI-native engineering organization with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/money-forward)Customer story
+### Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)

@@ -3,3 +3,8 @@ _yt-cache/
 .anthropic-mirror-state.json
 prompts/
 .agents/worktrees/
+.anthropic-mirror-status.json
+.anthropic-mirror-audit/
+__pycache__/
+.env
+.env.*

@@ -19,7 +19,11 @@ Redact a memory version
 
   - `String memoryStoreId`
 
+    The ID of the memory store that holds the version (`memstore_...`).
+
   - `Optional<String> memoryVersionId`
+
+    The ID of the memory version to redact (`memver_...`).
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -115,11 +119,23 @@ Redact a memory version
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ## Returns
 
-- `class BetaManagedAgentsMemoryVersion:`
+- `class BetaManagedAgentsMemoryVersion`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
 
@@ -131,13 +147,13 @@ Redact a memory version
 
   - `LocalDateTime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this version was written, in RFC 3339 format.
 
     format: date-time
 
   - `String memoryId`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `String memoryStoreId`
 
@@ -145,13 +161,19 @@ Redact a memory version
 
   - `BetaManagedAgentsMemoryVersionOperation operation`
 
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
 
     - `CREATED("created")`
 
+      The memory was created. The first version in any memory's lineage.
+
     - `MODIFIED("modified")`
 
+      The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
+
     - `DELETED("deleted")`
+
+      The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
 
   - `Optional<String> content`
 
@@ -169,53 +191,53 @@ Redact a memory version
 
   - `Optional<BetaManagedAgentsActor> createdBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
 
-    - `class BetaManagedAgentsSessionActor:`
+    - `class BetaManagedAgentsSessionActor`
 
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+      An agent acting during a session, for example through the session's mounted filesystem. It names the session itself, not the user or API key that started the session.
 
       - `Type type`
 
       - `String sessionId`
 
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
+        ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](https://platform.claude.com/docs/en/api/beta/sessions/retrieve) for further provenance.
 
         minLength: 1
 
-    - `class BetaManagedAgentsApiActor:`
+    - `class BetaManagedAgentsApiActor`
 
-      Attribution for a write made directly via the public API (outside of any session).
+      A direct caller of the public API, identified by the API key that authenticated the request.
 
       - `Type type`
 
       - `String apiKeyId`
 
-        ID of the API key that performed the write. This identifies the key, not the secret.
+        ID of the API key (an `apikey_...` value). This identifies the key, not the secret.
 
         minLength: 1
 
-    - `class BetaManagedAgentsUserActor:`
+    - `class BetaManagedAgentsUserActor`
 
-      Attribution for a write made by a human user through the Anthropic Console.
+      A human user, for example acting through the Anthropic Console.
 
       - `Type type`
 
       - `String userId`
 
-        ID of the user who performed the write (a `user_...` value).
+        ID of the user (a `user_...` value).
 
         minLength: 1
 
-    - `class BetaManagedAgentsServiceAccountActor:`
+    - `class BetaManagedAgentsServiceAccountActor`
 
-      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+      A workload authenticated as a service account, for example via Workload Identity Federation.
 
       - `JsonValue type = "service_account_actor"`
 
       - `String serviceAccountId`
 
-        ID of the service account that performed the write (a `svac_...` value).
+        ID of the service account (a `svac_...` value).
 
         minLength: 1
 
@@ -225,13 +247,13 @@ Redact a memory version
 
   - `Optional<LocalDateTime> redactedAt`
 
-    A timestamp in RFC 3339 format
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
 
     format: date-time
 
   - `Optional<BetaManagedAgentsActor> redactedBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
 
 ## Example
 

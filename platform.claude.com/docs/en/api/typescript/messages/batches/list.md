@@ -33,7 +33,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `workspace_id?: string`
 
@@ -43,7 +43,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 ## Returns
 
-- `MessageBatch`
+- `interface MessageBatch`
 
   - `type: "message_batch"`
 

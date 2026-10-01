@@ -4,41 +4,24 @@ Q&A | Claude Code
 
 # Cox Communications on scaling Claude across largest privately-held telecom company in US
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)
+![Cox Communications logo](https://assets.claude.com/35d574effa3dde30106bd5391b519b38c0eb5954.svg)
 
 Industry:
-
-Telecommunications
+:   Telecommunications
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Cowork](https://claude.com/product/cowork)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Code](https://claude.com/product/claude-code)[Claude Cowork](https://claude.com/product/cowork)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Partner:
-
-Accenture
-
-AWS
+:   AccentureAWS
 
 Location:
-
-North America
+:   North America
 
 7x ROI
 
@@ -50,35 +33,13 @@ more than half of them outside engineering
 
 Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Read more
+[Read more](https://claude.com/product/cowork)
 
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Prev](#)Prev
-
-[Next](#)Next
+*June 25, 2026*
 
 [Cox Communications](https://www.cox.com/residential/home.html) is a family-owned company and the third-largest cable provider in the United States, serving six million customers over a fiber-powered network that reaches roughly 12 million homes and businesses. Mark Greatrex, the company's president, and Eric Pace, who leads its Center of Excellence for AI, sat down with Anthropic to talk about rolling out AI to 15,000 colleagues, why leadership and values shaped the path, and what they are building next.
 
@@ -96,11 +57,9 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 **Greatrex:** I trust our teams: We set a high bar, create a framework, and in return Eric and the team gave us security, governance, and the discipline to build the business cases. They've earned the credibility to decide which are the best tools.
 
-"I built a personal-brand engine the other day in Cowork. After a couple of months, there's infinite power there for the everyday person."
+> "I built a personal-brand engine the other day in Cowork. After a couple of months, there's infinite power there for the everyday person."
 
-Eric Pace
-
-Head of AI, Cox Communications
+Eric PaceHead of AI, Cox Communications
 
 ## How much do the values of an AI partner factor into which AI companies Cox works with?
 
@@ -130,41 +89,17 @@ We're on our way to 2,500 Claude Code users and climbing, more than half of them
 
 Claude on Amazon Bedrock
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
 Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
-Read more
+> "Our default guidance to teams is: if you're going to use an LLM in the cloud, use Anthropic through Amazon Bedrock."
 
-[Read more](#)Read more
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Amazon Bedrock
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-"Our default guidance to teams is: if you're going to use an LLM in the cloud, use Anthropic through Amazon Bedrock."
-
-Eric Pace
-
-Head of AI, Cox Communications
+Eric PaceHead of AI, Cox Communications
 
 ## How did you bring skeptical leaders along?
 
-**Greatrex:** We’re pioneering a new frontier so it’s natural to have some healthy skepticism. But it’s important to stay curious and open your mind to what’s possible.  Eric and his team took building the business cases and reading back the ROI very seriously. I spent enough time with Eric to see the vision and the value, and I knew there was a real there there.
+**Greatrex:** We’re pioneering a new frontier so it’s natural to have some healthy skepticism. But it’s important to stay curious and open your mind to what’s possible. Eric and his team took building the business cases and reading back the ROI very seriously. I spent enough time with Eric to see the vision and the value, and I knew there was a real there there.
 
 **Pace:** For example, we have a project we call The Cube. The Cube is a six-layer set of data and AI-generated inferences about customer behavior, built on top of the classic machine learning and data science we already had. What Claude adds is the layer on top. It's one thing for a classic machine-learning model to give you a churn prediction. It's another to extend that prediction, make it situational and context-aware, and then lay out all the situations in which we need to treat that churn, because churn isn't treated equally in every scenario. When you tell people you're going to *extend* ML models, they ask what you're even talking about. So you tell the same story a thousand times, you get Claude to help you rewrite it, and you have the conversation once more. Once you see it click in the room, the ideas start flowing, and that's when you go build something together.
 
@@ -182,38 +117,12 @@ The one I want to crack is the revenue side. My expectation is that 70 to 80% of
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Claude Code
+[Read more](https://claude.com/product/claude-code)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Cox Communications](https://assets.claude.com/35d574effa3dde30106bd5391b519b38c0eb5954.svg)
 
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture](https://claude.com/customers/cox-and-accenture)Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture
-
-Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture
-
-Customer story
-
-[Customer story](https://claude.com/customers/cox-and-accenture)Customer story
+### Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture](https://claude.com/customers/cox-and-accenture)

@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # How Artemis helps security teams cut incident resolution time by 96%
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f3caddc7a4d22e4b14c35e_logo_artemis-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f3cae4681bbbe2016599d9_logo_artemis-dark-mode.svg)
+![Artemis logo](https://assets.claude.com/48f27f7275d9b4de4be5bb1911d5ad1a92ec95e0.svg)
 
 Industry:
-
-Cybersecurity
+:   Cybersecurity
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 90% increase in detection coverage
 
@@ -54,32 +43,6 @@ creating a flywheel between engineering velocity and product capability
 
 ## The challenge
 
-How security teams use Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d6783bc42852d89226d1ff_og-security.jpg)
-
-Claude helps security teams investigate threats, validate findings, and resolve issues faster.
-
-Read more
-
-[Read more](https://claude.com/solutions/security)Read more
-
-How security teams use Claude
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude helps security teams investigate threats, validate findings, and resolve issues faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How security teams use Claude
-
-Claude helps security teams investigate threats, validate findings, and resolve issues faster.
-
 ## The gap between threats and defenses
 
 AI-powered threats can now run from initial access to data exfiltration with minimal human intervention, outpacing an entire generation of defensive technology. Traditional security stacks, built on static rule sets and manual investigation workflows, weren't built for this.
@@ -88,29 +51,15 @@ The problem runs deep. A skilled detection engineer in any security organization
 
 "You can't bolt intelligence onto a fundamentally static architecture," says Dan Shiebler, co-founder and CTO, at Artemis. "You have to start over, with AI as the reasoning engine, not an add-on."
 
+How security teams use Claude
+
+![How security teams use Claude](https://assets.claude.com/eae38b41a06a5518c4438cb1d721b9b42647cfe2.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Claude helps security teams investigate threats, validate findings, and resolve issues faster.
+
+[Read more](https://claude.com/solutions/security)
+
 ## The solution
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Amazon Bedrock
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
 ## Why Artemis chose Claude
 
@@ -118,21 +67,15 @@ Artemis evaluated multiple model providers before building its platform on Claud
 
 "The depth of Claude's reasoning capability, combined with Anthropic's commitment to safety and the enterprise trust of Amazon Bedrock, has been a fundamental piece in how we designed Artemis' platform," says Shachar Hirshberg, co-founder and CEO at Artemis. Every customer runs in a SOC2-compliant dedicated single-tenant environment. Customer data is never shared across tenants and is never used to train models.
 
-"The depth of Claude's reasoning capability, combined with Anthropic's commitment to safety, has been a fundamental piece in how we designed Artemis' platform."
+Claude on Amazon Bedrock
 
-Shachar Hirshberg
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
-Co-founder and CEO, Artemis
+Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "The depth of Claude's reasoning capability, combined with Anthropic's commitment to safety, has been a fundamental piece in how we designed Artemis' platform."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Shachar HirshbergCo-founder and CEO, Artemis
 
 ## The outcome
 
@@ -150,42 +93,16 @@ Analysts can also query their security data in English, asking to see suspicious
 
 What's less visible but equally important: Artemis uses Claude not just in the product, but to build the product. 100% of the engineers work with Claude Code as a core part of their development workflow. Over 300 custom Claude skills encode the team's operational playbook, from creating new detectors to managing infrastructure and reviewing code. Internal tools become product features. The engineering team ships faster the more it builds.
 
-"We help them go from triaging a fraction of alerts to having every single alert investigated with the same analytical rigor."
+> "We help them go from triaging a fraction of alerts to having every single alert investigated with the same analytical rigor."
 
-Shachar Hirshberg
+Shachar HirshbergCo-founder and CEO, Artemis
 
-Co-founder and CEO, Artemis
+[![Vega Security](https://assets.claude.com/4e1839348313fbe4c8f3c96d6c7cbc95f53e13c6.svg)
 
-## Related stories
+### Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)Vega's cyber defense platform returns 67% of analysts' time with Claude
+### Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-Vega's cyber defense platform returns 67% of analysts' time with Claude
+### Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera)[![Kai](https://assets.claude.com/aff2397c0fd3708b6d0b23554c2ce5f81a3f7c56.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/vega)Customer story
-
-[Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
-
-Cyera on making Claude Cowork the front door to 40 tools
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera-qa)Customer story
-
-[Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera) Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera)Customer story
-
-[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
-
-Kai delivers preemptive exposure management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/kai)Customer story
+### Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai)

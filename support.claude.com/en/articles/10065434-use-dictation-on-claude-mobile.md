@@ -53,6 +53,6 @@ Learn more about our privacy practices by visiting our **[Privacy Policy](https:
 
 * [Use Claude app intents, shortcuts, and widgets on iOS](https://support.claude.com/en/articles/10263469-use-claude-app-intents-shortcuts-and-widgets-on-ios)
 * [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
+* [How to use Claude in your preferred language](https://support.claude.com/en/articles/10769299-how-to-use-claude-in-your-preferred-language)
 * [Use voice mode](https://support.claude.com/en/articles/11101966-use-voice-mode)
 * [Use quick entry with Claude Desktop on Mac](https://support.claude.com/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac)
-* [Use dictation in Office agents](https://support.claude.com/en/articles/14479591-use-dictation-in-office-agents)

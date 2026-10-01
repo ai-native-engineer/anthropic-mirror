@@ -6,10 +6,10 @@
 
 Claude Code provides analytics dashboards to help organizations understand developer usage patterns, track contribution metrics, and measure how Claude Code impacts engineering velocity. Access the dashboard for your plan:
 
-| Plan                          | Dashboard URL                                                              | Includes                                                                              | Read more                                            |
-| ----------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| Plan | Dashboard URL | Includes | Read more |
+| - | - | - | - |
 | Claude for Teams / Enterprise | [claude.ai/analytics/claude-code](https://claude.ai/analytics/claude-code) | Usage metrics, contribution metrics with GitHub integration, leaderboard, data export | [Details](#access-analytics-for-team-and-enterprise) |
-| API (Claude Console)          | [platform.claude.com/claude-code](https://platform.claude.com/claude-code) | Usage metrics, spend tracking, team insights                                          | [Details](#access-analytics-for-api-customers)       |
+| API (Claude Console) | [platform.claude.com/claude-code](https://platform.claude.com/claude-code) | Usage metrics, spend tracking, team insights | [Details](#access-analytics-for-api-customers) |
 
 ## Access analytics for Team and Enterprise
 
@@ -22,7 +22,7 @@ The Team and Enterprise dashboard includes:
 * **Leaderboard**: top contributors ranked by Claude Code usage
 * **Data export**: download contribution data as CSV for custom reporting
 
-For per-user token counts and cost estimates, configure [OpenTelemetry export](/docs/en/monitoring-usage), or export the [spend report](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans) from your organization's analytics settings, which lists token usage and estimated usage-credit spend per user and per model.
+For per-user token counts and cost estimates, configure [OpenTelemetry export](https://code.claude.com/docs/en/monitoring-usage), or export the [spend report](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans) from your organization's analytics settings, which lists token usage and estimated usage-credit spend per user and per model.
 
 ### Enable contribution metrics
 
@@ -35,7 +35,7 @@ Usage and adoption data is available for all Claude for Teams and Claude for Ent
 You need the Owner role to configure analytics settings. A GitHub admin must install the GitHub app.
 
 <Warning>
-  Contribution metrics are not available for organizations with [Zero Data Retention](/docs/en/zero-data-retention) enabled. The analytics dashboard will show usage metrics only.
+  Contribution metrics are not available for organizations with [Zero Data Retention](https://code.claude.com/docs/en/zero-data-retention) enabled. The analytics dashboard will show usage metrics only.
 </Warning>
 
 <Steps>
@@ -217,6 +217,6 @@ The team insights table shows per-user metrics:
 
 ## Related resources
 
-* [Monitoring with OpenTelemetry](/docs/en/monitoring-usage): export real-time metrics and events to your observability stack
-* [Manage costs effectively](/docs/en/costs): set spend limits and optimize token usage
-* [Permissions](/docs/en/permissions): configure roles and permissions
+* [Monitoring with OpenTelemetry](https://code.claude.com/docs/en/monitoring-usage): export real-time metrics and events to your observability stack
+* [Manage costs effectively](https://code.claude.com/docs/en/costs): set spend limits and optimize token usage
+* [Permissions](https://code.claude.com/docs/en/permissions): configure roles and permissions

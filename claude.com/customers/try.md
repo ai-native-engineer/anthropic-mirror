@@ -4,31 +4,21 @@ Case study | Claude Enterprise
 
 # TRY accelerates creative excellence with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Try logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c3354e61e3b3d2de2da3de_cs-logo-try-light-theme.svg)![Try logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c33551b3386b58987702cd_cs-logo-try-dark-theme.svg)
+![Try logo](https://assets.claude.com/5ef31636e1e6d506b13f0b3ee37a44f0cfda6c9c.svg)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Enterprise
+:   Claude Enterprise
 
 Location:
-
-Europe
+:   Europe
 
 30% time savings
 
@@ -37,42 +27,6 @@ reduction in routine tasks
 40% faster proposals
 
 improving competitiveness
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Norway's largest communications group, TRY, uses Claude Enterprise to transform routine tasks into strategic opportunities, enabling their 400+ creative professionals to focus on delivering breakthrough work for clients.
 
@@ -126,52 +80,12 @@ Looking ahead, TRY envisions deeper integration of Claude with other tools and p
 
 The organization continues expanding AI literacy programs across all teams, developing specialized AI expertise in creative, strategic, and technical areas, and refining AI workflows to improve efficiency and quality. TRY's implementation shows that with the right approach, AI can enhance human creativity rather than replace it—a principle that drives their vision for the future of the creative industry.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-[Next](#)Next
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-Video caption
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
-
-Caylent turns months of migration work into days with Claude Agent SDK
-
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)

@@ -30,7 +30,7 @@ returned.
 
   Maximum results (default: 20, max: 100)
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `organization_ids: optional array of string`
 
@@ -76,12 +76,6 @@ returned.
 
 ### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 ### Returns
@@ -93,6 +87,22 @@ returned.
   - `id: string`
 
     Artifact identifier (tagged ID)
+
+  - `artifact_type: "claude_design" or "claude_design_systems" or "claude_docs" or 3 more`
+
+    Which kind of Artifact this is: `code` for a site published from Claude Code, or the built-in Artifact type it was made from — `claude_docs` (Claude Docs), `claude_slides` (Slides), `claude_design` (Design) or `claude_design_systems` (a design system). `other` is an Artifact made from a built-in type this list does not name yet.
+
+    - `"claude_design"`
+
+    - `"claude_design_systems"`
+
+    - `"claude_docs"`
+
+    - `"claude_slides"`
+
+    - `"code"`
+
+    - `"other"`
 
   - `organization_uuid: string`
 
@@ -126,12 +136,7 @@ returned.
 
   - `user: object or null`
 
-    The user who owns a Code Artifact.
-
-    Fields that reference this type are null when the Artifact was
-    published by an agent session rather than a user account, when the
-    owner's account has been deleted, or when the owner is no longer a
-    member of an organization the key may read.
+    Artifact owner with email, or null if the Artifact was published by an agent session, the owner's account has been deleted, or the owner is no longer a member of an organization the key may read
 
     - `id: string`
 
@@ -171,6 +176,7 @@ returned.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/code/artifacts \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -181,6 +187,7 @@ curl https://api.anthropic.com/v1/compliance/apps/code/artifacts \
   "data": [
     {
       "id": "cart_01Tu9VwXyZaBcDeFgHiJkLmN",
+      "artifact_type": "claude_docs",
       "organization_uuid": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
       "owner_user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
       "published_version_id": "1741803761-9f3a",
@@ -214,8 +221,11 @@ response body.
 Returns 404 for Artifacts that don't exist or belong to another parent
 organization. A listed version id can start returning 404 if subsequent
 publishes rotated it out of retained history — re-list on 404. Returns
-503 while the version's content upload is
-still in flight or was abandoned — retry with backoff. Oversized
+503 while the version's content upload is still in flight or was
+abandoned — retry with backoff. Returns 422 for a version that has more
+than one file, because the Compliance API returns only single-file
+versions. Do not retry a 422. The 422's `error.details.error_code` is
+`multi_file_unavailable`. Oversized
 encoded content aborts mid-stream: headers and initial bytes arrive
 but the body terminates early — an aborted chunked transfer is the
 only truncation signal for encoded content. `Content-MD5` is emitted
@@ -233,18 +243,13 @@ only for identity-stored content; validate against it when present.
 
 ### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 ### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID/versions/$VERSION_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -269,12 +274,6 @@ Artifact.
 
 ### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 ### Returns
@@ -294,6 +293,7 @@ Artifact.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -312,11 +312,29 @@ curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID \
 
 - `ArtifactListResponse object`
 
-  A hosted site published via Claude Code.
+  An Artifact: a site published from Claude Code, or a document made
+  from one of Anthropic's built-in Artifact types (Claude Docs, Slides,
+  Design, …). `artifact_type` says which.
 
   - `id: string`
 
     Artifact identifier (tagged ID)
+
+  - `artifact_type: "claude_design" or "claude_design_systems" or "claude_docs" or 3 more`
+
+    Which kind of Artifact this is: `code` for a site published from Claude Code, or the built-in Artifact type it was made from — `claude_docs` (Claude Docs), `claude_slides` (Slides), `claude_design` (Design) or `claude_design_systems` (a design system). `other` is an Artifact made from a built-in type this list does not name yet.
+
+    - `"claude_design"`
+
+    - `"claude_design_systems"`
+
+    - `"claude_docs"`
+
+    - `"claude_slides"`
+
+    - `"code"`
+
+    - `"other"`
 
   - `organization_uuid: string`
 
@@ -350,12 +368,7 @@ curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID \
 
   - `user: object or null`
 
-    The user who owns a Code Artifact.
-
-    Fields that reference this type are null when the Artifact was
-    published by an agent session rather than a user account, when the
-    owner's account has been deleted, or when the owner is no longer a
-    member of an organization the key may read.
+    Artifact owner with email, or null if the Artifact was published by an agent session, the owner's account has been deleted, or the owner is no longer a member of an organization the key may read
 
     - `id: string`
 

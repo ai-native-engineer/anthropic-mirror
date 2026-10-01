@@ -29,9 +29,13 @@ Retrieve detailed information about a specific work item.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -161,7 +165,7 @@ Long poll for work items in the queue.
 
 ### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -282,7 +286,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
 ### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -409,7 +413,7 @@ Record a heartbeat for a work item to maintain the lease.
 
 ### Returns
 
-- `SelfHostedWorkHeartbeatResponse`
+- `class SelfHostedWorkHeartbeatResponse`
 
   - `"work_heartbeat" type`
 
@@ -495,9 +499,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -626,7 +634,7 @@ List work items in an environment.
 
 ### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -755,9 +763,13 @@ Update work item metadata with merge semantics.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -874,9 +886,13 @@ Get statistics about the work queue for an environment.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `SelfHostedWorkQueueStats`
+- `class SelfHostedWorkQueueStats`
 
   - `"work_queue_stats" type`
 
@@ -932,7 +948,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -988,7 +1004,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work Heartbeat Response
 
-- `SelfHostedWorkHeartbeatResponse`
+- `class SelfHostedWorkHeartbeatResponse`
 
   - `"work_heartbeat" type`
 
@@ -1012,7 +1028,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work List Response
 
-- `SelfHostedWorkListResponse`
+- `class SelfHostedWorkListResponse`
 
   - `list<SelfHostedWork> data`
 
@@ -1024,7 +1040,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work Queue Stats
 
-- `SelfHostedWorkQueueStats`
+- `class SelfHostedWorkQueueStats`
 
   - `"work_queue_stats" type`
 
@@ -1048,7 +1064,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work Stop Request
 
-- `SelfHostedWorkStopRequest`
+- `class SelfHostedWorkStopRequest`
 
   - `?bool force`
 
@@ -1056,7 +1072,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work Update Request
 
-- `SelfHostedWorkUpdateRequest`
+- `class SelfHostedWorkUpdateRequest`
 
   - `array<string,string> metadata`
 
@@ -1064,7 +1080,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 
 ### Beta Session Work Data
 
-- `SessionWorkData`
+- `class SessionWorkData`
 
   - `"session" type`
 

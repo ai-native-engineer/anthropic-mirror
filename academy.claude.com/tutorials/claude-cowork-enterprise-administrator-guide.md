@@ -6,7 +6,7 @@
 
 # Claude Cowork Enterprise Admin Guide
 
-Claude Cowork brings Claude’s agentic capabilities to the Claude Desktop app, enabling multi-step knowledge work beyond coding
+Claude Cowork brings Claude’s agentic capabilities to Claude.ai and the Claude Desktop app, enabling multi-step knowledge work beyond coding
 
 20 minClaude Cowork
 
@@ -20,11 +20,11 @@ Claude Cowork brings Claude’s agentic capabilities to the Claude Desktop app, 
 
 Claude Cowork brings Claude’s agentic capabilities to Claude.ai and the Claude Desktop app, enabling multi-step knowledge work beyond coding. Rather than responding to individual prompts sequentially, Claude can tackle complex, multi-step tasks and execute them on a user’s behalf. Users delegate work and return to polished deliverables like formatted documents, organized files, synthesized research, and more.
 
-Claude Cowork sits alongside Chat in [Claude.ai(opens in new tab)](http://claude.ai), the API, and Claude Code in the Claude product lineup. What distinguishes it for enterprise is the combination of local file access, connectors to the tools your teams already use (e.g. Slack, Google Workspace, M365), a plugin ecosystem with repeatable workflows that organizations can curate and govern, and scheduled tasks that run on a cadence. It requires the Claude Desktop app on macOS, Windows, or Linux (where support is in beta) and is available on all Claude paid plans.
+Claude Cowork sits alongside Chat in [Claude.ai(opens in new tab)](http://claude.ai), the API, and Claude Code in the Claude product lineup. What distinguishes it for enterprise is the combination of local file access, connectors to the tools your teams already use (e.g. Slack, Google Workspace, M365), a plugin ecosystem with repeatable workflows that organizations can curate and govern, and scheduled tasks that run on a cadence. It is available on all Claude paid plans, on the web and in the Claude Desktop app for macOS, Windows, and Linux (in beta); working with local files and desktop applications requires the desktop app.
 
 ### Requirements[](#requirements)
 
-* **Claude Desktop app:** Claude Cowork requires the desktop app for macOS, Windows, or Linux. Linux support (Debian and Ubuntu) is in beta, and the Cowork tab is available there alongside Chat and Code. Claude Cowork is not currently available on mobile.
+* **Claude Desktop app:** Required for work on local files, desktop applications, or the browser. Available for macOS, Windows, and Linux (Debian and Ubuntu, in beta). Claude Cowork is also available on the web and in the Claude mobile app, subject to your organization's settings.
 * **Claude subscription:** Claude Cowork is available to paid Claude plans (Pro, Max, Team, and Enterprise), with some features still in research preview. Learn more [here(opens in new tab)](https://claude.com/pricing#team-&-enterprise).
 * **Active internet connection:** Required throughout the session.
 * **Connectors:** Claude Cowork is most powerful when you connect it to your favorite apps, services, and data sources via connectors.
@@ -67,7 +67,7 @@ Verify your fleet and network can support it — endpoint and network issues are
 
 #### Start your security review
 
-* Assemble your review packet from the [Anthropic Trust Center(opens in new tab)](https://trust.anthropic.com) and the [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135) article. This can run in parallel with the rest of Phase 1. Note that Audit Logs do not cover Claude Cowork yet. The Compliance API returns Claude Cowork session transcripts, in beta for Claude Enterprise organizations.
+* Assemble your review packet from the [Anthropic Trust Center(opens in new tab)](https://trust.anthropic.com) and the [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135) article. This can run in parallel with the rest of Phase 1. Note that Audit Logs do not cover Claude Cowork yet. The Compliance API returns Claude Cowork session transcripts for Claude Enterprise organizations.
 
 ### Identity & Access[](#identity-access)
 
@@ -131,7 +131,7 @@ Before opening Claude Cowork to your pilot group, confirm:
 
 ## Phase 2: Change Management & Launch[](#phase-2-change-management-launch)
 
-Claude Cowork introduces a fundamentally different way of working with Claude. In Chat, users collaborate — prompting back and forth to work toward an answer together. In Claude Cowork, users delegate — they describe a task, provide context and tools, define what good looks like, and come back to finished work.
+Claude Cowork introduces a fundamentally different way of working with Claude. In a chat, users collaborate — prompting back and forth to work toward an answer together. In Claude Cowork, users delegate — they describe a task, provide context and tools, define what good looks like, and come back to finished work.
 
 An ideal Claude Cowork task produces a deliverable: a document, a financial model, a research memo, a formatted report. A successful task means the user got the output they expected, in the form they needed. This is the shift your enablement program needs to drive: from chatting to creating.
 
@@ -199,7 +199,7 @@ Champions are enthusiastic adopters who can help drive peer adoption across thei
 
 ### Launch Communications[](#launch-communications)
 
-Stage your communications so users know what’s coming, why it matters, and where to go for help. Claude Cowork is accessed from the Claude desktop app and works with your files, tools, and browser — it's a different experience from claude.ai and your messaging should set that expectation.
+Stage your communications so users know what’s coming, why it matters, and where to go for help. Claude Cowork works with your files, tools, and browser and hands back finished work — it's a different experience from asking Claude questions, and your messaging should set that expectation.
 
 Every message should reinforce the delegation model: Claude Cowork produces deliverables, not just answers. Users describe a task, provide context and tools, define what good looks like, and come back to finished work.
 
@@ -255,7 +255,7 @@ Without enablement, users may treat Claude Cowork as indistinguishable from Chat
 #### General AI literacy
 
 * [Claude Academy(opens in new tab)](https://academy.claude.com/) — interactive courses on AI fundamentals and prompt engineering.
-* [AI Fluency Course(opens in new tab)](https://academy.claude.com/collections/ai-fluency) — broader AI literacy for users new to working with AI.
+* [Collaborating with AI(opens in new tab)](https://academy.claude.com/collections/collaborating-with-ai) — broader AI literacy for users new to working with AI.
 * [Prompt Engineering Guide(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) — techniques for getting better results from Claude.
 * [Help Center(opens in new tab)](https://support.claude.com) — comprehensive documentation and FAQs.
 
@@ -304,13 +304,13 @@ As usage grows, your governance needs grow with it. Start with the org-level con
 * **Connector access:** Org-wide on/off. When you enable a new connector, it’s available to everyone — plan your rollout communications accordingly.
 * **Spend controls:** Group-based spend limits with most-restrictive precedence. An org-level cap overrides individual seat limits.
 * **Plugin marketplace:** Curate which plugins appear in your organization's marketplace. Configure distribution policies, pre-approve plugins, and use group-level overrides to control availability per team. Works with SCIM groups.
+* **Skill and plugin publishing:** Org-level setting with three values (Organization settings > Skills, Policy tab). Off: users can't submit skills or plugins to your organization's library, though owners can still add them directly. Requires review: an owner, or anyone whose role has Libraries set to “Can manage”, approves each submission on the Requests tab of the same page before it's published. Open: submissions publish without review.
 * **RBAC:** Control who can access Claude Cowork, Claude Code, and other product surfaces via custom roles assigned to groups.
 
 #### What requires manual governance today
 
-* **Skill review and approval:** There is no in-product workflow for submitting, reviewing, and approving skills. If you want governance over skill creation, you’ll need to build a process outside of Claude Cowork — for example, a request form, a review committee, and a shared directory of approved skills.
 * **Per-group connector access:** Connectors are currently org-wide (on/off). If you need different teams to have access to different connectors, this requires multiple orgs or a manual policy layer.
-* **Peer-to-peer and peer-to-org sharing controls:** Sharing is currently an org-level toggle (on/off), not per-group.
+* **Peer-to-peer and peer-to-org sharing controls:** Skill sharing, Share with groups and Publishing are set for the whole organization in Organization settings > Skills (Policy tab). On Enterprise, users can also share with a specific group once an admin turns on Share with groups (off by default), and custom roles, where you use them, decide who can.
 
 #### Ongoing governance practices
 

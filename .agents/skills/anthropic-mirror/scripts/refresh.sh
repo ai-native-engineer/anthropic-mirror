@@ -34,15 +34,22 @@ require_file() {
 for file in \
   "$SKILL_DIR/SKILL.md" \
   "$REPO_ROOT/AGENTS.md" \
+  "$SKILL_DIR/assets/mirror-manifest.json" \
+  "$SKILL_DIR/scripts/mirror-common.py" \
   "$SKILL_DIR/scripts/crawl-site.py" \
   "$SKILL_DIR/scripts/academy-video.py" \
+  "$SKILL_DIR/scripts/coverage-audit.py" \
   "$SKILL_DIR/scripts/add-pdf-text-layer.py" \
   "$SKILL_DIR/scripts/verify-publish.py"; do
   require_file "$file"
 done
 
 if [ "${SELF_TEST:-0}" = 1 ]; then
-  PYTHONDONTWRITEBYTECODE=1 python3 "$SKILL_DIR/scripts/add-pdf-text-layer.py" --self-test
+  export PYTHONDONTWRITEBYTECODE=1
+  "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/crawl-site.py" "$REPO_ROOT" --self-test
+  "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" --self-test
+  python3 "$CRAWL_SCRIPTS_DIR/verify-mirror.py" --self-test
+  python3 "$SKILL_DIR/scripts/add-pdf-text-layer.py" --self-test
   python3 "$SKILL_DIR/scripts/verify-publish.py" --self-test
   echo "self-test ok"
   exit 0
@@ -92,6 +99,10 @@ export CRAWL_SCRIPTS_DIR YOUTUBE_DIGEST_SCRIPTS_DIR
 
 if [ "${CHECK_ONLY:-0}" = 1 ]; then
   PYTHONDONTWRITEBYTECODE=1 python3 "$SKILL_DIR/scripts/add-pdf-text-layer.py" "$REPO_ROOT" --check
+  # 세션 파일이 있어도 만료됐을 수 있다. 실제 /accounts/ 착지로 확인한다(만료면 exit 3).
+  "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" "$REPO_ROOT" --check-auth
+  SKILLJAR_BASE=https://anthropic-partners.skilljar.com \
+    "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" "$REPO_ROOT" --check-auth
   echo "OK: repository $REPO_ROOT"
   echo "OK: skill $SKILL_DIR"
   echo "OK: crawl4ai Python $CRAWL4AI_PYTHON"
@@ -102,10 +113,19 @@ fi
 
 cd "$REPO_ROOT"
 "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/crawl-site.py" .
-"$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" .
+# Academy 실패(세션 만료 3, 등록 필요 4, 무진행 5, 중복 본문 6)는 레슨을 쓰지 않고 기록만 남긴다.
+# 공개 표면 갱신은 계속하되 마지막에 non-zero로 끝내 성공으로 보고되지 않게 한다.
+# SKILLJAR_EMAIL·SKILLJAR_PASSWORD가 repo 로컬 .env(gitignored)에 있으면 agents-env로 주입해 세션 만료 시 자동 재로그인한다.
+skilljar_env=()
+if command -v agents-env >/dev/null 2>&1 && agents-env ls --local 2>/dev/null | grep -q '^SKILLJAR_PASSWORD\b'; then
+  skilljar_env=(agents-env run --local SKILLJAR_EMAIL SKILLJAR_PASSWORD --)
+fi
+academy_rc=0
+${skilljar_env[@]+"${skilljar_env[@]}"} "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" . || academy_rc=$?
+partner_rc=0
 SKILLJAR_BASE=https://anthropic-partners.skilljar.com \
 SKILLJAR_SKIP_HOST=anthropic.skilljar.com \
-  "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" .
+  "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" . || partner_rc=$?
 python3 "$CRAWL_SCRIPTS_DIR/youtube-channels.py" . \
   anthropic-ai:UCrDwWp7EBBv4NwvScIpBDOA \
   claude:UCV03SRZXJEz-hchIAogeJOg \
@@ -125,5 +145,13 @@ python3 "$CRAWL_SCRIPTS_DIR/verify-mirror.py" . \
   --exclude 'platform.claude.com/**' \
   --exclude 'code.claude.com/**'
 python3 "$SKILL_DIR/scripts/verify-publish.py" .
+coverage_rc=0
+"$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/coverage-audit.py" . || coverage_rc=$?
+python3 "$SKILL_DIR/scripts/verify-publish.py" . --all
 
+if [ "$academy_rc" != 0 ] || [ "$partner_rc" != 0 ] || [ "$coverage_rc" != 0 ]; then
+  echo "Mirror refresh incomplete: academy=$academy_rc partner=$partner_rc coverage=$coverage_rc." >&2
+  echo "See .anthropic-mirror-status.json and .anthropic-mirror-audit/coverage.md for exact URLs and retry targets." >&2
+  exit 3
+fi
 echo "Mirror refresh and verification completed. Inspect git status before staging."

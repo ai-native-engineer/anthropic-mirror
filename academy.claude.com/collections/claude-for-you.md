@@ -12,13 +12,13 @@ Make Claude part of how you think, learn, and get things done, starting from you
 
 Learn to use Claude for everyday work, from your first conversation and effective prompting to projects, artifacts, skills, and connected tools.
 
-Course·13 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/claude-101)[![](https://academy.claude.com/assets/v1/thumbnail.light-iznp6akh.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hh3at4r1.png)
+Course·13 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/claude-101)[![](https://academy.claude.com/assets/v1/thumbnail.light-khg817wt.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-h1zlg9b3.png)
 
-### Getting started with Claude.ai
+### Getting started with Claude
 
-Learn how to maximize your Claude.ai experience through effective prompting, document uploads, search functionality, customization options, and advanced features like extended thinking and research mode.
+What Claude can do, how to write your first prompt, and how to set up a task with your own files and tools.
 
-Tutorial·5 min](https://academy.claude.com/tutorials/getting-started-with-claude-ai)[![](https://academy.claude.com/assets/v1/thumbnail.light-d2q52a81.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oqcjuafg.png)
+Tutorial·5 min](https://academy.claude.com/tutorials/getting-started-with-claude)[![](https://academy.claude.com/assets/v1/thumbnail.light-d2q52a81.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oqcjuafg.png)
 
 ### Explore what Claude can do for you
 
@@ -28,11 +28,11 @@ Use case·15 min](https://academy.claude.com/use-cases/explore-what-claude-can-d
 
 ## Build your AI fluency
 
-[### AI Fluency: Framework & Foundations
+[### AI Fluency: Framework and foundations
 
 Learn to collaborate with AI effectively, efficiently, ethically, and safely using the 4D framework: Delegation, Description, Discernment, and Diligence.
 
-Course·14 lessons · 1 quiz·4 hr](https://academy.claude.com/courses/ai-fluency-framework-foundations)[### AI Capabilities and Limitations
+Course·14 lessons · 1 quiz·4 hr](https://academy.claude.com/courses/ai-fluency-framework-foundations)[### AI capabilities and limitations
 
 Build an accurate mental model of what large language models can and cannot do: next-token prediction, knowledge, working memory, steerability, and context limits.
 

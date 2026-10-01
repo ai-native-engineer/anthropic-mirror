@@ -236,13 +236,13 @@ With no `scope` field, the connector requests the standard read set at sign-in:
 To request a different set, list scopes in the entry’s `scope` field. The connector then requests exactly that list (plus `User.Read` and `offline_access`, which are always included). Use the list to narrow the read surface, to add the optional read scopes below, or to add [write scopes](#grant-write-scopes). Whatever you list must also be consented on the app registration from step 1; keep the two lists in sync.
 Six optional read scopes are not in the standard set:
 
-* `ChannelMessage.Read.All` adds Teams channel messages to chat search results. Requires tenant-admin consent.
+* `ChannelMessage.Read.All` adds Teams channel messages to chat search results and lets Claude list a channel’s messages (`teams_list_channel_messages`). Requires tenant-admin consent.
 * `OnlineMeetingTranscript.Read.All` enables reading meeting transcripts. Requires tenant-admin consent.
 * `MailboxSettings.Read` lets the connector read the user’s mailbox time zone so that dates in requests follow the user’s local time rather than UTC.
 * `People.Read` enables people search (`search_people`), which resolves a name to a user before starting a Teams chat.
 * `Team.ReadBasic.All` and `Channel.ReadBasic.All` let Claude list the user’s teams and their channels (`teams_list_teams`, `teams_list_channels`), which Claude uses to find the team and channel IDs that the channel-message tools take.
 
-Until `ChannelMessage.Read.All` and `OnlineMeetingTranscript.Read.All` are granted, chat search omits channel results and transcript requests return a permission error. The `search_people`, `teams_list_teams`, and `teams_list_channels` tools require Claude Desktop version 1.32885.1 or later.
+Until `ChannelMessage.Read.All` and `OnlineMeetingTranscript.Read.All` are granted, chat search omits channel results and transcript requests return a permission error. The `search_people`, `teams_list_teams`, and `teams_list_channels` tools require Claude Desktop version 1.32885.1 or later, and `teams_list_channel_messages` requires 1.49585.0 or later.
 The `scope` field accepts only scopes the connector can use. An entry containing an unrecognized scope name is rejected as a whole at configuration load, with an error in the app’s main log listing the valid names, and the connector does not appear.
 
 Narrowing or removing `scope` shrinks what the connector requests at the next sign-in, but it does not narrow tokens already obtainable for the registration: Microsoft Entra issues tokens carrying every scope previously consented for the app, regardless of what is requested. To revoke access, remove the consent in Entra under **Enterprise applications → your app → Permissions**.
@@ -254,6 +254,7 @@ The connector provides these read and search tools:
 | `outlook_email_search` | Search Outlook mail |
 | `outlook_calendar_search` | Search calendar events |
 | `find_meeting_availability` | Find free meeting times |
+| `outlook_find_available_time` | Find open time slots for a meeting between the user and specific participants |
 | `chat_message_search` | Search Teams chat (1:1 and group; channel messages need `ChannelMessage.Read.All`) |
 | `sharepoint_search`, `sharepoint_folder_search` | Search SharePoint and OneDrive |
 | `read_resource` | Fetch a specific item, such as a message, event, or file |
@@ -261,6 +262,7 @@ The connector provides these read and search tools:
 | `get_me` | Return the signed-in user’s own profile |
 | `search_people` | Search for people by name or email address (needs `People.Read`) |
 | `teams_list_teams`, `teams_list_channels` | List the user’s teams and a team’s channels (need `Team.ReadBasic.All` and `Channel.ReadBasic.All`) |
+| `teams_list_channel_messages` | List a channel’s messages, or the replies in one conversation (needs `ChannelMessage.Read.All`) |
 
 Granting write scopes enables write tools; see [Grant write scopes](#grant-write-scopes).
 

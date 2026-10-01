@@ -212,7 +212,7 @@ Across all six dimensions, people with a higher share of automated sessions feel
 
 **Figure 3.6: *The share of people reporting positive expected impacts of AI on economic and intrinsic dimensions of job quality is higher among more automated Claude users****This figure shows coefficient estimates from linear regressions of an indicator for whether a person expected AI to have a positive effect on each of the six dimensions of job quality onto normalized AI automation share.*
 
-A natural question is why automated usage and sentiment move together. It’s possible that this relationship is explained by selection, that the people most enthusiastic about AI are also the most willing to hand over entire tasks to it. We can’t rule this out entirely, but these estimates don’t meaningfully change when we control for user tenure on [Claude.ai](http://claude.ai/redirect/website.v1.27aade40-b04b-450f-91e5-dc0b72265be1)—which we can think of as a proxy for enthusiasm, because it captures early versus later adopters.
+A natural question is why automated usage and sentiment move together. It’s possible that this relationship is explained by selection, that the people most enthusiastic about AI are also the most willing to hand over entire tasks to it. We can’t rule this out entirely, but these estimates don’t meaningfully change when we control for user tenure on [Claude.ai](http://claude.ai/redirect/website.v1.487f2ade-5cd1-49fb-88fe-f3c8016c9358)—which we can think of as a proxy for enthusiasm, because it captures early versus later adopters.
 
 Another possibility is that people who use AI in more automated ways experience more of its benefits today. Consistent with our [previous findings](https://www.anthropic.com/research/81k-economics), large majorities of people report productivity gains in speed, scope, and quality of their work (86%, 82%, and 69%, respectively), while 27% report gains through cost savings on services they would otherwise have to purchase.
 
@@ -313,20 +313,20 @@ Scott Booth, Keir Bradwell, Meredith Callan, Dexter Callender III, Boris Cherny,
 26. This contrasts with country GDP and experience, where lower GDP and experience correlate with higher task shares (as shown in Figure 3.4) *and* higher stated job loss probabilities.
 27. While this could be due to substitution between chat/Cowork and Claude Code, the pattern holds even when controlling for Claude Code session share. These patterns also survive controlling for occupation fixed effects.
 
-### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+### What work can robots do?
 
-Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
 
-[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
 
-### An alignment assessment of recent cybersecurity incidents
+### What do you want from AI?
 
-We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
-[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
 
-### Formalizing Fermat's Last Theorem
+### GLM-5.3 and the spread of advanced cyber capabilities
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
-[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)

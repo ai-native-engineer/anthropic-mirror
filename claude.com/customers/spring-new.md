@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Spring.new empowers business application development with Claude on Google Cloud's Vertex AI
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Spring.new logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d678eec420934eb03179_cs-logo-spring-new-light-theme.svg)![Spring.new logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d9bf4d2264f9aed964e5_cs-logo-spring-new-dark-theme.svg)
+![Spring.new logo](https://assets.claude.com/8b6608c8c1511f86e779d92c6a650c6ef03abac6.svg)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 95-99%
 
@@ -37,42 +27,6 @@ time savings on R&D projects
 200+ integrations
 
 to existing business systems
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Spring.new](http://spring.new), a platform that enables business teams to build custom applications through natural language prompts, uses Claude on Google Cloud's Vertex AI to eliminate traditional development bottlenecks. With Claude, anyone can build sophisticated applications without coding expertise.
 
@@ -126,52 +80,12 @@ Spring.new envisions a transformation where business insight and creativity driv
 
 The technological trajectory supports this vision. Gilboa noted, "Claude and Vertex AI improve all the time, and every few months we have new models that increase performance." As Spring.new enhances their platform with Claude's advancing capabilities on Google Cloud's Vertex AI, they're building a future where anyone with a business need can transform ideas into functional applications—a democratization of the digital economy where the best ideas win regardless of who can code them.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Next](#)Next
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Video caption
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

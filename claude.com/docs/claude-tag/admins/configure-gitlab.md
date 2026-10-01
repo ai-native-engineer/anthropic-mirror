@@ -14,7 +14,7 @@ A dedicated service account keeps Claude’s GitLab activity attributed to a sin
 
 ##  Prerequisites
 
-* The **Owner** role in your Claude organization to create an Access bundle.
+* The **Owner** role or the [**Claude Tag Admin** permission](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-claude-tag-administration) in your Claude organization to create an Access bundle.
 * Permission in GitLab to create a user (or a [service account](https://docs.gitlab.com/user/profile/service_accounts/) on tiers that offer it) and to add that user to the groups or projects Claude should reach.
 * An [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle) to hold the credential. Create one first if you haven’t already.
 
@@ -53,7 +53,7 @@ At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/clau
 
 Connect GitLab
 
-Click **Connect** next to **GitLab** and paste the token into **Personal access token**.
+Click **Connect** next to **GitLab** and paste the token into **Claude’s personal access token**.
 
 3
 

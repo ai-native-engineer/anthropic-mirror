@@ -8,7 +8,7 @@ As a public benefit corporation, Anthropic is dedicated to ensuring the world sa
 
 ## CEO and President
 
-![Portrait of Dario Amodei, Co-Founder and Chief Executive Officer at Anthropic](https://www-cdn.anthropic.com/images/4zrzovbb/website/e52eaed407e2469b9cab13568db623aa01877f64-640x800.jpg)
+![Portrait of Dario Amodei, Co-Founder and Chief Executive Officer at Anthropic](https://www-cdn.anthropic.com/images/4zrzovbb/website/b9f2de42abe07215bc6f3e1498765fa0d3d58eaf-640x800.webp)
 
 Co-Founder and Chief Executive Officer
 
@@ -84,7 +84,7 @@ Read full bio
 
 ## Executives
 
-![Portrait of Mariano-Florentino (Tino) Cuéllar, Chief Global Affairs Officer at Anthropic](https://www-cdn.anthropic.com/images/4zrzovbb/website/50b08bd9c2fa229b53f1bca9c2276181522306ea-640x800.jpg)
+![Portrait of Mariano-Florentino (Tino) Cuéllar, Chief Global Affairs Officer at Anthropic](https://www-cdn.anthropic.com/images/4zrzovbb/website/badef7b12785f34dd0e0f14fa96a224e57d7d472-640x800.webp)
 
 Chief Global Affairs Officer
 

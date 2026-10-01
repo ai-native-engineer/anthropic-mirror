@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore -->
 
-Lesson 4 of 10 · AI Fluency for pK–12 EducatorsExplore!
+Lesson 4 of 10 · AI Fluency for pK–12 educatorsExplore!
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # Explore!
 
@@ -12,7 +12,7 @@ Lesson 41 min
 
 [Previous lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework)[Next lessonAI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)
 
-Lesson 4 of 10 · AI Fluency for pK–12 EducatorsExplore!
+Lesson 4 of 10 · AI Fluency for pK–12 educatorsExplore!
 
 How this course was made
 

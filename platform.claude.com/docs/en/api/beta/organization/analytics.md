@@ -14,13 +14,15 @@ url: https://platform.claude.com/docs/en/api/beta/organization/analytics
 Get organization-wide activity summaries for a date range.
 
 Returns one entry per day from `starting_date` (inclusive) to `ending_date`
-(exclusive). Data is typically available with a 1-day lag and may be
-revised by a few percent over the following days: when `ending_date` is
-omitted it defaults to the most recent available day + 1, so the last
-entry covers the most recent available day. The series can be scoped to
-an RBAC group via `filter[]=rbac_group_id:{id}`. Available to
-organizations on a Claude Enterprise plan. Requires an API key with the
-`read:analytics` scope.
+(exclusive) in `data`, the same `data` / `next_page` envelope as the other
+analytics list endpoints; the series is currently returned in full, so
+`next_page` is always null (`summaries` is a deprecated alias of `data`).
+Data is typically available with a 1-day lag and may be revised by a few
+percent over the following days: when `ending_date` is omitted it
+defaults to the most recent available day + 1, so the last entry covers
+the most recent available day. The series can be scoped to an RBAC group
+via `filter[]=rbac_group_id:{id}`. Available to organizations on a Claude
+Enterprise plan. Requires an API key with the `read:analytics` scope.
 
 ### Query parameters
 
@@ -42,13 +44,155 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   maxItems: 100
 
+- `limit: optional number`
+
+  Number of results per page (1-1000, default 100). The day series (at most 366 entries) is currently returned in full in a single page, so `limit` does not yet shorten it.
+
+  minimum: 1, maximum: 1000
+
+- `page: optional string`
+
+  Opaque cursor from a previous response's `next_page` field. `next_page` is currently always null, so there is never a cursor to send.
+
 ### Returns
 
 - `BetaActivitySummary object`
 
   Response for GET /v1/organizations/analytics/summaries.
 
+  - `data: array of object`
+
+    One entry per day in the requested range, ascending by date.
+
+    - `assigned_seat_count: number or null`
+
+      Number of seats currently assigned to members. Null when the response is scoped to an RBAC group — seat assignment is org-wide and has no per-group analogue.
+
+    - `cowork_daily_active_user_count: number`
+
+      Number of users with Cowork activity on the requested day
+
+    - `cowork_monthly_active_user_count: number`
+
+      Number of users with Cowork activity in the 30-day rolling window
+
+    - `cowork_weekly_active_user_count: number`
+
+      Number of users with Cowork activity in the 7-day rolling window
+
+    - `daily_active_user_count: number`
+
+      Number of users with token consumption on the requested day
+
+    - `daily_adoption_rate: number or null`
+
+      Percentage of assigned seats with activity on the requested day (`DAU / assigned_seat_count * 100`). Null when the response is scoped to an RBAC group.
+
+    - `ending_at: string`
+
+      End of the aggregation period (exclusive), UTC midnight in RFC 3339 format (e.g. `2026-01-16T00:00:00Z`).
+
+      format: date-time
+
+    - `monthly_active_user_count: number`
+
+      Number of users with token consumption in the 30-day rolling window
+
+    - `monthly_adoption_rate: number or null`
+
+      Percentage of assigned seats with activity in the 30-day rolling window (`MAU / assigned_seat_count * 100`). Null when the response is scoped to an RBAC group.
+
+    - `pending_invite_count: number or null`
+
+      Number of pending invitations to join the organization. Null when the response is scoped to an RBAC group.
+
+    - `starting_at: string`
+
+      Start of the aggregation period (inclusive), UTC midnight in RFC 3339 format (e.g. `2026-01-15T00:00:00Z`).
+
+      format: date-time
+
+    - `weekly_active_user_count: number`
+
+      Number of users with token consumption in the 7-day rolling window
+
+    - `weekly_adoption_rate: number or null`
+
+      Percentage of assigned seats with activity in the 7-day rolling window (`WAU / assigned_seat_count * 100`). Null when the response is scoped to an RBAC group.
+
+    - `chat_daily_active_user_count: optional number or null`
+
+      Number of users with claude.ai (chat) activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `chat_monthly_active_user_count: optional number or null`
+
+      Number of users with claude.ai (chat) activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `chat_weekly_active_user_count: optional number or null`
+
+      Number of users with claude.ai (chat) activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_code_daily_active_user_count: optional number or null`
+
+      Number of users with Claude Code activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_code_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude Code activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_code_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude Code activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_design_daily_active_user_count: optional number or null`
+
+      Number of users with Claude Design activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_design_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude Design activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_design_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude Design activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `office_agent_daily_active_user_count: optional number or null`
+
+      Number of users with Claude in Office activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `office_agent_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude in Office activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `office_agent_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude in Office activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_daily_active_user_count: optional number or null`
+
+      Number of users with Claude Science activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_entitled_user_count: optional number or null`
+
+      Number of users with a Claude Science seat entitlement (per-seat RBAC) at the time of the daily snapshot. The funnel top; independent of the org-level Claude Science toggle. Null when the response is scoped to an RBAC group — entitlement is org-wide and has no per-group analogue. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude Science activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude Science activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+  - `next_page: string or null`
+
+    Opaque cursor for the next page, or null if no more results. Currently always null: the day series is returned in full.
+
   - `summaries: array of object`
+
+    **Deprecated**
+
+    Deprecated: use `data`, which carries the same entries.
 
     - `assigned_seat_count: number or null`
 
@@ -182,6 +326,40 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
 ```json
 {
+  "data": [
+    {
+      "assigned_seat_count": 0,
+      "cowork_daily_active_user_count": 0,
+      "cowork_monthly_active_user_count": 0,
+      "cowork_weekly_active_user_count": 0,
+      "daily_active_user_count": 0,
+      "daily_adoption_rate": 0,
+      "ending_at": "2019-12-27T18:11:19.117Z",
+      "monthly_active_user_count": 0,
+      "monthly_adoption_rate": 0,
+      "pending_invite_count": 0,
+      "starting_at": "2019-12-27T18:11:19.117Z",
+      "weekly_active_user_count": 0,
+      "weekly_adoption_rate": 0,
+      "chat_daily_active_user_count": 0,
+      "chat_monthly_active_user_count": 0,
+      "chat_weekly_active_user_count": 0,
+      "claude_code_daily_active_user_count": 0,
+      "claude_code_monthly_active_user_count": 0,
+      "claude_code_weekly_active_user_count": 0,
+      "claude_design_daily_active_user_count": 0,
+      "claude_design_monthly_active_user_count": 0,
+      "claude_design_weekly_active_user_count": 0,
+      "office_agent_daily_active_user_count": 0,
+      "office_agent_monthly_active_user_count": 0,
+      "office_agent_weekly_active_user_count": 0,
+      "science_daily_active_user_count": 0,
+      "science_entitled_user_count": 0,
+      "science_monthly_active_user_count": 0,
+      "science_weekly_active_user_count": 0
+    }
+  ],
+  "next_page": "next_page",
   "summaries": [
     {
       "assigned_seat_count": 0,
@@ -226,7 +404,139 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
   Response for GET /v1/organizations/analytics/summaries.
 
+  - `data: array of object`
+
+    One entry per day in the requested range, ascending by date.
+
+    - `assigned_seat_count: number or null`
+
+      Number of seats currently assigned to members. Null when the response is scoped to an RBAC group — seat assignment is org-wide and has no per-group analogue.
+
+    - `cowork_daily_active_user_count: number`
+
+      Number of users with Cowork activity on the requested day
+
+    - `cowork_monthly_active_user_count: number`
+
+      Number of users with Cowork activity in the 30-day rolling window
+
+    - `cowork_weekly_active_user_count: number`
+
+      Number of users with Cowork activity in the 7-day rolling window
+
+    - `daily_active_user_count: number`
+
+      Number of users with token consumption on the requested day
+
+    - `daily_adoption_rate: number or null`
+
+      Percentage of assigned seats with activity on the requested day (`DAU / assigned_seat_count * 100`). Null when the response is scoped to an RBAC group.
+
+    - `ending_at: string`
+
+      End of the aggregation period (exclusive), UTC midnight in RFC 3339 format (e.g. `2026-01-16T00:00:00Z`).
+
+      format: date-time
+
+    - `monthly_active_user_count: number`
+
+      Number of users with token consumption in the 30-day rolling window
+
+    - `monthly_adoption_rate: number or null`
+
+      Percentage of assigned seats with activity in the 30-day rolling window (`MAU / assigned_seat_count * 100`). Null when the response is scoped to an RBAC group.
+
+    - `pending_invite_count: number or null`
+
+      Number of pending invitations to join the organization. Null when the response is scoped to an RBAC group.
+
+    - `starting_at: string`
+
+      Start of the aggregation period (inclusive), UTC midnight in RFC 3339 format (e.g. `2026-01-15T00:00:00Z`).
+
+      format: date-time
+
+    - `weekly_active_user_count: number`
+
+      Number of users with token consumption in the 7-day rolling window
+
+    - `weekly_adoption_rate: number or null`
+
+      Percentage of assigned seats with activity in the 7-day rolling window (`WAU / assigned_seat_count * 100`). Null when the response is scoped to an RBAC group.
+
+    - `chat_daily_active_user_count: optional number or null`
+
+      Number of users with claude.ai (chat) activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `chat_monthly_active_user_count: optional number or null`
+
+      Number of users with claude.ai (chat) activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `chat_weekly_active_user_count: optional number or null`
+
+      Number of users with claude.ai (chat) activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_code_daily_active_user_count: optional number or null`
+
+      Number of users with Claude Code activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_code_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude Code activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_code_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude Code activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_design_daily_active_user_count: optional number or null`
+
+      Number of users with Claude Design activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_design_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude Design activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `claude_design_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude Design activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `office_agent_daily_active_user_count: optional number or null`
+
+      Number of users with Claude in Office activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `office_agent_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude in Office activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `office_agent_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude in Office activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_daily_active_user_count: optional number or null`
+
+      Number of users with Claude Science activity on the requested day. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_entitled_user_count: optional number or null`
+
+      Number of users with a Claude Science seat entitlement (per-seat RBAC) at the time of the daily snapshot. The funnel top; independent of the org-level Claude Science toggle. Null when the response is scoped to an RBAC group — entitlement is org-wide and has no per-group analogue. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_monthly_active_user_count: optional number or null`
+
+      Number of users with Claude Science activity in the 30-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+    - `science_weekly_active_user_count: optional number or null`
+
+      Number of users with Claude Science activity in the 7-day rolling window. Omitted from the response while the per-product breakdown is not enabled for this organization.
+
+  - `next_page: string or null`
+
+    Opaque cursor for the next page, or null if no more results. Currently always null: the day series is returned in full.
+
   - `summaries: array of object`
+
+    **Deprecated**
+
+    Deprecated: use `data`, which carries the same entries.
 
     - `assigned_seat_count: number or null`
 
@@ -378,9 +688,9 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
   - `deleted: boolean`
 
-    True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
+    True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
 
-  - `email: string or null`
+  - `email_address: string or null`
 
     The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
 
@@ -391,6 +701,12 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
   - `user_id: string`
 
     Tagged user ID.
+
+  - `email: string or null`
+
+    **Deprecated**
+
+    Deprecated: use `email_address`, which carries the same value.
 
 ### Beta Connector Office Product Metrics
 
@@ -932,7 +1248,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `models: optional array of string`
 
@@ -1034,9 +1350,9 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       - `deleted: boolean`
 
-        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
+        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
 
-      - `email: string or null`
+      - `email_address: string or null`
 
         The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
 
@@ -1047,6 +1363,12 @@ organizations on a Claude Enterprise plan. Requires an API key with the
       - `user_id: string`
 
         Tagged user ID.
+
+      - `email: string or null`
+
+        **Deprecated**
+
+        Deprecated: use `email_address`, which carries the same value.
 
     - `cache_creation: BetaCacheCreation`
 
@@ -1197,6 +1519,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/user_usage_report \
       "actor": {
         "deleted": true,
         "email": "jane@example.com",
+        "email_address": "jane@example.com",
         "name": "Jane Smith",
         "type": "user_actor",
         "user_id": "user_01AbCdEfGhIjKlMnOpQrSt"
@@ -1466,7 +1789,7 @@ Requires an API key with the `read:analytics` scope.
 
         - `"web_search"`
 
-      - `currency: "USD"`
+      - `currency: string`
 
         Currency code for the cost amount. Currently always `"USD"`.
 
@@ -1714,7 +2037,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `models: optional array of string`
 
@@ -1812,9 +2135,9 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       - `deleted: boolean`
 
-        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
+        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
 
-      - `email: string or null`
+      - `email_address: string or null`
 
         The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
 
@@ -1825,6 +2148,12 @@ organizations on a Claude Enterprise plan. Requires an API key with the
       - `user_id: string`
 
         Tagged user ID.
+
+      - `email: string or null`
+
+        **Deprecated**
+
+        Deprecated: use `email_address`, which carries the same value.
 
     - `amount: string`
 
@@ -1866,7 +2195,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       - `"web_search"`
 
-    - `currency: "USD"`
+    - `currency: string`
 
       Currency code for the cost amount. Currently always `"USD"`.
 
@@ -1973,6 +2302,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/user_cost_report \
       "actor": {
         "deleted": true,
         "email": "jane@example.com",
+        "email_address": "jane@example.com",
         "name": "Jane Smith",
         "type": "user_actor",
         "user_id": "user_01AbCdEfGhIjKlMnOpQrSt"
@@ -2379,7 +2709,7 @@ the `read:analytics` scope.
 
     - `user: optional BetaAnalyticsUser or null`
 
-      A user in the organization, identified by tagged id and email address.
+      The user this row describes. Null on rows aggregated across users.
 
       - `type: "user"`
 
@@ -2682,7 +3012,7 @@ on a Claude Enterprise plan. Requires an API key with the
 
       List-price (rate-card) value of the member requests attributed to this skill, as a decimal string in the minor unit of `currency` (cents for USD), from Claude Code, Cowork, and Office Agent request-level attribution — the value of requests that involved the skill, not the skill's incremental cost. Unlike `estimated_overage_spend` this reflects usage value regardless of how it was funded — seat-covered usage counts — but it is undiscounted and does not tie to billed spend or the organization's spend reporting. claude.ai chat usage carries no request-level attribution and contributes nothing: the field is null on `chat` product rows and on `office_agent` product cuts dated before 2026-06-18 (the Office Agent attribution data-start), and on ungrouped rows it covers the Claude Code + Cowork + Office Agent share only (null when no attributable usage exists). Also null under the same conditions as `estimated_overage_spend` (spend reporting not enabled for this organization, `office_agent` product cuts before the 2026-06-18 data-start). "0" means attributable usage existed but none was attributed to this skill. Addable across days: date-range rollup mode returns the window's sum. On `group_by[]` and `filter[]` shapes both amounts can total below the ungrouped value for the same skill over the same date or range: spend attributed to a member–skill pair with no counted usage on that day is excluded from those cuts.
 
-    - `currency: optional "USD" or null`
+    - `currency: optional string or null`
 
       Currency for this row's monetary fields (`estimated_overage_spend` and `attributed_list_price`), as an uppercase ISO-4217 code. Always "USD" when either amount is populated; null whenever both amounts are null.
 
@@ -2722,7 +3052,7 @@ on a Claude Enterprise plan. Requires an API key with the
 
     - `skill_display_name: optional string or null`
 
-      Human-readable display name for rows whose `skill_name` is an opaque skill id (user/organization skill types and plugin-delivered skills — user-defined names are withheld from the analytics pipeline). Organization-shared skills and skills delivered by the organization's own plugins (its plugin marketplaces and its library) resolve; plugin skill names are shown without their 'plugin:' prefix. The literal 'unknown' bucket row gets a fixed 'Unknown skill' label. Null for private (user-defined) skills and members' personal-plugin skills — those names are not disclosed to analytics-key holders — and for Anthropic-provided plugin skills (not resolved), and null when `skill_name` is already a display name, when the skill or plugin was deleted, or when display-name resolution is not enabled for this organization.
+      Human-readable display name for rows whose `skill_name` is an opaque skill id (user/organization skill types and plugin-delivered skills, whose user-defined names usage reports generally withhold). Organization-shared skills and skills delivered by the organization's own plugins (its plugin marketplaces and its library) resolve; plugin skill names are shown without their 'plugin:' prefix. The literal 'unknown' bucket row gets a fixed 'Unknown skill' label. For a member's own skill (private or personal-plugin) it is null, except when the skill's owner used it from Claude Code or Cowork in the requested period: then it shows the name that client reported at the time. Apart from that, the names of members' own skills are not disclosed to analytics-key holders. Also null for Anthropic-provided plugin skills (not resolved), for an organization skill or plugin whose name can no longer be found (for example, one since deleted), when `skill_name` is already a display name, or when display-name resolution is not enabled for this organization.
 
     - `user_id: optional string or null`
 
@@ -2772,7 +3102,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/skills \
       },
       "skill_name": "skill_name",
       "attributed_list_price": "attributed_list_price",
-      "currency": "USD",
+      "currency": "currency",
       "enable_count": 0,
       "estimated_overage_spend": "estimated_overage_spend",
       "invocation_count": 0,
@@ -3132,7 +3462,7 @@ plan. Requires an API key with the `read:analytics` scope.
 
     - `created_by: optional BetaAnalyticsUser or null`
 
-      A user in the organization, identified by tagged id and email address.
+      User who created the project. Null if the project was deleted before attribution was recorded, or if the creator's account no longer exists.
 
       - `type: "user"`
 

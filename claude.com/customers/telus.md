@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # TELUS boosts workplace innovation with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![TELUS logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0da683cc4d0737a03edd9_cs-logo-telus-light-theme.svg)![TELUS logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0da6f0355389e7e84b6fc_cs-logo-telus-dark-theme.svg)
+![TELUS logo](https://assets.claude.com/2ad8e82eaffc6a4868da5f81e11d8b6878fbea89.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-Google
+:   Google
 
 Location:
-
-North America
+:   North America
 
 57,000
 
@@ -41,42 +30,6 @@ team members actively using generative AI
 500,000+ hours
 
 saved to date with 40 minutes per AI interaction
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 TELUS, a leading communications technology company headquartered in Canada, is empowering team members by integrating Claude into everyday workflows — unleashing unprecedented levels of experimentation, creativity and productivity across the organization.
 
@@ -94,7 +47,7 @@ Key AI results at TELUS:
 
 As a company serving 20 million global customers across telecommunications, healthcare, agriculture, security and digital solutions, TELUS operates in a complex ecosystem of hundreds of specialized and vastly different technology systems. This fragmentation initially created barriers to innovation and collaboration.
 
-"Imagine trying to orchestrate a symphony where each musician speaks a different language," explained Justin Watts, Distinguished Engineer at TELUS. "Before generative AI, connecting these systems required complex custom integrations that were prohibitively expensive and time-consuming. AI now serves as a universal translator between systems, understanding their different languages and creating connections that weren't possible before.This breakthrough has eliminated silos, transforming how our teams collaborate and share information."
+"Imagine trying to orchestrate a symphony where each musician speaks a different language," explained Justin Watts, Distinguished Engineer at TELUS. "Before generative AI, connecting these systems required complex custom integrations that were prohibitively expensive and time-consuming. AI now serves as a universal translator between systems, understanding their different languages and creating connections that weren't possible before. This breakthrough has eliminated silos, transforming how our teams collaborate and share information."
 
 ## Building Fuel iX
 
@@ -134,52 +87,12 @@ As TELUS expands Claude’s integration into operational areas like finance, pla
 
 Looking ahead, TELUS envisions Claude enabling seamless information flow across their complex organization, creating unprecedented opportunities for collaboration and empowering team members to be more productive and find new, innovative ways to solve business challenges. With 13,000 custom AI solutions already deployed and growing, the vision is to create a workforce where AI amplifies human creativity at every level, proving that large organizations can embrace transformative technology without compromising on their fundamental values.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

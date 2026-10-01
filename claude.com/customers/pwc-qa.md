@@ -4,33 +4,21 @@ Q&A | Claude Code
 
 # How PwC trained 400 consultants on Claude Code in a single session
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ef83dcf20ef28c1bc4b322_pwc_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ef83d6220d873723cb7718_pwc_dark.svg)
+![PWC logo](https://assets.claude.com/99f71ec3e626032e4da0ddfce4dc448b0ba18737.svg)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Code](https://claude.com/product/claude-code)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Location:
-
-North America
+:   North America
 
 6 weeks → 2.5 days
 
@@ -40,33 +28,9 @@ Legacy code analysis compressed
 
 underway across PwC
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Legacy code analysis compressed
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Legacy code analysis compressed
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
 6 weeks → 2.5 days
 
 Legacy code analysis compressed
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Pricewaterhouse Coopers](https://www.pwc.com/us/en.html), or PwC, is a global professional services firm offering audit, tax, and consulting services to businesses and organizations worldwide. PwC and Anthropic [recently announced an expanded alliance](https://www.pwc.com/us/en/about-us/newsroom/press-releases/anthropic-pwc-expand-alliance-agentic-enterprise.html), driving impact across client work and the firm. Partner Ussama Baggili leads legacy and mainframe modernization at PwC, where he built systemized Claude Code workflows that have spread to a firm-wide training initiative. We spoke with Baggili about why PwC puts business users on Claude Code from day one and how a single training session got 400 leaders and consultants building apps in under an hour, and what that means for the firm.
 
@@ -80,7 +44,7 @@ What we're trying to do is get people thinking differently by treating Claude as
 
 ## What do you mean by that? There's a common assumption that Claude Code is for developers and that non-technical users should start somewhere simpler.
 
-**Baggili:** People say, "Maybe we’ll start with chat and then graduate to Claude Code. It’s too complicated for people to want to use it right away" But I think that's very limited. I think starting with Claude Code at the beginning is actually a more optimal and natural segway for continued progress into more technical realms. When we were first planning our internal training, the thought was that it’s best to use the Claude  chat version. However, believing in choice and not assuming we know best how the Claude products set will be used, we decided to run the training in Claude Code CLI within VS Code to start building muscle memory on more technical usage from which point the trainees can decide which one they preferred for their regular usage.
+**Baggili:** People say, "Maybe we’ll start with chat and then graduate to Claude Code. It’s too complicated for people to want to use it right away" But I think that's very limited. I think starting with Claude Code at the beginning is actually a more optimal and natural segway for continued progress into more technical realms. When we were first planning our internal training, the thought was that it’s best to use the Claude chat version. However, believing in choice and not assuming we know best how the Claude products set will be used, we decided to run the training in Claude Code CLI within VS Code to start building muscle memory on more technical usage from which point the trainees can decide which one they preferred for their regular usage.
 
 ## That's a bold bet with a non-technical audience. How did you set that up to succeed?
 
@@ -100,11 +64,9 @@ The coach plugin walks them through their first prompt. And within 15 to 20 minu
 
 Regardless of whether it was perfect, people walked out positive and optimistic about Claude Code and why they needed it.
 
-"Claude is giving us the ability to re-energize the AI mindset in our people."
+> "Claude is giving us the ability to re-energize the AI mindset in our people."
 
-Ussama Baggili
-
-Partner, PwC
+Ussama BaggiliPartner, PwC
 
 ## What was the reaction after the session?
 
@@ -122,7 +84,7 @@ My thinking was: how do I get this to be enticing enough for people to be yearni
 
 With Claude Code, if they give us access to their code, we know how to run the analysis and give you a point of view very quickly in a package that's deliverable-worthy. We can show them previous examples and say, "Don't worry, you don't have to spend a fortune to get there. We'll help you see what you need to know." You're going to have documentation now.
 
-The crazy part is what used to be six weeks' worth of engagements is now about two and a half days of doing that. The typical discovery process required significant effort towards collecting, manually reviewing documentation, interviewing stakeholders, reviewing findings, iterating over interim-deliverables and shaping the recommendation.  With Claude Claude, the majority of these activities can be performed by the agent. That’s made us very credible with clients.
+The crazy part is what used to be six weeks' worth of engagements is now about two and a half days of doing that. The typical discovery process required significant effort towards collecting, manually reviewing documentation, interviewing stakeholders, reviewing findings, iterating over interim-deliverables and shaping the recommendation. With Claude Claude, the majority of these activities can be performed by the agent. That’s made us very credible with clients.
 
 ## Anthropic: Where did you take it from there?
 
@@ -132,82 +94,20 @@ The crazy part is what used to be six weeks' worth of engagements is now about t
 
 **Baggili:** Now the idea is becoming global and the question is: how do we keep this going? How do we take this across all of our offerings for our 400,000 people and repeat the success we are witnessing in the US?
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-training rollout underway across PwC
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-training rollout underway across PwC
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
 30,000-person
 
 training rollout underway across PwC
 
-"What used to be six weeks' worth of analysis is now about two and a half days."
+> "What used to be six weeks' worth of analysis is now about two and a half days."
 
-Ussama Baggili
+Ussama BaggiliPartner, PwC
 
-Partner, PwC
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-[Next](#)Next
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
-
-Caylent turns months of migration work into days with Claude Agent SDK
-
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)

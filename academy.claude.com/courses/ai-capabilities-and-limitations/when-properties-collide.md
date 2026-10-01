@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/when-properties-collide -->
 
-Lesson 12 of 13 · AI Capabilities and LimitationsWhen Properties Collide
+Lesson 12 of 13 · AI capabilities and limitationsWhen Properties Collide
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # When Properties Collide
 
@@ -62,7 +62,7 @@ In the final lesson, we consolidate what you've built, connect it back to the 4D
 
 [Previous lessonTry It Out: Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7)[Next lessonNext Steps](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-steps)
 
-Lesson 12 of 13 · AI Capabilities and LimitationsWhen Properties Collide
+Lesson 12 of 13 · AI capabilities and limitationsWhen Properties Collide
 
 Getting started
 

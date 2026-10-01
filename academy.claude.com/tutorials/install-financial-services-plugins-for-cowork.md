@@ -32,15 +32,13 @@ The repository also includes partner-built plugins from **LSEG** and **S&P Globa
 
 ## Add the marketplace[](#add-the-marketplace)
 
-1. Open the Claude Desktop app.
-2. Look for the mode selector at the top of the app that includes "Chat" and “Cowork.”
-3. Click the "Cowork" tab.
-4. Click “Customize” on the left sidebar.
-5. Click “Browse plugins.”
-6. Select “Personal.”
-7. Click the “+” button, then select **Add marketplace from GitHub**.
-8. Enter the repository URL: [**https://github.com/anthropics/financial-services**(opens in new tab)](https://github.com/anthropics/financial-services)
-9. Once added, you'll see the available financial services plugins in your marketplace.
+1. Open the Claude Desktop app. If it has a Cowork tab at the top, select it.
+2. Click “Customize” on the left sidebar.
+3. Click “Browse plugins.”
+4. Select “Personal.”
+5. Click the “+” button, then select **Add marketplace from GitHub**.
+6. Enter the repository URL: [**https://github.com/anthropics/financial-services**(opens in new tab)](https://github.com/anthropics/financial-services)
+7. Once added, you'll see the available financial services plugins in your marketplace.
 
 ## Install plugins[](#install-plugins)
 

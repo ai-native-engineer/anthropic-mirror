@@ -121,8 +121,8 @@ Once uploaded, Claude will automatically attempt to parse the file's content. In
 Pro-tip
 
 If you'd like Claude to consider specific preferences in every response, go
-to Settings > General > 'What personal preferences should Claude consider?'
-to set preferences that apply to every conversation.
+to Settings > Account > 'Instructions for Claude' to set preferences that
+apply to every conversation.
 
 ## Iterating on Claude's responses[](#iterating-on-claudes-responses)
 

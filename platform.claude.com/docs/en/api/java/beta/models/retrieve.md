@@ -117,11 +117,23 @@ The Models API response can be used to determine information about a specific mo
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ## Returns
 
-- `class BetaModelInfo:`
+- `class BetaModelInfo`
 
   - `JsonValue type = "model"`
 
@@ -139,7 +151,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `Optional<BetaModelCapabilities> capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `BetaCapabilitySupport batch`
 
@@ -157,21 +169,33 @@ The Models API response can be used to determine information about a specific mo
 
       Whether the model supports code execution tools.
 
+    - `Optional<BetaCompactionCapability> compaction`
+
+      Server-side compaction support (the top-level `compaction` parameter) and the accepted `compaction.type` values.
+
+      - `BetaCapabilitySupport summarize`
+
+        Whether the summarize compaction type is supported.
+
+      - `boolean supported`
+
+        Whether this capability is supported by the model.
+
     - `BetaContextManagementCapability contextManagement`
 
       Context management support and available strategies.
 
       - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `Optional<BetaCapabilitySupport> clearToolUses20250919`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `Optional<BetaCapabilitySupport> compact20260112`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `boolean supported`
 
@@ -203,7 +227,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `Optional<BetaCapabilitySupport> xhigh`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `BetaCapabilitySupport imageInput`
 
@@ -292,6 +316,12 @@ public final class Main {
       "supported": true
     },
     "code_execution": {
+      "supported": true
+    },
+    "compaction": {
+      "summarize": {
+        "supported": true
+      },
       "supported": true
     },
     "context_management": {

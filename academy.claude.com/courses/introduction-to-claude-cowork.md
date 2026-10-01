@@ -16,10 +16,10 @@ Delegate multi-step work to Claude in Cowork: set up workspaces, give context, r
 
 What you’ll learnBy the end of this course, you’ll be able to
 
-* Explain what Claude Cowork is and when to reach for it instead of Chat or Code
+* Explain what Claude Cowork is and the kind of work it is for
 * Set up a working folder, connectors, and permission mode, and apply safe-working habits as Cowork acts on your behalf
 * Delegate a multi-step task end to end: write the prompt, answer clarifying questions, steer mid-task, and review the deliverable
-* Run recurring work with scheduled tasks and run Cowork in the cloud to start tasks from your phone or any browser
+* Run recurring work with scheduled tasks, and start or check on a task from your phone or any browser
 * Give Cowork standing context through global instructions and projects
 * Build skills for your recurring processes and install, customize, or bundle them into plugins
 * Extend Cowork to browser-based tools with Claude in Chrome and to Office documents with Claude for Microsoft 365
@@ -31,10 +31,10 @@ Knowledge workers whose day is spent moving information between files, apps, and
 
 Before you start
 
-* A paid Claude plan (Pro, Max, Team, or Enterprise) with access to the Claude desktop app
+* A paid Claude plan (Pro, Max, Team, or Enterprise); the Claude desktop app for the lessons that work on folders on your computer
 * Comfort with everyday desktop apps — no coding or command-line experience needed
 
-Cowork is Claude working directly with your files, folders, and apps — reading, editing, and producing real outputs on your machine. Where Chat is a conversation, Cowork is a working session: you describe the task, Claude plans and executes it, and you steer along the way.
+Cowork is Claude working directly with your files, folders, and apps — reading, editing, and producing real outputs. It turns a conversation with Claude into a working session: you describe the task, Claude plans and executes it, and you steer along the way.
 
 This course gets you from first launch to confident daily use. You'll run your first end-to-end task, give Claude standing context with projects, skills, and plugins, bring Claude into Chrome, Word, Excel, PowerPoint, and Outlook, and learn the habits that keep multi-step work safe to share with your team.
 
@@ -44,7 +44,7 @@ This course gets you from first launch to confident daily use. You'll run your f
 
 4 lessons
 
-What Cowork is and how it differs from Chat, how to set it up, and your first end-to-end task: describe it, watch Claude plan and execute, and steer along the way.
+What Cowork is, how to set it up, and your first end-to-end task: describe it, watch Claude plan and execute, and steer along the way.
 
 ![](https://academy.claude.com/assets/media/8362a817933634d1a36d928946079f82455b7e1f477aaec8fe475825dc204817.webp)![](https://academy.claude.com/assets/media/0623affc658a83d8dd78cce6e45a39b27b77befa711a27f6d91adaf2f9822b5d.webp)
 

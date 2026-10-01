@@ -34,7 +34,7 @@ On the bundle’s **Credentials** tab, click **Connect** next to **GitLab** and 
 
 | Field | Value |
 | --- | --- |
-| Personal access token | The token from GitLab, starting with `glpat-`. Project and group access tokens work here too; the label is the field name, not a token-type constraint. |
+| Claude’s personal access token | The token from GitLab, starting with `glpat-`. Project and group access tokens work here too. |
 | Allowed websites | `gitlab.com` (preset). For self-managed GitLab, open the **Advanced** tab and add your instance’s hostname here. |
 
 GitLab’s own guide for creating tokens is at [docs.gitlab.com](https://docs.gitlab.com/api/rest/authentication/).

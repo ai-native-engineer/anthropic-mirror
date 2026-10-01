@@ -1,8 +1,10 @@
 <!-- https://anthropic.skilljar.com/introduction-to-claude-cowork/444168 -->
 
-**Estimated time:** 12 minutes
+### ⁠
 
-### Learning objectives
+## What you'll learn
+
+*Estimated time: 15 minutes*
 
 By the end of this lesson you'll be able to:
 
@@ -10,19 +12,18 @@ By the end of this lesson you'll be able to:
 * Recognize the two shapes plugins take
 * Install or customize a plugin against a real piece of your work
 
----
+## Watch what a plugin unlocks
 
-### Watch what a plugin unlocks
+The video shows what changes when a team's workflow stops being one
+person's playbook and becomes a shared toolkit anyone can install.
 
-The video shows what changes when a team's workflow stops being one person's playbook and becomes a shared toolkit anyone can install.
-
-#### Key takeaways
+## Key takeaways
 
 * **A plugin is a packaged set of skills built around a job.** Where a skill is one playbook, a plugin is several — skills, plus the connectors and subagents they depend on. (A subagent is a purpose-built helper a skill can spin up to handle one part of the work in its own context — e.g., a research subagent for a research step, a drafting subagent for a drafting step.)
 * **Plugins teach Claude your team's way of working.** Install a finance plugin and Claude knows the way your team analyzes equities. Install a legal plugin and it knows your contract playbook. The expertise travels with the install, not the person.
 * **Anthropic publishes plugins for common roles** — finance, legal, sales, marketing, customer support, product management, and more. You can install one off the shelf, customize it, or build your own.
 
-### Two kinds of plugins
+## Two kinds of plugins
 
 Plugins come in two flavors — both useful, both common.
 
@@ -32,161 +33,13 @@ Plugins come in two flavors — both useful, both common.
 
 Explore the interactive below to see the different shapes of plugins.
 
-Two plugins, two shapes
-
-Legal function's toolkit
-
-Experiment Readout end-to-end pipeline
-
-## Experiment Readout
-
-Customize
-
-…
-
-Source
-
-Uploaded from file
-
-Version
-
-1.0.0
-
-Last updated
-
-3 days ago
-
-Description
-
-Run an A/B test from raw results to shipped readout.
-
-Skills Click any skill to see what it does.
-
-Pull experiment exposures and metrics from the warehouse.
-
-/pull-results
-
-Joins exposures to event tables, dedupes by user, returns one row per user per metric for the experiment window.
-
-
-
-Break results down by the cuts that matter (platform, plan, geo).
-
-/segment-cuts
-
-Computes lift per segment, flags any segment where the effect reverses sign or loses significance.
-
-
-
-Validate traffic balance, sample ratio, and metric definitions.
-
-/sanity-check
-
-Runs a chi-square SRM test, checks pre-period parity, confirms metric definitions match the spec.
-
-
-
-Build the lift charts and confidence-interval plots.
-
-/visualize
-
-Generates the team's standard chart pack: lift over time, CI bars, segment heatmap.
-
-
-
-Draft the decision memo in the team's readout format.
-
-/write-readout
-
-Headline metric → segment cuts → risks → recommendation. Same shape every readout.
-
-
-
-Draft the TL;DR for the experiments channel.
-
-/ship-summary
-
-Drafts a Slack-ready two-line summary with a link to the full readout — you post it.
-
-Connectors BigQuery Slack Hex
-
-## Legal
-
-Customize
-
-…
-
-Source
-
-Marketplace (Anthropic & Partners)
-
-Version
-
-1.2.0
-
-Author
-
-Anthropic
-
-Last updated
-
-9 hours ago
-
-Description
-
-The contract and review work a legal team does most.
-
-Skills Click any skill to see what it does.
-
-Redline an NDA against the house playbook.
-
-/nda-review
-
-Compares incoming language to the house position; flags deltas; produces a redline + a short rationale per change.
-
-
-
-Pull key terms, dates, and obligations from any contract.
-
-/contract-summary
-
-One-page summary: parties, term, fees, termination triggers, indemnity, key dates calendar.
-
-
-
-Find pre-approved fallback language for a given clause.
-
-/clause-library
-
-Searches the team's clause bank by topic; returns the approved alternatives in priority order.
-
-
-
-Flag jurisdiction-specific issues in a draft.
-
-/regulatory-check
-
-Checks the draft against the jurisdiction's known requirements; flags missing notices or non-compliant clauses.
-
-
-
-Pull public filings and prior deal history.
-
-/counterparty-research
-
-Public filings, prior contracts on file, recent press. One-page brief on who you're negotiating with.
-
-Connectors Box Egnyte Slack M365 Atlassian
-
-*Stay in the loop.* A plugin enables Claude to run your workflows, but the output is still yours to review.
-
 The shape that matters in either case: a plugin is a package built around *workflows*. "Renewal prep for our customer success team" is a plugin. "Equity research for our fund" is a plugin. "The monthly board cycle for the CFO's office" is a plugin.
 
-### Install a plugin from the Anthropic marketplace
+## Install a plugin from the Anthropic marketplace
 
 Anthropic publishes plugins for the most common roles in knowledge work, each one built and maintained as a starting point you can use as-is or shape to your team. Find them in **Customize → Plugins** in Cowork. Browse for the plugin that matches your work, click **Install**, and approve the connectors the plugin uses. The plugin's skills become available immediately.
 
-### Customize a plugin to fit your team
+## Customize a plugin to fit your team
 
 A plugin from the marketplace is a strong default, not a final answer. The skills and connectors inside use a generic version of the workflow; your team has its own templates, definitions, and steps. You can shape any installed plugin to match.
 
@@ -194,11 +47,13 @@ After you've installed the plugin, go back to **Customize → Plugins → [Plugi
 
 For example, you could say something like:
 
-> *"Here are our last three red-lined NDAs. Update the /nda-triage skill in this plugin so the format and tone match these."*
+Here are our last three red-lined NDAs. Update the /nda-triage skill in this plugin so the format and tone match these.
+
+[Open in Cowork](claude://cowork/new?q=Here%20are%20our%20last%20three%20red-lined%20NDAs.%20Update%20the%20%2Fnda-triage%20skill%20in%20this%20plugin%20so%20the%20format%20and%20tone%20match%20these.)
 
 Claude adapts the plugin in place. The more you shape it to your team's actual work, the more leverage it produces.
 
-### Build your own plugin
+## Build your own plugin
 
 If your team has a workflow that doesn't fit any existing plugin, you can build one by working with Cowork. It will bundle the skills the workflow needs, include any connectors it depends on, and package it for easy installation into your instance of Cowork.
 
@@ -206,26 +61,33 @@ Most teams start small. One skill for the most repetitive task. Then another. By
 
 Your admin may have already published plugins for your organization — check the Directory (Customize → Plugins) before you build anything yourself.
 
-### Try it now
+## Try it now
 
 Let's find the plugins that fit your work. In a new Cowork conversation, type:
 
-> /setup-cowork
+/setup-claude
+
+[Open in Cowork](claude://cowork/new?q=%2Fsetup-claude)
 
 The skill starts a short interview. Claude asks about the type of work you do, then suggests a plugin that would work best for your needs. You can easily add the plugin right from chat and test it out in the conversation. Once installed, customize it for your team.
 
-### What’s next
+## What’s next
 
 You've now made Cowork yours for one piece of your work. The next module is about extending Cowork beyond the desktop — into your browser, and into the M365 apps where a lot of the work lands.
 
-#### Feedback
+<!-- embed: https://academy.claude.com/embed/courses/introduction-to-claude-cowork/PluginShapesExplorer -->
 
-As you progress through the course, we'd love to hear how you're using concepts from it in your work, plus any feedback you may have. Share your feedback [here](https://docs.google.com/forms/d/e/1FAIpQLScol7ZPi1cxhXy40g0AQieFbhTNQoVNm1Bvvs2gD1giMzOXHQ/viewform).
+Explorer: a mock plugin detail page lets the learner switch between two sample plugins, one a function's toolkit and one an end-to-end pipeline, clicking metadata, toggle, description, skills, and connectors to reveal explanations of each part.
 
-#### Acknowledgments and license
+Two plugins, two shapes
 
-*Copyright 2026 Anthropic. All rights reserved.*
+### Legal
 
+…
+
+SkillsClick any skill to see what it does.
+
+*Stay in the loop.* A plugin enables Claude to run your workflows, but the output is still yours to review.
 <!-- yt-pending: v5IOHK5xFlc -->
 
 _(영상 자막 없음 또는 추출 실패)_

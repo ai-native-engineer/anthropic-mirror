@@ -17,13 +17,15 @@ Update Deployment
 
 - `deployment_id: str`
 
+  Unique identifier of the deployment to update.
+
 - `agent: Optional[Agent]`
 
   Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
 
   - `str`
 
-  - `class BetaManagedAgentsAgentParams: …`
+  - `class BetaManagedAgentsAgentParams`
 
     Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
 
@@ -43,13 +45,13 @@ Update Deployment
 
 - `budget: Optional[BetaManagedAgentsBudgetLimitParam]`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Spend ceiling for future sessions. Full replacement. Omit to preserve; send null to clear (sessions created afterwards are uncapped). The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
   - `type: Literal["limit"]`
 
   - `max_list_cost: BetaMonetaryAmount`
 
-    A monetary amount in a specific currency.
+    Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
     - `amount: str`
 
@@ -75,7 +77,7 @@ Update Deployment
 
   Initial events. Full replacement. Omit to preserve. Cannot be cleared. At least 1, maximum 50.
 
-  - `class BetaManagedAgentsUserMessageEventParams: …`
+  - `class BetaManagedAgentsUserMessageEventParams`
 
     Parameters for sending a user message to the session.
 
@@ -85,7 +87,7 @@ Update Deployment
 
       Array of content blocks for the user message.
 
-      - `class BetaManagedAgentsTextBlock: …`
+      - `class BetaManagedAgentsTextBlock`
 
         Regular text content.
 
@@ -97,7 +99,7 @@ Update Deployment
 
           minLength: 1
 
-      - `class BetaManagedAgentsImageBlock: …`
+      - `class BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
@@ -105,9 +107,9 @@ Update Deployment
 
         - `source: Source`
 
-          Union type for image source variants.
+          The source of the image data.
 
-          - `class BetaManagedAgentsBase64ImageSource: …`
+          - `class BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
 
@@ -125,7 +127,7 @@ Update Deployment
 
               minLength: 1
 
-          - `class BetaManagedAgentsURLImageSource: …`
+          - `class BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
 
@@ -137,7 +139,7 @@ Update Deployment
 
               minLength: 1
 
-          - `class BetaManagedAgentsFileImageSource: …`
+          - `class BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
 
@@ -149,7 +151,7 @@ Update Deployment
 
               minLength: 1
 
-      - `class BetaManagedAgentsDocumentBlock: …`
+      - `class BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -157,9 +159,9 @@ Update Deployment
 
         - `source: Source`
 
-          Union type for document source variants.
+          The source of the document data.
 
-          - `class BetaManagedAgentsBase64DocumentSource: …`
+          - `class BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
 
@@ -177,7 +179,7 @@ Update Deployment
 
               minLength: 1
 
-          - `class BetaManagedAgentsPlainTextDocumentSource: …`
+          - `class BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
 
@@ -193,7 +195,7 @@ Update Deployment
 
               MIME type of the text content. Must be "text/plain".
 
-          - `class BetaManagedAgentsURLDocumentSource: …`
+          - `class BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
 
@@ -205,7 +207,7 @@ Update Deployment
 
               minLength: 1
 
-          - `class BetaManagedAgentsFileDocumentSource: …`
+          - `class BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
 
@@ -225,13 +227,13 @@ Update Deployment
 
           The title of the document.
 
-      - `class BetaManagedAgentsRedactedBlock: …`
+      - `class BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
         - `type: Literal["redacted"]`
 
-  - `class BetaManagedAgentsUserDefineOutcomeEventParams: …`
+  - `class BetaManagedAgentsUserDefineOutcomeEventParams`
 
     Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
 
@@ -243,9 +245,9 @@ Update Deployment
 
     - `rubric: Rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. Text or file reference.
 
-      - `class BetaManagedAgentsFileRubricParams: …`
+      - `class BetaManagedAgentsFileRubricParams`
 
         Rubric referenced by a file uploaded via the Files API.
 
@@ -255,7 +257,7 @@ Update Deployment
 
           ID of the rubric file.
 
-      - `class BetaManagedAgentsTextRubricParams: …`
+      - `class BetaManagedAgentsTextRubricParams`
 
         Rubric content provided inline as text.
 
@@ -273,7 +275,7 @@ Update Deployment
 
       format: int32
 
-  - `class BetaManagedAgentsSystemMessageEventParams: …`
+  - `class BetaManagedAgentsSystemMessageEventParams`
 
     Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
@@ -305,7 +307,7 @@ Update Deployment
 
   Session resources. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 500.
 
-  - `class BetaManagedAgentsGitHubRepositoryResourceParams: …`
+  - `class BetaManagedAgentsGitHubRepositoryResourceParams`
 
     Mount a GitHub repository into the session's container.
 
@@ -327,7 +329,7 @@ Update Deployment
 
       Branch or commit to check out. Defaults to the repository's default branch.
 
-      - `class BetaManagedAgentsBranchCheckout: …`
+      - `class BetaManagedAgentsBranchCheckout`
 
         - `type: Literal["branch"]`
 
@@ -337,7 +339,7 @@ Update Deployment
 
           minLength: 1, maxLength: 255
 
-      - `class BetaManagedAgentsCommitCheckout: …`
+      - `class BetaManagedAgentsCommitCheckout`
 
         - `type: Literal["commit"]`
 
@@ -353,7 +355,7 @@ Update Deployment
 
       minLength: 1, maxLength: 4096
 
-  - `class BetaManagedAgentsFileResourceParams: …`
+  - `class BetaManagedAgentsFileResourceParams`
 
     Mount a file uploaded via the Files API into the session.
 
@@ -371,7 +373,7 @@ Update Deployment
 
       minLength: 1, maxLength: 4096
 
-  - `class BetaManagedAgentsMemoryStoreResourceParam: …`
+  - `class BetaManagedAgentsMemoryStoreResourceParam`
 
     Parameters for attaching a memory store to an agent session.
 
@@ -383,7 +385,7 @@ Update Deployment
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
 
       - `"read_write"`
 
@@ -397,7 +399,7 @@ Update Deployment
 
 - `schedule: Optional[BetaManagedAgentsScheduleParams]`
 
-  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+  Cron schedule. Full replacement. Omit to preserve; send null to clear (revert to manual-only).
 
   - `type: Literal["cron"]`
 
@@ -423,103 +425,113 @@ Update Deployment
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 42 more]`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 - `workspace_id: Optional[str]`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `class BetaManagedAgentsDeployment: …`
+- `class BetaManagedAgentsDeployment`
 
   A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
 
@@ -531,7 +543,7 @@ Update Deployment
 
   - `agent: BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `type: Literal["agent"]`
 
@@ -543,13 +555,13 @@ Update Deployment
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `created_at: datetime`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -565,7 +577,7 @@ Update Deployment
 
     Events sent to each session immediately after creation.
 
-    - `class BetaManagedAgentsDeploymentUserMessageEvent: …`
+    - `class BetaManagedAgentsDeploymentUserMessageEvent`
 
       A user message sent to the session.
 
@@ -575,7 +587,7 @@ Update Deployment
 
         Array of content blocks for the user message.
 
-        - `class BetaManagedAgentsTextBlock: …`
+        - `class BetaManagedAgentsTextBlock`
 
           Regular text content.
 
@@ -587,7 +599,7 @@ Update Deployment
 
             minLength: 1
 
-        - `class BetaManagedAgentsImageBlock: …`
+        - `class BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
@@ -595,9 +607,9 @@ Update Deployment
 
           - `source: Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
-            - `class BetaManagedAgentsBase64ImageSource: …`
+            - `class BetaManagedAgentsBase64ImageSource`
 
               Base64-encoded image data.
 
@@ -615,7 +627,7 @@ Update Deployment
 
                 minLength: 1
 
-            - `class BetaManagedAgentsURLImageSource: …`
+            - `class BetaManagedAgentsURLImageSource`
 
               Image referenced by URL.
 
@@ -627,7 +639,7 @@ Update Deployment
 
                 minLength: 1
 
-            - `class BetaManagedAgentsFileImageSource: …`
+            - `class BetaManagedAgentsFileImageSource`
 
               Image referenced by file ID.
 
@@ -639,7 +651,7 @@ Update Deployment
 
                 minLength: 1
 
-        - `class BetaManagedAgentsDocumentBlock: …`
+        - `class BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -647,9 +659,9 @@ Update Deployment
 
           - `source: Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
-            - `class BetaManagedAgentsBase64DocumentSource: …`
+            - `class BetaManagedAgentsBase64DocumentSource`
 
               Base64-encoded document data.
 
@@ -667,7 +679,7 @@ Update Deployment
 
                 minLength: 1
 
-            - `class BetaManagedAgentsPlainTextDocumentSource: …`
+            - `class BetaManagedAgentsPlainTextDocumentSource`
 
               Plain text document content.
 
@@ -683,7 +695,7 @@ Update Deployment
 
                 MIME type of the text content. Must be "text/plain".
 
-            - `class BetaManagedAgentsURLDocumentSource: …`
+            - `class BetaManagedAgentsURLDocumentSource`
 
               Document referenced by URL.
 
@@ -695,7 +707,7 @@ Update Deployment
 
                 minLength: 1
 
-            - `class BetaManagedAgentsFileDocumentSource: …`
+            - `class BetaManagedAgentsFileDocumentSource`
 
               Document referenced by file ID.
 
@@ -715,13 +727,13 @@ Update Deployment
 
             The title of the document.
 
-        - `class BetaManagedAgentsRedactedBlock: …`
+        - `class BetaManagedAgentsRedactedBlock`
 
           Placeholder for content withheld by Anthropic model policy.
 
           - `type: Literal["redacted"]`
 
-    - `class BetaManagedAgentsDeploymentUserDefineOutcomeEvent: …`
+    - `class BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
 
       An outcome the agent should work toward. The agent begins work on receipt.
 
@@ -733,9 +745,9 @@ Update Deployment
 
       - `rubric: Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
-        - `class BetaManagedAgentsFileRubric: …`
+        - `class BetaManagedAgentsFileRubric`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -745,7 +757,7 @@ Update Deployment
 
             ID of the rubric file.
 
-        - `class BetaManagedAgentsTextRubric: …`
+        - `class BetaManagedAgentsTextRubric`
 
           Rubric content provided inline as text.
 
@@ -761,7 +773,7 @@ Update Deployment
 
         format: int32
 
-    - `class BetaManagedAgentsDeploymentSystemMessageEvent: …`
+    - `class BetaManagedAgentsDeploymentSystemMessageEvent`
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
 
@@ -789,15 +801,15 @@ Update Deployment
 
   - `paused_reason: Optional[BetaManagedAgentsDeploymentPausedReason]`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
-    - `class BetaManagedAgentsManualDeploymentPausedReason: …`
+    - `class BetaManagedAgentsManualDeploymentPausedReason`
 
       The caller invoked the pause endpoint on the deployment.
 
       - `type: Literal["manual"]`
 
-    - `class BetaManagedAgentsErrorDeploymentPausedReason: …`
+    - `class BetaManagedAgentsErrorDeploymentPausedReason`
 
       A scheduled fire recorded a failed run whose error auto-pauses the deployment.
 
@@ -805,87 +817,87 @@ Update Deployment
 
       - `error: BetaManagedAgentsDeploymentPausedReasonError`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
-        - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
           The deployment's environment was archived.
 
           - `type: Literal["environment_archived_error"]`
 
-        - `class BetaManagedAgentsAgentArchivedDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
 
           The deployment's agent was archived.
 
           - `type: Literal["agent_archived_error"]`
 
-        - `class BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
 
           The deployment's environment no longer exists.
 
           - `type: Literal["environment_not_found_error"]`
 
-        - `class BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
 
           A vault referenced by the deployment no longer exists.
 
           - `type: Literal["vault_not_found_error"]`
 
-        - `class BetaManagedAgentsFileNotFoundDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
 
           A file resource referenced by the deployment no longer exists.
 
           - `type: Literal["file_not_found_error"]`
 
-        - `class BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
 
           A referenced resource no longer exists and its kind was not reported.
 
           - `type: Literal["session_resource_not_found_error"]`
 
-        - `class BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
 
           The deployment's workspace was archived.
 
           - `type: Literal["workspace_archived_error"]`
 
-        - `class BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
 
           The deployment's organization is disabled.
 
           - `type: Literal["organization_disabled_error"]`
 
-        - `class BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
 
           A memory store referenced by the deployment is archived.
 
           - `type: Literal["memory_store_archived_error"]`
 
-        - `class BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
 
           A skill referenced by the deployment's agent no longer exists.
 
           - `type: Literal["skill_not_found_error"]`
 
-        - `class BetaManagedAgentsVaultArchivedDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
 
           A vault referenced by the deployment is archived.
 
           - `type: Literal["vault_archived_error"]`
 
-        - `class BetaManagedAgentsUnknownDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsUnknownDeploymentPausedReasonError`
 
           An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
 
           - `type: Literal["unknown_error"]`
 
-        - `class BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
 
           The deployment configures resources, but its environment is self-hosted and cannot mount them.
 
           - `type: Literal["self_hosted_resources_unsupported_error"]`
 
-        - `class BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError: …`
+        - `class BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
 
           An MCP server host used by the deployment's agent is blocked by the environment's network policy.
 
@@ -895,7 +907,7 @@ Update Deployment
 
     Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
 
-    - `class BetaManagedAgentsGitHubRepositoryResourceConfig: …`
+    - `class BetaManagedAgentsGitHubRepositoryResourceConfig`
 
       A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
 
@@ -909,7 +921,7 @@ Update Deployment
 
         Branch or commit to check out. Defaults to the repository's default branch.
 
-        - `class BetaManagedAgentsBranchCheckout: …`
+        - `class BetaManagedAgentsBranchCheckout`
 
           - `type: Literal["branch"]`
 
@@ -919,7 +931,7 @@ Update Deployment
 
             minLength: 1, maxLength: 255
 
-        - `class BetaManagedAgentsCommitCheckout: …`
+        - `class BetaManagedAgentsCommitCheckout`
 
           - `type: Literal["commit"]`
 
@@ -933,7 +945,7 @@ Update Deployment
 
         Mount path in the container. Defaults to `/workspace/<repo-name>`.
 
-    - `class BetaManagedAgentsFileResourceConfig: …`
+    - `class BetaManagedAgentsFileResourceConfig`
 
       A file mounted into each session's container.
 
@@ -947,7 +959,7 @@ Update Deployment
 
         Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
 
-    - `class BetaManagedAgentsMemoryStoreResourceConfig: …`
+    - `class BetaManagedAgentsMemoryStoreResourceConfig`
 
       A memory store attached to each session created from this deployment.
 
@@ -959,7 +971,7 @@ Update Deployment
 
       - `access: Optional[Literal["read_write", "read_only"]]`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `"read_write"`
 
@@ -971,7 +983,7 @@ Update Deployment
 
   - `schedule: Optional[BetaManagedAgentsSchedule]`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `type: Literal["cron"]`
 
@@ -989,7 +1001,7 @@ Update Deployment
 
     - `last_run_at: Optional[datetime]`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -999,15 +1011,19 @@ Update Deployment
 
   - `status: BetaManagedAgentsDeploymentStatus`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: datetime`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -1017,13 +1033,13 @@ Update Deployment
 
   - `budget: Optional[BetaManagedAgentsBudgetLimit]`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `type: Literal["limit"]`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: str`
 

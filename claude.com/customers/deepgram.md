@@ -4,33 +4,21 @@ Case study | Claude
 
 # Deepgram ships 4–10x more durable code with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c544207da56365de9165_logo_deepgram-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c5496d5290209c339478_logo_deepgram-dark-mode.png)
+![Deepgram logo](https://assets.claude.com/55db716283a6613b4761b5c72a4fb01665362438.png)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Code](https://claude.com/product/claude-code)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Location:
-
-North America
+:   North America
 
 4–10x durable code output
 
@@ -53,32 +41,6 @@ compared to multi-day back-and-forths, with agents that verify their own diagnos
 
 ## The challenge
 
-Claude for Statrtups
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0cb8c1f8c5c525e8c554b3_problem-solvers-padded-200kb.jpg)
-
-Join the founders building on Claude. Access community and resources to accelerate your growth.
-
-Read more
-
-[Read more](https://claude.com/programs/startups)Read more
-
-Claude for Statrtups
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Join the founders building on Claude. Access community and resources to accelerate your growth.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Statrtups
-
-Join the founders building on Claude. Access community and resources to accelerate your growth.
-
 ## A product surface outgrowing human-speed workflows
 
 Deepgram's engineering surface is enormous: inference, APIs, SDKs, billing, integrations, infrastructure, and apps. Traditional workflows couldn't cover it fast enough. "Our competitors and startups we haven't even heard of yet are building AI-native now, and the cost of code generation is approaching zero," said Kris Efland, Deepgram's VP of Engineering. "If we don't ship it, someone else does, and customers follow whoever ships."
@@ -87,33 +49,15 @@ Incident triage showed the cost most plainly. When a customer reported a spike i
 
 Claude adoption, meanwhile, was outrunning any official plan: engineers moved from personal API keys to out-of-pocket Claude Max subscriptions. "If your best people are paying out of pocket to get around your limits, you've already lost more than the license would've cost," Efland said.
 
+Claude for Statrtups
+
+![Claude for Statrtups ](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Join the founders building on Claude. Access community and resources to accelerate your growth.
+
+[Read more](https://claude.com/programs/startups)
+
 ## The solution
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
 ## A bake-off, a cohort study, and a hard cutover to Enterprise
 
@@ -141,21 +85,17 @@ The clearest moment was a sustained text-to-speech degradation a customer report
 
 "Getting 'water through pipes' is easy now,” Efland said. “Getting all the bugs out still requires reading the code.” Every production change carries human sign-off; every deliverable has one responsible human.
 
-"Claude is the only frontier model where the surrounding system is good enough that we've reshaped our own infrastructure around it."
+Claude Code
 
-Kris Efland
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
-VP of Engineering, Deepgram
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/product/claude-code)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Claude is the only frontier model where the surrounding system is good enough that we've reshaped our own infrastructure around it."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Kris EflandVP of Engineering, Deepgram
 
 ## The outcome
 
@@ -167,42 +107,16 @@ Deepgram's restaurant and drive-thru team, its most productive group, runs rough
 
 Cheap code generation moved the constraint to validation, so Deepgram writes more tests, not fewer, and engineering shifts from writing code to defining behavior and reviewing results. "The future is agents driving not just code authoring but infrastructure, deployment, testing, and support triage,” Efland said, “with humans in the loop to defend product integrity as non-negotiable.”
 
-"The differentiator is the ecosystem with Claude Code, Cowork, MCP, skills, and subagents."
+> "The differentiator is the ecosystem with Claude Code, Cowork, MCP, skills, and subagents."
 
-Kris Efland
+Kris EflandVP of Engineering, Deepgram
 
-VP of Engineering, Deepgram
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

@@ -550,7 +550,7 @@ We take a layered approach to safety on the expectation that any given layer wil
 
 ## Authors
 
-*Paul C. Bogdan, Richard Qi, Jake Eaton, Sam Kennedy, Fabien Roger, Alex Glynn, Runjin Chen, Ben Wright, Otto Stegmaier, Jon Kutasov, Dan Foreman-Mackey*
+*Paul C. Bogdan, Richard Qi, Jake Eaton, Sam Kennedy, Fabien Roger, Alex Glynn, Runjin Chen, Ben Wright, Otto Stegmaier, Jon Kutasov, Dan Foreman-Mackey, Trenton Bricken*
 
 *Sylvie Carr, Shan Carter, Monte MacDiarmid, Samuel Marks, Adam Pearce, Elana Simon*
 
@@ -573,6 +573,7 @@ We take a layered approach to safety on the expectation that any given layer wil
                   Stegmaier, Otto and
                   Kutasov, Jon and
                   Foreman-Mackey, Dan and
+                  Bricken, Trenton and
                   Carr, Sylvie and
                   Carter, Shan and
                   MacDiarmid, Monte and
@@ -601,20 +602,20 @@ Copy
 
 1. We have since [advised](https://www.anthropic.com/news/improving-alignment-security-efforts) external partners running cyber evaluations with pre-release models to explicitly define what is in and out of scope for any exercise, including the targets, permitted actions, and network boundaries.
 
-### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+### What work can robots do?
 
-Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
 
-[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
 
-### Formalizing Fermat's Last Theorem
+### What do you want from AI?
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
-[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
 
-### Automated researchers can reliably mitigate alignment failures
+### GLM-5.3 and the spread of advanced cyber capabilities
 
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)

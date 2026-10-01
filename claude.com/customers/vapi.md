@@ -4,39 +4,24 @@ Case study | Claude Platform
 
 # Vapi turns natural language into production voice agents with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fce9da8250c46378f9920a_logo_vapi-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fce9db997307a8c2ac5cf3_logo_vapi-dark-mode.svg)
+![Vapi logo](https://assets.claude.com/22c2d0b6ed2131736e00487ed92744268eae7d35.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-Claude Agent SDK
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Platform](https://claude.com/platform/api)Claude Agent SDK[Claude Code](https://claude.com/product/claude-code)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 ~3x higher deep activation rate
 
@@ -58,32 +43,6 @@ for users guided by Vapi's AI-powered setup agent
 
 ## The challenge
 
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698395d5956e6e0e78f3e486_image-claude-sdk.jpg)
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-Read more
-
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)Read more
-
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Building agents with the Claude Agent SDK
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
 ## Strong signups, soft activation
 
 Vapi gives teams a platform to build AI-powered voice agents that handle real customer calls without a human on the line. The platform exposes more than a dozen configuration points because the use cases demand it: a healthcare company with strict data residency requirements handling 250,000 monthly patient calls and a labor marketplace screening 50,000 applicants a month have almost nothing in common architecturally, but both run on Vapi. That depth of configurability was also a double-edged sword. Technical users could reach a prototype in a day or two. Everyone else hit a wall.
@@ -92,33 +51,15 @@ Vapi gives teams a platform to build AI-powered voice agents that handle real cu
 
 New customer activation depended on documentation, example code, and Vapi's field engineering team. That was expensive in both directions: lost self-serve revenue from users who never activated, and engineering time spent on basic setup instead of strategic customer work. The goal was concrete: get a non-technical user from signup to a working voice agent in under 30 minutes through natural language alone.
 
+Building agents with the Claude Agent SDK
+
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
+
+The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
+
+[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+
 ## The solution
-
-Introducing Agent Skills
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6902681b6935a6f61e64165c_og_introducing-agent-skills.jpg)
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-Read more
-
-[Read more](https://claude.com/blog/skills)Read more
-
-Introducing Agent Skills
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Agent Skills
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
 ## Selecting Claude for function-calling reliability
 
@@ -142,21 +83,17 @@ Composer now runs on more than 10 skills and a catalog of 100+ tools that reache
 
 Beyond Composer, customers building voice agents on Vapi can also select Claude Sonnet or Opus, via the direct Anthropic API or Amazon Bedrock, to power the intelligence layer of their agent. Claude is among the most heavily used models across Vapi's enterprise customer base.
 
-"The accuracy gap between Claude and the other models we tested widens with chain length and tool specialization."
+Introducing Agent Skills
 
-Dev Seth
+![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Manager, Product Engineering, Vapi
+Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/blog/skills)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "The accuracy gap between Claude and the other models we tested widens with chain length and tool specialization."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Dev SethManager, Product Engineering, Vapi
 
 ## The outcome
 
@@ -170,42 +107,16 @@ One moment captures the shift well: a customer flagged a configuration option th
 
 "We knew that if we could compress the time from 'I signed up' to 'I have a working voice agent,' we would materially change the trajectory of the business," Dearsley said.
 
-"Claude's function-calling behavior under the kinds of agentic workloads Composer runs is meaningfully more reliable than alternatives we have tested."
+> "Claude's function-calling behavior under the kinds of agentic workloads Composer runs is meaningfully more reliable than alternatives we have tested."
 
-Jordan Dearsley
+Jordan DearsleyCEO and Co-founder, Vapi
 
-CEO and Co-founder, Vapi
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

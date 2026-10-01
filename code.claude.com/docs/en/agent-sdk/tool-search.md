@@ -36,17 +36,17 @@ Before Claude Code v2.1.221, the SDK disabled tool search for all models on Goog
 
 The SDK also disables tool search when `ANTHROPIC_BASE_URL` points to a non-first-party host, since most proxies don't forward `tool_reference` blocks. You can override that default with the `ENABLE_TOOL_SEARCH` environment variable:
 
-| Value    | Behavior                                                                                                                                                                                                                                                                                                                                                                                                            |
-| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| (unset)  | Tool search is on. Tool definitions are deferred and discovered on demand. Falls back to loading upfront on Google Cloud's Agent Platform models earlier than the Claude 4.5 generation, a non-first-party `ANTHROPIC_BASE_URL`, or a Microsoft Foundry deployment hosted on Azure.                                                                                                                                 |
-| `true`   | Tool search is always on, except on a Microsoft Foundry deployment hosted on Azure, where the server-side rejection still forces upfront loading, and on Google Cloud's Agent Platform models earlier than the Claude 4.5 generation, where the SDK keeps loading tool definitions upfront. The SDK sends the beta header through proxies, and requests fail on proxies that don't support `tool_reference` blocks. |
-| `auto`   | Counts the tokens in the tool definitions that tool search can defer and compares the total against the model's context window. When the total reaches 10% of the window, tool search activates. Below that, the SDK loads every tool definition into context upfront.                                                                                                                                              |
-| `auto:N` | Same as `auto` with a custom percentage. `auto:5` activates when those definitions reach 5% of the context window. Lower values activate sooner.                                                                                                                                                                                                                                                                    |
-| `false`  | Tool search is off. All tool definitions are loaded into context on every turn.                                                                                                                                                                                                                                                                                                                                     |
+| Value | Behavior |
+| :- | :- |
+| (unset) | Tool search is on. Tool definitions are deferred and discovered on demand. Falls back to loading upfront on Google Cloud's Agent Platform models earlier than the Claude 4.5 generation, a non-first-party `ANTHROPIC_BASE_URL`, or a Microsoft Foundry deployment hosted on Azure. |
+| `true` | Tool search is always on, except on a Microsoft Foundry deployment hosted on Azure, where the server-side rejection still forces upfront loading, and on Google Cloud's Agent Platform models earlier than the Claude 4.5 generation, where the SDK keeps loading tool definitions upfront. The SDK sends the beta header through proxies, and requests fail on proxies that don't support `tool_reference` blocks. |
+| `auto` | Counts the tokens in the tool definitions that tool search can defer and compares the total against the model's context window. When the total reaches 10% of the window, tool search activates. Below that, the SDK loads every tool definition into context upfront. |
+| `auto:N` | Same as `auto` with a custom percentage. `auto:5` activates when those definitions reach 5% of the context window. Lower values activate sooner. |
+| `false` | Tool search is off. All tool definitions are loaded into context on every turn. |
 
-Setting [`CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`](/docs/en/env-vars) keeps tool search off. You can't override it by setting `ENABLE_TOOL_SEARCH` yourself. Your organization can keep tool search on through [managed settings](/docs/en/managed-settings), on Claude Code v2.1.227 or later. [Disable pre-release capabilities](/docs/en/llm-gateway-protocol#disable-pre-release-capabilities) covers where the override applies and what the variable strips.
+Setting [`CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`](https://code.claude.com/docs/en/env-vars) keeps tool search off. You can't override it by setting `ENABLE_TOOL_SEARCH` yourself. Your organization can keep tool search on through [managed settings](https://code.claude.com/docs/en/managed-settings), on Claude Code v2.1.227 or later. [Disable pre-release capabilities](https://code.claude.com/docs/en/llm-gateway-protocol#disable-pre-release-capabilities) covers where the override applies and what the variable strips.
 
-Tool search applies to all registered tools, whether they come from remote MCP servers or [custom SDK MCP servers](/docs/en/agent-sdk/custom-tools). When you use `auto`, the SDK counts every definition that tool search can defer toward one combined threshold: each MCP tool that isn't marked [`alwaysLoad`](/docs/en/mcp#exempt-a-server-from-deferral), from any server, plus the built-in tools that load on demand. The SDK always loads core built-in tools such as Bash, Read, and Edit upfront and doesn't count them toward the threshold.
+Tool search applies to all registered tools, whether they come from remote MCP servers or [custom SDK MCP servers](https://code.claude.com/docs/en/agent-sdk/custom-tools). When you use `auto`, the SDK counts every definition that tool search can defer toward one combined threshold: each MCP tool that isn't marked [`alwaysLoad`](https://code.claude.com/docs/en/mcp#exempt-a-server-from-deferral), from any server, plus the built-in tools that load on demand. The SDK always loads core built-in tools such as Bash, Read, and Edit upfront and doesn't count them toward the threshold.
 
 Set the value in the `env` option on `query()`. In TypeScript, `env` replaces the subprocess environment, so spread `...process.env` to keep inherited variables. In Python, `env` is merged on top of the inherited environment. This example connects to a remote MCP server that exposes many tools, pre-approves all of them with a wildcard, and uses `auto:5` so tool search activates when the definitions it can defer reach 5% of the context window:
 
@@ -119,13 +119,13 @@ Set the value in the `env` option on `query()`. In TypeScript, `env` replaces th
 
 To run this example, replace `https://tools.example.com/mcp` with the URL of your own MCP server. On success the result text prints to the console.
 
-Because this is a single-shot `query()` call, the SDK raises after yielding an error result, so the example wraps the loop in a try block. To see why a run failed, check the result message's `subtype`, such as `error_during_execution`, inside the loop. For more on result messages, see [Handle the result](/docs/en/agent-sdk/agent-loop#handle-the-result).
+Because this is a single-shot `query()` call, the SDK raises after yielding an error result, so the example wraps the loop in a try block. To see why a run failed, check the result message's `subtype`, such as `error_during_execution`, inside the loop. For more on result messages, see [Handle the result](https://code.claude.com/docs/en/agent-sdk/agent-loop#handle-the-result).
 
 ## Optimize tool discovery
 
 The search mechanism matches queries against tool names and descriptions. Names like `search_slack_messages` surface for a wider range of requests than `query_slack`. Descriptions with specific keywords ("Search Slack messages by keyword, channel, or date range") match more queries than generic ones ("Query Slack").
 
-You can also add a system prompt section listing available tool categories. This gives the agent context about what kinds of tools are available to search for. Pass the text through the `systemPrompt` option in TypeScript or `system_prompt` in Python, using the `claude_code` preset with `append`, which adds your text to the preset's prompt instead of replacing it:
+You can also add a system prompt section listing available tool categories. This gives the agent context about what kinds of tools are available to search for. Pass the text in the `systemPrompt` option of `query()` in TypeScript, or `system_prompt` in Python. Use the `claude_code` preset with `append`, which adds your text to the preset's prompt instead of replacing it:
 
 <CodeGroup>
   ```typescript TypeScript theme={null}
@@ -149,7 +149,7 @@ You can also add a system prompt section listing available tool categories. This
   ```
 </CodeGroup>
 
-For the full set of system prompt options, see [Modifying system prompts](/docs/en/agent-sdk/modifying-system-prompts).
+For the full set of system prompt options, see [Modifying system prompts](https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts).
 
 ## Limits
 
@@ -160,7 +160,7 @@ For the full set of system prompt options, see [Modifying system prompts](/docs/
 ## Related documentation
 
 * [Tool search in the API](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool): Full API documentation for tool search, including custom implementations
-* [Connect MCP servers](/docs/en/agent-sdk/mcp): Connect to external tools via MCP servers
-* [Custom tools](/docs/en/agent-sdk/custom-tools): Build your own tools with SDK MCP servers
-* [TypeScript SDK reference](/docs/en/agent-sdk/typescript): Full API reference
-* [Python SDK reference](/docs/en/agent-sdk/python): Full API reference
+* [Connect MCP servers](https://code.claude.com/docs/en/agent-sdk/mcp): Connect to external tools via MCP servers
+* [Custom tools](https://code.claude.com/docs/en/agent-sdk/custom-tools): Build your own tools with SDK MCP servers
+* [TypeScript SDK reference](https://code.claude.com/docs/en/agent-sdk/typescript): Full API reference
+* [Python SDK reference](https://code.claude.com/docs/en/agent-sdk/python): Full API reference

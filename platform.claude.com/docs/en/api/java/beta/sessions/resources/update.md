@@ -115,7 +115,19 @@ Update Session Resource
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `String authorizationToken`
 
@@ -129,7 +141,7 @@ Update Session Resource
 
   The updated session resource.
 
-  - `class BetaManagedAgentsGitHubRepositoryResource:`
+  - `class BetaManagedAgentsGitHubRepositoryResource`
 
     - `Type type`
 
@@ -153,7 +165,7 @@ Update Session Resource
 
     - `Optional<Checkout> checkout`
 
-      - `class BetaManagedAgentsBranchCheckout:`
+      - `class BetaManagedAgentsBranchCheckout`
 
         - `Type type`
 
@@ -163,7 +175,7 @@ Update Session Resource
 
           minLength: 1, maxLength: 255
 
-      - `class BetaManagedAgentsCommitCheckout:`
+      - `class BetaManagedAgentsCommitCheckout`
 
         - `Type type`
 
@@ -173,7 +185,7 @@ Update Session Resource
 
           minLength: 7, maxLength: 64
 
-  - `class BetaManagedAgentsFileResource:`
+  - `class BetaManagedAgentsFileResource`
 
     - `Type type`
 
@@ -195,7 +207,7 @@ Update Session Resource
 
       format: date-time
 
-  - `class BetaManagedAgentsMemoryStoreResource:`
+  - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -207,7 +219,7 @@ Update Session Resource
 
     - `Optional<Access> access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `READ_WRITE("read_write")`
 

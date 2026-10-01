@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/BentleySystems/openstaad-mcp)[Support (opens in new tab)](https://github.com/BentleySystems/openstaad-mcp)
+More[Documentation (opens in new tab)](https://github.com/BentleySystems/openstaad-mcp)[Support (opens in new tab)](https://github.com/BentleySystems/openstaad-mcp)[Privacy policy (opens in new tab)](https://www.bentley.com/legal/privacy-policy)
 
 The OpenSTAAD MCP server enables Claude to interact with your STAAD.Pro models and perform various time-consuming tasks like load cases definition, data extraction, repetitive property setting and more.
 

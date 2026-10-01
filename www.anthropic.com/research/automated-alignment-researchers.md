@@ -77,20 +77,20 @@ To read this research in full, see our [Alignment Science blog](https://alignmen
 1. These are available (along with the rest of our code and data) [here](https://github.com/safety-research/automated-w2s-research).
 2. We chose these models for several reasons. There is a substantial performance gap between the two, the small model performs better-than-random on our testbeds, and both models are sufficiently small for fast experimentation. We use open-weights models for all Anthropic Fellows projects.
 
-### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+### What work can robots do?
 
-Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
 
-[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
 
-### An alignment assessment of recent cybersecurity incidents
+### What do you want from AI?
 
-We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
-[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
 
-### Formalizing Fermat's Last Theorem
+### GLM-5.3 and the spread of advanced cyber capabilities
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
-[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)

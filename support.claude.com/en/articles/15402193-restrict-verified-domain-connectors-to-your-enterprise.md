@@ -27,6 +27,7 @@ This setting applies to the following connectors:
 * Notion
 * Slack
 * Smartsheet
+* Tableau
 
 You can also view the current list in **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**. Contact **[our support team](https://support.claude.com/en/articles/9015913-how-to-get-support)** to request additional connectors.
 

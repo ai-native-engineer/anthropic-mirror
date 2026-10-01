@@ -2,6 +2,40 @@
 
 ## September 2026
 
+### September 28, 2026
+
+**Claude Sonnet 5.5 launch**
+
+We just launched Claude Sonnet 5.5, the second model in our Claude 5.5 family. Sonnet 5.5 is a faster, lower-cost complement to Claude Opus 5.5. For more information, see our blog post: **[Introducing Claude Sonnet 5.5](https://www.anthropic.com/claude-sonnet-5-5)**.
+
+### September 25, 2026
+
+**Build plugins for Claude**
+
+You can now submit plugins to the Claude directory through a new developer portal, track them through review, and see usage analytics once they’re live. For more information, see our blog post: **[Build plugins for Claude](https://claude.com/blog/build-plugins-for-claude)**.
+
+### September 22, 2026
+
+**Claude Opus 5.5 launch**
+
+We just launched Claude Opus 5.5, the first model in our new Claude 5.5 family. It performs at the level of Claude Fable 5.1 on most work and costs 40% less to run than Opus 5. For more information, see our blog post: **[Introducing Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5)**.
+
+### September 16, 2026
+
+**Claude Cowork comes to every conversation**
+
+We're rolling out a new Claude experience that makes everything Claude Cowork does available from any conversation. Ask a quick question or hand Claude a bigger task, like a report, spreadsheet, or presentation, without choosing a mode first. Your chats, Cowork tasks, projects, connectors, and skills carry over. The new experience is rolling out gradually to Pro and Max plans on web, desktop, and mobile. Learn more in **[Claude Cowork and chat are one Claude](https://support.claude.com/en/articles/16761823)**.
+
+**Create designs, decks, and docs in any conversation**
+
+You can now ask for a design, deck, or document in any conversation with Claude, including in Claude Code and the **Artifacts** tab, and edit it with Claude or directly as you work. Claude Design works inside your conversations with all of its features, including on-canvas editing and importing your design system. Claude Slides gives presentations their own starting point, and Claude Docs is a new way to write living documents with Claude and your team. Artifacts, including Claude Design, Claude Slides, and Claude Docs, are available on every plan, including Free. On Enterprise plans, Claude Design, Claude Slides, and Claude Docs are in beta and off by default until an owner turns them on. Learn more in **[What are artifacts and how do I use them?](https://support.claude.com/en/articles/17153992)** and **[Get started with Claude Docs](https://support.claude.com/en/articles/16923645)**.
+
+### September 15, 2026
+
+**Launching Salesforce in Claude (beta)**
+
+We've launched Salesforce in Claude, a plugin that brings a seller’s accounts, opportunities, and pipeline into Claude with 37 pre-built sales skills. Prep a call, review a deal, create a pipeline dashboard, and send your forecast all from Claude. It’s now available in beta on all paid plans for organizations Salesforce approves through its beta sign-up. For more information, see our blog post: **[Bringing Salesforce into Claude](http://claude.com/blog/salesforce-in-claude)**.
+
 ### September 10, 2026
 
 **Smart reports (beta)**
@@ -540,6 +574,6 @@ Enabled project permissions and sharing for Team and Enterprise plans. See **[Or
 
 * [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
-* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
+* [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)

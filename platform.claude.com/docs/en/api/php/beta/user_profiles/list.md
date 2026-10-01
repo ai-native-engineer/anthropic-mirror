@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/php/beta/user_profiles/list
 
 # List User Profiles
 
-`$client->beta->userProfiles->list(?int limit, ?Order order, ?OrderBy orderBy, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaUserProfile>`
+`$client->beta->userProfiles->list(?int limit, ?Order order, ?OrderBy orderBy, ?string page, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<BetaUserProfile>`
 
 **GET** `/v1/user_profiles`
 
@@ -17,27 +17,35 @@ List User Profiles
 
 - `limit?:optional int`
 
-  Query parameter for limit
+  The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
 - `order?:optional Order`
 
-  Query parameter for order
+  The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
 - `orderBy?:optional OrderBy`
 
-  Query parameter for order_by
+  The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
 - `page?:optional string`
 
-  Query parameter for page
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
 
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -49,7 +57,7 @@ List User Profiles
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -61,11 +69,11 @@ List User Profiles
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -73,11 +81,11 @@ List User Profiles
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -98,6 +106,7 @@ $page = $client->beta->userProfiles->list(
   orderBy: 'created_at',
   page: 'page',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);

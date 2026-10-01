@@ -19,21 +19,21 @@ List Session Thread Events
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--thread-id: string`
 
-  Path param: Path parameter thread_id
+  Path param
 
 - `--limit: optional number`
 
-  Query param: Query parameter for limit
+  Query param
 
   format: int32
 
 - `--page: optional string`
 
-  Query param: Query parameter for page
+  Query param
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -89,7 +89,7 @@ List Session Thread Events
 
           - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `beta_managed_agents_base64_image_source: object`
 
@@ -141,7 +141,7 @@ List Session Thread Events
 
           - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `beta_managed_agents_base64_document_source: object`
 
@@ -217,7 +217,7 @@ List Session Thread Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the agent finished processing this message.
 
         format: date-time
 
@@ -233,7 +233,7 @@ List Session Thread Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the interrupt was processed.
 
         format: date-time
 
@@ -253,7 +253,7 @@ List Session Thread Events
 
       - `result: "allow" or "deny"`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `"allow"`
 
@@ -271,13 +271,13 @@ List Session Thread Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the confirmation was processed.
 
         format: date-time
 
       - `session_thread_id: optional string`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_user_custom_tool_result_event: object`
 
@@ -317,7 +317,7 @@ List Session Thread Events
 
           - `citations: object`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `enabled: boolean`
 
@@ -353,13 +353,13 @@ List Session Thread Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id: optional string`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_agent_custom_tool_use_event: object`
 
@@ -381,13 +381,13 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this tool use was processed.
 
         format: date-time
 
       - `session_thread_id: optional string`
 
-        When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+        When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
     - `beta_managed_agents_agent_message_event: object`
 
@@ -413,7 +413,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this response was generated.
 
         format: date-time
 
@@ -429,7 +429,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this thinking was produced.
 
         format: date-time
 
@@ -457,13 +457,13 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this event was processed.
 
         format: date-time
 
       - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
-        AgentEvaluatedPermission enum
+        The evaluated permission policy for this tool invocation.
 
         - `"allow"`
 
@@ -473,7 +473,7 @@ List Session Thread Events
 
       - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
 
-        Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+        Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
         - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
 
@@ -495,7 +495,7 @@ List Session Thread Events
 
           - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermissionAllow or BetaManagedAgentsAgentAutoEvaluatedPermissionAsk or BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
-            The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+            The server's judgement for this invocation.
 
             - `beta_managed_agents_agent_auto_evaluated_permission_allow: object`
 
@@ -529,7 +529,7 @@ List Session Thread Events
 
       - `session_thread_id: optional string`
 
-        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
     - `beta_managed_agents_agent_mcp_tool_result_event: object`
 
@@ -547,7 +547,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this event was processed.
 
         format: date-time
 
@@ -595,13 +595,13 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this event was processed.
 
         format: date-time
 
       - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
-        AgentEvaluatedPermission enum
+        The evaluated permission policy for this tool invocation.
 
         - `"allow"`
 
@@ -611,7 +611,7 @@ List Session Thread Events
 
       - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
 
-        Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+        Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
         - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
 
@@ -627,7 +627,7 @@ List Session Thread Events
 
       - `session_thread_id: optional string`
 
-        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
     - `beta_managed_agents_agent_tool_result_event: object`
 
@@ -641,7 +641,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this event was processed.
 
         format: date-time
 
@@ -709,7 +709,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the message was received.
 
         format: date-time
 
@@ -749,7 +749,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the message was sent.
 
         format: date-time
 
@@ -773,7 +773,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when compaction was processed.
 
         format: date-time
 
@@ -787,9 +787,7 @@ List Session Thread Events
 
         Unique identifier for this event.
 
-      - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
-
-        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+      - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 10 more`
 
         - `beta_managed_agents_unknown_error: object`
 
@@ -803,7 +801,7 @@ List Session Thread Events
 
           - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-            What the client should do next in response to this error.
+            What the client should do next.
 
             - `beta_managed_agents_retry_status_retrying: object`
 
@@ -835,7 +833,7 @@ List Session Thread Events
 
           - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-            What the client should do next in response to this error.
+            What the client should do next.
 
             - `beta_managed_agents_retry_status_retrying: object`
 
@@ -861,7 +859,7 @@ List Session Thread Events
 
           - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-            What the client should do next in response to this error.
+            What the client should do next.
 
             - `beta_managed_agents_retry_status_retrying: object`
 
@@ -887,7 +885,7 @@ List Session Thread Events
 
           - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-            What the client should do next in response to this error.
+            What the client should do next.
 
             - `beta_managed_agents_retry_status_retrying: object`
 
@@ -917,7 +915,7 @@ List Session Thread Events
 
           - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-            What the client should do next in response to this error.
+            What the client should do next.
 
             - `beta_managed_agents_retry_status_retrying: object`
 
@@ -947,7 +945,7 @@ List Session Thread Events
 
           - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-            What the client should do next in response to this error.
+            What the client should do next.
 
             - `beta_managed_agents_retry_status_retrying: object`
 
@@ -973,7 +971,7 @@ List Session Thread Events
 
           - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-            What the client should do next in response to this error.
+            What the client should do next.
 
             - `beta_managed_agents_retry_status_retrying: object`
 
@@ -1003,7 +1001,7 @@ List Session Thread Events
 
           - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-            What the client should do next in response to this error.
+            What the client should do next.
 
             - `beta_managed_agents_retry_status_retrying: object`
 
@@ -1021,9 +1019,159 @@ List Session Thread Events
 
             ID of the vault containing the affected credential.
 
+        - `beta_managed_agents_repository_authentication_error: object`
+
+          The repository host rejected the credentials, or required credentials and received none.
+
+          - `type: "repository_authentication_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
+        - `beta_managed_agents_repository_forbidden_error: object`
+
+          The repository host refused access to the repository.
+
+          - `type: "repository_forbidden_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
+        - `beta_managed_agents_repository_not_found_error: object`
+
+          The repository host reported the repository as not found.
+
+          - `type: "repository_not_found_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
+        - `beta_managed_agents_repository_checkout_error: object`
+
+          The requested branch or commit does not exist in the repository.
+
+          - `type: "repository_checkout_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
+        - `beta_managed_agents_repository_clone_error: object`
+
+          The repository could not be cloned.
+
+          - `type: "repository_clone_error"`
+
+          - `message: string`
+
+            Human-readable error description.
+
+          - `repository_url: string`
+
+            URL of the repository that could not be cloned. Null when it could not be identified.
+
+          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+            What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+            - `beta_managed_agents_retry_status_retrying: object`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `beta_managed_agents_retry_status_exhausted: object`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `beta_managed_agents_retry_status_terminal: object`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the error occurred.
 
         format: date-time
 
@@ -1039,7 +1187,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp of status change.
 
         format: date-time
 
@@ -1055,7 +1203,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp of status change.
 
         format: date-time
 
@@ -1071,13 +1219,35 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp of status change.
 
         format: date-time
 
-      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+      - `stop_details: object`
 
-        The agent completed its turn naturally and is ready for the next user message.
+        Structured information about why the session stopped. `null` when there is nothing more to report.
+
+        - `type: "refusal"`
+
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+          The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+          - `"cyber"`
+
+          - `"bio"`
+
+          - `"frontier_llm"`
+
+          - `"reasoning_extraction"`
+
+          - `"general_harms"`
+
+        - `explanation: string`
+
+          Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or 2 more`
 
         - `beta_managed_agents_session_end_turn: object`
 
@@ -1107,6 +1277,12 @@ List Session Thread Events
 
           - `type: "budget_reached"`
 
+        - `beta_managed_agents_session_refusal: object`
+
+          The turn ended because the model's response was refused, for example by a safety classifier.
+
+          - `type: "refusal"`
+
     - `beta_managed_agents_session_status_terminated_event: object`
 
       Indicates the session has terminated, either due to an error or completion.
@@ -1119,7 +1295,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp of status change.
 
         format: date-time
 
@@ -1139,7 +1315,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the thread was created.
 
         format: date-time
 
@@ -1169,7 +1345,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when outcome evaluation started.
 
         format: date-time
 
@@ -1203,7 +1379,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when outcome evaluation ended.
 
         format: date-time
 
@@ -1213,7 +1389,7 @@ List Session Thread Events
 
       - `usage: object`
 
-        Token usage for a single model request.
+        Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
         - `cache_creation_input_tokens: number`
 
@@ -1241,7 +1417,7 @@ List Session Thread Events
 
         - `speed: optional "standard" or "fast"`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
           - `"standard"`
 
@@ -1259,7 +1435,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the model request started.
 
         format: date-time
 
@@ -1283,7 +1459,7 @@ List Session Thread Events
 
       - `model_usage: object`
 
-        Token usage for a single model request.
+        Token usage for this model request.
 
         - `cache_creation_input_tokens: number`
 
@@ -1311,11 +1487,11 @@ List Session Thread Events
 
         - `speed: optional "standard" or "fast"`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the model request completed.
 
         format: date-time
 
@@ -1341,7 +1517,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this heartbeat was emitted.
 
         format: date-time
 
@@ -1371,13 +1547,13 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the outcome was accepted.
 
         format: date-time
 
       - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
         - `beta_managed_agents_file_rubric: object`
 
@@ -1411,7 +1587,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the session was deleted.
 
         format: date-time
 
@@ -1431,7 +1607,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp of the status transition.
 
         format: date-time
 
@@ -1455,7 +1631,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp of the status transition.
 
         format: date-time
 
@@ -1463,9 +1639,21 @@ List Session Thread Events
 
         Public sthr_ ID of the thread that went idle.
 
-      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+      - `stop_details: object`
 
-        The agent completed its turn naturally and is ready for the next user message.
+        Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+        - `type: "refusal"`
+
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+          The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `explanation: string`
+
+          Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or 2 more`
 
         - `beta_managed_agents_session_end_turn: object`
 
@@ -1483,6 +1671,10 @@ List Session Thread Events
 
           The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
+        - `beta_managed_agents_session_refusal: object`
+
+          The turn ended because the model's response was refused, for example by a safety classifier.
+
     - `beta_managed_agents_session_thread_status_terminated_event: object`
 
       A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
@@ -1499,7 +1691,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp of the status transition.
 
         format: date-time
 
@@ -1547,13 +1739,13 @@ List Session Thread Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id: optional string`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_session_thread_status_rescheduled_event: object`
 
@@ -1571,7 +1763,7 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp of the status transition.
 
         format: date-time
 
@@ -1591,13 +1783,13 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the update was applied.
 
         format: date-time
 
       - `agent: optional object`
 
-        Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+        The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
         - `type: "agent"`
 
@@ -1617,11 +1809,19 @@ List Session Thread Events
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+          - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
+
+            - `"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
             - `"claude-fable-5-1"`
 
@@ -1629,7 +1829,7 @@ List Session Thread Events
 
             - `"claude-sonnet-5"`
 
-              High-performance model for coding and agents
+              Efficient model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -1681,7 +1881,7 @@ List Session Thread Events
 
           - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
 
-            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+            How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
             - `beta_managed_agents_effort_low: object`
 
@@ -1719,7 +1919,7 @@ List Session Thread Events
 
           - `speed: optional "standard" or "fast"`
 
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `"standard"`
 
@@ -1727,7 +1927,7 @@ List Session Thread Events
 
         - `multiagent: object`
 
-          Resolved coordinator topology with full agent definitions for each roster member.
+          Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
           - `type: "coordinator"`
 
@@ -1757,7 +1957,7 @@ List Session Thread Events
 
                 Model identifier and configuration.
 
-                - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+                - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
 
                   The model that will power your agent.
 
@@ -1765,7 +1965,7 @@ List Session Thread Events
 
                 - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
 
-                  How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+                  How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
                 - `inference_geo: optional string`
 
@@ -1773,7 +1973,7 @@ List Session Thread Events
 
                 - `speed: optional "standard" or "fast"`
 
-                  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+                  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
               - `name: string`
 
@@ -2201,13 +2401,13 @@ List Session Thread Events
 
       - `budget: optional object`
 
-        A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+        The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
         - `type: "limit"`
 
         - `max_list_cost: object`
 
-          A monetary amount in a specific currency.
+          Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
           - `amount: string`
 
@@ -2249,7 +2449,7 @@ List Session Thread Events
 
       - `processed_at: optional string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this system message was processed.
 
         format: date-time
 
@@ -2265,13 +2465,13 @@ List Session Thread Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the snapshot was taken.
 
         format: date-time
 
       - `usage: object`
 
-        Point-in-time snapshot of a session's cumulative usage.
+        The session's cumulative usage at the snapshot time.
 
         - `active_seconds: optional number`
 
@@ -2281,7 +2481,7 @@ List Session Thread Events
 
         - `cache_creation: optional object`
 
-          Prompt-cache creation token usage broken down by cache lifetime.
+          Tokens used to create prompt cache entries, broken down by cache TTL.
 
           - `ephemeral_1h_input_tokens: optional number`
 
@@ -2309,7 +2509,7 @@ List Session Thread Events
 
         - `list_cost: optional object`
 
-          A monetary amount in a specific currency.
+          Cumulative list cost of the session across all turns, priced at public list rates.
 
           - `amount: string`
 
@@ -2327,7 +2527,7 @@ List Session Thread Events
 
         - `server_tool_use: optional object`
 
-          Cumulative count of server-executed tool invocations, broken down by tool.
+          Cumulative server-executed tool usage across all turns.
 
           - `web_fetch_requests: optional number`
 
@@ -2343,13 +2543,13 @@ List Session Thread Events
 
       - `budget: optional object`
 
-        A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+        The session's configured budget at the snapshot time, or null when the session has no budget.
 
         - `type: "limit"`
 
         - `max_list_cost: object`
 
-          A monetary amount in a specific currency.
+          Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
   - `next_page: optional string`
 
@@ -2397,11 +2597,11 @@ Stream Session Thread Events
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--thread-id: string`
 
-  Path param: Path parameter thread_id
+  Path param
 
 - `--event-delta: optional array of BetaManagedAgentsDeltaType`
 
@@ -2457,7 +2657,7 @@ Stream Session Thread Events
 
         - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `beta_managed_agents_base64_image_source: object`
 
@@ -2509,7 +2709,7 @@ Stream Session Thread Events
 
         - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `beta_managed_agents_base64_document_source: object`
 
@@ -2585,7 +2785,7 @@ Stream Session Thread Events
 
     - `processed_at: optional string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
@@ -2601,7 +2801,7 @@ Stream Session Thread Events
 
     - `processed_at: optional string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -2621,7 +2821,7 @@ Stream Session Thread Events
 
     - `result: "allow" or "deny"`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `"allow"`
 
@@ -2639,13 +2839,13 @@ Stream Session Thread Events
 
     - `processed_at: optional string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `session_thread_id: optional string`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `beta_managed_agents_user_custom_tool_result_event: object`
 
@@ -2685,7 +2885,7 @@ Stream Session Thread Events
 
         - `citations: object`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: boolean`
 
@@ -2721,13 +2921,13 @@ Stream Session Thread Events
 
     - `processed_at: optional string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: optional string`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `beta_managed_agents_agent_custom_tool_use_event: object`
 
@@ -2749,13 +2949,13 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `session_thread_id: optional string`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `beta_managed_agents_agent_message_event: object`
 
@@ -2781,7 +2981,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
@@ -2797,7 +2997,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
@@ -2825,13 +3025,13 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `"allow"`
 
@@ -2841,7 +3041,7 @@ Stream Session Thread Events
 
     - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
 
@@ -2863,7 +3063,7 @@ Stream Session Thread Events
 
         - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermissionAllow or BetaManagedAgentsAgentAutoEvaluatedPermissionAsk or BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
           - `beta_managed_agents_agent_auto_evaluated_permission_allow: object`
 
@@ -2897,7 +3097,7 @@ Stream Session Thread Events
 
     - `session_thread_id: optional string`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `beta_managed_agents_agent_mcp_tool_result_event: object`
 
@@ -2915,7 +3115,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -2963,13 +3163,13 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `"allow"`
 
@@ -2979,7 +3179,7 @@ Stream Session Thread Events
 
     - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
 
@@ -2995,7 +3195,7 @@ Stream Session Thread Events
 
     - `session_thread_id: optional string`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `beta_managed_agents_agent_tool_result_event: object`
 
@@ -3009,7 +3209,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -3077,7 +3277,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -3117,7 +3317,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -3141,7 +3341,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
@@ -3155,9 +3355,7 @@ Stream Session Thread Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+    - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 10 more`
 
       - `beta_managed_agents_unknown_error: object`
 
@@ -3171,7 +3369,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `beta_managed_agents_retry_status_retrying: object`
 
@@ -3203,7 +3401,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `beta_managed_agents_retry_status_retrying: object`
 
@@ -3229,7 +3427,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `beta_managed_agents_retry_status_retrying: object`
 
@@ -3255,7 +3453,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `beta_managed_agents_retry_status_retrying: object`
 
@@ -3285,7 +3483,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `beta_managed_agents_retry_status_retrying: object`
 
@@ -3315,7 +3513,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `beta_managed_agents_retry_status_retrying: object`
 
@@ -3341,7 +3539,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `beta_managed_agents_retry_status_retrying: object`
 
@@ -3371,7 +3569,7 @@ Stream Session Thread Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `beta_managed_agents_retry_status_retrying: object`
 
@@ -3389,9 +3587,159 @@ Stream Session Thread Events
 
           ID of the vault containing the affected credential.
 
+      - `beta_managed_agents_repository_authentication_error: object`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: "repository_authentication_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `beta_managed_agents_repository_forbidden_error: object`
+
+        The repository host refused access to the repository.
+
+        - `type: "repository_forbidden_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `beta_managed_agents_repository_not_found_error: object`
+
+        The repository host reported the repository as not found.
+
+        - `type: "repository_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `beta_managed_agents_repository_checkout_error: object`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: "repository_checkout_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `beta_managed_agents_repository_clone_error: object`
+
+        The repository could not be cloned.
+
+        - `type: "repository_clone_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `beta_managed_agents_retry_status_retrying: object`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `beta_managed_agents_retry_status_exhausted: object`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `beta_managed_agents_retry_status_terminal: object`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
@@ -3407,7 +3755,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -3423,7 +3771,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -3439,13 +3787,35 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: object`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the session stopped. `null` when there is nothing more to report.
+
+      - `type: "refusal"`
+
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `"cyber"`
+
+        - `"bio"`
+
+        - `"frontier_llm"`
+
+        - `"reasoning_extraction"`
+
+        - `"general_harms"`
+
+      - `explanation: string`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or 2 more`
 
       - `beta_managed_agents_session_end_turn: object`
 
@@ -3475,6 +3845,12 @@ Stream Session Thread Events
 
         - `type: "budget_reached"`
 
+      - `beta_managed_agents_session_refusal: object`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: "refusal"`
+
   - `beta_managed_agents_session_status_terminated_event: object`
 
     Indicates the session has terminated, either due to an error or completion.
@@ -3487,7 +3863,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -3507,7 +3883,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -3537,7 +3913,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
@@ -3571,7 +3947,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -3581,7 +3957,7 @@ Stream Session Thread Events
 
     - `usage: object`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `cache_creation_input_tokens: number`
 
@@ -3609,7 +3985,7 @@ Stream Session Thread Events
 
       - `speed: optional "standard" or "fast"`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `"standard"`
 
@@ -3627,7 +4003,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
@@ -3651,7 +4027,7 @@ Stream Session Thread Events
 
     - `model_usage: object`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
       - `cache_creation_input_tokens: number`
 
@@ -3679,11 +4055,11 @@ Stream Session Thread Events
 
       - `speed: optional "standard" or "fast"`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
@@ -3709,7 +4085,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
@@ -3739,13 +4115,13 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
       - `beta_managed_agents_file_rubric: object`
 
@@ -3779,7 +4155,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
@@ -3799,7 +4175,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -3823,7 +4199,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -3831,9 +4207,21 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: object`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
+      - `type: "refusal"`
+
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+      - `explanation: string`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or 2 more`
 
       - `beta_managed_agents_session_end_turn: object`
 
@@ -3851,6 +4239,10 @@ Stream Session Thread Events
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
+      - `beta_managed_agents_session_refusal: object`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
   - `beta_managed_agents_session_thread_status_terminated_event: object`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
@@ -3867,7 +4259,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -3915,13 +4307,13 @@ Stream Session Thread Events
 
     - `processed_at: optional string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id: optional string`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `beta_managed_agents_session_thread_status_rescheduled_event: object`
 
@@ -3939,7 +4331,7 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -3959,13 +4351,13 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `agent: optional object`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `type: "agent"`
 
@@ -3985,11 +4377,19 @@ Stream Session Thread Events
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+        - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-fable-5-1"`
 
@@ -3997,7 +4397,7 @@ Stream Session Thread Events
 
           - `"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -4049,7 +4449,7 @@ Stream Session Thread Events
 
         - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `beta_managed_agents_effort_low: object`
 
@@ -4087,7 +4487,7 @@ Stream Session Thread Events
 
         - `speed: optional "standard" or "fast"`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `"standard"`
 
@@ -4095,7 +4495,7 @@ Stream Session Thread Events
 
       - `multiagent: object`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `type: "coordinator"`
 
@@ -4125,7 +4525,7 @@ Stream Session Thread Events
 
               Model identifier and configuration.
 
-              - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+              - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
 
                 The model that will power your agent.
 
@@ -4133,7 +4533,7 @@ Stream Session Thread Events
 
               - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
 
-                How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+                How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
               - `inference_geo: optional string`
 
@@ -4141,7 +4541,7 @@ Stream Session Thread Events
 
               - `speed: optional "standard" or "fast"`
 
-                Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+                Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `name: string`
 
@@ -4569,13 +4969,13 @@ Stream Session Thread Events
 
     - `budget: optional object`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `type: "limit"`
 
       - `max_list_cost: object`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `amount: string`
 
@@ -4633,7 +5033,7 @@ Stream Session Thread Events
 
       - `content: object`
 
-        Regular text content.
+        A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
 
         - `type: "text"`
 
@@ -4646,8 +5046,6 @@ Stream Session Thread Events
       - `index: optional number`
 
         Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-        format: uint32
 
     - `event_id: string`
 
@@ -4677,7 +5075,7 @@ Stream Session Thread Events
 
     - `processed_at: optional string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
@@ -4693,13 +5091,13 @@ Stream Session Thread Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `usage: object`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `active_seconds: optional number`
 
@@ -4709,7 +5107,7 @@ Stream Session Thread Events
 
       - `cache_creation: optional object`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens: optional number`
 
@@ -4737,7 +5135,7 @@ Stream Session Thread Events
 
       - `list_cost: optional object`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
         - `amount: string`
 
@@ -4755,7 +5153,7 @@ Stream Session Thread Events
 
       - `server_tool_use: optional object`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `web_fetch_requests: optional number`
 
@@ -4771,13 +5169,13 @@ Stream Session Thread Events
 
     - `budget: optional object`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
       - `type: "limit"`
 
       - `max_list_cost: object`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
 ### Example
 

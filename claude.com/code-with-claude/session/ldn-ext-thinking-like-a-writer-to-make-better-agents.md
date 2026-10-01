@@ -4,38 +4,28 @@
 
 Tried to translate elaborate Claude Code workgraph into notepad anyone could use. Learned boundaries of over-engineering. Growing belief that less is more.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-10:45 – 11:15
+:   10:45 – 11:15
 
 Speaker(s)
+:   Max Tatton-Brown
 
-Max Tatton-Brown
+    Founder,
 
-Founder,
+    Orbit / Claude Code Curious
 
-Orbit / Claude Code Curious
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Personality goes a long way: Thinking like a writer to make better agents | Session | Code w/ Claude 2026

@@ -18,6 +18,8 @@ jailbreaks, outperforming both non-adaptive baselines and other models on target
 Research done as part of the [Anthropic Fellows
 Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
 
+---
+
 Addressing safety concerns in AI models has historically relied on extensive human involvement. Typically,
 a human had to identify the safety risk, define the desired behavior, and then create datasets to finetune
 the model. Multiple iterations of this cycle were often required to create a final model with the safety
@@ -42,6 +44,8 @@ dataset into training, validation, and out-of-distribution (OOD) evaluation sets
 target model by iteratively and adaptively specifying a weighted mixing strategy of examples from the
 generated training set and a post-training dataset. The core objectives of this process are to minimize
 unsafe behavior, prevent catastrophic forgetting, and reduce the final model’s false positive rates.
+
+---
 
 ## The A3 Pipeline: An Automated Alignment Agent
 
@@ -144,6 +148,8 @@ decision-making. Specifically, the log includes:
 * Hyperparameter settings and data mix weightings.
 * Corresponding evaluation results (validation and OOD), reported at the
   hypothesis level, including success rates and false positive rates (FPRs).
+
+---
 
 ## Experiments
 
@@ -322,11 +328,15 @@ Validation and OOD performance of A3 on the Llama-3.1-8B Instruct model for
 sycophancy. To prevent catastrophic forgetting, the agent allocated 85% of its budget to standard
 post-training data, leaving only 15% for addressing the safety issue.
 
+---
+
 ## Acknowledgements
 
 We would like to thank Isha Gupta and Liang Qiu for their helpful feedback on our project. This research is
 carried out as part of the [Anthropic Fellows
 Program](https://alignment.anthropic.com/2025/anthropic-fellows-program-2026/).
+
+---
 
 ## Appendix: In-Context Agents
 

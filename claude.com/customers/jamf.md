@@ -4,37 +4,24 @@ Case study | Claude Enterprise
 
 # How Jamf reached 89% active usage in eight weeks with Claude Enterprise in AWS Marketplace
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Jamf logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b45499ebd143bd2c52765a_logo_jamf-light.svg)![Jamf logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b454a6ceaa3ebddb228495_logo_jamf-dark.svg)
+![Jamf logo](https://assets.claude.com/6525757ec4c3fc79978ca32c81251db6edcf286d.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
-
-[Claude Cowork](https://claude.com/product/cowork)
+:   [Claude Enterprise](https://claude.com/solutions/enterprise)[Claude Cowork](https://claude.com/product/cowork)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 89% active usage among licensed employees
 
@@ -57,65 +44,25 @@ with 98 fully implemented
 
 ## The challenge
 
-Q&A: Cowork at Jamf
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0e248170196c86a8f85591_og_case-study-jamf2%20(1).jpg)
-
-How Jamf's engineering team turns structured workflows into interactive tools with Cowork
-
-Read more
-
-[Read more](https://claude.com/customers/jamf)Read more
-
-Q&A: Cowork at Jamf
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-How Jamf's engineering team turns structured workflows into interactive tools with Cowork
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A: Cowork at Jamf
-
-How Jamf's engineering team turns structured workflows into interactive tools with Cowork
-
 ## Routine work crowding out what matters
 
 As Jamf grew globally across service desk, infrastructure, and client platform engineering functions, skilled employees were spending significant hours on documentation, communications drafting, information synthesis, and policy navigation. That work was necessary, but it was leaving less time for the analytical depth and creative judgment the same roles required at their best. Rather than letting AI adoption happen organically and inconsistently across departments, Jamf's leadership looked for a way to build a deliberate, governed program from day one.
 
 "Not all work is equal," said Melissa Dunham, Senior Director of Information Technology at Jamf. "Some work requires your full attention, judgment, and creativity. Some just fills your day. Our AI program exists to help every employee find that difference." The program was built around one central question, she added: "What would our employees work on if the routine took care of itself?"
 
+Q&A: Cowork at Jamf
+
+![Q&A: Cowork at Jamf](https://assets.claude.com/a5f7928134bdc40e0135443315cc9fe1f8f93ce3.jpg?w=2400&q=75&fm=webp&fit=max)
+
+How Jamf's engineering team turns structured workflows into interactive tools with Cowork
+
+[Read more](https://claude.com/customers/jamf)
+
 ## The solution
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Amazon Bedrock
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
 ## Claude Enterprise as a day-one tool, not an engineering project
 
-Jamf evaluated several enterprise AI platforms on model quality, data privacy, administrative controls, cost, and ease of adoption. Building on an API would have required engineering resources and produced a tool primarily accessible to technical users. Claude Enterprise provided a secure, immediately deployable interface that any employee could use on day one, with enterprise-grade controls that met Jamf's SOC2 and ISO-27001 compliance posture.Jamf chose to procure Claude Enterprise via AWS Marketplace to ensure accelerated procurement cycles and consolidated billing, enabling teams to access Claude Enterprise capabilities sooner.
+Jamf evaluated several enterprise AI platforms on model quality, data privacy, administrative controls, cost, and ease of adoption. Building on an API would have required engineering resources and produced a tool primarily accessible to technical users. Claude Enterprise provided a secure, immediately deployable interface that any employee could use on day one, with enterprise-grade controls that met Jamf's SOC2 and ISO-27001 compliance posture. Jamf chose to procure Claude Enterprise via AWS Marketplace to ensure accelerated procurement cycles and consolidated billing, enabling teams to access Claude Enterprise capabilities sooner.
 
 For the programmatic half of the strategy, Jamf chose Claude on Amazon Bedrock as the API layer for embedded automation. Amazon Bedrock is a platform for building generative AI applications and agents at production scale. “Bedrock fits naturally into our infrastructure and procurement frameworks: No new vendor relationships, no new procurement overhead, and it maps cleanly to our existing cloud security and compliance controls like SOC 2 and ISO-27001,” Dunham said.
 
@@ -131,21 +78,15 @@ Jamf's internal campaign, "Work on What Matters," carries the same intentionalit
 
 The result: 285 documented use cases across every department without compliance exposure or ungoverned sprawl.
 
-"Bedrock fits naturally into our infrastructure and procurement frameworks: No new vendor relationships, no new procurement overhead."
+Claude on Amazon Bedrock
 
-Melissa Dunham
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
-Senior Director of Information Technology, Jamf
+Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Bedrock fits naturally into our infrastructure and procurement frameworks: No new vendor relationships, no new procurement overhead."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Melissa DunhamSenior Director of Information Technology, Jamf
 
 ## The outcome
 
@@ -167,42 +108,16 @@ Demand has outpaced supply. The first 1,000 Claude Enterprise licenses were assi
 
 "It's a completely different mindset we're trying to cultivate," Dunham said. "It's not just 'go use a new tool.' It's thinking differently about how you work, and what your time is actually for." The company plans to close the year by asking each team a simple question: what did you free up, and what did you do with it?
 
-"Bespoke dashboard building for a specific question was impossible before."
+> "Bespoke dashboard building for a specific question was impossible before."
 
-Melissa Dunham
+Melissa DunhamSenior Director of Information Technology, Jamf
 
-Senior Director of Information Technology, Jamf
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

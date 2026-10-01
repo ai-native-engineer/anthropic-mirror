@@ -19,7 +19,11 @@ Validate Credential
 
   - `String vaultId`
 
+    Identifier of the vault containing the credential.
+
   - `Optional<String> credentialId`
+
+    Unique identifier of the credential to validate.
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -115,11 +119,23 @@ Validate Credential
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ## Returns
 
-- `class BetaManagedAgentsCredentialValidation:`
+- `class BetaManagedAgentsCredentialValidation`
 
   Result of live-probing a credential against its configured MCP server.
 
@@ -135,11 +151,11 @@ Validate Credential
 
   - `Optional<BetaManagedAgentsMcpProbe> mcpProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `String body`
 
@@ -165,37 +181,51 @@ Validate Credential
 
   - `Optional<BetaManagedAgentsRefreshObject> refresh`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `Status status`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
+      Outcome of the refresh attempt.
 
       - `SUCCEEDED("succeeded")`
 
+        The token endpoint returned a new access token.
+
       - `FAILED("failed")`
+
+        The token endpoint returned an error response. See `http_response` for detail.
 
       - `CONNECT_ERROR("connect_error")`
 
+        The token endpoint could not be reached (DNS, TLS, or connection error).
+
       - `NO_REFRESH_TOKEN("no_refresh_token")`
+
+        No refresh token is stored for the credential, so no exchange was attempted.
 
   - `BetaManagedAgentsCredentialValidationStatus status`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `VALID("valid")`
 
+      The credential successfully authenticated against its MCP server.
+
     - `INVALID("invalid")`
+
+      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
 
     - `UNKNOWN("unknown")`
 
+      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
+
   - `LocalDateTime validatedAt`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 

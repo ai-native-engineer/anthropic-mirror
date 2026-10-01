@@ -4,15 +4,17 @@
 title: Authenticate with vaults
 url: https://platform.claude.com/docs/en/managed-agents/vaults
 description: Register per-user credentials when creating sessions.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
 
 Vaults and credentials are authentication primitives that let you register credentials for third-party services once and reference them by ID at session creation. This means you don't need to run your own secret store, transmit tokens on every call, or lose track of which end user an agent acted on behalf of.
 
 The vault reference is a per-session parameter, so you can manage your product at the `agent` resource granularity and your users at the `session` resource granularity.
-
-<Note>
-  Managed Agents API requests require the `managed-agents-2026-04-01` beta header, except memory store endpoints, which use `agent-memory-2026-07-22` instead. The SDK sets the correct beta header automatically. See [Beta headers](https://platform.claude.com/docs/en/api/beta-headers#endpoint-specific-headers).
-</Note>
 
 ## Create a vault
 
@@ -22,37 +24,35 @@ The vault reference is a per-session parameter, so you can manage your product a
 
 A vault is the collection of `credentials` associated with an end user. Give it a `display_name` and optionally tag it with `metadata` so you can map it back to your own user records.
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
-  vault_id=$(curl --fail-with-body -sS https://api.anthropic.com/v1/vaults \
+  curl --fail-with-body -sS https://api.anthropic.com/v1/vaults \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01" \
     -H "content-type: application/json" \
-    --data @- <<'EOF' | jq -r '.id'
+    --data @- <<'EOF'
   {
     "display_name": "Alice",
     "metadata": {"external_user_id": "usr_abc123"}
   }
   EOF
-  )
-  echo "$vault_id"  # "vlt_01ABC..."
   ```
 
-  <MultiFileExample language="cli" label="CLI">
+  <CodeGroupItem>
     ```bash CLI
-    VAULT_ID=$(ant beta:vaults create --transform id --raw-output < alice.vault.yaml)
-    echo "$VAULT_ID"  # "vlt_01ABC..."
+    ant apply vaults/service_accounts.yaml
     ```
 
-    <File filename="alice.vault.yaml">
+    <File filename="vaults/service_accounts.yaml">
       ```yaml
-      display_name: Alice
-      metadata:
-        external_user_id: usr_abc123
+      # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/vault.json
+      display_name: Service accounts
       ```
     </File>
-  </MultiFileExample>
+
+    [`ant apply`](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply) creates the vault from `vaults/service_accounts.yaml`, prints its ID, and records it in `claude-lock.json`. To see the vault record, run `ant beta:vaults retrieve`.
+  </CodeGroupItem>
 
   ```python Python
   vault = client.beta.vaults.create(
@@ -154,14 +154,14 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
     * `client_secret_basic`: HTTP Basic authentication with the client secret
     * `client_secret_post`: client secret in the POST body
 
-    <CodeGroup defaultLanguage="CLI">
+    <CodeGroup>
       ```bash cURL
-      credential_id=$(curl --fail-with-body -sS "https://api.anthropic.com/v1/vaults/$vault_id/credentials" \
+      curl --fail-with-body -sS "https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials" \
         -H "x-api-key: $ANTHROPIC_API_KEY" \
         -H "anthropic-version: 2023-06-01" \
         -H "anthropic-beta: managed-agents-2026-04-01" \
         -H "content-type: application/json" \
-        --data @- <<'EOF' | jq -r '.id'
+        --data @- <<'EOF'
       {
         "display_name": "Alice's Slack",
         "auth": {
@@ -170,7 +170,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
           "access_token": "xoxp-...",
           "expires_at": "2099-12-31T23:59:59Z",
           "refresh": {
-            "token_endpoint": "https://slack.com/api/oauth.v2.access",
+            "token_endpoint": "https://slack.com/api/oauth.v2.user.access",
             "client_id": "1234567890.0987654321",
             "scope": "channels:read chat:write",
             "refresh_token": "xoxe-1-...",
@@ -179,21 +179,19 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
         }
       }
       EOF
-      )
       ```
 
       ```bash CLI
-      CREDENTIAL_ID=$(ant beta:vaults:credentials create \
+      ant beta:vaults:credentials create \
         --vault-id "$VAULT_ID" \
-        --display-name "Alice's Slack" \
-        --transform id --raw-output <<'YAML'
+        --display-name "Slack" <<'YAML'
       auth:
         type: mcp_oauth
         mcp_server_url: https://mcp.slack.com/mcp
         access_token: xoxp-...
         expires_at: "2099-12-31T23:59:59Z"
         refresh:
-          token_endpoint: https://slack.com/api/oauth.v2.access
+          token_endpoint: https://slack.com/api/oauth.v2.user.access
           client_id: "1234567890.0987654321"
           scope: channels:read chat:write
           refresh_token: xoxe-1-...
@@ -201,7 +199,6 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
             type: client_secret_post
             client_secret: abc123...
       YAML
-      )
       ```
 
       ```python Python
@@ -214,7 +211,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
               "access_token": "xoxp-...",
               "expires_at": "2099-12-31T23:59:59Z",
               "refresh": {
-                  "token_endpoint": "https://slack.com/api/oauth.v2.access",
+                  "token_endpoint": "https://slack.com/api/oauth.v2.user.access",
                   "client_id": "1234567890.0987654321",
                   "scope": "channels:read chat:write",
                   "refresh_token": "xoxe-1-...",
@@ -233,7 +230,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
           access_token: "xoxp-...",
           expires_at: "2099-12-31T23:59:59Z",
           refresh: {
-            token_endpoint: "https://slack.com/api/oauth.v2.access",
+            token_endpoint: "https://slack.com/api/oauth.v2.user.access",
             client_id: "1234567890.0987654321",
             scope: "channels:read chat:write",
             refresh_token: "xoxe-1-...",
@@ -258,7 +255,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
               ExpiresAt = DateTimeOffset.Parse("2099-12-31T23:59:59Z"),
               Refresh = new()
               {
-                  TokenEndpoint = "https://slack.com/api/oauth.v2.access",
+                  TokenEndpoint = "https://slack.com/api/oauth.v2.user.access",
                   ClientID = "1234567890.0987654321",
                   Scope = "channels:read chat:write",
                   RefreshToken = "xoxe-1-...",
@@ -282,7 +279,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
       			AccessToken:  "xoxp-...",
       			ExpiresAt:    anthropic.Time(time.Date(2099, time.December, 31, 23, 59, 59, 0, time.UTC)),
       			Refresh: anthropic.BetaManagedAgentsMCPOAuthRefreshParams{
-      				TokenEndpoint: "https://slack.com/api/oauth.v2.access",
+      				TokenEndpoint: "https://slack.com/api/oauth.v2.user.access",
       				ClientID:      "1234567890.0987654321",
       				Scope:         anthropic.String("channels:read chat:write"),
       				RefreshToken:  "xoxe-1-...",
@@ -311,7 +308,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
                   .accessToken("xoxp-...")
                   .expiresAt(OffsetDateTime.parse("2099-12-31T23:59:59Z"))
                   .refresh(BetaManagedAgentsMcpOAuthRefreshParams.builder()
-                      .tokenEndpoint("https://slack.com/api/oauth.v2.access")
+                      .tokenEndpoint("https://slack.com/api/oauth.v2.user.access")
                       .clientId("1234567890.0987654321")
                       .scope("channels:read chat:write")
                       .refreshToken("xoxe-1-...")
@@ -331,7 +328,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
               accessToken: 'xoxp-...',
               expiresAt: new DateTimeImmutable('2099-12-31T23:59:59Z'),
               refresh: ManagedAgentsMCPOAuthRefreshParams::with(
-                  tokenEndpoint: 'https://slack.com/api/oauth.v2.access',
+                  tokenEndpoint: 'https://slack.com/api/oauth.v2.user.access',
                   clientID: '1234567890.0987654321',
                   scope: 'channels:read chat:write',
                   refreshToken: 'xoxe-1-...',
@@ -354,7 +351,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
           access_token: "xoxp-...",
           expires_at: "2099-12-31T23:59:59Z",
           refresh: {
-            token_endpoint: "https://slack.com/api/oauth.v2.access",
+            token_endpoint: "https://slack.com/api/oauth.v2.user.access",
             client_id: "1234567890.0987654321",
             scope: "channels:read chat:write",
             refresh_token: "xoxe-1-...",
@@ -367,14 +364,16 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
       )
       ```
     </CodeGroup>
+
+    Set `refresh.token_endpoint` to the token endpoint of the OAuth flow that issued the refresh token, because Anthropic sends every refresh request to that URL and the field can't be changed after the credential is created.
   </Tab>
 
   <Tab title="MCP static bearer">
     Use `static_bearer` when the MCP server accepts a fixed bearer token (API key, personal access token, or similar). No refresh flow is needed.
 
-    <CodeGroup defaultLanguage="CLI">
+    <CodeGroup>
       ```bash cURL
-      curl --fail-with-body -sS "https://api.anthropic.com/v1/vaults/$vault_id/credentials" \
+      curl --fail-with-body -sS "https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials" \
         -H "x-api-key: $ANTHROPIC_API_KEY" \
         -H "anthropic-version: 2023-06-01" \
         -H "anthropic-beta: managed-agents-2026-04-01" \
@@ -505,14 +504,14 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
 
     The optional `injection_location` field scopes where the secret is substituted; the full semantics follow the example.
 
-    <CodeGroup defaultLanguage="CLI">
+    <CodeGroup>
       ```bash cURL
-      curl --fail-with-body -sS "https://api.anthropic.com/v1/vaults/$vault_id/credentials" \
+      curl --fail-with-body -sS "https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials" \
         -H "x-api-key: $ANTHROPIC_API_KEY" \
         -H "anthropic-version: 2023-06-01" \
         -H "anthropic-beta: managed-agents-2026-04-01" \
         -H "content-type: application/json" \
-        --data @- <<'EOF' | jq '.auth.injection_location'
+        --data @- <<'EOF'
       {
         "auth": {
           "type": "environment_variable",
@@ -530,9 +529,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
       ```
 
       ```bash CLI
-      ant beta:vaults:credentials create \
-        --vault-id "$VAULT_ID" \
-        --transform 'auth.injection_location' --format json <<'YAML'
+      ant beta:vaults:credentials create --vault-id "$VAULT_ID" <<'YAML'
       display_name: Notion API key for sandbox
       auth:
         type: environment_variable
@@ -673,7 +670,7 @@ The actual credential values you supply (`token`, `access_token`, `refresh_token
               injectionLocation: ManagedAgentsInjectionLocationParams::with(header: true),
           ),
       );
-      if ($envVarCredential->auth instanceof ManagedAgentsEnvironmentVariableAuthResponse) {
+      if ($envVarCredential->auth instanceof \Anthropic\Beta\Vaults\Credentials\ManagedAgentsEnvironmentVariableAuthResponse) {
           $injectionLocation = $envVarCredential->auth->injectionLocation;
           echo 'header: ' . json_encode($injectionLocation->header) . "\n"; // header: true
           echo 'body: ' . json_encode($injectionLocation->body) . "\n"; // body: false
@@ -743,31 +740,29 @@ Constraints:
 
 Pass `vault_ids` when creating a session:
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
-  session_id=$(curl --fail-with-body -sS https://api.anthropic.com/v1/sessions \
+  curl --fail-with-body -sS https://api.anthropic.com/v1/sessions \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01" \
     -H "content-type: application/json" \
-    --data @- <<EOF | jq -r '.id'
+    --data @- <<EOF
   {
-    "agent": "$agent_id",
-    "environment_id": "$environment_id",
-    "vault_ids": ["$vault_id"],
+    "agent": "$AGENT_ID",
+    "environment_id": "$ENVIRONMENT_ID",
+    "vault_ids": ["$VAULT_ID"],
     "title": "Alice's Slack digest"
   }
   EOF
-  )
   ```
 
   ```bash CLI
-  SESSION_ID=$(ant beta:sessions create \
+  ant beta:sessions create \
     --agent "$AGENT_ID" \
     --environment-id "$ENVIRONMENT_ID" \
     --vault-id "$VAULT_ID" \
-    --title "Alice's Slack digest" \
-    --transform id --raw-output)
+    --title "Slack digest"
   ```
 
   ```python Python
@@ -850,10 +845,10 @@ Runtime behavior:
 
 Secret values, `display_name`, and (on environment variable credentials) `injection_location` can be updated. `injection_location` updates merge per field, as described in the Environment variable tab of [Add a credential](https://platform.claude.com/docs/en/managed-agents/vaults#add-a-credential). For a running session, an `injection_location` update propagates the same way as a secret rotation: the session's credentials are re-resolved without a restart, as described in [Credential lifecycle](https://platform.claude.com/docs/en/managed-agents/vaults#credential-lifecycle), and the updated locations apply to the session's subsequent outbound requests. Structural fields (`mcp_server_url`, `secret_name`, `token_endpoint`, `client_id`) are locked after creation. To change them, archive the credential and create a new one.
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   curl --fail-with-body -sS \
-    "https://api.anthropic.com/v1/vaults/$vault_id/credentials/$credential_id" \
+    "https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01" \
@@ -1007,7 +1002,7 @@ For `mcp_oauth` credentials, re-resolution also refreshes the access token if it
 
 ### Diagnose an OAuth refresh failure
 
-To diagnose why a refresh failed, call `POST /v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate` (or `client.beta.vaults.credentials.mcp_oauth_validate(...)` in the SDK). This lets you decide how to handle the failure; the right action depends on the error type.
+To diagnose why a refresh failed, call `POST /v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate` (or `client.beta.vaults.credentials.mcp_oauth_validate(...)` (typescript: `client.beta.vaults.credentials.mcpOAuthValidate(...)`; csharp: `client.Beta.Vaults.Credentials.McpOAuthValidate(...)`; go: `client.Beta.Vaults.Credentials.MCPOAuthValidate(...)`; java: `client.beta().vaults().credentials().mcpOAuthValidate(...)`; php: `$client->beta->vaults->credentials->mcpOAuthValidate(...)`) in the SDK). This lets you decide how to handle the failure; the right action depends on the error type.
 
 The top-level `status` tells you what to do next:
 
@@ -1015,10 +1010,10 @@ The top-level `status` tells you what to do next:
 * `invalid`: the grant is gone or the OAuth server rejected the refresh with a 4xx. Prompt the end user to re-authorize.
 * `unknown`: a transient error (5xx, 429, or network failure). Wait and retry.
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   curl --fail-with-body -sS -X POST \
-    "https://api.anthropic.com/v1/vaults/$vault_id/credentials/$credential_id/mcp_oauth_validate?beta=true" \
+    "https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mcp_oauth_validate?beta=true" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01"
@@ -1027,8 +1022,7 @@ The top-level `status` tells you what to do next:
   ```bash CLI
   ant beta:vaults:credentials mcp-oauth-validate \
     --vault-id "$VAULT_ID" \
-    --credential-id "$CREDENTIAL_ID" \
-    --transform status --raw-output  # "valid", "invalid", or "unknown"
+    --credential-id "$CREDENTIAL_ID"
   ```
 
   ```python Python

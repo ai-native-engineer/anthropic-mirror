@@ -144,6 +144,6 @@ If your proxy sends the headers incorrectly, requests fail with a 400 status and
 
 * [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
-* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
-* [Claude for Teachers: your data and our terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms)
+* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

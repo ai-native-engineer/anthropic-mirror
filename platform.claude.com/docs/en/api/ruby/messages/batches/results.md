@@ -25,6 +25,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspace_id: String`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `class MessageBatchIndividualResponse`
@@ -63,7 +67,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `container: Container`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `id: String`
 
@@ -91,13 +97,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `version: String`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `content: Array[ContentBlock]`
 
@@ -258,8 +264,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `text: String`
 
-              minLength: 0
-
           - `class ThinkingBlock`
 
             - `type: :thinking`
@@ -298,8 +302,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller_: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `class DirectCaller`
 
                 Tool invocation directly from the model.
@@ -334,7 +336,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class ServerToolUseBlock`
 
@@ -345,8 +347,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `caller_: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `class DirectCaller`
 
@@ -381,8 +381,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: :web_search_tool_result`
 
             - `caller_: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `class DirectCaller`
 
@@ -435,8 +433,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: :web_fetch_tool_result`
 
             - `caller_: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `class DirectCaller`
 
@@ -531,8 +527,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: :code_execution_tool_result`
 
             - `content: CodeExecutionToolResultBlockContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultError`
 
@@ -728,7 +722,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `tool_name: String`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `tool_use_id: String`
 
@@ -742,85 +736,137 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `file_id: String`
 
+        - `diagnostics: Diagnostics`
+
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+          - `cache_miss_reason: CacheMissReason`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `class CacheMissModelChanged`
+
+              - `type: :model_changed`
+
+              - `cache_missed_input_tokens: Integer`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissSystemChanged`
+
+              - `type: :system_changed`
+
+              - `cache_missed_input_tokens: Integer`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissToolsChanged`
+
+              - `type: :tools_changed`
+
+              - `cache_missed_input_tokens: Integer`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissMessagesChanged`
+
+              - `type: :messages_changed`
+
+              - `cache_missed_input_tokens: Integer`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissPreviousMessageNotFound`
+
+              - `type: :previous_message_not_found`
+
+            - `class CacheMissUnavailable`
+
+              - `type: :unavailable`
+
         - `model: Model`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Model = :"claude-fable-5-1" | :"claude-mythos-5-1" | :"claude-sonnet-5" | 14 more`
+          - `:"claude-sonnet-5-5"`
 
-            The model that will complete your prompt.
+            Efficient model for coding and agents
 
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `:"claude-fable-5-1"`
 
-            - `:"claude-fable-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `:"claude-opus-5-5"`
 
-            - `:"claude-mythos-5-1"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              Our most capable model for cybersecurity and biology research, available through trusted access programs
+          - `:"claude-mythos-5-1"`
 
-            - `:"claude-sonnet-5"`
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-              High-performance model for coding and agents
+          - `:"claude-sonnet-5"`
 
-            - `:"claude-fable-5"`
+            Efficient model for coding and agents
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `:"claude-fable-5"`
 
-            - `:"claude-mythos-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Most capable model for cybersecurity and biology research
+          - `:"claude-mythos-5"`
 
-            - `:"claude-opus-5"`
+            Most capable model for cybersecurity and biology research
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-5"`
 
-            - `:"claude-opus-4-8"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-8"`
 
-            - `:"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-7"`
 
-            - `:"claude-mythos-preview"`
+            Powerful intelligence for long-running agents and coding
 
-              New class of intelligence, strongest in coding and cybersecurity
+          - `:"claude-opus-4-6"`
 
-            - `:"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-sonnet-4-6"`
 
-            - `:"claude-sonnet-4-6"`
+            Best combination of speed and intelligence
 
-              Best combination of speed and intelligence
+          - `:"claude-haiku-4-5"`
 
-            - `:"claude-haiku-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-haiku-4-5-20251001"`
 
-            - `:"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `:"claude-opus-4-5"`
 
-            - `:"claude-opus-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-opus-4-5-20251101"`
 
-            - `:"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `:"claude-sonnet-4-5"`
 
-            - `:"claude-sonnet-4-5"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-sonnet-4-5-20250929"`
 
-            - `:"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `:"claude-mythos-preview"`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
 
           - `String = String`
 
@@ -832,13 +878,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `stop_details: RefusalStopDetails`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `type: :refusal`
 
           - `category: :cyber | :bio | :frontier_llm | 2 more`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
 
             - `:cyber`
 

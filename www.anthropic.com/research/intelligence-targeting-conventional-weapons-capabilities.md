@@ -16,7 +16,7 @@ Cybersecurity and biorisk are among the [best-studied](https://www.anthropic.com
 
 A [new report](https://www.anthropic.com/threat-intelligence-report-september-2026)from Anthropic’s Threat Intelligence Team suggests the answer is yes. It includes instances of AI misuse in surveillance and conventional weapons development which show threat actors already perceiving benefit from the use of AI models.
 
-The [Frontier Red Team](https://www.anthropic.com/research/team/frontier-red-team) has developed some complementary capability evaluations to better illustrate *how* AI progress is changing the risk landscape across different parts of the kill chain. The evaluations show that models are making consistent progress on simulated intelligence and weapons development tasks. Open-weights models we tested on the same evaluations are behind the frontier (typically between Sonnet and Mythos-class models in performance), but often still capable of concerning levels of capability. Models well short of the frontier will have intelligence and military applications.
+The [Frontier Red Team](https://www.anthropic.com/research/team/frontier-red-team) has developed some complementary capability evaluations to better illustrate *how* AI progress is changing the risk landscape across different parts of the kill chain. The evaluations show that models are making consistent progress on simulated intelligence and weapons development tasks. Open-weights models we tested on the same evaluations are behind the frontier (typically between Sonnet and Mythos-class models in performance), but often still show concerning levels of capability. Models well short of the frontier will have intelligence and military applications.
 
 Looking ahead, we do not think capabilities are about to plateau. Instead, we should consider the potential for AI to make substantive contributions to more novel and geostrategically consequential breakthroughs in the intelligence and military domains. The development of these capabilities may affect how models should be trained, safeguarded, and released, or used to preserve stability and liberty.
 
@@ -168,23 +168,23 @@ Finally, as model progress continues, we expect more aspects of military and int
 2. We tested two prompt variants—one that names a specific person of interest ("anchor-given") as the signal for the classification task, one that only describes an issue of concern ("vague issue"). We report the results from the “vague issue” variant, but the ordering of the models was essentially the same from the “anchor-given” version of the eval.
 3. It’s worth noting that Haas et al.'s human comparison comes from GeoGuessr's Duels mode, where a player has 15 seconds to answer once the opponent has guessed. While the authors did not report timing data, their paper and codebase show that the bot was able to respond nearly instantaneously but included a random delay on the order of seconds. We can then surmise that the human medians reflect roughly 15–20 seconds of interactive Street View exploration per round. For comparison, Mythos 5 returned its estimate from a single static image in a median of 6 seconds of wall-clock time per photo in our setup.
 
-### An alignment assessment of recent cybersecurity incidents
+### What work can robots do?
 
-We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
 
-[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
 
-### Formalizing Fermat's Last Theorem
+### What do you want from AI?
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
-[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
 
-### Automated researchers can reliably mitigate alignment failures
+### GLM-5.3 and the spread of advanced cyber capabilities
 
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
 
 ## Subscribe to the Frontier Red Team newsletter
 

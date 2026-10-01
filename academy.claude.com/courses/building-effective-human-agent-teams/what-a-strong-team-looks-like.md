@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/building-effective-human-agent-teams/what-a-strong-team-looks-like -->
 
-Lesson 3 of 5 · Building Effective Human Agent Teams (Beta)What a strong human-agent team looks like
+Lesson 3 of 5 · Building effective human-agent teams (beta)What a strong human-agent team looks like
 
-3. /[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+3. /[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
-[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
 # What a strong human-agent team looks like
 
@@ -59,7 +59,7 @@ Next: five questions that tell you whether your organization is ready for a team
 
 [Previous lessonHow is a multiplayer agent different from traditional AI tools?](https://academy.claude.com/courses/building-effective-human-agent-teams/how-multiplayer-agents-differ)[Next lessonOrganizational checklist](https://academy.claude.com/courses/building-effective-human-agent-teams/organizational-checklist)
 
-Lesson 3 of 5 · Building Effective Human Agent Teams (Beta)What a strong human-agent team looks like
+Lesson 3 of 5 · Building effective human-agent teams (beta)What a strong human-agent team looks like
 
 The shift to multiplayer
 

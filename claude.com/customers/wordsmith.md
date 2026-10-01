@@ -4,31 +4,21 @@ Case study | Claude Code
 
 # Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e32337b21b1d42960f406_Wordsmith%20Dark.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e33e6efda0a2ae592695f_Wordsmith%20Light.svg)
+![Wordsmith logo](https://assets.claude.com/a824c758dbeeef4b2104a0d253541766995d02eb.svg)
 
 Industry:
-
-Legal
+:   Legal
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-Europe
+:   Europe
 
 4 minutes instead of 4 days
 
@@ -37,42 +27,6 @@ Complex 400-page contract reviews with 300-point compliance checks completed in 
 20-30% faster feature development
 
 Engineering velocity improvement using Claude Code across the development team
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Wordsmith](https://wordsmith.ai) builds AI-powered legal technology specifically for in-house legal teams, helping them service their organizations more effectively through contract review, agreement drafting, and seamless system integration. Founded by CEO Ross McNairn, a former lawyer turned CTO, the company serves thousands of legal teams from Fortune 500 companies to leading technology firms.
 
@@ -116,64 +70,22 @@ The transformation extends beyond efficiency metrics. Legal teams no longer func
 
 The platform now serves organizations ranging from major UK PLCs to NASDAQ-listed companies, passing stringent security reviews including Anthropic's own legal team evaluation. The combination of technical capability and enterprise-grade security enables legal teams to deploy AI assistance across their entire workflow while maintaining compliance standards.
 
-Looking ahead, Wordsmith plans to use Claude for  precision across large bodies of data, using robust context windows without degradation for complex legal analysis.
+Looking ahead, Wordsmith plans to use Claude for precision across large bodies of data, using robust context windows without degradation for complex legal analysis.
 
 "We'd love to provide them the rails to deploy that over the next couple of years," said McNairn about empowering legal teams. "To do that in a way that doesn't slow people down and actually accelerates them would make them far more effective."
 
 ‍
 
-"Not all AI is created equally when you're a lawyer and you care about the output."
+> "Not all AI is created equally when you're a lawyer and you care about the output."
 
-Ross McNairn
+Ross McNairnCEO of Wordsmith
 
-CEO of Wordsmith
+[![Spellbook](https://assets.claude.com/6d8c2b327807c9a9dc5b911946df64b7a0cbda3c.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)[![EvenUp](https://assets.claude.com/466446f5f59635a264efe3e688a42b51c0e88976.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)[![Eve Legal](https://assets.claude.com/f1efc487a08ab700dd2f0a0d09e717745da3e2d0.svg)
 
-[Next](#)Next
+### Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)[![GC AI](https://assets.claude.com/bf75981f3c09a3118604def848ab045ebfd0bfb5.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)Spellbook runs 530,000 contract reviews a month with Claude
-
-Spellbook runs 530,000 contract reviews a month with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/spellbook)Customer story
-
-[EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/evenup)Customer story
-
-[Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/eve-legal)Customer story
-
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/gc-ai)Customer story
+### GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)

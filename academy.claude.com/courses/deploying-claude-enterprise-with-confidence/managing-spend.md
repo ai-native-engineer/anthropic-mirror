@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/managing-spend -->
 
-Lesson 10 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutManaging spend
+Lesson 10 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutManaging spend
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Managing spend
 
@@ -114,7 +114,7 @@ The next module, Visibility, covers what you can measure and how long conversati
 
 [Previous lessonSpend caps](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/spend-caps)[Next lessonVisibility: what you can measure](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/visibility-what-you-can-measure)
 
-Lesson 10 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutManaging spend
+Lesson 10 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutManaging spend
 
 The plan
 

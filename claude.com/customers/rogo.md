@@ -4,31 +4,21 @@ Q&A | Claude Platform
 
 # How Rogo evaluates frontier models for institutional finance
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Rogo logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a277c3714419cc7f58a9342_logo_rogo-light.svg)![Rogo logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a277c483b67dd0f46bcdb09_logo_rogo-dark.svg)
+![Rogo logo](https://assets.claude.com/c0fcb1875e1dc462ab8875733bd22e98359457d6.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 50,000+ queries per day
 
@@ -40,35 +30,11 @@ at major banks, investment firms, and advisory practices
 
 Financial services
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5244ff22e3ab8e64404a_68c469d1859e3e7ecf6c2310_og-claude-finance.jpeg)
+![Financial services](https://assets.claude.com/650d7729c393e0a6c243ebe61f9b6401c93fd1c8.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate financial due diligence, modeling, and analysis with enterprise-grade AI built for compliance and security.
 
-Read more
-
-[Read more](https://claude.com/solutions/financial-services)Read more
-
-Financial services
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Accelerate financial due diligence, modeling, and analysis with enterprise-grade AI built for compliance and security.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Financial services
-
-Accelerate financial due diligence, modeling, and analysis with enterprise-grade AI built for compliance and security.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/solutions/financial-services)
 
 [Rogo](https://rogo.ai/) is an AI platform built specifically for finance. More than 35,000 financial professionals at major banks, investment firms, and advisory practices run over 50,000 queries a day on the platform. We spoke with Strib Walker, Head of Product at Rogo, about what makes financial AI different, how Rogo evaluates models, and where the work is headed.
 
@@ -92,11 +58,9 @@ Success for us had three components: measurable improvement on our internal fina
 
 **Walker:** To close that gap between looking right and actually right that I mentioned, we have an entire team of former bankers, investors, and research analysts embedded alongside our AI researchers and engineers. They work together on model evaluation, prompting, artifact pipelines, and workflow design, mapping how the work is actually done on the desk onto what frontier models like Claude can do.
 
-"Claude's strengths in long-context reasoning and artifact generation are a part of what makes that possible."
+> "Claude's strengths in long-context reasoning and artifact generation are a part of what makes that possible."
 
-Strib Walker
-
-Head of Product, Rogo
+Strib WalkerHead of Product, Rogo
 
 ## How has the work evolved since the early days?
 
@@ -126,84 +90,20 @@ Our evaluation framework goes beyond measuring raw financial intelligence. We pl
 
 Choosing the right Claude model
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-Read more
+> "We needed a system that could produce structured PowerPoint and Excel output at institutional quality, not a generic approximation of it."
 
-[Read more](#)Read more
+Strib WalkerHead of Product, Rogo
 
-Choosing the right Claude model
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-"We needed a system that could produce structured PowerPoint and Excel output at institutional quality, not a generic approximation of it."
-
-Strib Walker
-
-Head of Product, Rogo
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

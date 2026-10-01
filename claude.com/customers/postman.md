@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # Postman automates the API development lifecycle with Claude for 40 million developers
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b452dbea85f462beabd699_logo_postman-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b452dbea85f462beabd699_logo_postman-light-mode.svg)
+![Postman logo](https://assets.claude.com/bef5e8bf7d7d3c325bf9aa6b6d04dfe81a0297cc.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 Up to 1,150 hours saved per year
 
@@ -47,7 +36,7 @@ More than 40 million developers and 500,000 organizations use Postman to build, 
 ## With Claude, Postman:
 
 * Selected Claude Opus 4.6 as the default model choice in Agent Mode after evaluation showed it was the best-performing model for development and coding tasks
-* Integratedvia Amazon Bedrock in hours, with no infrastructure rebuild required
+* Integrated via Amazon Bedrock in hours, with no infrastructure rebuild required
 * Created an AI assistant that understands APIs and can read, write, and reason across collections, tests, specs, and code
 * Built a Claude Code plugin, Claude connector, and Claude skill enabling developers to test APIs, generate client code, and sync workspaces from within Claude
 * Adopted Claude Code across Postman’s own engineering teams for daily API collaboration and testing
@@ -55,32 +44,6 @@ More than 40 million developers and 500,000 organizations use Postman to build, 
 ‍
 
 ## The challenge
-
-Claude Platform
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5266ed232fd1354625a6_68c469d18f61fb5c21c81781_og-claude-api.jpeg)
-
-Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
-
-Read more
-
-[Read more](https://claude.com/platform/api)Read more
-
-Claude Platform
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Platform
-
-Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
 
 ## Fragmented APIs at enterprise scale
 
@@ -90,49 +53,31 @@ Postman's 2025 State of the API report found that 69% of developers spend more t
 
 ‍
 
+Claude Platform
+
+![Claude Platform](https://assets.claude.com/13caeda2fa5b274f70a676cfe2a8149b865f5e12.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
+
+[Read more](https://claude.com/platform/api)
+
 ## The solution
-
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698529955ffaa6de831ec14e_opus%201%20(4).jpg)
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.6
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
 
 ## Selecting Claude for coding performance and enterprise trust
 
 Postman evaluated multiple model providers, measuring output quality on development and coding tasks. Claude consistently delivered the best results, particularly for code generation, a core capability in the latest version of Postman. The team also found that Claude's single-shot performance stood out: developers preferred working with a model that delivered complete, usable outputs rather than one that repeatedly asked for confirmation. “Our customers are developers and engineering leaders who have high standards for coding tools,” said Abhinav Asthana, CEO at Postman. “Claude consistently performs at the top for development tasks."
 
-Beyond raw performance, the decision came down to trust and fit. Anthropic's approach to information usage and organizational governance aligned with what Postman's customers expect. And Postman's products are often introduced by individual developers before expanding to enterprise-wide deployment. "The fact that Claude is available through Amazon Bedrock and that Anthropic has a mature enterprise governance story matters a lot when we're talking to Fortune 500 teams,"Asthana added.
+Beyond raw performance, the decision came down to trust and fit. Anthropic's approach to information usage and organizational governance aligned with what Postman's customers expect. And Postman's products are often introduced by individual developers before expanding to enterprise-wide deployment. "The fact that Claude is available through Amazon Bedrock and that Anthropic has a mature enterprise governance story matters a lot when we're talking to Fortune 500 teams," Asthana added.
 
 Integrating Claude through Amazon Bedrock was fast. "We were already using Opus 4.6, and Sonnet shares much of the same capability profile, so adding it didn't require rebuilding anything," said Asthana**.** "Once we made the call, getting up and running was a matter of hours, not weeks.”
 
 ‍
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Introducing Claude Opus 4.6
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg?w=2400&q=75&fm=webp&fit=max)
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
 
 ## The outcome
 
@@ -150,42 +95,16 @@ Beyond Agent Mode, Postman released a Claude Code plugin, a Claude connector, an
 
 Postman will continue expanding AI-assisted capabilities for engineers building APIs for internal, external, and agentic use. The team is also eager to see how Claude Sonnet and Opus perform in more complex, hands-on engineering scenarios. Early signals are promising. "Postman sits at the center of how enterprises manage their APIs,” Asthana said. “By bringing Postman directly into Claude, developers and enterprise teams can move faster at every stage of API development, all without switching tools or losing context.”
 
-"The fact that Claude is available through Amazon Bedrock and that Anthropic has a mature enterprise governance story matters a lot when we're talking to Fortune 500 teams."
+> "The fact that Claude is available through Amazon Bedrock and that Anthropic has a mature enterprise governance story matters a lot when we're talking to Fortune 500 teams."
 
-Abhinav Asthana
+Abhinav AsthanaCEO, Postman
 
-CEO, Postman
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

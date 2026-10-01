@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/how-the-decisions-connect -->
 
-Lesson 13 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutHow the decisions connect
+Lesson 13 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutHow the decisions connect
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # How the decisions connect
 
@@ -94,7 +94,7 @@ The final lesson covers what happens when a new surface arrives: which of your a
 
 [Previous lessonAdoption signals](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/adoption-signals)[Next lessonWhen a new product arrives](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/when-a-new-product-arrives)
 
-Lesson 13 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutHow the decisions connect
+Lesson 13 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutHow the decisions connect
 
 The plan
 

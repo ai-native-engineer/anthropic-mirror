@@ -8,4 +8,6 @@ We’re mindful that some users may encounter these refusals or errors when they
 
 Conversely, if you are receiving these messages because you *are* trying to elicit copyrighted content, we may warn you or, in cases of repeat violations, suspend or terminate your account.
 
+---
+
 * [Why am I receiving an 'Output blocked by content filtering policy' error?](https://privacy.claude.com/en/articles/9205721-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error)

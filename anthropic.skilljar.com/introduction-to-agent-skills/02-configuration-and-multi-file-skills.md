@@ -42,7 +42,8 @@ Be explicit with your instructions. If someone told you "your job is to help wit
 
 A good description answers two questions:
 
-1. What does the skill do? 2. When should Claude use it?
+1. What does the skill do?
+2. When should Claude use it?
 
 If your skill isn't triggering when you expect it to, try adding more keywords that match how you actually phrase your requests. The description is what Claude uses to decide whether a skill is relevant, so the language matters.
 
@@ -55,7 +56,12 @@ Sometimes you want a skill that can only read files, not modify them. This is us
 In this example, the `allowed-tools` field is set to `Read, Grep, Glob, Bash`. When this skill is active, Claude can only use those tools without asking permission — no editing, no writing.
 
 ```
---- name: codebase-onboarding description: Helps new developers understand the system works. allowed-tools: Read, Grep, Glob, Bash model: sonnet ---
+---
+name: codebase-onboarding
+description: Helps new developers understand the system works.
+allowed-tools: Read, Grep, Glob, Bash
+model: sonnet
+---
 ```
 
 If you omit `allowed-tools` entirely, the skill doesn't restrict anything. Claude uses its normal permission model.
@@ -104,7 +110,6 @@ In the next lesson, we'll compare skills to the other ways you can customize Cla
 #### Feedback
 
 As you progress through the course, we'd love to hear how you're using skills in your work, plus any feedback you may have. Share your feedback [here](https://forms.gle/RvHPBwQt9ZmcDc1P9).
-
 <!-- youtube: 98KaK_rn5rQ -->
 
 [![Configuration And Multi File Skills](https://img.youtube.com/vi/98KaK_rn5rQ/hqdefault.jpg)](https://www.youtube.com/watch?v=98KaK_rn5rQ)

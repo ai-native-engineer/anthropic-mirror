@@ -2,68 +2,69 @@
 
 [Skip to main content](#main)[Skip to footer](#footer)
 
-[](https://cdn.sanity.io/files/4zrzovbb/website/2471bf20827901f94b1739010670e94ad4200e87.mov)
+[](https://cdn.sanity.io/files/4zrzovbb/website/9f6fb5a6efc8efddec5af4c52c5e2af177c6db81.webm)
 
-## :Claude: Fable 5.1 and Mythos 5.1
+## :Claude: Sonnet 5.5
 
-The world’s most advanced models for coding and knowledge work.
+A clear upgrade over Sonnet 5 that runs 30% faster and costs up to 30% less for most work.
 
 Read more
 
-[Read more](https://anthropic.com/claude-fable-and-mythos-5-1)Read more
+[Read more](https://anthropic.com/claude-sonnet-5-5)Read more
 
 ## Latest releases
 
-### Introducing Opus 5
+### Introducing Sonnet 5.5
 
-Opus 5 is a step change for the Opus tier: stronger coding, more capable agents, and sharper professional work.
-
-[Model details](https://www.anthropic.com/claude/opus)Model details
-
-Model details
+A clear upgrade over Sonnet 5 that runs 30% faster and costs up to 30% less for most work.
 
 * Date
 
-  July 24, 2026
+  September 28, 2026
 * Category
 
   Announcements
+* Details
 
-[Read announcement](https://www.anthropic.com/news/claude-opus-5)Read announcement
+  [Sonnet](https://www.anthropic.com/claude/sonnet)
+
+[Read announcement](https://anthropic.com/claude-sonnet-5-5)Read announcement
 
 Read announcement
 
-### Introducing Sonnet 5
+### Introducing Opus 5.5
 
-Our most agentic Sonnet yet, with top tier intelligence for coding and everyday professional work.
-
-[Model details](https://www.anthropic.com/claude/sonnet)Model details
-
-Model details
+Opus 5.5 performs at the level of Fable 5.1 on most work, and costs 40% less to run than Opus 5 on typical workloads.
 
 * Date
 
-  June 30, 2026
+  September 22, 2026
 * Category
 
   Announcements
+* Details
 
-[Read announcement](https://www.anthropic.com/news/claude-sonnet-5)Read announcement
+  [Opus](https://www.anthropic.com/claude/opus)
+
+[Read announcement](https://anthropic.com/claude-opus-5-5)Read announcement
 
 Read announcement
 
-### Announcing Claude Science
+### Introducing Fable 5.1 and Mythos 5.1
 
-Claude Science is a customizable app that integrates the tools and packages researchers most often use, produces auditable artifacts, and provides flexible access to computing resources.
+Our most advanced models for coding and knowledge work. Their research capabilities also offer an early glimpse of how AI models will contribute to scientific progress.
 
 * Date
 
-  June 30, 2026
+  September 1, 2026
 * Category
 
   Announcements
+* Details
 
-[Read announcement](https://www.anthropic.com/news/claude-science-ai-workbench)Read announcement
+  [Fable](https://www.anthropic.com/claude/fable)[Mythos](https://www.anthropic.com/claude/mythos)
+
+[Read announcement](https://www.anthropic.com/claude-fable-and-mythos-5-1)Read announcement
 
 Read announcement
 

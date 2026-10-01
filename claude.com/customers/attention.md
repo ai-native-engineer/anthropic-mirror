@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Attention automates sales operations and accelerates revenue with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Attention logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d46132e34f23de9fcd5b0b_logo_attention-light.svg)![Attention logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d461388dfc56c514f3f357_logo_attention-dark.svg)
+![Attention logo](https://assets.claude.com/8968c4174c6898634813af358b3cc74abf8544f3.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 1.6 million hours of admin work automated
 
@@ -40,63 +30,17 @@ reported by Attention customers whose sales teams trust Claude-generated outputs
 
 Introducing Claude Opus 4.6
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698529955ffaa6de831ec14e_opus%201%20(4).jpg)
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Read more
-
-[Read more](#)Read more
-
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.6
+![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
 
 Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Read more
-
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/product/cowork)
 
 Sales reps spend a surprising portion of their day not selling. After every call, there are CRM fields to update, follow-up emails to write, notes to log. For organizations running thousands of calls, that accumulated burden becomes a serious drag on revenue. [Attention](https://www.attention.com/) set out to change that by building a platform of AI agents that automates the full administrative layer of sales. Not just transcription, but action.
 
@@ -113,7 +57,7 @@ Sales reps spend a surprising portion of their day not selling. After every call
 
 The technical bar for an AI-powered sales platform is higher than it first appears. Transcription is easy. Reliable, nuanced sales intelligence is not.
 
-Attention's platform evaluates calls against strict qualification frameworks like MEDDIC (Metrics, Economic Buyer, Decision Criteria, Decision Process, Identify Pain, Champion) without hallucinating details or producing advice too generic to act on. It analyzes patterns across thousands of conversations to surface why deals were lost to a specific competitor last quarter.  "We realized early on that just transcription was not enough," said Stewart White, VP of Growth at Attention. "Sales teams did not need more text; they needed action.”
+Attention's platform evaluates calls against strict qualification frameworks like MEDDIC (Metrics, Economic Buyer, Decision Criteria, Decision Process, Identify Pain, Champion) without hallucinating details or producing advice too generic to act on. It analyzes patterns across thousands of conversations to surface why deals were lost to a specific competitor last quarter. "We realized early on that just transcription was not enough," said Stewart White, VP of Growth at Attention. "Sales teams did not need more text; they needed action.”
 
 And because Attention automates customer-facing communications like follow-up emails, every output has to match the quality and tone of a skilled sales rep. If it doesn't, reps won't use it, and none of the downstream revenue gains materialize.
 
@@ -153,58 +97,16 @@ Attention is expanding into a new generation of autonomous agents, ones that go 
 
 ‍
 
-"Claude's reasoning capabilities are what make the intelligence layer exceptional."
+> "Claude's reasoning capabilities are what make the intelligence layer exceptional."
 
-Stewart White
+Stewart WhiteVP of Growth, Attention
 
-VP of Growth, Attention
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

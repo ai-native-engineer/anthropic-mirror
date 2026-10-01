@@ -20,7 +20,7 @@ The two APIs use different key types, created in different places by different r
 | **Claude Code Analytics API**       | Admin API key (`sk-ant-admin01-...`) | [Claude Console > Settings > Admin keys](https://platform.claude.com/settings/admin-keys) | Organization admin | Daily Claude Code metrics per user: sessions, lines of code, commits, pull requests, tool acceptance, and estimated cost by model                  |
 | **Claude Enterprise Analytics API** | Analytics API key                    | [claude.ai > Organization settings > API](https://claude.ai/admin-settings/api-access)    | Primary owner      | Organization-wide engagement and adoption (user activity, active-user summaries, project, skill, and connector usage), plus cost and usage reports |
 
-The key types are not interchangeable: an Admin API key cannot call the Claude Enterprise Analytics API, and an Analytics API key cannot call the Admin API. Both APIs appear under the [Admin API reference](https://platform.claude.com/docs/en/api/admin), but they are separate APIs with separate key types. If your organization uses both the Claude Platform and Claude Enterprise, you can provision both keys and use each API for its own data.
+The key types are not interchangeable: an Admin API key cannot call the Claude Enterprise Analytics API, and an Analytics API key cannot call the Admin API. Both APIs appear under the [Admin API reference](https://platform.claude.com/docs/en/api/beta/organization), but they are separate APIs with separate key types. If your organization uses both the Claude Platform and Claude Enterprise, you can provision both keys and use each API for its own data.
 
 <Note>
   Looking for API usage and cost data rather than product analytics? See the [Usage and Cost API](https://platform.claude.com/docs/en/manage-claude/usage-cost-api), which explains the right path for both Claude Console and Claude Enterprise organizations.
@@ -50,7 +50,7 @@ The Claude Code Analytics API is available to every organization with access to 
   </Step>
 </Steps>
 
-For the available metrics, request parameters, and response schema, see the [Claude Code Analytics API guide](https://platform.claude.com/docs/en/manage-claude/claude-code-analytics-api) and the [API reference](https://platform.claude.com/docs/en/api/admin/usage_report/retrieve_claude_code).
+For the available metrics, request parameters, and response schema, see the [Claude Code Analytics API guide](https://platform.claude.com/docs/en/manage-claude/claude-code-analytics-api) and the [API reference](https://platform.claude.com/docs/en/api/beta/organization/usage_report/retrieve_claude_code).
 
 ## Get access to the Claude Enterprise Analytics API
 
@@ -66,7 +66,7 @@ The Claude Enterprise Analytics API is available to Claude Enterprise organizati
   </Step>
 
   <Step title="Call the API">
-    Pass the key in the `x-api-key` header and include the [`anthropic-version`](https://platform.claude.com/docs/en/api/versioning) header on every request. Endpoints live under `https://api.anthropic.com/v1/organizations/analytics/`. For request examples, parameters, and response schemas, see the [Claude Enterprise Analytics API reference](https://platform.claude.com/docs/en/api/admin/analytics).
+    Pass the key in the `x-api-key` header and include the [`anthropic-version`](https://platform.claude.com/docs/en/api/versioning) header on every request. Endpoints live under `https://api.anthropic.com/v1/organizations/analytics/`. For request examples, parameters, and response schemas, see the [Claude Enterprise Analytics API reference](https://platform.claude.com/docs/en/api/beta/organization/analytics).
   </Step>
 </Steps>
 
@@ -77,13 +77,13 @@ The Claude Enterprise Analytics API provides:
 * **Project, skill, and connector usage:** adoption breakdowns for chat projects, skills, and connectors
 * **Cost and usage reports:** per-user and organization-level token usage and cost over time (usage-based Enterprise plans)
 
-For endpoint details, parameters, and response schemas, see the [Claude Enterprise Analytics API reference](https://platform.claude.com/docs/en/api/admin/analytics). The following sections cover data freshness, metric definitions, and operational guidance that apply across those endpoints.
+For endpoint details, parameters, and response schemas, see the [Claude Enterprise Analytics API reference](https://platform.claude.com/docs/en/api/beta/organization/analytics). The following sections cover data freshness, metric definitions, and operational guidance that apply across those endpoints.
 
 ## Data availability and freshness
 
 Claude Enterprise Analytics API data is available for dates on or after January 1, 2026.
 
-**Engagement and adoption endpoints** (user activity, summaries, projects, skills, connectors) return a per-day snapshot for the date you specify. Data for a given day is typically available from about 17:00 UTC the following day (a 1-day lag); until then, the most recent available day is usually two days before the current UTC date. Data occasionally arrives later, and exact freshness varies by query, so rather than assuming a fixed time, check the error response: requesting a date that is not yet available returns a 400 error naming the most recent available day. If data is not available well past the typical lag, it usually indicates a data pipeline failure on Anthropic's side; contact support if the gap persists.
+**Engagement and adoption endpoints** (user activity, summaries, projects, skills, connectors) return a per-day snapshot for the date you specify. Data for a given day is typically available by about 13:00–13:30 UTC the following day (a 1-day lag); until then, the most recent available day is usually two days before the current UTC date. Data arrives later on days when an upstream data pipeline runs late, and exact freshness varies by query, so rather than assuming a fixed time, check the error response: requesting a date that is not yet available returns a 400 error naming the most recent available day. If data is not available well past the typical lag, it usually indicates a data pipeline failure on Anthropic's side; contact support if the gap persists.
 
 **Cost and usage endpoints** follow a different freshness model. Data is typically available within four hours of the underlying usage but may take up to 24 hours. Values for a given date can be revised for up to 30 days as late events arrive and reconciliation runs. For invoicing-grade totals, query dates at least 30 days in the past.
 
@@ -128,7 +128,7 @@ If your organization uses Claude Code through Amazon Bedrock, the Claude Enterpr
     Track API token usage and costs for your organization.
   </Card>
 
-  <Card title="Claude Enterprise Analytics API reference" href="https://platform.claude.com/docs/en/api/admin/analytics">
+  <Card title="Claude Enterprise Analytics API reference" href="https://platform.claude.com/docs/en/api/beta/organization/analytics">
     Endpoint reference for engagement, adoption, and cost data.
   </Card>
 

@@ -16,8 +16,10 @@ If you’re a current or prospective Claude Platform or Claude Code on Enterpris
 
 If you have questions about Anthropic's Business Associate Agreement (BAA), which is only available to customers who use our HIPAA-eligible services, including those that qualify for zero data retention, please also read [this article.](https://privacy.anthropic.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers) As part of the BAA, customers of Anthropic’s HIPAA-eligible services are subject to certain configuration requirements and limitations on what features/integrations are available (e.g., the BAA would not apply to use of the web search functionality).
 
+---
+
 * [Deleting commercial Anthropic accounts](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts)
 * [Business Associate Agreements (BAA) for Commercial Customers](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
-* [Can you delete data that I sent via Team and Enterprise plans?](https://privacy.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans)
+* [What Certifications has Anthropic obtained?](https://privacy.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained)
 * [Data retention practices for Covered Models](https://privacy.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)

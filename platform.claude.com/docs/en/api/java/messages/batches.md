@@ -29,11 +29,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
   - `List<Request> requests`
 
     List of requests for prompt completion. Each is an individual request to create a Message.
 
-    maxItems: 100000, minItems: 1
+    minItems: 1, maxItems: 100000
 
     - `String customId`
 
@@ -41,7 +45,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       Must be unique for each request within the Message Batch.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,64}$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]{1,64}$
 
     - `Params params`
 
@@ -118,7 +122,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `List<ContentBlockParam>`
 
-            - `class TextBlockParam:`
+            - `class TextBlockParam`
 
               - `JsonValue type = "text"`
 
@@ -149,7 +153,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<List<TextCitationParam>> citations`
 
-                - `class CitationCharLocationParam:`
+                - `class CitationCharLocationParam`
 
                   - `JsonValue type = "char_location"`
 
@@ -161,7 +165,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endCharIndex`
 
@@ -169,7 +173,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                - `class CitationPageLocationParam:`
+                - `class CitationPageLocationParam`
 
                   - `JsonValue type = "page_location"`
 
@@ -181,7 +185,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endPageNumber`
 
@@ -189,7 +193,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 1
 
-                - `class CitationContentBlockLocationParam:`
+                - `class CitationContentBlockLocationParam`
 
                   - `JsonValue type = "content_block_location"`
 
@@ -205,7 +209,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endBlockIndex`
 
@@ -219,7 +223,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                - `class CitationWebSearchResultLocationParam:`
+                - `class CitationWebSearchResultLocationParam`
 
                   - `JsonValue type = "web_search_result_location"`
 
@@ -229,13 +233,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> title`
 
-                    maxLength: 512, minLength: 1
+                    minLength: 1, maxLength: 512
 
                   - `String url`
 
                     minLength: 1
 
-                - `class CitationSearchResultLocationParam:`
+                - `class CitationSearchResultLocationParam`
 
                   - `JsonValue type = "search_result_location"`
 
@@ -269,13 +273,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> title`
 
-            - `class ImageBlockParam:`
+            - `class ImageBlockParam`
 
               - `JsonValue type = "image"`
 
               - `Source source`
 
-                - `class Base64ImageSource:`
+                - `class Base64ImageSource`
 
                   - `JsonValue type = "base64"`
 
@@ -293,13 +297,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `IMAGE_WEBP("image/webp")`
 
-                - `class UrlImageSource:`
+                - `class UrlImageSource`
 
                   - `JsonValue type = "url"`
 
                   - `String url`
 
-                - `class FileImageSource:`
+                - `class FileImageSource`
 
                   - `JsonValue type = "file"`
 
@@ -321,13 +325,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `ERROR("error")`
 
-            - `class DocumentBlockParam:`
+            - `class DocumentBlockParam`
 
               - `JsonValue type = "document"`
 
               - `Source source`
 
-                - `class Base64PdfSource:`
+                - `class Base64PdfSource`
 
                   - `JsonValue type = "base64"`
 
@@ -337,7 +341,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `JsonValue mediaType = "application/pdf"`
 
-                - `class PlainTextSource:`
+                - `class PlainTextSource`
 
                   - `JsonValue type = "text"`
 
@@ -345,7 +349,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `JsonValue mediaType = "text/plain"`
 
-                - `class ContentBlockSource:`
+                - `class ContentBlockSource`
 
                   - `JsonValue type = "content"`
 
@@ -355,17 +359,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `List<ContentBlockSourceContent>`
 
-                      - `class TextBlockParam:`
+                      - `class TextBlockParam`
 
-                      - `class ImageBlockParam:`
+                      - `class ImageBlockParam`
 
-                - `class UrlPdfSource:`
+                - `class UrlPdfSource`
 
                   - `JsonValue type = "url"`
 
                   - `String url`
 
-                - `class FileDocumentSource:`
+                - `class FileDocumentSource`
 
                   - `JsonValue type = "file"`
 
@@ -385,9 +389,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<String> title`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
-            - `class SearchResultBlockParam:`
+            - `class SearchResultBlockParam`
 
               - `JsonValue type = "search_result"`
 
@@ -415,7 +419,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<CitationsConfigParam> citations`
 
-            - `class ThinkingBlockParam:`
+            - `class ThinkingBlockParam`
 
               - `JsonValue type = "thinking"`
 
@@ -429,7 +433,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `thinking` text of this block as returned by the API.
 
-            - `class RedactedThinkingBlockParam:`
+            - `class RedactedThinkingBlockParam`
 
               - `JsonValue type = "redacted_thinking"`
 
@@ -437,7 +441,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-            - `class ToolUseBlockParam:`
+            - `class ToolUseBlockParam`
 
               - `JsonValue type = "tool_use"`
 
@@ -449,7 +453,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `String name`
 
-                maxLength: 200, minLength: 1
+                minLength: 1, maxLength: 200
 
               - `Optional<CacheControlEphemeral> cacheControl`
 
@@ -457,15 +461,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<Caller> caller`
 
-                Tool invocation directly from the model.
-
-                - `class DirectCaller:`
+                - `class DirectCaller`
 
                   Tool invocation directly from the model.
 
                   - `JsonValue type = "direct"`
 
-                - `class ServerToolCaller:`
+                - `class ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
@@ -475,7 +477,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                - `class ServerToolCaller20260120:`
+                - `class ServerToolCaller20260120`
 
                   - `JsonValue type = "code_execution_20260120"`
 
@@ -487,9 +489,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_use, the toolset family this member belongs to.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-            - `class ToolResultBlockParam:`
+            - `class ToolResultBlockParam`
 
               - `JsonValue type = "tool_result"`
 
@@ -507,15 +509,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `List<Block>`
 
-                  - `class TextBlockParam:`
+                  - `class TextBlockParam`
 
-                  - `class ImageBlockParam:`
+                  - `class ImageBlockParam`
 
-                  - `class SearchResultBlockParam:`
+                  - `class SearchResultBlockParam`
 
-                  - `class DocumentBlockParam:`
+                  - `class DocumentBlockParam`
 
-                  - `class ToolReferenceBlockParam:`
+                  - `class ToolReferenceBlockParam`
 
                     Tool reference block that can be included in tool_result content.
 
@@ -523,13 +525,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `String toolName`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `Optional<CacheControlEphemeral> cacheControl`
 
                       Create a cache control breakpoint at this content block.
 
-                  - `class BrowserStateBlockParam:`
+                  - `class BrowserStateBlockParam`
 
                     The caller's browser state after a browser toolset member call —
                     the full inventory of open tabs, which tab is active, and any side
@@ -551,7 +553,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this tab, unique within the inventory.
 
-                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `String title`
 
@@ -577,9 +579,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                      maxItems: 200, minItems: 1
+                      minItems: 1, maxItems: 200
 
-                      - `class BrowserStateChangeTabOpened:`
+                      - `class BrowserStateChangeTabOpened`
 
                         A tab this call's execution opened that remains open at its end —
                         the creation delta of the `tabs` inventory, not an event log.
@@ -595,9 +597,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The `tab_id` of the opened tab, present in `tabs`.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `class BrowserStateChangeDownloadStarted:`
+                      - `class BrowserStateChangeDownloadStarted`
 
                         A file download that started during this call.
 
@@ -607,7 +609,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `String url`
 
@@ -615,7 +617,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `class BrowserStateChangeDownloadCompleted:`
+                      - `class BrowserStateChangeDownloadCompleted`
 
                         A file download that finished during this call, reported with the
                         same `download_id` as its `download_started` — or without a prior
@@ -628,7 +630,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `String url`
 
@@ -640,7 +642,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `Optional<Long> sizeBytes`
 
@@ -648,7 +650,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           minimum: 0
 
-                      - `class BrowserStateChangeDownloadFailed:`
+                      - `class BrowserStateChangeDownloadFailed`
 
                         A file download that failed — or was cancelled — during this call.
 
@@ -658,7 +660,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `String url`
 
@@ -670,7 +672,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The failure or cancellation detail, when known.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `Optional<Boolean> isError`
 
@@ -678,9 +680,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_result, the toolset family of the paired tool_use.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-            - `class ServerToolUseBlockParam:`
+            - `class ServerToolUseBlockParam`
 
               - `JsonValue type = "server_tool_use"`
 
@@ -712,19 +714,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<Caller> caller`
 
-                Tool invocation directly from the model.
-
-                - `class DirectCaller:`
+                - `class DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `class ServerToolCaller:`
+                - `class ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `class ServerToolCaller20260120:`
+                - `class ServerToolCaller20260120`
 
-            - `class WebSearchToolResultBlockParam:`
+            - `class WebSearchToolResultBlockParam`
 
               - `JsonValue type = "web_search_tool_result"`
 
@@ -742,7 +742,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> pageAge`
 
-                - `class WebSearchToolRequestError:`
+                - `class WebSearchToolRequestError`
 
                   - `JsonValue type = "web_search_tool_result_error"`
 
@@ -770,25 +770,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<Caller> caller`
 
-                Tool invocation directly from the model.
-
-                - `class DirectCaller:`
+                - `class DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `class ServerToolCaller:`
+                - `class ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `class ServerToolCaller20260120:`
+                - `class ServerToolCaller20260120`
 
-            - `class WebFetchToolResultBlockParam:`
+            - `class WebFetchToolResultBlockParam`
 
               - `JsonValue type = "web_fetch_tool_result"`
 
               - `Content content`
 
-                - `class WebFetchToolResultErrorBlockParam:`
+                - `class WebFetchToolResultErrorBlockParam`
 
                   - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -814,7 +812,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `CONTENT_TOO_LARGE("content_too_large")`
 
-                - `class WebFetchBlockParam:`
+                - `class WebFetchBlockParam`
 
                   - `JsonValue type = "web_fetch_result"`
 
@@ -838,27 +836,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<Caller> caller`
 
-                Tool invocation directly from the model.
-
-                - `class DirectCaller:`
+                - `class DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `class ServerToolCaller:`
+                - `class ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `class ServerToolCaller20260120:`
+                - `class ServerToolCaller20260120`
 
-            - `class CodeExecutionToolResultBlockParam:`
+            - `class CodeExecutionToolResultBlockParam`
 
               - `JsonValue type = "code_execution_tool_result"`
 
               - `CodeExecutionToolResultBlockParamContent content`
 
-                Code execution result with encrypted stdout for PFC + web_search results.
-
-                - `class CodeExecutionToolResultErrorParam:`
+                - `class CodeExecutionToolResultErrorParam`
 
                   - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -872,7 +866,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-                - `class CodeExecutionResultBlockParam:`
+                - `class CodeExecutionResultBlockParam`
 
                   - `JsonValue type = "code_execution_result"`
 
@@ -888,7 +882,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `String stdout`
 
-                - `class EncryptedCodeExecutionResultBlockParam:`
+                - `class EncryptedCodeExecutionResultBlockParam`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -914,13 +908,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `class BashCodeExecutionToolResultBlockParam:`
+            - `class BashCodeExecutionToolResultBlockParam`
 
               - `JsonValue type = "bash_code_execution_tool_result"`
 
               - `Content content`
 
-                - `class BashCodeExecutionToolResultErrorParam:`
+                - `class BashCodeExecutionToolResultErrorParam`
 
                   - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -936,7 +930,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-                - `class BashCodeExecutionResultBlockParam:`
+                - `class BashCodeExecutionResultBlockParam`
 
                   - `JsonValue type = "bash_code_execution_result"`
 
@@ -960,13 +954,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `class TextEditorCodeExecutionToolResultBlockParam:`
+            - `class TextEditorCodeExecutionToolResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_tool_result"`
 
               - `Content content`
 
-                - `class TextEditorCodeExecutionToolResultErrorParam:`
+                - `class TextEditorCodeExecutionToolResultErrorParam`
 
                   - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -984,7 +978,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> errorMessage`
 
-                - `class TextEditorCodeExecutionViewResultBlockParam:`
+                - `class TextEditorCodeExecutionViewResultBlockParam`
 
                   - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -1004,13 +998,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<Long> totalLines`
 
-                - `class TextEditorCodeExecutionCreateResultBlockParam:`
+                - `class TextEditorCodeExecutionCreateResultBlockParam`
 
                   - `JsonValue type = "text_editor_code_execution_create_result"`
 
                   - `boolean isFileUpdate`
 
-                - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
+                - `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
                   - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -1032,13 +1026,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `class ToolSearchToolResultBlockParam:`
+            - `class ToolSearchToolResultBlockParam`
 
               - `JsonValue type = "tool_search_tool_result"`
 
               - `Content content`
 
-                - `class ToolSearchToolResultErrorParam:`
+                - `class ToolSearchToolResultErrorParam`
 
                   - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -1054,7 +1048,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> errorMessage`
 
-                - `class ToolSearchToolSearchResultBlockParam:`
+                - `class ToolSearchToolSearchResultBlockParam`
 
                   - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -1064,7 +1058,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `String toolName`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `Optional<CacheControlEphemeral> cacheControl`
 
@@ -1078,7 +1072,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `class ContainerUploadBlockParam:`
+            - `class ContainerUploadBlockParam`
 
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
@@ -1105,9 +1099,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -1115,7 +1117,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -1136,10 +1138,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
           Powerful intelligence for long-running agents and coding
-
-        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-          New class of intelligence, strongest in coding and cybersecurity
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
@@ -1173,6 +1171,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           High-performance model for agents and coding
 
+        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
+
       - `Optional<CacheControlEphemeral> cacheControl`
 
         Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
@@ -1181,7 +1185,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Container identifier for reuse across requests.
 
-        - `class ContainerParams:`
+        - `class ContainerParams`
 
           Container parameters with skills to be loaded.
 
@@ -1207,15 +1211,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `Optional<String> version`
 
               Skill version or 'latest' for most recent version
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `String`
+
+      - `Optional<DiagnosticsParam> diagnostics`
+
+        Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
+
+        - `Optional<String> previousMessageId`
+
+          The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+          maxLength: 256
 
       - `Optional<String> inferenceGeo`
 
@@ -1239,7 +1253,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<Effort> effort`
 
-          All possible effort levels.
+          How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+          Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
           - `LOW("low")`
 
@@ -1281,9 +1297,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Optional<Boolean> stream`
 
-        Whether to incrementally stream the response using server-sent events.
+        Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-        See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+        In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
       - `Optional<System> system`
 
@@ -1315,7 +1331,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-        - `class ThinkingConfigEnabled:`
+        - `class ThinkingConfigEnabled`
 
           - `JsonValue type = "enabled"`
 
@@ -1337,11 +1353,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `OMITTED("omitted")`
 
-        - `class ThinkingConfigDisabled:`
+        - `class ThinkingConfigDisabled`
 
           - `JsonValue type = "disabled"`
 
-        - `class ThinkingConfigAdaptive:`
+        - `class ThinkingConfigBetweenTools`
+
+          - `JsonValue type = "between_tools"`
+
+        - `class ThinkingConfigAdaptive`
 
           - `JsonValue type = "adaptive"`
 
@@ -1357,7 +1377,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-        - `class ToolChoiceAuto:`
+        - `class ToolChoiceAuto`
 
           The model will automatically decide whether to use tools.
 
@@ -1369,7 +1389,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output at most one tool use.
 
-        - `class ToolChoiceAny:`
+        - `class ToolChoiceAny`
 
           The model will use any available tools.
 
@@ -1381,7 +1401,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-        - `class ToolChoiceTool:`
+        - `class ToolChoiceTool`
 
           The model will use the specified tool with `tool_choice.name`.
 
@@ -1397,7 +1417,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-        - `class ToolChoiceNone:`
+        - `class ToolChoiceNone`
 
           The model will not be allowed to use tools.
 
@@ -1467,7 +1487,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-        - `class Tool:`
+        - `class Tool`
 
           - `Optional<Type> type`
 
@@ -1489,7 +1509,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-            maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+            minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1525,7 +1545,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ToolBash20250124:`
+        - `class ToolBash20250124`
 
           - `JsonValue type = "bash_20250124"`
 
@@ -1559,7 +1579,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class CodeExecutionTool20250522:`
+        - `class CodeExecutionTool20250522`
 
           - `JsonValue type = "code_execution_20250522"`
 
@@ -1591,7 +1611,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class CodeExecutionTool20250825:`
+        - `class CodeExecutionTool20250825`
 
           - `JsonValue type = "code_execution_20250825"`
 
@@ -1623,7 +1643,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class CodeExecutionTool20260120:`
+        - `class CodeExecutionTool20260120`
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -1657,7 +1677,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class CodeExecutionTool20260521:`
+        - `class CodeExecutionTool20260521`
 
           Code execution tool with REPL state persistence.
 
@@ -1691,7 +1711,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class BrowserToolset20260801:`
+        - `class BrowserToolset20260801`
 
           The browser toolset: a single `tools[]` entry (carrying no
           `name`) that declares the browser tool family. The model is served
@@ -1706,12 +1726,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<BrowserToolsetConfigs> configs`
 
-            Per-member configuration for `browser_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `Optional<BrowserTypeConfig> type`
 
@@ -2085,7 +2100,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `class MemoryTool20250818:`
+        - `class MemoryTool20250818`
 
           - `JsonValue type = "memory_20250818"`
 
@@ -2119,7 +2134,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ComputerToolset20260801:`
+        - `class ComputerToolset20260801`
 
           The computer toolset: a single `tools[]` entry (carrying no
           `name`) that declares the computer tool family. The model is
@@ -2138,12 +2153,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<ComputerToolsetConfigs> configs`
 
-            Per-member configuration for `computer_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `Optional<ComputerTypeConfig> type`
 
@@ -2349,7 +2359,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `class ToolTextEditor20250124:`
+        - `class ToolTextEditor20250124`
 
           - `JsonValue type = "text_editor_20250124"`
 
@@ -2383,7 +2393,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ToolTextEditor20250429:`
+        - `class ToolTextEditor20250429`
 
           - `JsonValue type = "text_editor_20250429"`
 
@@ -2417,7 +2427,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ToolTextEditor20250728:`
+        - `class ToolTextEditor20250728`
 
           - `JsonValue type = "text_editor_20250728"`
 
@@ -2457,7 +2467,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class WebSearchTool20250305:`
+        - `class WebSearchTool20250305`
 
           - `JsonValue type = "web_search_20250305"`
 
@@ -2497,7 +2507,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
@@ -2513,27 +2523,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The city of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `Optional<String> country`
 
               The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-              maxLength: 2, minLength: 2
+              minLength: 2, maxLength: 2
 
             - `Optional<String> region`
 
               The region of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `Optional<String> timezone`
 
               The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
-        - `class WebFetchTool20250910:`
+        - `class WebFetchTool20250910`
 
           - `JsonValue type = "web_fetch_20250910"`
 
@@ -2577,19 +2587,105 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Long> maxUses`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class WebSearchTool20260209:`
+          - `Optional<WebFetchUrlSources> urlSources`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+            - `Optional<ClientToolResults> clientToolResults`
+
+              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+              - `class WebFetchUrlSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+                - `JsonValue type = "all"`
+
+              - `class WebFetchUrlSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+                - `JsonValue type = "none"`
+
+              - `class WebFetchUrlSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+                - `JsonValue type = "only"`
+
+                - `List<WebFetchUrlSourceToolReference> tools`
+
+                  - `JsonValue type = "tool_reference"`
+
+                  - `String name`
+
+              - `class WebFetchUrlSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+                - `JsonValue type = "except"`
+
+                - `List<WebFetchUrlSourceToolReference> tools`
+
+                  - `JsonValue type = "tool_reference"`
+
+                  - `String name`
+
+            - `Optional<ServerToolResults> serverToolResults`
+
+              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+              - `class WebFetchUrlSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `class WebFetchUrlSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+              - `class WebFetchUrlSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+              - `class WebFetchUrlSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+            - `Optional<UserInput> userInput`
+
+              Whether URLs in user messages are fetchable: "all" or "none".
+
+              - `class WebFetchUrlSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `class WebFetchUrlSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+        - `class WebSearchTool20260209`
 
           - `JsonValue type = "web_search_20260209"`
 
@@ -2629,7 +2725,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
@@ -2639,7 +2735,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-        - `class WebFetchTool20260209:`
+        - `class WebFetchTool20260209`
 
           - `JsonValue type = "web_fetch_20260209"`
 
@@ -2683,19 +2779,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Long> maxUses`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class WebFetchTool20260309:`
+          - `Optional<WebFetchUrlSources> urlSources`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+        - `class WebFetchTool20260309`
 
           Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -2741,23 +2841,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Long> maxUses`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
             When true, guarantees schema validation on tool names and inputs
 
+          - `Optional<WebFetchUrlSources> urlSources`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
           - `Optional<Boolean> useCache`
 
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-        - `class WebSearchTool20260318:`
+        - `class WebSearchTool20260318`
 
           - `JsonValue type = "web_search_20260318"`
 
@@ -2797,7 +2901,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<ResponseInclusion> responseInclusion`
 
@@ -2815,7 +2919,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-        - `class WebFetchTool20260318:`
+        - `class WebFetchTool20260318`
 
           - `JsonValue type = "web_fetch_20260318"`
 
@@ -2859,13 +2963,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Long> maxUses`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<ResponseInclusion> responseInclusion`
 
@@ -2879,11 +2983,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
+          - `Optional<WebFetchUrlSources> urlSources`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
           - `Optional<Boolean> useCache`
 
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-        - `class ToolSearchToolBm25_20251119:`
+        - `class ToolSearchToolBm25_20251119`
 
           - `Type type`
 
@@ -2919,7 +3027,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ToolSearchToolRegex20251119:`
+        - `class ToolSearchToolRegex20251119`
 
           - `Type type`
 
@@ -2957,7 +3065,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Optional<Double> temperature`
 
-        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
         Amount of randomness injected into the response.
 
@@ -2965,7 +3073,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
       - `Optional<Long> topK`
 
@@ -2989,11 +3097,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Recommended for advanced use cases only.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
 ### Returns
 
-- `class MessageBatch:`
+- `class MessageBatch`
 
   - `JsonValue type = "message_batch"`
 
@@ -3164,9 +3272,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class MessageBatch:`
+- `class MessageBatch`
 
   - `JsonValue type = "message_batch"`
 
@@ -3334,13 +3446,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class MessageBatch:`
+- `class MessageBatch`
 
   - `JsonValue type = "message_batch"`
 
@@ -3509,9 +3625,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class MessageBatch:`
+- `class MessageBatch`
 
   - `JsonValue type = "message_batch"`
 
@@ -3673,9 +3793,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class DeletedMessageBatch:`
+- `class DeletedMessageBatch`
 
   - `JsonValue type = "message_batch_deleted"`
 
@@ -3739,9 +3863,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class MessageBatchIndividualResponse:`
+- `class MessageBatchIndividualResponse`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
 
@@ -3757,7 +3885,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
 
-    - `class MessageBatchSucceededResult:`
+    - `class MessageBatchSucceededResult`
 
       - `JsonValue type = "succeeded"`
 
@@ -3777,7 +3905,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<Container> container`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `String id`
 
@@ -3805,13 +3935,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `String version`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `List<ContentBlock> content`
 
@@ -3842,7 +3972,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           [{"type": "text", "text": "B)"}]
           ```
 
-          - `class TextBlock:`
+          - `class TextBlock`
 
             - `JsonValue type = "text"`
 
@@ -3852,7 +3982,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-              - `class CitationCharLocation:`
+              - `class CitationCharLocation`
 
                 - `JsonValue type = "char_location"`
 
@@ -3872,7 +4002,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-              - `class CitationPageLocation:`
+              - `class CitationPageLocation`
 
                 - `JsonValue type = "page_location"`
 
@@ -3892,7 +4022,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-              - `class CitationContentBlockLocation:`
+              - `class CitationContentBlockLocation`
 
                 - `JsonValue type = "content_block_location"`
 
@@ -3922,7 +4052,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-              - `class CitationsWebSearchResultLocation:`
+              - `class CitationsWebSearchResultLocation`
 
                 - `JsonValue type = "web_search_result_location"`
 
@@ -3936,7 +4066,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String url`
 
-              - `class CitationsSearchResultLocation:`
+              - `class CitationsSearchResultLocation`
 
                 - `JsonValue type = "search_result_location"`
 
@@ -3972,9 +4102,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `String text`
 
-              minLength: 0
-
-          - `class ThinkingBlock:`
+          - `class ThinkingBlock`
 
             - `JsonValue type = "thinking"`
 
@@ -3990,7 +4118,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-          - `class RedactedThinkingBlock:`
+          - `class RedactedThinkingBlock`
 
             - `JsonValue type = "redacted_thinking"`
 
@@ -4002,7 +4130,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-          - `class ToolUseBlock:`
+          - `class ToolUseBlock`
 
             - `JsonValue type = "tool_use"`
 
@@ -4012,15 +4140,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller caller`
 
-              Tool invocation directly from the model.
-
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
                 - `JsonValue type = "direct"`
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
@@ -4030,7 +4156,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
                 - `JsonValue type = "code_execution_20260120"`
 
@@ -4048,9 +4174,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-          - `class ServerToolUseBlock:`
+          - `class ServerToolUseBlock`
 
             - `JsonValue type = "server_tool_use"`
 
@@ -4060,17 +4186,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller caller`
 
-              Tool invocation directly from the model.
-
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
             - `Input input`
 
@@ -4090,27 +4214,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-          - `class WebSearchToolResultBlock:`
+          - `class WebSearchToolResultBlock`
 
             - `JsonValue type = "web_search_tool_result"`
 
             - `Caller caller`
 
-              Tool invocation directly from the model.
-
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
             - `WebSearchToolResultBlockContent content`
 
-              - `class WebSearchToolResultError:`
+              - `class WebSearchToolResultError`
 
                 - `JsonValue type = "web_search_tool_result_error"`
 
@@ -4144,27 +4266,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class WebFetchToolResultBlock:`
+          - `class WebFetchToolResultBlock`
 
             - `JsonValue type = "web_fetch_tool_result"`
 
             - `Caller caller`
 
-              Tool invocation directly from the model.
-
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
             - `Content content`
 
-              - `class WebFetchToolResultErrorBlock:`
+              - `class WebFetchToolResultErrorBlock`
 
                 - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -4190,7 +4310,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `CONTENT_TOO_LARGE("content_too_large")`
 
-              - `class WebFetchBlock:`
+              - `class WebFetchBlock`
 
                 - `JsonValue type = "web_fetch_result"`
 
@@ -4206,7 +4326,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Source source`
 
-                    - `class Base64PdfSource:`
+                    - `class Base64PdfSource`
 
                       - `JsonValue type = "base64"`
 
@@ -4216,7 +4336,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       - `JsonValue mediaType = "application/pdf"`
 
-                    - `class PlainTextSource:`
+                    - `class PlainTextSource`
 
                       - `JsonValue type = "text"`
 
@@ -4240,15 +4360,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class CodeExecutionToolResultBlock:`
+          - `class CodeExecutionToolResultBlock`
 
             - `JsonValue type = "code_execution_tool_result"`
 
             - `CodeExecutionToolResultBlockContent content`
 
-              Code execution result with encrypted stdout for PFC + web_search results.
-
-              - `class CodeExecutionToolResultError:`
+              - `class CodeExecutionToolResultError`
 
                 - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -4262,7 +4380,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `class CodeExecutionResultBlock:`
+              - `class CodeExecutionResultBlock`
 
                 - `JsonValue type = "code_execution_result"`
 
@@ -4278,7 +4396,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String stdout`
 
-              - `class EncryptedCodeExecutionResultBlock:`
+              - `class EncryptedCodeExecutionResultBlock`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -4300,13 +4418,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class BashCodeExecutionToolResultBlock:`
+          - `class BashCodeExecutionToolResultBlock`
 
             - `JsonValue type = "bash_code_execution_tool_result"`
 
             - `Content content`
 
-              - `class BashCodeExecutionToolResultError:`
+              - `class BashCodeExecutionToolResultError`
 
                 - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -4322,7 +4440,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-              - `class BashCodeExecutionResultBlock:`
+              - `class BashCodeExecutionResultBlock`
 
                 - `JsonValue type = "bash_code_execution_result"`
 
@@ -4342,13 +4460,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class TextEditorCodeExecutionToolResultBlock:`
+          - `class TextEditorCodeExecutionToolResultBlock`
 
             - `JsonValue type = "text_editor_code_execution_tool_result"`
 
             - `Content content`
 
-              - `class TextEditorCodeExecutionToolResultError:`
+              - `class TextEditorCodeExecutionToolResultError`
 
                 - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -4366,7 +4484,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<String> errorMessage`
 
-              - `class TextEditorCodeExecutionViewResultBlock:`
+              - `class TextEditorCodeExecutionViewResultBlock`
 
                 - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -4386,13 +4504,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<Long> totalLines`
 
-              - `class TextEditorCodeExecutionCreateResultBlock:`
+              - `class TextEditorCodeExecutionCreateResultBlock`
 
                 - `JsonValue type = "text_editor_code_execution_create_result"`
 
                 - `boolean isFileUpdate`
 
-              - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+              - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
                 - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -4410,13 +4528,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ToolSearchToolResultBlock:`
+          - `class ToolSearchToolResultBlock`
 
             - `JsonValue type = "tool_search_tool_result"`
 
             - `Content content`
 
-              - `class ToolSearchToolResultError:`
+              - `class ToolSearchToolResultError`
 
                 - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -4432,7 +4550,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<String> errorMessage`
 
-              - `class ToolSearchToolSearchResultBlock:`
+              - `class ToolSearchToolSearchResultBlock`
 
                 - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -4442,13 +4560,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `String toolName`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `String toolUseId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ContainerUploadBlock:`
+          - `class ContainerUploadBlock`
 
             Response model for a file uploaded to the container.
 
@@ -4456,15 +4574,71 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `String fileId`
 
+        - `Optional<Diagnostics> diagnostics`
+
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+          - `Optional<CacheMissReason> cacheMissReason`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `class CacheMissModelChanged`
+
+              - `JsonValue type = "model_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissSystemChanged`
+
+              - `JsonValue type = "system_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissToolsChanged`
+
+              - `JsonValue type = "tools_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissMessagesChanged`
+
+              - `JsonValue type = "messages_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissPreviousMessageNotFound`
+
+              - `JsonValue type = "previous_message_not_found"`
+
+            - `class CacheMissUnavailable`
+
+              - `JsonValue type = "unavailable"`
+
         - `Model model`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -4472,7 +4646,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -4493,10 +4667,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
-
-          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-            New class of intelligence, strongest in coding and cybersecurity
 
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
@@ -4530,6 +4700,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             High-performance model for agents and coding
 
+          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
+
         - `JsonValue role = "assistant"`
 
           Conversational role of the generated message.
@@ -4538,13 +4714,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<RefusalStopDetails> stopDetails`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `JsonValue type = "refusal"`
 
           - `Optional<Category> category`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
 
             - `CYBER("cyber")`
 
@@ -4712,7 +4892,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `BATCH("batch")`
 
-    - `class MessageBatchErroredResult:`
+    - `class MessageBatchErroredResult`
 
       - `JsonValue type = "errored"`
 
@@ -4722,55 +4902,55 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `ErrorObject error`
 
-          - `class InvalidRequestError:`
+          - `class InvalidRequestError`
 
             - `JsonValue type = "invalid_request_error"`
 
             - `String message`
 
-          - `class AuthenticationError:`
+          - `class AuthenticationError`
 
             - `JsonValue type = "authentication_error"`
 
             - `String message`
 
-          - `class BillingError:`
+          - `class BillingError`
 
             - `JsonValue type = "billing_error"`
 
             - `String message`
 
-          - `class PermissionError:`
+          - `class PermissionError`
 
             - `JsonValue type = "permission_error"`
 
             - `String message`
 
-          - `class NotFoundError:`
+          - `class NotFoundError`
 
             - `JsonValue type = "not_found_error"`
 
             - `String message`
 
-          - `class RateLimitError:`
+          - `class RateLimitError`
 
             - `JsonValue type = "rate_limit_error"`
 
             - `String message`
 
-          - `class GatewayTimeoutError:`
+          - `class GatewayTimeoutError`
 
             - `JsonValue type = "timeout_error"`
 
             - `String message`
 
-          - `class ApiErrorObject:`
+          - `class ApiErrorObject`
 
             - `JsonValue type = "api_error"`
 
             - `String message`
 
-          - `class OverloadedError:`
+          - `class OverloadedError`
 
             - `JsonValue type = "overloaded_error"`
 
@@ -4778,11 +4958,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<String> requestId`
 
-    - `class MessageBatchCanceledResult:`
+    - `class MessageBatchCanceledResult`
 
       - `JsonValue type = "canceled"`
 
-    - `class MessageBatchExpiredResult:`
+    - `class MessageBatchExpiredResult`
 
       - `JsonValue type = "expired"`
 
@@ -4812,7 +4992,7 @@ public final class Main {
 
 ### Deleted Message Batch
 
-- `class DeletedMessageBatch:`
+- `class DeletedMessageBatch`
 
   - `JsonValue type = "message_batch_deleted"`
 
@@ -4826,7 +5006,7 @@ public final class Main {
 
 ### Message Batch
 
-- `class MessageBatch:`
+- `class MessageBatch`
 
   - `JsonValue type = "message_batch"`
 
@@ -4924,13 +5104,13 @@ public final class Main {
 
 ### Message Batch Canceled Result
 
-- `class MessageBatchCanceledResult:`
+- `class MessageBatchCanceledResult`
 
   - `JsonValue type = "canceled"`
 
 ### Message Batch Errored Result
 
-- `class MessageBatchErroredResult:`
+- `class MessageBatchErroredResult`
 
   - `JsonValue type = "errored"`
 
@@ -4940,55 +5120,55 @@ public final class Main {
 
     - `ErrorObject error`
 
-      - `class InvalidRequestError:`
+      - `class InvalidRequestError`
 
         - `JsonValue type = "invalid_request_error"`
 
         - `String message`
 
-      - `class AuthenticationError:`
+      - `class AuthenticationError`
 
         - `JsonValue type = "authentication_error"`
 
         - `String message`
 
-      - `class BillingError:`
+      - `class BillingError`
 
         - `JsonValue type = "billing_error"`
 
         - `String message`
 
-      - `class PermissionError:`
+      - `class PermissionError`
 
         - `JsonValue type = "permission_error"`
 
         - `String message`
 
-      - `class NotFoundError:`
+      - `class NotFoundError`
 
         - `JsonValue type = "not_found_error"`
 
         - `String message`
 
-      - `class RateLimitError:`
+      - `class RateLimitError`
 
         - `JsonValue type = "rate_limit_error"`
 
         - `String message`
 
-      - `class GatewayTimeoutError:`
+      - `class GatewayTimeoutError`
 
         - `JsonValue type = "timeout_error"`
 
         - `String message`
 
-      - `class ApiErrorObject:`
+      - `class ApiErrorObject`
 
         - `JsonValue type = "api_error"`
 
         - `String message`
 
-      - `class OverloadedError:`
+      - `class OverloadedError`
 
         - `JsonValue type = "overloaded_error"`
 
@@ -4998,13 +5178,13 @@ public final class Main {
 
 ### Message Batch Expired Result
 
-- `class MessageBatchExpiredResult:`
+- `class MessageBatchExpiredResult`
 
   - `JsonValue type = "expired"`
 
 ### Message Batch Individual Response
 
-- `class MessageBatchIndividualResponse:`
+- `class MessageBatchIndividualResponse`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
 
@@ -5020,7 +5200,7 @@ public final class Main {
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
 
-    - `class MessageBatchSucceededResult:`
+    - `class MessageBatchSucceededResult`
 
       - `JsonValue type = "succeeded"`
 
@@ -5040,7 +5220,9 @@ public final class Main {
 
         - `Optional<Container> container`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `String id`
 
@@ -5068,13 +5250,13 @@ public final class Main {
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `String version`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `List<ContentBlock> content`
 
@@ -5105,7 +5287,7 @@ public final class Main {
           [{"type": "text", "text": "B)"}]
           ```
 
-          - `class TextBlock:`
+          - `class TextBlock`
 
             - `JsonValue type = "text"`
 
@@ -5115,7 +5297,7 @@ public final class Main {
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-              - `class CitationCharLocation:`
+              - `class CitationCharLocation`
 
                 - `JsonValue type = "char_location"`
 
@@ -5135,7 +5317,7 @@ public final class Main {
 
                   minimum: 0
 
-              - `class CitationPageLocation:`
+              - `class CitationPageLocation`
 
                 - `JsonValue type = "page_location"`
 
@@ -5155,7 +5337,7 @@ public final class Main {
 
                   minimum: 1
 
-              - `class CitationContentBlockLocation:`
+              - `class CitationContentBlockLocation`
 
                 - `JsonValue type = "content_block_location"`
 
@@ -5185,7 +5367,7 @@ public final class Main {
 
                   minimum: 0
 
-              - `class CitationsWebSearchResultLocation:`
+              - `class CitationsWebSearchResultLocation`
 
                 - `JsonValue type = "web_search_result_location"`
 
@@ -5199,7 +5381,7 @@ public final class Main {
 
                 - `String url`
 
-              - `class CitationsSearchResultLocation:`
+              - `class CitationsSearchResultLocation`
 
                 - `JsonValue type = "search_result_location"`
 
@@ -5235,9 +5417,7 @@ public final class Main {
 
             - `String text`
 
-              minLength: 0
-
-          - `class ThinkingBlock:`
+          - `class ThinkingBlock`
 
             - `JsonValue type = "thinking"`
 
@@ -5253,7 +5433,7 @@ public final class Main {
 
               The text of Claude's thinking process for this block.
 
-          - `class RedactedThinkingBlock:`
+          - `class RedactedThinkingBlock`
 
             - `JsonValue type = "redacted_thinking"`
 
@@ -5265,7 +5445,7 @@ public final class Main {
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-          - `class ToolUseBlock:`
+          - `class ToolUseBlock`
 
             - `JsonValue type = "tool_use"`
 
@@ -5275,15 +5455,13 @@ public final class Main {
 
             - `Caller caller`
 
-              Tool invocation directly from the model.
-
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
                 - `JsonValue type = "direct"`
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
@@ -5293,7 +5471,7 @@ public final class Main {
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
                 - `JsonValue type = "code_execution_20260120"`
 
@@ -5311,9 +5489,9 @@ public final class Main {
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-          - `class ServerToolUseBlock:`
+          - `class ServerToolUseBlock`
 
             - `JsonValue type = "server_tool_use"`
 
@@ -5323,17 +5501,15 @@ public final class Main {
 
             - `Caller caller`
 
-              Tool invocation directly from the model.
-
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
             - `Input input`
 
@@ -5353,27 +5529,25 @@ public final class Main {
 
               - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-          - `class WebSearchToolResultBlock:`
+          - `class WebSearchToolResultBlock`
 
             - `JsonValue type = "web_search_tool_result"`
 
             - `Caller caller`
 
-              Tool invocation directly from the model.
-
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
             - `WebSearchToolResultBlockContent content`
 
-              - `class WebSearchToolResultError:`
+              - `class WebSearchToolResultError`
 
                 - `JsonValue type = "web_search_tool_result_error"`
 
@@ -5407,27 +5581,25 @@ public final class Main {
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class WebFetchToolResultBlock:`
+          - `class WebFetchToolResultBlock`
 
             - `JsonValue type = "web_fetch_tool_result"`
 
             - `Caller caller`
 
-              Tool invocation directly from the model.
-
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
             - `Content content`
 
-              - `class WebFetchToolResultErrorBlock:`
+              - `class WebFetchToolResultErrorBlock`
 
                 - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -5453,7 +5625,7 @@ public final class Main {
 
                   - `CONTENT_TOO_LARGE("content_too_large")`
 
-              - `class WebFetchBlock:`
+              - `class WebFetchBlock`
 
                 - `JsonValue type = "web_fetch_result"`
 
@@ -5469,7 +5641,7 @@ public final class Main {
 
                   - `Source source`
 
-                    - `class Base64PdfSource:`
+                    - `class Base64PdfSource`
 
                       - `JsonValue type = "base64"`
 
@@ -5479,7 +5651,7 @@ public final class Main {
 
                       - `JsonValue mediaType = "application/pdf"`
 
-                    - `class PlainTextSource:`
+                    - `class PlainTextSource`
 
                       - `JsonValue type = "text"`
 
@@ -5503,15 +5675,13 @@ public final class Main {
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class CodeExecutionToolResultBlock:`
+          - `class CodeExecutionToolResultBlock`
 
             - `JsonValue type = "code_execution_tool_result"`
 
             - `CodeExecutionToolResultBlockContent content`
 
-              Code execution result with encrypted stdout for PFC + web_search results.
-
-              - `class CodeExecutionToolResultError:`
+              - `class CodeExecutionToolResultError`
 
                 - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -5525,7 +5695,7 @@ public final class Main {
 
                   - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `class CodeExecutionResultBlock:`
+              - `class CodeExecutionResultBlock`
 
                 - `JsonValue type = "code_execution_result"`
 
@@ -5541,7 +5711,7 @@ public final class Main {
 
                 - `String stdout`
 
-              - `class EncryptedCodeExecutionResultBlock:`
+              - `class EncryptedCodeExecutionResultBlock`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -5563,13 +5733,13 @@ public final class Main {
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class BashCodeExecutionToolResultBlock:`
+          - `class BashCodeExecutionToolResultBlock`
 
             - `JsonValue type = "bash_code_execution_tool_result"`
 
             - `Content content`
 
-              - `class BashCodeExecutionToolResultError:`
+              - `class BashCodeExecutionToolResultError`
 
                 - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -5585,7 +5755,7 @@ public final class Main {
 
                   - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-              - `class BashCodeExecutionResultBlock:`
+              - `class BashCodeExecutionResultBlock`
 
                 - `JsonValue type = "bash_code_execution_result"`
 
@@ -5605,13 +5775,13 @@ public final class Main {
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class TextEditorCodeExecutionToolResultBlock:`
+          - `class TextEditorCodeExecutionToolResultBlock`
 
             - `JsonValue type = "text_editor_code_execution_tool_result"`
 
             - `Content content`
 
-              - `class TextEditorCodeExecutionToolResultError:`
+              - `class TextEditorCodeExecutionToolResultError`
 
                 - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -5629,7 +5799,7 @@ public final class Main {
 
                 - `Optional<String> errorMessage`
 
-              - `class TextEditorCodeExecutionViewResultBlock:`
+              - `class TextEditorCodeExecutionViewResultBlock`
 
                 - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -5649,13 +5819,13 @@ public final class Main {
 
                 - `Optional<Long> totalLines`
 
-              - `class TextEditorCodeExecutionCreateResultBlock:`
+              - `class TextEditorCodeExecutionCreateResultBlock`
 
                 - `JsonValue type = "text_editor_code_execution_create_result"`
 
                 - `boolean isFileUpdate`
 
-              - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+              - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
                 - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -5673,13 +5843,13 @@ public final class Main {
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ToolSearchToolResultBlock:`
+          - `class ToolSearchToolResultBlock`
 
             - `JsonValue type = "tool_search_tool_result"`
 
             - `Content content`
 
-              - `class ToolSearchToolResultError:`
+              - `class ToolSearchToolResultError`
 
                 - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -5695,7 +5865,7 @@ public final class Main {
 
                 - `Optional<String> errorMessage`
 
-              - `class ToolSearchToolSearchResultBlock:`
+              - `class ToolSearchToolSearchResultBlock`
 
                 - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -5705,13 +5875,13 @@ public final class Main {
 
                   - `String toolName`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `String toolUseId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ContainerUploadBlock:`
+          - `class ContainerUploadBlock`
 
             Response model for a file uploaded to the container.
 
@@ -5719,15 +5889,71 @@ public final class Main {
 
             - `String fileId`
 
+        - `Optional<Diagnostics> diagnostics`
+
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+          - `Optional<CacheMissReason> cacheMissReason`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `class CacheMissModelChanged`
+
+              - `JsonValue type = "model_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissSystemChanged`
+
+              - `JsonValue type = "system_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissToolsChanged`
+
+              - `JsonValue type = "tools_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissMessagesChanged`
+
+              - `JsonValue type = "messages_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissPreviousMessageNotFound`
+
+              - `JsonValue type = "previous_message_not_found"`
+
+            - `class CacheMissUnavailable`
+
+              - `JsonValue type = "unavailable"`
+
         - `Model model`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
           - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -5735,7 +5961,7 @@ public final class Main {
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -5756,10 +5982,6 @@ public final class Main {
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
-
-          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-            New class of intelligence, strongest in coding and cybersecurity
 
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
@@ -5793,6 +6015,12 @@ public final class Main {
 
             High-performance model for agents and coding
 
+          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
+
         - `JsonValue role = "assistant"`
 
           Conversational role of the generated message.
@@ -5801,13 +6029,17 @@ public final class Main {
 
         - `Optional<RefusalStopDetails> stopDetails`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `JsonValue type = "refusal"`
 
           - `Optional<Category> category`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
 
             - `CYBER("cyber")`
 
@@ -5975,7 +6207,7 @@ public final class Main {
 
             - `BATCH("batch")`
 
-    - `class MessageBatchErroredResult:`
+    - `class MessageBatchErroredResult`
 
       - `JsonValue type = "errored"`
 
@@ -5985,55 +6217,55 @@ public final class Main {
 
         - `ErrorObject error`
 
-          - `class InvalidRequestError:`
+          - `class InvalidRequestError`
 
             - `JsonValue type = "invalid_request_error"`
 
             - `String message`
 
-          - `class AuthenticationError:`
+          - `class AuthenticationError`
 
             - `JsonValue type = "authentication_error"`
 
             - `String message`
 
-          - `class BillingError:`
+          - `class BillingError`
 
             - `JsonValue type = "billing_error"`
 
             - `String message`
 
-          - `class PermissionError:`
+          - `class PermissionError`
 
             - `JsonValue type = "permission_error"`
 
             - `String message`
 
-          - `class NotFoundError:`
+          - `class NotFoundError`
 
             - `JsonValue type = "not_found_error"`
 
             - `String message`
 
-          - `class RateLimitError:`
+          - `class RateLimitError`
 
             - `JsonValue type = "rate_limit_error"`
 
             - `String message`
 
-          - `class GatewayTimeoutError:`
+          - `class GatewayTimeoutError`
 
             - `JsonValue type = "timeout_error"`
 
             - `String message`
 
-          - `class ApiErrorObject:`
+          - `class ApiErrorObject`
 
             - `JsonValue type = "api_error"`
 
             - `String message`
 
-          - `class OverloadedError:`
+          - `class OverloadedError`
 
             - `JsonValue type = "overloaded_error"`
 
@@ -6041,17 +6273,17 @@ public final class Main {
 
         - `Optional<String> requestId`
 
-    - `class MessageBatchCanceledResult:`
+    - `class MessageBatchCanceledResult`
 
       - `JsonValue type = "canceled"`
 
-    - `class MessageBatchExpiredResult:`
+    - `class MessageBatchExpiredResult`
 
       - `JsonValue type = "expired"`
 
 ### Message Batch Request Counts
 
-- `class MessageBatchRequestCounts:`
+- `class MessageBatchRequestCounts`
 
   - `long canceled`
 
@@ -6089,7 +6321,7 @@ public final class Main {
 
   Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
 
-  - `class MessageBatchSucceededResult:`
+  - `class MessageBatchSucceededResult`
 
     - `JsonValue type = "succeeded"`
 
@@ -6109,7 +6341,9 @@ public final class Main {
 
       - `Optional<Container> container`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
         - `String id`
 
@@ -6137,13 +6371,13 @@ public final class Main {
 
             Skill ID
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
           - `String version`
 
             The resolved version: a skill version ID for custom skills.
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
       - `List<ContentBlock> content`
 
@@ -6174,7 +6408,7 @@ public final class Main {
         [{"type": "text", "text": "B)"}]
         ```
 
-        - `class TextBlock:`
+        - `class TextBlock`
 
           - `JsonValue type = "text"`
 
@@ -6184,7 +6418,7 @@ public final class Main {
 
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-            - `class CitationCharLocation:`
+            - `class CitationCharLocation`
 
               - `JsonValue type = "char_location"`
 
@@ -6204,7 +6438,7 @@ public final class Main {
 
                 minimum: 0
 
-            - `class CitationPageLocation:`
+            - `class CitationPageLocation`
 
               - `JsonValue type = "page_location"`
 
@@ -6224,7 +6458,7 @@ public final class Main {
 
                 minimum: 1
 
-            - `class CitationContentBlockLocation:`
+            - `class CitationContentBlockLocation`
 
               - `JsonValue type = "content_block_location"`
 
@@ -6254,7 +6488,7 @@ public final class Main {
 
                 minimum: 0
 
-            - `class CitationsWebSearchResultLocation:`
+            - `class CitationsWebSearchResultLocation`
 
               - `JsonValue type = "web_search_result_location"`
 
@@ -6268,7 +6502,7 @@ public final class Main {
 
               - `String url`
 
-            - `class CitationsSearchResultLocation:`
+            - `class CitationsSearchResultLocation`
 
               - `JsonValue type = "search_result_location"`
 
@@ -6304,9 +6538,7 @@ public final class Main {
 
           - `String text`
 
-            minLength: 0
-
-        - `class ThinkingBlock:`
+        - `class ThinkingBlock`
 
           - `JsonValue type = "thinking"`
 
@@ -6322,7 +6554,7 @@ public final class Main {
 
             The text of Claude's thinking process for this block.
 
-        - `class RedactedThinkingBlock:`
+        - `class RedactedThinkingBlock`
 
           - `JsonValue type = "redacted_thinking"`
 
@@ -6334,7 +6566,7 @@ public final class Main {
 
             See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-        - `class ToolUseBlock:`
+        - `class ToolUseBlock`
 
           - `JsonValue type = "tool_use"`
 
@@ -6344,15 +6576,13 @@ public final class Main {
 
           - `Caller caller`
 
-            Tool invocation directly from the model.
-
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
               - `JsonValue type = "direct"`
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
@@ -6362,7 +6592,7 @@ public final class Main {
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
               - `JsonValue type = "code_execution_20260120"`
 
@@ -6380,9 +6610,9 @@ public final class Main {
 
             For a toolset member tool_use, the toolset family.
 
-            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+            minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-        - `class ServerToolUseBlock:`
+        - `class ServerToolUseBlock`
 
           - `JsonValue type = "server_tool_use"`
 
@@ -6392,17 +6622,15 @@ public final class Main {
 
           - `Caller caller`
 
-            Tool invocation directly from the model.
-
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
           - `Input input`
 
@@ -6422,27 +6650,25 @@ public final class Main {
 
             - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-        - `class WebSearchToolResultBlock:`
+        - `class WebSearchToolResultBlock`
 
           - `JsonValue type = "web_search_tool_result"`
 
           - `Caller caller`
 
-            Tool invocation directly from the model.
-
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
           - `WebSearchToolResultBlockContent content`
 
-            - `class WebSearchToolResultError:`
+            - `class WebSearchToolResultError`
 
               - `JsonValue type = "web_search_tool_result_error"`
 
@@ -6476,27 +6702,25 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class WebFetchToolResultBlock:`
+        - `class WebFetchToolResultBlock`
 
           - `JsonValue type = "web_fetch_tool_result"`
 
           - `Caller caller`
 
-            Tool invocation directly from the model.
-
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
           - `Content content`
 
-            - `class WebFetchToolResultErrorBlock:`
+            - `class WebFetchToolResultErrorBlock`
 
               - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -6522,7 +6746,7 @@ public final class Main {
 
                 - `CONTENT_TOO_LARGE("content_too_large")`
 
-            - `class WebFetchBlock:`
+            - `class WebFetchBlock`
 
               - `JsonValue type = "web_fetch_result"`
 
@@ -6538,7 +6762,7 @@ public final class Main {
 
                 - `Source source`
 
-                  - `class Base64PdfSource:`
+                  - `class Base64PdfSource`
 
                     - `JsonValue type = "base64"`
 
@@ -6548,7 +6772,7 @@ public final class Main {
 
                     - `JsonValue mediaType = "application/pdf"`
 
-                  - `class PlainTextSource:`
+                  - `class PlainTextSource`
 
                     - `JsonValue type = "text"`
 
@@ -6572,15 +6796,13 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class CodeExecutionToolResultBlock:`
+        - `class CodeExecutionToolResultBlock`
 
           - `JsonValue type = "code_execution_tool_result"`
 
           - `CodeExecutionToolResultBlockContent content`
 
-            Code execution result with encrypted stdout for PFC + web_search results.
-
-            - `class CodeExecutionToolResultError:`
+            - `class CodeExecutionToolResultError`
 
               - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -6594,7 +6816,7 @@ public final class Main {
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-            - `class CodeExecutionResultBlock:`
+            - `class CodeExecutionResultBlock`
 
               - `JsonValue type = "code_execution_result"`
 
@@ -6610,7 +6832,7 @@ public final class Main {
 
               - `String stdout`
 
-            - `class EncryptedCodeExecutionResultBlock:`
+            - `class EncryptedCodeExecutionResultBlock`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -6632,13 +6854,13 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class BashCodeExecutionToolResultBlock:`
+        - `class BashCodeExecutionToolResultBlock`
 
           - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class BashCodeExecutionToolResultError:`
+            - `class BashCodeExecutionToolResultError`
 
               - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -6654,7 +6876,7 @@ public final class Main {
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-            - `class BashCodeExecutionResultBlock:`
+            - `class BashCodeExecutionResultBlock`
 
               - `JsonValue type = "bash_code_execution_result"`
 
@@ -6674,13 +6896,13 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class TextEditorCodeExecutionToolResultBlock:`
+        - `class TextEditorCodeExecutionToolResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class TextEditorCodeExecutionToolResultError:`
+            - `class TextEditorCodeExecutionToolResultError`
 
               - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -6698,7 +6920,7 @@ public final class Main {
 
               - `Optional<String> errorMessage`
 
-            - `class TextEditorCodeExecutionViewResultBlock:`
+            - `class TextEditorCodeExecutionViewResultBlock`
 
               - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -6718,13 +6940,13 @@ public final class Main {
 
               - `Optional<Long> totalLines`
 
-            - `class TextEditorCodeExecutionCreateResultBlock:`
+            - `class TextEditorCodeExecutionCreateResultBlock`
 
               - `JsonValue type = "text_editor_code_execution_create_result"`
 
               - `boolean isFileUpdate`
 
-            - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+            - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
               - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -6742,13 +6964,13 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class ToolSearchToolResultBlock:`
+        - `class ToolSearchToolResultBlock`
 
           - `JsonValue type = "tool_search_tool_result"`
 
           - `Content content`
 
-            - `class ToolSearchToolResultError:`
+            - `class ToolSearchToolResultError`
 
               - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -6764,7 +6986,7 @@ public final class Main {
 
               - `Optional<String> errorMessage`
 
-            - `class ToolSearchToolSearchResultBlock:`
+            - `class ToolSearchToolSearchResultBlock`
 
               - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -6774,13 +6996,13 @@ public final class Main {
 
                 - `String toolName`
 
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                  minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class ContainerUploadBlock:`
+        - `class ContainerUploadBlock`
 
           Response model for a file uploaded to the container.
 
@@ -6788,15 +7010,71 @@ public final class Main {
 
           - `String fileId`
 
+      - `Optional<Diagnostics> diagnostics`
+
+        Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+        - `Optional<CacheMissReason> cacheMissReason`
+
+          Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+          - `class CacheMissModelChanged`
+
+            - `JsonValue type = "model_changed"`
+
+            - `long cacheMissedInputTokens`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `class CacheMissSystemChanged`
+
+            - `JsonValue type = "system_changed"`
+
+            - `long cacheMissedInputTokens`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `class CacheMissToolsChanged`
+
+            - `JsonValue type = "tools_changed"`
+
+            - `long cacheMissedInputTokens`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `class CacheMissMessagesChanged`
+
+            - `JsonValue type = "messages_changed"`
+
+            - `long cacheMissedInputTokens`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `class CacheMissPreviousMessageNotFound`
+
+            - `JsonValue type = "previous_message_not_found"`
+
+          - `class CacheMissUnavailable`
+
+            - `JsonValue type = "unavailable"`
+
       - `Model model`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -6804,7 +7082,7 @@ public final class Main {
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -6825,10 +7103,6 @@ public final class Main {
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
           Powerful intelligence for long-running agents and coding
-
-        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-          New class of intelligence, strongest in coding and cybersecurity
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
@@ -6862,6 +7136,12 @@ public final class Main {
 
           High-performance model for agents and coding
 
+        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
+
       - `JsonValue role = "assistant"`
 
         Conversational role of the generated message.
@@ -6870,13 +7150,17 @@ public final class Main {
 
       - `Optional<RefusalStopDetails> stopDetails`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
         - `JsonValue type = "refusal"`
 
         - `Optional<Category> category`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the refusal.
+
+          `null` when the refusal doesn't map to a named category.
 
           - `CYBER("cyber")`
 
@@ -7044,7 +7328,7 @@ public final class Main {
 
           - `BATCH("batch")`
 
-  - `class MessageBatchErroredResult:`
+  - `class MessageBatchErroredResult`
 
     - `JsonValue type = "errored"`
 
@@ -7054,55 +7338,55 @@ public final class Main {
 
       - `ErrorObject error`
 
-        - `class InvalidRequestError:`
+        - `class InvalidRequestError`
 
           - `JsonValue type = "invalid_request_error"`
 
           - `String message`
 
-        - `class AuthenticationError:`
+        - `class AuthenticationError`
 
           - `JsonValue type = "authentication_error"`
 
           - `String message`
 
-        - `class BillingError:`
+        - `class BillingError`
 
           - `JsonValue type = "billing_error"`
 
           - `String message`
 
-        - `class PermissionError:`
+        - `class PermissionError`
 
           - `JsonValue type = "permission_error"`
 
           - `String message`
 
-        - `class NotFoundError:`
+        - `class NotFoundError`
 
           - `JsonValue type = "not_found_error"`
 
           - `String message`
 
-        - `class RateLimitError:`
+        - `class RateLimitError`
 
           - `JsonValue type = "rate_limit_error"`
 
           - `String message`
 
-        - `class GatewayTimeoutError:`
+        - `class GatewayTimeoutError`
 
           - `JsonValue type = "timeout_error"`
 
           - `String message`
 
-        - `class ApiErrorObject:`
+        - `class ApiErrorObject`
 
           - `JsonValue type = "api_error"`
 
           - `String message`
 
-        - `class OverloadedError:`
+        - `class OverloadedError`
 
           - `JsonValue type = "overloaded_error"`
 
@@ -7110,17 +7394,17 @@ public final class Main {
 
       - `Optional<String> requestId`
 
-  - `class MessageBatchCanceledResult:`
+  - `class MessageBatchCanceledResult`
 
     - `JsonValue type = "canceled"`
 
-  - `class MessageBatchExpiredResult:`
+  - `class MessageBatchExpiredResult`
 
     - `JsonValue type = "expired"`
 
 ### Message Batch Succeeded Result
 
-- `class MessageBatchSucceededResult:`
+- `class MessageBatchSucceededResult`
 
   - `JsonValue type = "succeeded"`
 
@@ -7140,7 +7424,9 @@ public final class Main {
 
     - `Optional<Container> container`
 
-      Information about the container used in the request (for the code execution tool)
+      Information about the container used in this request.
+
+      This will be non-null if a container tool (e.g. code execution) was used.
 
       - `String id`
 
@@ -7168,13 +7454,13 @@ public final class Main {
 
           Skill ID
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
         - `String version`
 
           The resolved version: a skill version ID for custom skills.
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
     - `List<ContentBlock> content`
 
@@ -7205,7 +7491,7 @@ public final class Main {
       [{"type": "text", "text": "B)"}]
       ```
 
-      - `class TextBlock:`
+      - `class TextBlock`
 
         - `JsonValue type = "text"`
 
@@ -7215,7 +7501,7 @@ public final class Main {
 
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-          - `class CitationCharLocation:`
+          - `class CitationCharLocation`
 
             - `JsonValue type = "char_location"`
 
@@ -7235,7 +7521,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationPageLocation:`
+          - `class CitationPageLocation`
 
             - `JsonValue type = "page_location"`
 
@@ -7255,7 +7541,7 @@ public final class Main {
 
               minimum: 1
 
-          - `class CitationContentBlockLocation:`
+          - `class CitationContentBlockLocation`
 
             - `JsonValue type = "content_block_location"`
 
@@ -7285,7 +7571,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationsWebSearchResultLocation:`
+          - `class CitationsWebSearchResultLocation`
 
             - `JsonValue type = "web_search_result_location"`
 
@@ -7299,7 +7585,7 @@ public final class Main {
 
             - `String url`
 
-          - `class CitationsSearchResultLocation:`
+          - `class CitationsSearchResultLocation`
 
             - `JsonValue type = "search_result_location"`
 
@@ -7335,9 +7621,7 @@ public final class Main {
 
         - `String text`
 
-          minLength: 0
-
-      - `class ThinkingBlock:`
+      - `class ThinkingBlock`
 
         - `JsonValue type = "thinking"`
 
@@ -7353,7 +7637,7 @@ public final class Main {
 
           The text of Claude's thinking process for this block.
 
-      - `class RedactedThinkingBlock:`
+      - `class RedactedThinkingBlock`
 
         - `JsonValue type = "redacted_thinking"`
 
@@ -7365,7 +7649,7 @@ public final class Main {
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `class ToolUseBlock:`
+      - `class ToolUseBlock`
 
         - `JsonValue type = "tool_use"`
 
@@ -7375,15 +7659,13 @@ public final class Main {
 
         - `Caller caller`
 
-          Tool invocation directly from the model.
-
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
             - `JsonValue type = "direct"`
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
@@ -7393,7 +7675,7 @@ public final class Main {
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
             - `JsonValue type = "code_execution_20260120"`
 
@@ -7411,9 +7693,9 @@ public final class Main {
 
           For a toolset member tool_use, the toolset family.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-      - `class ServerToolUseBlock:`
+      - `class ServerToolUseBlock`
 
         - `JsonValue type = "server_tool_use"`
 
@@ -7423,17 +7705,15 @@ public final class Main {
 
         - `Caller caller`
 
-          Tool invocation directly from the model.
-
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
         - `Input input`
 
@@ -7453,27 +7733,25 @@ public final class Main {
 
           - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-      - `class WebSearchToolResultBlock:`
+      - `class WebSearchToolResultBlock`
 
         - `JsonValue type = "web_search_tool_result"`
 
         - `Caller caller`
 
-          Tool invocation directly from the model.
-
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
         - `WebSearchToolResultBlockContent content`
 
-          - `class WebSearchToolResultError:`
+          - `class WebSearchToolResultError`
 
             - `JsonValue type = "web_search_tool_result_error"`
 
@@ -7507,27 +7785,25 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class WebFetchToolResultBlock:`
+      - `class WebFetchToolResultBlock`
 
         - `JsonValue type = "web_fetch_tool_result"`
 
         - `Caller caller`
 
-          Tool invocation directly from the model.
-
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
         - `Content content`
 
-          - `class WebFetchToolResultErrorBlock:`
+          - `class WebFetchToolResultErrorBlock`
 
             - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -7553,7 +7829,7 @@ public final class Main {
 
               - `CONTENT_TOO_LARGE("content_too_large")`
 
-          - `class WebFetchBlock:`
+          - `class WebFetchBlock`
 
             - `JsonValue type = "web_fetch_result"`
 
@@ -7569,7 +7845,7 @@ public final class Main {
 
               - `Source source`
 
-                - `class Base64PdfSource:`
+                - `class Base64PdfSource`
 
                   - `JsonValue type = "base64"`
 
@@ -7579,7 +7855,7 @@ public final class Main {
 
                   - `JsonValue mediaType = "application/pdf"`
 
-                - `class PlainTextSource:`
+                - `class PlainTextSource`
 
                   - `JsonValue type = "text"`
 
@@ -7603,15 +7879,13 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class CodeExecutionToolResultBlock:`
+      - `class CodeExecutionToolResultBlock`
 
         - `JsonValue type = "code_execution_tool_result"`
 
         - `CodeExecutionToolResultBlockContent content`
 
-          Code execution result with encrypted stdout for PFC + web_search results.
-
-          - `class CodeExecutionToolResultError:`
+          - `class CodeExecutionToolResultError`
 
             - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -7625,7 +7899,7 @@ public final class Main {
 
               - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-          - `class CodeExecutionResultBlock:`
+          - `class CodeExecutionResultBlock`
 
             - `JsonValue type = "code_execution_result"`
 
@@ -7641,7 +7915,7 @@ public final class Main {
 
             - `String stdout`
 
-          - `class EncryptedCodeExecutionResultBlock:`
+          - `class EncryptedCodeExecutionResultBlock`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -7663,13 +7937,13 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class BashCodeExecutionToolResultBlock:`
+      - `class BashCodeExecutionToolResultBlock`
 
         - `JsonValue type = "bash_code_execution_tool_result"`
 
         - `Content content`
 
-          - `class BashCodeExecutionToolResultError:`
+          - `class BashCodeExecutionToolResultError`
 
             - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -7685,7 +7959,7 @@ public final class Main {
 
               - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-          - `class BashCodeExecutionResultBlock:`
+          - `class BashCodeExecutionResultBlock`
 
             - `JsonValue type = "bash_code_execution_result"`
 
@@ -7705,13 +7979,13 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class TextEditorCodeExecutionToolResultBlock:`
+      - `class TextEditorCodeExecutionToolResultBlock`
 
         - `JsonValue type = "text_editor_code_execution_tool_result"`
 
         - `Content content`
 
-          - `class TextEditorCodeExecutionToolResultError:`
+          - `class TextEditorCodeExecutionToolResultError`
 
             - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -7729,7 +8003,7 @@ public final class Main {
 
             - `Optional<String> errorMessage`
 
-          - `class TextEditorCodeExecutionViewResultBlock:`
+          - `class TextEditorCodeExecutionViewResultBlock`
 
             - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -7749,13 +8023,13 @@ public final class Main {
 
             - `Optional<Long> totalLines`
 
-          - `class TextEditorCodeExecutionCreateResultBlock:`
+          - `class TextEditorCodeExecutionCreateResultBlock`
 
             - `JsonValue type = "text_editor_code_execution_create_result"`
 
             - `boolean isFileUpdate`
 
-          - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+          - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
             - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -7773,13 +8047,13 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class ToolSearchToolResultBlock:`
+      - `class ToolSearchToolResultBlock`
 
         - `JsonValue type = "tool_search_tool_result"`
 
         - `Content content`
 
-          - `class ToolSearchToolResultError:`
+          - `class ToolSearchToolResultError`
 
             - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -7795,7 +8069,7 @@ public final class Main {
 
             - `Optional<String> errorMessage`
 
-          - `class ToolSearchToolSearchResultBlock:`
+          - `class ToolSearchToolSearchResultBlock`
 
             - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -7805,13 +8079,13 @@ public final class Main {
 
               - `String toolName`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class ContainerUploadBlock:`
+      - `class ContainerUploadBlock`
 
         Response model for a file uploaded to the container.
 
@@ -7819,15 +8093,71 @@ public final class Main {
 
         - `String fileId`
 
+    - `Optional<Diagnostics> diagnostics`
+
+      Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+      - `Optional<CacheMissReason> cacheMissReason`
+
+        Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+        - `class CacheMissModelChanged`
+
+          - `JsonValue type = "model_changed"`
+
+          - `long cacheMissedInputTokens`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `class CacheMissSystemChanged`
+
+          - `JsonValue type = "system_changed"`
+
+          - `long cacheMissedInputTokens`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `class CacheMissToolsChanged`
+
+          - `JsonValue type = "tools_changed"`
+
+          - `long cacheMissedInputTokens`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `class CacheMissMessagesChanged`
+
+          - `JsonValue type = "messages_changed"`
+
+          - `long cacheMissedInputTokens`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `class CacheMissPreviousMessageNotFound`
+
+          - `JsonValue type = "previous_message_not_found"`
+
+        - `class CacheMissUnavailable`
+
+          - `JsonValue type = "unavailable"`
+
     - `Model model`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
       - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
       - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -7835,7 +8165,7 @@ public final class Main {
 
       - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -7856,10 +8186,6 @@ public final class Main {
       - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
         Powerful intelligence for long-running agents and coding
-
-      - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-        New class of intelligence, strongest in coding and cybersecurity
 
       - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
@@ -7893,6 +8219,12 @@ public final class Main {
 
         High-performance model for agents and coding
 
+      - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
     - `JsonValue role = "assistant"`
 
       Conversational role of the generated message.
@@ -7901,13 +8233,17 @@ public final class Main {
 
     - `Optional<RefusalStopDetails> stopDetails`
 
-      Structured information about a refusal.
+      Structured information about why model output stopped.
+
+      This is `null` when the `stop_reason` has no additional detail to report.
 
       - `JsonValue type = "refusal"`
 
       - `Optional<Category> category`
 
-        The policy category that triggered a refusal.
+        The policy category that triggered the refusal.
+
+        `null` when the refusal doesn't map to a named category.
 
         - `CYBER("cyber")`
 

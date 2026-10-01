@@ -123,6 +123,14 @@ Retrieve detailed information about a specific work item.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -131,7 +139,7 @@ Retrieve detailed information about a specific work item.
 
 ### Returns
 
-- `class BetaSelfHostedWork:`
+- `class BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -372,13 +380,21 @@ Long poll for work items in the queue.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string anthropicWorkerID`
 
     Header param: Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
 
 ### Returns
 
-- `class BetaSelfHostedWork:`
+- `class BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -610,9 +626,17 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
 ### Returns
 
-- `class BetaSelfHostedWork:`
+- `class BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -853,9 +877,17 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
 ### Returns
 
-- `class BetaSelfHostedWorkHeartbeatResponse:`
+- `class BetaSelfHostedWorkHeartbeatResponse`
 
   Response after recording a heartbeat for a work item.
 
@@ -1035,6 +1067,14 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1043,7 +1083,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
 ### Returns
 
-- `class BetaSelfHostedWork:`
+- `class BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -1182,7 +1222,7 @@ List work items in an environment.
 
     Query param: Maximum number of work items to return
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `string? page`
 
@@ -1282,9 +1322,17 @@ List work items in an environment.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
 ### Returns
 
-- `class BetaSelfHostedWork:`
+- `class BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -1527,6 +1575,14 @@ Update work item metadata with merge semantics.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1535,7 +1591,7 @@ Update work item metadata with merge semantics.
 
 ### Returns
 
-- `class BetaSelfHostedWork:`
+- `class BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -1761,6 +1817,14 @@ Get statistics about the work queue for an environment.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1769,7 +1833,7 @@ Get statistics about the work queue for an environment.
 
 ### Returns
 
-- `class BetaSelfHostedWorkQueueStats:`
+- `class BetaSelfHostedWorkQueueStats`
 
   Statistics about the work queue for an environment.
 
@@ -1824,7 +1888,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work
 
-- `class BetaSelfHostedWork:`
+- `class BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -1904,7 +1968,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work Heartbeat Response
 
-- `class BetaSelfHostedWorkHeartbeatResponse:`
+- `class BetaSelfHostedWorkHeartbeatResponse`
 
   Response after recording a heartbeat for a work item.
 
@@ -1940,7 +2004,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work List Response
 
-- `class BetaSelfHostedWorkListResponse:`
+- `class BetaSelfHostedWorkListResponse`
 
   Response when listing work items with cursor-based pagination.
 
@@ -2024,7 +2088,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work Queue Stats
 
-- `class BetaSelfHostedWorkQueueStats:`
+- `class BetaSelfHostedWorkQueueStats`
 
   Statistics about the work queue for an environment.
 
@@ -2052,7 +2116,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work Stop Request
 
-- `class BetaSelfHostedWorkStopRequest:`
+- `class BetaSelfHostedWorkStopRequest`
 
   Request to stop a work item.
 
@@ -2062,7 +2126,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
 ### Beta Self Hosted Work Update Request
 
-- `class BetaSelfHostedWorkUpdateRequest:`
+- `class BetaSelfHostedWorkUpdateRequest`
 
   Request to update work item metadata.
 
@@ -2072,7 +2136,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
 ### Beta Session Work Data
 
-- `class BetaSessionWorkData:`
+- `class BetaSessionWorkData`
 
   Work data for session work items.
 

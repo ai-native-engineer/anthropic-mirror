@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory -->
 
-Lesson 8 of 13 · AI Capabilities and LimitationsWorking Memory
+Lesson 8 of 13 · AI capabilities and limitationsWorking Memory
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Working Memory
 
@@ -69,7 +69,7 @@ The final property: Steerability. How much are you actually in control when you 
 
 [Previous lessonTry It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)[Next lessonTry It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)
 
-Lesson 8 of 13 · AI Capabilities and LimitationsWorking Memory
+Lesson 8 of 13 · AI capabilities and limitationsWorking Memory
 
 Getting started
 

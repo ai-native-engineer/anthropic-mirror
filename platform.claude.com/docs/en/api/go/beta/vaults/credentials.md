@@ -19,13 +19,15 @@ Create Credential
 
 - `vaultID string`
 
+  Identifier of the vault to create the credential in.
+
 - `params BetaVaultCredentialNewParams`
 
   - `Auth param.Field[BetaVaultCredentialNewParamsAuthUnion]`
 
-    Body param: Authentication details for creating a credential.
+    Body param: Authentication configuration for the credential.
 
-    - `type BetaManagedAgentsMCPOAuthCreateParamsResp struct{…}`
+    - `type BetaManagedAgentsMCPOAuthCreateParamsResp`
 
       Parameters for creating an MCP OAuth credential.
 
@@ -51,7 +53,7 @@ Create Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshParamsResp Optional`
 
-        OAuth refresh token parameters for creating a credential with refresh support.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -73,15 +75,13 @@ Create Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshParamsTokenEndpointAuthUnionResp`
 
-          Token endpoint requires no client authentication.
-
-          - `type BetaManagedAgentsTokenEndpointAuthNoneParamResp struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthNoneParamResp`
 
             Token endpoint requires no client authentication.
 
             - `Type BetaManagedAgentsTokenEndpointAuthNoneParamType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicParamResp struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicParamResp`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
@@ -93,7 +93,7 @@ Create Credential
 
               minLength: 1, maxLength: 512
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostParamResp struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostParamResp`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -117,7 +117,7 @@ Create Credential
 
           minLength: 1, maxLength: 8192
 
-    - `type BetaManagedAgentsStaticBearerCreateParamsResp struct{…}`
+    - `type BetaManagedAgentsStaticBearerCreateParamsResp`
 
       Parameters for creating a static bearer token credential.
 
@@ -135,7 +135,7 @@ Create Credential
 
         minLength: 1, maxLength: 2047
 
-    - `type BetaManagedAgentsEnvironmentVariableCreateParamsResp struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableCreateParamsResp`
 
       Parameters for creating an environment variable credential.
 
@@ -145,13 +145,13 @@ Create Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp`
 
           Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp`
 
           Substitute the secret only on requests to the listed hosts.
 
@@ -199,99 +199,103 @@ Create Credential
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -301,7 +305,7 @@ Create Credential
 
 ### Returns
 
-- `type BetaManagedAgentsCredential struct{…}`
+- `type BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -313,15 +317,15 @@ Create Credential
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
-    - `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
+    - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -339,7 +343,7 @@ Create Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -351,21 +355,19 @@ Create Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          Token endpoint requires no client authentication.
-
-          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -379,7 +381,7 @@ Create Credential
 
           OAuth scope for the refresh request.
 
-    - `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
+    - `type BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -389,7 +391,7 @@ Create Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -411,13 +413,13 @@ Create Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 
@@ -525,6 +527,8 @@ List Credentials
 
 - `vaultID string`
 
+  Identifier of the vault to list credentials for.
+
 - `params BetaVaultCredentialListParams`
 
   - `IncludeArchived param.Field[bool] Optional`
@@ -545,99 +549,103 @@ List Credentials
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -647,7 +655,7 @@ List Credentials
 
 ### Returns
 
-- `type BetaManagedAgentsCredential struct{…}`
+- `type BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -659,15 +667,15 @@ List Credentials
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
-    - `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
+    - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -685,7 +693,7 @@ List Credentials
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -697,21 +705,19 @@ List Credentials
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          Token endpoint requires no client authentication.
-
-          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -725,7 +731,7 @@ List Credentials
 
           OAuth scope for the refresh request.
 
-    - `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
+    - `type BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -735,7 +741,7 @@ List Credentials
 
         URL of the MCP server this credential authenticates against.
 
-    - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -757,13 +763,13 @@ List Credentials
 
         Outbound hosts the secret value is substituted on.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 
@@ -868,109 +874,115 @@ Get Credential
 
 - `credentialID string`
 
+  Unique identifier of the credential to retrieve.
+
 - `params BetaVaultCredentialGetParams`
 
   - `VaultID param.Field[string]`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -980,7 +992,7 @@ Get Credential
 
 ### Returns
 
-- `type BetaManagedAgentsCredential struct{…}`
+- `type BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -992,15 +1004,15 @@ Get Credential
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
-    - `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
+    - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -1018,7 +1030,7 @@ Get Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -1030,21 +1042,19 @@ Get Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          Token endpoint requires no client authentication.
-
-          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -1058,7 +1068,7 @@ Get Credential
 
           OAuth scope for the refresh request.
 
-    - `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
+    - `type BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -1068,7 +1078,7 @@ Get Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -1090,13 +1100,13 @@ Get Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 
@@ -1198,17 +1208,19 @@ Update Credential
 
 - `credentialID string`
 
+  Unique identifier of the credential to update.
+
 - `params BetaVaultCredentialUpdateParams`
 
   - `VaultID param.Field[string]`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `Auth param.Field[BetaVaultCredentialUpdateParamsAuthUnion] Optional`
 
-    Body param: Updated authentication details for a credential.
+    Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
-    - `type BetaManagedAgentsMCPOAuthUpdateParamsResp struct{…}`
+    - `type BetaManagedAgentsMCPOAuthUpdateParamsResp`
 
       Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
 
@@ -1228,7 +1240,7 @@ Update Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshUpdateParamsResp Optional`
 
-        Parameters for updating OAuth refresh token configuration.
+        Updated refresh token configuration.
 
         - `RefreshToken string Optional`
 
@@ -1244,9 +1256,7 @@ Update Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshUpdateParamsTokenEndpointAuthUnionResp Optional`
 
-          Updated HTTP Basic authentication parameters for the token endpoint.
-
-          - `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp`
 
             Updated HTTP Basic authentication parameters for the token endpoint.
 
@@ -1258,7 +1268,7 @@ Update Credential
 
               minLength: 1, maxLength: 512
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp`
 
             Updated POST body authentication parameters for the token endpoint.
 
@@ -1270,7 +1280,7 @@ Update Credential
 
               minLength: 1, maxLength: 512
 
-    - `type BetaManagedAgentsStaticBearerUpdateParamsResp struct{…}`
+    - `type BetaManagedAgentsStaticBearerUpdateParamsResp`
 
       Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
 
@@ -1282,7 +1292,7 @@ Update Credential
 
         minLength: 1, maxLength: 8192
 
-    - `type BetaManagedAgentsEnvironmentVariableUpdateParamsResp struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableUpdateParamsResp`
 
       Parameters for updating an environment variable credential. `secret_name` is immutable.
 
@@ -1304,13 +1314,13 @@ Update Credential
 
         Updated networking scope. Full replacement.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp`
 
           Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp`
 
           Substitute the secret only on requests to the listed hosts.
 
@@ -1340,99 +1350,103 @@ Update Credential
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -1442,7 +1456,7 @@ Update Credential
 
 ### Returns
 
-- `type BetaManagedAgentsCredential struct{…}`
+- `type BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -1454,15 +1468,15 @@ Update Credential
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
-    - `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
+    - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -1480,7 +1494,7 @@ Update Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -1492,21 +1506,19 @@ Update Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          Token endpoint requires no client authentication.
-
-          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -1520,7 +1532,7 @@ Update Credential
 
           OAuth scope for the refresh request.
 
-    - `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
+    - `type BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -1530,7 +1542,7 @@ Update Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -1552,13 +1564,13 @@ Update Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 
@@ -1660,109 +1672,115 @@ Delete Credential
 
 - `credentialID string`
 
+  Unique identifier of the credential to delete.
+
 - `params BetaVaultCredentialDeleteParams`
 
   - `VaultID param.Field[string]`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -1772,7 +1790,7 @@ Delete Credential
 
 ### Returns
 
-- `type BetaManagedAgentsDeletedCredential struct{…}`
+- `type BetaManagedAgentsDeletedCredential`
 
   Confirmation of a deleted credential.
 
@@ -1834,109 +1852,115 @@ Archive Credential
 
 - `credentialID string`
 
+  Unique identifier of the credential to archive.
+
 - `params BetaVaultCredentialArchiveParams`
 
   - `VaultID param.Field[string]`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -1946,7 +1970,7 @@ Archive Credential
 
 ### Returns
 
-- `type BetaManagedAgentsCredential struct{…}`
+- `type BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -1958,15 +1982,15 @@ Archive Credential
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
-    - `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
+    - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -1984,7 +2008,7 @@ Archive Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -1996,21 +2020,19 @@ Archive Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          Token endpoint requires no client authentication.
-
-          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -2024,7 +2046,7 @@ Archive Credential
 
           OAuth scope for the refresh request.
 
-    - `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
+    - `type BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -2034,7 +2056,7 @@ Archive Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -2056,13 +2078,13 @@ Archive Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 
@@ -2164,109 +2186,115 @@ Validate Credential
 
 - `credentialID string`
 
+  Unique identifier of the credential to validate.
+
 - `params BetaVaultCredentialMCPOAuthValidateParams`
 
   - `VaultID param.Field[string]`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -2276,7 +2304,7 @@ Validate Credential
 
 ### Returns
 
-- `type BetaManagedAgentsCredentialValidation struct{…}`
+- `type BetaManagedAgentsCredentialValidation`
 
   Result of live-probing a credential against its configured MCP server.
 
@@ -2292,11 +2320,11 @@ Validate Credential
 
   - `MCPProbe BetaManagedAgentsMCPProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `HTTPResponse BetaManagedAgentsRefreshHTTPResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `Body string`
 
@@ -2322,37 +2350,51 @@ Validate Credential
 
   - `Refresh BetaManagedAgentsRefreshObject`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `HTTPResponse BetaManagedAgentsRefreshHTTPResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `Status BetaManagedAgentsRefreshObjectStatus`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
+      Outcome of the refresh attempt.
 
       - `const BetaManagedAgentsRefreshObjectStatusSucceeded BetaManagedAgentsRefreshObjectStatus = "succeeded"`
 
+        The token endpoint returned a new access token.
+
       - `const BetaManagedAgentsRefreshObjectStatusFailed BetaManagedAgentsRefreshObjectStatus = "failed"`
+
+        The token endpoint returned an error response. See `http_response` for detail.
 
       - `const BetaManagedAgentsRefreshObjectStatusConnectError BetaManagedAgentsRefreshObjectStatus = "connect_error"`
 
+        The token endpoint could not be reached (DNS, TLS, or connection error).
+
       - `const BetaManagedAgentsRefreshObjectStatusNoRefreshToken BetaManagedAgentsRefreshObjectStatus = "no_refresh_token"`
+
+        No refresh token is stored for the credential, so no exchange was attempted.
 
   - `Status BetaManagedAgentsCredentialValidationStatus`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `const BetaManagedAgentsCredentialValidationStatusValid BetaManagedAgentsCredentialValidationStatus = "valid"`
 
+      The credential successfully authenticated against its MCP server.
+
     - `const BetaManagedAgentsCredentialValidationStatusInvalid BetaManagedAgentsCredentialValidationStatus = "invalid"`
+
+      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
 
     - `const BetaManagedAgentsCredentialValidationStatusUnknown BetaManagedAgentsCredentialValidationStatus = "unknown"`
 
+      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
+
   - `ValidatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 
@@ -2426,7 +2468,7 @@ func main() {
 
 ### Beta Managed Agents Credential
 
-- `type BetaManagedAgentsCredential struct{…}`
+- `type BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -2438,15 +2480,15 @@ func main() {
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
-    - `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
+    - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -2464,7 +2506,7 @@ func main() {
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -2476,21 +2518,19 @@ func main() {
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          Token endpoint requires no client authentication.
-
-          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -2504,7 +2544,7 @@ func main() {
 
           OAuth scope for the refresh request.
 
-    - `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
+    - `type BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -2514,7 +2554,7 @@ func main() {
 
         URL of the MCP server this credential authenticates against.
 
-    - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -2536,13 +2576,13 @@ func main() {
 
         Outbound hosts the secret value is substituted on.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 
@@ -2584,15 +2624,13 @@ func main() {
 
 - `type BetaManagedAgentsCredentialNetworkingParamsUnionResp interface{…}`
 
-  Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-  - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp struct{…}`
+  - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp`
 
     Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
     - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsType`
 
-  - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp struct{…}`
+  - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp`
 
     Substitute the secret only on requests to the listed hosts.
 
@@ -2604,7 +2642,7 @@ func main() {
 
 ### Beta Managed Agents Credential Validation
 
-- `type BetaManagedAgentsCredentialValidation struct{…}`
+- `type BetaManagedAgentsCredentialValidation`
 
   Result of live-probing a credential against its configured MCP server.
 
@@ -2620,11 +2658,11 @@ func main() {
 
   - `MCPProbe BetaManagedAgentsMCPProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `HTTPResponse BetaManagedAgentsRefreshHTTPResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `Body string`
 
@@ -2650,37 +2688,51 @@ func main() {
 
   - `Refresh BetaManagedAgentsRefreshObject`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `HTTPResponse BetaManagedAgentsRefreshHTTPResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `Status BetaManagedAgentsRefreshObjectStatus`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
+      Outcome of the refresh attempt.
 
       - `const BetaManagedAgentsRefreshObjectStatusSucceeded BetaManagedAgentsRefreshObjectStatus = "succeeded"`
 
+        The token endpoint returned a new access token.
+
       - `const BetaManagedAgentsRefreshObjectStatusFailed BetaManagedAgentsRefreshObjectStatus = "failed"`
+
+        The token endpoint returned an error response. See `http_response` for detail.
 
       - `const BetaManagedAgentsRefreshObjectStatusConnectError BetaManagedAgentsRefreshObjectStatus = "connect_error"`
 
+        The token endpoint could not be reached (DNS, TLS, or connection error).
+
       - `const BetaManagedAgentsRefreshObjectStatusNoRefreshToken BetaManagedAgentsRefreshObjectStatus = "no_refresh_token"`
+
+        No refresh token is stored for the credential, so no exchange was attempted.
 
   - `Status BetaManagedAgentsCredentialValidationStatus`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `const BetaManagedAgentsCredentialValidationStatusValid BetaManagedAgentsCredentialValidationStatus = "valid"`
 
+      The credential successfully authenticated against its MCP server.
+
     - `const BetaManagedAgentsCredentialValidationStatusInvalid BetaManagedAgentsCredentialValidationStatus = "invalid"`
+
+      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
 
     - `const BetaManagedAgentsCredentialValidationStatusUnknown BetaManagedAgentsCredentialValidationStatus = "unknown"`
 
+      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
+
   - `ValidatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 
@@ -2696,13 +2748,19 @@ func main() {
 
   - `const BetaManagedAgentsCredentialValidationStatusValid BetaManagedAgentsCredentialValidationStatus = "valid"`
 
+    The credential successfully authenticated against its MCP server.
+
   - `const BetaManagedAgentsCredentialValidationStatusInvalid BetaManagedAgentsCredentialValidationStatus = "invalid"`
+
+    The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
 
   - `const BetaManagedAgentsCredentialValidationStatusUnknown BetaManagedAgentsCredentialValidationStatus = "unknown"`
 
+    The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
+
 ### Beta Managed Agents Deleted Credential
 
-- `type BetaManagedAgentsDeletedCredential struct{…}`
+- `type BetaManagedAgentsDeletedCredential`
 
   Confirmation of a deleted credential.
 
@@ -2714,7 +2772,7 @@ func main() {
 
 ### Beta Managed Agents Environment Variable Auth Response
 
-- `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+- `type BetaManagedAgentsEnvironmentVariableAuthResponse`
 
   Environment variable credential details. The secret value is never returned.
 
@@ -2736,13 +2794,13 @@ func main() {
 
     Outbound hosts the secret value is substituted on.
 
-    - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+    - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
       The secret is substituted on any host the session's Environment network policy permits egress to.
 
       - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
 
-    - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+    - `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
       The secret is substituted only on requests to the listed hosts.
 
@@ -2758,7 +2816,7 @@ func main() {
 
 ### Beta Managed Agents Environment Variable Create Params
 
-- `type BetaManagedAgentsEnvironmentVariableCreateParamsResp struct{…}`
+- `type BetaManagedAgentsEnvironmentVariableCreateParamsResp`
 
   Parameters for creating an environment variable credential.
 
@@ -2768,13 +2826,13 @@ func main() {
 
     Outbound hosts the secret value is substituted on.
 
-    - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp struct{…}`
+    - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp`
 
       Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
       - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsType`
 
-    - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp struct{…}`
+    - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp`
 
       Substitute the secret only on requests to the listed hosts.
 
@@ -2810,7 +2868,7 @@ func main() {
 
 ### Beta Managed Agents Environment Variable Update Params
 
-- `type BetaManagedAgentsEnvironmentVariableUpdateParamsResp struct{…}`
+- `type BetaManagedAgentsEnvironmentVariableUpdateParamsResp`
 
   Parameters for updating an environment variable credential. `secret_name` is immutable.
 
@@ -2832,13 +2890,13 @@ func main() {
 
     Updated networking scope. Full replacement.
 
-    - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp struct{…}`
+    - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp`
 
       Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
       - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsType`
 
-    - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp struct{…}`
+    - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp`
 
       Substitute the secret only on requests to the listed hosts.
 
@@ -2856,7 +2914,7 @@ func main() {
 
 ### Beta Managed Agents Injection Location Params
 
-- `type BetaManagedAgentsInjectionLocationParamsResp struct{…}`
+- `type BetaManagedAgentsInjectionLocationParamsResp`
 
   Where in the outbound request the secret value may be substituted.
 
@@ -2870,7 +2928,7 @@ func main() {
 
 ### Beta Managed Agents Injection Location Response
 
-- `type BetaManagedAgentsInjectionLocationResponse struct{…}`
+- `type BetaManagedAgentsInjectionLocationResponse`
 
   Where in the outbound request the secret value is substituted.
 
@@ -2884,7 +2942,7 @@ func main() {
 
 ### Beta Managed Agents Injection Location Update Params
 
-- `type BetaManagedAgentsInjectionLocationUpdateParamsResp struct{…}`
+- `type BetaManagedAgentsInjectionLocationUpdateParamsResp`
 
   Updated injection location.
 
@@ -2898,7 +2956,7 @@ func main() {
 
 ### Beta Managed Agents Limited Credential Networking Params
 
-- `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp struct{…}`
+- `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp`
 
   Substitute the secret only on requests to the listed hosts.
 
@@ -2910,7 +2968,7 @@ func main() {
 
 ### Beta Managed Agents Limited Credential Networking Response
 
-- `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+- `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
   The secret is substituted only on requests to the listed hosts.
 
@@ -2922,7 +2980,7 @@ func main() {
 
 ### Beta Managed Agents MCP OAuth Auth Response
 
-- `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
+- `type BetaManagedAgentsMCPOAuthAuthResponse`
 
   OAuth credential details for an MCP server.
 
@@ -2940,7 +2998,7 @@ func main() {
 
   - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-    OAuth refresh token configuration returned in credential responses.
+    Refresh token configuration, if the credential supports token refresh.
 
     - `ClientID string`
 
@@ -2952,21 +3010,19 @@ func main() {
 
     - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-      Token endpoint requires no client authentication.
-
-      - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+      - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
         Token endpoint requires no client authentication.
 
         - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-      - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+      - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
         Token endpoint uses HTTP Basic authentication with client credentials.
 
         - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-      - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+      - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
         Token endpoint uses POST body authentication with client credentials.
 
@@ -2982,7 +3038,7 @@ func main() {
 
 ### Beta Managed Agents MCP OAuth Create Params
 
-- `type BetaManagedAgentsMCPOAuthCreateParamsResp struct{…}`
+- `type BetaManagedAgentsMCPOAuthCreateParamsResp`
 
   Parameters for creating an MCP OAuth credential.
 
@@ -3008,7 +3064,7 @@ func main() {
 
   - `Refresh BetaManagedAgentsMCPOAuthRefreshParamsResp Optional`
 
-    OAuth refresh token parameters for creating a credential with refresh support.
+    Refresh token configuration, if the credential supports token refresh.
 
     - `ClientID string`
 
@@ -3030,15 +3086,13 @@ func main() {
 
     - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshParamsTokenEndpointAuthUnionResp`
 
-      Token endpoint requires no client authentication.
-
-      - `type BetaManagedAgentsTokenEndpointAuthNoneParamResp struct{…}`
+      - `type BetaManagedAgentsTokenEndpointAuthNoneParamResp`
 
         Token endpoint requires no client authentication.
 
         - `Type BetaManagedAgentsTokenEndpointAuthNoneParamType`
 
-      - `type BetaManagedAgentsTokenEndpointAuthBasicParamResp struct{…}`
+      - `type BetaManagedAgentsTokenEndpointAuthBasicParamResp`
 
         Token endpoint uses HTTP Basic authentication with client credentials.
 
@@ -3050,7 +3104,7 @@ func main() {
 
           minLength: 1, maxLength: 512
 
-      - `type BetaManagedAgentsTokenEndpointAuthPostParamResp struct{…}`
+      - `type BetaManagedAgentsTokenEndpointAuthPostParamResp`
 
         Token endpoint uses POST body authentication with client credentials.
 
@@ -3076,7 +3130,7 @@ func main() {
 
 ### Beta Managed Agents MCP OAuth Refresh Params
 
-- `type BetaManagedAgentsMCPOAuthRefreshParamsResp struct{…}`
+- `type BetaManagedAgentsMCPOAuthRefreshParamsResp`
 
   OAuth refresh token parameters for creating a credential with refresh support.
 
@@ -3100,15 +3154,13 @@ func main() {
 
   - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshParamsTokenEndpointAuthUnionResp`
 
-    Token endpoint requires no client authentication.
-
-    - `type BetaManagedAgentsTokenEndpointAuthNoneParamResp struct{…}`
+    - `type BetaManagedAgentsTokenEndpointAuthNoneParamResp`
 
       Token endpoint requires no client authentication.
 
       - `Type BetaManagedAgentsTokenEndpointAuthNoneParamType`
 
-    - `type BetaManagedAgentsTokenEndpointAuthBasicParamResp struct{…}`
+    - `type BetaManagedAgentsTokenEndpointAuthBasicParamResp`
 
       Token endpoint uses HTTP Basic authentication with client credentials.
 
@@ -3120,7 +3172,7 @@ func main() {
 
         minLength: 1, maxLength: 512
 
-    - `type BetaManagedAgentsTokenEndpointAuthPostParamResp struct{…}`
+    - `type BetaManagedAgentsTokenEndpointAuthPostParamResp`
 
       Token endpoint uses POST body authentication with client credentials.
 
@@ -3146,7 +3198,7 @@ func main() {
 
 ### Beta Managed Agents MCP OAuth Refresh Response
 
-- `type BetaManagedAgentsMCPOAuthRefreshResponse struct{…}`
+- `type BetaManagedAgentsMCPOAuthRefreshResponse`
 
   OAuth refresh token configuration returned in credential responses.
 
@@ -3160,21 +3212,19 @@ func main() {
 
   - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-    Token endpoint requires no client authentication.
-
-    - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+    - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
       Token endpoint requires no client authentication.
 
       - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-    - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+    - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
       Token endpoint uses HTTP Basic authentication with client credentials.
 
       - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-    - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+    - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
       Token endpoint uses POST body authentication with client credentials.
 
@@ -3190,7 +3240,7 @@ func main() {
 
 ### Beta Managed Agents MCP OAuth Refresh Update Params
 
-- `type BetaManagedAgentsMCPOAuthRefreshUpdateParamsResp struct{…}`
+- `type BetaManagedAgentsMCPOAuthRefreshUpdateParamsResp`
 
   Parameters for updating OAuth refresh token configuration.
 
@@ -3208,9 +3258,7 @@ func main() {
 
   - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshUpdateParamsTokenEndpointAuthUnionResp Optional`
 
-    Updated HTTP Basic authentication parameters for the token endpoint.
-
-    - `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp struct{…}`
+    - `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp`
 
       Updated HTTP Basic authentication parameters for the token endpoint.
 
@@ -3222,7 +3270,7 @@ func main() {
 
         minLength: 1, maxLength: 512
 
-    - `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp struct{…}`
+    - `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp`
 
       Updated POST body authentication parameters for the token endpoint.
 
@@ -3236,7 +3284,7 @@ func main() {
 
 ### Beta Managed Agents MCP OAuth Update Params
 
-- `type BetaManagedAgentsMCPOAuthUpdateParamsResp struct{…}`
+- `type BetaManagedAgentsMCPOAuthUpdateParamsResp`
 
   Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
 
@@ -3256,7 +3304,7 @@ func main() {
 
   - `Refresh BetaManagedAgentsMCPOAuthRefreshUpdateParamsResp Optional`
 
-    Parameters for updating OAuth refresh token configuration.
+    Updated refresh token configuration.
 
     - `RefreshToken string Optional`
 
@@ -3272,9 +3320,7 @@ func main() {
 
     - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshUpdateParamsTokenEndpointAuthUnionResp Optional`
 
-      Updated HTTP Basic authentication parameters for the token endpoint.
-
-      - `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp struct{…}`
+      - `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp`
 
         Updated HTTP Basic authentication parameters for the token endpoint.
 
@@ -3286,7 +3332,7 @@ func main() {
 
           minLength: 1, maxLength: 512
 
-      - `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp struct{…}`
+      - `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp`
 
         Updated POST body authentication parameters for the token endpoint.
 
@@ -3300,13 +3346,13 @@ func main() {
 
 ### Beta Managed Agents MCP Probe
 
-- `type BetaManagedAgentsMCPProbe struct{…}`
+- `type BetaManagedAgentsMCPProbe`
 
   The failing step of an MCP validation probe.
 
   - `HTTPResponse BetaManagedAgentsRefreshHTTPResponse`
 
-    An HTTP response captured during a credential validation probe.
+    The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
     - `Body string`
 
@@ -3332,7 +3378,7 @@ func main() {
 
 ### Beta Managed Agents Refresh HTTP Response
 
-- `type BetaManagedAgentsRefreshHTTPResponse struct{…}`
+- `type BetaManagedAgentsRefreshHTTPResponse`
 
   An HTTP response captured during a credential validation probe.
 
@@ -3356,13 +3402,13 @@ func main() {
 
 ### Beta Managed Agents Refresh Object
 
-- `type BetaManagedAgentsRefreshObject struct{…}`
+- `type BetaManagedAgentsRefreshObject`
 
   Outcome of a refresh-token exchange attempted during credential validation.
 
   - `HTTPResponse BetaManagedAgentsRefreshHTTPResponse`
 
-    An HTTP response captured during a credential validation probe.
+    The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `Body string`
 
@@ -3384,19 +3430,27 @@ func main() {
 
   - `Status BetaManagedAgentsRefreshObjectStatus`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Outcome of the refresh attempt.
 
     - `const BetaManagedAgentsRefreshObjectStatusSucceeded BetaManagedAgentsRefreshObjectStatus = "succeeded"`
 
+      The token endpoint returned a new access token.
+
     - `const BetaManagedAgentsRefreshObjectStatusFailed BetaManagedAgentsRefreshObjectStatus = "failed"`
+
+      The token endpoint returned an error response. See `http_response` for detail.
 
     - `const BetaManagedAgentsRefreshObjectStatusConnectError BetaManagedAgentsRefreshObjectStatus = "connect_error"`
 
+      The token endpoint could not be reached (DNS, TLS, or connection error).
+
     - `const BetaManagedAgentsRefreshObjectStatusNoRefreshToken BetaManagedAgentsRefreshObjectStatus = "no_refresh_token"`
+
+      No refresh token is stored for the credential, so no exchange was attempted.
 
 ### Beta Managed Agents Static Bearer Auth Response
 
-- `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
+- `type BetaManagedAgentsStaticBearerAuthResponse`
 
   Static bearer token credential details for an MCP server.
 
@@ -3408,7 +3462,7 @@ func main() {
 
 ### Beta Managed Agents Static Bearer Create Params
 
-- `type BetaManagedAgentsStaticBearerCreateParamsResp struct{…}`
+- `type BetaManagedAgentsStaticBearerCreateParamsResp`
 
   Parameters for creating a static bearer token credential.
 
@@ -3428,7 +3482,7 @@ func main() {
 
 ### Beta Managed Agents Static Bearer Update Params
 
-- `type BetaManagedAgentsStaticBearerUpdateParamsResp struct{…}`
+- `type BetaManagedAgentsStaticBearerUpdateParamsResp`
 
   Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
 
@@ -3442,7 +3496,7 @@ func main() {
 
 ### Beta Managed Agents Token Endpoint Auth Basic Param
 
-- `type BetaManagedAgentsTokenEndpointAuthBasicParamResp struct{…}`
+- `type BetaManagedAgentsTokenEndpointAuthBasicParamResp`
 
   Token endpoint uses HTTP Basic authentication with client credentials.
 
@@ -3456,7 +3510,7 @@ func main() {
 
 ### Beta Managed Agents Token Endpoint Auth Basic Response
 
-- `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+- `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
   Token endpoint uses HTTP Basic authentication with client credentials.
 
@@ -3464,7 +3518,7 @@ func main() {
 
 ### Beta Managed Agents Token Endpoint Auth Basic Update Param
 
-- `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp struct{…}`
+- `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp`
 
   Updated HTTP Basic authentication parameters for the token endpoint.
 
@@ -3478,7 +3532,7 @@ func main() {
 
 ### Beta Managed Agents Token Endpoint Auth None Param
 
-- `type BetaManagedAgentsTokenEndpointAuthNoneParamResp struct{…}`
+- `type BetaManagedAgentsTokenEndpointAuthNoneParamResp`
 
   Token endpoint requires no client authentication.
 
@@ -3486,7 +3540,7 @@ func main() {
 
 ### Beta Managed Agents Token Endpoint Auth None Response
 
-- `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+- `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
   Token endpoint requires no client authentication.
 
@@ -3494,7 +3548,7 @@ func main() {
 
 ### Beta Managed Agents Token Endpoint Auth Post Param
 
-- `type BetaManagedAgentsTokenEndpointAuthPostParamResp struct{…}`
+- `type BetaManagedAgentsTokenEndpointAuthPostParamResp`
 
   Token endpoint uses POST body authentication with client credentials.
 
@@ -3508,7 +3562,7 @@ func main() {
 
 ### Beta Managed Agents Token Endpoint Auth Post Response
 
-- `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+- `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
   Token endpoint uses POST body authentication with client credentials.
 
@@ -3516,7 +3570,7 @@ func main() {
 
 ### Beta Managed Agents Token Endpoint Auth Post Update Param
 
-- `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp struct{…}`
+- `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp`
 
   Updated POST body authentication parameters for the token endpoint.
 
@@ -3530,7 +3584,7 @@ func main() {
 
 ### Beta Managed Agents Unrestricted Credential Networking Params
 
-- `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp struct{…}`
+- `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp`
 
   Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
@@ -3538,7 +3592,7 @@ func main() {
 
 ### Beta Managed Agents Unrestricted Credential Networking Response
 
-- `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+- `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
   The secret is substituted on any host the session's Environment network policy permits egress to.
 

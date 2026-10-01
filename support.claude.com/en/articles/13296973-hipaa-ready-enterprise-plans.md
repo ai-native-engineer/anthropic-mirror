@@ -86,6 +86,6 @@ If you use the Claude API, learn more about **[HIPAA-ready Claude API access and
 
 * [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
-* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)

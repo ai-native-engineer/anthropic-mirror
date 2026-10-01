@@ -63,10 +63,10 @@ Discover every grant opportunity in existence.
 
 [Add Granted in Claude (opens in new tab)](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=benevity.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=instrumentl.com&sz=96)
 
-### [Benevity](https://claude.com/connectors/benevity)
+### [Instrumentl](https://claude.com/connectors/instrumentl)
 
-Find and engage with verified nonprofits
+Find, evaluate, and manage your grants
 
-[Add Benevity in Claude (opens in new tab)](https://claude.ai/directory/de72cab2-21e3-486f-b774-b35b6dded1d8 "Add in Claude")
+[Add Instrumentl in Claude (opens in new tab)](https://claude.ai/directory/5eb73e73-c172-433d-b3ad-b91da73c9ecd "Add in Claude")

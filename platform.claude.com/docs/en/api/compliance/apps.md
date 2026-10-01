@@ -17,6 +17,11 @@ Lists chat metadata with filtering capabilities for targeted
 compliance review. Results are sorted chronologically (time ascending)
 by the `order_by` key, with ties broken by id.
 
+Incremental polling with `order_by=updated_at` returns a chat again
+after it receives a new message, is moved into or out of a project, or
+is deleted in claude.ai. A chat is not guaranteed to be returned again
+after other edits, such as a rename.
+
 **Deprecation notice:** Combining `user_ids[]` with any `updated_at.*`
 filter is deprecated and will be rejected with HTTP 400 after
 2026-09-22. For incremental polling by update time, omit `user_ids[]`
@@ -66,7 +71,7 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
   Maximum results (default: 100, max: 1000)
 
-  default: 100, maximum: 1000, minimum: 1
+  default: 100, minimum: 1, maximum: 1000
 
 - `order_by: optional "created_at" or "updated_at"`
 
@@ -120,12 +125,6 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -172,27 +171,13 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
   - `updated_at: string`
 
-    Last update timestamp
+    Last update timestamp. Updated when the chat receives a new message, is moved into or out of a project, or is deleted in claude.ai. Other edits, such as renaming the chat, are not guaranteed to change it.
 
     format: date-time
 
   - `user: object or null`
 
-    The user who created the chat.
-
-    Null when the API key is restricted to one organization and the creator
-    is no longer a member of it (for example, after they were removed from
-    it).
-
-    A key for the whole parent organization returns the creator's `id`
-    and current `email_address` for every chat; on the list endpoint, pass
-    `organization_ids[]` to keep the results to one organization. For the
-    email address the creator had when the chat was created, query
-    `GET /v1/compliance/activities` with `activity_types[]=claude_chat_created`
-    and a `created_at` window around the chat's `created_at`, find the event
-    whose `claude_chat_id` matches this chat's `id`, and read
-    `actor.email_address`. These events exist only for chats created after
-    compliance logging was enabled for the organization.
+    The user who created the chat. Null when the API key is restricted to one organization and the creator is no longer a member of it.
 
     - `id: string`
 
@@ -224,6 +209,7 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -269,12 +255,6 @@ files. This is a destructive operation that cannot be undone.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -294,6 +274,7 @@ files. This is a destructive operation that cannot be undone.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -360,7 +341,7 @@ Retrieves message history and file metadata for a specific chat.
 
   Maximum results (max: 1000). When omitted, the full result set is returned in one response.
 
-  maximum: 1000, minimum: 1
+  minimum: 1, maximum: 1000
 
 - `order: optional "asc" or "desc"`
 
@@ -412,12 +393,6 @@ Retrieves message history and file metadata for a specific chat.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -454,7 +429,7 @@ Retrieves message history and file metadata for a specific chat.
 
       Artifact version ID e.g. 'claude_artifact_version_abc123'
 
-  - `content: array of object or object or object`
+  - `content: array of Text or ToolUse or ToolResult`
 
     Content blocks within the message
 
@@ -600,11 +575,11 @@ Retrieves message history and file metadata for a specific chat.
 
   - `generated_files: array of object or null`
 
-    Downloadable files the assistant created via tool use (e.g. PDF, spreadsheet, slide deck). Distinct from `files`, which are uploads attached to the message. Download via `GET /v1/compliance/apps/chats/generated-files/{claude_gen_file_id}/content`.
+    Downloadable files the assistant created via tool use (e.g. PDF, spreadsheet, slide deck). Distinct from `files`, which are uploads attached to the message. Download an entry whose id starts with `claude_gen_file_` via `GET /v1/compliance/apps/chats/generated-files/{claude_gen_file_id}/content`, and one whose id starts with `claude_file_` via `GET /v1/compliance/apps/chats/files/{claude_file_id}/content`.
 
     - `id: string`
 
-      Opaque generated-file id, e.g. 'claude_gen_file_abc123'. Treat as an opaque string; the encoding may change without notice.
+      Id of the file: either a generated-file id, e.g. 'claude_gen_file_abc123', or a file id, e.g. 'claude_file_abc123'; the prefix tells them apart. Download the first from the generated-files content endpoint and the second from the files content endpoint. Treat everything after the prefix as an opaque string; the encoding may change without notice.
 
     - `filename: string`
 
@@ -616,7 +591,7 @@ Retrieves message history and file metadata for a specific chat.
 
     - `mime_type: string or null`
 
-      MIME type reported by the tool that produced the file
+      MIME type of the file, when known
 
     - `size_bytes: number or null`
 
@@ -678,27 +653,13 @@ Retrieves message history and file metadata for a specific chat.
 
 - `updated_at: string`
 
-  Last update timestamp
+  Last update timestamp. Updated when the chat receives a new message, is moved into or out of a project, or is deleted in claude.ai. Other edits, such as renaming the chat, are not guaranteed to change it.
 
   format: date-time
 
 - `user: object or null`
 
-  The user who created the chat.
-
-  Null when the API key is restricted to one organization and the creator
-  is no longer a member of it (for example, after they were removed from
-  it).
-
-  A key for the whole parent organization returns the creator's `id`
-  and current `email_address` for every chat; on the list endpoint, pass
-  `organization_ids[]` to keep the results to one organization. For the
-  email address the creator had when the chat was created, query
-  `GET /v1/compliance/activities` with `activity_types[]=claude_chat_created`
-  and a `created_at` window around the chat's `created_at`, find the event
-  whose `claude_chat_id` matches this chat's `id`, and read
-  `actor.email_address`. These events exist only for chats created after
-  compliance logging was enabled for the organization.
+  The user who created the chat. Null when the API key is restricted to one organization and the creator is no longer a member of it.
 
   - `id: string`
 
@@ -718,6 +679,7 @@ Retrieves message history and file metadata for a specific chat.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID/messages \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -804,12 +766,6 @@ download the bytes.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -852,6 +808,7 @@ download the bytes.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -889,12 +846,6 @@ operation that cannot be undone.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -914,6 +865,7 @@ operation that cannot be undone.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -940,18 +892,13 @@ Downloads the binary content of a file referenced in chat messages.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID/content \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -972,12 +919,6 @@ Use the sibling `/content` endpoint to download the bytes.
   The generated-file id (e.g., 'claude_gen_file_abc123') as returned in `chat_messages[].generated_files[].id` from GET /apps/chats/{claude_chat_id}/messages.
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -1017,6 +958,7 @@ Use the sibling `/content` endpoint to download the bytes.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/generated-files/$CLAUDE_GEN_FILE_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1048,18 +990,13 @@ Downloads the binary content of a file the assistant created via tool use.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/generated-files/$CLAUDE_GEN_FILE_ID/content \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1104,7 +1041,7 @@ are sorted chronologically (time ascending) by created_at.
 
   Maximum results (default: 20, max: 100)
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `organization_ids: optional array of string`
 
@@ -1145,12 +1082,6 @@ are sorted chronologically (time ascending) by created_at.
   Filter by user IDs. Enumerate IDs via `GET /v1/compliance/organizations/{org_uuid}/users`.
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -1196,11 +1127,7 @@ are sorted chronologically (time ascending) by created_at.
 
   - `user: object or null`
 
-    The user who created a project or project document.
-
-    Fields that reference this type are null when the creator's account has
-    been deleted or the creator is no longer a member of an organization the
-    key may read.
+    Project creator information, or null if the creator's account has been deleted or the creator is no longer a member of an organization the key may read
 
     - `id: string`
 
@@ -1228,6 +1155,7 @@ are sorted chronologically (time ascending) by created_at.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1268,12 +1196,6 @@ Get detailed information for a specific project.
   The project ID (tagged ID, e.g., claude_proj_abc123)
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -1331,11 +1253,7 @@ Get detailed information for a specific project.
 
 - `user: object or null`
 
-  The user who created a project or project document.
-
-  Fields that reference this type are null when the creator's account has
-  been deleted or the creator is no longer a member of an organization the
-  key may read.
+  Project creator information, or null if the creator's account has been deleted or the creator is no longer a member of an organization the key may read
 
   - `id: string`
 
@@ -1355,6 +1273,7 @@ Get detailed information for a specific project.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1404,12 +1323,6 @@ Project must have no attached chats - returns 409 if chats exist.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -1429,6 +1342,7 @@ Project must have no attached chats - returns 409 if chats exist.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1470,7 +1384,7 @@ GET /v1/compliance/apps/projects/documents/{claude_proj_doc_id} endpoint.
 
   Maximum results (default: 20, max: 100)
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `page: optional string`
 
@@ -1478,17 +1392,11 @@ GET /v1/compliance/apps/projects/documents/{claude_proj_doc_id} endpoint.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
 
-- `data: array of object or object`
+- `data: array of ComplianceProjectFileReference or ComplianceProjectDocReference`
 
   List of attachments sorted chronologically by created_at, tie break by id
 
@@ -1576,6 +1484,7 @@ GET /v1/compliance/apps/projects/documents/{claude_proj_doc_id} endpoint.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachments \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1624,7 +1533,7 @@ role.
 
   Maximum results (default: 20, max: 100)
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `page: optional string`
 
@@ -1632,17 +1541,11 @@ role.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
 
-- `data: array of object or object or object or object`
+- `data: array of ComplianceProjectUserCollaborator or ComplianceProjectGroupCollaborator or ComplianceProjectOrganizationCollaborator or ComplianceProjectOrganizationRoleCollaborator`
 
   List of collaborators sorted chronologically by granted_at, tie break by the underlying role-assignment UUID
 
@@ -1786,6 +1689,7 @@ role.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/collaborators \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1822,12 +1726,6 @@ Get detailed information for a specific project document.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -1852,11 +1750,7 @@ Get detailed information for a specific project document.
 
 - `user: object or null`
 
-  The user who created a project or project document.
-
-  Fields that reference this type are null when the creator's account has
-  been deleted or the creator is no longer a member of an organization the
-  key may read.
+  Document creator information, or null if the creator's account has been deleted or the creator is no longer a member of an organization the key may read
 
   - `id: string`
 
@@ -1870,6 +1764,7 @@ Get detailed information for a specific project document.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1906,12 +1801,6 @@ consumer can dedupe or match hashes without downloading every document.
   The document ID (tagged ID, e.g., claude_proj_doc_abc123)
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -1951,11 +1840,7 @@ consumer can dedupe or match hashes without downloading every document.
 
 - `user: object or null`
 
-  The user who created a project or project document.
-
-  Fields that reference this type are null when the creator's account has
-  been deleted or the creator is no longer a member of an organization the
-  key may read.
+  Document creator information, or null if the creator's account has been deleted or the creator is no longer a member of an organization the key may read
 
   - `id: string`
 
@@ -1969,6 +1854,7 @@ consumer can dedupe or match hashes without downloading every document.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID/metadata \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -2006,12 +1892,6 @@ Hard-deletes the project document permanently.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -2031,6 +1911,7 @@ Hard-deletes the project document permanently.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -2063,12 +1944,6 @@ without downloading every artifact.
   The artifact version ID (tagged ID, e.g., claude_artifact_version_abc123)
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -2112,6 +1987,7 @@ without downloading every artifact.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/artifacts/$ARTIFACT_VERSION_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -2146,18 +2022,13 @@ Returns the full text content of the artifact version.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/artifacts/$ARTIFACT_VERSION_ID/content \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -2192,7 +2063,7 @@ forward-only via `next_page`; there is no reverse cursor.
 
   Maximum results (default: 100, max: 500)
 
-  default: 100, maximum: 500, minimum: 1
+  default: 100, minimum: 1, maximum: 500
 
 - `page: optional string`
 
@@ -2207,12 +2078,6 @@ forward-only via `next_page`; there is no reverse cursor.
     format: date-time
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -2242,7 +2107,7 @@ forward-only via `next_page`; there is no reverse cursor.
 
   - `product_surface: string or null`
 
-    The product the session ran in: `cowork` (Cowork in Claude Desktop on the user's machine), `claude_code` (Claude Code), `claude_science` (Claude Science), or one of `office_agents/excel`, `office_agents/powerpoint`, `office_agents/word`, and `office_agents/outlook` (Claude for Microsoft 365, by app; `office_agents` alone when the app is not identified). New values appear as coverage expands; treat unrecognized values as opaque. `null` when the surface was not recorded.
+    The product the session ran in: `cowork` (Cowork in Claude Desktop on the user's machine), `claude_code` (Claude Code), `claude_science` (Claude Science), `claude_in_chrome` (the Claude in Chrome browser extension's built-in chat), or one of `office_agents/excel`, `office_agents/powerpoint`, `office_agents/word`, and `office_agents/outlook` (Claude for Microsoft 365, by app; `office_agents` alone when the app is not identified). New values appear as coverage expands; treat unrecognized values as opaque. `null` when the surface was not recorded.
 
   - `truncated: boolean`
 
@@ -2280,6 +2145,7 @@ forward-only via `next_page`; there is no reverse cursor.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/local \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -2322,12 +2188,6 @@ inference call has aged out returns 404.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -2352,7 +2212,7 @@ inference call has aged out returns 404.
 
 - `product_surface: string or null`
 
-  The product the session ran in: `cowork` (Cowork in Claude Desktop on the user's machine), `claude_code` (Claude Code), `claude_science` (Claude Science), or one of `office_agents/excel`, `office_agents/powerpoint`, `office_agents/word`, and `office_agents/outlook` (Claude for Microsoft 365, by app; `office_agents` alone when the app is not identified). New values appear as coverage expands; treat unrecognized values as opaque. `null` when the surface was not recorded.
+  The product the session ran in: `cowork` (Cowork in Claude Desktop on the user's machine), `claude_code` (Claude Code), `claude_science` (Claude Science), `claude_in_chrome` (the Claude in Chrome browser extension's built-in chat), or one of `office_agents/excel`, `office_agents/powerpoint`, `office_agents/word`, and `office_agents/outlook` (Claude for Microsoft 365, by app; `office_agents` alone when the app is not identified). New values appear as coverage expands; treat unrecognized values as opaque. `null` when the surface was not recorded.
 
 - `truncated: boolean`
 
@@ -2386,6 +2246,7 @@ inference call has aged out returns 404.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/local/$LOCAL_SESSION_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -2423,6 +2284,13 @@ in their place. The boundary is pinned on the walk's first page and
 honored for 24 hours: a cursor older than that is rejected with an
 explicit 400; restart the walk to read under the current boundary.
 
+On a very large session, some pages are too large to read and return a
+400; retrying does not help. If the request used `order=desc`, read the
+session oldest first from its first page instead (omit `order` and
+`page`, then follow `next_page`). Rarely, an oldest-first page returns
+this 400 too; contact Anthropic support and quote the `request-id`
+response header.
+
 #### Path parameters
 
 - `local_session_id: string`
@@ -2433,11 +2301,11 @@ explicit 400; restart the walk to read under the current boundary.
 
   Maximum results (default: 100, max: 1000)
 
-  default: 100, maximum: 1000, minimum: 1
+  default: 100, minimum: 1, maximum: 1000
 
 - `order: optional "asc" or "desc"`
 
-  Sort direction. `asc` (oldest-first, default) or `desc`.
+  Sort direction. `asc` (oldest-first, default) or `desc`. On very large sessions some pages are too large to read and return a 400, far more often with `desc`; read those sessions with `asc`, starting again from the first page.
 
   default: asc
 
@@ -2453,21 +2321,15 @@ explicit 400; restart the walk to read under the current boundary.
 
   Truncate each text item inside a tool result to at most this many bytes (cut on a code-point boundary). Pass `-1` to request the server maximum (approximately 1 MiB); larger values are clamped to it. `0` is not a valid value.
 
-  default: 10000, maximum: 2147483647, minimum: -1
+  default: 10000, minimum: -1, maximum: 2147483647
 
 - `tool_use_input_max_bytes: optional number`
 
   Truncate each tool-use input to at most this many bytes (cut on a code-point boundary so the result is valid UTF-8). Pass `-1` to request the server maximum (approximately 1 MiB); larger values are clamped to it. `0` is not a valid value.
 
-  default: 10000, maximum: 2147483647, minimum: -1
+  default: 10000, minimum: -1, maximum: 2147483647
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -2485,7 +2347,7 @@ explicit 400; restart the walk to read under the current boundary.
 
     Message identifier, prefixed `clsm_`. Stable for as long as the message's turn is retained: identifiers of retained turns do not change as older turns age out of the organization's retention period. The `retention_elapsed` placeholder's identifier is distinct from every retained turn's and changes only when further turns age out.
 
-  - `content: array of object or object or object`
+  - `content: array of Text or ToolUse or ToolResult`
 
     Content blocks within the message, discriminated on `type` (`text` / `tool_use` / `tool_result`: the same discriminator values as the claude.ai chat-messages endpoint; the tool variants omit `integration_name` and `mcp_server_url`, and `text` carries `truncated`). Extended-thinking content is never included. The request's `system` field is never included; a presence-only marker message is emitted when it was set. The request's `tools[]` definitions are never included as transcript messages. Project-level instructions (such as CLAUDE.md files) appear in the message stream as a user-role context block and are included. Empty when `provenance.type` is `content_unavailable`.
 
@@ -2581,7 +2443,7 @@ explicit 400; restart the walk to read under the current boundary.
 
     The model that served this assistant turn, as reported in the `model` field of the underlying Messages API response. Null on user messages and on any assistant message whose `provenance` is set: client-asserted history and synthetic markers were not produced by a model during this session, and for unavailable content the serving model is not known.
 
-  - `provenance: object or object or object or null`
+  - `provenance: ContentUnavailable or ClientAsserted or SyntheticMarker or null`
 
     Where this turn's content came from, discriminated on `type`. Null (the common case) means verified content: on an assistant message, content Claude produced during this session; on a user message, content the user sent. `content_unavailable`: the turn's content cannot be returned and `content` is empty; `reason` says why. `client_asserted`: assistant content the client supplied as conversation history; `content` shows what the model received but its authorship is not verified; never on user-role messages. `synthetic_marker`: a transcript marker the endpoint generated rather than content either party sent during the session. Both `client_asserted` and `synthetic_marker` can result from normal request or client processing, not only client modification. Callers should tolerate unrecognized `type` values.
 
@@ -2614,12 +2476,14 @@ explicit 400; restart the walk to read under the current boundary.
       A transcript marker generated by the endpoint rather than sent by
       either party during the session. Marker messages indicate that the
       prompt history diverged from what was captured, that the request's
-      `system` field was present but is not shown, or that
-      prompt-carried history was suppressed because the session spans the
-      child organization's retention boundary and those turns cannot be
-      placed against it (the marker's text names the cause). Markers that
-      report a mismatch with captured history can result from normal request
-      or client processing, not only client modification.
+      `system` field was present but is not shown, or that earlier turns
+      that a request re-sent as history were withheld because they cannot
+      be dated against the child organization's data-retention period
+      (only for organizations with a finite retention period; the request's
+      new user input after its last assistant turn is not affected). The
+      marker's text names the cause. Markers that report a mismatch with
+      captured history can result from normal request or client processing,
+      not only client modification.
 
       - `type: "synthetic_marker"`
 
@@ -2661,7 +2525,7 @@ explicit 400; restart the walk to read under the current boundary.
 
   - `product_surface: string or null`
 
-    The product the session ran in: `cowork` (Cowork in Claude Desktop on the user's machine), `claude_code` (Claude Code), `claude_science` (Claude Science), or one of `office_agents/excel`, `office_agents/powerpoint`, `office_agents/word`, and `office_agents/outlook` (Claude for Microsoft 365, by app; `office_agents` alone when the app is not identified). New values appear as coverage expands; treat unrecognized values as opaque. `null` when the surface was not recorded.
+    The product the session ran in: `cowork` (Cowork in Claude Desktop on the user's machine), `claude_code` (Claude Code), `claude_science` (Claude Science), `claude_in_chrome` (the Claude in Chrome browser extension's built-in chat), or one of `office_agents/excel`, `office_agents/powerpoint`, `office_agents/word`, and `office_agents/outlook` (Claude for Microsoft 365, by app; `office_agents` alone when the app is not identified). New values appear as coverage expands; treat unrecognized values as opaque. `null` when the surface was not recorded.
 
   - `truncated: boolean`
 
@@ -2695,6 +2559,7 @@ explicit 400; restart the walk to read under the current boundary.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/local/$LOCAL_SESSION_ID/messages \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -2796,7 +2661,7 @@ retrieve the next page, and stop when `next_page` is null.
 
   Maximum results (default: 100, max: 500)
 
-  default: 100, maximum: 500, minimum: 1
+  default: 100, minimum: 1, maximum: 500
 
 - `organization_ids: optional array of string`
 
@@ -2815,12 +2680,6 @@ retrieve the next page, and stop when `next_page` is null.
   maxItems: 10
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -2856,7 +2715,7 @@ retrieve the next page, and stop when `next_page` is null.
 
   - `started_by_user: object or null`
 
-    A user associated with a remote session.
+    The user who initiated an agent-owned session (for example, by mentioning Claude in Slack or via a scheduled trigger). Null for user-owned sessions — where the session's `user` started it — and for agent sessions with no human initiator. For initiators no longer a member of an organization the key may read, the object is populated with `email_address` null.
 
     - `id: string`
 
@@ -2878,7 +2737,7 @@ retrieve the next page, and stop when `next_page` is null.
 
   - `user: object or null`
 
-    A user associated with a remote session.
+    The user who owns the session. Null for sessions owned by an automated agent rather than a user. At most one of `user` and `agent_id` is set. For users no longer a member of an organization the key may read, the object is populated with `email_address` null.
 
     - `id: string`
 
@@ -2896,6 +2755,7 @@ retrieve the next page, and stop when `next_page` is null.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/remote \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -2961,7 +2821,7 @@ malformed session identifier returns 400.
 
   Maximum results (default: 100, max: 1000)
 
-  default: 100, maximum: 1000, minimum: 1
+  default: 100, minimum: 1, maximum: 1000
 
 - `order: optional "asc" or "desc"`
 
@@ -2981,21 +2841,15 @@ malformed session identifier returns 400.
 
   Truncate each text item inside a tool result to at most this many bytes (cut on a code-point boundary). Pass `-1` to request the server maximum. `0` is not a valid value.
 
-  default: 10000, maximum: 2147483647, minimum: -1
+  default: 10000, minimum: -1, maximum: 2147483647
 
 - `tool_use_input_max_bytes: optional number`
 
   Truncate each tool-use input to at most this many bytes (cut on a code-point boundary so the result is valid UTF-8). Pass `-1` to request the server maximum. `0` is not a valid value.
 
-  default: 10000, maximum: 2147483647, minimum: -1
+  default: 10000, minimum: -1, maximum: 2147483647
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -3009,7 +2863,7 @@ malformed session identifier returns 400.
 
     Unique identifier for the message, e.g. `csev_abc123`
 
-  - `content: array of object or object or object`
+  - `content: array of Text or ToolUse or ToolResult`
 
     Content blocks within the message
 
@@ -3155,7 +3009,7 @@ malformed session identifier returns 400.
 
   - `started_by_user: object or null`
 
-    A user associated with a remote session.
+    The user who initiated an agent-owned session (for example, by mentioning Claude in Slack or via a scheduled trigger). Null for user-owned sessions — where the session's `user` started it — and for agent sessions with no human initiator. For initiators no longer a member of an organization the key may read, the object is populated with `email_address` null.
 
     - `id: string`
 
@@ -3177,7 +3031,7 @@ malformed session identifier returns 400.
 
   - `user: object or null`
 
-    A user associated with a remote session.
+    The user who owns the session. Null for sessions owned by an automated agent rather than a user. At most one of `user` and `agent_id` is set. For users no longer a member of an organization the key may read, the object is populated with `email_address` null.
 
     - `id: string`
 
@@ -3191,6 +3045,7 @@ malformed session identifier returns 400.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/remote/$CLAUDE_REMOTE_SESSION_ID/messages \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 

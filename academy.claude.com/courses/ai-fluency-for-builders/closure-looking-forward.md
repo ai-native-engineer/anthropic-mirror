@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward -->
 
-Lesson 9 of 9 · AI Fluency for BuildersClosure & looking forward
+Lesson 9 of 9 · AI Fluency for buildersClosure & looking forward
 
-3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+3. /[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
-[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
 # Closure & looking forward
 
@@ -66,7 +66,7 @@ Next, take the short assessment to earn your completion badge.
 
 [Previous lessonStand behind what you build](https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build)[Next lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-for-builders/course-quiz)
 
-Lesson 9 of 9 · AI Fluency for BuildersClosure & looking forward
+Lesson 9 of 9 · AI Fluency for buildersClosure & looking forward
 
 Introduction and AI Fluency framework
 

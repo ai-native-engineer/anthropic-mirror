@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/course-quiz -->
 
-Quiz 1 of 1 · AI Capabilities and LimitationsCourse Quiz
+Quiz 1 of 1 · AI capabilities and limitationsCourse Quiz
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Course Quiz
 
@@ -12,7 +12,7 @@ Quiz8 min
 
 [Previous lessonNext Steps](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-steps)[Up nextCompletion badge](https://academy.claude.com/courses/ai-capabilities-and-limitations/badge)
 
-Quiz 1 of 1 · AI Capabilities and LimitationsCourse Quiz
+Quiz 1 of 1 · AI capabilities and limitationsCourse Quiz
 
 Getting started
 

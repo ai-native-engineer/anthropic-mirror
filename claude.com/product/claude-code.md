@@ -2,7 +2,7 @@
 
 # Claude Code
 
-Work with Claude directly in your codebase. Build, debug, and ship from your terminal, IDE, Slack, web, and more.
+Hand Claude a bug fix, test, or multi-day migration. Steer and review from your terminal, IDE, Slack, or web.
 
 [Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)[Read documentation (opens in new tab)](https://code.claude.com/docs/en/overview)
 
@@ -163,24 +163,24 @@ Reduce motion
 
 Disable animations and transitions.
 
-* ![Zapier](https://cdn.sanity.io/images/4zrzovbb/claude-com/45b28686c9eef050f33527795f492fe49d921709-103x28.svg)
-* ![PagerDuty](https://cdn.sanity.io/images/4zrzovbb/claude-com/52562bcfc54652e4f0c7dade6549c473fa8b2bc8-133x28.svg)
-* ![Workato](https://cdn.sanity.io/images/4zrzovbb/claude-com/4893741894fa7cc707a6b2eb794dcd8f2f139eae-162x24.svg)
-* ![Notion](https://cdn.sanity.io/images/4zrzovbb/claude-com/dd2c022495a4655e77541d16bc01b96e2052d6a3-128x36.svg)
-* ![Asana](https://cdn.sanity.io/images/4zrzovbb/claude-com/db3f6c16b6956c33c4fad71607c39a62c34bfe0d-124x24.svg)
-* ![Rakuten](https://cdn.sanity.io/images/4zrzovbb/claude-com/21aff0f2372e69073154aaba9aa53d0792ed63a2-106x32.svg)
-* ![Databricks](https://cdn.sanity.io/images/4zrzovbb/claude-com/3373798a180a90d27215a26eb73b3df37ab5e497-157x24.svg)
-* ![Ramp](https://cdn.sanity.io/images/4zrzovbb/claude-com/648a551dca8eaf811bd5228c852a9e65386b0904-118x32.svg)
-* ![Plaid](https://cdn.sanity.io/images/4zrzovbb/claude-com/b81ae3b38f93a6fefd5f6484da9ae6877f16ce86-93x35.svg)
-* ![Spotify](https://cdn.sanity.io/images/4zrzovbb/claude-com/9854afac4a08917714981581ce7c50479d93ce83-161x44.svg)
-* ![StubHub](https://cdn.sanity.io/images/4zrzovbb/claude-com/d553a695bed5872a35c783f88a67ec0eb21f3e00-107x48.svg)
-* ![Uber](https://cdn.sanity.io/images/4zrzovbb/claude-com/7bc9c302cc2b3fd6f6d664e5e3126321e5f2ebfa-81x28.svg)
-* ![Brex](https://cdn.sanity.io/images/4zrzovbb/claude-com/99d2f4578dc1e2a4e9983d34c49a7e66e3329db9-116x30.svg)
-* ![Intercom](https://cdn.sanity.io/images/4zrzovbb/claude-com/fa755cc324f3ead28cea084cb63c403edfccc0da-141x23.svg)
-* ![Stripe](https://cdn.sanity.io/images/4zrzovbb/claude-com/d7562d1ee0d6c94849f245da7617a1095bb23f21-92x38.svg)
-* ![Shopify](https://cdn.sanity.io/images/4zrzovbb/claude-com/b8d19d3344cc79776137b4ee55024ea919ab2098-148x43.svg)
-* ![NASA](https://cdn.sanity.io/images/4zrzovbb/claude-com/2d5f4b13d7785425c2000776e1233ddc9747ec6a-78x64.svg)
-* ![Figma](https://cdn.sanity.io/images/4zrzovbb/claude-com/bd0bd7f83f4cd7a5d5d985a5b533d4b1ad8de917-128x35.svg)
+* ![Zapier](https://assets.claude.com/76ec34d2d040fb1dd2dd94a7950788e0a82a09b6.svg)
+* ![PagerDuty](https://assets.claude.com/e66fa87cb0236fb0bb7ded4facb4cd6013f01a7f.svg)
+* ![Workato](https://assets.claude.com/2fa9dd8ac68a8a9c6348127669c04cb6a7815dda.svg)
+* ![Notion](https://assets.claude.com/19e0cdfaef9d2980bddd19cd993076d62b46c0c7.svg)
+* ![Asana](https://assets.claude.com/70b82311c60645181706f46b74bcfc3c712dd4bb.svg)
+* ![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
+* ![Databricks](https://assets.claude.com/d46b8e12bcca1888c7cf14a8c0b8b62d98225df1.svg)
+* ![Ramp](https://assets.claude.com/6db782273272dd89f11df7b54089328994fe718e.svg)
+* ![Plaid](https://assets.claude.com/40cac5bb60362b9a3d1711447d37e78e78bd547e.svg)
+* ![Spotify](https://assets.claude.com/6a77ca9f2ae4ded51e55fcf636be5b5506643666.svg)
+* ![StubHub](https://assets.claude.com/d3451a4bfe1c5af7f56f76ab8237c3bab7dd7a9d.svg)
+* ![Uber](https://assets.claude.com/ab44ead2b3df736bf289ca296425a2309fc32aac.svg)
+* ![Brex](https://assets.claude.com/b6698027075ae08131163eae1022d66d1b0b39dd.svg)
+* ![Intercom](https://assets.claude.com/d60d14e07300066206a9765859021f49663f2d38.svg)
+* ![Stripe](https://assets.claude.com/0e2493b60dbe1a71a144ca649e1916bade399bf7.svg)
+* ![Shopify](https://assets.claude.com/9acc150e16af0c0107fb581c62be2a39ecc178d2.svg)
+* ![NASA](https://assets.claude.com/6bdc64f3c9fde30b4b2cecb8544be888a4233887.svg)
+* ![Figma](https://assets.claude.com/30df15cbd261edbc52262a1fa2d1339f3a1a372b.svg)
 
 ## Get started with Claude Code
 
@@ -222,25 +222,27 @@ Per month
 
 ## Latest feature announcements
 
-[### **Dynamic workflows:** Tackle the most challenging tasks by executing across 10s to 100s of parallel subagents, and checking its work before anything reaches you.
+[### **Projects:** Group related coding sessions so you can run and easily supervise multiple Claude agents at once. Available on Claude Code Desktop.
 
-BlogMay 28, 2026](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code)
+BlogSep 17, 2026](https://claude.com/blog/projects-redesigned)
 
-[### **Agent view:** One place to manage all your Claude Code sessions.
+[### **Auto mode by default:** Claude Code now runs in auto mode by default on Pro, Max, and Team plans, so it can work longer while still catching risky commands.
 
-BlogMay 11, 2026](https://claude.com/blog/agent-view-in-claude-code)
+BlogAug 7, 2026](https://claude.com/blog/auto-mode-default-in-claude-code)
 
-[### **Routines:** Configure a routine once, and it can run on a schedule, from an API call, or in response to an event.
+[### **Self-hosted environments:** Run Claude Code sessions on your own infrastructure, inside your network and next to your internal services. Now in public beta.
 
-BlogApr 14, 2026](https://claude.com/blog/introducing-routines-in-claude-code)
+BlogAug 6, 2026](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)
 
-[### **Computer use:** Claude now opens your apps, navigates your browser, and runs your dev tools to complete tasks.
+[### **Artifacts:** Preview in-progress work as a live, interactive artifact built from your session context, and share it with your team.
 
-BlogMar 23, 2026](https://claude.com/blog/dispatch-and-computer-use)
+BlogJun 18, 2026](https://claude.com/blog/artifacts-in-claude-code)
 
 [View changelog (opens in new tab)](https://code.claude.com/docs/en/changelog)
 
-## What could you do with Claude Code?
+## What Claude Code can take on
+
+Claude Code builds the plan, asks clarifying questions, and handles work that runs for hours or days.
 
 Get Claude Code
 
@@ -256,7 +258,7 @@ Or read the [documentation](https://code.claude.com/docs/en/overview)
 
 [Try Claude Code (opens in new tab)](https://claude.ai/code)[Developer docs (opens in new tab)](https://code.claude.com/docs/en/overview)
 
-OnboardingTriage issuesRefactor code
+OnboardingTriage issuesMigrate code
 
 ```
 I'm new to this codebase. Can you explain it to me?
@@ -328,14 +330,14 @@ The architecture allows for both using Excalidraw as a component in other applic
   Claude Code maps and explains entire codebases in a few seconds. It uses agentic search to understand project structure and dependencies without you having to manually select context files.
 * ### Turn issues into PRs
 
-  Stop bouncing between tools. Claude Code integrates with GitHub, GitLab, and your command line tools to handle the entire workflow—reading issues, writing code, running tests, and submitting PRs—all from your terminal.
-* ### Make powerful edits
+  Stop bouncing between tools. Claude Code works with GitHub, GitLab, and your command line tools to read issues, write code, run tests, and open pull requests.
+* ### Run multi-hour refactors and migrations
 
-  Claude Code's understanding of your codebase and dependencies enables it to make powerful, multi-file edits that work.
+  Claude Code follows imports across the repo, runs your tests, and keeps going when something breaks.
 
 ## Meets you where you code
 
-![Claude Code running in a terminal](https://cdn.sanity.io/images/4zrzovbb/claude-com/414e92e0a09c3fb2b45b93a9fcfaa8cb3531a341-920x920.webp)
+![Claude Code running in a terminal](https://assets.claude.com/d4645137a0c197beee5313fedbf9417d035452fc.webp)
 
 ### Start in your terminal
 
@@ -347,7 +349,7 @@ Or read the [documentation](https://code.claude.com/docs/en/overview)
 
 [Try Claude Code (opens in new tab)](https://claude.ai/code)[Developer docs (opens in new tab)](https://code.claude.com/docs/en/overview)
 
-![Claude Code extension in VS Code](https://cdn.sanity.io/images/4zrzovbb/claude-com/ad5647024b50754209ac108ad151339a32fde625-920x920.webp)
+![Claude Code extension in VS Code](https://assets.claude.com/454390de9d9ccefb6082b7c2440c7547c1ec3964.webp)
 
 ### Integrate with your editor
 
@@ -355,7 +357,7 @@ Native extensions for VS Code (+ Cursor, Devin Desktop) and JetBrains IDEs.
 
 [VS Code (opens in new tab)](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)[JetBrains (opens in new tab)](https://plugins.jetbrains.com/plugin/27310-claude-code-beta-)
 
-![Claude Code on the web](https://cdn.sanity.io/images/4zrzovbb/claude-com/050b07bf101bc4712abb3a7e1ba6f4d8dde33fcd-920x920.webp)
+![Claude Code on the web](https://assets.claude.com/60bc422c7916679b221ea6d55ba27adc584ac66e.webp)
 
 ### Access anywhere
 
@@ -369,21 +371,21 @@ Quick access from browser, mobile app, or Claude on desktop. Great for parallel 
 
 ## What developers are saying
 
-* ![Ramp](https://cdn.sanity.io/images/4zrzovbb/claude-com/648a551dca8eaf811bd5228c852a9e65386b0904-118x32.svg)
+* ![Ramp](https://assets.claude.com/6db782273272dd89f11df7b54089328994fe718e.svg)
 
   > “Claude Code has dramatically accelerated our team's coding efficiency. I can now write EDA code in a notebook—pulling data, training a model, and evaluating it with basic metrics—and then ask Claude to convert that into a Metaflow pipeline. This process saves 1-2 days of routine (and often boring!) work per model.”
 
   Anton Biryukov, Staff Software Engineer
 
   [Read story](https://claude.com/customers/ramp)
-* ![Intercom](https://cdn.sanity.io/images/4zrzovbb/claude-com/fa755cc324f3ead28cea084cb63c403edfccc0da-141x23.svg)
+* ![Intercom](https://assets.claude.com/d60d14e07300066206a9765859021f49663f2d38.svg)
 
   > “With Claude, we're not just automating customer service—we're elevating it to truly human quality. This lets support teams think more strategically about customer experience and what makes interactions genuinely valuable.”
 
   Fergal Reid, VP of AI
 
   [Read story](https://claude.com/customers/intercom)
-* ![Notion](https://cdn.sanity.io/images/4zrzovbb/claude-com/dd2c022495a4655e77541d16bc01b96e2052d6a3-128x36.svg)
+* ![Notion](https://assets.claude.com/19e0cdfaef9d2980bddd19cd993076d62b46c0c7.svg)
 
   > “Claude Code is moving our team up a level: we decide what needs to happen, and smooth the process so it can build and verify end-to-end. A big part of my job now is to keep as many instances of Claude Code busy as possible.”
 
@@ -391,21 +393,21 @@ Quick access from browser, mobile app, or Claude on desktop. Great for parallel 
 
   [Read story](https://claude.com/customers/notion)
 
-* ![GitLab](https://cdn.sanity.io/images/4zrzovbb/claude-com/84694a8c9a86c0b8bf37a874c675ccaeec9c6654-111x26.svg)
-* ![Dynatrace](https://cdn.sanity.io/images/4zrzovbb/claude-com/05e7af628f73b9ab5ce68b47e2035d292564c421-181x32.svg)
-* ![Kubernetes](https://cdn.sanity.io/images/4zrzovbb/claude-com/74ea6c22373a93746176788b31b17ea20ae59223-178x47.svg)
-* ![Heroku](https://cdn.sanity.io/images/4zrzovbb/claude-com/14d277edf9089e2db3a1e3c5c004d25f0a496627-143x40.svg)
-* ![Stripe](https://cdn.sanity.io/images/4zrzovbb/claude-com/d7562d1ee0d6c94849f245da7617a1095bb23f21-92x38.svg)
-* ![Elastic](https://cdn.sanity.io/images/4zrzovbb/claude-com/4114bc17f676c85fd52661ac58205c1b7f2e52c5-117x40.svg)
-* ![Terraform](https://cdn.sanity.io/images/4zrzovbb/claude-com/71a735ffc038acaed1889e2baa6108b9c16f0dc5-165x44.svg)
-* ![Sentry](https://cdn.sanity.io/images/4zrzovbb/claude-com/f90f7f0b84c285e5a2c3dcc8764aae3eb74cf701-141x31.svg)
-* ![AWS](https://cdn.sanity.io/images/4zrzovbb/claude-com/477ff12eca622016612d5837b67bec8fbd3899e8-61x36.svg)
-* ![MongoDB](https://cdn.sanity.io/images/4zrzovbb/claude-com/b7e4f274d9789cf6709450c85ee987064b78d784-156x40.svg)
-* ![Atlassian](https://cdn.sanity.io/images/4zrzovbb/claude-com/9cdf5ed2ae750f0b6795490071eed41576bd1e1a-189x24.svg)
-* ![Datadog](https://cdn.sanity.io/images/4zrzovbb/claude-com/5bd06742093289d7f7dd03b3945cc35d823d5388-146x36.svg)
-* ![GitHub](https://cdn.sanity.io/images/4zrzovbb/claude-com/7522fc92399dcb4a68f11c7e147e711fcadbe75b-126x36.svg)
-* ![Vercel](https://cdn.sanity.io/images/4zrzovbb/claude-com/dfe2bb49cbe6a11d747deb00e01474b0ac4a8de8-120x24.svg)
-* ![New Relic](https://cdn.sanity.io/images/4zrzovbb/claude-com/381cea7f0fc11a867d2e8fa86028a1bc87fd9aad-142x28.svg)
+* ![GitLab](https://assets.claude.com/9760b31778be76fd66c6b722dced22db12cb59e8.svg)
+* ![Dynatrace](https://assets.claude.com/fd2377cce31b2fb5ca8192769f518853a072e2c0.svg)
+* ![Kubernetes](https://assets.claude.com/b84d84f9576d1d2e0b4ab65de530ccab8bac0d41.svg)
+* ![Heroku](https://assets.claude.com/0ab77011513992a5697712fd2cb8c809f3a88e7e.svg)
+* ![Stripe](https://assets.claude.com/0e2493b60dbe1a71a144ca649e1916bade399bf7.svg)
+* ![Elastic](https://assets.claude.com/1e6c5ec0a16e29efa8298174620a13235bb414c0.svg)
+* ![Terraform](https://assets.claude.com/29f9867e9ce2a0784d68e8f4714faabbc2bb81f2.svg)
+* ![Sentry](https://assets.claude.com/410f375f04040180bb6545e287b4ad178b0d7767.svg)
+* ![AWS](https://assets.claude.com/723ac3a5a747c466218a5d007ff4839141f462ee.svg)
+* ![MongoDB](https://assets.claude.com/45982f0c915b94d8ae0a729f1c24ac69c59cc539.svg)
+* ![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
+* ![Datadog](https://assets.claude.com/0a17621af2bfc623c9104a3dd9fba2e6ebfc89d5.svg)
+* ![GitHub](https://assets.claude.com/ff6655b95f24d2aa0b9bf52c94ef5d5f5e54a70e.svg)
+* ![Vercel](https://assets.claude.com/f6f5598aac3be6fd9b2dfc23eced7509c90d387b.svg)
+* ![New Relic](https://assets.claude.com/659229862ffd01b50ea108b31624c8c0951bf1a5.svg)
 
 ## Connects with your favorite command line tools
 
@@ -415,11 +417,13 @@ Your terminal is where real work happens. Claude Code connects with the tools th
 
 ### How do I get started with Claude?
 
-You can access Claude Code with a Claude Pro or Max plan, a Team or Enterprise plan premium seat, or a Claude Console account. [Download Claude Code](https://code.claude.com/docs/en/overview) and sign in with your respective Claude or Console credentials.
+You can access Claude Code with a Claude Pro or Max plan, a Team or Enterprise plan, or a Claude Console account. [Download Claude Code](https://code.claude.com/docs/en/overview) and sign in with your respective Claude or Console credentials.
 
-### What kinds of tasks can Claude Code handle?
+### What kind of tasks can Claude Code handle?
 
-Claude Code excels at both routine development tasks like bug fixes and testing, as well as transformative work like refactors and feature implementation that require deep codebase understanding.
+Claude Code can handle routine work like bug fixes and testing, and larger jobs like refactors and new features that are long-running and asynchronous.
+
+You set the direction as the architect and orchestrator, and Claude Code does the work. Describe what you want and it plans, writes code, runs tests, and opens pull requests. It can work on several tasks at once, and surface decisions you need to make for it to keep going.
 
 ### How does Claude Code work with my existing tools?
 
@@ -443,9 +447,9 @@ Yes. Max, Pro, Team, and Enterprise users can access Claude Code on the [Claude 
 
 ### What is fast mode on Claude Code?
 
-Fast mode is a high-speed configuration for Opus 5, making the model 2.5x faster at a higher cost per token. Fast mode is available:
+Fast mode is a high-speed configuration for Opus 5.5, making the model 2.5x faster at a higher cost per token. Fast mode is available:
 
-* In research preview on Claude Code, and is priced at $10/$50 per million tokens.
+* In research preview on Claude Code, and is priced at $8/$40 per million tokens.
 * On consumption-based plans.
 * Via usage credits for users on subscription plans.
 
@@ -475,7 +479,7 @@ Blog](https://www.anthropic.com/news/how-anthropic-teams-use-claude-code)
 
 Blog](https://claude.com/blog/fix-software-bugs-faster-with-claude)
 
-## Create what's exciting. Maintain what's essential.
+## Create what’s exciting. Maintain what’s essential.
 
 Use Claude Code where you work
 

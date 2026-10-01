@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # How CircleCI built a code validation agent with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b1f0251ef26c2f437138f1_logo_circleci-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b1f02afb707d585ea57da3_logo_circleci-dark-mode.svg)
+![Circleci logo](https://assets.claude.com/298400459eeefd8578e298986d96a5616025d2a4.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 90% of the engineering team uses Claude Code
 
@@ -40,63 +30,17 @@ when customers use CircleCI's Smarter Testing feature
 
 Building agents with the Claude Agent SDK
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698395d5956e6e0e78f3e486_image-claude-sdk.jpg)
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
 
-Read more
-
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)Read more
-
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Building agents with the Claude Agent SDK
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
+[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
 
 Introducing Claude Code
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Introducing Claude Code](https://assets.claude.com/56575a2d86ba511e0095b0cb9a92cafe7079c820.jpg?w=2400&q=75&fm=webp&fit=max)
 
 See Claude Code in action—from concept to commit in one seamless workflow.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Introducing Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-[Next](#)Next
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-Introducing Claude Code
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [CircleCI](https://circleci.com/), whose CI/CD platform processes billions of jobs annually for teams at Okta, Hinge, and Hugging Face, set out to tackle the growing maintenance burden that slows engineering teams down. The result is CircleCI’s autonomous AI agent [Chunk](https://circleci.com/product/chunk/), built with Claude, which identifies and resolves CI/CD-related maintenance issues with minimal human intervention.
 
@@ -140,58 +84,16 @@ CircleCI's roadmap builds on Claude's advancing reasoning capabilities: automate
 
 ‍
 
-"We could not have built Chunk without the Claude Agent SDK."
+> "We could not have built Chunk without the Claude Agent SDK."
 
-Michael Webster
+Michael Webster Principal Engineer, CircleCI
 
-Principal Engineer, CircleCI
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

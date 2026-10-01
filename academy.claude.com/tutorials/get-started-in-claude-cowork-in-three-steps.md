@@ -6,7 +6,7 @@
 
 # Get started in Claude Cowork in three steps
 
-The three setup steps before your first task: open the desktop app, run the guided setup, and point Cowork at where the work lives.
+The three setup steps before your first task: open Claude, run the guided setup, and point Cowork at where the work lives.
 
 4 minClaude Cowork
 
@@ -16,17 +16,15 @@ The three setup steps before your first task: open the desktop app, run the guid
 
 [Claude Cowork(opens in new tab)](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) takes on whole tasks across your files and connected tools to deliver finished work. It reads from your folders and the services you connect, does the work over many steps, and saves the result where you can open it.
 
-If you're still deciding which mode fits a task, see [when to use Chat vs Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat).
+Not sure whether a task belongs in Cowork? See [Choosing between Claude Cowork or Chat(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat).
 
-## 1. Open Claude Cowork in the desktop app[](#1-open-claude-cowork-in-the-desktop-app)
+## 1. Open Claude[](#1-open-claude)
 
-From the home page, select ***Cowork*** in the mode picker.
-
-![](https://academy.claude.com/assets/media/6b130760316f10078d23e877c42fc8a6b619754601264ce0d73ccbd260a1c940.png)
+Open the [Claude desktop app(opens in new tab)](https://claude.com/download) or [claude.ai(opens in new tab)](https://claude.ai) and sign in. If your home page has a Cowork tab, select it; otherwise just start a new conversation. Use the desktop app when the work involves files on your computer.
 
 ## 2. Run **/setup-claude** for a guided setup[](#2-run-setup-claude-for-a-guided-setup)
 
-*In your first Cowork session, type* [*`/setup-claude`*](claude://cowork/new?q=%2Fsetup-claude) *and press enter.*
+*In a new conversation, type* [*`/setup-claude`*](claude://cowork/new?q=%2Fsetup-claude) *and press enter.*
 
 Claude walks you through setup in the conversation: pick your role, install a plugin matched to it, and connect the tools that plugin uses — Slack, Google Workspace or Microsoft 365, and whichever systems your role lives in. New users will see a **Set up Cowork** banner that starts the same flow; the skill works anytime you want to revisit it.
 
@@ -38,12 +36,12 @@ A [plugin(opens in new tab)](https://support.claude.com/en/articles/13837440-use
 
 With a working location set, Cowork finds what's relevant on its own and writes the result there as a real file you can open, share, or keep editing.
 
-* A **folder** on your computer — Cowork reads what's there and saves new files alongside it. Scope it to one piece of work, or point it at a broader directory that several tasks share.
-* A [**Project**(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-cowork) — a workspace that carries its own files, instructions, and memory across sessions. Create one in Cowork's sidebar, or import a Project you already use in Chat.
+* A **folder** on your computer (in the desktop app) — Cowork reads what's there and saves new files alongside it. Scope it to one piece of work, or point it at a broader directory that several tasks share.
+* A [**Project**(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-cowork) — keeps its own files, instructions, and memory across sessions. Create one from **Projects** in the sidebar.
 
 ## 4. Try your first task[](#4-try-your-first-task)
 
-[Open a new Cowork session](claude://cowork/new) and start on something from your to-do list: a task that's spread across your tools, takes several steps, or needs real work on your computer. Set the working folder and describe the result you need.
+[Start a new task](claude://cowork/new) with something from your to-do list: a task that's spread across your tools, takes several steps, or needs real work on your computer. Set the working folder and describe the result you need.
 
 * *Turn the research in this folder into a one-page brief.*
 * *Write a status summary from last week's Slack and Linear activity.*
@@ -57,7 +55,7 @@ Type `/` for the starting prompts your plugin installed, or browse [Cowork use c
 * [**Use plugins in Cowork**(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork) — install, update, and see what a plugin adds to a session.
 * [**Use Cowork safely**(opens in new tab)](https://support.claude.com/en/articles/13364135-use-cowork-safely) — what Cowork can access and how approvals work.
 
-* [1. Open Claude Cowork in the desktop app](#1-open-claude-cowork-in-the-desktop-app)
+* [1. Open Claude](#1-open-claude)
 * [2. Run /setup-claude for a guided setup](#2-run-setup-claude-for-a-guided-setup)
 * [3. Give Claude Cowork a place to work](#3-give-claude-cowork-a-place-to-work)
 * [4. Try your first task](#4-try-your-first-task)

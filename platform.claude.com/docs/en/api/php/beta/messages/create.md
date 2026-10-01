@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/php/beta/messages/create
 
 # Create a Message
 
-`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?FallbackCreditToken fallbackCreditToken, ?BetaFallbacksParam fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessage`
+`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaCompactionConfig compaction, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?FallbackCreditToken fallbackCreditToken, ?BetaFallbacksParam fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessage`
 
 **POST** `/v1/messages`
 
@@ -90,6 +90,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
+- `compaction?:optional BetaCompactionConfig`
+
+  Compaction configuration.
+
+  When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
+
 - `container?:optional Container`
 
   Container identifier for reuse across requests.
@@ -102,8 +108,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `diagnostics?:optional BetaDiagnosticsParam`
 
-  Request-level diagnostics. Currently carries the previous response
-  id for prompt-cache divergence reporting.
+  Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
 - `fallbackCreditToken?:optional FallbackCreditToken`
 
@@ -156,7 +161,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `speed?:optional Speed`
 
-  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
 - `stopSequences?:optional list<string>`
 
@@ -168,9 +173,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `stream?:optional bool`
 
-  Whether to incrementally stream the response using server-sent events.
+  Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-  See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+  In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
 - `system?:optional System`
 
@@ -264,6 +269,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `outputFormat?:optional BetaJSONOutputFormat`
 
   **Deprecated**
@@ -274,7 +283,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `temperature?:optional float`
 
-  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Amount of randomness injected into the response.
 
@@ -304,7 +313,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 ## Returns
 
-- `BetaMessage`
+- `class BetaMessage`
 
   - `"message" type`
 
@@ -320,7 +329,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `?BetaContainer container`
 
-    Information about the container used in the request (for the code execution tool)
+    Information about the container used in this request.
+
+    This will be non-null if a container tool (e.g. code execution) was used.
 
   - `list<BetaContentBlock> content`
 
@@ -359,8 +370,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `?BetaDiagnostics diagnostics`
 
-    Response envelope for request-level diagnostics. Present (possibly
-    null) whenever the caller supplied `diagnostics` on the request.
+    Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
   - `Model model`
 
@@ -376,7 +386,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `?BetaRefusalStopDetails stopDetails`
 
-    Structured information about a refusal.
+    Structured information about why model output stopped.
+
+    This is `null` when the `stop_reason` has no additional detail to report.
 
   - `?BetaStopReason stopReason`
 
@@ -412,33 +424,39 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-  - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+  - `?list<BetaInputTransformation> inputTransformations`
 
-    Changes the API made to the request's input before showing it to the model:
-    one entry per change, in request order. Today the only entry type is
-    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-    block from the request's `messages` that was removed from the prompt instead
-    of being shown to the model because it failed a binding check. More entry
-    types may be added over time; ignore types you do not recognize.
+    Changes the API made to the request's input before showing it to the model,
+    and blocks that failed a binding check but were left unchanged: one entry per
+    block, in request order. Two entry types today. `thinking_dropped` — a
+    `thinking`, `redacted_thinking` or `connector_text` block from the request's
+    `messages` that was removed from the prompt instead of being shown to the
+    model because it failed a binding check. `thinking_mismatch_allowed` — a
+    `thinking` or `redacted_thinking` block that failed the conversation check
+    (the conversation before it differs from the one it was created in, or it
+    carries no record of one on a model that requires it) and was shown to the
+    model all the same, because that check is not enforced for this request.
+    More entry types may be added over time; ignore types you do not recognize.
 
     Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
     every such response from a model that supports extended thinking, as `[]`
-    when nothing was changed; without the beta, blocks are removed all the same
-    but nothing is reported. Removed blocks contribute nothing to
-    `usage.input_tokens`. When streaming, the array is final in `message_start`;
-    the final `message_delta` event carries it only when a server-side model
-    fallback happened mid-stream, in which case it holds the serving model's
-    entries and replaces the one in `message_start`.
+    when there is no entry to report; without the beta, blocks are removed or
+    left in place all the same but nothing is reported. Removed blocks contribute
+    nothing to `usage.input_tokens`; blocks left in place count as sent. When
+    streaming, the array is final in `message_start`; the final `message_delta`
+    event carries it only when a server-side model fallback happened mid-stream,
+    in which case it holds the serving model's entries and replaces the one in
+    `message_start`.
 
-- `BetaRawMessageStreamEvent`
+- `class BetaRawMessageStreamEvent`
 
-  - `BetaRawMessageStartEvent`
+  - `class BetaRawMessageStartEvent`
 
     - `"message_start" type`
 
     - `BetaMessage message`
 
-  - `BetaRawMessageDeltaEvent`
+  - `class BetaRawMessageDeltaEvent`
 
     - `"message_delta" type`
 
@@ -460,39 +478,43 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-    - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+    - `?list<BetaInputTransformation> inputTransformations`
 
-      Changes the API made to the request's input before showing it to the model:
-      one entry per change, in request order. Today the only entry type is
-      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-      block from the request's `messages` that was removed from the prompt instead
-      of being shown to the model because it failed a binding check. More entry
-      types may be added over time; ignore types you do not recognize.
+      Changes the API made to the request's input before showing it to the model,
+      and blocks that failed a binding check but were left unchanged: one entry per
+      block, in request order. Two entry types today. `thinking_dropped` — a
+      `thinking`, `redacted_thinking` or `connector_text` block from the request's
+      `messages` that was removed from the prompt instead of being shown to the
+      model because it failed a binding check. `thinking_mismatch_allowed` — a
+      `thinking` or `redacted_thinking` block that failed the conversation check
+      (the conversation before it differs from the one it was created in, or it
+      carries no record of one on a model that requires it) and was shown to the
+      model all the same, because that check is not enforced for this request.
+      More entry types may be added over time; ignore types you do not recognize.
 
       Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
       every such response from a model that supports extended thinking, as `[]`
-      when nothing was changed; without the beta, blocks are removed all the same
-      but nothing is reported. Removed blocks contribute nothing to
-      `usage.input_tokens`. When streaming, the array is final in `message_start`;
-      the final `message_delta` event carries it only when a server-side model
-      fallback happened mid-stream, in which case it holds the serving model's
-      entries and replaces the one in `message_start`.
+      when there is no entry to report; without the beta, blocks are removed or
+      left in place all the same but nothing is reported. Removed blocks contribute
+      nothing to `usage.input_tokens`; blocks left in place count as sent. When
+      streaming, the array is final in `message_start`; the final `message_delta`
+      event carries it only when a server-side model fallback happened mid-stream,
+      in which case it holds the serving model's entries and replaces the one in
+      `message_start`.
 
-  - `BetaRawMessageStopEvent`
+  - `class BetaRawMessageStopEvent`
 
     - `"message_stop" type`
 
-  - `BetaRawContentBlockStartEvent`
+  - `class BetaRawContentBlockStartEvent`
 
     - `"content_block_start" type`
 
     - `ContentBlock contentBlock`
 
-      Response model for a file uploaded to the container.
-
     - `int index`
 
-  - `BetaRawContentBlockDeltaEvent`
+  - `class BetaRawContentBlockDeltaEvent`
 
     - `"content_block_delta" type`
 
@@ -500,7 +522,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `int index`
 
-  - `BetaRawContentBlockStopEvent`
+  - `class BetaRawContentBlockStopEvent`
 
     - `"content_block_stop" type`
 
@@ -527,6 +549,7 @@ $betaMessage = $client->beta->messages->create(
   ],
   model: Model::CLAUDE_OPUS_5,
   cacheControl: ['type' => 'ephemeral', 'ttl' => '5m'],
+  compaction: ['type' => 'summarize', 'instructions' => 'instructions'],
   container: [
     'id' => 'id',
     'skills' => [
@@ -706,7 +729,7 @@ var_dump($betaMessage);
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-fable-5-1",
+        "model": "claude-sonnet-5-5",
         "output_tokens": 0,
         "type": "message"
       }

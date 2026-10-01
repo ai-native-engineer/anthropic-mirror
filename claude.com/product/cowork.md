@@ -1,18 +1,20 @@
 <!-- source: https://claude.com/product/cowork -->
 
+Explore here
+
 Latest news
 
 [Next](#)Next
 
-Built-in browser
+Claude Cowork is now just Claude.
 
-Claude can now open sites, fill forms, and finish web tasks in a browser built into Cowork.
+Rolling out to Pro and Max, with more plans to follow.
 
-Read more
+Read what changed
 
-[Read more](https://claude.com/blog/cowork-built-in-browser)Read more
+[Read what changed](https://claude.com/blog/cowork-is-now-claude/)Read what changed
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a8f549bc5dfe0cc40a048f0_Node-Cursor.svg)
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aaad76b8d9af5b763e8efd1_cowork-tn.webp)
 
 # Claude Cowork
 
@@ -282,7 +284,7 @@ Claude connects to the tools you already use
 
 Learn more
 
-[Learn more](https://claude.com/archive/connectors)Learn more
+[Learn more](https://claude.com/connectors)Learn more
 
 ### Sub-agents
 

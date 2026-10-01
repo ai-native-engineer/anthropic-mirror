@@ -4,44 +4,32 @@
 
 Three patterns shaped Legora's legal-AI agent: what they could reuse from coding agents, what they had to translate, and what they had to invent. Hear Staff Software Engineer Jakob Emmerling share how Legora rebuilt document editing, linting, and bulk review around coding-agent principles and see the agent live.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-16:05 – 16:35
+:   16:05 – 16:35
 
 Speaker(s)
+:   Jakob Emmerling
 
-Jakob Emmerling
+    Staff Software Engineer,
 
-Staff Software Engineer,
-
-Legora
+    Legora
 
 ## Watch recording
 
-[Play video](#)Play video
+![What legal agents inherit from coding agents: Lessons from Legora](https://assets.claude.com/b58059e694c2531e9a6d9c5a825b2de422f41067.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d2aeb67273246e799afa_what-legal-agents-inherit-from-coding.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+What legal agents inherit from coding agents: Lessons from Legora | Session | Code w/ Claude 2026

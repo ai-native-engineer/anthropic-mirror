@@ -1,6 +1,6 @@
 <!-- source: https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet -->
 
-**Note**: This article applies only to Opus and Sonnet class models.
+**Note**: This article applies only to Opus and Sonnet class models, but doesn’t apply to Claude Opus 5.5 or Sonnet 5.5. We'll soon be expanding the Cyber Verification Program to include Opus 5.5, Sonnet 5.5, and Mythos class models.
 
 As part of our ongoing safety commitments, we have real-time cyber safeguards on Claude Opus and Sonnet models. These safeguards are designed to automatically detect and block requests that may indicate prohibited or high-risk cybersecurity usage based on our Usage Policy.
 
@@ -30,13 +30,29 @@ How you apply depends on how you access Claude. Once you submit your application
 | **Microsoft Foundry** | Find both your Azure Tenant ID and Subscription ID in your Azure Portal (see instructions **[here](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id)**). Choose "Azure" under the **Surface** field in the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**. |
 | **Amazon Bedrock** | The Cyber Verification Program is not available on Bedrock at this time. |
 | **Claude Platform on AWS** | Navigate to the **[Verification Portal](https://portal.anthropic.com/link?account_source=aws&program=cvp)** to apply for access to the Cyber Verification Program. You will need to create or log into an Anthropic account, then link your AWS account. ​  **Note:** Only authorized admins will be able to apply. |
-| **Google Vertex AI** | The Cyber Verification Program is not available on Vertex at this time. |
+| **Claude on Google Cloud** | Navigate to the **[Verification Portal](http://portal.anthropic.com/link?account_source=aws&program=cvp)** to apply for access to the Cyber Verification Program. You will need to create or log into an Anthropic account, then **[link your Google account](https://portal.anthropic.com/linked-accounts/gcp/link?from=picker)** and configure data retention. Please see the instructions under the **[Enable data retention on Claude on Google Cloud](#h_c551899218)** section below.    **Note:** Only authorized admins will be able to apply. |
 | **Third-party platform** (coding tools and other apps powered by Claude) | Reach out to your platform directly to check if Anthropic CVP is available and if so request access to the Cyber Use Case Form through the platform. Not all platforms participate in the CVP at this time. |
 | **Bring your own key (BYOK) Customers** | Follow instructions under **Anthropic first-party** |
 
 [Verification Portal](https://portal.anthropic.com/programs/cvp)
 
 **Are you a platform owner?** If you use Claude to power products or services available to your customers and want to learn whether your platform is eligible to participate in the Cyber Verification Program, please **[fill out this Platform CVP Interest Form](https://claude.com/form/platform-cvp-interest)**.
+
+## Enable data retention on Claude on Google Cloud
+
+In order to access the Cyber Verification Program through Claude on Google Cloud, you must consent to and configure data retention.
+
+Consent to the Advanced AI Safety Addendum once per project on the model page. In addition, the calling GCP project must opt in to the correct data retention settings. These are set on Google's **[PublisherModelConfig](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints#PublisherModelConfig)**, keyed by project, region, and model.
+
+**Note:** You must update these settings for every project, region, and model combination with which you'd like to use the Cyber Verification Program on Claude on Google Cloud.
+
+|  |  |  |
+| --- | --- | --- |
+| **Setting** | **Needed for** | **`PublisherModelConfig` field** |
+| **Data sharing with Anthropic** | Opus 5 | `dataSharingEnabledProvider: "ANTHROPIC"` |
+| **Advanced AI** | Sonnet 5  Opus 4.7  Opus 4.8 | `claudeFeatureConfig.advancedAiEnabled: true` |
+
+You can find out more about how to set this configuration by reading the **[Google Cloud documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#share-requests-responses-with-maas-partners)**.
 
 ## Appeals
 
@@ -50,8 +66,8 @@ If you’re encountering one of these issues, we recommend checking the followin
 
 If you've checked both and still believe something is wrong, you can **[submit a report or appeal form](https://claude.com/form/cyber-block-false-positive-report-cvp-rejection-appeal)**. Your feedback helps us refine these safeguards.
 
-* [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
+* [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
 * [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
-* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
-* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)
-* [Assign a program to workspaces in Claude Console](https://support.claude.com/en/articles/16764810-assign-a-program-to-workspaces-in-claude-console)
+* [Why Claude switched models in your conversation with Opus 5 or Opus 5.5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5-or-opus-5-5)
+* [Why Claude switched models in your conversation with Sonnet 5.5](https://support.claude.com/en/articles/17161993-why-claude-switched-models-in-your-conversation-with-sonnet-5-5)

@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/the-description-discernment-loop -->
 
-Lesson 11 of 14 · AI Fluency: Framework & FoundationsThe Description-Discernment loop
+Lesson 11 of 14 · AI Fluency: Framework and foundationsThe Description-Discernment loop
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # The Description-Discernment loop
 
@@ -75,7 +75,7 @@ In the next lesson, we'll explore the final competency in the AI Fluency Framewo
 
 [Previous lessonA closer look at Discernment](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-discernment)[Next lessonA closer look at Diligence](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-diligence)
 
-Lesson 11 of 14 · AI Fluency: Framework & FoundationsThe Description-Discernment loop
+Lesson 11 of 14 · AI Fluency: Framework and foundationsThe Description-Discernment loop
 
 Introduction to AI Fluency
 

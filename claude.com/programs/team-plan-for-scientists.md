@@ -128,7 +128,7 @@ Work across your literature databases, research platforms, and productivity tool
 
 Explore connectors
 
-[Explore connectors](https://claude.com/archive/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Products and programs to support scientists
 

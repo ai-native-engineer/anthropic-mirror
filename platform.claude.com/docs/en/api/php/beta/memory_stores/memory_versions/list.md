@@ -17,9 +17,11 @@ List memory versions
 
 - `memoryStoreID: string`
 
+  The ID of the memory store whose version history to list (`memstore_...`).
+
 - `apiKeyID?:optional string`
 
-  Query parameter for api_key_id
+  Return only versions written with the API key that has this ID.
 
 - `createdAtGte?:optional \Datetime`
 
@@ -31,31 +33,33 @@ List memory versions
 
 - `limit?:optional int`
 
-  Query parameter for limit
+  The maximum number of versions to return per page. Defaults to 20.
 
 - `memoryID?:optional string`
 
-  Query parameter for memory_id
+  Return only versions of the memory with this ID (`mem_...`).
+
+  The filter still works after the memory is deleted. The results then include the version whose `operation` is `deleted`.
 
 - `operation?:optional ManagedAgentsMemoryVersionOperation`
 
-  Query parameter for operation
+  Return only versions that record this kind of change.
 
 - `page?:optional string`
 
-  Query parameter for page
+  The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
 
 - `serviceAccountID?:optional string`
 
-  Query parameter for service_account_id
+  Return only versions written by the service account with this ID (`svac_...`).
 
 - `sessionID?:optional string`
 
-  Query parameter for session_id
+  Return only versions written by the session with this ID.
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -63,9 +67,13 @@ List memory versions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `ManagedAgentsMemoryVersion`
+- `class ManagedAgentsMemoryVersion`
 
   - `Type type`
 
@@ -75,11 +83,11 @@ List memory versions
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this version was written, in RFC 3339 format.
 
   - `string memoryID`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `string memoryStoreID`
 
@@ -87,7 +95,7 @@ List memory versions
 
   - `ManagedAgentsMemoryVersionOperation operation`
 
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
 
   - `?string content`
 
@@ -103,7 +111,7 @@ List memory versions
 
   - `?ManagedAgentsActor createdBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
 
   - `?string path`
 
@@ -111,11 +119,11 @@ List memory versions
 
   - `?\Datetime redactedAt`
 
-    A timestamp in RFC 3339 format
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
 
   - `?ManagedAgentsActor redactedBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
 
 ## Example
 

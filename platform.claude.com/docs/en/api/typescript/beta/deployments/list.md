@@ -53,7 +53,11 @@ List Deployments
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -61,97 +65,103 @@ List Deployments
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -161,7 +171,7 @@ List Deployments
 
 ## Returns
 
-- `BetaManagedAgentsDeployment`
+- `interface BetaManagedAgentsDeployment`
 
   A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
 
@@ -173,7 +183,7 @@ List Deployments
 
   - `agent: BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `type: "agent"`
 
@@ -185,13 +195,13 @@ List Deployments
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -207,7 +217,7 @@ List Deployments
 
     Events sent to each session immediately after creation.
 
-    - `BetaManagedAgentsDeploymentUserMessageEvent`
+    - `interface BetaManagedAgentsDeploymentUserMessageEvent`
 
       A user message sent to the session.
 
@@ -217,7 +227,7 @@ List Deployments
 
         Array of content blocks for the user message.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
@@ -229,7 +239,7 @@ List Deployments
 
             minLength: 1
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
@@ -237,9 +247,9 @@ List Deployments
 
           - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-            Union type for image source variants.
+            The source of the image data.
 
-            - `BetaManagedAgentsBase64ImageSource`
+            - `interface BetaManagedAgentsBase64ImageSource`
 
               Base64-encoded image data.
 
@@ -257,7 +267,7 @@ List Deployments
 
                 minLength: 1
 
-            - `BetaManagedAgentsURLImageSource`
+            - `interface BetaManagedAgentsURLImageSource`
 
               Image referenced by URL.
 
@@ -269,7 +279,7 @@ List Deployments
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileImageSource`
+            - `interface BetaManagedAgentsFileImageSource`
 
               Image referenced by file ID.
 
@@ -281,7 +291,7 @@ List Deployments
 
                 minLength: 1
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -289,9 +299,9 @@ List Deployments
 
           - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-            Union type for document source variants.
+            The source of the document data.
 
-            - `BetaManagedAgentsBase64DocumentSource`
+            - `interface BetaManagedAgentsBase64DocumentSource`
 
               Base64-encoded document data.
 
@@ -309,7 +319,7 @@ List Deployments
 
                 minLength: 1
 
-            - `BetaManagedAgentsPlainTextDocumentSource`
+            - `interface BetaManagedAgentsPlainTextDocumentSource`
 
               Plain text document content.
 
@@ -325,7 +335,7 @@ List Deployments
 
                 MIME type of the text content. Must be "text/plain".
 
-            - `BetaManagedAgentsURLDocumentSource`
+            - `interface BetaManagedAgentsURLDocumentSource`
 
               Document referenced by URL.
 
@@ -337,7 +347,7 @@ List Deployments
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileDocumentSource`
+            - `interface BetaManagedAgentsFileDocumentSource`
 
               Document referenced by file ID.
 
@@ -357,13 +367,13 @@ List Deployments
 
             The title of the document.
 
-        - `BetaManagedAgentsRedactedBlock`
+        - `interface BetaManagedAgentsRedactedBlock`
 
           Placeholder for content withheld by Anthropic model policy.
 
           - `type: "redacted"`
 
-    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+    - `interface BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
 
       An outcome the agent should work toward. The agent begins work on receipt.
 
@@ -375,9 +385,9 @@ List Deployments
 
       - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
-        - `BetaManagedAgentsFileRubric`
+        - `interface BetaManagedAgentsFileRubric`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -387,7 +397,7 @@ List Deployments
 
             ID of the rubric file.
 
-        - `BetaManagedAgentsTextRubric`
+        - `interface BetaManagedAgentsTextRubric`
 
           Rubric content provided inline as text.
 
@@ -403,7 +413,7 @@ List Deployments
 
         format: int32
 
-    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+    - `interface BetaManagedAgentsDeploymentSystemMessageEvent`
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
 
@@ -431,15 +441,15 @@ List Deployments
 
   - `paused_reason: BetaManagedAgentsDeploymentPausedReason | null`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
-    - `BetaManagedAgentsManualDeploymentPausedReason`
+    - `interface BetaManagedAgentsManualDeploymentPausedReason`
 
       The caller invoked the pause endpoint on the deployment.
 
       - `type: "manual"`
 
-    - `BetaManagedAgentsErrorDeploymentPausedReason`
+    - `interface BetaManagedAgentsErrorDeploymentPausedReason`
 
       A scheduled fire recorded a failed run whose error auto-pauses the deployment.
 
@@ -447,87 +457,87 @@ List Deployments
 
       - `error: BetaManagedAgentsDeploymentPausedReasonError`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
-        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
           The deployment's environment was archived.
 
           - `type: "environment_archived_error"`
 
-        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
 
           The deployment's agent was archived.
 
           - `type: "agent_archived_error"`
 
-        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
 
           The deployment's environment no longer exists.
 
           - `type: "environment_not_found_error"`
 
-        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
 
           A vault referenced by the deployment no longer exists.
 
           - `type: "vault_not_found_error"`
 
-        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
 
           A file resource referenced by the deployment no longer exists.
 
           - `type: "file_not_found_error"`
 
-        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
 
           A referenced resource no longer exists and its kind was not reported.
 
           - `type: "session_resource_not_found_error"`
 
-        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
 
           The deployment's workspace was archived.
 
           - `type: "workspace_archived_error"`
 
-        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
 
           The deployment's organization is disabled.
 
           - `type: "organization_disabled_error"`
 
-        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
 
           A memory store referenced by the deployment is archived.
 
           - `type: "memory_store_archived_error"`
 
-        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
 
           A skill referenced by the deployment's agent no longer exists.
 
           - `type: "skill_not_found_error"`
 
-        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
 
           A vault referenced by the deployment is archived.
 
           - `type: "vault_archived_error"`
 
-        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsUnknownDeploymentPausedReasonError`
 
           An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
 
           - `type: "unknown_error"`
 
-        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
 
           The deployment configures resources, but its environment is self-hosted and cannot mount them.
 
           - `type: "self_hosted_resources_unsupported_error"`
 
-        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
 
           An MCP server host used by the deployment's agent is blocked by the environment's network policy.
 
@@ -537,7 +547,7 @@ List Deployments
 
     Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
 
-    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+    - `interface BetaManagedAgentsGitHubRepositoryResourceConfig`
 
       A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
 
@@ -551,7 +561,7 @@ List Deployments
 
         Branch or commit to check out. Defaults to the repository's default branch.
 
-        - `BetaManagedAgentsBranchCheckout`
+        - `interface BetaManagedAgentsBranchCheckout`
 
           - `type: "branch"`
 
@@ -561,7 +571,7 @@ List Deployments
 
             minLength: 1, maxLength: 255
 
-        - `BetaManagedAgentsCommitCheckout`
+        - `interface BetaManagedAgentsCommitCheckout`
 
           - `type: "commit"`
 
@@ -575,7 +585,7 @@ List Deployments
 
         Mount path in the container. Defaults to `/workspace/<repo-name>`.
 
-    - `BetaManagedAgentsFileResourceConfig`
+    - `interface BetaManagedAgentsFileResourceConfig`
 
       A file mounted into each session's container.
 
@@ -589,7 +599,7 @@ List Deployments
 
         Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
 
-    - `BetaManagedAgentsMemoryStoreResourceConfig`
+    - `interface BetaManagedAgentsMemoryStoreResourceConfig`
 
       A memory store attached to each session created from this deployment.
 
@@ -601,7 +611,7 @@ List Deployments
 
       - `access?: "read_write" | "read_only" | null`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `"read_write"`
 
@@ -613,7 +623,7 @@ List Deployments
 
   - `schedule: BetaManagedAgentsSchedule | null`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `type: "cron"`
 
@@ -631,7 +641,7 @@ List Deployments
 
     - `last_run_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -641,15 +651,19 @@ List Deployments
 
   - `status: BetaManagedAgentsDeploymentStatus`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -659,13 +673,13 @@ List Deployments
 
   - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `type: "limit"`
 
     - `max_list_cost: BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: string`
 

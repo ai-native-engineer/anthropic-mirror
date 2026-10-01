@@ -44,7 +44,7 @@ Navigate to **Customize → Connectors** in Cowork to set up.
 
 Salesforce
 
-Custom connector
+[Connect](https://claude.ai/desktop/directory/salesforce-headless-360)
 
 ![](images/a3bfc5814bd6a3e2.svg)
 

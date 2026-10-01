@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Orange localizes manga at an unprecedented scale with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Orange logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c464693a3ac9ed436518d6_cs-logo-orange-light-theme.png)![Orange logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4646fd37dc9a70b533729_cs-logo-orange-dark-theme.png)
+![Orange logo](https://assets.claude.com/c97f28a41e222c81bda3ab8af5ed81dbfb385756.png)
 
 Industry:
-
-Entertainment
+:   Entertainment
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 5-7x efficiency
 
@@ -37,42 +27,6 @@ improvements over existing processes
 10x improvement
 
 delivery capacity from 5 to 50 books per month
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Orange, a leading manga startup, uses Claude to deliver English-translated digital manga to a global audience by automating complex translation tasks while preserving the natural dialogue and character voices that make manga unique.
 
@@ -123,52 +77,12 @@ Orange aims to use AI to break down language barriers in entertainment. They pla
 
 Kuroda concludes, "We hope to continue being partners who engage in open communication while exploring how this new technology can enrich us creatively. We aspire to collaborate beyond the boundaries of countries like Japan and the United States, creating global value together."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![StubHub](https://assets.claude.com/d3451a4bfe1c5af7f56f76ab8237c3bab7dd7a9d.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)[![Audience Strategies](https://assets.claude.com/3413dcb9640e98c9dd678f02077d38ea6f0b7b34.png)
 
-[Next](#)Next
+### Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
-Video caption
+### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)[![Lex](https://assets.claude.com/e6a76687f426d031b52ad173ac5406303b29bc38.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
-
-StubHub transforms live event ticketing with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/stubhub)Customer story
-
-[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/audience-strategies)Customer story
-
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wrtn)Customer story
-
-[Lex streamlines the writing process with Claude](https://claude.com/customers/lex)Lex streamlines the writing process with Claude
-
-Lex streamlines the writing process with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lex)Customer story
+### Lex streamlines the writing process with Claude](https://claude.com/customers/lex)

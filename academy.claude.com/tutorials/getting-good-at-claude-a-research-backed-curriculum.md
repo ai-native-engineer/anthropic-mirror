@@ -90,7 +90,7 @@ Signature move: **clarify the goal**. Writing a brief that names what you need b
 
 ## Where to go from here[](#where-to-go-from-here)
 
-The AI Fluency Index continues to track these patterns monthly, and we'll keep publishing what we learn as the products evolve and the dataset grows. If you're building Claude training for your organization and want to ground it in this research, the [AI Fluency framework and courseware(opens in new tab)](https://academy.claude.com/collections/ai-fluency) are freely available, and you can [sign up for the AI Fluency newsletter(opens in new tab)](https://academy.claude.com/collections/ai-fluency#newsletter) to get notified about new research on AI fluency.
+The AI Fluency Index continues to track these patterns monthly, and we'll keep publishing what we learn as the products evolve and the dataset grows. If you're building Claude training for your organization and want to ground it in this research, the [AI Fluency framework and courseware(opens in new tab)](https://academy.claude.com/collections/collaborating-with-ai) are freely available, and you can [sign up for the AI Fluency newsletter(opens in new tab)](https://academy.claude.com/collections/collaborating-with-ai#newsletter) to get notified about new research on AI fluency.
 
 We're particularly interested in hearing from teams experimenting with Discernment instruction on agentic surfaces, since that's where the data suggests the biggest gap between what users do naturally and what good practice requires. If you're running something along those lines, we'd love to learn from it.
 

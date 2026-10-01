@@ -130,7 +130,7 @@ No items found.
 
 Thank you for your interest in The Briefing: Enterprise Agents
 
-Applications for this event are now closed. We invite you to tune into the livestream on Feb 24, 2026 at 9:30am EST. The livestream will take place right here on this page.
+Applications for this event are now closed. We invite you to tune into the livestream on February 24, 2026 at EST. The livestream will take place right here on this page.
 
 Not able to submit the form? Try loading it directly
 
@@ -160,7 +160,7 @@ No items found.
 
 ## Agenda
 
-* Feb 24
+* 24 Feb
 
 Day 1Day 2Day 3Day 3
 
@@ -203,18 +203,6 @@ EST
 ### —
 
 ### Tuesday
-
-9:30 am
-
--
-
-10:30 am
-
-EST
-
-### Product Keynote
-
-Featuring Anthropic product and technical leaders
 
 9:30 am
 

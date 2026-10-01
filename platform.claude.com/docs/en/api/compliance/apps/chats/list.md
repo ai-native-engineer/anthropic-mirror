@@ -13,6 +13,11 @@ Lists chat metadata with filtering capabilities for targeted
 compliance review. Results are sorted chronologically (time ascending)
 by the `order_by` key, with ties broken by id.
 
+Incremental polling with `order_by=updated_at` returns a chat again
+after it receives a new message, is moved into or out of a project, or
+is deleted in claude.ai. A chat is not guaranteed to be returned again
+after other edits, such as a rename.
+
 **Deprecation notice:** Combining `user_ids[]` with any `updated_at.*`
 filter is deprecated and will be rejected with HTTP 400 after
 2026-09-22. For incremental polling by update time, omit `user_ids[]`
@@ -62,7 +67,7 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
   Maximum results (default: 100, max: 1000)
 
-  default: 100, maximum: 1000, minimum: 1
+  default: 100, minimum: 1, maximum: 1000
 
 - `order_by: optional "created_at" or "updated_at"`
 
@@ -116,12 +121,6 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
 ## Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 ## Returns
@@ -168,27 +167,13 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
   - `updated_at: string`
 
-    Last update timestamp
+    Last update timestamp. Updated when the chat receives a new message, is moved into or out of a project, or is deleted in claude.ai. Other edits, such as renaming the chat, are not guaranteed to change it.
 
     format: date-time
 
   - `user: object or null`
 
-    The user who created the chat.
-
-    Null when the API key is restricted to one organization and the creator
-    is no longer a member of it (for example, after they were removed from
-    it).
-
-    A key for the whole parent organization returns the creator's `id`
-    and current `email_address` for every chat; on the list endpoint, pass
-    `organization_ids[]` to keep the results to one organization. For the
-    email address the creator had when the chat was created, query
-    `GET /v1/compliance/activities` with `activity_types[]=claude_chat_created`
-    and a `created_at` window around the chat's `created_at`, find the event
-    whose `claude_chat_id` matches this chat's `id`, and read
-    `actor.email_address`. These events exist only for chats created after
-    compliance logging was enabled for the organization.
+    The user who created the chat. Null when the API key is restricted to one organization and the creator is no longer a member of it.
 
     - `id: string`
 
@@ -220,6 +205,7 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 

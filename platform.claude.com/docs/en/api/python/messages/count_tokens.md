@@ -76,7 +76,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `List[Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 14 more]]`
 
-      - `class TextBlockParam: …`
+      - `class TextBlockParam`
 
         - `type: Literal["text"]`
 
@@ -107,7 +107,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `citations: Optional[List[TextCitationParam]]`
 
-          - `class CitationCharLocationParam: …`
+          - `class CitationCharLocationParam`
 
             - `type: Literal["char_location"]`
 
@@ -119,7 +119,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `document_title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_char_index: int`
 
@@ -127,7 +127,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               minimum: 0
 
-          - `class CitationPageLocationParam: …`
+          - `class CitationPageLocationParam`
 
             - `type: Literal["page_location"]`
 
@@ -139,7 +139,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `document_title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_page_number: int`
 
@@ -147,7 +147,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               minimum: 1
 
-          - `class CitationContentBlockLocationParam: …`
+          - `class CitationContentBlockLocationParam`
 
             - `type: Literal["content_block_location"]`
 
@@ -163,7 +163,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `document_title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_block_index: int`
 
@@ -177,7 +177,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               minimum: 0
 
-          - `class CitationWebSearchResultLocationParam: …`
+          - `class CitationWebSearchResultLocationParam`
 
             - `type: Literal["web_search_result_location"]`
 
@@ -187,13 +187,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `title: Optional[str]`
 
-              maxLength: 512, minLength: 1
+              minLength: 1, maxLength: 512
 
             - `url: str`
 
               minLength: 1
 
-          - `class CitationSearchResultLocationParam: …`
+          - `class CitationSearchResultLocationParam`
 
             - `type: Literal["search_result_location"]`
 
@@ -227,13 +227,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `title: Optional[str]`
 
-      - `class ImageBlockParam: …`
+      - `class ImageBlockParam`
 
         - `type: Literal["image"]`
 
         - `source: Source`
 
-          - `class Base64ImageSource: …`
+          - `class Base64ImageSource`
 
             - `type: Literal["base64"]`
 
@@ -251,13 +251,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `"image/webp"`
 
-          - `class URLImageSource: …`
+          - `class URLImageSource`
 
             - `type: Literal["url"]`
 
             - `url: str`
 
-          - `class FileImageSource: …`
+          - `class FileImageSource`
 
             - `type: Literal["file"]`
 
@@ -279,13 +279,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `"error"`
 
-      - `class DocumentBlockParam: …`
+      - `class DocumentBlockParam`
 
         - `type: Literal["document"]`
 
         - `source: Source`
 
-          - `class Base64PDFSource: …`
+          - `class Base64PDFSource`
 
             - `type: Literal["base64"]`
 
@@ -295,7 +295,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `media_type: Literal["application/pdf"]`
 
-          - `class PlainTextSource: …`
+          - `class PlainTextSource`
 
             - `type: Literal["text"]`
 
@@ -303,7 +303,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `media_type: Literal["text/plain"]`
 
-          - `class ContentBlockSource: …`
+          - `class ContentBlockSource`
 
             - `type: Literal["content"]`
 
@@ -313,17 +313,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `List[ContentBlockSourceContent]`
 
-                - `class TextBlockParam: …`
+                - `class TextBlockParam`
 
-                - `class ImageBlockParam: …`
+                - `class ImageBlockParam`
 
-          - `class URLPDFSource: …`
+          - `class URLPDFSource`
 
             - `type: Literal["url"]`
 
             - `url: str`
 
-          - `class FileDocumentSource: …`
+          - `class FileDocumentSource`
 
             - `type: Literal["file"]`
 
@@ -343,9 +343,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `title: Optional[str]`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
-      - `class SearchResultBlockParam: …`
+      - `class SearchResultBlockParam`
 
         - `type: Literal["search_result"]`
 
@@ -373,7 +373,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `citations: Optional[CitationsConfigParam]`
 
-      - `class ThinkingBlockParam: …`
+      - `class ThinkingBlockParam`
 
         - `type: Literal["thinking"]`
 
@@ -387,7 +387,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           The `thinking` text of this block as returned by the API.
 
-      - `class RedactedThinkingBlockParam: …`
+      - `class RedactedThinkingBlockParam`
 
         - `type: Literal["redacted_thinking"]`
 
@@ -395,7 +395,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-      - `class ToolUseBlockParam: …`
+      - `class ToolUseBlockParam`
 
         - `type: Literal["tool_use"]`
 
@@ -407,7 +407,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `name: str`
 
-          maxLength: 200, minLength: 1
+          minLength: 1, maxLength: 200
 
         - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -415,15 +415,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
-          - `class DirectCaller: …`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
             - `type: Literal["direct"]`
 
-          - `class ServerToolCaller: …`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
@@ -433,7 +431,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ServerToolCaller20260120: …`
+          - `class ServerToolCaller20260120`
 
             - `type: Literal["code_execution_20260120"]`
 
@@ -445,9 +443,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           For a toolset member tool_use, the toolset family this member belongs to.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-      - `class ToolResultBlockParam: …`
+      - `class ToolResultBlockParam`
 
         - `type: Literal["tool_result"]`
 
@@ -465,15 +463,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `List[Content]`
 
-            - `class TextBlockParam: …`
+            - `class TextBlockParam`
 
-            - `class ImageBlockParam: …`
+            - `class ImageBlockParam`
 
-            - `class SearchResultBlockParam: …`
+            - `class SearchResultBlockParam`
 
-            - `class DocumentBlockParam: …`
+            - `class DocumentBlockParam`
 
-            - `class ToolReferenceBlockParam: …`
+            - `class ToolReferenceBlockParam`
 
               Tool reference block that can be included in tool_result content.
 
@@ -481,13 +479,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `tool_name: str`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `cache_control: Optional[CacheControlEphemeral]`
 
                 Create a cache control breakpoint at this content block.
 
-            - `class BrowserStateBlockParam: …`
+            - `class BrowserStateBlockParam`
 
               The caller's browser state after a browser toolset member call —
               the full inventory of open tabs, which tab is active, and any side
@@ -509,7 +507,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   The caller-assigned identifier for this tab, unique within the inventory.
 
-                  maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                  minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `title: str`
 
@@ -535,9 +533,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                maxItems: 200, minItems: 1
+                minItems: 1, maxItems: 200
 
-                - `class BrowserStateChangeTabOpened: …`
+                - `class BrowserStateChangeTabOpened`
 
                   A tab this call's execution opened that remains open at its end —
                   the creation delta of the `tabs` inventory, not an event log.
@@ -553,9 +551,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                - `class BrowserStateChangeDownloadStarted: …`
+                - `class BrowserStateChangeDownloadStarted`
 
                   A file download that started during this call.
 
@@ -565,7 +563,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `url: str`
 
@@ -573,7 +571,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                - `class BrowserStateChangeDownloadCompleted: …`
+                - `class BrowserStateChangeDownloadCompleted`
 
                   A file download that finished during this call, reported with the
                   same `download_id` as its `download_started` — or without a prior
@@ -586,7 +584,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `url: str`
 
@@ -598,7 +596,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `size_bytes: Optional[int]`
 
@@ -606,7 +604,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     minimum: 0
 
-                - `class BrowserStateChangeDownloadFailed: …`
+                - `class BrowserStateChangeDownloadFailed`
 
                   A file download that failed — or was cancelled — during this call.
 
@@ -616,7 +614,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `url: str`
 
@@ -628,7 +626,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The failure or cancellation detail, when known.
 
-                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
         - `is_error: Optional[bool]`
 
@@ -636,9 +634,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           For a toolset member tool_result, the toolset family of the paired tool_use.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-      - `class ServerToolUseBlockParam: …`
+      - `class ServerToolUseBlockParam`
 
         - `type: Literal["server_tool_use"]`
 
@@ -670,19 +668,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
-          - `class DirectCaller: …`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller: …`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120: …`
+          - `class ServerToolCaller20260120`
 
-      - `class WebSearchToolResultBlockParam: …`
+      - `class WebSearchToolResultBlockParam`
 
         - `type: Literal["web_search_tool_result"]`
 
@@ -700,7 +696,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `page_age: Optional[str]`
 
-          - `class WebSearchToolRequestError: …`
+          - `class WebSearchToolRequestError`
 
             - `type: Literal["web_search_tool_result_error"]`
 
@@ -728,25 +724,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
-          - `class DirectCaller: …`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller: …`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120: …`
+          - `class ServerToolCaller20260120`
 
-      - `class WebFetchToolResultBlockParam: …`
+      - `class WebFetchToolResultBlockParam`
 
         - `type: Literal["web_fetch_tool_result"]`
 
         - `content: Content`
 
-          - `class WebFetchToolResultErrorBlockParam: …`
+          - `class WebFetchToolResultErrorBlockParam`
 
             - `type: Literal["web_fetch_tool_result_error"]`
 
@@ -772,7 +766,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `"content_too_large"`
 
-          - `class WebFetchBlockParam: …`
+          - `class WebFetchBlockParam`
 
             - `type: Literal["web_fetch_result"]`
 
@@ -796,27 +790,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
-          - `class DirectCaller: …`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller: …`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120: …`
+          - `class ServerToolCaller20260120`
 
-      - `class CodeExecutionToolResultBlockParam: …`
+      - `class CodeExecutionToolResultBlockParam`
 
         - `type: Literal["code_execution_tool_result"]`
 
         - `content: CodeExecutionToolResultBlockParamContent`
 
-          Code execution result with encrypted stdout for PFC + web_search results.
-
-          - `class CodeExecutionToolResultErrorParam: …`
+          - `class CodeExecutionToolResultErrorParam`
 
             - `type: Literal["code_execution_tool_result_error"]`
 
@@ -830,7 +820,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `"execution_time_exceeded"`
 
-          - `class CodeExecutionResultBlockParam: …`
+          - `class CodeExecutionResultBlockParam`
 
             - `type: Literal["code_execution_result"]`
 
@@ -846,7 +836,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `stdout: str`
 
-          - `class EncryptedCodeExecutionResultBlockParam: …`
+          - `class EncryptedCodeExecutionResultBlockParam`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -872,13 +862,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           Create a cache control breakpoint at this content block.
 
-      - `class BashCodeExecutionToolResultBlockParam: …`
+      - `class BashCodeExecutionToolResultBlockParam`
 
         - `type: Literal["bash_code_execution_tool_result"]`
 
         - `content: Content`
 
-          - `class BashCodeExecutionToolResultErrorParam: …`
+          - `class BashCodeExecutionToolResultErrorParam`
 
             - `type: Literal["bash_code_execution_tool_result_error"]`
 
@@ -894,7 +884,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `"output_file_too_large"`
 
-          - `class BashCodeExecutionResultBlockParam: …`
+          - `class BashCodeExecutionResultBlockParam`
 
             - `type: Literal["bash_code_execution_result"]`
 
@@ -918,13 +908,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           Create a cache control breakpoint at this content block.
 
-      - `class TextEditorCodeExecutionToolResultBlockParam: …`
+      - `class TextEditorCodeExecutionToolResultBlockParam`
 
         - `type: Literal["text_editor_code_execution_tool_result"]`
 
         - `content: Content`
 
-          - `class TextEditorCodeExecutionToolResultErrorParam: …`
+          - `class TextEditorCodeExecutionToolResultErrorParam`
 
             - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
@@ -942,7 +932,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `error_message: Optional[str]`
 
-          - `class TextEditorCodeExecutionViewResultBlockParam: …`
+          - `class TextEditorCodeExecutionViewResultBlockParam`
 
             - `type: Literal["text_editor_code_execution_view_result"]`
 
@@ -962,13 +952,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `total_lines: Optional[int]`
 
-          - `class TextEditorCodeExecutionCreateResultBlockParam: …`
+          - `class TextEditorCodeExecutionCreateResultBlockParam`
 
             - `type: Literal["text_editor_code_execution_create_result"]`
 
             - `is_file_update: bool`
 
-          - `class TextEditorCodeExecutionStrReplaceResultBlockParam: …`
+          - `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
             - `type: Literal["text_editor_code_execution_str_replace_result"]`
 
@@ -990,13 +980,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           Create a cache control breakpoint at this content block.
 
-      - `class ToolSearchToolResultBlockParam: …`
+      - `class ToolSearchToolResultBlockParam`
 
         - `type: Literal["tool_search_tool_result"]`
 
         - `content: Content`
 
-          - `class ToolSearchToolResultErrorParam: …`
+          - `class ToolSearchToolResultErrorParam`
 
             - `type: Literal["tool_search_tool_result_error"]`
 
@@ -1012,7 +1002,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `error_message: Optional[str]`
 
-          - `class ToolSearchToolSearchResultBlockParam: …`
+          - `class ToolSearchToolSearchResultBlockParam`
 
             - `type: Literal["tool_search_tool_search_result"]`
 
@@ -1022,7 +1012,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `tool_name: str`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -1036,7 +1026,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           Create a cache control breakpoint at this content block.
 
-      - `class ContainerUploadBlockParam: …`
+      - `class ContainerUploadBlockParam`
 
         A content block that represents a file to be uploaded to the container
         Files uploaded via this block will be available in the container's input directory.
@@ -1063,97 +1053,83 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
+  - `"claude-sonnet-5-5"`
 
-    The model that will complete your prompt.
+    Efficient model for coding and agents
 
-    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+  - `"claude-fable-5-1"`
 
-    - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-    - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
-    - `claude-sonnet-5` - High-performance model for coding and agents
-    - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-    - `claude-mythos-5` - Most capable model for cybersecurity and biology research
-    - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-    - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-    - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-    - `claude-mythos-preview` - Deprecated: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-    - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-    - `claude-sonnet-4-6` - Best combination of speed and intelligence
-    - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-    - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-    - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-    - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-    - `claude-sonnet-4-5` - High-performance model for agents and coding
-    - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-    - `"claude-fable-5-1"`
+  - `"claude-opus-5-5"`
 
-      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+    Powerful intelligence for coding, knowledge work, and long-running agents
 
-    - `"claude-mythos-5-1"`
+  - `"claude-mythos-5-1"`
 
-      Our most capable model for cybersecurity and biology research, available through trusted access programs
+    Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-    - `"claude-sonnet-5"`
+  - `"claude-sonnet-5"`
 
-      High-performance model for coding and agents
+    Efficient model for coding and agents
 
-    - `"claude-fable-5"`
+  - `"claude-fable-5"`
 
-      Next generation of intelligence for the hardest knowledge work and coding problems
+    Next generation of intelligence for the hardest knowledge work and coding problems
 
-    - `"claude-mythos-5"`
+  - `"claude-mythos-5"`
 
-      Most capable model for cybersecurity and biology research
+    Most capable model for cybersecurity and biology research
 
-    - `"claude-opus-5"`
+  - `"claude-opus-5"`
 
-      Powerful intelligence for long-running agents and coding
+    Powerful intelligence for long-running agents and coding
 
-    - `"claude-opus-4-8"`
+  - `"claude-opus-4-8"`
 
-      Powerful intelligence for long-running agents and coding
+    Powerful intelligence for long-running agents and coding
 
-    - `"claude-opus-4-7"`
+  - `"claude-opus-4-7"`
 
-      Powerful intelligence for long-running agents and coding
+    Powerful intelligence for long-running agents and coding
 
-    - `"claude-mythos-preview"`
+  - `"claude-opus-4-6"`
 
-      New class of intelligence, strongest in coding and cybersecurity
+    Powerful intelligence for long-running agents and coding
 
-    - `"claude-opus-4-6"`
+  - `"claude-sonnet-4-6"`
 
-      Powerful intelligence for long-running agents and coding
+    Best combination of speed and intelligence
 
-    - `"claude-sonnet-4-6"`
+  - `"claude-haiku-4-5"`
 
-      Best combination of speed and intelligence
+    Fastest model with near-frontier intelligence
 
-    - `"claude-haiku-4-5"`
+  - `"claude-haiku-4-5-20251001"`
 
-      Fastest model with near-frontier intelligence
+    Fastest model with near-frontier intelligence
 
-    - `"claude-haiku-4-5-20251001"`
+  - `"claude-opus-4-5"`
 
-      Fastest model with near-frontier intelligence
+    Powerful intelligence for long-running agents and coding
 
-    - `"claude-opus-4-5"`
+  - `"claude-opus-4-5-20251101"`
 
-      Powerful intelligence for long-running agents and coding
+    Powerful intelligence for long-running agents and coding
 
-    - `"claude-opus-4-5-20251101"`
+  - `"claude-sonnet-4-5"`
 
-      Powerful intelligence for long-running agents and coding
+    High-performance model for agents and coding
 
-    - `"claude-sonnet-4-5"`
+  - `"claude-sonnet-4-5-20250929"`
 
-      High-performance model for agents and coding
+    High-performance model for agents and coding
 
-    - `"claude-sonnet-4-5-20250929"`
+  - `"claude-mythos-preview"`
 
-      High-performance model for agents and coding
+    **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+    New class of intelligence, strongest in coding and cybersecurity
 
   - `str`
 
@@ -1167,7 +1143,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
 
-    All possible effort levels.
+    How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+    Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
     - `"low"`
 
@@ -1219,7 +1197,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `class ThinkingConfigEnabled: …`
+  - `class ThinkingConfigEnabled`
 
     - `type: Literal["enabled"]`
 
@@ -1241,11 +1219,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `"omitted"`
 
-  - `class ThinkingConfigDisabled: …`
+  - `class ThinkingConfigDisabled`
 
     - `type: Literal["disabled"]`
 
-  - `class ThinkingConfigAdaptive: …`
+  - `class ThinkingConfigBetweenTools`
+
+    - `type: Literal["between_tools"]`
+
+  - `class ThinkingConfigAdaptive`
 
     - `type: Literal["adaptive"]`
 
@@ -1261,7 +1243,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-  - `class ToolChoiceAuto: …`
+  - `class ToolChoiceAuto`
 
     The model will automatically decide whether to use tools.
 
@@ -1273,7 +1255,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Defaults to `false`. If set to `true`, the model will output at most one tool use.
 
-  - `class ToolChoiceAny: …`
+  - `class ToolChoiceAny`
 
     The model will use any available tools.
 
@@ -1285,7 +1267,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-  - `class ToolChoiceTool: …`
+  - `class ToolChoiceTool`
 
     The model will use the specified tool with `tool_choice.name`.
 
@@ -1301,7 +1283,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-  - `class ToolChoiceNone: …`
+  - `class ToolChoiceNone`
 
     The model will not be allowed to use tools.
 
@@ -1371,7 +1353,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-  - `class Tool: …`
+  - `class Tool`
 
     - `type: Optional[Literal["custom"]]`
 
@@ -1393,7 +1375,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -1429,7 +1411,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolBash20250124: …`
+  - `class ToolBash20250124`
 
     - `type: Literal["bash_20250124"]`
 
@@ -1463,7 +1445,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20250522: …`
+  - `class CodeExecutionTool20250522`
 
     - `type: Literal["code_execution_20250522"]`
 
@@ -1495,7 +1477,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20250825: …`
+  - `class CodeExecutionTool20250825`
 
     - `type: Literal["code_execution_20250825"]`
 
@@ -1527,7 +1509,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20260120: …`
+  - `class CodeExecutionTool20260120`
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -1561,7 +1543,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20260521: …`
+  - `class CodeExecutionTool20260521`
 
     Code execution tool with REPL state persistence.
 
@@ -1595,7 +1577,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class BrowserToolset20260801: …`
+  - `class BrowserToolset20260801`
 
     The browser toolset: a single `tools[]` entry (carrying no
     `name`) that declares the browser tool family. The model is served
@@ -1610,12 +1592,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `configs: Optional[BrowserToolsetConfigs]`
 
-      Per-member configuration for `browser_toolset_20260801`: one
-      optional field per member tool, keyed by the member name — the same
-      name the member's `tool_use` blocks carry. Every member is an
-      accepted key, and a member's defaults apply wherever its key is
-      absent. Unknown keys are rejected: the field set is this toolset
-      version's complete member set.
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
       - `type: Optional[BrowserTypeConfig]`
 
@@ -1989,7 +1966,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-  - `class MemoryTool20250818: …`
+  - `class MemoryTool20250818`
 
     - `type: Literal["memory_20250818"]`
 
@@ -2023,7 +2000,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ComputerToolset20260801: …`
+  - `class ComputerToolset20260801`
 
     The computer toolset: a single `tools[]` entry (carrying no
     `name`) that declares the computer tool family. The model is
@@ -2042,12 +2019,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `configs: Optional[ComputerToolsetConfigs]`
 
-      Per-member configuration for `computer_toolset_20260801`: one
-      optional field per member tool, keyed by the member name — the same
-      name the member's `tool_use` blocks carry. Every member is an
-      accepted key, and a member's defaults apply wherever its key is
-      absent. Unknown keys are rejected: the field set is this toolset
-      version's complete member set.
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
       - `type: Optional[ComputerTypeConfig]`
 
@@ -2253,7 +2225,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-  - `class ToolTextEditor20250124: …`
+  - `class ToolTextEditor20250124`
 
     - `type: Literal["text_editor_20250124"]`
 
@@ -2287,7 +2259,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolTextEditor20250429: …`
+  - `class ToolTextEditor20250429`
 
     - `type: Literal["text_editor_20250429"]`
 
@@ -2321,7 +2293,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolTextEditor20250728: …`
+  - `class ToolTextEditor20250728`
 
     - `type: Literal["text_editor_20250728"]`
 
@@ -2361,7 +2333,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class WebSearchTool20250305: …`
+  - `class WebSearchTool20250305`
 
     - `type: Literal["web_search_20250305"]`
 
@@ -2401,7 +2373,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: Optional[bool]`
 
@@ -2417,27 +2389,27 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         The city of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `country: Optional[str]`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-        maxLength: 2, minLength: 2
+        minLength: 2, maxLength: 2
 
       - `region: Optional[str]`
 
         The region of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `timezone: Optional[str]`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
-  - `class WebFetchTool20250910: …`
+  - `class WebFetchTool20250910`
 
     - `type: Literal["web_fetch_20250910"]`
 
@@ -2481,19 +2453,105 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class WebSearchTool20260209: …`
+    - `url_sources: Optional[WebFetchURLSources]`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: Optional[ClientToolResults]`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+        - `class WebFetchURLSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+          - `type: Literal["all"]`
+
+        - `class WebFetchURLSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+          - `type: Literal["none"]`
+
+        - `class WebFetchURLSourceOnly`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+          - `type: Literal["only"]`
+
+          - `tools: List[WebFetchURLSourceToolReference]`
+
+            - `type: Literal["tool_reference"]`
+
+            - `name: str`
+
+        - `class WebFetchURLSourceExcept`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+          - `type: Literal["except"]`
+
+          - `tools: List[WebFetchURLSourceToolReference]`
+
+            - `type: Literal["tool_reference"]`
+
+            - `name: str`
+
+      - `server_tool_results: Optional[ServerToolResults]`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+        - `class WebFetchURLSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `class WebFetchURLSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+        - `class WebFetchURLSourceOnly`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+        - `class WebFetchURLSourceExcept`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+      - `user_input: Optional[UserInput]`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
+        - `class WebFetchURLSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `class WebFetchURLSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+  - `class WebSearchTool20260209`
 
     - `type: Literal["web_search_20260209"]`
 
@@ -2533,7 +2591,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: Optional[bool]`
 
@@ -2543,7 +2601,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Parameters for the user's location. Used to provide more relevant search results.
 
-  - `class WebFetchTool20260209: …`
+  - `class WebFetchTool20260209`
 
     - `type: Literal["web_fetch_20260209"]`
 
@@ -2587,19 +2645,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class WebFetchTool20260309: …`
+    - `url_sources: Optional[WebFetchURLSources]`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+  - `class WebFetchTool20260309`
 
     Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -2645,23 +2707,27 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `url_sources: Optional[WebFetchURLSources]`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
     - `use_cache: Optional[bool]`
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-  - `class WebSearchTool20260318: …`
+  - `class WebSearchTool20260318`
 
     - `type: Literal["web_search_20260318"]`
 
@@ -2701,7 +2767,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -2719,7 +2785,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Parameters for the user's location. Used to provide more relevant search results.
 
-  - `class WebFetchTool20260318: …`
+  - `class WebFetchTool20260318`
 
     - `type: Literal["web_fetch_20260318"]`
 
@@ -2763,13 +2829,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -2783,11 +2849,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `url_sources: Optional[WebFetchURLSources]`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
     - `use_cache: Optional[bool]`
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-  - `class ToolSearchToolBm25_20251119: …`
+  - `class ToolSearchToolBm25_20251119`
 
     - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
 
@@ -2823,7 +2893,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolSearchToolRegex20251119: …`
+  - `class ToolSearchToolRegex20251119`
 
     - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
 
@@ -2865,9 +2935,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `workspace_id: Optional[str]`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `class MessageTokensCount: …`
+- `class MessageTokensCount`
 
   - `input_tokens: int`
 

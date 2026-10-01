@@ -32,6 +32,8 @@ You can review our full **[Usage Policy](https://www.anthropic.com/legal/aup)**,
 
 Thanks for using Claude! We appreciate you taking the time to stay informed on these updates as we work to responsibly deploy our products more broadly.
 
+---
+
 * [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
 * [Consumer Terms of Service Updates](https://privacy.claude.com/en/articles/9264813-consumer-terms-of-service-updates)
 * [Who owns and manages the data of my team?](https://privacy.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)

@@ -4,6 +4,8 @@
 
 August 3, 2026
 
+Table of contents
+
 *This article is about our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code. For our commercial products such as Claude for Work and the Anthropic API, see [here](https://privacy.anthropic.com/en/collections/10663361-commercial-customers).*
 
 If you use our Claude.ai consumer products and would like to change whether you allow us to use your data to improve Claude, you can always update your privacy settings.
@@ -32,8 +34,12 @@ To modify your model improvement settings on your mobile device:
 
 Learn more about how your personal data is used for model training [here](https://privacy.anthropic.com/en/articles/10023580-is-my-data-used-for-model-traininghttps://privacy.anthropic.com/en/articles/10023580-is-my-data-used-for-model-traininghttps://privacy.anthropic.com/en/articles/10023580-is-my-data-used-for-model-training), and how long your personal data is retained for [here](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-my-data).
 
+---
+
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)
 * [Privacy rights requests relating to Anthropic’s training data](https://privacy.claude.com/en/articles/15865314-privacy-rights-requests-relating-to-anthropic-s-training-data)
+
+Table of contents

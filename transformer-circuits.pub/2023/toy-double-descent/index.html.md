@@ -128,6 +128,8 @@ There is much more to explore. The most obvious question is whether the naive me
 * What happens in the "middle regime" as models transition from one strategy to the other and losses spike? What are these models doing mechanistically?
 * Is there some notion of "what is a feature" or "how to recognize features" which can encompass generalizing features, as well as single data points?
 
+---
+
 ## [Comments & Replications](#comments)
 
 Inspired by the original [Circuits Thread](https://distill.pub/2020/circuits/) and [Distill's Discussion Article experiment](https://distill.pub/2019/advex-bugs-discussion/), the authors invited several external researchers who we had previously discussed our preliminary results with to comment on this work. Their comments are included below.
@@ -162,6 +164,8 @@ The general trends are very similar. In particular:
 2. Both norms rise with increasing dataset size, and rapidly fall back down once the models learn generalizing features.
 
 There are again differences, though these are quantitative rather than qualitative. In particular, the peak bias norms in my models are roughly 3 times larger than those in the paper, and I see a rise in the weight norms over the range T=100–1000 whereas the figure in the paper shows more of a plateau.
+
+---
 
 Original Authors' Response: Thanks for replicating this! It's really nice to see that everything qualitatively reproduced. We're uncertain what caused the shift in the dataset size at which the transition occurs. It seems like there must be some hyperparameter difference between our setups, but we're uncertain what it is! However, since we only really care about the existence of the transition, and not exactly where it falls for this toy problem, we're not that concerned about identifying the exact difference.
 
@@ -242,7 +246,7 @@ As one final observation, in models on the edge of memorizing datapoints we see 
 
 Interestingly, this phenomenon is mirrored by a phenomenon in models with no repeated datapoints in the intermediate dataset regime, where some models briefly learn generalizing features and then forget them by the end of training. This is shown in the movie below for a model trained with T=10,000:
 
-[  ](b4_T_10k.mp4)
+[  ](https://transformer-circuits.pub/2023/toy-double-descent/b4_T_10k.mp4)
 
 ### [Data Dimensionality of MNIST](#comment-mnist)
 
@@ -261,6 +265,8 @@ Below, we plot the data dimensionality of all training examples. We see that mos
 ![](images/5964c12050ae6045.png)
 
 In addition to detecting overfitting, one might also see this as an example of [mechanistic anomaly detection](https://ai-alignment.com/mechanistic-anomaly-detection-and-elk-fb84f4c6d0dc) – detecting that a model is making decisions for a different reason than it normally does. Of course, we don't mean to suggest that all cases of a model "triggering a special case" can be so easily detected. If anything, it may hint that mechanistic anomaly detection will be even harder than one might think, since it could be hidden by superposition.
+
+---
 
 [Marius Hobbhahn](https://www.mariushobbhahn.com/) is a PhD student at the University of Tuebingen.
 

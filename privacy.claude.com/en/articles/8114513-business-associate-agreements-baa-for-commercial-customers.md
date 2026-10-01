@@ -2,7 +2,9 @@
 
 # Business Associate Agreements (BAA) for Commercial Customers
 
-Updated over 3 weeks ago
+Updated over 2 weeks ago
+
+Table of contents
 
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see **[here](https://privacy.claude.com/en/collections/10663362-consumers)**.*
 
@@ -12,7 +14,7 @@ Anthropic provides a BAA covering our HIPAA-ready services, such as use of our f
 
 **Important:** To use the 1P API with PHI, your organization’s Primary Owner will need to sign a BAA and then reach out to your Anthropic contact or our [**Sales team**](https://claude.com/contact-sales) to get this turned on.
 
-For clarity, the BAA only covers the single organization that accepted it, and excludes features such as Claude Console, Claude Cowork, or features currently in beta such as Claude in Office and Claude Design. As part of the BAA, customers of Anthropic’s HIPAA-ready services are subject to certain configuration requirements and limitations on what features/integrations are available.
+For clarity, the BAA only covers the single organization that accepted it, and excludes features such as Claude Console, Claude Cowork, or features currently in beta such as Claude in Office, Claude Design, Claude Slides, and Claude Docs. As part of the BAA, customers of Anthropic’s HIPAA-ready services are subject to certain configuration requirements and limitations on what features/integrations are available.
 
 Not all API features are covered; see the **[Implementation Guide](https://trust.anthropic.com/resources?s=2zblcrsgb00l3x9l2tpjf&name=[anthropic]-2025-type-1-hipaa-report-(-1-p-api).pdf)** for the full list of eligible and non-eligible features.
 
@@ -37,8 +39,10 @@ Below is a breakdown of what’s covered under the BAA, by feature and product s
 | Enterprise Search / “Ask Your Org” | ⚠️ *Available to use but sending data to 3rd parties via this feature isn’t covered under Anthropic’s BAA. Administrators who enable this feature are responsible for ensuring their workforce uses it in compliance with applicable legal obligations.* |
 | Claude in Chrome | ⚠️ *Available to use but sending data to 3rd parties via this feature isn’t covered under Anthropic’s BAA. Administrators who enable this feature are responsible for ensuring their workforce uses it in compliance with applicable legal obligations.* |
 | Cowork | ⚠️ *Available to use but feature is not covered under Anthropic’s BAA. Administrators who enable this feature are responsible for ensuring their workforce uses it in compliance with applicable legal obligations.* |
-| Claude for Office (Excel,PowerPoint, and Docs (beta)) | ⚠️ *Available to use but some features are in beta and not covered under Anthropic’s BAA. Administrators who enable this feature are responsible for ensuring their workforce uses it in compliance with applicable legal obligations.* |
-| Claude Design [beta] | ⚠️ *Available to use but feature is in beta and not covered under Anthropic’s BAA. Administrators who enable this feature are responsible for ensuring their workforce uses it in compliance with applicable legal obligations.* |
+| Claude for Microsoft 365 | ⚠️ *Available to use but some features are in beta and not covered under Anthropic’s BAA. Administrators who enable this feature are responsible for ensuring their workforce uses it in compliance with applicable legal obligations.* |
+| Claude Design [beta] | ❌ *Not available yet for HIPAA-ready organizations* |
+| Claude Slides [beta] | ❌ *Not available yet for HIPAA-ready organizations* |
+| Claude Docs [beta] | ❌ *Not available yet for HIPAA-ready organizations* |
 
 |  |  |
 | --- | --- |
@@ -116,9 +120,9 @@ The Messages API is covered as an Eligible Service under your BAA. The following
 | Claude Code Computer Use (beta) | ❌ Not covered under BAA |
 | Claude Code Remote Control (beta) | ❌ Not covered under BAA |
 | **Other beta features** | **BAA coverage status** |
-| Cowork | ❌ Not covered under BAA |
-| Claude for Office (Excel, PowerPoint, Docs (beta)) | ❌ Not covered under BAA |
 | Claude Design (beta) | ❌ Not covered under BAA |
+| Claude Slides (beta) | ❌ Not covered under BAA |
+| Claude Docs (beta) | ❌ Not covered under BAA |
 | **CLAUDE PLATFORM (1P API)** |  |
 | **Native 1P API features** | **BAA coverage status** |
 | Messages API (prompt caching, structured outputs, memory, web search, bash tool, text editor tool) | ✅ Eligible under BAA |
@@ -130,8 +134,12 @@ The Messages API is covered as an Eligible Service under your BAA. The following
 
 Please see our **[Trust Portal](https://trust.anthropic.com/resources?s=rgirr4qe8u7ek8c2igx3&name=claude-for-enterprise-hipaa-ready-offering-implementation-guide)** for more information about our compliance commitments.
 
+---
+
 * [Deleting commercial Anthropic accounts](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts)
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
 * [What personal data will be processed by Computer use?](https://privacy.claude.com/en/articles/10030352-what-personal-data-will-be-processed-by-computer-use)
 * [Data retention practices for Covered Models](https://privacy.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+
+Table of contents

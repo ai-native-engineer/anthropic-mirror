@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Rocket generates agency-grade websites from a single prompt with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69926a920a7a522d58ea87e1_logo_rocket-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69926a95da6530911795f1b9_logo_rocket-dark-mode.png)
+![Rocket logo](https://assets.claude.com/9512e6ec031b0279ff216fab3d11ac4c80afe0a5.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-India
+:   India
 
 $200 vs. ~$20,000
 
@@ -40,63 +30,17 @@ Building websites on the platform
 
 Introducing Claude Opus 4.6
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698529955ffaa6de831ec14e_opus%201%20(4).jpg)
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Read more
-
-[Read more](#)Read more
-
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.6
+![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/product/claude-code)
 
 [Rocket.new](http://rocket.new) generates websites and web applications from a single natural language prompt—multi-page sites with working forms, navigation, and design decisions built in, rather than requiring users to iterate their way to a finished product.
 
@@ -132,7 +76,7 @@ This hybrid approach lets Rocket optimize for both quality and cost. “Instead 
 
 The engineering investment paid off in concrete terms. A comparable website project that might cost around $20,000 through a traditional agency and take a month to deliver can be generated on Rocket in roughly 15 minutes for about $200. Users who had spent 10 or more hours iterating with other AI tools to get a passable result found they could get there in a single prompt. More than a million users have now built on the platform.
 
-The shift in design quality is visible in what the system produces. A single-sentence prompt requesting a landing page for an indie electronic artist returns a complete site with animations, embedded audio tracks, and a visual language that matches the genre, requiring very few follow-up prompts. For more complex requests, the platform generates multi-page websites with booking flows, forms, and navigation, making design decisions about fonts, color schemes, and layout based on the context it infers from the prompt.  “Even if a user puts in a one-liner, we’re able to generate an intuitive result,” Virani said.
+The shift in design quality is visible in what the system produces. A single-sentence prompt requesting a landing page for an indie electronic artist returns a complete site with animations, embedded audio tracks, and a visual language that matches the genre, requiring very few follow-up prompts. For more complex requests, the platform generates multi-page websites with booking flows, forms, and navigation, making design decisions about fonts, color schemes, and layout based on the context it infers from the prompt. “Even if a user puts in a one-liner, we’re able to generate an intuitive result,” Virani said.
 
 The response to the design improvements has shaped Rocket’s roadmap. Users who saw what the system could create from scratch started asking whether it could also revamp their existing websites. The team is now building a feature where users input a URL and specify constraints—like keeping the SEO intact but redesigning the visuals, or preserving the copy but updating the layout—and the system rebuilds the site accordingly.
 
@@ -142,58 +86,16 @@ Virani’s team is also experimenting with Anthropic’s Agent SDK for future ca
 
 ‍
 
-"We are using almost everything in the Anthropic system."
+> "We are using almost everything in the Anthropic system."
 
-Vishal Virani
+Vishal ViraniCEO and Co-founder, Rocket
 
-CEO and Co-founder, Rocket
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

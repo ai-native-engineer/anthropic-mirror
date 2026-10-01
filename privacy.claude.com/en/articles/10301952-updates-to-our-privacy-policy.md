@@ -4,7 +4,11 @@
 
 June 8, 2026
 
+Table of contents
+
 At Anthropic, we regularly review and update our [Privacy Policy](https://www.anthropic.com/legal/privacy) to better protect and inform you. As our products evolve we will keep you informed of the changes here.
+
+---
 
 ## **Summary of changes to our Privacy Policy, effective July 8, 2026**
 
@@ -30,6 +34,8 @@ We've provided more detail about how we keep in touch with you and promote our s
 
 While our products have evolved, our commitments haven't: We don’t sell your data, Claude remains ad-free, and you can control whether your conversations are used to improve Anthropic’s AI models.
 
+---
+
 ## **Summary of changes to our Privacy Policy, effective January 12, 2026**
 
 We’ve made two minor updates:
@@ -37,9 +43,13 @@ We’ve made two minor updates:
 1. Added a link to our new [Consumer Health Data Privacy Policy](https://www.anthropic.com/legal/consumer-health-data-privacy-policy), which applies to users in US states with consumer health data laws who choose to integrate third-party health applications with Claude.
 2. Consolidated our regional supplemental disclosures under Section 11 of our Privacy Policy.
 
+---
+
 ## Summary of changes to our Privacy Policy, effective October 8th, 2025
 
 We’ve made two minor updates: updating the effective date of the previous changes to the Privacy Policy from September 28 to October 8, and clarifying language in section 10 related to how we communicate with users and promote our Services.
+
+---
 
 ## Summary of changes to our Privacy Policy, effective September 28th, 2025
 
@@ -57,9 +67,13 @@ If you choose to allow us to use your data to improve Claude, we’ll retain thi
 
 We’ve added “Technical Information” to Section 10 (Legal Bases for Processing) of our Privacy Policy which includes your device location. When you choose to share your location with Claude, we will use that information to help you pull relevant information for your query (such as restaurant recommendations for a particular city). [Learn more here](https://privacy.claude.com/en/articles/11186740-does-claude-use-my-location).
 
+---
+
 ## Summary of changes to our Privacy Policy, effective May 1, 2025
 
 We’ve added a reference to the [Development Partner Program](https://support.claude.com/en/articles/11174108-about-the-development-partner-program) in Section 10 (Legal Bases of Processing).
+
+---
 
 ## Summary of changes to our Privacy Policy, effective February 19, 2025
 
@@ -78,6 +92,8 @@ You will see that we have:
 
 We have published a new [Notice on Model Training](https://anthropic.com/legal/model-training-notice) to explain how our large language models are ‘trained’ and how personal data obtained from third party sources may be used as part of the training process. This notice also includes information about the ways in which personal data of individuals who are not registered users of our services may incidentally be processed as part of our services, and the privacy rights such individuals may have with respect to their personal data.
 
+---
+
 ## Previous Versions
 
 You can view the previous version of our [Privacy Policy](https://www.anthropic.com/legal/privacy) using the Previous Version link at the top of the policy page. For reference, we’ve linked to all previous versions of our privacy policy below:
@@ -92,8 +108,12 @@ You can view the previous version of our [Privacy Policy](https://www.anthropic.
 * [March 4, 2024](https://www.anthropic.com/legal/archive/cf9213dc-642f-43ff-bb0b-f07e10eb0d9f)
 * [July 8, 2023](https://www.anthropic.com/legal/archive/11fe4b9e-49c2-4d1a-bad0-b81536efd524)
 
+---
+
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
-* [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://privacy.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [Supplemental Anthropic Interviewer Privacy Policy](https://privacy.claude.com/en/articles/14139821-supplemental-anthropic-interviewer-privacy-policy)
+* [Privacy rights requests relating to Anthropic’s training data](https://privacy.claude.com/en/articles/15865314-privacy-rights-requests-relating-to-anthropic-s-training-data)
+
+Table of contents

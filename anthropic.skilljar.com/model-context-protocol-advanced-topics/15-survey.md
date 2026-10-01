@@ -1,5 +1,9 @@
 <!-- https://anthropic.skilljar.com/model-context-protocol-advanced-topics/297276 -->
 
-# Survey
+# Course Satisfaction Survey - Advanced MCP
 
-_(등록 또는 권한이 필요한 레슨)_
+Mind sharing your thoughts and experiences around this course?
+
+3 questions
+
+Start

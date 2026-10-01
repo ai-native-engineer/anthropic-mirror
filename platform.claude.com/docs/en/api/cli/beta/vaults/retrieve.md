@@ -17,7 +17,7 @@ Get Vault
 
 - `--vault-id: string`
 
-  Path parameter vault_id
+  Unique identifier of the vault to retrieve.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -43,7 +43,7 @@ Get Vault
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 

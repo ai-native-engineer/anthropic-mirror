@@ -36,6 +36,8 @@ In this post, we present a replication and extension of an alignment faking mode
 
 Summary of the models that alignment fake (AF) in the harmful request setting. Key: 🔴 significant evidence of AF; 🟠 <1% AF was found; 🟡 there is evidence of AF when using the system prompt with training details, as well as synthetic document fine-tuning; 🟢 no AF is observed.
 
+---
+
 ## Method
 
 ### Overview of the Alignment Faking Setup
@@ -58,6 +60,8 @@ Data: We use harmful questions collated from HarmBench and other sources to test
 Compliance Classifier: The original AF paper uses a preference model to determine compliance. Instead, we use a GPT-4o classifier prompted with the Strong Reject [prompt](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/helpful_only_classifiers/strong_reject.jinja2) to classify compliance if the score is above 0.
 
 Alignment Faking Classifier: The original paper uses an [easy](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/scratchpad_classifiers/deceptive_alignment_prompt.jinja2) and [hard](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/scratchpad_classifiers/hard_deceptive_alignment_prompt.jinja2) classifier prompt to determine AF from the model's scratchpad. The hard classifier has an additional criterion, meaning it only marks AF if the model fully complies (no partial compliance or compromise). The AF rate is calculated by totaling the scratchpads where both the easy and hard get triggered and then taking 50% of the cases where either the easy or hard get triggered. We find that this method does not provide a reliable signal on AF. Instead, we use a GPT-4o classifier with a [new prompt](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/scratchpad_classifiers/new_classifiers/deceptive_alignment_majority_vote_v1.jinja) and run multiple votes at higher temperatures to detect AF, along with a separate classifier to detect partial compliance (see [prompt](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/scratchpad_classifiers/new_classifiers/partial_compliance_v1.jinja)).
+
+---
 
 ## Results
 
@@ -197,6 +201,8 @@ We release the Huggingface models and hope that the community will find them use
 * Llama 3 8B 90k docs - [robust-rlhf/llama-3-8b-Instruct\_ftjob-d79a49c8188a](https://huggingface.co/robust-rlhf/llama-3-8b-Instruct_ftjob-d79a49c8188a/tree/main)
 * Llama 3 405B 30k docs - [jplhughes2/1a\_meta-llama-Llama-3.1-405B-Instruct-fsdp-lr1e-5](https://huggingface.co/jplhughes2/1a_meta-llama-Llama-3.1-405B-Instruct-fsdp-lr1e-5/tree/main)
 
+---
+
 ## Next Steps
 
 1. We plan to run various revealed preferences experiments to understand the motivations of models that cause AF and the compliance gap in the models. We aim to understand the differences between:
@@ -211,6 +217,8 @@ We release the Huggingface models and hope that the community will find them use
 4. We are looking at model internals (probing and SAEs) for Llama 70B and 405B in situations where it chooses to AF.
 
 We'd love to chat if you're working on something in this space! We also hope that the code, improved classifiers, and fine-tuned models we release will be helpful to the community.
+
+---
 
 ## Appendix
 

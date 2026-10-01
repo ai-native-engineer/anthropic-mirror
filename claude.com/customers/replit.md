@@ -1,40 +1,29 @@
 <!-- source: https://claude.com/customers/replit -->
 
+[Skip to main content](#main-content)
+
 Case study | Claude Platform
 
 # Replit democratizes software development with Claude on Google Cloud
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a171c33e26efe4dcc528a83_problem_solvers_compressed.jpg)
+![Video thumbnail](https://assets.claude.com/e28ca8e052ce3a12f0a264037b3b1c9a3ec186c2.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-Google
+:   Google
 
 Location:
-
-North America
+:   North America
 
 50 million+ users
 
@@ -57,26 +46,6 @@ continuous autonomous development without human intervention
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0cb8c1f8c5c525e8c554b3_problem-solvers-padded-200kb.jpg)
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-Read more
-
-[Read more](https://claude.com/problem-solvers)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
 ## The complexity beyond the code
 
 AI made writing code faster for developers. The rest of software development stayed roughly where it was. Setting up environments, configuring deployments, debugging across files, managing infrastructure: for someone with no engineering background, every one of those steps still sat behind a wall. The gap between "I have an idea" and "I have a working application" stayed wide.
@@ -87,17 +56,13 @@ Closing the gap meant building an AI agent that could own an entire development 
 
 ‍
 
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
+
+The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
+
+[Read more](https://claude.com/problem-solvers)
+
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ## High-IQ reasoning and same-day launches
 
@@ -117,21 +82,9 @@ The pace of new Anthropic models has shaped Replit's product cadence. Each new r
 
 For Catasta, what was driving the pop stood out from anything Replit had launched before. "Users experience something that I've never seen before in our product," he said.
 
-"The moment Anthropic launched the new model, we launched our new agent the same day."
+> "The moment Anthropic launched the new model, we launched our new agent the same day."
 
-Michele Catasta
-
-President and Head of AI, Replit
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Michele CatastaPresident and Head of AI, Replit
 
 ## The outcome
 
@@ -149,42 +102,16 @@ For many of these users, opening Replit is the first time they've built software
 
 For Catasta, the work is personal. "When I was 16, I was focusing on becoming a good open-source developer," he said. "I love the fact that I'm still working on something I was passionate about as a teenager, and I think this is going to be my life's mission."
 
-"What previously required weeks of developer time now happens in a single afternoon."
+> "What previously required weeks of developer time now happens in a single afternoon."
 
-Amjad Masad
+Amjad MasadCEO and co-founder, Replit
 
-CEO and co-founder, Replit
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

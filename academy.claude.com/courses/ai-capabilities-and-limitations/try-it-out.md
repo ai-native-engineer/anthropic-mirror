@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out -->
 
-Lesson 5 of 13 · AI Capabilities and LimitationsTry It Out: Next Token Prediction
+Lesson 5 of 13 · AI capabilities and limitationsTry It Out: Next Token Prediction
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Try It Out: Next Token Prediction
 
@@ -12,7 +12,7 @@ Lesson 55 min
 
 [Previous lessonNext Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction)[Next lessonKnowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge)
 
-Lesson 5 of 13 · AI Capabilities and LimitationsTry It Out: Next Token Prediction
+Lesson 5 of 13 · AI capabilities and limitationsTry It Out: Next Token Prediction
 
 Getting started
 

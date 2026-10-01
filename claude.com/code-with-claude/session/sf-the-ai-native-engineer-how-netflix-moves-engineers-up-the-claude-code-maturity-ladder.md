@@ -4,38 +4,28 @@
 
 Netflix scales Claude Code across 3,000+ developers using a maturity model that separates "uses AI" from "productively changes how software gets built." Eric Wendelin will walk you through the proficiencies and skills, the infrastructure for measuring them, and what we learned along the way.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-12:00PM – 12:30PM
+:   12:00PM – 12:30PM
 
 Speaker(s)
+:   Eric Wendelin
 
-Eric Wendelin
+    Engineering Leader,
 
-Engineering Leader,
+    Netflix
 
-Netflix
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+The AI-native engineer: How Netflix moves engineers up the Claude Code maturity ladder | Session | Code w/ Claude 2026

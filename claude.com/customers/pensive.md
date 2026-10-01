@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Pensive offers personalized AI teaching assistants for higher ed with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6982c745e948814d5cdf68fe_logo_pensive-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6982c74916acfdfe3503c3f0_logo_pensive-dark-mode.png)
+![Pensive logo](https://assets.claude.com/ba18bd1fdc719a910dc0ba72d4db1bff7b215695.png)
 
 Industry:
-
-Education
+:   Education
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 60x faster
 
@@ -37,42 +27,6 @@ feedback cycle - grading in minutes vs days
 7% increase
 
 in student midterm scores
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Pensive](https://pensive.com) uses Claude to create AI teaching assistants that transform higher education, providing an AI Grader that reduces grading time by half and an AI Tutor that provides a 24/7 personalized learning experience at top universities.
 
@@ -138,58 +92,16 @@ Pensive aims to build a comprehensive learning record system. Yang explained, "T
 
 Pensive is creating a future where AI enhances education without replacing essential learning skills with Anthropic's partnership. "We view AI as a powerful technology that amplifies human creativity and motivation," said Yang. "Our mission is to design AI systems that advance students' critical thinking, not do the work for them."
 
-"Claude is consistently the most accurate and reliable model in quality and cost."
+> "Claude is consistently the most accurate and reliable model in quality and cost."
 
-Yoonseok Yang
+Yoonseok YangCo-founder, Pensive
 
-Co-founder, Pensive
+[![Magic School](https://assets.claude.com/cd32331aba30ee77bb8a9a4f6f769b3cf5819d14.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)[![Syracuse University](https://assets.claude.com/6faf42a6bf63981cdb21b56aa6c486dfe5f6aa5b.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)[![Syracuse University (Vertical)](https://assets.claude.com/3b0fe1d2906982c88d627148ba2bf5455745aed5.png)
 
-[Next](#)Next
+### Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)[![RileyBot](https://assets.claude.com/14b0586643ee08e0793d5b808b741c51db9d4814.png)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
-
-MagicSchool on building a safety layer for millions of student conversations
-
-Customer story
-
-[Customer story](https://claude.com/customers/magicschool-qa)Customer story
-
-[How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
-
-How Syracuse University deployed Claude to every student, faculty member, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse)Customer story
-
-[Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse-university)Customer story
-
-[RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)RileyBot creates safe AI learning experiences for students with Claude
-
-RileyBot creates safe AI learning experiences for students with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rileybot)Customer story
+### RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)

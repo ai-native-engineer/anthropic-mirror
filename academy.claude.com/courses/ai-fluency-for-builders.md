@@ -2,7 +2,7 @@
 
 [Courses](https://academy.claude.com/courses)
 
-# AI Fluency for Builders
+# AI Fluency for builders
 
 This course empowers builders to develop AI fluency — increasing impact and efficiency while staying true to what it means to own the full arc from problem to shipped solution.
 
@@ -12,7 +12,7 @@ This course empowers builders to develop AI fluency — increasing impact and ef
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-zsffwnm9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-i4gb2vk3.png)
 
-9 lessons · 1 quizAI Fluency for Builders
+9 lessons · 1 quizAI Fluency for builders
 
 What you’ll learnBy the end of this course, you’ll be able to
 

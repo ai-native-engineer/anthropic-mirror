@@ -1,0 +1,110 @@
+<!-- source: https://claude.com/docs/claude-tag/admins/healthcare -->
+
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+Claude Tag, the Claude app that works in your Slack channels, is not covered by Anthropic’s Business Associate Agreement (BAA). A healthcare organization can use it for work that doesn’t involve protected health information (PHI) by configuring it so that PHI never enters a channel, direct message, or connected tool that Claude can read.
+This page is for the Claude organization Owner and the compliance lead deciding where Claude works. It describes how to configure Claude Tag so PHI stays out of Claude’s reach. It is not legal advice. Review your setup with your legal and compliance teams before you turn Claude on.
+
+##  What Claude can read in Slack
+
+Claude reads Slack with the same visibility a member of your workspace has. In a Slack workspace connected to your Claude organization, Claude can:
+
+* Read and post in the channels it has been added to
+* Search every public channel by keyword, including public channels it hasn’t been added to. [No admin setting turns this search off](https://claude.com/docs/claude-tag/admins/restrict-access#controls-that-aren%E2%80%99t-available). An Admin or Owner can [limit it to channels Claude is in](https://claude.com/docs/claude-tag/admins/restrict-access#limit-which-channels-claude-can-search).
+* Read a private channel only after someone in that channel invites it
+
+Claude never searches private channels, and it doesn’t reply in [Slack Connect channels](https://claude.com/docs/claude-tag/admins/restrict-access#slack-connect-channels), the channels your workspace shares with another company.
+For a healthcare organization, the rule that follows is to keep PHI out of every public channel in the connected workspace, not only the channels where Claude responds, because Claude’s keyword search reaches all of them by default. Keep PHI out of any private channel Claude has been invited to as well.
+For how Claude’s work in each thread is isolated, how connection credentials are held, and where network traffic can go, see [Security and data handling](https://claude.com/docs/claude-tag/concepts/security-and-data).
+
+##  Plan and organization requirements
+
+Limiting Claude to approved channels needs an [Enterprise plan](https://claude.com/pricing), in addition to the [general prerequisites for Claude Tag](https://claude.com/docs/claude-tag/admins/setup-overview). Only the Enterprise plan has a [setting that turns Claude on or off for an individual channel](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-and-set-the-version-for-a-scope).
+If your Claude organization has Zero Data Retention (ZDR) or customer-managed encryption keys, Claude Tag [isn’t available in that organization](https://claude.com/docs/claude-tag/concepts/security-and-data). Ask your account team about creating a separate Claude organization without those policies and connecting your Slack workspace to the separate organization instead.
+
+##  Limit Claude to PHI-free channels
+
+An Owner turns Claude off everywhere by default, turns it on only in channels approved as PHI-free, turns off direct messages, and blocks channel names that signal PHI. Every setting in these steps is at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag).
+
+1
+
+Turn Claude off by default
+
+Go to **Claude Tag’s access** → **Slack** → **Default Slack** and turn off the **Enable Claude Tag in Slack** switch at the top of the panel. [Limit Claude Tag to specific channels](https://claude.com/docs/claude-tag/admins/restrict-access#limit-claude-tag-to-specific-channels) has the full procedure.
+
+2
+
+Reset workspace and channel entries that have their own setting
+
+A workspace or channel entry’s own **Enable Claude Tag** setting takes precedence over **Default Slack**, so an entry switched on during an earlier pilot keeps Claude active there. Under **Claude Tag’s access** → **Slack**, open each workspace and channel entry that has its own setting and click **Use inherited setting** under the switch.
+
+3
+
+Turn Claude on in each approved channel
+
+Go to **Claude Tag’s access** → **Slack**, select the entry for the approved channel, and turn on its **Enable Claude Tag in this channel** switch. If the channel isn’t listed under **Slack**, [add the channel with **Add channel**](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-to-a-channel) first.
+
+4
+
+Turn off direct messages
+
+On the same [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) page, turn off the [**Allow direct messages** toggle](https://claude.com/docs/claude-tag/admins/restrict-access#allow-or-disable-direct-messages). Claude is then reachable only in channels.
+
+5
+
+Block channel names that signal PHI
+
+Go to **Claude Tag’s access** → **Slack** → **Default Slack** → **Advanced** → **Blocked channel patterns** and add the naming patterns your workspace uses for clinical or patient channels, for example `*-patient-*`. Claude won’t read or respond in a matching channel even if someone invites it. See [Block or auto-join channels by name](https://claude.com/docs/claude-tag/admins/restrict-access#block-or-auto-join-channels-by-name).
+
+Any member of the workspace can still invite `@Claude` to a channel that isn’t approved. Claude stays silent there, and an @-mention gets a notice that Claude is disabled in that channel instead of a reply. Only an Owner of your Claude organization can change a **Claude Tag version** setting or the **Allow direct messages** toggle.
+
+##  Connect only PHI-free tools
+
+In a channel, Claude signs in to tools outside Slack only through the connections an Owner adds, and each connection is attached to specific channels through an [access bundle](https://claude.com/docs/claude-tag/admins/attach-to-scope). For a healthcare organization, apply these rules when deciding what to connect:
+
+* Connect only tools that never hold PHI, such as your code host, issue tracker, and internal documentation
+* Leave electronic health record systems, clinical systems, and patient communication tools unconnected
+* Treat email and calendar as PHI-bearing unless your compliance team has confirmed otherwise, and leave them unconnected until then
+* Attach each bundle to the approved channels that need it, not to **Default Slack** (the entry whose settings apply to every channel in every connected workspace), so a connection never reaches a channel it wasn’t reviewed for
+
+Members’ own claude.ai connectors, such as their email or calendar, are a separate path to tools outside Slack. In a direct message from a member who has connected a Claude account, Claude works on that member’s own Claude account and can use those connectors, so keep the **Allow direct messages** toggle off as described in [Limit Claude to PHI-free channels](#limit-claude-to-phi-free-channels). In channels, Claude can [use a member’s own connectors for that member’s requests](https://claude.com/docs/claude-tag/concepts/personal-connectors) after the member allows it, and no organization setting turns off personal connectors in channels entirely. These controls apply:
+
+* **Block a connector for everyone.** A connector you restrict for your organization on the [**Connectors** admin page](https://claude.ai/admin-settings/connectors) stays restricted when Claude uses a member’s connectors in a channel.
+* **Require human review.** On the Enterprise plan, turn on **Require human review of every message** in the **Personal connectors** section at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), so a member reviews every result before it posts to the channel.
+* **Treat the rest as PHI-bearing.** Include members’ remaining claude.ai connectors in the tools that must stay PHI-free.
+
+##  Train your workspace and monitor approved channels
+
+Settings keep Claude out of unapproved channels and tools. They don’t stop a person from typing PHI where Claude can read it. Train everyone in the workspace that patient information never goes in a public channel, in a channel Claude has been added to, or in a tool Claude is connected to. Run your data loss prevention tooling on the approved channels to catch mistakes.
+
+##  What Claude Tag stores
+
+Anthropic stores two things for the conversations Claude works in. The first is a transcript of each conversation, which includes everything Claude read while working. The second is the memory notes Claude keeps for each channel.
+Claude keeps separate notes for each channel. From a public channel it can also save workspace notes, and those inform its replies in every channel in the workspace. Notes from a private channel stay in that channel’s own store and aren’t read anywhere else.
+Anyone in a channel can ask Claude what it remembers there and tell it to correct or delete a note. An Owner can view, edit, and delete the memory notes of a channel or of the workspace at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) → **Claude Tag’s access** → **Slack** → the channel’s or workspace’s entry → options menu → **View memory files**.
+By default, your Slack conversations with Claude aren’t used to train Anthropic’s models. Anthropic’s [model training policy](https://privacy.anthropic.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training) describes when data is used. Claude Tag data is kept until one of the admin actions in [Data lifecycle and deletion](https://claude.com/docs/claude-tag/concepts/data-lifecycle) deletes it, and during the beta you can’t set a shorter retention period.
+For the full list of what is stored and what each admin action deletes, see [Data lifecycle and deletion](https://claude.com/docs/claude-tag/concepts/data-lifecycle) and [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
+
+##  If PHI is posted where Claude can read it
+
+Anthropic keeps a transcript of each conversation Claude works in, including the messages Claude read. Deleting a message in Slack doesn’t remove it from a transcript that already includes it. If PHI is posted in a channel where Claude is turned on, in any public channel of the connected workspace, or in a private channel Claude has been invited to:
+
+1. Report it to your organization’s HIPAA privacy officer and follow your incident process.
+2. Delete the message in Slack.
+3. If the message was posted in a channel where Claude is turned on, have an Owner delete that channel’s transcripts and memory immediately by [removing the channel’s entry](https://claude.com/docs/claude-tag/concepts/data-lifecycle#delete-data-or-request-deletion) under **Claude Tag’s access** → **Slack**.
+4. If that channel is public, have an Owner also check the workspace’s memory, because workspace notes Claude saved from that channel are stored with the workspace and aren’t deleted with the channel’s entry. Go to **Claude Tag’s access** → **Slack** → your workspace’s entry → options menu → **View memory files**, and delete any note that contains the information. Deleting a note removes it from what Claude reads in every channel right away.
+5. Email [privacy@anthropic.com](mailto:privacy@anthropic.com) to request deletion of the data Claude Tag retained that the admin controls in steps 3 and 4 don’t delete, including the workspace’s stored memory and any transcript in another channel whose session found the message through search. Include the workspace, the channel, and the time of the message.
+
+Removing a channel’s entry also turns Claude off in that channel, because the channel then inherits the setting from **Default Slack**, where you turned Claude off. To turn Claude back on later, add the channel again under **Claude Tag’s access** → **Slack** and turn on its **Enable Claude Tag in this channel** switch.
+
+##  Related resources
+
+* [Restrict where Claude Tag operates](https://claude.com/docs/claude-tag/admins/restrict-access): every control that narrows where Claude responds and who can use it
+* [Security and data handling](https://claude.com/docs/claude-tag/concepts/security-and-data): sandbox isolation, credential handling, and network egress
+* [Data lifecycle and deletion](https://claude.com/docs/claude-tag/concepts/data-lifecycle): what Anthropic stores and how to delete it

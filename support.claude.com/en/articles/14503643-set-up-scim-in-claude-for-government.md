@@ -1,5 +1,7 @@
 <!-- source: https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government -->
 
+**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved or you want to get started, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation.
+
 System for Cross-domain Identity Management (SCIM) lets your identity provider automatically manage user accounts in Claude for Government. With SCIM, your IdP controls who has access, what role they hold, and what seat tier they're assigned—without manual intervention in the Claude admin console.
 
 For SCIM setup on Claude Enterprise, see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
@@ -38,7 +40,7 @@ With SCIM, login and provisioning are separate. Your IdP tells Anthropic who sho
 
 **Important**: Store this key securely. It cannot be retrieved after you leave the page.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1789086600&signature=c83127b684523b3de3020706be9c2166c644a84a87fe1cd1130a4a359096101e&req=diIiEMl6nYBWX%2FMW1HO4zSrRlaUfYTASyIvvU1hav7M7ared0Y8uvbmOO6j%2F%0Ag1X5Q9W5dGed76yYm2E%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1789086600&signature=c83127b684523b3de3020706be9c2166c644a84a87fe1cd1130a4a359096101e&req=diIiEMl6nYBWX%2FMW1HO4zSrRlaUfYTASyIvvU1hav7M7ared0Y8uvbmOO6j%2F%0Ag1X5Q9W5dGed76yYm2E%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1790942400&signature=a1ed4aeb4d8342acd4acf0dac972fd1b54fd1a9db982effdbc3a716e353db556&req=diIiEMl6nYBWX%2FMW3nq%2Bgc89OY2bJRsvq9hvSmWoJSiouV0ff%2BCz18el8jQS%0AaV7OcwCfbyaJzorN8FmPuEErIaY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1790942400&signature=a1ed4aeb4d8342acd4acf0dac972fd1b54fd1a9db982effdbc3a716e353db556&req=diIiEMl6nYBWX%2FMW3nq%2Bgc89OY2bJRsvq9hvSmWoJSiouV0ff%2BCz18el8jQS%0AaV7OcwCfbyaJzorN8FmPuEErIaY%3D%0A)
 
 ### Step 2: Configure SCIM in your Identity Provider
 
@@ -59,7 +61,7 @@ After enabling the integration in your IdP:
 
 **Warning**: When you fully enable SCIM provisioning, any users who were **not** synced via SCIM will be removed from the organization. Confirm that all expected users appear in the sync before proceeding.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1789086600&signature=07ffa6a52411edf571b1a8837c099540d00113e7d8b56db60e4c6b97cbbe5acc&req=diIiEMl6nYBWUfMW1HO4zeLvMlFvQkr8oWupW8zJgMox2OxeoS841fbLKpqC%0AwZCI4BoL%2FG0ex3n3JR0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1789086600&signature=07ffa6a52411edf571b1a8837c099540d00113e7d8b56db60e4c6b97cbbe5acc&req=diIiEMl6nYBWUfMW1HO4zeLvMlFvQkr8oWupW8zJgMox2OxeoS841fbLKpqC%0AwZCI4BoL%2FG0ex3n3JR0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1790942400&signature=88ed0c254b2b75c7731a4018256f97b2a65d47336048c22105b6f61d94713528&req=diIiEMl6nYBWUfMW3nq%2BgQOGdDQ2dfbXTkvMT6JpuTTqysqr2UyapBfDKmzm%0AIXqTnHfp6eE5UxVRvF5Xtn9GLqY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1790942400&signature=88ed0c254b2b75c7731a4018256f97b2a65d47336048c22105b6f61d94713528&req=diIiEMl6nYBWUfMW3nq%2BgQOGdDQ2dfbXTkvMT6JpuTTqysqr2UyapBfDKmzm%0AIXqTnHfp6eE5UxVRvF5Xtn9GLqY%3D%0A)
 
 ### Step 4: Map groups to roles and seat tiers
 
@@ -72,7 +74,7 @@ SCIM provisioning uses IdP groups to assign roles and seat tiers within Claude f
    2. Seat tier — The license tier, if your organization has purchased multiple tiers.
 3. Save your mappings.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1789086600&signature=c1f7df03e3ebc64cec986e984921e94256169fa2d0e9fe586fb631a94642d5e0&req=diIiEMl7m4VbWPMW1HO4zaWhsXoiukEdh340B79BYGY6Mdg2k3wsErfpGr5O%0ABOTKJLwQHRqN31%2FOgrY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1789086600&signature=c1f7df03e3ebc64cec986e984921e94256169fa2d0e9fe586fb631a94642d5e0&req=diIiEMl7m4VbWPMW1HO4zaWhsXoiukEdh340B79BYGY6Mdg2k3wsErfpGr5O%0ABOTKJLwQHRqN31%2FOgrY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1790942400&signature=0bb887eb969d4adb7bfe56a61ed8a0bce792a390d15d74acd866e3c16df13371&req=diIiEMl7m4VbWPMW3nq%2BgQXN5mIpOkE2JnotEaDwkV%2Bik9NM50A3I0Rc95Af%0AIGeHOsGwrez%2FrkRPIDf%2BY87XFOQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1790942400&signature=0bb887eb969d4adb7bfe56a61ed8a0bce792a390d15d74acd866e3c16df13371&req=diIiEMl7m4VbWPMW3nq%2BgQXN5mIpOkE2JnotEaDwkV%2Bik9NM50A3I0Rc95Af%0AIGeHOsGwrez%2FrkRPIDf%2BY87XFOQ%3D%0A)
 
 If you manage multiple organizations under a single parent (see below), each organization maintains its own role and seat tier mappings. Switch between organizations using the organization selector in the bottom-left corner of the page.
 

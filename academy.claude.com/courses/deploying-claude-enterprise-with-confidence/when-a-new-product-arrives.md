@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/when-a-new-product-arrives -->
 
-Lesson 14 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutWhen a new product arrives
+Lesson 14 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutWhen a new product arrives
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # When a new product arrives
 
@@ -95,7 +95,7 @@ The course closes with a short quiz that checks the concepts have landed. Your c
 
 [Previous lessonHow the decisions connect](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/how-the-decisions-connect)[Next lessonCourse quiz](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz)
 
-Lesson 14 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutWhen a new product arrives
+Lesson 14 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutWhen a new product arrives
 
 The plan
 

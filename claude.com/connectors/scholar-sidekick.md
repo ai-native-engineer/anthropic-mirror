@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/mlava/scholar-sidekick-mcp#readme)[Support (opens in new tab)](https://scholar-sidekick.com/mcp)
+More[Documentation (opens in new tab)](https://github.com/mlava/scholar-sidekick-mcp#readme)[Support (opens in new tab)](https://scholar-sidekick.com/mcp)[Privacy policy (opens in new tab)](https://scholar-sidekick.com/legal/privacy)
 
 Scholar Sidekick MCP resolves any scholarly identifier (DOI, PMID, PMCID, ISBN, arXiv, ISSN, NASA ADS bibcodes, WHO IRIS URLs) into structured bibliographic metadata, formats citations in 10,000+ CSL styles (Vancouver, APA, AMA, IEEE, Chicago, Harvard, MLA, Nature, BMJ, Lancet, and many more), and exports references to BibTeX, RIS, CSL JSON, EndNote (XML/Refer), RefWorks, MEDLINE, Zotero RDF, and CSV. The format/export/resolve tools accept a single identifier or a comma/newline-separated batch, so an assistant can chain resolveIdentifier → formatCitation → exportCitation in one prompt for an end-to-end 'raw IDs → exportable bibliography' workflow. Three single-citation checks complete the picture: checkRetraction surfaces retractions, corrections, and expressions of concern from Crossref / Retraction Watch; checkOpenAccess returns OA status and the best legal landing or PDF URL from Unpaywall; verifyCitation cross-checks the cited title against the resolved record at the cited identifier to detect the AI-driven fabrication pattern documented by Topaz et al. (Lancet 2026 — 1 in 277 biomedical papers in early 2026 contains at least one fabricated reference; the dominant pattern is real DOI + invented title, which simple identifier resolution cannot catch). Each formatted response carries a provenance metadata block (formatter, styleUsed, requestId, warnings) so users can see exactly which engine produced each citation.
 
@@ -51,16 +51,6 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://support.healthdataavatar.com/HDA-square.svg)
-
-### [Health Data Avatar (HDA)](https://claude.com/connectors/health-data-avatar-hda)
-
-Trending
-
-Your complete health history structured for Claude
-
-[Add Health Data Avatar (HDA) in Claude (opens in new tab)](https://claude.ai/directory/ebacb52d-dedb-424a-981c-3f6a14495676 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
 ### [Microsoft 365](https://claude.com/connectors/microsoft-365)
@@ -68,3 +58,11 @@ Your complete health history structured for Claude
 Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
+
+![](https://www.notion.so/images/notion-logo-block-main.svg)
+
+### [Notion](https://claude.com/connectors/notion)
+
+Connect your Notion workspace to search, update, and power workflows across tools
+
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

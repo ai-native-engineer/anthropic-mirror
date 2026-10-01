@@ -4,44 +4,32 @@
 
 When agentic coding goes from individual tool to org-wide default, the tool isn't the hard part…your processes are. Fiona Fung, Leader for Engineering and Product for Claude Code and Cowork, walks through how the bottlenecks changed at Anthropic (review, ownership, hiring) and the norms we rewrote to keep shipping.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-14:35 – 15:05
+:   14:35 – 15:05
 
 Speaker(s)
+:   Fiona Fung
 
-Fiona Fung
+    Manager of the Claude Code and Cowork Team,
 
-Manager of the Claude Code and Cowork Team,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Running an AI-native engineering org](https://assets.claude.com/01de44374b1da2612971a68f4b93434d9be08bf1.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d304011903eeb1eff6ff_running-an-ai-native-engineering-org.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Running an AI-native engineering org | Session | Code w/ Claude 2026

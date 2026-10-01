@@ -62,12 +62,12 @@ To remove instructions entirely, clear the text area and click “Save changes.�
 
 **Domain context.** “Our team works in healthcare claims processing. When users mention ‘claims,’ they’re referring to insurance claims, not legal claims.”
 
-**Referral guidance.** “When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#78100a38191b151d561b1715) rather than giving specific policy advice.”
+**Referral guidance.** “When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3058427051535d551e535f5d) rather than giving specific policy advice.”
 
 **Data handling reminders.** “Don’t include customer names, account numbers, or other personally identifiable information in responses or generated artifacts.”
 
 * [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
-* [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
 * [Export your organization's data](https://support.claude.com/en/articles/13346720-export-your-organization-s-data)
 * [Organization instructions in Claude for Government](https://support.claude.com/en/articles/14503675-organization-instructions-in-claude-for-government)
 * [Create surveys for your organization](https://support.claude.com/en/articles/16764057-create-surveys-for-your-organization)
+* [Set up Salesforce in Claude for your organization](https://support.claude.com/en/articles/16952184-set-up-salesforce-in-claude-for-your-organization)

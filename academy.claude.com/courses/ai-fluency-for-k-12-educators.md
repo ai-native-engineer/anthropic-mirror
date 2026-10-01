@@ -2,7 +2,7 @@
 
 [Courses](https://academy.claude.com/courses)
 
-# AI Fluency for pK–12 Educators
+# AI Fluency for pK–12 educators
 
 Helps pK-12 educators build practical AI fluency through the 4D Framework, supporting student learning while staying true to their mission and values. Created in partnership with Teach For America.
 
@@ -12,7 +12,7 @@ Helps pK-12 educators build practical AI fluency through the 4D Framework, suppo
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-imfe3sqb.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hmyzns9m.png)
 
-10 lessons · 1 quizAI Fluency for pK–12 Educators
+10 lessons · 1 quizAI Fluency for pK–12 educators
 
 What you’ll learnBy the end of this course, you’ll be able to
 

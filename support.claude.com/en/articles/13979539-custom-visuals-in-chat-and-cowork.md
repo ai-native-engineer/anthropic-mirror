@@ -58,8 +58,7 @@ Custom visuals aren’t photos or illustrations. Claude builds them using HTML�
 * **Personalize your visuals.** If you tell Claude “make all my visualizations pink”, Claude will remember.
 * **Iterate in the conversation.** You can ask Claude to adjust a visual the same way you’d ask it to revise text—“make the chart show monthly instead of yearly” or “add a third option to the comparison.”
 
-* [What are artifacts and how do I use them?](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them)
 * [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
 * [Visual and interactive content](https://support.claude.com/en/articles/13641943-visual-and-interactive-content)
-* [Use artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249-use-artifacts-in-claude-cowork)
+* [Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)
 * [Use analytics chat to ask Claude about usage](https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage)

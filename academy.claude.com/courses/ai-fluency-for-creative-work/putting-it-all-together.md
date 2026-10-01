@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-creative-work/putting-it-all-together -->
 
-Lesson 8 of 8 · AI Fluency for Creative WorkPutting it all together
+Lesson 8 of 8 · AI Fluency for creative workPutting it all together
 
-3. /[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+3. /[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
-[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
 # Putting it all together
 
@@ -47,7 +47,7 @@ Next you will take a short assessment to earn your completion badge.
 
 [Previous lessonAI roles as Delegation outcomes](https://academy.claude.com/courses/ai-fluency-for-creative-work/ai-roles-as-delegation-outcomes)[Next lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-for-creative-work/course-quiz)
 
-Lesson 8 of 8 · AI Fluency for Creative WorkPutting it all together
+Lesson 8 of 8 · AI Fluency for creative workPutting it all together
 
 Introduction
 

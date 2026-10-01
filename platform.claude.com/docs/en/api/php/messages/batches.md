@@ -31,9 +31,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -109,6 +113,7 @@ $messageBatch = $client->messages->batches->create(
             ['skillID' => 'pdf', 'type' => 'anthropic', 'version' => 'latest']
           ],
         ],
+        'diagnostics' => ['previousMessageID' => 'previous_message_id'],
         'inferenceGeo' => 'inference_geo',
         'metadata' => ['userID' => '13803d75-b4b5-4c3e-b2a2-6f21399b021b'],
         'outputConfig' => [
@@ -209,9 +214,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -332,9 +341,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -455,9 +468,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -568,9 +585,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `DeletedMessageBatch`
+- `class DeletedMessageBatch`
 
   - `"message_batch_deleted" type`
 
@@ -627,9 +648,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `MessageBatchIndividualResponse`
+- `class MessageBatchIndividualResponse`
 
   - `string customID`
 
@@ -663,7 +688,7 @@ var_dump($messageBatchIndividualResponse);
 
 ### Deleted Message Batch
 
-- `DeletedMessageBatch`
+- `class DeletedMessageBatch`
 
   - `"message_batch_deleted" type`
 
@@ -677,7 +702,7 @@ var_dump($messageBatchIndividualResponse);
 
 ### Message Batch
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -731,13 +756,13 @@ var_dump($messageBatchIndividualResponse);
 
 ### Message Batch Canceled Result
 
-- `MessageBatchCanceledResult`
+- `class MessageBatchCanceledResult`
 
   - `"canceled" type`
 
 ### Message Batch Errored Result
 
-- `MessageBatchErroredResult`
+- `class MessageBatchErroredResult`
 
   - `"errored" type`
 
@@ -745,13 +770,13 @@ var_dump($messageBatchIndividualResponse);
 
 ### Message Batch Expired Result
 
-- `MessageBatchExpiredResult`
+- `class MessageBatchExpiredResult`
 
   - `"expired" type`
 
 ### Message Batch Individual Response
 
-- `MessageBatchIndividualResponse`
+- `class MessageBatchIndividualResponse`
 
   - `string customID`
 
@@ -767,7 +792,7 @@ var_dump($messageBatchIndividualResponse);
 
 ### Message Batch Request Counts
 
-- `MessageBatchRequestCounts`
+- `class MessageBatchRequestCounts`
 
   - `int canceled`
 
@@ -799,31 +824,31 @@ var_dump($messageBatchIndividualResponse);
 
 ### Message Batch Result
 
-- `MessageBatchResult`
+- `class MessageBatchResult`
 
-  - `MessageBatchSucceededResult`
+  - `class MessageBatchSucceededResult`
 
     - `"succeeded" type`
 
     - `Message message`
 
-  - `MessageBatchErroredResult`
+  - `class MessageBatchErroredResult`
 
     - `"errored" type`
 
     - `ErrorResponse error`
 
-  - `MessageBatchCanceledResult`
+  - `class MessageBatchCanceledResult`
 
     - `"canceled" type`
 
-  - `MessageBatchExpiredResult`
+  - `class MessageBatchExpiredResult`
 
     - `"expired" type`
 
 ### Message Batch Succeeded Result
 
-- `MessageBatchSucceededResult`
+- `class MessageBatchSucceededResult`
 
   - `"succeeded" type`
 

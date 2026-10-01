@@ -108,7 +108,7 @@ Context is re-sent every turn.
 
 Every message you send will re-submit the entire conversation so far, including the prepended context not visible in your chat window. That's why a short question late in a long conversation may cost more than the same question in a fresh one, and why starting a new chat can be the cheapest and fastest way to get an answer.
 
-Bonus readingSystem prompts
+Bonus reading System prompts
 
 Anthropic publishes the system prompts for its Claude apps and updates them as models change. Reading one is a great way to see how much of a product's behavior is written into the prompt rather than trained into the model.
 
@@ -137,7 +137,7 @@ Take this example reply from Claude in Cowork. Each highlighted section was infl
 
 *Next: [choose an effort level in Cowork and Chat(opens in new tab)](https://academy.claude.com/tutorials/how-to-select-the-right-effort-setting-for-claude-cowork-and-chat) · [in Claude Code(opens in new tab)](https://academy.claude.com/tutorials/choosing-the-right-effort-level-in-claude-code)*
 
-*Learn more: [AI Fluency(opens in new tab)](https://academy.claude.com/collections/ai-fluency) · [AI capabilities and limitations(opens in new tab)](https://academy.claude.com/courses/ai-capabilities-and-limitations)*
+*Learn more: [How AI works(opens in new tab)](https://academy.claude.com/collections/how-ai-works) · [AI capabilities and limitations(opens in new tab)](https://academy.claude.com/courses/ai-capabilities-and-limitations)*
 
 * [Where answers come from](#where-answers-come-from)
 * [Parametric memory](#parametric-memory)

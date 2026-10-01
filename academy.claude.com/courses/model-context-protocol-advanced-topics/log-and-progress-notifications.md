@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/log-and-progress-notifications -->
 
-Lesson 3 of 11 · Model Context Protocol: Advanced TopicsLog and progress notifications
+Lesson 3 of 11 · Model Context Protocol: Advanced topicsLog and progress notifications
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # Log and progress notifications
 
@@ -97,7 +97,7 @@ Remember that implementing these notifications is entirely optional. You can cho
 
 [Previous lessonSampling walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling-walkthrough)[Next lessonNotifications walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/notifications-walkthrough)
 
-Lesson 3 of 11 · Model Context Protocol: Advanced TopicsLog and progress notifications
+Lesson 3 of 11 · Model Context Protocol: Advanced topicsLog and progress notifications
 
 Core MCP features
 

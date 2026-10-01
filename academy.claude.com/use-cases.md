@@ -72,7 +72,19 @@ Engineering·10 min](https://academy.claude.com/use-cases/incident-postmortem)
 
 [View all](https://academy.claude.com/all?kind=use-case)
 
-[![](https://academy.claude.com/assets/v1/thumbnail.light-kwid434h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oxk6j3m6.png)
+[![](https://academy.claude.com/assets/v1/thumbnail.light-804tz7j0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lgieyu67.png)
+
+### Answer deal and account questions from the CRM
+
+Claude Tag·Sales·10 min](https://academy.claude.com/use-cases/pull-deal-and-account-state)[![](https://academy.claude.com/assets/v1/thumbnail.light-g2rf84ww.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ncxwpfp1.png)
+
+### Answer requests in the IT help channel
+
+Claude Tag·Operations·10 min](https://academy.claude.com/use-cases/answer-requests-in-the-it-help-channel)[![](https://academy.claude.com/assets/v1/thumbnail.light-mlmvli26.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-o1dom7ee.png)
+
+### Chart a metric from your data warehouse
+
+Claude Tag·Research·10 min](https://academy.claude.com/use-cases/chart-a-metric-from-your-data-warehouse)[![](https://academy.claude.com/assets/v1/thumbnail.light-kwid434h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oxk6j3m6.png)
 
 ### Clean up promotional emails
 
@@ -80,20 +92,8 @@ Claude in Chrome·15 min](https://academy.claude.com/use-cases/clean-up-promotio
 
 ### Compare products across sites
 
-Claude in Chrome·Personal·15 min](https://academy.claude.com/use-cases/compare-products-across-sites)[![](https://academy.claude.com/assets/v1/thumbnail.light-en74js1a.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ora2nm1q.png)
+Claude in Chrome·Personal·15 min](https://academy.claude.com/use-cases/compare-products-across-sites)[![](https://academy.claude.com/assets/v1/thumbnail.light-hd84bxm1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-fxufp05i.png)
 
-### Log sales calls to your CRM
+### Create meeting notes and tasks from a call transcript
 
-Claude in Chrome·Sales·10 min](https://academy.claude.com/use-cases/log-sales-calls-to-your-crm)[![](https://academy.claude.com/assets/v1/thumbnail.light-otq7e1m0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-h3av1hun.png)
-
-### Organize files in Google Drive
-
-Claude in Chrome·Personal·15 min](https://academy.claude.com/use-cases/organize-files-in-google-drive)[![](https://academy.claude.com/assets/v1/thumbnail.light-a8f13pls.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ms6ban8i.png)
-
-### Prepare and plan from your calendar
-
-Claude in Chrome·10 min](https://academy.claude.com/use-cases/prepare-and-plan-from-your-calendar)[![](https://academy.claude.com/assets/v1/thumbnail.light-ng2ge73r.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-d3fzwdg7.png)
-
-### Pull metrics from analytics dashboards
-
-Claude in Chrome·Product·10 min](https://academy.claude.com/use-cases/pull-metrics-from-analytics-dashboards)
+Claude Tag·Operations·10 min](https://academy.claude.com/use-cases/meeting-notes-and-filed-tasks-from-a-call-transcript)

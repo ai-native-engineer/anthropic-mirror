@@ -17,7 +17,7 @@ Update a memory store
 
 - `--memory-store-id: string`
 
-  Path param: Path parameter memory_store_id
+  Path param: ID of the memory store to update (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`. Updating an archived store returns 400.
 
 - `--description: optional string`
 
@@ -59,7 +59,7 @@ Update a memory store
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
     format: date-time
 
@@ -69,13 +69,13 @@ Update a memory store
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
 
   - `archived_at: optional string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
     format: date-time
 

@@ -4,31 +4,21 @@ Case study | Claude Managed Agents
 
 # How Sentry built end-to-end bug fixing with Claude Managed Agents
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Sentry logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf57518a91cc645d08ae1a_sentry-light-mode.svg)![Sentry logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf57579ec56ad383059291_sentry-dark-mode.svg)
+![Sentry logo](https://assets.claude.com/410f375f04040180bb6545e287b4ad178b0d7767.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Managed Agents
+:   Claude Managed Agents
 
 Location:
-
-North America
+:   North America
 
 Weeks instead of months
 
@@ -40,35 +30,11 @@ Over 1 million RCAs
 
 Claude Managed Agents: Get to production 10x faster
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d6874d9013e4890f253b80_managed-agents-og.jpg)
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
-Read more
-
-[Read more](https://claude.com/blog/claude-managed-agents)Read more
-
-Claude Managed Agents: Get to production 10x faster
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Managed Agents: Get to production 10x faster
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/blog/claude-managed-agents)
 
 [Sentry](https://sentry.io/welcome/) is a software monitoring platform that ingests billions of events daily, giving development teams the context they need to debug production issues. Their AI debugging agent, Seer, already used Claude to identify root causes accurately. But telling developers what's wrong wasn't enough. They wanted Seer to fix it, too.
 
@@ -100,11 +66,9 @@ When it came time to extend Seer from diagnosis to automated fixing, Claude Mana
 
 Managed Agents let Sentry focus on what differentiated their product, the handoff between Seer's diagnosis and the coding agent, rather than building generic agent infrastructure.
 
-“Managed Agents not only allowed us to build the initial integration in weeks instead of months, but has also eliminated the ongoing operational overhead of maintaining bespoke agent infrastructure.”
+> “Managed Agents not only allowed us to build the initial integration in weeks instead of months, but has also eliminated the ongoing operational overhead of maintaining bespoke agent infrastructure.”
 
-Indragie Karunaratne
-
-Senior Director of Engineering, AI/ML, Sentry
+Indragie KarunaratneSenior Director of Engineering, AI/ML, Sentry
 
 ## **How the Seer-to-PR workflow runs on Managed Agents**
 
@@ -132,84 +96,22 @@ Sentry is building toward a workflow where the most actionable bugs are detected
 
 How security teams use Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d6783bc42852d89226d1ff_og-security.jpg)
+![How security teams use Claude](https://assets.claude.com/eae38b41a06a5518c4438cb1d721b9b42647cfe2.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude helps security teams investigate threats, validate findings, and resolve issues faster.
 
-Read more
+[Read more](https://claude.com/solutions/security)
 
-[Read more](https://claude.com/solutions/security)Read more
+> “Customers can now go from Seer's root cause analysis straight to a Claude agent that writes the fix and opens a PR.”
 
-How security teams use Claude
+Indragie KarunaratneSenior Director of Engineering, AI/ML, Sentry
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Next](#)Next
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-Claude helps security teams investigate threats, validate findings, and resolve issues faster.
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How security teams use Claude
-
-Claude helps security teams investigate threats, validate findings, and resolve issues faster.
-
-“Customers can now go from Seer's root cause analysis straight to a Claude agent that writes the fix and opens a PR.”
-
-Indragie Karunaratne
-
-Senior Director of Engineering, AI/ML, Sentry
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

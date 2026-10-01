@@ -4,38 +4,28 @@
 
 A scientist-founder built BioKEA's full biodiversity discovery stack with Claude as primary coding partner: sample-to-publication pipeline, analysis dashboards, citizen science games, internal tools. The patterns that worked — and why taste and domain judgment become the real leverage when generation is cheap.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 7, 2026
+:   May 7, 2026
 
 Time
-
-02:50PM – 03:20PM
+:   02:50PM – 03:20PM
 
 Speaker(s)
+:   Sean Jungbluth
 
-Sean Jungbluth
+    CEO/CTO/Founder (PhD),
 
-CEO/CTO/Founder (PhD),
+    BioKEA
 
-BioKEA
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Claude can code. Experts still matter: Building BioKEA's biodiversity stack | Session | Code w/ Claude 2026

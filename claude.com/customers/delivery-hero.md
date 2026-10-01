@@ -4,37 +4,24 @@ Case study | Claude Platform
 
 # How Delivery Hero's agent merges 100+ pull requests a day with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e938f0afd05059654ce111_logo_deliveryhero-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e938f30394182e7b0b306e_logo_deliveryhero-dark-mode.png)
+![DeliveryHero logo](https://assets.claude.com/b293d35fc2f9e9c656c4d9188c28dc5be927dcf0.png)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)
 
 Partner:
-
-Google
+:   Google
 
 Location:
-
-EMEA
+:   EMEA
 
 >100 merged pull requests per day
 
@@ -57,32 +44,6 @@ Most tasks completed with zero to one developer interactions
 
 ## The challenge
 
-Claude on Google Cloud
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build advanced AI agents with Claude on Google Cloud.
-
-Read more
-
-[Read more](https://claude.com/partners/google-cloud)Read more
-
-Claude on Google Cloud
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build advanced AI agents with Claude on Google Cloud.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Google Cloud
-
-Build advanced AI agents with Claude on Google Cloud.
-
 ## Centralizing engineering across a global network of teams
 
 Since its founding in 2011, Delivery Hero has brought local delivery leaders into a global group of brands that now processes over 11 million orders daily. For years, each of these local brands ran with near-total autonomy over technical decisions. That approach worked during hypergrowth, but as the company began centralizing around 2021, it created a problem: every team had different build systems, different infrastructure setups, and deeply held preferences about all of it. Some teams still had traditional structures with strict distinctions between developers, testers, and system administrators. Others had adopted cross-functional teams that owned, tested, and operated everything they built.
@@ -91,33 +52,15 @@ Since its founding in 2011, Delivery Hero has brought local delivery leaders int
 
 The challenge extended to AI tooling. Starting in mid-2024, Delivery Hero entered an experimentation phase, allowing different teams to pilot different solutions. The results were promising across the board, but the decentralized approach made it hard to measure success consistently or push for adoption at scale. Many engineers within the platform organization remained skeptical about the competitive edge of agentic engineering until late 2025, when a new generation of models changed what was possible.
 
+Claude on Google Cloud
+
+![Claude on Google Cloud](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
+
+Build advanced AI agents with Claude on Google Cloud.
+
+[Read more](https://claude.com/partners/google-cloud)
+
 ## The solution
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
 ## Selecting Claude on Google Cloud
 
@@ -127,21 +70,17 @@ Google Cloud solved the access problem. By placing a proxy called LiteLLM in fro
 
 Once the infrastructure was in place, the preference became clear. A survey of Delivery Hero's CTO group showed nine votes for the Claude setup versus two for the next closest alternative. Usage data confirmed the pattern: across the company's central engineering teams, Claude models account for roughly 95% of all LiteLLM requests.
 
-"Google Cloud allowed us to set up a proxy and give our engineers choice by offering all Google Cloud models, hooked up with whatever tools they use."
+Claude Code
 
-Rodrigue Schäfer
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Vice President of Platform, Delivery Hero
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/product/claude-code)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Google Cloud allowed us to set up a proxy and give our engineers choice by offering all Google Cloud models, hooked up with whatever tools they use."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Rodrigue SchäferVice President of Platform, Delivery Hero
 
 ## The outcome
 
@@ -167,42 +106,16 @@ Schäfer is also candid about what comes next. As agentic engineering accelerate
 
 "Every fifth pull request that's merged, we want that to be done by Herogen in 2026," Schäfer said. "It's a very ambitious target, but we're betting on the improvement in LLMs, especially in Claude, to help us with that."
 
-"This allows our engineers to lead with intent rather than code, liberating them to focus on high-level innovation and complex problem-solving."
+> "This allows our engineers to lead with intent rather than code, liberating them to focus on high-level innovation and complex problem-solving."
 
-Rodrigue Schäfer
+Rodrigue SchäferVice President of Platform, Delivery Hero
 
-Vice President of Platform, Delivery Hero
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

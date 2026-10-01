@@ -16,7 +16,7 @@ As part of our research into the risks of AI, we’re [publishing a new paper](h
 
 For example, a user going through a rough patch in their relationship might ask an AI whether their partner is being manipulative. AIs are trained to give balanced, helpful advice in these situations, but no training is 100% effective. If an AI confirms the user’s interpretation of their relationship without question, the user's beliefs about their situation may become less accurate. If it tells them what they should prioritize—for example, self-protection over communication—it may displace values they genuinely hold. Or if it drafts a confrontational message that the user sends as written, they've taken an action they might not have taken on their own—and which they might later come to regret.
 
-In our dataset, which is made up of 1.5 million [Claude.ai](http://claude.ai/redirect/website.v1.d4bb5c31-bbef-4b18-9465-af331e868349) conversations, we find that the potential for severe disempowerment (which we define as when an AI's role in shaping a user's beliefs, values, or actions has become so extensive that their autonomous judgment is fundamentally compromised) occurs very rarely—in roughly 1 in 1,000 to 1 in 10,000 conversations, depending on the domain. However, given the sheer number of people who use AI, and how frequently it’s used, even a very low rate affects a substantial number of people.
+In our dataset, which is made up of 1.5 million [Claude.ai](http://claude.ai/redirect/website.v1.b5f3d761-3556-4aac-8dbf-ded12657af28) conversations, we find that the potential for severe disempowerment (which we define as when an AI's role in shaping a user's beliefs, values, or actions has become so extensive that their autonomous judgment is fundamentally compromised) occurs very rarely—in roughly 1 in 1,000 to 1 in 10,000 conversations, depending on the domain. However, given the sheer number of people who use AI, and how frequently it’s used, even a very low rate affects a substantial number of people.
 
 These patterns most often involve individual users who actively and repeatedly seek Claude's guidance on personal and emotionally charged decisions. Indeed, users tend to perceive potentially disempowering exchanges favorably in the moment, although they tend to rate them poorly when they appear to have taken actions based on the outputs. We also find that the rate of potentially disempowering conversations is increasing over time.
 
@@ -95,7 +95,7 @@ But this pattern reversed when we looked at cases of actualized disempowerment. 
 
 ## **Disempowerment potential appears to be increasing**
 
-We used the same feedback conversations to look at longer-term trends in disempowerment (as we only retain conversations on [Claude.ai](http://claude.ai/redirect/website.v1.d4bb5c31-bbef-4b18-9465-af331e868349) for a limited period). Between late 2024 and late 2025, the prevalence of moderate or severe disempowerment potential increased over time.
+We used the same feedback conversations to look at longer-term trends in disempowerment (as we only retain conversations on [Claude.ai](http://claude.ai/redirect/website.v1.b5f3d761-3556-4aac-8dbf-ded12657af28) for a limited period). Between late 2024 and late 2025, the prevalence of moderate or severe disempowerment potential increased over time.
 
 Importantly, we can't pinpoint why. The increase could reflect long-term changes in our user base, or in who provides user feedback and what they choose to rate. It could also that as AI models become more capable, we receive less feedback on basic capability failures, which could cause disempowerment-related interactions to become proportionally overrepresented in the sample. Or it may be part of a shifting pattern in how people use AI. As exposure grows, users might become more comfortable discussing vulnerable topics or seeking advice. We can’t disentangle any explanations from each other, but the direction is consistent across domains.
 
@@ -119,20 +119,20 @@ Our research has important limitations. It is restricted to Claude.ai consumer t
 
 1. This definition captures one axis of disempowerment that is tractable to analyze in real-world AI assistant interactions. Importantly, our definition does not capture *structural* forms of disempowerment, such as humans potentially being progressively excluded from economic systems as AI becomes more capable.
 
-### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+### What work can robots do?
 
-Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
 
-[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
 
-### An alignment assessment of recent cybersecurity incidents
+### What do you want from AI?
 
-We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
-[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
 
-### Formalizing Fermat's Last Theorem
+### GLM-5.3 and the spread of advanced cyber capabilities
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
-[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)

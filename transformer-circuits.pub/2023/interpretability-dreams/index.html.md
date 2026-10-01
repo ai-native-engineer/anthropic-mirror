@@ -22,6 +22,8 @@ Before diving in, it's worth making a few small remarks. Firstly, essentially al
 
 * [The End Goals](#end-goals) – Ultimately, we hope this work can eventually [contribute to safety](#safety) and also [reveal beautiful structure](#aesthetics) inside neural networks.
 
+---
+
 ## [An Epistemic Foundation](#epistemic-foundation)
 
 Mechanistic interpretability starts by studying the "microscopic" scale of neural networks: features, parameters, circuits. It's a bottom up approach, studying small pieces without an a priori theory. This is, in a lot of ways, a very strange decision. Why not take a top-down approach targeted at the questions we care about?
@@ -41,6 +43,8 @@ As we’ve studied circuits throughout InceptionV1 and other models, we’ve see
 If we think of interpretability as a kind of “anatomy of neural networks,” most of the circuits thread has involved studying tiny little veins – looking at the small-scale, at individual neurons and how they connect. However, there are many natural questions that the small-scale approach doesn’t address. In contrast, the most prominent abstractions in biological anatomy involve larger-scale structures: individual organs like the heart, or entire organ systems like the respiratory system. And so we wonder: is there a “respiratory system” or “heart” or “brain region” of an artificial neural network? Do neural networks have any emergent structures that we could study that are larger-scale than circuits?  (Voss et al., 2021, ["Branch Specialization"](https://distill.pub/2020/circuits/branch-specialization/))
 
 Enabling this kind of higher-level analysis to be pursued rigorously and with confidence that we aren't misunderstanding things is a central motivation of present "low-level" mechanistic interpretability research.
+
+---
 
 ## [What Might We Build on Such a Foundation?](#possibilities)
 
@@ -145,6 +149,8 @@ In some ways, the situation feels kind of similar to the [four color theorem](ht
 But more than aesthetic, if we are relying on AI to audit the safety of AI systems, it seems like there are significant concerns about whether we should trust the model we are using to help us. This isn't obviously an insurmountable objection – there are surely clever ways to try and work around it. But it seems likely that many of the ways you might work around it would make the failure modes of interpretability more correlated with the failure modes of other approaches to safety.
 
 Despite this, it does seem quite possible that the types of approaches suggested in this essay will ultimately be insufficient, and interpretability may need to rely on AI automation. There may also be potential for a middle ground of "AI-assisted interpretability", which AI helps accelerate interpretability research but the important parts are still verified by humans. Work enabling this is certainly exciting and important.
+
+---
 
 ## [The End Goals](#end-goals)
 

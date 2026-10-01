@@ -4,31 +4,21 @@ Case study | Claude Enterprise
 
 # IG Group boosts productivity and saves operational costs with Claude for Work
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![IG Group logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab3722750d186de29303_IG%20group_light.svg)![IG Group logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab3dcd50babf5cd2a7ce_IG%20group_dark.svg)
+![IG Group logo](https://assets.claude.com/54cea158a892d93bfa9cf9696e60e92aca531787.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Enterprise
+:   Claude Enterprise
 
 Location:
-
-Europe
+:   Europe
 
 100% productivity
 
@@ -37,42 +27,6 @@ increase in certain cases
 70 hours saved
 
 weekly for analysts
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 IG Group, a global leader in online trading and financial services, uses [Claude for Work](https://claude.com/solutions/enterprise) to streamline internal processes across teams and departments. By empowering employees with Claude's capabilities, they have enhanced productivity, accelerated time-to-market, and delivered significant cost savings.
 
@@ -136,52 +90,12 @@ Their partnership with Anthropic remains foundational to this success. Pirog not
 
 As IG Group evolves their AI strategy, they're focused on empowering teams to work smarter—enhancing collaboration, innovation, and value delivery. In an industry where speed, accuracy, and insight define competitive advantage, IG Group demonstrates how AI can help financial services firms not just adapt to change, but lead it.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-[Next](#)Next
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-Video caption
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)

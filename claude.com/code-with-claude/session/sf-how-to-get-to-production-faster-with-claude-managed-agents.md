@@ -4,50 +4,38 @@
 
 Building agents used to mean spending development cycles on secure infrastructure, state management, permissioning, and reworking your agent loops for every model upgrade. Managed Agents, on the Claude Platform, now handles that layer for you. This session covers how to build and deploy a production-grade agent at scale.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-12:00PM – 12:30PM
+:   12:00PM – 12:30PM
 
 Speaker(s)
+:   Jess Yan
 
-Jess Yan
+    Member of Technical Staff,
 
-Member of Technical Staff,
+    Anthropic
 
-Anthropic
+    Lance Martin
 
-Lance Martin
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![How to get to production faster with Claude Managed Agents](https://assets.claude.com/f123386f351a52df5736886633e0f570aee03250.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9d284a8f0321408950f6_managed-agents-production.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+How to get to production faster with Claude Managed Agents | Session | Code w/ Claude 2026

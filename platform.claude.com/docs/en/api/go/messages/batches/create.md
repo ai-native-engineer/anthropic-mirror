@@ -25,7 +25,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Body param: List of requests for prompt completion. Each is an individual request to create a Message.
 
-    maxItems: 100000, minItems: 1
+    minItems: 1, maxItems: 100000
 
     - `CustomID string`
 
@@ -33,7 +33,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       Must be unique for each request within the Message Batch.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,64}$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]{1,64}$
 
     - `Params MessageBatchNewParamsRequestParams`
 
@@ -108,7 +108,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `[]ContentBlockParamUnionResp`
 
-            - `type TextBlockParamResp struct{…}`
+            - `type TextBlockParamResp`
 
               - `Type Text`
 
@@ -139,7 +139,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Citations []TextCitationParamUnionResp Optional`
 
-                - `type CitationCharLocationParamResp struct{…}`
+                - `type CitationCharLocationParamResp`
 
                   - `Type CharLocation`
 
@@ -151,7 +151,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `DocumentTitle string`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `EndCharIndex int64`
 
@@ -159,7 +159,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                - `type CitationPageLocationParamResp struct{…}`
+                - `type CitationPageLocationParamResp`
 
                   - `Type PageLocation`
 
@@ -171,7 +171,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `DocumentTitle string`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `EndPageNumber int64`
 
@@ -179,7 +179,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 1
 
-                - `type CitationContentBlockLocationParamResp struct{…}`
+                - `type CitationContentBlockLocationParamResp`
 
                   - `Type ContentBlockLocation`
 
@@ -195,7 +195,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `DocumentTitle string`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `EndBlockIndex int64`
 
@@ -209,7 +209,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                - `type CitationWebSearchResultLocationParamResp struct{…}`
+                - `type CitationWebSearchResultLocationParamResp`
 
                   - `Type WebSearchResultLocation`
 
@@ -219,13 +219,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Title string`
 
-                    maxLength: 512, minLength: 1
+                    minLength: 1, maxLength: 512
 
                   - `URL string`
 
                     minLength: 1
 
-                - `type CitationSearchResultLocationParamResp struct{…}`
+                - `type CitationSearchResultLocationParamResp`
 
                   - `Type SearchResultLocation`
 
@@ -259,13 +259,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Title string`
 
-            - `type ImageBlockParamResp struct{…}`
+            - `type ImageBlockParamResp`
 
               - `Type Image`
 
               - `Source ImageBlockParamSourceUnionResp`
 
-                - `type Base64ImageSource struct{…}`
+                - `type Base64ImageSource`
 
                   - `Type Base64`
 
@@ -283,13 +283,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const Base64ImageSourceMediaTypeImageWebP Base64ImageSourceMediaType = "image/webp"`
 
-                - `type URLImageSource struct{…}`
+                - `type URLImageSource`
 
                   - `Type URL`
 
                   - `URL string`
 
-                - `type FileImageSource struct{…}`
+                - `type FileImageSource`
 
                   - `Type File`
 
@@ -311,13 +311,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `const ImageTransformationsParamOversizedImageError ImageTransformationsParamOversizedImage = "error"`
 
-            - `type DocumentBlockParamResp struct{…}`
+            - `type DocumentBlockParamResp`
 
               - `Type Document`
 
               - `Source DocumentBlockParamSourceUnionResp`
 
-                - `type Base64PDFSource struct{…}`
+                - `type Base64PDFSource`
 
                   - `Type Base64`
 
@@ -327,7 +327,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `MediaType ApplicationPDF`
 
-                - `type PlainTextSource struct{…}`
+                - `type PlainTextSource`
 
                   - `Type Text`
 
@@ -335,7 +335,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `MediaType TextPlain`
 
-                - `type ContentBlockSource struct{…}`
+                - `type ContentBlockSource`
 
                   - `Type Content`
 
@@ -345,17 +345,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `[]ContentBlockSourceContentItemUnion`
 
-                      - `type TextBlockParamResp struct{…}`
+                      - `type TextBlockParamResp`
 
-                      - `type ImageBlockParamResp struct{…}`
+                      - `type ImageBlockParamResp`
 
-                - `type URLPDFSource struct{…}`
+                - `type URLPDFSource`
 
                   - `Type URL`
 
                   - `URL string`
 
-                - `type FileDocumentSource struct{…}`
+                - `type FileDocumentSource`
 
                   - `Type File`
 
@@ -375,9 +375,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Title string Optional`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
-            - `type SearchResultBlockParamResp struct{…}`
+            - `type SearchResultBlockParamResp`
 
               - `Type SearchResult`
 
@@ -405,7 +405,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Citations CitationsConfigParamResp Optional`
 
-            - `type ThinkingBlockParamResp struct{…}`
+            - `type ThinkingBlockParamResp`
 
               - `Type Thinking`
 
@@ -419,7 +419,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `thinking` text of this block as returned by the API.
 
-            - `type RedactedThinkingBlockParamResp struct{…}`
+            - `type RedactedThinkingBlockParamResp`
 
               - `Type RedactedThinking`
 
@@ -427,7 +427,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-            - `type ToolUseBlockParamResp struct{…}`
+            - `type ToolUseBlockParamResp`
 
               - `Type ToolUse`
 
@@ -439,7 +439,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Name string`
 
-                maxLength: 200, minLength: 1
+                minLength: 1, maxLength: 200
 
               - `CacheControl CacheControlEphemeral Optional`
 
@@ -447,15 +447,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Caller ToolUseBlockParamCallerUnionResp Optional`
 
-                Tool invocation directly from the model.
-
-                - `type DirectCaller struct{…}`
+                - `type DirectCaller`
 
                   Tool invocation directly from the model.
 
                   - `Type Direct`
 
-                - `type ServerToolCaller struct{…}`
+                - `type ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
@@ -465,7 +463,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                - `type ServerToolCaller20260120 struct{…}`
+                - `type ServerToolCaller20260120`
 
                   - `Type CodeExecution20260120`
 
@@ -477,9 +475,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_use, the toolset family this member belongs to.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-            - `type ToolResultBlockParamResp struct{…}`
+            - `type ToolResultBlockParamResp`
 
               - `Type ToolResult`
 
@@ -495,15 +493,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `[]ToolResultBlockParamContentUnionResp`
 
-                  - `type TextBlockParamResp struct{…}`
+                  - `type TextBlockParamResp`
 
-                  - `type ImageBlockParamResp struct{…}`
+                  - `type ImageBlockParamResp`
 
-                  - `type SearchResultBlockParamResp struct{…}`
+                  - `type SearchResultBlockParamResp`
 
-                  - `type DocumentBlockParamResp struct{…}`
+                  - `type DocumentBlockParamResp`
 
-                  - `type ToolReferenceBlockParamResp struct{…}`
+                  - `type ToolReferenceBlockParamResp`
 
                     Tool reference block that can be included in tool_result content.
 
@@ -511,13 +509,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `ToolName string`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `CacheControl CacheControlEphemeral Optional`
 
                       Create a cache control breakpoint at this content block.
 
-                  - `type BrowserStateBlockParamResp struct{…}`
+                  - `type BrowserStateBlockParamResp`
 
                     The caller's browser state after a browser toolset member call —
                     the full inventory of open tabs, which tab is active, and any side
@@ -539,7 +537,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this tab, unique within the inventory.
 
-                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `Title string`
 
@@ -565,9 +563,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                      maxItems: 200, minItems: 1
+                      minItems: 1, maxItems: 200
 
-                      - `type BrowserStateChangeTabOpened struct{…}`
+                      - `type BrowserStateChangeTabOpened`
 
                         A tab this call's execution opened that remains open at its end —
                         the creation delta of the `tabs` inventory, not an event log.
@@ -583,9 +581,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The `tab_id` of the opened tab, present in `tabs`.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `type BrowserStateChangeDownloadStarted struct{…}`
+                      - `type BrowserStateChangeDownloadStarted`
 
                         A file download that started during this call.
 
@@ -595,7 +593,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `URL string`
 
@@ -603,7 +601,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `type BrowserStateChangeDownloadCompleted struct{…}`
+                      - `type BrowserStateChangeDownloadCompleted`
 
                         A file download that finished during this call, reported with the
                         same `download_id` as its `download_started` — or without a prior
@@ -616,7 +614,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `URL string`
 
@@ -628,7 +626,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `SizeBytes int64 Optional`
 
@@ -636,7 +634,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           minimum: 0
 
-                      - `type BrowserStateChangeDownloadFailed struct{…}`
+                      - `type BrowserStateChangeDownloadFailed`
 
                         A file download that failed — or was cancelled — during this call.
 
@@ -646,7 +644,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `URL string`
 
@@ -658,7 +656,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The failure or cancellation detail, when known.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `IsError bool Optional`
 
@@ -666,9 +664,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_result, the toolset family of the paired tool_use.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-            - `type ServerToolUseBlockParamResp struct{…}`
+            - `type ServerToolUseBlockParamResp`
 
               - `Type ServerToolUse`
 
@@ -700,19 +698,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Caller ServerToolUseBlockParamCallerUnionResp Optional`
 
-                Tool invocation directly from the model.
-
-                - `type DirectCaller struct{…}`
+                - `type DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `type ServerToolCaller struct{…}`
+                - `type ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `type ServerToolCaller20260120 struct{…}`
+                - `type ServerToolCaller20260120`
 
-            - `type WebSearchToolResultBlockParamResp struct{…}`
+            - `type WebSearchToolResultBlockParamResp`
 
               - `Type WebSearchToolResult`
 
@@ -730,7 +726,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `PageAge string Optional`
 
-                - `type WebSearchToolRequestError struct{…}`
+                - `type WebSearchToolRequestError`
 
                   - `Type WebSearchToolResultError`
 
@@ -758,25 +754,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Caller WebSearchToolResultBlockParamCallerUnionResp Optional`
 
-                Tool invocation directly from the model.
-
-                - `type DirectCaller struct{…}`
+                - `type DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `type ServerToolCaller struct{…}`
+                - `type ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `type ServerToolCaller20260120 struct{…}`
+                - `type ServerToolCaller20260120`
 
-            - `type WebFetchToolResultBlockParamResp struct{…}`
+            - `type WebFetchToolResultBlockParamResp`
 
               - `Type WebFetchToolResult`
 
               - `Content WebFetchToolResultBlockParamContentUnionResp`
 
-                - `type WebFetchToolResultErrorBlockParamResp struct{…}`
+                - `type WebFetchToolResultErrorBlockParamResp`
 
                   - `Type WebFetchToolResultError`
 
@@ -802,7 +796,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const WebFetchToolResultErrorCodeContentTooLarge WebFetchToolResultErrorCode = "content_too_large"`
 
-                - `type WebFetchBlockParamResp struct{…}`
+                - `type WebFetchBlockParamResp`
 
                   - `Type WebFetchResult`
 
@@ -826,27 +820,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Caller WebFetchToolResultBlockParamCallerUnionResp Optional`
 
-                Tool invocation directly from the model.
-
-                - `type DirectCaller struct{…}`
+                - `type DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `type ServerToolCaller struct{…}`
+                - `type ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `type ServerToolCaller20260120 struct{…}`
+                - `type ServerToolCaller20260120`
 
-            - `type CodeExecutionToolResultBlockParamResp struct{…}`
+            - `type CodeExecutionToolResultBlockParamResp`
 
               - `Type CodeExecutionToolResult`
 
               - `Content CodeExecutionToolResultBlockParamContentUnionResp`
 
-                Code execution result with encrypted stdout for PFC + web_search results.
-
-                - `type CodeExecutionToolResultErrorParamResp struct{…}`
+                - `type CodeExecutionToolResultErrorParamResp`
 
                   - `Type CodeExecutionToolResultError`
 
@@ -860,7 +850,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const CodeExecutionToolResultErrorCodeExecutionTimeExceeded CodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
-                - `type CodeExecutionResultBlockParamResp struct{…}`
+                - `type CodeExecutionResultBlockParamResp`
 
                   - `Type CodeExecutionResult`
 
@@ -876,7 +866,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Stdout string`
 
-                - `type EncryptedCodeExecutionResultBlockParamResp struct{…}`
+                - `type EncryptedCodeExecutionResultBlockParamResp`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -902,13 +892,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `type BashCodeExecutionToolResultBlockParamResp struct{…}`
+            - `type BashCodeExecutionToolResultBlockParamResp`
 
               - `Type BashCodeExecutionToolResult`
 
               - `Content BashCodeExecutionToolResultBlockParamContentUnionResp`
 
-                - `type BashCodeExecutionToolResultErrorParamResp struct{…}`
+                - `type BashCodeExecutionToolResultErrorParamResp`
 
                   - `Type BashCodeExecutionToolResultError`
 
@@ -924,7 +914,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BashCodeExecutionToolResultErrorCodeOutputFileTooLarge BashCodeExecutionToolResultErrorCode = "output_file_too_large"`
 
-                - `type BashCodeExecutionResultBlockParamResp struct{…}`
+                - `type BashCodeExecutionResultBlockParamResp`
 
                   - `Type BashCodeExecutionResult`
 
@@ -948,13 +938,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `type TextEditorCodeExecutionToolResultBlockParamResp struct{…}`
+            - `type TextEditorCodeExecutionToolResultBlockParamResp`
 
               - `Type TextEditorCodeExecutionToolResult`
 
               - `Content TextEditorCodeExecutionToolResultBlockParamContentUnionResp`
 
-                - `type TextEditorCodeExecutionToolResultErrorParamResp struct{…}`
+                - `type TextEditorCodeExecutionToolResultErrorParamResp`
 
                   - `Type TextEditorCodeExecutionToolResultError`
 
@@ -972,7 +962,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `ErrorMessage string Optional`
 
-                - `type TextEditorCodeExecutionViewResultBlockParamResp struct{…}`
+                - `type TextEditorCodeExecutionViewResultBlockParamResp`
 
                   - `Type TextEditorCodeExecutionViewResult`
 
@@ -992,13 +982,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `TotalLines int64 Optional`
 
-                - `type TextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
+                - `type TextEditorCodeExecutionCreateResultBlockParamResp`
 
                   - `Type TextEditorCodeExecutionCreateResult`
 
                   - `IsFileUpdate bool`
 
-                - `type TextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
+                - `type TextEditorCodeExecutionStrReplaceResultBlockParamResp`
 
                   - `Type TextEditorCodeExecutionStrReplaceResult`
 
@@ -1020,13 +1010,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `type ToolSearchToolResultBlockParamResp struct{…}`
+            - `type ToolSearchToolResultBlockParamResp`
 
               - `Type ToolSearchToolResult`
 
               - `Content ToolSearchToolResultBlockParamContentUnionResp`
 
-                - `type ToolSearchToolResultErrorParamResp struct{…}`
+                - `type ToolSearchToolResultErrorParamResp`
 
                   - `Type ToolSearchToolResultError`
 
@@ -1042,7 +1032,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `ErrorMessage string Optional`
 
-                - `type ToolSearchToolSearchResultBlockParamResp struct{…}`
+                - `type ToolSearchToolSearchResultBlockParamResp`
 
                   - `Type ToolSearchToolSearchResult`
 
@@ -1052,7 +1042,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `ToolName string`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `CacheControl CacheControlEphemeral Optional`
 
@@ -1066,7 +1056,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `type ContainerUploadBlockParamResp struct{…}`
+            - `type ContainerUploadBlockParamResp`
 
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
@@ -1093,81 +1083,83 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `type Model string`
+        - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
-          The model that will complete your prompt.
+          Efficient model for coding and agents
 
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
 
-          - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `const ModelClaudeOpus5_5 Model = "claude-opus-5-5"`
 
-          - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            Our most capable model for cybersecurity and biology research, available through trusted access programs
+        - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
 
-          - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-            High-performance model for coding and agents
+        - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
-          - `const ModelClaudeFable5 Model = "claude-fable-5"`
+          Efficient model for coding and agents
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `const ModelClaudeFable5 Model = "claude-fable-5"`
 
-          - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Most capable model for cybersecurity and biology research
+        - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
 
-          - `const ModelClaudeOpus5 Model = "claude-opus-5"`
+          Most capable model for cybersecurity and biology research
 
-            Powerful intelligence for long-running agents and coding
+        - `const ModelClaudeOpus5 Model = "claude-opus-5"`
 
-          - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
 
-          - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
 
-          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+          Powerful intelligence for long-running agents and coding
 
-            New class of intelligence, strongest in coding and cybersecurity
+        - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
-          - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
 
-          - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
+          Best combination of speed and intelligence
 
-            Best combination of speed and intelligence
+        - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
 
-          - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
 
-          - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
 
-          - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
 
-          - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
 
-          - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
 
-          - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
-        - `string`
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
       - `CacheControl CacheControlEphemeral Optional`
 
@@ -1177,7 +1169,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Container identifier for reuse across requests.
 
-        - `type ContainerParamsResp struct{…}`
+        - `type ContainerParamsResp`
 
           Container parameters with skills to be loaded.
 
@@ -1203,15 +1195,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `Version string Optional`
 
               Skill version or 'latest' for most recent version
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `string`
+
+      - `Diagnostics DiagnosticsParamResp Optional`
+
+        Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
+
+        - `PreviousMessageID string Optional`
+
+          The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+          maxLength: 256
 
       - `InferenceGeo string Optional`
 
@@ -1235,7 +1237,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Effort OutputConfigEffort Optional`
 
-          All possible effort levels.
+          How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+          Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
           - `const OutputConfigEffortLow OutputConfigEffort = "low"`
 
@@ -1277,9 +1281,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Stream bool Optional`
 
-        Whether to incrementally stream the response using server-sent events.
+        Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-        See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+        In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
       - `System []TextBlockParamResp Optional`
 
@@ -1309,7 +1313,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-        - `type ThinkingConfigEnabled struct{…}`
+        - `type ThinkingConfigEnabled`
 
           - `Type Enabled`
 
@@ -1331,11 +1335,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `const ThinkingConfigEnabledDisplayOmitted ThinkingConfigEnabledDisplay = "omitted"`
 
-        - `type ThinkingConfigDisabled struct{…}`
+        - `type ThinkingConfigDisabled`
 
           - `Type Disabled`
 
-        - `type ThinkingConfigAdaptive struct{…}`
+        - `type ThinkingConfigBetweenTools`
+
+          - `Type BetweenTools`
+
+        - `type ThinkingConfigAdaptive`
 
           - `Type Adaptive`
 
@@ -1351,7 +1359,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-        - `type ToolChoiceAuto struct{…}`
+        - `type ToolChoiceAuto`
 
           The model will automatically decide whether to use tools.
 
@@ -1363,7 +1371,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output at most one tool use.
 
-        - `type ToolChoiceAny struct{…}`
+        - `type ToolChoiceAny`
 
           The model will use any available tools.
 
@@ -1375,7 +1383,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-        - `type ToolChoiceTool struct{…}`
+        - `type ToolChoiceTool`
 
           The model will use the specified tool with `tool_choice.name`.
 
@@ -1391,7 +1399,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-        - `type ToolChoiceNone struct{…}`
+        - `type ToolChoiceNone`
 
           The model will not be allowed to use tools.
 
@@ -1461,7 +1469,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-        - `type Tool struct{…}`
+        - `type Tool`
 
           - `Type ToolType Optional`
 
@@ -1483,7 +1491,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-            maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+            minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
           - `AllowedCallers []string Optional`
 
@@ -1519,7 +1527,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type ToolBash20250124 struct{…}`
+        - `type ToolBash20250124`
 
           - `Type Bash20250124`
 
@@ -1553,7 +1561,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type CodeExecutionTool20250522 struct{…}`
+        - `type CodeExecutionTool20250522`
 
           - `Type CodeExecution20250522`
 
@@ -1585,7 +1593,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type CodeExecutionTool20250825 struct{…}`
+        - `type CodeExecutionTool20250825`
 
           - `Type CodeExecution20250825`
 
@@ -1617,7 +1625,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type CodeExecutionTool20260120 struct{…}`
+        - `type CodeExecutionTool20260120`
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -1651,7 +1659,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type CodeExecutionTool20260521 struct{…}`
+        - `type CodeExecutionTool20260521`
 
           Code execution tool with REPL state persistence.
 
@@ -1685,7 +1693,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type BrowserToolset20260801 struct{…}`
+        - `type BrowserToolset20260801`
 
           The browser toolset: a single `tools[]` entry (carrying no
           `name`) that declares the browser tool family. The model is served
@@ -1700,12 +1708,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Configs BrowserToolsetConfigs Optional`
 
-            Per-member configuration for `browser_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `Type BrowserTypeConfig Optional`
 
@@ -2079,7 +2082,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `type MemoryTool20250818 struct{…}`
+        - `type MemoryTool20250818`
 
           - `Type Memory20250818`
 
@@ -2113,7 +2116,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type ComputerToolset20260801 struct{…}`
+        - `type ComputerToolset20260801`
 
           The computer toolset: a single `tools[]` entry (carrying no
           `name`) that declares the computer tool family. The model is
@@ -2132,12 +2135,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Configs ComputerToolsetConfigs Optional`
 
-            Per-member configuration for `computer_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `Type ComputerTypeConfig Optional`
 
@@ -2343,7 +2341,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `type ToolTextEditor20250124 struct{…}`
+        - `type ToolTextEditor20250124`
 
           - `Type TextEditor20250124`
 
@@ -2377,7 +2375,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type ToolTextEditor20250429 struct{…}`
+        - `type ToolTextEditor20250429`
 
           - `Type TextEditor20250429`
 
@@ -2411,7 +2409,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type ToolTextEditor20250728 struct{…}`
+        - `type ToolTextEditor20250728`
 
           - `Type TextEditor20250728`
 
@@ -2451,7 +2449,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type WebSearchTool20250305 struct{…}`
+        - `type WebSearchTool20250305`
 
           - `Type WebSearch20250305`
 
@@ -2491,7 +2489,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
@@ -2507,27 +2505,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The city of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `Country string Optional`
 
               The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-              maxLength: 2, minLength: 2
+              minLength: 2, maxLength: 2
 
             - `Region string Optional`
 
               The region of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `Timezone string Optional`
 
               The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
-        - `type WebFetchTool20250910 struct{…}`
+        - `type WebFetchTool20250910`
 
           - `Type WebFetch20250910`
 
@@ -2571,19 +2569,105 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `MaxUses int64 Optional`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type WebSearchTool20260209 struct{…}`
+          - `URLSources WebFetchURLSources Optional`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+            - `ClientToolResults WebFetchURLSourcesClientToolResultsUnion Optional`
+
+              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+              - `type WebFetchURLSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+                - `Type All`
+
+              - `type WebFetchURLSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+                - `Type None`
+
+              - `type WebFetchURLSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+                - `Type Only`
+
+                - `Tools []WebFetchURLSourceToolReference`
+
+                  - `Type ToolReference`
+
+                  - `Name string`
+
+              - `type WebFetchURLSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+                - `Type Except`
+
+                - `Tools []WebFetchURLSourceToolReference`
+
+                  - `Type ToolReference`
+
+                  - `Name string`
+
+            - `ServerToolResults WebFetchURLSourcesServerToolResultsUnion Optional`
+
+              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+              - `type WebFetchURLSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `type WebFetchURLSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+              - `type WebFetchURLSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+              - `type WebFetchURLSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+            - `UserInput WebFetchURLSourcesUserInputUnion Optional`
+
+              Whether URLs in user messages are fetchable: "all" or "none".
+
+              - `type WebFetchURLSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `type WebFetchURLSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+        - `type WebSearchTool20260209`
 
           - `Type WebSearch20260209`
 
@@ -2623,7 +2707,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
@@ -2633,7 +2717,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-        - `type WebFetchTool20260209 struct{…}`
+        - `type WebFetchTool20260209`
 
           - `Type WebFetch20260209`
 
@@ -2677,19 +2761,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `MaxUses int64 Optional`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type WebFetchTool20260309 struct{…}`
+          - `URLSources WebFetchURLSources Optional`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+        - `type WebFetchTool20260309`
 
           Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -2735,23 +2823,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `MaxUses int64 Optional`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
             When true, guarantees schema validation on tool names and inputs
 
+          - `URLSources WebFetchURLSources Optional`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
           - `UseCache bool Optional`
 
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-        - `type WebSearchTool20260318 struct{…}`
+        - `type WebSearchTool20260318`
 
           - `Type WebSearch20260318`
 
@@ -2791,7 +2883,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `ResponseInclusion WebSearchTool20260318ResponseInclusion Optional`
 
@@ -2809,7 +2901,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-        - `type WebFetchTool20260318 struct{…}`
+        - `type WebFetchTool20260318`
 
           - `Type WebFetch20260318`
 
@@ -2853,13 +2945,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `MaxUses int64 Optional`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `ResponseInclusion WebFetchTool20260318ResponseInclusion Optional`
 
@@ -2873,11 +2965,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
+          - `URLSources WebFetchURLSources Optional`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
           - `UseCache bool Optional`
 
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-        - `type ToolSearchToolBm25_20251119 struct{…}`
+        - `type ToolSearchToolBm25_20251119`
 
           - `Type ToolSearchToolBm25_20251119Type`
 
@@ -2913,7 +3009,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `type ToolSearchToolRegex20251119 struct{…}`
+        - `type ToolSearchToolRegex20251119`
 
           - `Type ToolSearchToolRegex20251119Type`
 
@@ -2951,7 +3047,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Temperature float64 Optional`
 
-        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
         Amount of randomness injected into the response.
 
@@ -2959,7 +3055,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
       - `TopK int64 Optional`
 
@@ -2983,7 +3079,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Recommended for advanced use cases only.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
   - `UserProfileID param.Field[string] Optional`
 
@@ -2997,7 +3093,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 ## Returns
 
-- `type MessageBatch struct{…}`
+- `type MessageBatch`
 
   - `Type MessageBatch`
 

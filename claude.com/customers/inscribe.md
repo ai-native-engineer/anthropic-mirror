@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Inscribe cut time spent on fraud review 20x with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Inscribe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e8c27d1af9af2f0e74ef_cs-logo-inscribe-light-theme.svg)![Inscribe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e8c859e36b94df8dcc9e_cs-logo-inscribe-dark-theme.svg)
+![Inscribe logo](https://assets.claude.com/6d1c6324ad3394bd5588bb842b535e29204d34b2.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 20x reduction
 
@@ -37,42 +27,6 @@ from 30 minutes to 90 seconds fraud review time
 70x increase
 
 in output for one client example
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Inscribe uses Claude to power AI Risk Agents that automate fraud detection, document verification, and risk analysis for banks and fintechs.
 
@@ -104,9 +58,7 @@ Inscribe uses Claude to drive its suite of AI Risk Agents, automating key aspect
 
 The recently launched AI Fraud Analyst exemplifies these capabilities. "Our AI Fraud Analyst can detect fraud in images and PDFs, verify applicant details through KYC and KYB checks, uncover risky transactions, and provide auditable risk reports – all in about 90 seconds,” said Burke.
 
-![Inscribe product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05a09311639f1deb9e2_71e4722bec56751205cc72bdcb5218d0823de80e-1920x1080.jpeg)
-
-![Inscribe screenshot ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05a09311639f1deb9de_9308df6c6454d5d4d82f6b249aa7f564b8e9ea36-1920x894.jpeg)
+![Inscribe product screenshot](https://assets.claude.com/0077b560bbba6610f4564b4d60202ed9f416c486.jpg)![Inscribe screenshot ](https://assets.claude.com/756aaecde2ee92a251ba075390f2c20918f71207.jpg)
 
 ## Transforming the financial landscape
 
@@ -128,52 +80,12 @@ To realize its vision, Inscribe plans to expand its suite of AI Risk Agents, aut
 
 As financial services evolve in a digital world, Inscribe and Claude stand at the forefront, creating more efficient, fair, and secure risk management processes benefiting institutions and consumers alike.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-[Next](#)Next
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-Video caption
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)

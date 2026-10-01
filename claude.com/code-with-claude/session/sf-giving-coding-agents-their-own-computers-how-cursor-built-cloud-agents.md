@@ -4,44 +4,32 @@
 
 Local agents hit a ceiling — they compete for your machine's resources, can't verify their own work, and bottleneck at one or two tasks at a time. Alexi Robbins, Head of Engineering for Cursor's async agents, share how they gave each agent its own isolated VM so agents can write code, spin up browsers, test their own changes, and deliver merge-ready PRs in parallel — now behind 30%+ of Cursor's internal merged PRs.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-05:35PM – 06:05PM
+:   05:35PM – 06:05PM
 
 Speaker(s)
+:   Alexi Robbins
 
-Alexi Robbins
+    Head of Engineering, Async Agents,
 
-Head of Engineering, Async Agents,
-
-Cursor
+    Cursor
 
 ## Watch recording
 
-[Play video](#)Play video
+![Giving coding agents their own computers: How Cursor built cloud agents](https://assets.claude.com/e0d4c1b57e333a0ac2e7c79d4dffe818a5bbd732.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf3928bad4c427227e188_give-coding-agents-their-own-computers.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Giving coding agents their own computers: How Cursor built cloud agents | Session | Code w/ Claude 2026

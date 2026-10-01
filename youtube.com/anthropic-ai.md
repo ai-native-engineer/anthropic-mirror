@@ -1,7 +1,8 @@
 # anthropic-ai (YouTube)
 
-영상 177개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 178개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Inside Anthropic's molecular biology lab](anthropic-ai/260923-inside-anthropic-s-molecular-biology-lab.md) — 2026-09-23
 - [Introducing Claude Fable 5.1](anthropic-ai/260901-introducing-claude-fable-5-1.md) — 2026-09-01
 - [Model Hardware Standard: AI operating physical equipment](anthropic-ai/260828-model-hardware-standard-ai-operating-physical-equipment.md) — 2026-08-28
 - [AI models can now help run physical science experiments](anthropic-ai/260827-ai-models-can-now-help-run-physical-science-experiments.md) — 2026-08-27

@@ -63,7 +63,11 @@ List Deployment Runs
 
   - `"schedule"`
 
+    The run was fired by the deployment's cron schedule.
+
   - `"manual"`
+
+    The run was started manually by creating a session directly against the deployment.
 
 - `betas: Optional[List[AnthropicBetaParam]]`
 
@@ -71,103 +75,113 @@ List Deployment Runs
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 42 more]`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 - `workspace_id: Optional[str]`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `class BetaManagedAgentsDeploymentRun: …`
+- `class BetaManagedAgentsDeploymentRun`
 
   A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
 
@@ -179,7 +193,7 @@ List Deployment Runs
 
   - `agent: BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
     - `type: Literal["agent"]`
 
@@ -191,7 +205,7 @@ List Deployment Runs
 
   - `created_at: datetime`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
     format: date-time
 
@@ -201,9 +215,9 @@ List Deployment Runs
 
   - `error: Optional[Error]`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
-    - `class BetaManagedAgentsEnvironmentArchivedRunError: …`
+    - `class BetaManagedAgentsEnvironmentArchivedRunError`
 
       The deployment's environment was archived.
 
@@ -213,7 +227,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsAgentArchivedRunError: …`
+    - `class BetaManagedAgentsAgentArchivedRunError`
 
       The deployment's agent was archived.
 
@@ -223,7 +237,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsEnvironmentNotFoundRunError: …`
+    - `class BetaManagedAgentsEnvironmentNotFoundRunError`
 
       The deployment's environment no longer exists.
 
@@ -233,7 +247,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsVaultNotFoundRunError: …`
+    - `class BetaManagedAgentsVaultNotFoundRunError`
 
       A vault referenced by the deployment no longer exists.
 
@@ -243,7 +257,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsVaultArchivedRunError: …`
+    - `class BetaManagedAgentsVaultArchivedRunError`
 
       A vault referenced by the deployment is archived.
 
@@ -253,7 +267,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsFileNotFoundRunError: …`
+    - `class BetaManagedAgentsFileNotFoundRunError`
 
       A file resource referenced by the deployment no longer exists.
 
@@ -263,7 +277,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsMemoryStoreArchivedRunError: …`
+    - `class BetaManagedAgentsMemoryStoreArchivedRunError`
 
       A memory store referenced by the deployment is archived.
 
@@ -273,7 +287,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSkillNotFoundRunError: …`
+    - `class BetaManagedAgentsSkillNotFoundRunError`
 
       A skill referenced by the deployment's agent no longer exists.
 
@@ -283,7 +297,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSessionResourceNotFoundRunError: …`
+    - `class BetaManagedAgentsSessionResourceNotFoundRunError`
 
       A referenced resource no longer exists and its kind was not reported.
 
@@ -293,7 +307,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsWorkspaceArchivedRunError: …`
+    - `class BetaManagedAgentsWorkspaceArchivedRunError`
 
       The deployment's workspace was archived.
 
@@ -303,7 +317,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsOrganizationDisabledRunError: …`
+    - `class BetaManagedAgentsOrganizationDisabledRunError`
 
       The deployment's organization is disabled.
 
@@ -313,7 +327,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSessionRateLimitedRunError: …`
+    - `class BetaManagedAgentsSessionRateLimitedRunError`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
 
@@ -323,7 +337,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSessionCreationRejectedRunError: …`
+    - `class BetaManagedAgentsSessionCreationRejectedRunError`
 
       The session create request was rejected with a non-retryable validation error.
 
@@ -333,7 +347,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsUnknownRunError: …`
+    - `class BetaManagedAgentsUnknownRunError`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
 
@@ -343,7 +357,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError: …`
+    - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
 
       The deployment configures resources, but its environment is self-hosted and cannot mount them.
 
@@ -353,7 +367,7 @@ List Deployment Runs
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsMCPEgressBlockedRunError: …`
+    - `class BetaManagedAgentsMCPEgressBlockedRunError`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
 
@@ -369,9 +383,9 @@ List Deployment Runs
 
   - `trigger_context: BetaManagedAgentsTriggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
-    - `class BetaManagedAgentsScheduleTriggerContext: …`
+    - `class BetaManagedAgentsScheduleTriggerContext`
 
       The run was fired by the deployment's cron schedule.
 
@@ -379,11 +393,11 @@ List Deployment Runs
 
       - `scheduled_at: datetime`
 
-        A timestamp in RFC 3339 format
+        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
         format: date-time
 
-    - `class BetaManagedAgentsManualTriggerContext: …`
+    - `class BetaManagedAgentsManualTriggerContext`
 
       The run was started manually by creating a session directly against the deployment.
 

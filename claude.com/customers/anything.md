@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Anything builds coding agent for 1.5 million users with Claude Agent SDK
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c4449cbdd758b4b0b599ec_logo_anything-light-mode%20(1).png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c444a5414f5966382739f3_logo_anything-dark-mode%20(1).png)
+![Anything logo](https://assets.claude.com/87b34a52251db9e74ee09ff0989c7ac3265f2a49.png)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 800,000+ apps
 
@@ -50,53 +40,19 @@ A non-technical founder built and is already selling a full recruiting platform.
 
 ## The challenge
 
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
 ## Closing the gap between idea and working product
 
 The goal of helping non-technical people create software predates Anything's current stack. Before Claude, the models they relied on were prone to outages. The team ended up building multi-stage code generation pipelines—calling separate agents to produce code and manually splicing it in—and relying on RAG pipelines to locate relevant code and package documentation, leaving little room to focus on the actual product. Single-page applications were achievable. But a production-quality product with databases, integrations, and mobile deployment was a different problem entirely.
 
 Serving a non-technical audience raised the bar further. The agent couldn't just produce code: it needed to handle complex workflows reliably, correct its own errors across long building sessions, and maintain quality throughout. "It was unclear how to go from simple tools to something much deeper," says Marcus Lowe, co-founder of Anything. “Once AI models reached the level of reliable instruction following, parallel tool-calling, and consistent tool reliability, it became clear how it could fit into our stack and help us evolve from simple solutions to something that could support more complex product creation.”
 
+Choosing the right Claude model
+
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-agent success rate
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-agent success rate
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-91-96%
-
-agent success rate
 
 ## Why Anything chose Claude
 
@@ -108,27 +64,9 @@ Claude's performance in those areas let the team shift their focus from keeping 
 
 Built with the Agent SDK, the team had Claude integrated in a day. Opus 4.6's performance was strong enough from the start that they didn't need the weeks of testing and iteration they'd typically budget for a new model.
 
-Building agents with the Claude Agent SDK
+91-96%
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698395d5956e6e0e78f3e486_image-claude-sdk.jpg)
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Building agents with the Claude Agent SDK
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
+agent success rate
 
 ## The outcome
 
@@ -148,42 +86,24 @@ Anything is building toward more advanced agents capable of massive parallelizat
 
 "We're building toward agents that can work on multiple parts of a product simultaneously," Lowe said. "We're just seeing the beginning. The apps our users build will start improving themselves."
 
-"The warmth and personality of Claude models resonates with our users. That's why we default to Claude in the product.”
+Building agents with the Claude Agent SDK
 
-Ahmad Jiha
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Software Engineer, Anything
+The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
 
-## Related stories
+[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+> "The warmth and personality of Claude models resonates with our users. That's why we default to Claude in the product.”
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+Ahmad JihaSoftware Engineer, Anything
 
-Customer story
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Customer story](https://claude.com/customers/atlassian)Customer story
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Rocket Money on building agents that fix their own code
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

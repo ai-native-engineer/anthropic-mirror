@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-creative-work/the-production-lens -->
 
-Lesson 3 of 8 · AI Fluency for Creative WorkThe production lens
+Lesson 3 of 8 · AI Fluency for creative workThe production lens
 
-3. /[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+3. /[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
-[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
 # The production lens
 
@@ -47,7 +47,7 @@ You now have both lenses to analyze your creative practice. The next lesson intr
 
 [Previous lessonThe creative value lens](https://academy.claude.com/courses/ai-fluency-for-creative-work/the-creative-value-lens)[Next lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-creative-work/the-4d-framework)
 
-Lesson 3 of 8 · AI Fluency for Creative WorkThe production lens
+Lesson 3 of 8 · AI Fluency for creative workThe production lens
 
 Introduction
 

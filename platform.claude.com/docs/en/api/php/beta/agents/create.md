@@ -37,7 +37,7 @@ Create Agent
 
 - `multiagent?:optional BetaManagedAgentsMultiagentParams`
 
-  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+  Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
 
 - `skills?:optional list<BetaManagedAgentsSkillParams>`
 
@@ -57,9 +57,13 @@ Create Agent
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -67,7 +71,7 @@ Create Agent
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -85,7 +89,7 @@ Create Agent
 
   - `?BetaManagedAgentsMultiagent multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
   - `string name`
 

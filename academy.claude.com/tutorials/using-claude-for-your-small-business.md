@@ -6,7 +6,7 @@
 
 # Using Claude Cowork for your small business
 
-Walk through four workflows from the Small Business plugin — plan payroll, close the month, get a Monday brief, run a campaign — and what Claude does at each step.
+Walk through three workflows from the Small Business plugin — plan payroll, close the month, get a Monday brief — and what Claude does at each step.
 
 15 minClaude Cowork
 
@@ -18,7 +18,7 @@ Running a small business means working across a lot of tools — your books, you
 
 With the [Claude for Small Business(opens in new tab)](https://www.anthropic.com/news/claude-for-small-business) plugin installed and set up in [Claude Cowork(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps), a short prompt can help run a multi-step workflow for your business.
 
-Below are four examples: what each prompt runs, what Claude does at each step, and what you have when it's done.
+Below are three examples: what each prompt runs, what Claude does at each step, and what you have when it's done.
 
 ***Tip***: To set up the plugin that enables the workflows below and see the full inventory of skills, visit [How to install and use the Claude for Small Business plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)
 
@@ -27,9 +27,8 @@ Below are four examples: what each prompt runs, what Claude does at each step, a
 In this guide
 
 1. [Get a pulse on your businessOne Monday-morning page that covers what you'd otherwise check across four browser tabs.](#get-a-pulse-on-your-business)
-2. [Run your next campaignFind the slow stretch in your sales and stage the whole campaign across the tools you already use.](#run-your-next-campaign)
-3. [Close the month with fewer errorsReconcile your books against your settlements and hand your accountant a packet that's already done.](#close-the-month-with-fewer-errors)
-4. [Plan payroll with confidenceSee whether payroll is covered, then chase what's owed — with reminders calibrated to how each customer pays.](#plan-payroll-with-confidence)
+2. [Close the month with fewer errorsReconcile your books against your settlements and hand your accountant a packet that's already done.](#close-the-month-with-fewer-errors)
+3. [Plan payroll with confidenceSee whether payroll is covered, then chase what's owed — with reminders calibrated to how each customer pays.](#plan-payroll-with-confidence)
 
 ## Get a pulse on your business[](#get-a-pulse-on-your-business)
 
@@ -60,48 +59,6 @@ A short list of things to act on first, with the reason each one made the list.
 Outcome
 
 A one-page brief saved to your folder, ready every Monday morning if you put it on a schedule.
-
-## Run your next campaign[](#run-your-next-campaign)
-
-Find my weakest revenue month from last year and plan a promo to address it. Draft the strategy, generate the campaign assets in Canva, segment my list in HubSpot, and stage the send. Show me everything before anything goes out.
-
-BusinessOpen in Cowork
-
-This prompt starts the /run-campaign skill, which gives Claude instructions for finding your slow season, drafting an offer, building the assets, and staging the send. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude works with your tone and your audience.
-
-1
-
-Claude finds when sales usually dip
-
-Reads your sales by month, spots when revenue typically drops, and drafts the offer, audience, and a posting calendar to fill it.
-
-→
-
-You approve the plan
-
-Decide whether the offer is right and who it's for.
-
-2
-
-Claude builds the assets
-
-Generates social designs from your brand templates and drafts the captions and email copy.
-
-3
-
-Claude builds the audience
-
-Reads your CRM, segments the list, and stages the email as a draft.
-
-→
-
-You approve before anything publishes
-
-Designs are in your design tool, the email is staged, the segment is built. Nothing posts or sends until you approve.
-
-Outcome
-
-A campaign plan, the designs, the copy, and a staged send — built across the tools where you'd edit them and waiting for your approval.
 
 ## Close the month with fewer errors[](#close-the-month-with-fewer-errors)
 
@@ -192,7 +149,6 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 * [AI Fluency for Small Business(opens in new tab)](https://academy.claude.com/courses/ai-fluency-for-small-businesses) — a free course on running a small business with AI
 
 * [Get a pulse on your business](#get-a-pulse-on-your-business)
-* [Run your next campaign](#run-your-next-campaign)
 * [Close the month with fewer errors](#close-the-month-with-fewer-errors)
 * [Plan payroll with confidence](#plan-payroll-with-confidence)
 * [Things to note](#things-to-note)

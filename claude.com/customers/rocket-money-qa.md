@@ -4,47 +4,17 @@ Q&A | Claude
 
 # Rocket Money on building agents that fix their own code
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e170db69adaa238d89c2d_logo_rocketmoney-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e17136685ddacc4602392_logo_customer-dark-mode.svg)
+![Rocket Money logo](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 Case Study: Rocket Money
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e47e6e408ec5b4d828e55_og_case-study-ROCKET.jpg)
+![Case Study: Rocket Money ](https://assets.claude.com/55641b76423c99ec1c176980d33a7b516065a73c.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Read how Rocket Money built its personal finance agent with Claude.
 
-Read more
-
-[Read more](https://claude.com/customers/rocket-money)Read more
-
-Case Study: Rocket Money
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Read how Rocket Money built its personal finance agent with Claude.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: Rocket Money
-
-Read how Rocket Money built its personal finance agent with Claude.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/customers/rocket-money)
 
 [Rocket Money](https://www.rocketmoney.com/) is a personal finance app that tracks spending, cancels subscriptions, negotiates bills, and automates savings. Its newest product, Rowan, is a financial assistant built on Claude that users reach by text message. Anthropic spoke with Aaron Dignan, VP of Product & AI, and Chase Adams, VP of AI Engineering, about the architecture behind Rowan and their approach to building agents in consumer AI.
 
@@ -58,11 +28,9 @@ Read how Rocket Money built its personal finance agent with Claude.
 
 **Chase Adams, Rocket Money:** I don't want to make anyone open a dashboard or read a graph. Rowan should be the thing that notices a subscription you forgot about, or flags a charge that looks off, and just tells you. The experience we're going for is that you get the value without having to think about it.
 
-"With the least amount of context, Claude tends to get the most things right."
+> "With the least amount of context, Claude tends to get the most things right."
 
-Chase Adams,
-
-VP of AI Engineering, Rocket Money
+Chase Adams, VP of AI Engineering, Rocket Money
 
 ## You tested every major model at your last company. Why go all in on Claude?
 
@@ -92,27 +60,9 @@ VP of AI Engineering, Rocket Money
 
 ‍**Adams:** I have a counterintuitive belief, which is that by the time agents are good enough to be good enough, they won't need most of what we are doing now. What I see across the industry is that if you can get an agent 70% of the way there, people say, that's great. But if you are building something focused, where people genuinely care about it being right, there is a lot more complexity in keeping it from going off the rails. A generic harness hides that complexity. That is why we built the system the way we did.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "There are plenty of decent models out there, but who can we count on to reliably keep delivering progress?"
 
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-"There are plenty of decent models out there, but who can we count on to reliably keep delivering progress?"
-
-Aaron Dignan,
-
-VP of Product & AI, Rocket Money
+Aaron Dignan, VP of Product & AI, Rocket Money
 
 ## As Rowan starts taking actions out in the world, it will run into other companies' agents. How does that change things?
 
@@ -124,52 +74,12 @@ VP of Product & AI, Rocket Money
 
 **Dignan:** The scope within money alone is almost endless, so the discipline is staying focused rather than saying yes to everything. Our hypothesis is that people will eventually hire a handful of specialized agents for the major roles in their life, not have one agent for everything. Even a billionaire wouldn't hire one person to handle their food, their health, their money, and their business. Specialization is what keeps each one focused and high quality, so we will put real walls around what Rowan is and stay focused.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)[![Notion](https://assets.claude.com/19e0cdfaef9d2980bddd19cd993076d62b46c0c7.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
-
-[Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
-
-Deepgram ships 4–10x more durable code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/deepgram)Customer story
+### How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)

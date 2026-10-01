@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/the-4d-framework -->
 
-Lesson 3 of 10 · AI Fluency for pK–12 EducatorsThe 4D Framework
+Lesson 3 of 10 · AI Fluency for pK–12 educatorsThe 4D Framework
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # The 4D Framework
 
@@ -62,7 +62,7 @@ In the next lesson, we'll dive deeper into AI's capabilities and limits to estab
 
 [Previous lessonWelcome to AI Fluency for educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/welcome-to-ai-fluency-for-k-12-educators)[Next lessonExplore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)
 
-Lesson 3 of 10 · AI Fluency for pK–12 EducatorsThe 4D Framework
+Lesson 3 of 10 · AI Fluency for pK–12 educatorsThe 4D Framework
 
 How this course was made
 

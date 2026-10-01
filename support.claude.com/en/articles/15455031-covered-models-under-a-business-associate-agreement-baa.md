@@ -67,6 +67,6 @@ Some organizations may consider setting up a separate, non-ZDR organization to a
 
 * [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)
-* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [Turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)

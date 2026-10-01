@@ -32,4 +32,4 @@ So should you use AI for political conversations? Sure, but here are some tips t
 
 And of course, these tactics for ensuring you're seeing all sides of an issue are helpful, far beyond the realm of political conversation. It's always a good idea to apply a discerning eye to all conversations you have with AI. We'll continue to share our progress in this area on our blog. You can learn more about AI Fluency in Anthropic Academy.
 
-*Learn more: [AI Fluency(opens in new tab)](https://academy.claude.com/collections/ai-fluency)*
+*Learn more: [How AI works(opens in new tab)](https://academy.claude.com/collections/how-ai-works)*

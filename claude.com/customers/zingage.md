@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # How Zingage automates care coordination for 400+ home care agencies with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bb0ad3c98c8996d09c0689_logo_zingage-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bb0ad3c98c8996d09c0689_logo_zingage-light-mode.svg)
+![Zingage logo](https://assets.claude.com/7a6b9b092d1ec61d938402cc6744e4d94ed2564a.svg)
 
 Industry:
-
-Healthcare
+:   Healthcare
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 82% reduction
 
@@ -50,28 +40,6 @@ Home care is a 24/7 operation that runs on phone calls, last-minute staffing cha
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-from caregiver call-out to confirmed replacement
-
-Read more
-
-[Read more](https://claude.com/customers/zingage)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-from caregiver call-out to confirmed replacement
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-<40 minutes
-
-from caregiver call-out to confirmed replacement
-
 ## Staffing crises at midnight, with no one to call
 
 Before Zingage, home care agencies managed round-the-clock operations with overextended teams. When a caregiver called out sick for a night shift, a manager had to wake up, manually check the electronic medical record for available replacements, call ten caregivers one by one, get seven voicemails, and document the entire process for Medicaid compliance. “Agencies had managers sleeping next to their phones, running five-person on-call rotations costing $300K or more per year just to fill last-minute call-outs,” said Victor Hunt, CEO at Zingage.
@@ -80,33 +48,11 @@ The consequences of missed shifts were serious. No-call, no-shows often went und
 
 “Caregivers calling out are often stressed, embarrassed, or dealing with a genuine emergency, and clients’ family members are scared,” Hunt said. “The AI has to meet people where they are emotionally, not just process a transaction.”
 
+<40 minutes
+
+from caregiver call-out to confirmed replacement
+
 ## The solution
-
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-Read more
-
-[Read more](https://claude.com/healthcare)Read more
-
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Healthcare
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
 
 ## A zero-defect environment required a different kind of AI
 
@@ -132,23 +78,13 @@ The system handles multilingual calls natively, detecting language directly from
 
 “When the underlying reasoning is strong, the weakest link quickly becomes the instructions you give it,” Hunt said. “That pushed us to get much more rigorous about how we document workflows and edge cases, which ultimately made the whole system better.”
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Claude for Healthcare
 
-in after-hours labor costs at one Medicaid agency
+![Claude for Healthcare](https://assets.claude.com/3cc055deed02884f4a1b81019a962925687fccc3.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
 
-[Next](#)Next
-
-in after-hours labor costs at one Medicaid agency
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-82% reduction
-
-in after-hours labor costs at one Medicaid agency
+[Read more](https://claude.com/healthcare)
 
 ## The outcome
 
@@ -166,42 +102,20 @@ Zingage is expanding beyond care coordination into every major operational funct
 
 “Running Claude in production at scale every day has sharpened our own thinking about what good agentic AI looks like,” Hunt said. “That compounds over time in ways that are hard to overstate.”
 
-“Agencies can now run true 24/7 operations without burning out their teams.”
+82% reduction
 
-Victor Hunt
+in after-hours labor costs at one Medicaid agency
 
-CEO, Zingage
+> “Agencies can now run true 24/7 operations without burning out their teams.”
 
-## Related stories
+Victor HuntCEO, Zingage
 
-[How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)How League went all in on Claude in a regulated industry
+[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-How League went all in on Claude in a regulated industry
+### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-Customer story
+### League cuts product development cycle times in half with Claude](https://claude.com/customers/league)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-[Customer story](https://claude.com/customers/league-qa)Customer story
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Epic](https://assets.claude.com/eba99cadd0dd874d08d32b4f4c0cfbea1596372e.png)
 
-[League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
-
-League cuts product development cycle times in half with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/league)Customer story
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[A conversation with Seth Hain about Epic’s internal AI adoption](https://claude.com/customers/epic-systems)A conversation with Seth Hain about Epic’s internal AI adoption
-
-A conversation with Seth Hain about Epic’s internal AI adoption
-
-Customer story
-
-[Customer story](https://claude.com/customers/epic-systems)Customer story
+### A conversation with Seth Hain about Epic’s internal AI adoption](https://claude.com/customers/epic-systems)

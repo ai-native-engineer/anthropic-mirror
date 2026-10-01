@@ -4,37 +4,24 @@ Case study | Claude Platform
 
 # Vega's cyber defense platform returns 67% of analysts' time with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b3a32e0823cc2246db_logo_vega-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b694804d6ccb090f8f_logo_vega-dark-mode.svg)
+![Vega Security logo](https://assets.claude.com/4e1839348313fbe4c8f3c96d6c7cbc95f53e13c6.svg)
 
 Industry:
-
-Cybersecurity
+:   Cybersecurity
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Agent SDK
-
-[Claude Platform](https://claude.com/platform/api)
+:   Claude Agent SDK[Claude Platform](https://claude.com/platform/api)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 Completes investigations up to 44 times faster with 82% lower costs
 
@@ -54,57 +41,19 @@ at a Fortune 500 company
 
 ## The challenge
 
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Amazon Bedrock
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
 ## Security teams could defend and reason across only what they could afford to ingest
 
 Most large enterprises have security data spread across dozens of tools and cloud environments. In theory they could ingest everything into a security information and event management (SIEM) platform, but this is often too complex and cost-prohibitive at enterprise scale. Security teams typically ingest only the fraction they can afford, and everything outside it becomes a blind spot. That can make it difficult to run queries, detection, or investigation at scale.
 
 AI made the tradeoff sharper. "AI agents are only as effective as the data they can access, and most security architectures are either too fragmented or too slow to support agentic cyber defense at scale," explained Eli Rozen, Co-founder and CTO. A security operations center (SOC) that only sees a sampled slice of the environment inherits every blind spot the sampling created. For one top-four global bank, visibility into Amazon VPC Flow Logs, AWS CloudTrail, and Microsoft 365 telemetry sat out of reach, as ingesting it into a legacy SIEM would have cost an additional $6 million.
 
+Claude on Amazon Bedrock
+
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
+
+Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
+
 ## The solution
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## One model family, the right depth at every layer
 
@@ -128,21 +77,15 @@ Inference reaches customers through Amazon Bedrock, with zero data retention, no
 
 As a global company, Vega needs to serve organizations with compliance, privacy, and data sovereignty requirements in every region. When a customer needed EU data residency for GDPR, Vega stood up a dedicated control plane in Frankfurt, running Amazon Bedrock's EU-hosted Claude models, in under three weeks.
 
-"As an AI-native company, we built Vega to work with best-in-class frontier models like Claude from day one, establishing that level of reasoning as the baseline for our platform."
+Choosing the right Claude model
 
-Eli Rozen,
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Co-founder & CTO, Vega
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "As an AI-native company, we built Vega to work with best-in-class frontier models like Claude from day one, establishing that level of reasoning as the baseline for our platform."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Eli Rozen, Co-founder & CTO, Vega
 
 ## The outcome
 
@@ -154,42 +97,16 @@ Across production deployments, customers reclaim roughly 67% of analyst time, co
 
 Next, Vega is shipping agentic search, which lets AI agents execute complete multi-step threat hunts across an organization's entire security environment. “Choose the right model for each task instead of defaulting to the largest model,” Rozen advised. “Rigorously measure quality in production, and build durable platform capabilities that outlast any single foundation model."
 
-"Claude gives us the ability to work within a single model family and apply the right level of intelligence exactly where it’s needed."
+> "Claude gives us the ability to work within a single model family and apply the right level of intelligence exactly where it’s needed."
 
-Eli Rozen,
+Eli Rozen, Co-founder & CTO, Vega
 
-Co-founder & CTO, Vega
+[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-## Related stories
+### Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-[Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
+### Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera)[![Kai](https://assets.claude.com/aff2397c0fd3708b6d0b23554c2ce5f81a3f7c56.svg)
 
-Cyera on making Claude Cowork the front door to 40 tools
+### Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai)[![Artemis](https://assets.claude.com/48f27f7275d9b4de4be5bb1911d5ad1a92ec95e0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/cyera-qa)Customer story
-
-[Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera) Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera)Customer story
-
-[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
-
-Kai delivers preemptive exposure management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/kai)Customer story
-
-[How Artemis helps security teams cut incident resolution time by 96%](https://claude.com/customers/artemis)How Artemis helps security teams cut incident resolution time by 96%
-
-How Artemis helps security teams cut incident resolution time by 96%
-
-Customer story
-
-[Customer story](https://claude.com/customers/artemis)Customer story
+### How Artemis helps security teams cut incident resolution time by 96%](https://claude.com/customers/artemis)

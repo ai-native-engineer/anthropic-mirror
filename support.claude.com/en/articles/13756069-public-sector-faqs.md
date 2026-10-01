@@ -6,7 +6,7 @@
 
 Select your product based on both your technical/functional requirements, and also your compliance/security/deployment environment requirements. Here is a list of options:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1789086600&signature=74d5e2de90d269a16d216de4ffaf12d6f3e6e8ef10ea31f940857f83d725fd82&req=diEuEc5%2FmoBZWPMW1HO4zU94LlAlFds22WxtU42UVC22zWVpNjPaElNwRNgO%0A3uE%2FtoxG%2B2EjAft%2FlPU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1789086600&signature=74d5e2de90d269a16d216de4ffaf12d6f3e6e8ef10ea31f940857f83d725fd82&req=diEuEc5%2FmoBZWPMW1HO4zU94LlAlFds22WxtU42UVC22zWVpNjPaElNwRNgO%0A3uE%2FtoxG%2B2EjAft%2FlPU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1790774100&signature=a4456f75e761b48468d34435f2d71f8aea5e8295fdc2d1a37b7ee5854527064c&req=diEuEc5%2FmoBZWPMW1HO4zU94L1kiGtkx2WxtU42UVC0kYGzhkAC0by7KMDrF%0ArWbbabOyE6V8fvKlpls%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1790774100&signature=a4456f75e761b48468d34435f2d71f8aea5e8295fdc2d1a37b7ee5854527064c&req=diEuEc5%2FmoBZWPMW1HO4zU94L1kiGtkx2WxtU42UVC0kYGzhkAC0by7KMDrF%0ArWbbabOyE6V8fvKlpls%3D%0A)
 
 ### What is Claude for Government (C4G)?
 
@@ -132,5 +132,5 @@ Learn more here: **[Offering expanded Claude access across all three branches of
 * [What is Amazon Bedrock?](https://support.claude.com/en/articles/7996918-what-is-amazon-bedrock)
 * [I use Claude in Amazon Bedrock. Who do I contact for customer support inquiries?](https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries)
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
-* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)

@@ -2,6 +2,8 @@
 
 # Who owns and manages the data of my team?
 
+Table of contents
+
 This article provides important information about your Claude for Work account associated with your organization's Claude for Work plan (Team or Enterprise plans). It includes details about data access and control that were shared with you when your Claude for Work plan account was set up.
 
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see [here](https://privacy.claude.com/en/collections/10663362-consumers).*
@@ -26,8 +28,12 @@ Your organization may have its own internal policies regarding usage of Claude f
 
 If you have any questions about data privacy in your Claude for Work plan account, we encourage you to contact your organization's account owner(s).
 
+---
+
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Does Claude use my team members’ location?](https://privacy.claude.com/en/articles/11186730-does-claude-use-my-team-members-location)
 * [Who owns and manages the data of my Claude for Education account?](https://privacy.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
+
+Table of contents

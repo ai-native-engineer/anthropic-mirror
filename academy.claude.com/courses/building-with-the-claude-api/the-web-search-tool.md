@@ -10,7 +10,7 @@ Lesson 31 of 67 · Building with the Claude APIThe web search tool
 
 Lesson 317 min
 
-**Important note:** Your organization must enable the Web Search tool in the settings console before using it. You can find this setting here: [https://platform.claude.com/settings/privacy(opens in new tab)](https://platform.claude.com/settings/privacy)
+**Important note:** Your organization must enable the Web Search tool in the settings console before using it. You can find this setting here: [https://platform.claude.com/settings/capabilities(opens in new tab)](https://platform.claude.com/settings/capabilities)
 
 Claude includes a built-in web search tool that lets it search the internet for current or specialized information to answer user questions. Unlike other tools where you need to provide the implementation, Claude handles the entire search process automatically - you just need to provide a simple schema to enable it.
 

@@ -19,7 +19,7 @@ Get Deployment Run
 
   - `required string deploymentRunID`
 
-    Path parameter deployment_run_id
+    Unique identifier of the deployment run.
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -115,6 +115,14 @@ Get Deployment Run
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -123,7 +131,7 @@ Get Deployment Run
 
 ## Returns
 
-- `class BetaManagedAgentsDeploymentRun:`
+- `class BetaManagedAgentsDeploymentRun`
 
   A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
 
@@ -135,7 +143,7 @@ Get Deployment Run
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
     - `required Type Type`
 
@@ -147,7 +155,7 @@ Get Deployment Run
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
     format: date-time
 
@@ -157,9 +165,9 @@ Get Deployment Run
 
   - `required Error? Error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
-    - `class BetaManagedAgentsEnvironmentArchivedRunError:`
+    - `class BetaManagedAgentsEnvironmentArchivedRunError`
 
       The deployment's environment was archived.
 
@@ -169,7 +177,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsAgentArchivedRunError:`
+    - `class BetaManagedAgentsAgentArchivedRunError`
 
       The deployment's agent was archived.
 
@@ -179,7 +187,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsEnvironmentNotFoundRunError:`
+    - `class BetaManagedAgentsEnvironmentNotFoundRunError`
 
       The deployment's environment no longer exists.
 
@@ -189,7 +197,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsVaultNotFoundRunError:`
+    - `class BetaManagedAgentsVaultNotFoundRunError`
 
       A vault referenced by the deployment no longer exists.
 
@@ -199,7 +207,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsVaultArchivedRunError:`
+    - `class BetaManagedAgentsVaultArchivedRunError`
 
       A vault referenced by the deployment is archived.
 
@@ -209,7 +217,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsFileNotFoundRunError:`
+    - `class BetaManagedAgentsFileNotFoundRunError`
 
       A file resource referenced by the deployment no longer exists.
 
@@ -219,7 +227,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsMemoryStoreArchivedRunError:`
+    - `class BetaManagedAgentsMemoryStoreArchivedRunError`
 
       A memory store referenced by the deployment is archived.
 
@@ -229,7 +237,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSkillNotFoundRunError:`
+    - `class BetaManagedAgentsSkillNotFoundRunError`
 
       A skill referenced by the deployment's agent no longer exists.
 
@@ -239,7 +247,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSessionResourceNotFoundRunError:`
+    - `class BetaManagedAgentsSessionResourceNotFoundRunError`
 
       A referenced resource no longer exists and its kind was not reported.
 
@@ -249,7 +257,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsWorkspaceArchivedRunError:`
+    - `class BetaManagedAgentsWorkspaceArchivedRunError`
 
       The deployment's workspace was archived.
 
@@ -259,7 +267,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsOrganizationDisabledRunError:`
+    - `class BetaManagedAgentsOrganizationDisabledRunError`
 
       The deployment's organization is disabled.
 
@@ -269,7 +277,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSessionRateLimitedRunError:`
+    - `class BetaManagedAgentsSessionRateLimitedRunError`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
 
@@ -279,7 +287,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSessionCreationRejectedRunError:`
+    - `class BetaManagedAgentsSessionCreationRejectedRunError`
 
       The session create request was rejected with a non-retryable validation error.
 
@@ -289,7 +297,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsUnknownRunError:`
+    - `class BetaManagedAgentsUnknownRunError`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
 
@@ -299,7 +307,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError:`
+    - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
 
       The deployment configures resources, but its environment is self-hosted and cannot mount them.
 
@@ -309,7 +317,7 @@ Get Deployment Run
 
         Human-readable error description.
 
-    - `class BetaManagedAgentsMcpEgressBlockedRunError:`
+    - `class BetaManagedAgentsMcpEgressBlockedRunError`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
 
@@ -325,9 +333,9 @@ Get Deployment Run
 
   - `required BetaManagedAgentsTriggerContext TriggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
-    - `class BetaManagedAgentsScheduleTriggerContext:`
+    - `class BetaManagedAgentsScheduleTriggerContext`
 
       The run was fired by the deployment's cron schedule.
 
@@ -335,11 +343,11 @@ Get Deployment Run
 
       - `required DateTimeOffset ScheduledAt`
 
-        A timestamp in RFC 3339 format
+        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
         format: date-time
 
-    - `class BetaManagedAgentsManualTriggerContext:`
+    - `class BetaManagedAgentsManualTriggerContext`
 
       The run was started manually by creating a session directly against the deployment.
 

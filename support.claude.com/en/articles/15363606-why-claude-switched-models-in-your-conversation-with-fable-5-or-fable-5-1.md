@@ -4,24 +4,24 @@ This article explains why a request might be blocked on Claude Fable 5 or Fable 
 
 ## Why some requests get blocked
 
-Claude Fable 5 and Fable 5.1's capabilities far exceed those of every model we've previously made generally available. It is state-of-the-art on nearly all tested benchmarks of AI capability, showing exceptional performance in software engineering, knowledge work, vision, and many other areas.
+Claude Fable 5 and Fable 5.1's capabilities far exceed those of every model we've previously made generally available. They are state-of-the-art on nearly all tested benchmarks of AI capability, showing exceptional performance in software engineering, knowledge work, vision, and many other areas.
 
 Releasing a model this capable comes with risks. Without strong safeguards, Claude Fable 5 and Fable 5.1's advanced capabilities in areas like cybersecurity and biology could be misused by users to create large-scale cyberattacks or bioweapons that could result in catastrophic damage. These capabilities are the reason we’ve previously only released Mythos-class models (like Mythos Preview) to a small number of selected and vetted partners.
 
-Recognizing these risks, to allow general users to access the vast majority of Fable 5 and Fable 5.1's capabilities, we've launched the model with safeguards that redirect or block its responses in some specific areas in line with our **[Terms of Service](https://www.anthropic.com/legal/commercial-terms)** and **[Usage Policy](https://www.anthropic.com/legal/aup)**. We’ve also **[been iterating](https://www.anthropic.com/news/redeploying-fable-5)** on safeguards since our first launch of Claude Fable 5.
+Recognizing these risks, to allow general users to access the vast majority of Fable 5 and Fable 5.1's capabilities, we've launched these models with safeguards that redirect or block their responses in some specific areas in line with our **[Terms of Service](https://www.anthropic.com/legal/commercial-terms)** and **[Usage Policy](https://www.anthropic.com/legal/aup)**. We’ve also **[been iterating](https://www.anthropic.com/news/redeploying-fable-5)** on safeguards since our first launch of Claude Fable 5.
 
-Most user queries blocked by these safeguards on Fable 5 or Fable 5.1 may instead receive a response from our next-most-capable model (i.e., "fallback"). We're working on making these safeguards more precise to help block only genuinely risky requests, with fewer false positives than there are today.
+We're working on making these safeguards more precise to help block only genuinely risky requests, with fewer false positives than there are today. Most user queries blocked by these safeguards on Fable 5 or Fable 5.1 may instead receive a response from our next-most-capable model (i.e., "fallback"), which can respond to these types of queries.
 
-## What requests may fallback
+## What requests may fall back
 
-**Claude Fable 5 and Fable 5.1 runs automated safety checks, or classifiers, on every user request. These checks are intended to visibly fallback from Fable 5 and Fable 5.1 to Opus models when users submit requests in:**
+**Claude Fable 5 and Fable 5.1 run automated safety checks, or classifiers, on every user request. These checks are intended to visibly fall back from Fable 5 and Fable 5.1 to Opus models when users submit requests in:**
 
 * Offensive cybersecurity techniques, such as building exploits, malware, or attack tooling. Claude Fable 5 and Fable 5.1 can assist with routine cybersecurity tasks, but users should expect high fallback rates. The safeguards are designed to block access to Mythos-level capabilities.
 * A large fraction of queries we consider dual-use in biology, such as virology, toxicology, drug design, and molecular design—so Fable 5 and Fable 5.1 are not recommended for professional biology research and drug development at this time. (**[Classifier updated](https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards)**: August 6, 2026 on Claude, Claude apps, and Claude Platform, with Amazon Bedrock, Claude Platform on AWS, Google Cloud Vertex AI, and Microsoft Foundry to follow.)
 * Distillation attacks on Fable 5 and Fable 5.1, including attempts to extract the model’s **[summarized thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#summarized-thinking).**
 * A narrow set of frontier LLM development tasks, such as distributed training infrastructure, ML accelerator design, and kernel development for certain non-standard chips.
 
-These blocking safeguards are intentionally broad, and we work to continuously improve the safeguards to reduce their user-experience impact. When requests are blocked, they may fallback to a non-Mythos model, currently Opus 5 for biology, chemistry, and life sciences requests, and Opus 4.8 for offensive cybersecurity technique requests.
+These blocking safeguards are intentionally broad, and we work to continuously improve the safeguards to reduce their user-experience impact. When requests are blocked, they may fall back to a non-Mythos model, currently Opus 5 for biology, chemistry, and life sciences requests, and Opus 4.8 for offensive cybersecurity technique requests.
 
 The checks also review everything the model reads, not just your latest message—including memory, content from connectors, web search results, and files, so a block can be triggered by content you didn't type.
 
@@ -56,13 +56,15 @@ With automatic model switching off, a blocked request pauses the conversation in
 
 Blocked requests are billed differently depending on when the block happens:
 
-* **Blocked on input:** If a request is blocked before Claude Fable 5 or Fable 5.1 produces any output, the conversation switches to Opus immediately. You're charged only at Opus rates, and the Opus response counts toward your usage limit or consumption.
-* **Blocked midstream:** If a request is blocked midstream, the input and the tokens streamed before the block are charged at Claude Fable 5 or Fable 5.1 rates. The rest of the response is charged at Opus rates.
-  ​
+* **Blocked before Claude responds:** To disrupt coordinated attacks on our safeguards, refusals that arrive before any output are billed when they stop or fall back due to biology, distillation, or frontier LLM development safety classifiers. These are the categories where our false positive rates are lowest as of September 2026. Requests blocked before any output in other categories are not charged.
+* **Blocked after Claude starts responding:** If a request is blocked midstream, the input tokens and those streamed before the block are charged at the rates of the model that produced them.
+* **Fallback requests:** If you are opted into automatic model switching, and the conversation switches to Opus after a block, the Opus response is charged separately, at the respective model’s rates. We provide a credit to compensate for the cache miss of the fallback request at the time of the request.
+
+Learn more about **[refusals and fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#how-refusals-are-billed)**.
 
 ## Give feedback
 
-If your blocked request seems unrelated to security or biology topics, or if your legitimate work in these areas keeps getting blocked, let us know. Use "Send feedback" to report it. Reports of incorrectly blocked requests help us narrow and improve these safeguards.
+If your blocked request seems unrelated to one of the classifiers listed above, or if your legitimate work in these areas keeps getting blocked, let us know. Use "Send feedback" to report it. Reports of incorrectly blocked requests help us narrow and improve these safeguards.
 
 ## Stay tuned for updates
 
@@ -89,8 +91,8 @@ Read our blog to learn more about **[Claude Fable 5 and Claude Mythos 5](https:/
 
 Our safeguards are built to match the capabilities of a model. For how safeguards work on Claude Opus 5, see **[Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681)**.
 
+* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
-* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
-* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
-* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)
+* [Why Claude switched models in your conversation with Opus 5 or Opus 5.5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5-or-opus-5-5)
+* [Why Claude switched models in your conversation with Sonnet 5.5](https://support.claude.com/en/articles/17161993-why-claude-switched-models-in-your-conversation-with-sonnet-5-5)

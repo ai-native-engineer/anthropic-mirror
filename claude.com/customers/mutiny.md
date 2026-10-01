@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # How Mutiny gives every seller a full creative team with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e7f7f11e441aa468cd7d03_logo_mutiny-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e7f7f6a44a4c2ad5ed5d4d_logo_mutiny-dark-mode.svg)
+![Mutiny logo](https://assets.claude.com/6b2f6fa2c270c7fc74205f106b9bad04ac19c818.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 3x improvement in design satisfaction
 
@@ -50,49 +40,21 @@ for sales teams compared to previous workflows
 
 ## The challenge
 
-Introducing Claude Opus 4.7
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e7f860f59eb387a9633881_96ea2509a90e527642c822303e56296a07bcfce4-1920x1080.webp)
-
-Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
-
-Read more
-
-[Read more](https://www.anthropic.com/news/claude-opus-4-7)Read more
-
-Introducing Claude Opus 4.7
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.7
-
-Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
-
 ## Isolated AI capabilities with no way to combine them
 
 Mutiny began integrating large language models in 2022. But those early implementations were constrained. AI could pull styling from a website, generate text variations for different target companies, and conduct basic research. But each task needed well-defined guardrails, and combining them in new ways wasn't possible.
 
 The arrival of Claude Opus 4 changed what Mutiny decided to build. "We really saw an opportunity to re-architect the whole system and make this a very agent-first experience,” said Nikhil Mathew, Co-founder and CTO of Mutiny. “The agent is now multimodal and has tool-based access to do research, build the brand, and design the entire experience.”
 
+Introducing Claude Opus 4.7
+
+![Introducing Claude Opus 4.7](https://assets.claude.com/8f53ced47c279491a8187467424cba10156184d9.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
+
+[Read more](https://www.anthropic.com/news/claude-opus-4-7)
+
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ## Quantifying taste: How Mutiny evaluated Claude
 
@@ -116,21 +78,9 @@ Customer feedback reflects the difference. "When they see our product, they're l
 
 The architecture also emphasizes human-agent collaboration. "Everything the agent generates is a hundred percent editable in the browser. It can stream in real time, and it's fully multiplayer," Mathew noted. "You can have multiple people and agents working together in the same workspace."
 
-“Being able to one-shot assets in your visual language is what opens up the next level of automation.”
+> “Being able to one-shot assets in your visual language is what opens up the next level of automation.”
 
-Nikhil Mathew
-
-Co-founder and CTO, Mutiny
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Nikhil MathewCo-founder and CTO, Mutiny
 
 ## The outcome
 
@@ -142,42 +92,16 @@ The product quality translated directly into business traction: since launch, Mu
 
 That next step is proactive preparation: generating the right materials before the rep even opens the app. "The next piece is to actually create those for you automatically,” Mathew added, “so that they're just prepared for you when you need them.”
 
-“Once we put in Opus, the product worked. It enabled us to have a public launch.”
+> “Once we put in Opus, the product worked. It enabled us to have a public launch.”
 
-Jaleh Rezaei
+Jaleh RezaeiCEO and Co-founder, Mutiny
 
-CEO and Co-founder, Mutiny
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

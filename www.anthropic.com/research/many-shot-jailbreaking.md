@@ -6,6 +6,8 @@ Apr 2, 2024
 
 [Read the paper](https://www-cdn.anthropic.com/af5633c94ed2beb282f6a53c595eb437e8e7b630/Many_Shot_Jailbreaking__2024_04_02_0936.pdf)
 
+![Many-shot jailbreaking](https://www-cdn.anthropic.com/images/4zrzovbb/website/681e6c5e1a09eec211e4d7941deb739f31944331-2000x1125.png)
+
 We investigated a “jailbreaking” technique — a method that can be used to evade the safety guardrails put in place by the developers of large language models (LLMs). The technique, which we call “many-shot jailbreaking”, is effective on Anthropic’s own models, as well as those produced by other AI companies. We briefed other AI developers about this vulnerability in advance, and have implemented mitigations on our systems.
 
 The technique takes advantage of a feature of LLMs that has grown dramatically in the last year: the context window. At the start of 2023, the context window—the amount of information that an LLM can process as its input—was around the size of a long essay (~4,000 tokens). Some models now have context windows that are hundreds of times larger — the size of several long novels (1,000,000 tokens or more).
@@ -88,22 +90,20 @@ We hope that publishing on many-shot jailbreaking will encourage developers of p
 
 All the technical details of our many-shot jailbreaking study are reported in our [full paper](https://www-cdn.anthropic.com/af5633c94ed2beb282f6a53c595eb437e8e7b630/Many_Shot_Jailbreaking__2024_04_02_0936.pdf). You can read Anthropic’s approach to safety and security [at this link.](https://www.anthropic.com/responsible-disclosure-policy)
 
-### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+### What work can robots do?
 
-Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
 
-[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
 
-### An alignment assessment of recent cybersecurity incidents
+### What do you want from AI?
 
-We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
-[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
 
-### Formalizing Fermat's Last Theorem
+### GLM-5.3 and the spread of advanced cyber capabilities
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
+Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
-[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-
-Many-shot jailbreaking \ Anthropic
+[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)

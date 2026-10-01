@@ -35,9 +35,17 @@ The Models API response can be used to determine which models are available for 
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
+
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `IReadOnlyList<AnthropicBeta> betas`
+
+    **Deprecated**: Deprecated. This parameter will be removed from this method in a future release. To use beta features, call the beta models methods (`client.beta.models`) instead.
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -131,15 +139,17 @@ The Models API response can be used to determine which models are available for 
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
-  - `string workspaceID`
+    - `Compact2026_09_04("compact-2026-09-04")`
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
 ### Returns
 
-- `class ModelInfo:`
+- `class ModelInfo`
 
   - `JsonElement Type = "model"`
 
@@ -153,7 +163,7 @@ The Models API response can be used to determine which models are available for 
 
   - `required ModelCapabilities? Capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `required CapabilitySupport Batch`
 
@@ -177,15 +187,15 @@ The Models API response can be used to determine which models are available for 
 
       - `required CapabilitySupport? ClearThinking20251015`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `required CapabilitySupport? ClearToolUses20250919`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `required CapabilitySupport? Compact20260112`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `required bool Supported`
 
@@ -217,7 +227,7 @@ The Models API response can be used to determine which models are available for 
 
       - `required CapabilitySupport? Xhigh`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `required CapabilitySupport ImageInput`
 
@@ -380,7 +390,15 @@ The Models API response can be used to determine information about a specific mo
 
     Model identifier or alias.
 
+  - `string workspaceID`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
   - `IReadOnlyList<AnthropicBeta> betas`
+
+    **Deprecated**: Deprecated. This parameter will be removed from this method in a future release. To use beta features, call the beta models methods (`client.beta.models`) instead.
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -474,15 +492,17 @@ The Models API response can be used to determine information about a specific mo
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
-  - `string workspaceID`
+    - `Compact2026_09_04("compact-2026-09-04")`
 
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
 
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
 ### Returns
 
-- `class ModelInfo:`
+- `class ModelInfo`
 
   - `JsonElement Type = "model"`
 
@@ -496,7 +516,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `required ModelCapabilities? Capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `required CapabilitySupport Batch`
 
@@ -520,15 +540,15 @@ The Models API response can be used to determine information about a specific mo
 
       - `required CapabilitySupport? ClearThinking20251015`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `required CapabilitySupport? ClearToolUses20250919`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `required CapabilitySupport? Compact20260112`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `required bool Supported`
 
@@ -560,7 +580,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `required CapabilitySupport? Xhigh`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `required CapabilitySupport ImageInput`
 
@@ -700,7 +720,7 @@ Console.WriteLine(modelInfo);
 
 ### Capability Support
 
-- `class CapabilitySupport:`
+- `class CapabilitySupport`
 
   Indicates whether a capability is supported.
 
@@ -710,13 +730,13 @@ Console.WriteLine(modelInfo);
 
 ### Context Management Capability
 
-- `class ContextManagementCapability:`
+- `class ContextManagementCapability`
 
   Context management capability details.
 
   - `required CapabilitySupport? ClearThinking20251015`
 
-    Indicates whether a capability is supported.
+    Whether the clear_thinking_20251015 strategy is supported.
 
     - `required bool Supported`
 
@@ -724,11 +744,11 @@ Console.WriteLine(modelInfo);
 
   - `required CapabilitySupport? ClearToolUses20250919`
 
-    Indicates whether a capability is supported.
+    Whether the clear_tool_uses_20250919 strategy is supported.
 
   - `required CapabilitySupport? Compact20260112`
 
-    Indicates whether a capability is supported.
+    Whether the compact_20260112 strategy is supported.
 
   - `required bool Supported`
 
@@ -736,7 +756,7 @@ Console.WriteLine(modelInfo);
 
 ### Effort Capability
 
-- `class EffortCapability:`
+- `class EffortCapability`
 
   Effort (reasoning_effort) capability details.
 
@@ -766,11 +786,11 @@ Console.WriteLine(modelInfo);
 
   - `required CapabilitySupport? Xhigh`
 
-    Indicates whether a capability is supported.
+    Whether the model supports xhigh effort level.
 
 ### Model Capabilities
 
-- `class ModelCapabilities:`
+- `class ModelCapabilities`
 
   Model capability information.
 
@@ -796,15 +816,15 @@ Console.WriteLine(modelInfo);
 
     - `required CapabilitySupport? ClearThinking20251015`
 
-      Indicates whether a capability is supported.
+      Whether the clear_thinking_20251015 strategy is supported.
 
     - `required CapabilitySupport? ClearToolUses20250919`
 
-      Indicates whether a capability is supported.
+      Whether the clear_tool_uses_20250919 strategy is supported.
 
     - `required CapabilitySupport? Compact20260112`
 
-      Indicates whether a capability is supported.
+      Whether the compact_20260112 strategy is supported.
 
     - `required bool Supported`
 
@@ -836,7 +856,7 @@ Console.WriteLine(modelInfo);
 
     - `required CapabilitySupport? Xhigh`
 
-      Indicates whether a capability is supported.
+      Whether the model supports xhigh effort level.
 
   - `required CapabilitySupport ImageInput`
 
@@ -872,7 +892,7 @@ Console.WriteLine(modelInfo);
 
 ### Model Info
 
-- `class ModelInfo:`
+- `class ModelInfo`
 
   - `JsonElement Type = "model"`
 
@@ -886,7 +906,7 @@ Console.WriteLine(modelInfo);
 
   - `required ModelCapabilities? Capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `required CapabilitySupport Batch`
 
@@ -910,15 +930,15 @@ Console.WriteLine(modelInfo);
 
       - `required CapabilitySupport? ClearThinking20251015`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `required CapabilitySupport? ClearToolUses20250919`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `required CapabilitySupport? Compact20260112`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `required bool Supported`
 
@@ -950,7 +970,7 @@ Console.WriteLine(modelInfo);
 
       - `required CapabilitySupport? Xhigh`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `required CapabilitySupport ImageInput`
 
@@ -1004,7 +1024,7 @@ Console.WriteLine(modelInfo);
 
 ### Thinking Capability
 
-- `class ThinkingCapability:`
+- `class ThinkingCapability`
 
   Thinking capability details.
 
@@ -1030,7 +1050,7 @@ Console.WriteLine(modelInfo);
 
 ### Thinking Types
 
-- `class ThinkingTypes:`
+- `class ThinkingTypes`
 
   Supported thinking type configurations.
 

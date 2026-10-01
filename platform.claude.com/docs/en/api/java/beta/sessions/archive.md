@@ -113,11 +113,23 @@ Archive Session
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ## Returns
 
-- `class BetaManagedAgentsSession:`
+- `class BetaManagedAgentsSession`
 
   A Managed Agents `session`.
 
@@ -153,13 +165,21 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
+        - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
+
         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
@@ -211,33 +231,33 @@ Archive Session
 
       - `Optional<Effort> effort`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
-        - `class BetaManagedAgentsEffortLow:`
+        - `class BetaManagedAgentsEffortLow`
 
           Low effort. Favors latency over reasoning depth.
 
           - `Type type`
 
-        - `class BetaManagedAgentsEffortMedium:`
+        - `class BetaManagedAgentsEffortMedium`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `Type type`
 
-        - `class BetaManagedAgentsEffortHigh:`
+        - `class BetaManagedAgentsEffortHigh`
 
           High effort. Favors reasoning depth.
 
           - `Type type`
 
-        - `class BetaManagedAgentsEffortXhigh:`
+        - `class BetaManagedAgentsEffortXhigh`
 
           Extra-high effort. Not all models accept this level.
 
           - `Type type`
 
-        - `class BetaManagedAgentsEffortMax:`
+        - `class BetaManagedAgentsEffortMax`
 
           Maximum effort. Favors reasoning depth over latency.
 
@@ -249,7 +269,7 @@ Archive Session
 
       - `Optional<Speed> speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `STANDARD("standard")`
 
@@ -257,7 +277,7 @@ Archive Session
 
     - `Optional<BetaManagedAgentsSessionMultiagentCoordinator> multiagent`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `Type type`
 
@@ -265,7 +285,7 @@ Archive Session
 
         Full `agent` definitions the coordinator may spawn as session threads.
 
-        - `class BetaManagedAgentsSessionThreadAgent:`
+        - `class BetaManagedAgentsSessionThreadAgent`
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
@@ -291,7 +311,7 @@ Archive Session
 
           - `List<Skill> skills`
 
-            - `class BetaManagedAgentsAnthropicSkill:`
+            - `class BetaManagedAgentsAnthropicSkill`
 
               A resolved Anthropic-managed skill.
 
@@ -301,7 +321,7 @@ Archive Session
 
               - `String version`
 
-            - `class BetaManagedAgentsCustomSkill:`
+            - `class BetaManagedAgentsCustomSkill`
 
               A resolved user-created custom skill.
 
@@ -315,13 +335,13 @@ Archive Session
 
           - `List<Tool> tools`
 
-            - `class BetaManagedAgentsAgentToolset20260401:`
+            - `class BetaManagedAgentsAgentToolset20260401`
 
               - `Type type`
 
               - `List<BetaManagedAgentsAgentToolConfig> configs`
 
-                - `class BetaManagedAgentsBashToolConfig:`
+                - `class BetaManagedAgentsBashToolConfig`
 
                   Configuration for the bash tool.
 
@@ -335,25 +355,25 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
                       - `Type type`
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
                       - `Type type`
 
-                    - `class BetaManagedAgentsAutoPolicy:`
+                    - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                       - `JsonValue type = "auto"`
 
-                - `class BetaManagedAgentsEditToolConfig:`
+                - `class BetaManagedAgentsEditToolConfig`
 
                   Configuration for the edit tool.
 
@@ -367,19 +387,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAutoPolicy:`
+                    - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `class BetaManagedAgentsReadToolConfig:`
+                - `class BetaManagedAgentsReadToolConfig`
 
                   Configuration for the read tool.
 
@@ -393,19 +413,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAutoPolicy:`
+                    - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `class BetaManagedAgentsWriteToolConfig:`
+                - `class BetaManagedAgentsWriteToolConfig`
 
                   Configuration for the write tool.
 
@@ -419,19 +439,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAutoPolicy:`
+                    - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `class BetaManagedAgentsGlobToolConfig:`
+                - `class BetaManagedAgentsGlobToolConfig`
 
                   Configuration for the glob tool.
 
@@ -445,19 +465,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAutoPolicy:`
+                    - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `class BetaManagedAgentsGrepToolConfig:`
+                - `class BetaManagedAgentsGrepToolConfig`
 
                   Configuration for the grep tool.
 
@@ -471,19 +491,19 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAutoPolicy:`
+                    - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                - `class BetaManagedAgentsWebFetchToolConfig:`
+                - `class BetaManagedAgentsWebFetchToolConfig`
 
                   Configuration for the web_fetch tool.
 
@@ -497,15 +517,15 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAutoPolicy:`
+                    - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -517,7 +537,7 @@ Archive Session
 
                     format: int32
 
-                - `class BetaManagedAgentsWebSearchToolConfig:`
+                - `class BetaManagedAgentsWebSearchToolConfig`
 
                   Configuration for the web_search tool.
 
@@ -531,15 +551,15 @@ Archive Session
 
                     Permission policy for tool execution.
 
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                    - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+                    - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `class BetaManagedAgentsAutoPolicy:`
+                    - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -587,19 +607,19 @@ Archive Session
 
                   Permission policy for tool execution.
 
-                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                  - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
 
-                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+                  - `class BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
 
-                  - `class BetaManagedAgentsAutoPolicy:`
+                  - `class BetaManagedAgentsAutoPolicy`
 
                     The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-            - `class BetaManagedAgentsMcpToolset:`
+            - `class BetaManagedAgentsMcpToolset`
 
               - `Type type`
 
@@ -613,15 +633,15 @@ Archive Session
 
                   Permission policy for tool execution.
 
-                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                  - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
 
-                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+                  - `class BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
 
-                  - `class BetaManagedAgentsAutoPolicy:`
+                  - `class BetaManagedAgentsAutoPolicy`
 
                     The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -635,21 +655,21 @@ Archive Session
 
                   Permission policy for tool execution.
 
-                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+                  - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
 
-                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+                  - `class BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
 
-                  - `class BetaManagedAgentsAutoPolicy:`
+                  - `class BetaManagedAgentsAutoPolicy`
 
                     The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `String mcpServerName`
 
-            - `class BetaManagedAgentsCustomTool:`
+            - `class BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
 
@@ -673,7 +693,7 @@ Archive Session
 
             format: int32
 
-        - `class BetaManagedAgentsAdvisor:`
+        - `class BetaManagedAgentsAdvisor`
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -687,11 +707,11 @@ Archive Session
 
     - `List<Skill> skills`
 
-      - `class BetaManagedAgentsAnthropicSkill:`
+      - `class BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
 
-      - `class BetaManagedAgentsCustomSkill:`
+      - `class BetaManagedAgentsCustomSkill`
 
         A resolved user-created custom skill.
 
@@ -699,11 +719,11 @@ Archive Session
 
     - `List<Tool> tools`
 
-      - `class BetaManagedAgentsAgentToolset20260401:`
+      - `class BetaManagedAgentsAgentToolset20260401`
 
-      - `class BetaManagedAgentsMcpToolset:`
+      - `class BetaManagedAgentsMcpToolset`
 
-      - `class BetaManagedAgentsCustomTool:`
+      - `class BetaManagedAgentsCustomTool`
 
         A custom tool as returned in API responses.
 
@@ -713,19 +733,19 @@ Archive Session
 
   - `Optional<LocalDateTime> archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `Optional<BetaManagedAgentsBudgetLimit> budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `Type type`
 
     - `BetaMonetaryAmount maxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `String amount`
 
@@ -753,7 +773,7 @@ Archive Session
 
     - `Optional<LocalDateTime> completedAt`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -781,7 +801,7 @@ Archive Session
 
   - `List<BetaManagedAgentsSessionResource> resources`
 
-    - `class BetaManagedAgentsGitHubRepositoryResource:`
+    - `class BetaManagedAgentsGitHubRepositoryResource`
 
       - `Type type`
 
@@ -805,7 +825,7 @@ Archive Session
 
       - `Optional<Checkout> checkout`
 
-        - `class BetaManagedAgentsBranchCheckout:`
+        - `class BetaManagedAgentsBranchCheckout`
 
           - `Type type`
 
@@ -815,7 +835,7 @@ Archive Session
 
             minLength: 1, maxLength: 255
 
-        - `class BetaManagedAgentsCommitCheckout:`
+        - `class BetaManagedAgentsCommitCheckout`
 
           - `Type type`
 
@@ -825,7 +845,7 @@ Archive Session
 
             minLength: 7, maxLength: 64
 
-    - `class BetaManagedAgentsFileResource:`
+    - `class BetaManagedAgentsFileResource`
 
       - `Type type`
 
@@ -847,7 +867,7 @@ Archive Session
 
         format: date-time
 
-    - `class BetaManagedAgentsMemoryStoreResource:`
+    - `class BetaManagedAgentsMemoryStoreResource`
 
       A memory store attached to an agent session.
 
@@ -859,7 +879,7 @@ Archive Session
 
       - `Optional<Access> access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `READ_WRITE("read_write")`
 
@@ -885,7 +905,7 @@ Archive Session
 
   - `BetaManagedAgentsSessionStats stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `Optional<Double> activeSeconds`
 
@@ -901,15 +921,21 @@ Archive Session
 
   - `Status status`
 
-    SessionStatus enum
-
     - `RESCHEDULING("rescheduling")`
+
+      Transient error occurred, retrying automatically.
 
     - `RUNNING("running")`
 
+      Agent is actively executing.
+
     - `IDLE("idle")`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `TERMINATED("terminated")`
+
+      Session has ended, either due to an error or completion.
 
   - `Optional<String> title`
 
@@ -921,7 +947,7 @@ Archive Session
 
   - `BetaManagedAgentsSessionUsage usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `Optional<Double> activeSeconds`
 
@@ -931,7 +957,7 @@ Archive Session
 
     - `Optional<BetaManagedAgentsCacheCreationUsage> cacheCreation`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `Optional<Long> ephemeral1hInputTokens`
 
@@ -959,7 +985,7 @@ Archive Session
 
     - `Optional<BetaMonetaryAmount> listCost`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `Optional<Long> outputTokens`
 
@@ -969,7 +995,7 @@ Archive Session
 
     - `Optional<BetaManagedAgentsServerToolUsage> serverToolUse`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `Optional<Long> webFetchRequests`
 

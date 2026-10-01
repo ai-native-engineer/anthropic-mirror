@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # WRTN pioneers AI entertainment and storytelling across Asia with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![WRTN logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e8df16d82a10b010f708_cs-logo-wrtn-light-theme.svg)![WRTN logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e98651083c1dae9fd35d_cs-logo-wrtn-dark-theme.svg)
+![WRTN logo](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
 Industry:
-
-Entertainment
+:   Entertainment
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 4.5 million
 
@@ -37,42 +27,6 @@ monthly active users
 Closing the gap
 
 with larger competitors in Asian market
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 WRTN, a leading consumer AI aggregator in South Korea and Japan, uses Claude to power natural, engaging character interactions and creative storytelling for millions of users across Asia.
 
@@ -116,52 +70,12 @@ These capabilities mark the beginning of WRTN's vision of a fundamental transfor
 
 WRTN envisions a future where AI unlocks new realms of human creativity and connection, especially in tech-forward markets like South Korea. "AI enables deeply personal experiences at scale," said Lee, emphasizing AI's potential to enhance human interactions. Although urban life can challenge traditional connections, WRTN views AI as a tool to boost creativity, expression, and relationships. Expanding across Asia, WRTN plans to use Claude's capabilities to realize these possibilities, creating new channels for imagination and connection. Their vision celebrates AI's potential to amplify what makes us human—our creativity, our need for connection, and our drive to explore new frontiers of experience.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![StubHub](https://assets.claude.com/d3451a4bfe1c5af7f56f76ab8237c3bab7dd7a9d.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)[![Audience Strategies](https://assets.claude.com/3413dcb9640e98c9dd678f02077d38ea6f0b7b34.png)
 
-[Next](#)Next
+### Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)[![Orange](https://assets.claude.com/c97f28a41e222c81bda3ab8af5ed81dbfb385756.png)
 
-Video caption
+### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![Lex](https://assets.claude.com/e6a76687f426d031b52ad173ac5406303b29bc38.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
-
-StubHub transforms live event ticketing with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/stubhub)Customer story
-
-[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/audience-strategies)Customer story
-
-[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
-
-Orange localizes manga at an unprecedented scale with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/orange)Customer story
-
-[Lex streamlines the writing process with Claude](https://claude.com/customers/lex)Lex streamlines the writing process with Claude
-
-Lex streamlines the writing process with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lex)Customer story
+### Lex streamlines the writing process with Claude](https://claude.com/customers/lex)

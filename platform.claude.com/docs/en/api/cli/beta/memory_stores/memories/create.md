@@ -17,7 +17,7 @@ Create a memory
 
 - `--memory-store-id: string`
 
-  Path param: Path parameter memory_store_id
+  Path param: The ID of the memory store to create the memory in (`memstore_...`).
 
 - `--content: string`
 
@@ -31,7 +31,7 @@ Create a memory
 
 - `--view: optional "basic" or "full"`
 
-  Query param: Query parameter for view
+  Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -67,7 +67,7 @@ Create a memory
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
     format: date-time
 
@@ -77,7 +77,7 @@ Create a memory
 
   - `memory_version_id: string`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: string`
 
@@ -85,7 +85,7 @@ Create a memory
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 

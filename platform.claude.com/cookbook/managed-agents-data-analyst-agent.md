@@ -127,6 +127,10 @@ agent = client.beta.agents.create(
 
 name="cookbook-data-analyst",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/data-analyst-agent"},
+
 model=MODEL,
 
 system=ANALYST\_SYSTEM\_PROMPT,

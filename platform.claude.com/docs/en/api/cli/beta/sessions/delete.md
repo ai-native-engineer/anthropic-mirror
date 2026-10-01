@@ -17,8 +17,6 @@ Delete Session
 
 - `--session-id: string`
 
-  Path parameter session_id
-
 - `--beta: optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.

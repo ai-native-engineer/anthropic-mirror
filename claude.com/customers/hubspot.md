@@ -4,33 +4,21 @@ Case study | Claude Platform
 
 # HubSpot reclaims time for creativity with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699f7a4aa8e296e3db730e89_maxresdefault.jpg)
+![Video thumbnail](https://assets.claude.com/beb45dd518dfb27f8ab6b59fd424c0548015d552.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 Up to 40% productivity increase
 
@@ -42,63 +30,19 @@ Time savings when CSMs used Claude for direct troubleshooting of customer escala
 
 Q&A
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a15b50132449f7907b35305_og_case-study-hubspot3.jpg)
+![Q&A](https://assets.claude.com/99e4b8403743aa6517ad05b9bea7ee2244ac437e.jpg?w=2400&q=75&fm=webp&fit=max)
 
 HubSpot product and marketing leaders on scaling Claude Cowork
 
-Read more
-
-[Read more](https://claude.com/customers/hubspot-qa)Read more
-
-Q&A
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-HubSpot product and marketing leaders on scaling Claude Cowork
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A
-
-HubSpot product and marketing leaders on scaling Claude Cowork
+[Read more](https://claude.com/customers/hubspot-qa)
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/product/claude-code)
 
 [HubSpot](https://www.hubspot.com/) is an agentic customer platform that helps marketing, sales, and customer service teams drive growth. The company serves hundreds of thousands of customers worldwide, from startups to enterprise organizations, with tools designed to unify customer context to make growth easier and faster.
 
@@ -118,7 +62,7 @@ HubSpot's teams faced a common challenge across the organization: too much manua
 
 On the engineering side, the challenge was navigating HubSpot's distributed codebase—thousands of services interacting with each other daily. When teams needed to tackle large-scale migrations or understand unfamiliar code, the learning curve slowed everything down.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698a110eb71a7a10bb924024_69894bc9cd2accb35d33e954_Anthropic_x_HubSpot-LongForm-012126.00_01_21_09.Still002%25201.png)
+![](https://assets.claude.com/b57c4661ccb8ccb263b73b5beed4e348bf6b2613.png)
 
 The team ran internal benchmarks using a battery of engineering tasks from real HubSpot work. Claude consistently required the least human intervention to reach finished solutions.
 
@@ -134,7 +78,7 @@ For marketing and customer success, Claude projects were the catalyst for adopti
 
 ‍
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698a110eb71a7a10bb924038_69894be65f8f2537585fa515_Anthropic_x_HubSpot-LongForm-012126.00_01_26_13.Still005%2520(1).png)
+![](https://assets.claude.com/393189f230cc8ef0f04928594a0286fd99dcf1bf.png)
 
 Francesco Signoretti, Engineering Lead on HubSpot's Developer Experience AI team
 
@@ -148,7 +92,7 @@ The impact is measurable across departments. Marketing reports a 40% productivit
 
 "Claude gives me the support and time to be a more strategic partner for my customers," Caruthers says. "As a result, they're now telling me our conversations are more meaningful than ever."
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698a110eb71a7a10bb92402c_69894f85abadee97443db71b_Anthropic_x_HubSpot-LongForm-012126.00_01_24_16.Still004%2520(1).png)
+![](https://assets.claude.com/8a02c1aa66e144c4738b35601cd4aaa8e37f8cbd.png)
 
 Engineering uses Claude Code for development work, connecting it to HubSpot's infrastructure through MCP.
 
@@ -160,58 +104,16 @@ For engineers, the shift is about more than productivity. "Claude Code has helpe
 
 *\*Quoted statistics are based on HubSpot's internal analysis of select customer implementations within specific departments through 2025. Metrics are illustrative only; results vary by configuration, usage, and context.*
 
-"One of the things we love about Claude is that it has really good taste, and marketing's all about taste."
+> "One of the things we love about Claude is that it has really good taste, and marketing's all about taste."
 
-Kipp Bodnar
+Kipp BodnarChief Marketing Officer, HubSpot
 
-Chief Marketing Officer, HubSpot
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

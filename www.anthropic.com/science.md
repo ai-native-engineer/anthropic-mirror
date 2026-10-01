@@ -6,15 +6,13 @@ Using AI to increase the pace of scientific progress is a core part of Anthropic
 
 Science
 
-## Formalizing Fermat's Last Theorem
+## Yes, Claude can do Nine Loops
 
-Claude produced the first complete computer-checked proof of Fermat's Last Theorem. It worked largely autonomously over 11 days, writing the proof in the Lean programming language. We describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+In this guest post, physicist and science writer Matt von Hippel shares what happened when he issued a challenge to AI companies regarding a problem in his former subfield of theoretical physics.
 
-[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
 
-[](https://cdn.sanity.io/files/4zrzovbb/website/6d5e1a90507ea4171510b907134139bf716b7d15.mp4)
-
-Time progression of FLT formalization
+![Yes, Claude can do Nine Loops](https://www-cdn.anthropic.com/images/4zrzovbb/website/2ed453f8c87d2166b09940a859cd193b29678a88-3840x2160.png)
 
 ## Publications
 
@@ -22,6 +20,12 @@ Search
 
 DateCategoryTitle
 
+* [Sep 25, 2026Science
+
+  Yes, Claude can do Nine Loops](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
+* [Sep 17, 2026Science
+
+  How Claude is uplifting biomolecular modeling](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling)
 * [Sep 4, 2026Science
 
   Formalizing Fermat's Last Theorem](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
@@ -46,9 +50,8 @@ DateCategoryTitle
 * [Mar 23, 2026Science
 
   Long-running Claude for scientific computing](https://www.anthropic.com/research/long-running-Claude)
-* [Mar 23, 2026Science
 
-  Vibe physics: The AI grad student](https://www.anthropic.com/research/vibe-physics)
+[See more](#)
 
 Join the Research team
 

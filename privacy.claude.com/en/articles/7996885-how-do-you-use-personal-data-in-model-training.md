@@ -2,6 +2,8 @@
 
 # How do you use personal data in model training?
 
+Table of contents
+
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see* *[here](https://privacy.anthropic.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training).*
 
 ## About Model Training
@@ -44,8 +46,12 @@ Our Privacy Policy explains your rights regarding your personal data, including 
 
 To learn more see our [Privacy Policy](https://www.anthropic.com/legal/privacy). Please note, the Privacy Policy does not apply where Anthropic acts as a data processor and processes personal data on behalf of Commercial customers using Anthropic’s Commercial Services. In those cases, the commercial customer is the controller, and you can review their policies for more information about how they handle your personal data.
 
+---
+
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)
 * [Privacy rights requests relating to Anthropic’s training data](https://privacy.claude.com/en/articles/15865314-privacy-rights-requests-relating-to-anthropic-s-training-data)
+
+Table of contents

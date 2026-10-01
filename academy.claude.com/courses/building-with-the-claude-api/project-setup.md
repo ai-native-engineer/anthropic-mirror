@@ -38,7 +38,7 @@ We're building both components in this project purely for educational purposes -
 
 ## Project Setup[](#project-setup)
 
-Download the `cli_project.zip` file attached to this lesson and extract it to your preferred development directory. Open your code editor in the project folder.
+Download `cli_project.zip` from the Downloads section at the end of this lesson and extract it to your preferred development directory. Open your code editor in the project folder.
 
 The project includes a comprehensive README file with setup instructions. Follow these steps:
 
@@ -75,6 +75,23 @@ The habit behind this check: match how carefully you verify to the cost of being
 The behavior to carry beyond this project: every time you add a new layer to an API project, whether a tool, a data source, or an MCP server, ask the running system one question whose answer you already know before you build the next layer. A baseline you have verified is the only baseline you can debug against.
 
 With the basic setup complete, we're ready to start implementing MCP features and exploring how clients and servers communicate through the Model Context Protocol.
+
+## Downloads
+
+*
+
+  ### Starter project (cli\_project.zip)
+
+  The chatbot project you build on for the rest of this section.
+
+  [Download](https://academy.claude.com/assets/v1/cli_project-oeur3rwg.zip)
+*
+
+  ### Completed project (cli\_project\_COMPLETE.zip)
+
+  The finished version, for checking your work.
+
+  [Download](https://academy.claude.com/assets/v1/cli_project_COMPLETE-bkl5xnz8.zip)
 
 [Previous lessonMCP clients](https://academy.claude.com/courses/building-with-the-claude-api/mcp-clients)[Next lessonDefining tools with MCP](https://academy.claude.com/courses/building-with-the-claude-api/defining-tools-with-mcp)
 

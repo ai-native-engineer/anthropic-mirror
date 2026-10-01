@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # ChatPlace gives solo creators an AI marketing team with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0f3165b512bcb4c50923a0_logo_chatplace-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0f3168815c6f28f8a48836_logo_chatplace-dark-mode.svg)
+![ChatPlace logo](https://assets.claude.com/6452d52ebe9ac22811cf2155d7bec1f5b65fb835.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-EMEA
+:   EMEA
 
 15-20 hours saved per creator
 
@@ -50,28 +40,6 @@ in the two months following the launch of Virale, its AI content agent
 
 ## The challenge
 
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
 ### Beyond generic content creation
 
 A creator running a solo business on Instagram has to produce expert content to build credibility, viral content to grow reach, engagement that turns the audience to customers, *and* deliver the actual product or service. "Doing all of that at a high level, alone, is simply not realistic," said Ilia Pankratov, CEO of ChatPlace. The team felt AI was failing creators in two specific ways.
@@ -80,33 +48,13 @@ The first failure was voice. ChatPlace's early experiments with other models pro
 
 The second failure was access. The AI tools that could theoretically help required extensive prompt engineering, a skill most creators didn’t have time to develop. "Few people understand how to do this well," Pankratov noted, describing the coaches, nutritionists, and beauty bloggers ChatPlace serves.
 
+Choosing the right Claude model
+
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+
 ## The solution
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
 ## From five tools to a single chat thread
 
@@ -124,21 +72,17 @@ The second product, AI Agent, handles Instagram DMs and comments in the creator'
 
 ChatPlace also built an MCP connector that lets Claude act directly inside Instagram. A creator can ask Claude to research their audience, build an automation, or analyze content performance, and the actions execute on their live account.
 
-"It's like I finally hired a team, except it's just me and AI, and the AI already knows my business."
+Claude Code
 
-Ilia Pankratov
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
-CEO, ChatPlace
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/product/claude-code)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "It's like I finally hired a team, except it's just me and AI, and the AI already knows my business."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Ilia PankratovCEO, ChatPlace
 
 ## The outcome
 
@@ -152,42 +96,16 @@ Internally, ChatPlace runs on the same AI it sells. Engineering velocity is roug
 
 Next is video. The natural extension of the script-to-publication pipeline is generating short-form Reels from the same conversation that today produces a carousel post, completing the loop from idea to published video. ChatPlace is also working on knowledge retrieval architectures as the AI Agent scales across thousands of concurrent accounts and millions of conversations. "We're figuring out how to surface the most relevant context from large, multi-account databases without sacrificing response quality or speed," said Pankratov.
 
-"Claude models come at a premium, and we chose them anyway."
+> "Claude models come at a premium, and we chose them anyway."
 
-Ilia Pankratov
+Ilia PankratovCEO, ChatPlace
 
-CEO, ChatPlace
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

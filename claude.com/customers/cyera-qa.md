@@ -4,37 +4,24 @@ Q&A | Claude Cowork
 
 # Cyera on making Claude Cowork the front door to 40 tools
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755437bdd73dced6999628_logo_cyera2-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755440205f26561ab3f47c_logo_cyera2-dark-mode.svg)
+![Cyera logo](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
 Industry:
-
-Cybersecurity
+:   Cybersecurity
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Cowork](https://claude.com/product/cowork)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Cowork](https://claude.com/product/cowork)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 40 tools connected
 
@@ -46,37 +33,13 @@ of Claude
 
 Case Study: Cyera
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755d0b38e82bdc30b00d20_og_case-study-Cyera.jpg)
+![Case Study: Cyera](https://assets.claude.com/89033767e94ac58e818dacfe00536ac44f651b8b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Read how Cyera scales agentic AI across 1,500 employees with Claude Enterprise.
 
-Read more
+[Read more](https://claude.com/customers/cyera)
 
-[Read more](https://claude.com/customers/cyera)Read more
-
-Case Study: Cyera
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Read how Cyera scales agentic AI across 1,500 employees with Claude Enterprise.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: Cyera
-
-Read how Cyera scales agentic AI across 1,500 employees with Claude Enterprise.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-[Cyera's](https://www.cyera.com/) AI security platform finds and classifies an enterprise's data, mapping what's sensitive, where it lives, and who can access it. Inside the company, everyone has Claude access; R&D using Claude Code primarily and everyone else using  Claude Cowork, which Cyera has connected to 40 tools across its stack. We spoke with Joe Tustin, Cyera's Principal Technologist for Applied AI, and Steve Klementowski, VP of AI, about why the company standardized on Cowork, the workflows teams have built with it, and what it takes to bring 1,500 people along.
+[Cyera's](https://www.cyera.com/) AI security platform finds and classifies an enterprise's data, mapping what's sensitive, where it lives, and who can access it. Inside the company, everyone has Claude access; R&D using Claude Code primarily and everyone else using Claude Cowork, which Cyera has connected to 40 tools across its stack. We spoke with Joe Tustin, Cyera's Principal Technologist for Applied AI, and Steve Klementowski, VP of AI, about why the company standardized on Cowork, the workflows teams have built with it, and what it takes to bring 1,500 people along.
 
 ## Anthropic: Claude Code took off with your engineers first. What happened when it started spreading beyond R&D?
 
@@ -90,11 +53,9 @@ I constantly say that if the only thing you have is a hammer, everything looks l
 
 **Tustin:** I took a first stab at it and found some open-source projects. There's no shortage of code harnesses, but a UI that's not very clearly built by engineers is pretty hard to find. It makes a lot of sense for someone who understands what a routine is or what a cron job is. These things appear obvious, but if you've never done that before, you won't know how to use the tool. Once I saw Cowork, I said to myself, ‘Okay, this meets us exactly where we are.’
 
-"Once I saw Cowork, I said to myself, ‘Okay, this meets us exactly where we are.'"
+> "Once I saw Cowork, I said to myself, ‘Okay, this meets us exactly where we are.'"
 
-Joe Tustin
-
-Principal Technologist for Applied AI, Cyera
+Joe Tustin Principal Technologist for Applied AI, Cyera
 
 ## Anthropic: A lot of the tools you've connected already have AI built in. Why route work through Claude Cowork instead of the AI inside each one?
 
@@ -130,37 +91,15 @@ One thing I'm pushing very hard is that there are no more errors in tickets when
 
 Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Read more
+[Read more](https://claude.com/product/cowork)
 
-[Read more](https://claude.com/product/cowork)Read more
+> "Claude is now the aggregator. Claude knows everything about me as an employee."
 
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-"Claude is now the aggregator. Claude knows everything about me as an employee."
-
-Steve Klementowski,
-
-VP of AI, Cyera
+Steve Klementowski, VP of AI, Cyera
 
 ## Anthropic: Self-service data analysis usually ends in spreadsheet sprawl. How do you keep it trustworthy?
 
@@ -182,7 +121,7 @@ People are finding it's not that it was never part of their job, but that they n
 
 **Klementowski:** Claude Cowork is great for being a personal agent.
 
-**Tustin:** There's different functionality that's required for some more teamwork, like a team agent. One thing I'm seeing often is that for folks who support executives, their agents  produce a lot of work. What happens when that person goes on vacation and  their laptop isn't open any longer? Maybe there's a graduation process that needs to take place for agents: from an agent one person uses to something the whole business can use without their help. Graduation is an earned process that uses traditional software engineering gates to make sure agents last.
+**Tustin:** There's different functionality that's required for some more teamwork, like a team agent. One thing I'm seeing often is that for folks who support executives, their agents produce a lot of work. What happens when that person goes on vacation and their laptop isn't open any longer? Maybe there's a graduation process that needs to take place for agents: from an agent one person uses to something the whole business can use without their help. Graduation is an earned process that uses traditional software engineering gates to make sure agents last.
 
 ## Anthropic: What advice would you give another company rolling out agentic AI this broadly?
 
@@ -190,52 +129,12 @@ People are finding it's not that it was never part of their job, but that they n
 
 If you're worried about shadow AI, create a sandbox environment to test in. I don't think shadow AI is a bad metric. It shows you have innovative employees who see the possibilities in front of them.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Vega Security](https://assets.claude.com/4e1839348313fbe4c8f3c96d6c7cbc95f53e13c6.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-[Next](#)Next
+### Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera)[![Kai](https://assets.claude.com/aff2397c0fd3708b6d0b23554c2ce5f81a3f7c56.svg)
 
-Video caption
+### Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai)[![Artemis](https://assets.claude.com/48f27f7275d9b4de4be5bb1911d5ad1a92ec95e0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/vega)Customer story
-
-[Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera) Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera)Customer story
-
-[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
-
-Kai delivers preemptive exposure management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/kai)Customer story
-
-[How Artemis helps security teams cut incident resolution time by 96%](https://claude.com/customers/artemis)How Artemis helps security teams cut incident resolution time by 96%
-
-How Artemis helps security teams cut incident resolution time by 96%
-
-Customer story
-
-[Customer story](https://claude.com/customers/artemis)Customer story
+### How Artemis helps security teams cut incident resolution time by 96%](https://claude.com/customers/artemis)

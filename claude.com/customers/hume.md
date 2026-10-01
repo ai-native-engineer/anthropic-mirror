@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Hume AI creates emotionally intelligent voice interactions with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Hume logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c0139e2f4f9aa657285c_cs-logo-hume-light-theme.svg)![Hume logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c0153774b1920d4465c4_cs-logo-hume-dark-theme.svg)
+![Hume logo](https://assets.claude.com/0b10cce5d81c756688268263f2e1921806274ab8.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 Over 2 million
 
@@ -37,42 +27,6 @@ minutes of AI voice conversations completed
 36% of users
 
 choose Claude, higher than any external LLM
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Hume AI uses Claude to power natural, empathetic voice conversations that help their customers build trust with users in healthcare, customer service, and consumer applications.
 
@@ -92,7 +46,7 @@ This work led to collaborations with Google and Facebook's affective computing t
 
 Hume AI was founded to build AI systems optimized for human wellbeing. "We want the AI to understand what frustrates and confuses you, because it understands your voice and not just what you're saying. It can then learn from that and better understand your personal preferences," said Cowen.
 
-![Hume product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05f5c5cb77349e8a94a_456763f10d0758492b8437e69120bbca1f93ed68-1920x1050.png)
+![Hume product screen](https://assets.claude.com/65682f4b26ce6e18d1994a80c00d32e902ea3db4.png)
 
 ## Why Claude stands out for voice interactions
 
@@ -114,7 +68,7 @@ At the heart of Hume's technology is EVI, their flagship voice-to-voice AI platf
 * AI tutoring
 * Personal digital assistants
 
-![Hume product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05f5c5cb77349e8a943_55a24857d52d3173018a620631700baaea6ac995-1920x1080.png)
+![Hume product screen](https://assets.claude.com/c48f3772305f13d4d6f34117bf6b14f11fba2ee1.png)
 
 ## Measurable impact for customers
 
@@ -124,7 +78,7 @@ The integration of Claude with EVI has driven remarkable adoption and engagement
 
 The technical benefits have been equally impressive. Prompt caching has helped Hume reduce costs by 80% and decrease latency by 10% or more. Hume encourages their customers to look beyond traditional metrics to measure impact through the lens of user wellbeing. They track not just customer satisfaction but also how interactions affect users’ overall experience over time.
 
- Hume encourages their customers to look beyond traditional metrics to measure impact through the lens of user wellbeing. They track not just customer satisfaction but also how interactions affect users' overall experience over time.
+Hume encourages their customers to look beyond traditional metrics to measure impact through the lens of user wellbeing. They track not just customer satisfaction but also how interactions affect users' overall experience over time.
 
 ## Looking ahead to a voice-first future
 
@@ -134,52 +88,12 @@ As this future approaches, Hume sees personalization as key to building trust. "
 
 The alignment between Hume and Anthropic's core values and long-term vision makes their collaboration powerful. Both are committed to research-driven development and responsible AI prioritizing human wellbeing. "Hume and Anthropic are mission-driven, research-based companies with strong scientific cultures and a long-term focus on AI alignment," said Cowen. Together, we aim to ensure that as voice AI becomes ubiquitous, it optimizes for human wellbeing and builds genuine trust with users.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

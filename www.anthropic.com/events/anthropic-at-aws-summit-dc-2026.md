@@ -98,8 +98,6 @@ Request meeting
 
 Add to calendar
 
-![]()
-
 ## Anthropic at AWS Summit Washington, D.C. 2026
 
 Add to calendar
@@ -174,7 +172,7 @@ No items found.
 
 ## Agenda
 
-* Jun 30
+* 30 Jun
 
 Day 1Day 2Day 3Day 3
 
@@ -201,10 +199,6 @@ Public sector and regulated enterprises can't defer governance until after the p
 ### —
 
 ### Tuesday
-
--
-
-### Mission-Ready AI: Deploying Claude for Public Sector Workloads on AWS
 
 -
 

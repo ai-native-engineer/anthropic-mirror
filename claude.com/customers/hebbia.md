@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Hebbia helps knowledge workers save thousands of hours with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Hebbia logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f3a87453ecfe9d53a39_Hebbia-light-theme.svg)![Hebbia logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f3d5a2f38a808068b47_Hebbia-dark-theme.svg)
+![Hebbia logo](https://assets.claude.com/a51bf0be0d5ebeb3530f010c18452357dde28d83.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 1/3 of top 50
 
@@ -37,42 +27,6 @@ asset managers served
 95% time reduction
 
 with prompt caching
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Hebbia is the AI platform for knowledge work, servicing over 1/3 of the top 50 asset managers as well as Tier 1 Investment Banks and Law Firms. Hebbia uses Claude to power their platform, analyzing vast amounts of complex documents and generating actionable insights.
 
@@ -113,52 +67,12 @@ Looking ahead, Hebbia is advancing toward their vision of a fully autonomous AI 
 
 With Claude as a key enabler, Hebbia is not just changing document analysis—they're reimagining the future of knowledge work, creating a world where humans are empowered to think bigger, dive deeper, and achieve more than ever before.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-[Next](#)Next
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-Video caption
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)

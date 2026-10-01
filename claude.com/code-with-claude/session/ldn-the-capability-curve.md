@@ -4,44 +4,32 @@
 
 Frontier models are getting more capable, fast. Where the curve is going, and what it means for developers building on Claude.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-15:20 – 15:50
+:   15:20 – 15:50
 
 Speaker(s)
+:   Jeremy Hadfield
 
-Jeremy Hadfield
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![The capability curve](https://assets.claude.com/78c73b847befb145ffe7779a65ae157a43cfa76a.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d2eceaed427f375f07d1_the-capability-curve.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+The capability curve | Session | Code w/ Claude 2026

@@ -4,44 +4,32 @@
 
 Most of the AI value in your organization is locked in isolated experiments. That is not the Agentic Enterprise we’ve been promised. AI can help us ideate, orchestrate, and complete the work. Not just support.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-01:50PM – 02:20PM
+:   01:50PM – 02:20PM
 
 Speaker(s)
+:   Arnab Bose
 
-Arnab Bose
+    Chief Product Officer,
 
-Chief Product Officer,
-
-Asana
+    Asana
 
 ## Watch recording
 
-[Play video](#)Play video
+![Building with Claude Managed Agents and Asana AI teammates](https://assets.claude.com/0dbf150329d90d8fc40c0e547ab407646c569efd.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf7dba8289651c9b83cb2_claude-managed-agents.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Building with Claude Managed Agents and Asana AI teammates | Session | Code w/ Claude 2026

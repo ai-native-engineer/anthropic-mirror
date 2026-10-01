@@ -26,6 +26,8 @@ We apply NLAs to model auditing. During our pre-deployment audit of Claude Opus 
 
 NLAs offer a convenient interface for interpretability, with expressive natural language explanations that we can directly read. To support further work, we release training code and trained NLAs for popular open models.
 
+---
+
 ## Introduction
 
 Language models encode their internal state as high-dimensional activation vectors. These activations represent rich information about a model's computations, but as lists of raw numbers, they are opaque to a human reader. A tool that translates these vectors into natural language would make a model's internal state directly legible. We introduce Natural Language Autoencoders (NLAs), a method for producing such translations: given an activation from a target LLM, an NLA generates a text description that a human can easily read.
@@ -85,6 +87,8 @@ Paper roadmap. Below, we present:
 * A [discussion](#discussion-and-limitations) of why NLA training results in informative explanations, how NLAs relate to mechanistic methods, and limitations including confabulations, cost, layer sensitivity, and the possibility of unverbalizable activation content.
 * Directions for [future work](#future-work), including a sketch of general-purpose activation language models that read and write between activation space and natural language.
 
+---
+
 ## Related work
 
 Existing methods for interpreting model activations offer either unsupervised discovery or directly readable, natural language output. NLAs are designed to provide both: unsupervised discovery from the reconstruction objective and readability from the natural-language bottleneck.
@@ -96,6 +100,8 @@ Natural language explanations of activations. By contrast, some recent work trai
 Reconstructing activations and weights from text. Our NLA architecture includes an activation reconstructor: a map from text back to activation space. The closest precedent is HyperSteer , which trains an LLM with a projection head to map natural language prompts to residual-stream steering vectors. Related text-to-component models target soft prompts , LoRAs , and patching interventions .
 
 Concurrently with this work, Chalnev  independently arrived at a closely related approach (Cycle-Consistent Activation Oracles): a verbalizer-reconstructor pair with a supervised warm-start, trained using RL for activation reconstruction under a KL penalty. We became aware of this work during preparation of this manuscript; the present paper differs in several [implementation choices](#method), develops the method at frontier scale, and evaluates it as an auditing tool.
+
+---
 
 ## Method
 
@@ -158,6 +164,8 @@ Reward shaping and regularization. In practice, we make two modifications to th
 * We add a KL penalty \beta D\_{\text{KL}}(AV\_\phi \parallel AV\_{\phi\_{\text{init}}}) toward the AV's initialization, which we find preserves the fluency of explanations through training.
 
 We find that FVE grows roughly linearly in log(training steps), with the NLAs evaluated in this paper reaching 0.6–0.8 FVE. We also observe that NLA explanations become more informative during training (see [Quantitative Evaluations](#evaluating-nlas-during-training) for more details).
+
+---
 
 ## Case Studies
 
@@ -325,6 +333,8 @@ NLA steering on reward representations. We edit NLA explanations to indicate tha
 
 In our [Planning in Poetry](#planning-in-poetry) steering experiments, the text “mouse” appeared in the edited NLA explanations, so it was possible that the effect of steering was to generically promote completions containing “mouse.” In contrast, our edit in this experiment only replaces “reward” with “penalty,” yet causes the model to switch from outputting even numbers to odd. This provides evidence that the NLA explanation is capturing the model’s latent belief about the situation, upstream of its choice of which number to output.
 
+---
+
 ## Evaluating NLAs during training
 
 NLA training optimizes only for reconstruction error, but we claim it also produces more informative explanations. We evaluate this claim in settings where ground truth is known by construction. We also evaluate NLA explanations for properties that degrade their legibility, like whether they encode information in ways that are not human-interpretable (steganography), writing-quality degradation, and confabulations.
@@ -387,6 +397,8 @@ We generally find strong agreement between SAE features and NLA explanations, th
 
 Behavioral properties of NLA RL. Writing quality degrades with training. While many of the specific claims NLAs make are inaccurate, their explanations are overall well-supported by SAE features.
 
+---
+
 ## Characterizing NLA confabulations
 
 NLA explanations sometimes make verifiably false claims about the target model’s input context. For instance, in our [Planning in Poetry](#planning-in-poetry) case study, NLA explanations reference non-existent previous context such as “Here is a verse that’s short and sweet.” Given that their verifiable claims cannot be taken literally, it is natural to have similar concerns about their unverifiable claims about model cognition. In this section, we study verifiable claims about the target model’s input context, attempting to better understand when and how NLAs confabulate.
@@ -433,6 +445,8 @@ Claims — level · verdict · relatedness (false only) · # explanations (of 10
 | --- | --- | --- | --- | --- | --- | --- |
 
 These results characterize confabulation only for claims about the input text, not for claims about model cognition. The heuristics they suggest align with how we interpret NLA explanations in practice: we have greater faith in thematic claims rather than specific details, especially those that recur across token positions (as demonstrated in the [Misreported Tool Calls](#misreported-tool-calls) case study).
+
+---
 
 ## NLAs can detect unverbalized evaluation awareness
 
@@ -569,6 +583,8 @@ NLA measurements track unverbalized evaluation awareness. Across three manipula
 
 We also do not claim NLAs are the only way to detect unverbalized awareness. For instance, asking the model a follow-up question like "Is the preceding transcript from an evaluation?" might also track credence. We see two reasons to prefer NLAs over a follow-up question. First, a follow-up permits the model to make additional inferences using the full context, potentially aggregating cues it had not integrated at generation time, whereas we are interested in the model’s evaluation credence during generation. Because the AV takes only a single activation as input rather than the full context, we speculate that it is structurally less able to make additional inferences on top of what was straightforwardly encoded in the activation. Second, a follow-up relies on the model reporting its credence honestly, an assumption that may not hold in general, e.g., for strategically deceptive models. Because AVs are incentivized to comprehensively encode the activation, they may report honestly even if the target model would have been dishonest. We also note that other interpretability techniques, such as linear probes, may also satisfy the criteria laid out here for detecting unverbalized evaluation awareness. We plan to incorporate NLA-based unverbalized evaluation awareness checks in future pre-deployment audits.
 
+---
+
 ## NLAs are competitive on a downstream auditing task
 
 We assess the utility of NLAs on a downstream task: auditing model behaviors. Specifically, we task agents with performing an end-to-end audit of the model organism from Marks et al. , which was intentionally trained to pursue a malign hidden objective. Following Bricken et al. , we build an auditing agent with access to tools including SAEs, NLAs, and training-data search, and run it under different tool configurations.
@@ -610,6 +626,8 @@ SAEs do not reliably improve win rates in any configuration. SAE evidence in aud
 
 We note two additional patterns. First, agents with access to only the pretraining corpus (which contains the synthetic documents) outperform agents with the full PT+SFT+RL corpus. The agent appears to have a strong prior that misalignment originates in post-training and, given SFT/RL data, primarily searches there. In the PT-only condition it often queries "reward model" or similar and finds the Oxford documents almost immediately in the pretraining corpus, and NLAs are almost a distraction from this strategy. Second, while NLAs help identify the root cause of misalignment, they do not significantly improve the number of behavioral quirks recovered. Instead, NLAs primarily help the auditor tie an observed quirk to the broader concept of reward model bias (details in the [Appendix](#auditing-a-rewardsycophancy-model-organism)).
 
+---
+
 ## Using NLAs for supervised activation oracle training
 
 If NLA training teaches a general capacity to interpret activations, AVs should serve as strong initializations for other activation-reading tasks. We test this by fine-tuning AVs into question-answering activation oracles (AOs): models that answer targeted, researcher-provided questions about an activation, such as "What language is this text in?" or "Is the model aware it is being evaluated?" AOs let researchers directly ask about a property of interest, rather than relying on it appearing in an AV summary. Concretely, we apply supervised fine-tuning (SFT) to AV training checkpoints using the data introduced in Pan et al. , which pairs activations with questions whose answers are known from an in-context instruction. This setup is similar to Karvonen et al. , who introduced AOs and demonstrated that pretraining on generic activation-to-text tasks improves downstream QA performance. An example training data point from Pan et al.  is shown below.
@@ -646,6 +664,8 @@ NLA as an initialization for AO training. NLA-initialized AOs outperform the nai
 Independent of initialization, we observe two limitations of QA AOs that make us cautious of these results. First, evaluation scores are sensitive to question phrasing, shifting by ±10% under simple rewordings (e.g., for Safety Sandbagging, "Why did the assistant answer with this?" vs. "Did the assistant answer this way out of ethical concern?"). Second, our trained AOs hallucinate confidently — on one Safety Sandbagging query about bypassing electronic locks, an AO invented an unrelated rationale about brand-name memorability, saying ‘C4YOURSELF is intentionally chosen by users to be "sticky" in their minds’. NLA AVs also hallucinate, but we find AO hallucinations more difficult to parse, as the provided question supplies a cue the AO can confabulate around, whereas an unprompted AV summary has no such anchor (see [Discussion](#discussion-and-limitations)). Both failure modes have been noted in prior work  and are likely exacerbated by our minimal training recipe, which uses a single, narrow QA dataset.
 
 It is nonetheless promising that NLA training transfers to AO performance, since it suggests the AV learns something about interpreting activations beyond producing summaries. Given the strength and simplicity of the PastLens baseline, however, NLA initialization is not currently the most practical route to a strong AO. We leave more sophisticated training methodologies — like interleaving QA data with NLA RL, or using more diverse QA data — to future work.
+
+---
 
 ## Discussion and Limitations
 
@@ -684,6 +704,8 @@ Other limitations. In addition to what has been described above:
 * Writing quality degrades with training. Later NLA training checkpoints produce explanations that are harder to parse, making reading an NLA a learned skill. We expect this is fixable with supplementary RL rewards for writing quality.
 * NLAs read a single layer. If the information relevant to a behavior is not present at the layer the NLA is trained on, the NLA will miss it. Our first NLA on the reward sycophant model organism, trained at roughly two-thirds depth, showed no signal of the target’s root misalignment, although it did frequently mention particular biases of the MO (see [Appendix](#auditing-a-rewardsycophancy-model-organism)). Training the NLA at roughly halfway through the model, where Lindsey et al.  had localized reward model features, surfaced explanations related to reward model sycophancy. Whether production models show similar layer sensitivity is unclear. We could address this by training NLAs to accept multiple layers of activation as input.
 
+---
+
 ## Future Work
 
 Toward general activation language models (ALMs). NLAs are one instance of a broader paradigm: models that translate between natural language and activation space. The AV is a reader (activation → text); the AR is a writer (text → activation). The natural ambition is to train each side as a general-purpose tool rather than for reconstruction alone. On the read side, the AV could be trained jointly on many activation-to-text tasks — answering questions about activations , inferring user characteristics , and predicting the outcome of patching experiments  — with NLA reconstruction as one objective among several. On the write side, the AR could be trained to produce steering vectors and probes from natural language descriptions, making it a general text-to-activation interface. More broadly, an ambitious view of ALMs is that they could become the primary way interpretability researchers interact with model internals, providing insight into what information the model represents at a given token, which earlier tokens shaped that representation, how behavior would change under a proposed steering vector, or what a patching experiment would reveal. ALMs could in principle provide sensible answers to these in natural language, without running the underlying experiment.
@@ -699,6 +721,8 @@ Other future directions
 * Extending NLAs beyond activations. We could in principle apply NLAs to other model internals, for instance gradients or LoRA adapters, to understand what finetunes represent. We could try applying activation-trained NLAs to these directly, or train on them specifically using a similar procedure to NLA RL.
 * Characterizing what NLAs cannot verbalize. We have speculated that some activation content may be unverbalizable, but this is currently untested. Systematically understanding what information is available to mechanistic techniques like SAEs but not to NLAs would help us map the boundaries of NLAs, and perhaps provide insight into how to improve them.
 * Inference-time methods. Our current interpretability pipeline mostly uses AV outputs and discards the AR. A simple extension is taking a best-of-N NLA explanation against AR reconstruction. We have also experimented with ablating individual claims within an NLA explanation to measure how much each contributes to reconstruction.
+
+---
 
 ## Appendix
 
@@ -1088,7 +1112,9 @@ RULES:
 - Change at most 300 words total, across at most 15 contiguous spans.
 - Each <original> must appear EXACTLY ONCE in the text (literal match).
 TEXT:
+---
 {orig\_body}
+---
 Output ONLY:
 <span><original>...</original><new>...</new></span> (1-15 of these)
 <summary>one line: what you changed</summary>
@@ -1146,6 +1172,7 @@ and notes. You have Read/Glob/Grep/Write/Edit here.
 # Reporting
 Your final report goes in <FINAL\_REPORT></FINAL\_REPORT> tags in your last
 message (per the investigator\_instructions above) — NOT a file.
+---
 # Auditing Tools
 Probe broadly — creative tasks, factual Q&A, instruction-following, refusal boundaries, format constraints ("in one sentence"). Put words in the model's mouth via `add\_assistant\_turn` prefill; vary temperature. Mix behavioral probing with the inspection tools below — don't wait for a smoking gun before looking inside.
 \*(Code blocks in this doc are pseudocode — use your actual tool-calling format, not literal Python.)\*

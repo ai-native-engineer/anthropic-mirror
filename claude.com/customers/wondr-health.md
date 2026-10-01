@@ -4,37 +4,24 @@ Case study | Claude Platform
 
 # Wondr Health scales trusted health coaching with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a1ec915407cc422bfa_logo_wondrhealth-light-mode%201.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a6949ac0de1b799cd2_logo_wondrhealth-dark-mode.png)
+![Wondr Health logo](https://assets.claude.com/c9717ade47a0d9ce4614de66202207c07ed914ed.png)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
+:   [Claude Platform](https://claude.com/platform/api)
 
 Partner:
-
-AWS
-
-Blank Metal
+:   AWSBlank Metal
 
 Location:
-
-North America
+:   North America
 
 700+ questions tested by Wondr's team
 
@@ -56,67 +43,23 @@ From 30 to 60 minutes into a 10-minute guided conversation
 
 ## The challenge
 
-Advancing Claude in healthcare and the life sciences
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6961abe753199c35cdc7f2a2_HCLS%20Launch%20-%20Blog%20-%20Social%20Image%20-%201200%20x%20628%20A.png)
-
-Transform healthcare from insight to action
-
-Read more
-
-[Read more](https://www.anthropic.com/news/healthcare-life-sciences)Read more
-
-Advancing Claude in healthcare and the life sciences
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Transform healthcare from insight to action
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Advancing Claude in healthcare and the life sciences
-
-Transform healthcare from insight to action
-
 ## Earning trust in a 10-minute window
 
 Weight loss journeys are complex and different for every participant, and Wondr's results rest on the coaching relationships that guide them. The company wanted to scale its programs to serve more people while making those relationships stronger, and the place to start was the beginning. Participants arrive at program launch with questions about what they signed up for and how the program will help them, and the trust-building that historically took a human coach 30 to 60 minutes now happens in a 10-minute digital window. Getting that window right matters for everyone: participants who don't find their footing early can drop off before the program has a chance to work, a loss for their health, for the employer paying for the benefit, and for Wondr's retention.
 
 Coaches were stretched thin fielding high-volume, repetitive questions while needing to analyze data across systems to understand a single participant's situation. And Wondr's existing Zendesk bot had surfaced something unexpected: participants were asking questions anonymously that they wouldn't ask a human, which highlighted a great opportunity.
 
-To build the answer, Wondr Health brought in [Blank Metal](https://claude.com/customers/blank-metal-qa), an AI-native engineering firm that helps enterprises take AI from pilot to production and runs its own operations on Claude before deploying anything for a client. "Wondr is a great service built on strong coaching relationships,”  said Elli Rader, the firm's Chief Revenue Officer. “They wanted to test how AI could help them scale their programs to serve more people without compromising the coaching quality that makes them who they are.”
+To build the answer, Wondr Health brought in [Blank Metal](https://claude.com/customers/blank-metal-qa), an AI-native engineering firm that helps enterprises take AI from pilot to production and runs its own operations on Claude before deploying anything for a client. "Wondr is a great service built on strong coaching relationships,” said Elli Rader, the firm's Chief Revenue Officer. “They wanted to test how AI could help them scale their programs to serve more people without compromising the coaching quality that makes them who they are.”
+
+Advancing Claude in healthcare and the life sciences
+
+![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png?w=2400&q=75&fm=webp&fit=max)
+
+Transform healthcare from insight to action
+
+[Read more](https://www.anthropic.com/news/healthcare-life-sciences)
 
 ## The solution
-
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-Read more
-
-[Read more](https://claude.com/healthcare)Read more
-
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Healthcare
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
 
 ## A model to trust with sensitive conversations
 
@@ -142,21 +85,17 @@ Wondr accelerated the build by showing up prepared. The company came in with use
 
 That preparation carried into evaluation. The hardest problem in the engagement was trust, on two fronts at once: end users would have to trust Wonda in sensitive conversations, and Wondr's clinical team had to trust Wonda enough to put it in front of them. The persona and safety design addressed the first; the evaluation earned the second. Internal Wondr employees adopted personas and put 700+ questions through the system, covering onboarding workflows, human escalations, and specific questions about Wondr content, alongside automated evaluators and two rounds of scored human evaluation. The testing console is what earned the clinical team's trust: "Getting them into the tool early, as a partner in evaluation, not a gate at the end, was what built that confidence," the team said.
 
-"You need a model you can trust to stay in bounds, respond with clinical accuracy, and escalate appropriately if something goes wrong."
+Claude for Healthcare
 
-Jason Dehler,
+![Claude for Healthcare](https://assets.claude.com/3cc055deed02884f4a1b81019a962925687fccc3.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Healthcare practice lead, Blank Metal
+Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/healthcare)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "You need a model you can trust to stay in bounds, respond with clinical accuracy, and escalate appropriately if something goes wrong."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Jason Dehler,Healthcare practice lead, Blank Metal
 
 ## The outcome
 
@@ -168,38 +107,14 @@ The deeper result echoes what the Zendesk data first revealed: evaluators told W
 
 The design also keeps coaches at the center: every repetitive onboarding question Wonda takes on is meant to free a coach for the conversations that require a human. The coaches' expertise, empathy, and clinical judgment remain the core of the program. "The hybrid model was the design principle from day one: AI handles scale, humans handle depth," the team said.
 
-Phase 1 was scoped to prove the experience works before putting it in front of real participants. Phase 2 does exactly that: a beta rollout measuring retention and activation. The published research behind Wonda's design suggests what's possible: in comparable programs, AI onboarding has shown 13.6 percentage points higher completion than traditional onboarding, and roughly 2x retention with empathetic persona design.  Those are the outcomes Wonda is being built toward.
+Phase 1 was scoped to prove the experience works before putting it in front of real participants. Phase 2 does exactly that: a beta rollout measuring retention and activation. The published research behind Wonda's design suggests what's possible: in comparable programs, AI onboarding has shown 13.6 percentage points higher completion than traditional onboarding, and roughly 2x retention with empathetic persona design. Those are the outcomes Wonda is being built toward.
 
-## Related stories
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

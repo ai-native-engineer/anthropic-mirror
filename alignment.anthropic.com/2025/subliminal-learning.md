@@ -28,6 +28,8 @@ model.
 Research done as part of the [Anthropic Fellows
 Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
 
+---
+
 ### Introduction
 
 Distillation means training a model to imitate another model's

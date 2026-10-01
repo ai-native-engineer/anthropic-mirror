@@ -9,19 +9,24 @@ description: "이 repo의 Anthropic/Claude 공개 표면 커버리지와 누락�
 
 ## 작업 라우팅
 
-| 작업 | 먼저 읽을 것 |
-|---|---|
-| 전체 커버리지·누락 감사 | `references/coverage-audit.md` |
-| 전체 갱신, 검증, commit, push | `references/publishing.md` |
-| 부분 수집, 누락 복구, 수집기 수정 | `references/crawl-notes.md`와 대상 스크립트의 `--help` |
-| Academy 로그인, 본문·영상 추출 | `references/academy-notes.md` |
+| 작업 | 먼저 읽을 것 | 실행 진입점 |
+|---|---|---|
+| 전체 커버리지·누락 감사(D/C/M 대조) | `references/coverage-audit.md` | `scripts/coverage-audit.py` |
+| 전체 갱신, 검증, commit, push | `references/publishing.md` | `scripts/refresh.sh` |
+| 부분 수집, 누락 복구, 수집기 수정 | `references/crawl-notes.md`와 대상 스크립트의 `--help` | `scripts/crawl-site.py` |
+| Academy 로그인, 본문·영상 추출 | `references/academy-notes.md` | `scripts/login-academy.py`, `scripts/academy-video.py` |
+| 보관본 전체 검증 | `references/publishing.md` | `scripts/verify-publish.py . --all` |
 
 일반 갱신은 `publishing.md`의 commit, push, 원격 SHA 확인까지 완료한다. 삭제 반영만 그 문서의 승인 게이트를 따른다.
 
 ## 불변 규칙
 
 - 최신 상태만 제자리 갱신하고 이력은 git에 둔다.
-- `_yt-cache/`와 `.anthropic-mirror-state.json`은 gitignored 작업 상태이며 발행하지 않는다.
+- `_yt-cache/`, `.anthropic-mirror-state.json`, `.anthropic-mirror-status.json`, `.anthropic-mirror-audit/`는 gitignored 작업 상태이며 발행하지 않는다.
+- 수집 host, 공식 도메인, host별 판정은 `assets/mirror-manifest.json` 한 곳에서 정한다. 수집기·검증기·감사기가 모두 이 파일을 읽는다.
 - 모든 source와 Academy 레슨을 검사하되 정제된 본문이나 영상 ID가 달라진 파일만 쓴다.
+- 404, redirect, thin, login wall, 403, 5xx, timeout은 삭제하거나 성공으로 넘기지 않고 `.anthropic-mirror-status.json`에 분류와 함께 기록한다.
+- 인증이 없거나 만료되면 fail-closed다. 레슨을 쓰지 않고 non-zero로 끝내며, 이 상태를 완료로 보고하지 않는다.
+- 원본에 받을 자산이 없는 이미지는 깨진 참조 대신 `[미수집 이미지: <대체 텍스트>]`로 남긴다.
 - 외부 인용 PDF는 제외하고 Anthropic·Claude 소유 PDF만 원본으로 미러한다.
 - PDF는 `scripts/add-pdf-text-layer.py`로 원본 파일 안에 투명 OCR text layer를 추가한다. Bitmap image는 자체 text layer를 지원하지 않으므로 별도 OCR 파일을 만들지 않는다.

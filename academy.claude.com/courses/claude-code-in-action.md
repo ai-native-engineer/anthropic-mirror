@@ -2,7 +2,7 @@
 
 [Courses](https://academy.claude.com/courses)
 
-# Claude Code in Action
+# Claude Code in action
 
 Run long, hands-off Claude Code sessions you can trust: steer, configure, automate, and verify
 
@@ -12,7 +12,7 @@ Run long, hands-off Claude Code sessions you can trust: steer, configure, automa
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-f1byetgm.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cux4sb8w.png)
 
-9 lessons · 1 quizClaude Code in Action
+9 lessons · 1 quizClaude Code in action
 
 What you’ll learnBy the end of this course, you’ll be able to
 
@@ -30,7 +30,7 @@ Before you start
 * You already use Claude Code for single prompts
 * Basic familiarity with Git and the command line
 
-Claude Code in Action teaches you to run [Claude Code(opens in new tab)](https://claude.com/product/claude-code) past the quick task and trust the result. You will scope and steer long sessions, write instructions Claude actually follows, enforce the rules that cannot be skipped, hand off work to hands-off and scheduled runs, and verify what came back when no one was watching. By the end you can point Claude at hours of work, walk away, and check what it did with confidence.
+Claude Code in action teaches you to run [Claude Code(opens in new tab)](https://claude.com/product/claude-code) past the quick task and trust the result. You will scope and steer long sessions, write instructions Claude actually follows, enforce the rules that cannot be skipped, hand off work to hands-off and scheduled runs, and verify what came back when no one was watching. By the end you can point Claude at hours of work, walk away, and check what it did with confidence.
 
 Steer the work
 

@@ -58,6 +58,8 @@ We are not certain of this hypothesis, but we think it’s important to consider
 major parts of Anthropic’s safety research portfolio and we’re hiring across several teams—two of them
 new—to build out work along these lines.
 
+---
+
 We are plausibly within a couple of years of developing models that could automate much of the work of AI
 R&D. This makes [sabotage and
 sandbagging](https://www.anthropic.com/research/sabotage-evaluations) threat models—where the models deliberately interfere with their own safety measures or

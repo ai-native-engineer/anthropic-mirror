@@ -1,12 +1,20 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting -->
 
-Federated connections are managed at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag): open **Federated cloud access** in the left navigation. Changing them needs an organization Owner, or an admin with full Claude Tag management permission.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
 
-This page covers what goes wrong after you connect a gateway, AWS role, Google Cloud identity, or authorization server through **Federated cloud access**. It’s organized by where the problem shows up: a message in a console dialog, an error Claude reports in the thread, or a rejection in your own logs. The token terms used below are explained on the [identity token reference](https://claude.com/docs/claude-tag/admins/federated-access/token-reference).
+[Skip to main content](#content-area)
+
+Federated connections are managed at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag): open **Federated agent access** in the left navigation. Changing them needs an organization Owner, or an admin with full Claude Tag management permission.
+
+This page covers what goes wrong after you connect a gateway, AWS role, Google Cloud identity, or authorization server through **Federated agent access**. It’s organized by where the problem shows up: a message in a console dialog, an error Claude reports in the thread, or a rejection in your own logs. The token terms used below are explained on the [identity token reference](https://claude.com/docs/claude-tag/admins/federated-access/token-reference).
 First confirm two things that have nothing to do with federation:
 
 * The connection is in an [Access bundle attached to the channel’s scope](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle). For a gateway, the scope’s custom instructions also [name the gateway’s address](https://claude.com/docs/claude-tag/admins/federated-access/connect-a-gateway#let-agents-reach-the-gateway), so Claude knows the gateway exists.
-* You tested in a new thread. A thread already running isn’t told about a connection added after it started; ask Claude for the service by name, or send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) at the channel’s top level.
+* You tested in a new thread. A thread already running isn’t told about a connection added after it started; ask Claude for the service by name, or send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) in that thread.
 
 If Claude reports that a host isn’t allowed before any request is sent, see [Claude says a host isn’t allowed](https://claude.com/docs/claude-tag/admins/troubleshooting#claude-says-a-host-isn%E2%80%99t-allowed-or-it-can%E2%80%99t-reach-the-internet).
 
@@ -17,18 +25,18 @@ Most dialog messages say what to do. The table adds what the message doesn’t. 
 | Message | What it means | Do this |
 | --- | --- | --- |
 | ”The check can’t run right now. Try again later, or skip the check and record why.” | Anthropic couldn’t produce the test tokens for the connection check. The problem is on Anthropic’s side, not your gateway’s. | Wait a few minutes and click **Run check and connect** again. If the message persists, select the **Skip the check** option, enter a **Reason for skipping**, and click **Connect without the check**; remove and reconnect the gateway later to record a passed check. |
-| ”Too many checks in a short time.” followed by how long to wait | Your organization ran the connection check too many times in quick succession. The limit counts every admin in the organization. Entering an address that is already registered runs the check again and counts too, unless the **Skip the check** option is selected. | Wait the time the message names. To add an existing gateway to a bundle, click **Add to bundle** in its row of the **Gateways** table instead of entering its address again. |
+| ”Too many checks in a short time.” followed by how long to wait | Your organization ran the connection check too many times in quick succession. The limit counts every admin in the organization. Entering an address that is already registered runs the check again and counts too, unless the **Skip the check** option is selected. | Wait the time the message names. To add an existing gateway to a bundle, click **Add to bundle** (**Add to another bundle** on a row already in one) in the **Gateways** table instead of entering its address again. |
 | ”Too many attempts in a short time.” in the **Connect an authorization server** dialog | A general request limit, not the connection check; registering a token endpoint never runs the check. | Wait the time the message names and try again. |
 | ”Connecting a gateway needs full Claude Tag management permission. Ask an organization owner.” or “This needs full Claude Tag management permission. Ask an organization owner.” | Your account can’t change federated connections. Channel managers, and admins whose Claude Tag permission covers specific channels only, can’t connect a gateway, cloud role, or authorization server. | Ask an organization Owner, or an admin with full Claude Tag management permission, to make the connection from their own account. |
-| A dialog message containing “isn’t enabled for your organization yet”, or **Federated cloud access** is missing from the left navigation | Federated cloud access isn’t available to organizations whose compliance configuration excludes it. The navigation item is also hidden from channel managers and from admins whose Claude Tag permission covers specific channels only, because connecting a system needs full Claude Tag management permission. | Ask an organization Owner, or an admin with full Claude Tag management permission, to open the page. If it’s missing for them too, your organization’s compliance configuration excludes the feature. |
+| A dialog message containing “isn’t enabled for your organization yet”, or **Federated agent access** is missing from the left navigation | Federated agent access isn’t available to organizations whose compliance configuration excludes it. The navigation item is also hidden from channel managers and from admins whose Claude Tag permission covers specific channels only, because connecting a system needs full Claude Tag management permission. | Ask an organization Owner, or an admin with full Claude Tag management permission, to open the page. If it’s missing for them too, your organization’s compliance configuration excludes the feature. |
 | ”This organization has reached its limit of 5 gateways. Remove one to connect another.” or, in the **Connect an authorization server** dialog, “…limit of 5 registered gateways, which includes token endpoints.” | An organization can register 5 addresses. A token endpoint is registered the same way as a gateway, so it counts toward the same 5 and appears in the **Gateways** table marked “Used by a connected authorization server. Manage it from the Authorization servers section.” An address is either a gateway or a token endpoint in your organization, not both. | In the **Gateways** table, click **Remove** in the row of a gateway you no longer use. To free a token endpoint’s row, click **Remove** in the server’s row of the **Authorization servers** table first, then remove the endpoint from the **Gateways** table. See [Removing and reconnecting a gateway](#removing-and-reconnecting-a-gateway). |
-| ”This gateway is already registered. Close this dialog and pick it from the list to add it to a bundle.” | The address is already registered in your organization, and the dialog couldn’t load its row to continue. This message is rare: entering a registered address normally runs the connection check again without changing the stored result, then moves on to the bundle step. | Click **Cancel**, then click **Add to bundle** in the gateway’s row of the **Gateways** table. |
-| ”`<address>` is already in the bundle `<bundle>`. Assign that bundle to a channel to use the gateway there.”, “This role is already connected in the bundle `<bundle>`.”, or “This token endpoint is already connected in the bundle `<bundle>`.” | A gateway, AWS role, or token endpoint can be connected in only one Access bundle, and this one already is. | To use the connection in more channels, [attach that bundle to each scope](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle) instead. To move it, in **Access bundles**, open the bundle’s **Credentials** tab, open the **⋮** menu on the connection’s row, and choose **Delete**. Then add it to the new bundle: **Add to bundle** in the gateway’s row of the **Gateways** table, or the connect dialog again for the other types. |
+| ”This gateway is already registered. Close this dialog and pick it from the list to add it to a bundle.” | The address is already registered in your organization, and the dialog couldn’t load its row to continue. This message is rare: entering a registered address normally runs the connection check again without changing the stored result, then moves on to the bundle step. | Click **Cancel**, then click **Add to bundle** (**Add to another bundle** on a row already in one) in the gateway’s row of the **Gateways** table. |
+| ”This role is already connected in the bundle `<bundle>`.” or “This token endpoint is already connected in the bundle `<bundle>`.” | An AWS role or token endpoint can be connected in only one Access bundle, and this one already is. | To use the connection in more channels, [attach that bundle to each scope](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle) instead. To move it, in **Access bundles**, open the bundle’s **Credentials** tab, open the **⋮** menu on the connection’s row, and choose **Delete**. Then connect it again from its own dialog and pick the new bundle. |
 | ”`<name>` already covers `<host>` in this bundle, so Claude would never use this connection for the hosts they share. Change the hosts or choose another bundle.” in the **Connect a Google Cloud identity** dialog | Another Google Cloud connection in the bundle you chose already has that host under **Allowed hosts**, whatever its provider or service account. Claude uses the first connection in a bundle whose hosts match a request, so the new connection would never be used for the shared host. A wildcard such as `*.googleapis.com` covers every subdomain but not `googleapis.com` itself. The dialog won’t connect until the overlap is gone. | Remove the shared host from the new connection’s **Allowed Google hosts**, or choose another bundle. To give the host to the new connection instead, first narrow the existing one: in **Access bundles**, open the bundle’s **Credentials** tab, open the **⋮** menu on the connection’s row, choose **Edit**, and change **Allowed hosts**. |
 | ”Couldn’t connect the gateway. Try again.”, “Couldn’t add the gateway to the bundle.”, “Couldn’t connect the role. Try again.”, “Couldn’t connect the identity. Try again.”, “Couldn’t register the authorization server. Try again.”, or “Couldn’t connect the authorization server. Try again.” | The request failed for a reason the dialog doesn’t name, most often a temporary one. | Try once more. If the message persists, contact your Anthropic account team with the details under [Contact Anthropic](#contact-anthropic). |
 | ”The issuer URL must be an https URL on the same host as the token endpoint. Leave it empty to use the token endpoint as the audience.” in the **Connect an authorization server** dialog | The **Issuer URL** value must be an HTTPS URL on the same host as the token endpoint, or empty. The token is only ever presented to that server, so its audience must name that server. | Enter the issuer identifier your authorization server uses, on the token endpoint’s host, or clear the field to use the token endpoint as the audience. |
 | ”This token endpoint is already connected. Manage it from the Authorization servers section.” in the **Connect an authorization server** dialog | An authorization server with this token endpoint is already connected in one of your organization’s Access bundles, and a server can be connected only once. The dialog checks this before it registers anything. | To use the server in more channels, [attach its bundle to each scope](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle). To connect it again, remove it first: in the **Authorization servers** table, click **Remove** in the server’s row. |
-| ”That address is already connected as a gateway. Enter your authorization server’s own addresses, or remove the gateway first.” in the **Connect an authorization server** dialog | The token endpoint, or the **Issuer URL** value, is the address of a gateway connected in one of your organization’s Access bundles. One address can’t be both, because a token sent to the gateway could be replayed to the server as a grant. | Enter the token endpoint and issuer identifier your authorization server publishes. To use that address for the server instead, remove the gateway first: in **Access bundles**, open the bundle that holds the gateway, open its **Credentials** tab, open the **⋮** menu on the gateway’s row, and choose **Delete**. Then, in the **Gateways** table under **Federated cloud access**, click **Remove** in the gateway’s row. |
+| ”That address is already connected as a gateway. Enter your authorization server’s own addresses, or remove the gateway first.” in the **Connect an authorization server** dialog | The token endpoint, or the **Issuer URL** value, is the address of a gateway connected in one of your organization’s Access bundles. One address can’t be both, because a token sent to the gateway could be replayed to the server as a grant. | Enter the token endpoint and issuer identifier your authorization server publishes. To use that address for the server instead, remove the gateway first: in **Access bundles**, open the bundle that holds the gateway, open its **Credentials** tab, open the **⋮** menu on the gateway’s row, and choose **Delete**. Then, in the **Gateways** table under **Federated agent access**, click **Remove** in the gateway’s row. |
 | ”That address is registered by a connected authorization server. Enter your gateway’s address, or remove the server first.” in the **Connect a gateway** dialog | The address you entered is a connected authorization server’s token endpoint or audience, for example a server whose **Issuer URL** is the bare host `https://auth.example.com`. One address can’t be both, because a token sent to the gateway could be replayed to that server as a grant. | Enter the host your gateway answers on. To use that address for a gateway instead, remove the server first: in the **Authorization servers** table, click **Remove** in the server’s row. |
 | ”That address is already a connected authorization server’s audience. Enter this server’s own issuer URL.” in the **Connect an authorization server** dialog | The **Issuer URL** value (or the token endpoint, when **Issuer URL** is empty) is already another connected authorization server’s audience or token endpoint. Two servers can’t share an audience, because a token minted for one would be valid at the other. | In the **Issuer URL** field, enter the issuer identifier this server publishes. If the other server holds this identifier by mistake, remove that server first: in the **Authorization servers** table, click **Remove** in its row, then connect it again with its own issuer URL. |
 | ”The address is too long. Issuer URLs have at most 256 characters.” under the **Issuer URL** field of the **Connect an authorization server** dialog | The **Issuer URL** field accepts at most 256 characters, the same limit as the **Token endpoint** field. | Check that the field holds only the issuer identifier, for example `https://auth.example.com`, and not a longer value pasted by mistake. |
@@ -45,6 +53,7 @@ The connection check sent two requests to your gateway and didn’t get the two 
 The check sends an empty `POST` to the address itself, with nothing added after the host, twice. Work through the causes in order.
 
 | Check | What to do |
+| --- | --- |
 | Claude can reach the address from the internet over HTTPS | Confirm the host resolves publicly, the TLS certificate is valid, and the gateway isn’t behind a VPN. |
 | An empty `POST` to the address itself is answered directly | The check doesn’t follow redirects, and any status other than the two expected ones fails it, including a 503 from a gateway that couldn’t fetch the signing keys. |
 | The token whose subject isn’t your organization gets 401 or 403 | If the gateway answered 2xx, the subject check is missing or wrong. |
@@ -55,22 +64,22 @@ If the gateway can’t be fixed right away, select the **Skip the check** option
 
 ###  Removing and reconnecting a gateway
 
-In the **Gateways** table, click **Remove** in the gateway’s row. Claude stops using the gateway at once. A connection that used the gateway stays in its Access bundle but stops working, and Claude reports [request blocked: this credential’s audience isn’t registered as a gateway for this organization](#request-blocked-this-credential%E2%80%99s-audience-isn%E2%80%99t-registered-as-a-gateway-for-this-organization) until the gateway is registered again.
-To reconnect, click **Connect a gateway** in the **Gateways** section and enter the same address. Registering the address restores the existing connection, which is still in the bundle, so don’t add it to the bundle again; the dialog refuses if you try.
+In the **Gateways** table, click **Remove** in the gateway’s row and confirm with **Remove gateway**. Claude stops using the gateway at once. A connection that used the gateway stays in its Access bundle but stops working, and Claude reports [request blocked: this credential’s audience isn’t registered as a gateway for this organization](#request-blocked-this-credential%E2%80%99s-audience-isn%E2%80%99t-registered-as-a-gateway-for-this-organization) until the gateway is registered again.
+To reconnect, click **Connect a gateway** in the **Gateways** section and enter the same address. Registering the address restores the existing connection, which is still in the bundle; the bundle step then offers only bundles the gateway isn’t in.
 
 ##  Errors Claude reports in the thread
 
-When a request from a channel can’t be sent with a federated credential, it fails with an HTTP status and a one-line reason, which Claude usually quotes. Reasons with HTTP 403 and 502 end with the connection’s name in parentheses, for example `("gateway.example.com")`. The two 503 reasons don’t name the connection.
+When a request can’t be sent with a federated credential, it fails with an HTTP status and a one-line reason, which Claude usually quotes. Reasons with HTTP 403 and 502 name the connection in parentheses, for example `("gateway.example.com")`. The two 503 reasons don’t name the connection.
 Messages that begin “request blocked” come with HTTP 403. The request was refused on purpose, and retrying won’t help. A 503 is temporary. A 502 usually means AWS, Google Cloud, or your authorization server refused the token exchange. A response from your gateway or from the cloud API itself reaches Claude as is, so those show as whatever status the other side returned.
 
-###  request blocked: this credential only works in channel sessions, not personal ones
+###  request blocked: federated connections work only in agent sessions (such as a Slack channel), not in personal sessions (such as a direct message)
 
 **What you see**
-Claude’s request got HTTP 403 with this reason.
+Claude’s request got HTTP 403 with this reason, or with `request blocked: this credential only works in channel sessions, not personal ones`, which means the same thing.
 **What it means**
-Federated connections work only in Slack channels, where Claude acts under your organization’s [agent identity](https://claude.com/docs/claude-tag/concepts/agent-identity). The request came from a direct message, or from another session running under a person’s own account, which has no agent identity for the token to name.
+Federated connections work only in agent sessions, such as a Slack channel, where Claude acts under your organization’s [agent identity](https://claude.com/docs/claude-tag/concepts/agent-identity). The request came from a personal session, such as a [direct message](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) with `@Claude`. A personal session runs under a person’s own account and has no agent identity for the token to name.
 **How to resolve**
-Use the connection from a channel whose scope has the bundle attached. No setting enables it in direct messages.
+Use the connection from a channel whose scope has the bundle attached. No setting enables federated connections in personal sessions.
 
 ###  request blocked: this credential’s audience isn’t registered as a gateway for this organization
 
@@ -81,19 +90,19 @@ The gateway was removed from the **Gateways** table, but its connection is still
 **How to resolve**
 To keep the gateway, register the same address again; see [Removing and reconnecting a gateway](#removing-and-reconnecting-a-gateway). To drop it, in **Access bundles**, open the bundle’s **Credentials** tab, open the **⋮** menu on the connection’s row, and choose **Delete**.
 
-###  request blocked: Google (gcp) credentials aren’t enabled for this organization
+###  Claude says Google credentials are not enabled for this organization
 
 **What you see**
-Claude’s request got HTTP 403 with this reason.
+Claude’s request got HTTP 403 with the reason “request blocked: Google (gcp) credentials aren’t enabled for this organization”.
 **What it means**
 A Google Cloud identity is connected in a bundle, but Google Cloud federation is off for your organization.
 **How to resolve**
 Contact your Anthropic account team with the details under [Contact Anthropic](#contact-anthropic).
 
-###  request blocked: this credential has restrict\_credential\_minting set, so Google’s credential-minting endpoints are refused
+###  Claude says a Google credential-minting endpoint was refused
 
 **What you see**
-Claude’s request got HTTP 403 with this reason.
+Claude’s request got HTTP 403 with the reason “request blocked: this credential has restrict\_credential\_minting set, so Google’s credential-minting endpoints are refused”.
 **What it means**
 The Google Cloud identity was connected with **Block requests that mint new credentials** selected, and Claude tried to call a Google endpoint that creates keys, tokens, or other credentials. The block worked as intended.
 **How to resolve**
@@ -129,28 +138,54 @@ Ask Claude to retry. If one connection keeps failing this way, check that your a
 ###  injection failed
 
 **What you see**
-Claude’s request got HTTP 502 with the reason `injection failed ("<connection name>")`.
+Claude’s request got HTTP 502 with a reason that begins `injection failed ("<connection name>")`. For an AWS connection whose reason continues past the connection name, see [An AWS request fails after a successful sign-in](#an-aws-request-fails-after-a-successful-sign-in) instead.
 **What it means**
-Most often, the system Claude’s identity token was presented to refused the exchange. AWS refused `AssumeRoleWithWebIdentity`, Google Cloud’s token exchange refused the token, or your authorization server answered the grant with an error. Claude’s reply doesn’t say why; your own logs do.
+Most often, the system Claude’s identity token was presented to refused the exchange. AWS refused `AssumeRoleWithWebIdentity`, Google Cloud’s token exchange refused the token, or your authorization server answered the grant with an error. Claude’s reply doesn’t say why; for a refused exchange, your own logs do.
 **How to resolve**
 Look up the refusal where it happened and fix the configuration it names.
 
 | Connection | Where to look | Entry |
 | --- | --- | --- |
-| AWS role | CloudTrail, the `AssumeRoleWithWebIdentity` event for the role | [AWS refuses AssumeRoleWithWebIdentity](#aws-refuses-assumerolewithwebidentity) |
+| AWS role | CloudTrail, the `AssumeRoleWithWebIdentity` event for the role | [AWS refuses AssumeRoleWithWebIdentity](#aws-refuses-assumerolewithwebidentity) if the event failed. [An AWS request fails after a successful sign-in](#an-aws-request-fails-after-a-successful-sign-in) if the event succeeded, or there is no new event. |
 | Google Cloud identity | Cloud Audit Logs, the Security Token Service API entry for the token exchange and, if you named a service account, the IAM Service Account Credentials API entry | [Google Cloud refuses the token exchange](#google-cloud-refuses-the-token-exchange) |
 | Authorization server | Your server’s log for the `POST` to the token endpoint | [Your authorization server rejects the grant](#your-authorization-server-rejects-the-grant) |
 
-Allow for log delivery delay before concluding there was no attempt. If your logs show none at the time of the request, the token wasn’t issued, and you should [contact Anthropic](#contact-anthropic) with the details listed there. A gateway connection doesn’t produce this error. Your gateway’s own response reaches Claude, so Claude reports the status your gateway returned, usually 401 or 403; see [Your gateway rejects every token](#your-gateway-rejects-every-token).
+Allow for log delivery delay before concluding there was no attempt. For an AWS role, no new event can also mean Claude reused credentials from an earlier sign-in. See [An AWS request fails after a successful sign-in](#an-aws-request-fails-after-a-successful-sign-in). Otherwise, if your logs show no attempt at the time of the request, the token wasn’t issued. [Contact Anthropic](#contact-anthropic) with the details listed there. A gateway connection doesn’t produce this error. Your gateway’s own response reaches Claude, so Claude reports the status your gateway returned, usually 401 or 403; see [Your gateway rejects every token](#your-gateway-rejects-every-token).
+
+###  An AWS request fails after a successful sign-in
+
+**What you see**
+Claude’s request to an AWS service got HTTP 502 with a reason that begins `injection failed ("<connection name>")`. CloudTrail shows that the role’s `AssumeRoleWithWebIdentity` event succeeded, or shows no new event because Claude was reusing credentials from an earlier sign-in. Other kinds of request with the same connection may still work. The failure repeats for one kind of request, for example every call to one host or every upload to S3.
+**What it means**
+The sign-in worked, but [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) couldn’t sign the request with the role’s credentials, so it never left for AWS. The reason text after the connection name says which of these applies:
+
+* **A hostname with no usable region.** Agent Proxy reads the AWS service and signing region from the hostname, so the region must be the last label before `amazonaws.com`, as in `service.region.amazonaws.com`, `my-bucket.s3.us-east-1.amazonaws.com`, or `api.ecr.us-east-1.amazonaws.com`. The [AWS SigV4 credential](https://claude.com/docs/claude-tag/admins/connections/custom#aws-sigv4) section lists the hostname forms Agent Proxy signs, including the services it signs with no region.
+* **A large request to a service other than S3 with no content hash.** When a request has no `x-amz-content-sha256` header, Agent Proxy hashes the body before signing and refuses a body over 1 MB (1,048,576 bytes). The AWS CLI and SDKs add that header for S3 but usually not for other services.
+* **An S3 upload with signed chunks.** Agent Proxy signs the uploads the AWS CLI and SDKs send by default, including an upload sent in chunks with a checksum trailer. It can’t sign an upload whose chunks the client signs one by one, which the CLI and SDKs do only when payload signing is turned on for the profile. The reason text reads `chunked signing (<mode>) is not supported through the proxy`.
+
+**How to resolve**
+
+| Cause | Do this |
+| --- | --- |
+| Hostname with no usable region | Use the service’s regional endpoint, `service.region.amazonaws.com` (for S3, also `bucket.s3.region.amazonaws.com`), and make sure that host is in the connection’s **Allowed hosts**. A host that exists only with the region before the service name, such as an OpenSearch domain endpoint, can’t be reached through a federated connection. [Contact Anthropic](#contact-anthropic) with the hostname. |
+| Large request to a service other than S3 | Keep the body under 1 MB, or have Claude send the request with an `x-amz-content-sha256` header set to the hex SHA-256 of the body, for example with `curl`. For large data, upload to S3 and pass a reference instead. |
+| S3 upload with signed chunks | Have Claude remove `payload_signing_enabled = true` from the profile in `~/.aws/config`, or add `request_checksum_calculation = WHEN_REQUIRED` to that profile as the reason text suggests, then retry. Either change makes the client send the upload in a form Agent Proxy signs. If the upload still fails, [contact Anthropic](#contact-anthropic). |
 
 ###  The cloud API answers 403 after a successful exchange
 
 **What you see**
-Claude reports a 403 from an AWS or Google Cloud API, with the provider’s own error body rather than a reason beginning “request blocked”.
+Claude reports a 403 from an AWS or Google API, with the provider’s own error body rather than a reason beginning “request blocked”.
 **What it means**
-The token exchange worked and Claude called the API with the exchanged credential, but the role or identity lacks permission for that action. For Google Cloud, the exchange always requests the `cloud-platform` scope, so IAM alone decides what the credential can do.
+The token exchange worked and Claude called the API with the exchanged credential, but the API refused the call for one of these reasons:
+
+* **A missing permission.** The role or identity lacks permission for that action.
+* **A Google API that needs an OAuth scope of its own.** For Google Cloud, the exchange always requests the `https://www.googleapis.com/auth/cloud-platform` scope, and there’s no setting to change it. Google Cloud APIs accept that scope, and IAM decides what the credential can do on those APIs. APIs that need an OAuth scope of their own, such as the Google Drive, Calendar, and Gmail APIs, answer 403 for insufficient scopes whatever IAM allows.
+
+If the 403 comes from a Google Cloud API, such as Cloud Storage, the OAuth scope isn’t the cause, so check the permission. If the 403 comes from an API that needs an OAuth scope of its own, such as the Google Drive, Calendar, or Gmail API, the cause is the OAuth scope.
 **How to resolve**
-Grant the IAM permission to the AWS role, the Google Cloud service account, or the federated identity when no service account is named. For AWS, a 403 also makes Claude assume the role again on the next request, so a fix takes effect on the next try.
+
+* **A missing permission.** Grant the IAM permission to the AWS role, the Google Cloud service account, or the federated identity when no service account is named. For AWS, a 403 also makes Claude assume the role again on the next request, so a fix takes effect on the next try.
+* **A Google API that needs an OAuth scope of its own.** A federated connection can’t reach that API. To connect Google Drive, Calendar, or Gmail another way, see [Choose OAuth or a service account](https://claude.com/docs/claude-tag/admins/connections/google#choose-oauth-or-a-service-account). If a channel gets both that connection and the federated connection, keep the two from covering the same host; see [Which credential wins](https://claude.com/docs/claude-tag/admins/attach-to-scope#which-credential-wins).
 
 ##  Rejections in your own logs
 
@@ -163,6 +198,7 @@ One of the standard checks is configured with the wrong value. Your gateway’s 
 **How to resolve**
 
 | Check | What to confirm |
+| --- | --- |
 | Audience | The `aud` claim is a JSON array with one element, your gateway address exactly as the console stored it: `https://` plus the lowercase host, no path or trailing slash. Use your library’s audience option rather than comparing the raw claim to a string. |
 | Issuer | Exactly `https://identity.anthropic.com/agents`, including the path. A verifier configured with any other issuer value, such as the bare host, a different path, or a trailing slash, rejects every token, including the connection check’s token. |
 | Signing keys | Fetched from the JSON Web Key Set (JWKS) named in `https://identity.anthropic.com/agents/.well-known/openid-configuration`. Accept ES256 only. Select the key by `kid`, and refetch the JWKS on an unknown `kid` before rejecting. |
@@ -196,6 +232,7 @@ STS refused to issue credentials for Claude’s token. The trust relationship be
 **How to resolve**
 
 | CloudTrail error | What to confirm |
+| --- | --- |
 | `InvalidIdentityToken` | The IAM OIDC identity provider’s URL is exactly `https://identity.anthropic.com/agents`, with the `/agents` path (AWS displays it without `https://`), and its audience list includes `sts.amazonaws.com`. |
 | `AccessDenied` | The trust policy’s condition keys start with `identity.anthropic.com/agents:`; the `aud` condition is `StringEquals` on `sts.amazonaws.com`; the `sub` condition matches the token’s subject, either `StringEquals` on this agent’s full subject or `StringLike` on `wimse://identity.anthropic.com/org/<your organization ID>/agent/*`. `AccessDenied` also appears when the role was deleted or renamed. |
 | Any other code | AWS’s STS documentation describes it. If the two rows above check out, the token itself is fine. |
@@ -212,6 +249,7 @@ The workload identity pool’s provider or attribute condition doesn’t accept 
 Google records the reason in your Cloud Audit Logs. The Security Token Service API entry covers the token exchange, and, if you named a service account, the IAM Service Account Credentials API entry covers the impersonation. Both are Data Access audit logs, which Google keeps off by default, as described under [Verify the connection](https://claude.com/docs/claude-tag/admins/federated-access/gcp#verify-the-connection). If the logs were on and show no entry at the time of the request, the token wasn’t issued; see [injection failed](#injection-failed). Otherwise, work through the checks in order.
 
 | Check | What to confirm |
+| --- | --- |
 | Attribute condition | The provider’s attribute condition accepts this token. A condition that lists full subjects must include this agent’s subject. A condition on your **Subject prefix**, `assertion.sub.startsWith("wimse://identity.anthropic.com/org/<your organization ID>/agent/")`, accepts every agent in your organization, as does `attribute.org == "<your organization ID>"` if you mapped `attribute.org` from `assertion.tenant`. Comparing the subject to the prefix with `==`, as in `assertion.sub == "wimse://identity.anthropic.com/org/<your organization ID>/agent/"`, never matches, because every subject continues past the prefix with an agent’s ID. Use `startsWith` on the prefix, or `==` on a full subject. |
 | Issuer, attribute mapping, and audience | The provider’s issuer is `https://identity.anthropic.com/agents`, its attribute mapping sets `google.subject` to `assertion.sub` (and `attribute.org` to `assertion.tenant` if your condition or grants use it), and the **Workload identity provider** you entered in the console is the provider’s full resource name, which is the token’s audience. |
 | Service account grant | If you named a service account, the federated identity holds a role on it that allows `iam.serviceAccounts.getAccessToken`, such as `roles/iam.workloadIdentityUser`. |
@@ -225,6 +263,7 @@ Your server didn’t accept Claude’s identity token as a JWT bearer assertion.
 **How to resolve**
 
 | Check | What to confirm |
+| --- | --- |
 | Grant shape | The token endpoint accepts `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer` with the token in `assertion`, plus `resource` and `scope` if you set them, as a form-encoded `POST` with `Accept: application/json`. No `client_id` or client secret is sent, so the endpoint must accept the grant without client authentication. |
 | Audience | The token’s `aud` is your authorization server’s issuer identifier exactly as you entered it when connecting the server, or the token endpoint URL exactly as registered if you left the issuer identifier empty, as a one-element array. The **Audience** row of the **Connect an authorization server** dialog shows the value. |
 | Issuer and keys | As for a gateway: issuer `https://identity.anthropic.com/agents`, keys from its discovery document, ES256 only. |
@@ -244,8 +283,10 @@ If no entry resolves the problem, contact your Anthropic account team and includ
 
 Never send a token itself. Anthropic’s logs record why a token was refused or not issued, and the time and connection name are enough to find the entry.
 
-* [Federated cloud access overview](https://claude.com/docs/claude-tag/admins/federated-access/overview): how the token works and which connection type to use
+##  Related resources
+
+* [Federated agent access overview](https://claude.com/docs/claude-tag/admins/federated-access/overview): how the token works and which connection type to use
 * [Connect a gateway](https://claude.com/docs/claude-tag/admins/federated-access/connect-a-gateway): the setup steps and the connection check in full
 * [Identity token reference](https://claude.com/docs/claude-tag/admins/federated-access/token-reference): every claim, the lifetime, and key rotation
 * [Limits](https://claude.com/docs/claude-tag/admins/federated-access/limits): counts, lengths, and lifetimes
-* [Troubleshoot Claude Tag setup](https://claude.com/docs/claude-tag/admins/troubleshooting): errors outside federated cloud access
+* [Troubleshoot Claude Tag setup](https://claude.com/docs/claude-tag/admins/troubleshooting): errors outside federated agent access

@@ -2,7 +2,7 @@
 
 # Detecting and countering misuse of AI: September 2026
 
-[Download report](https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf)
+[Download report](https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf)[Download IOCs](https://www-cdn.anthropic.com/b5af8acd5ee681422114af7c7b6b02c1ecd074ca/20260910_Anthropic_AI_Misuse_Report_IOCs.csv)
 
 ### Cyber operations
 

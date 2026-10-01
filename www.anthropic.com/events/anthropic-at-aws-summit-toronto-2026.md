@@ -90,8 +90,6 @@ Watch sessions
 
 Add to calendar
 
-![]()
-
 ## Anthropic at AWS Summit Toronto 2026
 
 Add to calendar
@@ -166,7 +164,7 @@ No items found.
 
 ## Agenda
 
-* Jun 3
+* 3 Jun
 
 Day 1Day 2Day 3Day 3
 
@@ -244,29 +242,9 @@ EDT
 
 ### The Agentic Evolution (AIM103-S)
 
-10:00 am
-
--
-
-10:30 am
-
-EDT
-
-### The Agentic Evolution (AIM103-S)
-
 Claude is the frontier model behind much of the agentic shift in software development and, now, in enterprise knowledge work. Anthropic's Applied AI team shares what they're seeing on the ground: the capability trends that changed what's possible, the patterns emerging across industries, and what separates the enterprises in production from the ones still piloting.
 
 Hall G
-
-2:00 pm
-
--
-
-2:30 pm
-
-EDT
-
-### Effective Context Engineering for AI Agents (AIM205-S)
 
 2:00 pm
 

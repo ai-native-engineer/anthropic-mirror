@@ -93,33 +93,27 @@ model = "claude-mythos-5-1"  # After
      EOF
      ```
 
-     <MultiFileExample language="cli" label="CLI">
-       ```bash CLI
-       ant messages create < request.yaml
-       ```
-
-       <File filename="request.yaml">
-         ```yaml
-         model: claude-fable-5
-         max_tokens: 16000
-         tools:
-           - name: record_summary
-             description: Record the structured summary of the document.
-             input_schema:
-               type: object
-               properties:
-                 summary:
-                   type: string
-               required: [summary]
-         tool_choice:
-           type: tool
-           name: record_summary
-         messages:
-           - role: user
-             content: "Summarize: The meeting moved to Thursday."
-         ```
-       </File>
-     </MultiFileExample>
+     ```bash CLI
+     ant messages create <<'YAML'
+     model: claude-fable-5
+     max_tokens: 16000
+     tools:
+       - name: record_summary
+         description: Record the structured summary of the document.
+         input_schema:
+           type: object
+           properties:
+             summary:
+               type: string
+           required: [summary]
+     tool_choice:
+       type: tool
+       name: record_summary
+     messages:
+       - role: user
+         content: "Summarize: The meeting moved to Thursday."
+     YAML
+     ```
 
      ```python Python
      client = anthropic.Anthropic()
@@ -343,34 +337,28 @@ model = "claude-mythos-5-1"  # After
      EOF
      ```
 
-     <MultiFileExample language="cli" label="CLI">
-       ```bash CLI
-       ant messages create < request.yaml
-       ```
-
-       <File filename="request.yaml">
-         ```yaml
-         model: claude-fable-5-1
-         max_tokens: 16000
-         tools:
-           - name: record_summary
-             description: Record the structured summary of the document.
-             strict: true
-             input_schema:
-               type: object
-               properties:
-                 summary:
-                   type: string
-               required: [summary]
-               additionalProperties: false
-         tool_choice:
-           type: auto
-         messages:
-           - role: user
-             content: "Summarize: The meeting moved to Thursday. Call the record_summary tool with your result."
-         ```
-       </File>
-     </MultiFileExample>
+     ```bash CLI
+     ant messages create <<'YAML'
+     model: claude-fable-5-1
+     max_tokens: 16000
+     tools:
+       - name: record_summary
+         description: Record the structured summary of the document.
+         strict: true
+         input_schema:
+           type: object
+           properties:
+             summary:
+               type: string
+           required: [summary]
+           additionalProperties: false
+     tool_choice:
+       type: auto
+     messages:
+       - role: user
+         content: "Summarize: The meeting moved to Thursday. Call the record_summary tool with your result."
+     YAML
+     ```
 
      ```python Python
      client = anthropic.Anthropic()
@@ -586,7 +574,7 @@ model = "claude-mythos-5-1"  # After
      ```
    </CodeGroup>
 
-   See [Strict tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/strict-tool-use) and [Forcing tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools#forcing-tool-use). If you forced a tool only to get schema-conformant JSON, use [JSON outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs#json-outputs) (`output_config.format`) instead.
+   See [Strict tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/strict-tool-use) and [Forcing tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools#forcing-tool-use). If you forced a tool only to get schema-conformant JSON, use [JSON outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs#usage) (`output_config.format`) instead.
 
    If your application, rather than the user, requires a specific tool call on the current turn of a multi-turn conversation, append a [mid-conversation system message](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages) after the latest `user` turn. Name the tool, say the call is required for this turn, and tell Claude to open its response with it. Because the message is appended rather than written into the top-level `system` prompt, earlier turns stay byte-identical and keep their [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) hits:
 
@@ -627,43 +615,37 @@ model = "claude-mythos-5-1"  # After
      EOF
      ```
 
-     <MultiFileExample language="cli" label="CLI">
-       ```bash CLI
-       ant messages create < request.yaml
-       ```
-
-       <File filename="request.yaml">
-         ```yaml
-         model: claude-fable-5-1
-         max_tokens: 16000
-         system: You are a customer support assistant for an online electronics store.
-         tools:
-           - name: search_help_center
-             description: Search the help center for policy and troubleshooting articles.
-             strict: true
-             input_schema:
-               type: object
-               properties:
-                 query:
-                   type: string
-               required: [query]
-               additionalProperties: false
-         messages:
-           - role: user
-             content: My headphones from order A1234 arrived yesterday.
-           - role: assistant
-             content: Thanks for confirming. How can I help with order A1234?
-           - role: user
-             content: I opened the box. Can I still return them?
-           - role: system
-             content: >-
-               Tool-use requirement for the current turn: the application requires a call
-               to the search_help_center tool in your response to the user's latest message.
-               Begin your response with the search_help_center tool call. Do not reply with
-               text only.
-         ```
-       </File>
-     </MultiFileExample>
+     ```bash CLI
+     ant messages create <<'YAML'
+     model: claude-fable-5-1
+     max_tokens: 16000
+     system: You are a customer support assistant for an online electronics store.
+     tools:
+       - name: search_help_center
+         description: Search the help center for policy and troubleshooting articles.
+         strict: true
+         input_schema:
+           type: object
+           properties:
+             query:
+               type: string
+           required: [query]
+           additionalProperties: false
+     messages:
+       - role: user
+         content: My headphones from order A1234 arrived yesterday.
+       - role: assistant
+         content: Thanks for confirming. How can I help with order A1234?
+       - role: user
+         content: I opened the box. Can I still return them?
+       - role: system
+         content: >-
+           Tool-use requirement for the current turn: the application requires a call
+           to the search_help_center tool in your response to the user's latest message.
+           Begin your response with the search_help_center tool call. Do not reply with
+           text only.
+     YAML
+     ```
 
      ```python Python
      client = anthropic.Anthropic()
@@ -948,7 +930,7 @@ model = "claude-mythos-5-1"  # After
 
 2. **Thinking blocks are preserved only for the model that produced them, or a newer one:** Every `thinking` block records which model produced it. Claude Fable 5.1 reads its own blocks and those from Claude Mythos 5.1, Claude Opus 5, Claude Fable 5, Claude Mythos 5, and earlier Claude models. A conversation moving onto `claude-fable-5-1` from any of those keeps its earlier reasoning. The condition is one-way: apart from Claude Mythos 5.1, none of those models can read Claude Fable 5.1's blocks.
 
-   A conversation that ran on Claude Fable 5.1 can land on an older model through a router switch, a client-side retry, or a [classifier refusal fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback), including a [server-side fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback). The API removes the blocks that model can't read before it sees them, the request succeeds, and you aren't billed for the dropped input tokens. The target model re-plans without that reasoning, which can raise cost and latency on the first turn after the switch. To see what was dropped, send the `thinking-binding-controls-2026-08-01` [beta header](https://platform.claude.com/docs/en/api/beta-headers): responses then carry an `input_transformations` array naming each dropped block with `reason: "model_binding_mismatch"`. See [Preserved thinking](https://platform.claude.com/docs/en/build-with-claude/thinking#preserved-for-model).
+   A conversation that ran on Claude Fable 5.1 can land on an older model through a router switch, a client-side retry, or a [classifier refusal fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback), including a [server-side fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback). The API removes the blocks that model can't read before it sees them, the request succeeds, and you aren't billed for the dropped input tokens. The target model re-plans without that reasoning, which can raise cost and latency on the first turn after the switch. To see what was dropped, send the `thinking-binding-controls-2026-08-01` [beta header](https://platform.claude.com/docs/en/api/beta-headers): responses then carry an `input_transformations` array naming each dropped block with `reason: "model_binding_mismatch"`. See [Switching models mid-conversation](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#switching-models).
 
 3. **Editing earlier turns invalidates thinking blocks:** Each `thinking` block from Claude Fable 5.1 is valid only against the `system` prompt, `tools`, and conversation history that preceded it. If Claude Code, claude.ai, [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview), or the [Claude Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview) manages your conversation history, it already keeps that prefix intact. If your code builds the `messages` array itself, this item applies to you, and [Preserved thinking](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking) is the full integration guide. Where the check is enforced, a request that sends the block back after any of those changed is rejected with a 400 error:
 
@@ -956,7 +938,7 @@ model = "claude-mythos-5-1"  # After
    messages.5.content.0: Invalid `signature` in `thinking` block. The block is bound to a different conversation. Remove the block, or set `thinking.block_binding.prefix_mismatch_behavior` to "drop_block". That setting requires the `thinking-binding-controls-2026-08-01` value in the `anthropic-beta` header.
    ```
 
-   The API enforces the check for new accounts created on or after August 31, 2026. For accounts created earlier, the API records the mismatch but doesn't act on it unless the request sets `thinking.block_binding.prefix_mismatch_behavior`, which opts into enforcement. Anthropic plans to enforce the check for every account on future models, so make your application compatible now: the same patterns keep the prompt cache warm, and you can test against the check from any account by sending `prefix_mismatch_behavior`. If you ship a tool or framework that people run with their own API key, test that way before launch: your key is probably on an older account, and your users on new ones hit the check before you do. To see whether your own account is enforced by default, send a request that edits history without the beta header: a 400 that names the header means it is.
+   The API enforces the check for new accounts created on or after August 31, 2026. For accounts created earlier, the API records the mismatch but doesn't act on it unless the request sets `thinking.block_binding.prefix_mismatch_behavior`, which opts into enforcement. On those accounts, if you send the `thinking-binding-controls-2026-08-01` beta header and leave that field unset, the response lists each block that failed the check in `input_transformations` as a `thinking_mismatch_allowed` entry. Make your application compatible with the check regardless of your account's age: the same patterns keep the prompt cache warm, and you can test against the check from any account by sending `prefix_mismatch_behavior`. If you ship a tool or framework that people run with their own API key, test that way before launch: your key is probably on an older account, and your users on new ones hit the check before you do. To see whether your own account is enforced by default, send a request that edits history without the beta header: a 400 that names the header means it is.
 
    The error is permanent for that request body: an automatic retry loop won't clear it. To continue without the invalidated reasoning instead of failing, strip the `thinking` blocks from the history and retry once, or send the `thinking-binding-controls-2026-08-01` [beta header](https://platform.claude.com/docs/en/api/beta-headers) and set `prefix_mismatch_behavior` to `"drop_block"` (the default is `"error"`). With `"drop_block"`, the API drops the mismatched block and every thinking block after it in the conversation, and reports each with `reason: "prefix_binding_mismatch"` in the response's `input_transformations` array:
 
@@ -985,28 +967,22 @@ model = "claude-mythos-5-1"  # After
        }'
      ```
 
-     <MultiFileExample language="cli" label="CLI">
-       ```bash CLI
-       ant beta:messages create \
-         --beta thinking-binding-controls-2026-08-01 \
-         --transform '{content.#(type=="text")#.text,input_transformations}' \
-         --format yaml < request.yaml
-       ```
-
-       <File filename="request.yaml">
-         ```yaml
-         model: claude-fable-5-1
-         max_tokens: 16000
-         thinking:
-           type: adaptive
-           block_binding:
-             prefix_mismatch_behavior: drop_block
-         messages:
-           - role: user
-             content: What is the greatest common divisor of 1071 and 462?
-         ```
-       </File>
-     </MultiFileExample>
+     ```bash CLI
+     ant beta:messages create \
+       --beta thinking-binding-controls-2026-08-01 \
+       --transform '{content.#(type=="text")#.text,input_transformations}' \
+       --format yaml <<'YAML'
+     model: claude-fable-5-1
+     max_tokens: 16000
+     thinking:
+       type: adaptive
+       block_binding:
+         prefix_mismatch_behavior: drop_block
+     messages:
+       - role: user
+         content: What is the greatest common divisor of 1071 and 462?
+     YAML
+     ```
 
      ```python Python
      client = anthropic.Anthropic()
@@ -1224,7 +1200,7 @@ model = "claude-mythos-5-1"  # After
 
    * Editing, reordering, or removing earlier turns. This includes deleting old tool results, snipping turns out of the middle of the transcript, and client-side compaction that keeps recent turns and their thinking blocks verbatim behind a summary (including background compaction that swaps its summary in a few turns later). Instead, use server-side [compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) or [context editing](https://platform.claude.com/docs/en/build-with-claude/context-editing) ([tool result clearing](https://platform.claude.com/docs/en/build-with-claude/context-editing#tool-result-clearing) for old tool results), or one of the client-side compaction shapes in [Trim context on the server](https://platform.claude.com/docs/en/models/fable-5-1/migration-guide#fable-5-1-trim-context).
    * Injecting content you don't persist, for example a per-turn reminder appended after the `tool_result` blocks and removed on the next request. Instead, send the reminder as a [turn-scoped system message](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages#turn-scoped-system-messages) and leave it in the history.
-   * Rebuilding the top-level `system` prompt or the `tools` array between requests in the same conversation, for example to update the current date or to add or remove a tool. Instead, append a [mid-conversation system message](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages) that carries the new instruction ("The current date is 2026-09-14.") or `tool_addition` and `tool_removal` blocks.
+   * Rebuilding the top-level `system` prompt or the `tools` array between requests in the same conversation, for example to update the current date or to add or remove a tool. Instead, append a [mid-conversation system message](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages) that carries the new instruction ("The current date is 2026-09-14.") or `tool_addition` and `tool_removal` blocks. A tool that wasn't declared in `tools` at the start can be [defined inside the `tool_addition` block](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages#define-tools-in-a-message-beta) (beta header `inline-tools-2026-09-15`).
    * An image or document URL that serves different bytes on a later request. The check covers the bytes, not the URL string, so a rotating signed URL for the same file is fine. For content you reference across turns, upload it once with the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) and send the `file_id`, or send base64.
 
    Each replacement also keeps earlier turns byte-identical and preserves the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) hits that editing the history, `system` prompt, or `tools` array would lose.
@@ -1238,7 +1214,7 @@ model = "claude-mythos-5-1"  # After
 
    To check an existing integration:
 
-   1. Capture the exact request bodies it sends over a few normal turns, including a compaction or a tool change if your product has them. For each pair of consecutive requests, compare the `system` prompt, the `tools` array, and the shared prefix of `messages`. They should be byte-identical up to the newly appended turns.
+   1. Capture the exact request bodies it sends over a few normal turns, including a compaction or a tool change if your product has them. For each pair of consecutive requests, compare the `system` prompt, the `tools` array, and the shared prefix of `messages`. They should be byte-identical up to the newly appended turns. An expected exception is a request that swaps in a signed `compaction` block from [on-demand compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-on-demand): the block replaces the messages it summarizes at the front of `messages`, and everything after it should still match.
    2. Run a normal multi-turn session against `claude-fable-5-1` with the `thinking-binding-controls-2026-08-01` beta header and `prefix_mismatch_behavior: "drop_block"`, and log `input_transformations` on every response. An empty array on every turn means the history is intact. An entry with `reason: "prefix_binding_mismatch"` means something before the block at `path` changed since the previous request. An entry with `reason: "model_binding_mismatch"` means the conversation switched models, which isn't a bug in your code. This works from any account, because setting the field opts the request into enforcement. In CI, set `"error"` instead so an edit fails the run.
    3. Choose a production setting. Leave the default `"error"` if a prefix mismatch can only mean a bug in your code, or set `"drop_block"` to drop the affected blocks instead of failing, and monitor the 400s or the `input_transformations` entries either way.
 
@@ -1281,35 +1257,29 @@ These changes aren't required, but each one lowers cost or latency or removes a 
        }'
      ```
 
-     <MultiFileExample language="cli" label="CLI">
-       ```bash CLI
-       ant beta:messages create \
-         --beta mid-conversation-output-config-2026-07-01 \
-         --transform 'content.#(type=="text").text' \
-         --raw-output < request.yaml
-       ```
-
-       <File filename="request.yaml">
-         ```yaml
-         model: claude-fable-5-1
-         max_tokens: 4096
+     ```bash CLI
+     ant beta:messages create \
+       --beta mid-conversation-output-config-2026-07-01 \
+       --transform 'content.#(type=="text").text' \
+       --raw-output <<'YAML'
+     model: claude-fable-5-1
+     max_tokens: 4096
+     output_config:
+       effort: high
+     messages:
+       - role: user
+         content: Plan a migration from SQLite to PostgreSQL in three short steps.
+       - role: assistant
+         content: "1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts."
+       # Effort-only system message: the new level takes effect from the next user turn.
+       - role: system
+         content: []
          output_config:
-           effort: high
-         messages:
-           - role: user
-             content: Plan a migration from SQLite to PostgreSQL in three short steps.
-           - role: assistant
-             content: "1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts."
-           # Effort-only system message: the new level takes effect from the next user turn.
-           - role: system
-             content: []
-             output_config:
-               effort: low
-           - role: user
-             content: Summarize the plan in one sentence.
-         ```
-       </File>
-     </MultiFileExample>
+           effort: low
+       - role: user
+         content: Summarize the plan in one sentence.
+     YAML
+     ```
 
      ```python Python
      client = anthropic.Anthropic()
@@ -1537,19 +1507,19 @@ These changes aren't required, but each one lowers cost or latency or removes a 
 
    The value applies to the following user turn and every later turn until another `role: "system"` message changes it. Only the named levels are accepted (`low`, `medium`, `high`, `xhigh`, `max`), and the `mid-conversation-output-config-2026-07-01` beta header is required. See [Per-message effort](https://platform.claude.com/docs/en/build-with-claude/effort#change-effort-mid-conversation-beta).
 
-2. **Change instructions and tools with mid-conversation system messages:** To change instructions or tools partway through a session, append a [`role: "system"` message](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages), with `tool_addition` and `tool_removal` blocks for tool changes (beta header `mid-conversation-tool-changes-2026-07-01`, with the full tool set declared in `tools` at session start). This preserves prompt cache hits on earlier turns and keeps the conversation history append-only. The same message replaces forced `tool_choice` when a specific tool must run on the current turn (see [Breaking changes](https://platform.claude.com/docs/en/models/fable-5-1/migration-guide#fable-5-1-breaking-changes)). For a reminder that applies to one turn only, send it as a separate text-only `role: "system"` message with `clear_at: "next_user_message"` ([turn-scoped system messages](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages#turn-scoped-system-messages), beta header `mid-conversation-system-clear-at-2026-08-21`) and leave it in the history: it stops rendering after the next user message and costs no tokens once cleared. A message that carries `tool_addition` or `tool_removal` blocks can't be turn-scoped.
+2. **Change instructions and tools with mid-conversation system messages:** To change instructions or tools partway through a session, append a [`role: "system"` message](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages), with `tool_addition` and `tool_removal` blocks for tool changes (beta header `inline-tools-2026-09-15` on the Claude API). A `tool_addition` block can name a tool declared in `tools` at session start or [carry the tool's full definition](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages#define-tools-in-a-message-beta), so a tool that is unknown at session start doesn't need to be in `tools`. This preserves prompt cache hits on earlier turns and keeps the conversation history append-only. The older `mid-conversation-tool-changes-2026-07-01` header still works for changes that name a tool by reference, on the Claude API, Amazon Bedrock, and Google Cloud. The same message replaces forced `tool_choice` when a specific tool must run on the current turn (see [Breaking changes](https://platform.claude.com/docs/en/models/fable-5-1/migration-guide#fable-5-1-breaking-changes)). For a reminder that applies to one turn only, send it as a separate text-only `role: "system"` message with `clear_at: "next_user_message"` ([turn-scoped system messages](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages#turn-scoped-system-messages), beta header `mid-conversation-system-clear-at-2026-08-21`) and leave it in the history: it stops rendering after the next user message and costs no tokens once cleared. A message that carries `tool_addition` or `tool_removal` blocks can't be turn-scoped.
 
 3. **Use `fallbacks: "default"` for refusals:** Keep handling `stop_reason: "refusal"` and reading `stop_details.category` before response content. To re-run refused requests on another model automatically, set `fallbacks: "default"` (beta, `server-side-fallback-2026-07-01` header). `"default"` retries a declined request on the model Anthropic recommends for that category. The permitted fallback targets for Claude Fable 5.1 are Claude Opus 4.8 (`claude-opus-4-8`) and Claude Opus 5 (`claude-opus-5`). An explicit `fallbacks` list may name either. The fallback model doesn't receive Claude Fable 5.1's thinking blocks. If you build the retry yourself, [fallback credit](https://platform.claude.com/docs/en/build-with-claude/fallback-credit) applies on the same terms as Claude Fable 5. See [Refusals and fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback).
 
 4. **Start at `high` effort and sweep:** The [effort parameter](https://platform.claude.com/docs/en/build-with-claude/effort) default is `high`, and all five levels are supported. Keep the Claude Fable 5 guidance: `high` for most work, and `medium` as a cost control worth testing. Claude Fable 5.1's gains over Claude Fable 5 are largest at `xhigh` and `max`, but those levels also add thinking time and time-to-first-response, so step up to them for the most capability-sensitive tasks and where your evals show the gain. Run a fresh sweep on your own evals rather than carrying over a setting tuned for Claude Fable 5. See [Recommended effort levels for Claude Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/effort#recommended-effort-levels-for-claude-fable-5-1).
 
-5. **Trim context on the server, or compact in a shape that carries no stale thinking:** If your code truncates or summarizes older turns on the client, the simplest fix is to move that work to server-side [compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) or [context editing](https://platform.claude.com/docs/en/build-with-claude/context-editing). Neither counts as an edit, because the [history check](https://platform.claude.com/docs/en/models/fable-5-1/migration-guide#fable-5-1-preserved-thinking) compares the conversation as you sent it, so nothing they remove invalidates later thinking blocks, and compaction's [`instructions` parameter](https://platform.claude.com/docs/en/build-with-claude/compaction#custom-summarization-instructions) accepts your own summarization prompt. If you keep compaction on the client, pick one of three shapes:
+5. **Trim context on the server, or compact in a shape that carries no stale thinking:** If your code truncates or summarizes older turns on the client, the simplest fix is to move that work to server-side [compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) or [context editing](https://platform.claude.com/docs/en/build-with-claude/context-editing). Neither counts as an edit, because the [history check](https://platform.claude.com/docs/en/models/fable-5-1/migration-guide#fable-5-1-preserved-thinking) compares the conversation as you sent it, so nothing they remove invalidates later thinking blocks, and compaction's [`instructions` parameter](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold#custom-summarization-instructions) accepts your own summarization prompt. If you keep recent turns verbatim behind the summary, or summarize in the background while the conversation continues, use [on-demand compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-on-demand) (beta header `compact-2026-09-04`) rather than a client-written summary. The API writes a signed summary block that you put in place of the messages it summarizes. The thinking blocks in the turns you keep can stay valid, under the conditions in [Compaction and preserved thinking](https://platform.claude.com/docs/en/build-with-claude/compaction-thinking-blocks#conditions-for-kept-thinking-to-stay-valid). If you keep compaction on the client, pick one of three shapes:
 
    * **Simple compaction (recommended):** replace the whole history with one summary message plus the new user turn and replay nothing else. No thinking blocks are carried over, so nothing fails. Claude models are trained on long-horizon tasks with this scheme, and it performs comparably to more elaborate ones for most workloads.
    * **Keep-tail compaction:** if you keep the most recent turns verbatim behind a summary, strip the `thinking` and `redacted_thinking` blocks from those turns (text and tool calls can stay), or set `prefix_mismatch_behavior: "drop_block"`. Their thinking was produced against the full history and fails behind the summary otherwise.
    * **Background compaction:** if you build the summary off the critical path and swap it in later, every turn produced in the meantime carries thinking that predates the swap. Send `"drop_block"` on every request that still carries thinking blocks produced before the swap (or strip those blocks yourself; `input_transformations` on the first response after the swap lists exactly which ones), or compact synchronously.
 
-   Don't snip individual turns out of the middle of the transcript: that invalidates every later thinking block and no client-side shape avoids it. Use a [mid-conversation system message](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages) for the instruction change you were making, or server-side [context editing](https://platform.claude.com/docs/en/build-with-claude/context-editing) for selective removal. See [Passing compaction blocks back](https://platform.claude.com/docs/en/build-with-claude/compaction#passing-compaction-blocks-back).
+   Don't snip individual turns out of the middle of the transcript: that invalidates every later thinking block and no client-side shape avoids it. Use a [mid-conversation system message](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages) for the instruction change you were making, or server-side [context editing](https://platform.claude.com/docs/en/build-with-claude/context-editing) for selective removal. See [Passing compaction blocks back](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold#passing-compaction-blocks-back).
 
 ### Migration checklist
 
@@ -1607,7 +1577,7 @@ model = "claude-mythos-5-1"  # After
 
 ## Migrating to Claude Fable 5.1 from Claude Opus 4.8 or earlier
 
-First apply [Migrating to Claude Mythos 5 and Claude Fable 5 from Claude Opus 4.8](https://platform.claude.com/docs/en/models/fable-5/migration-guide#migrating-from-claude-opus-48) for the API-level changes from Claude Opus 4.8. It covers adaptive thinking, thinking output, refusals, effort, the caching minimum, pricing, and data retention. Then apply the remaining delta in [Migrating to Claude Fable 5.1 from Claude Fable 5](https://platform.claude.com/docs/en/models/fable-5-1/migration-guide#migrating-from-claude-fable-5-to-claude-fable-5-1). On Claude Opus 4.7 or earlier, start with the matching [Migrating to Claude Opus 5](https://platform.claude.com/docs/en/models/opus-5/migration-guide) section.
+First apply [Migrating to Claude Mythos 5 and Claude Fable 5 from Claude Opus 4.8](https://platform.claude.com/docs/en/models/fable-5/migration-guide#migrating-from-claude-opus-48) for the API-level changes from Claude Opus 4.8. It covers adaptive thinking, thinking output, refusals, effort, the caching minimum, pricing, and data retention. Then apply the remaining delta in [Migrating to Claude Fable 5.1 from Claude Fable 5](https://platform.claude.com/docs/en/models/fable-5-1/migration-guide#migrating-from-claude-fable-5-to-claude-fable-5-1). On Claude Opus 4.7 or earlier, start with the matching [Migrating to Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide) section.
 
 ### Update your model name
 

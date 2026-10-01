@@ -49,7 +49,7 @@ While you can't increase the fixed context window size for your plan, you can us
 * **Remove unused project files:** Regularly clean up files you're no longer actively using in your projects.
 * **Toggle extended thinking off:** Turn off this feature when you don't need Claude's enhanced reasoning for a particular task.
 * **Lower the effort level:** Choose a lower effort level for routine tasks that don't need Claude's most thorough responses. Higher effort uses more tokens.
-* **Temporarily disable non-critical tools and connectors:** Disable web search, Research, and MCP connectors from your "Search and tools" settings when they're not needed for specific conversations.
+* **Turn off tools you don't need:** Turn off apps you've connected when a conversation doesn't need them, and ask Claude not to search the web when you don't need current information.
 
 **Note:** Tools and connectors are token-intensive, so managing them helps both maximize your available context window and optimize your usage limits.
 

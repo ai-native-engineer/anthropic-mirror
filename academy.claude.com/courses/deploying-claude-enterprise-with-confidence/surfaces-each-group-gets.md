@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/surfaces-each-group-gets -->
 
-Lesson 6 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutSurfaces each group gets
+Lesson 6 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutSurfaces each group gets
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Surfaces each group gets
 
@@ -120,7 +120,7 @@ Your groups can reach their surfaces. The next question is what Claude can reach
 
 [Previous lessonYour groups](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/your-groups)[Next lessonConnectors](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/connectors)
 
-Lesson 6 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutSurfaces each group gets
+Lesson 6 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutSurfaces each group gets
 
 The plan
 

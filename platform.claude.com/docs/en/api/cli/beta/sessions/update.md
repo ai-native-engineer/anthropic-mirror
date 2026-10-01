@@ -17,15 +17,15 @@ Update Session
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--agent: optional object`
 
-  Body param: Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
+  Body param: Agent configuration update. Only `tools` and `mcp_servers` are updatable mid-session. Only valid for sessions created from an agent or deployment reference. The session must not be running.
 
 - `--budget: optional object`
 
-  Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Body param: Enforced spend ceiling for the session. Set an object to replace the budget of a session that was created with one, or `null` to remove it; omit to preserve. A budget cannot be added to a session created without one (rejected with reason `budget_create_only`), and a removed budget cannot be re-added. Allowed in any non-terminated status. Lowering `max_list_cost` to at or below the session's consumed list cost is rejected with reason `budget_not_raised`, and every model the session can run must have a public list price or the request is rejected with reason `model_not_budgetable`.
 
 - `--metadata: optional map[string]`
 
@@ -83,11 +83,19 @@ Update Session
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+      - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-fable-5-1"`
 
@@ -95,7 +103,7 @@ Update Session
 
         - `"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -147,7 +155,7 @@ Update Session
 
       - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `beta_managed_agents_effort_low: object`
 
@@ -185,7 +193,7 @@ Update Session
 
       - `speed: optional "standard" or "fast"`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `"standard"`
 
@@ -193,7 +201,7 @@ Update Session
 
     - `multiagent: object`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: "coordinator"`
 
@@ -223,7 +231,7 @@ Update Session
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+            - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
 
               The model that will power your agent.
 
@@ -231,7 +239,7 @@ Update Session
 
             - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
 
-              How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+              How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
             - `inference_geo: optional string`
 
@@ -239,7 +247,7 @@ Update Session
 
             - `speed: optional "standard" or "fast"`
 
-              Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+              Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `name: string`
 
@@ -667,19 +675,19 @@ Update Session
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `budget: object`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `type: "limit"`
 
     - `max_list_cost: object`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `amount: string`
 
@@ -707,7 +715,7 @@ Update Session
 
     - `completed_at: string`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -813,7 +821,7 @@ Update Session
 
       - `access: optional "read_write" or "read_only"`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `"read_write"`
 
@@ -839,7 +847,7 @@ Update Session
 
   - `stats: object`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `active_seconds: optional number`
 
@@ -855,15 +863,21 @@ Update Session
 
   - `status: "rescheduling" or "running" or "idle" or "terminated"`
 
-    SessionStatus enum
-
     - `"rescheduling"`
+
+      Transient error occurred, retrying automatically.
 
     - `"running"`
 
+      Agent is actively executing.
+
     - `"idle"`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `"terminated"`
+
+      Session has ended, either due to an error or completion.
 
   - `title: string`
 
@@ -875,7 +889,7 @@ Update Session
 
   - `usage: object`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `active_seconds: optional number`
 
@@ -885,7 +899,7 @@ Update Session
 
     - `cache_creation: optional object`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `ephemeral_1h_input_tokens: optional number`
 
@@ -913,7 +927,7 @@ Update Session
 
     - `list_cost: optional object`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
       - `amount: string`
 
@@ -931,7 +945,7 @@ Update Session
 
     - `server_tool_use: optional object`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `web_fetch_requests: optional number`
 

@@ -65,12 +65,12 @@ Here, you can see how Fable 5.1 compares across various benchmarks:
 | Knowledge workGDPval-AA v2 |  | | |
 | Knowledge workGDPval-AA v2 | 1853 | 1723 | 1824 | 1711 |
 | Computer useOSWorld 2.0 [2] |  | | |
-| Computer useOSWorld 2.0 [2] | 77.9%partial | 72.9%partial | 75.4%partial | —partial |
+| Computer useOSWorld 2.0 [2] | 77.9%partial | 72.9%partial | 75.4%partial | — |
 | Computer useOSWorld 2.0 |  | | |
-| Computer useOSWorld 2.0 | 41.7%strict | 36.1%strict | 39.6%strict | —strict |
+| Computer useOSWorld 2.0 | 41.7%strict | 36.1%strict | 39.6%strict | — |
 | Multidisciplinary reasoningHumanity's Last Exam |  | | |
-| Multidisciplinary reasoningHumanity's Last Exam | 60.9%no tools | 57.8%no tools | 56.6%no tools | —no tools |
-| 65.0%with tools | 63.8%with tools | 63.6%with tools | —with tools |
+| Multidisciplinary reasoningHumanity's Last Exam | 60.9%no tools | 57.8%no tools | 56.6%no tools | — |
+| 65.0%with tools | 63.8%with tools | 63.6%with tools | — |
 | Business workflowsAutomationBench |  | | |
 | Business workflowsAutomationBench | 31.4% | 17.1% | 26.9% | 19.6% |
 | Agentic codingCursorBench 3.2.0 |  | | |
@@ -80,11 +80,9 @@ Fable 5.1 was evaluated with its production safeguards enabled. On tasks where t
 
 Our early-access partners noticed these performance upgrades, and also picked up on more qualitative improvements in the model’s outputs. Here’s what they told us:
 
-Previous
+Jane Street CapitalCognitionMillenniumMongoDBEveryIMCRed HatRakutenSquare (Block)RampCanvaHebbiaPlaidGleaniGentBrowserbaseRogoShopifyCrosbyDatadogSpaceXAISamaya
 
-1 of 22
-
-Next
+Jane Street CapitalCognitionMillenniumMongoDBEveryIMCRed HatRakutenSquare (Block)RampCanvaHebbiaPlaidGleaniGentBrowserbaseRogoShopifyCrosbyDatadogSpaceXAISamaya
 
 Quote
 > “In internal benchmarks, Claude Fable 5.1 solves more of our coding problems than Fable 5 or Opus 5, and achieves state of the art on trading intuition. While prior models became hard to follow the longer they worked, Fable 5.1 remains readable over long, multi-step tasks.”
@@ -239,8 +237,6 @@ Quote
 CompanySamaya
 
 AuthorYuhao Zhang, Research Lead
-
-01 / 22
 
 ## Scientific research
 

@@ -4,56 +4,44 @@
 
 A conversation with Dario Amodei & Daniela Amodei moderated by Ami Vora.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-01:00PM – 01:30PM
+:   01:00PM – 01:30PM
 
 Speaker(s)
+:   Dario Amodei
 
-Dario Amodei
+    CEO and Co-Founder,
 
-CEO and Co-Founder,
+    Anthropic
 
-Anthropic
+    Daniela Amodei
 
-Daniela Amodei
+    President,
 
-President,
+    Anthropic
 
-Anthropic
+    Ami Vora
 
-Ami Vora
+    Chief Product Officer,
 
-Chief Product Officer,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![A conversation with Dario Amodei & Daniela Amodei](https://assets.claude.com/fa97f4bc4c66967ad97db60e5d9203818e0bfb04.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9c9e4d03ef956bea5197_dario-daniela-fireside.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+A conversation with Dario Amodei & Daniela Amodei | Session | Code w/ Claude 2026

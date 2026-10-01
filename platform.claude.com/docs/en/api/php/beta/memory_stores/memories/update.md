@@ -17,11 +17,15 @@ Update a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to update (`mem_...`).
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `content?:optional string`
 
@@ -33,7 +37,7 @@ Update a memory
 
 - `precondition?:optional ManagedAgentsPrecondition`
 
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+  Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -41,9 +45,13 @@ Update a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -61,7 +69,7 @@ Update a memory
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
   - `string memoryStoreID`
 
@@ -69,7 +77,7 @@ Update a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -77,7 +85,7 @@ Update a memory
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `?string content`
 

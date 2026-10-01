@@ -34,7 +34,7 @@ Course·10 lessons · 1 quiz·1 hr](https://academy.claude.com/courses/introduct
 
 [View all](https://academy.claude.com/all?product=api)
 
-* [Model Context Protocol: Advanced TopicsCourse11 lessons · 1 quiz
+* [Model Context Protocol: Advanced topicsCourse11 lessons · 1 quiz
 
   Course·11 lessons · 1 quiz](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 * [Claude with Amazon BedrockCourse65 lessons · 8 quizzes

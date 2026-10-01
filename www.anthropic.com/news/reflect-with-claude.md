@@ -49,6 +49,4 @@ We built this tool to be a reflection of how you use Claude. For some users, thi
 
 ## Getting started
 
-This tool is currently available in beta for Free, Pro, and Max users who have memory turned on. Open [Settings in Claude](https://claude.ai/redirect/website.v1.933d6752-b0bc-486a-8e1e-6760fee8cfd2/settings/reflect) on the web or the desktop app, and select the option to reflect on your usage to generate your report. If you can't generate a report, it may be because you don’t have [Memory](https://claude.ai/redirect/website.v1.933d6752-b0bc-486a-8e1e-6760fee8cfd2/settings/capabilities?modal=memory) turned on. Reflecting on your Cowork conversations will be available soon.
-
-A new way to reflect on how you use Claude \ Anthropic
+This tool is currently available in beta for Free, Pro, and Max users who have memory turned on. Open [Settings in Claude](https://claude.ai/redirect/website.v1.fa9915c4-556f-4b4c-bdef-3c8f3d2cbe5d/settings/reflect) on the web or the desktop app, and select the option to reflect on your usage to generate your report. If you can't generate a report, it may be because you don’t have [Memory](https://claude.ai/redirect/website.v1.fa9915c4-556f-4b4c-bdef-3c8f3d2cbe5d/settings/capabilities?modal=memory) turned on. Reflecting on your Cowork conversations will be available soon.

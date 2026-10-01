@@ -4,44 +4,32 @@
 
 Adaptive thinking and effort controls give developers a new decision: how much should Claude reason for a given task? This session covers thinking budgets, effort levels, and the cost, latency, and quality tradeoffs involved.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-13:50 – 14:20
+:   13:50 – 14:20
 
 Speaker(s)
+:   Alexander Bricken
 
-Alexander Bricken
+    Applied AI Product Engineer,
 
-Applied AI Product Engineer,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![The thinking lever](https://assets.claude.com/d0fd4a991246515cc02f90471c865d67bb28c600.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3350bafe583fe73c425_the-thinking-lever.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+The thinking lever | Session | Code w/ Claude 2026

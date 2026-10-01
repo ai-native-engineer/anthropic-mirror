@@ -46,6 +46,8 @@ In our toy models, we are able to demonstrate that:
 
 Our toy models are simple ReLU networks, so it seems fair to say that neural networks exhibit these properties in at least some regimes, but it's very unclear what to generalize to real networks.
 
+---
+
 ## [Definitions and Motivation: Features, Directions, and Superposition](#motivation)
 
 In our work, we often think of neural networks as having features of the input represented as directions in activation space. This isn't a trivial claim. It isn't obvious what kind of structure we should expect neural network representations to have. When we say something like "word embeddings have a gender direction" or "vision models have curve detector neurons", one is implicitly making strong claims about the structure of network representations.
@@ -156,6 +158,8 @@ The ideas in this section might be thought of in terms of four progressively mor
 
 The first two (decomposability and linearity) are properties we hypothesize to be widespread, while the latter (non-superposition and basis-aligned) are properties we believe only sometimes occur.
 
+---
+
 ## [Demonstrating Superposition](#demonstrating)
 
 If one takes the superposition hypothesis seriously, a natural first question is whether neural networks can actually noisily represent more features than they have neurons. If they can't, the superposition hypothesis may be comfortably dismissed.
@@ -264,6 +268,8 @@ Another interesting property is that ReLU makes negative interference free in th
 
 What about the terms corresponding to less sparse vectors? We leave explicitly writing these out to the reader, but the main idea is that there are multiple compounding interferences, and the "active features" can experience interference. In a [later section](#geometry-dimensionality), we'll see that features often organize themselves into sparse interference graphs such that only a small number of features interfere with another feature – it's interesting to note that this reduces the probability of compounding interference and makes the 1-sparse loss term more important relative to others.
 
+---
+
 ## [Superposition as a Phase Change](#phase-change)
 
 The results in the previous section seem to suggest that there are three outcomes for a feature when we train a model: (1) the feature may simply not be learned; (2) the feature may be learned, and represented in superposition; or (3) the model may represent a feature with a dedicated dimension. The transitions between these three outcomes seem sharp. Possibly, there's some kind of phase change.  Here, we use “phase change” in the generalized sense of “discontinuous change”, rather than in the more technical sense of a discontinuity arising in the limit of infinite system size.
@@ -285,6 +291,8 @@ For the theoretical model, we now consider four natural solutions. We can descri
 ![](images/0ef62728090a1d46.png)
 
 These diagrams suggest that there really is a phase change between different strategies for encoding features. However, we'll see in the next section that there's much more complex structure this preliminary view doesn't capture.
+
+---
 
 ## [The Geometry of Superposition](#geometry)
 
@@ -441,6 +449,8 @@ These results seem to hint that PCA and superposition are in some sense compleme
 
 It's also interesting to think about this in the context of continuous [equivariant features](https://distill.pub/2020/circuits/equivariance/), such as features which occur in different rotations.
 
+---
+
 ## [Superposition and Learning Dynamics](#learning)
 
 The focus of this paper is how superposition contributes to the functioning of fully trained neural networks, but as a brief detour it's interesting to ask how our toy models – and the resulting superposition – evolve over the course of training.
@@ -477,6 +487,8 @@ One particularly interesting example of this phenomenon occurs in the context of
 
 The learning dynamics we observe here seem directly related to previous findings on simple models.  found that two-layer neural networks, in early stages of training, tend to learn a linear approximation to a problem. Although the technicalities of our data generation process do not precisely match the hypotheses of their theorem, it seems likely that the same basic mechanism is at work. In our case, we see the toy network learns a linear PCA solution before moving to a better nonlinear solution. A second related finding comes from , who looked at hierarchical sets of features, with a data generation process similar to the one we consider. They find empirically that certain networks (nonlinear and deep linear) “split” embedding vectors in a manner very much like what we observed. They also provide a theoretical analysis in terms of the underlying dynamical system. A key difference is that they focus on the topology—the branching structure of the emerging feature representations—rather than the geometry. Despite this difference, it seems likely that their analysis could be generalized to our case.
 
+---
+
 ## [Relationship to Adversarial Robustness](#adversarial)
 
 Although we're most interested in the implications of superposition for interpretability, there appears to be a connection to adversarial examples. If one gives it a little thought, this connection can actually be quite intuitive.
@@ -500,6 +512,8 @@ We find that vulnerability to adversarial examples sharply increases as superpos
 We're hesitant to speculate about the extent to which superposition is responsible for adversarial examples in practice. There are compelling theories for why adversarial examples occur without reference to superposition (e.g. ). But it is interesting to note that if one wanted to try to argue for a "superposition maximalist stance", it does seem like many interesting phenomena related to adversarial examples can be predicted from superposition. As seen above, superposition can be used to explain why adversarial examples exist. It also predicts that adversarially robust models would have worse performance, since making models robust would require giving up superposition and representing less features. It predicts that more adversarially robust models might be more interpretable (see e.g. ). Finally, it could arguably predict that adversarial examples transfer (see e.g. ) if the arrangement of features in superposition is heavily influenced by which features are correlated or anti-correlated (see [earlier results on this](#geometry-correlated)). It might be interesting for future work to see how far the hypothesis that superposition is a significant contributor to adversarial examples can be driven.
 
 In addition to observing that superposition can cause models to be vulnerable to adversarial examples, we briefly experimented with adversarial training to see if the relationship could be used in the other direction to reduce superposition. To keep training reasonably efficient, we used the analytic optimal attack against a random feature. We found that this did reduce superposition, but attacks had to be made unreasonably large (80% input L2 norm) to fully eliminate it, which didn't seem satisfying. Perhaps stronger adversarial attacks would work better. We didn't explore this further since the increased cost and complexity of adversarial training made us want to prioritize other lines of attack on superposition first.
+
+---
 
 ## [Superposition in a Privileged Basis](#privileged-basis)
 
@@ -558,6 +572,8 @@ It's also interesting to examine the structure of the polysemantic solutions, wh
 Unfortunately, the toy model described in this section has a significant weakness, which limits the regimes in which it shows interesting results. The issue is that the model doesn't benefit from the ReLU hidden layer – it has no role except limiting how the model can encode information. If given any chance, the model will circumvent it. For example, given a hidden layer bias, the model will set all the biases to be positive, shifting the neurons into a positive regime where they behave linearly. If one removes the bias, but gives the model enough features, it will simulate a bias by averaging over many features. The model will only use the ReLU activation function if absolutely forced, which is a significant mark against studying this toy model.
 
 We'll introduce a model without this issue in the next section, but wanted to study this model as a simpler case study.
+
+---
 
 ## [Computation in Superposition](#computation)
 
@@ -641,6 +657,8 @@ To avoid the consequences of that interference, the model has another neuron hea
 
 There are a few other weights this doesn't explain. (We believe they're effectively small conditional biases.) But this asymmetric superposition and inhibition pattern appears to be the primary story.
 
+---
+
 ## [The Strategic Picture of Superposition](#strategic)
 
 Although superposition is scientifically interesting, much of our interest comes from a pragmatic motivation: we believe that superposition is deeply connected to the challenge of using interpretability to make claims about the safety of AI systems. In particular, it is a clear challenge to the most promising path we see to be able to say that neural networks won't perform certain harmful behaviors or to catch "unknown unknowns" safety problems. This is because superposition is deeply linked to the ability to identify and enumerate over all features in a model, and the ability to enumerate over all features would be a powerful primitive for making claims about model behavior.
@@ -714,6 +732,8 @@ Any superposition-free model would be a powerful tool for research. We believe 
 
 Local bases are not enough. Earlier, when we considered [the geometry of non-uniform superposition](#geometry-non-uniform), we observed that models often form local orthogonal bases, where co-occurring features are orthogonal. This suggests a strategy for locally understanding models on sufficiently narrow sub-distributions. However, if our goal is to eventually make useful statements about the safety of models, we need mechanistic accounts that hold for the full distribution (and off distribution). Local bases seem unlikely to give this to us.
 
+---
+
 ## [Discussion](#discussion)
 
 ### [To What Extent Does Superposition Exist in Real Models?](#real-models)
@@ -745,6 +765,8 @@ This paper has shown that the superposition hypothesis is true in certain toy mo
 * To what extent can neural networks "do useful computation" on features in superposition? Is the absolute value problem representative of computation in superposition generally, or idiosyncratic? What class of computation is amenable to being performed in superposition? Does it require a sparse structure to the computation?
 * How does superposition change if features are not independent? Can superposition pack features more efficiently if they are anti-correlated?
 * Can models effectively use nonlinear representations? We suspect models will tend not to use them, but further experimentation could provide good evidence. See the appendix on nonlinear compression. For example investigating the representations used by autoencoders with multi-layer encoders and decoders with really small bottlenecks on random uncorrelated data.
+
+---
 
 ## [Related Work](#related)
 
@@ -821,6 +843,8 @@ After publishing the original version of this paper, a number of readers generou
 * Frames (see review ) are a generalization of the idea of a mathematical basis. The way superposition encodes features in lower dimensional spaces might be seen as frames, at least in some cases. In particular, the "Mercedes-Benz Frame" is equivalent to the triangular geometry superposition we sometimes observe.
 * Although we discuss compressed sensing and sparse coding above, it's worth noting that this only scratches the surface of research on how sparse vectors can be encoded in lower dimensional dense vectors, and there's a large body of additional work not captured by these topics.
 
+---
+
 ## [Comments & Replications](#comments)
 
 Inspired by the original [Circuits Thread](https://distill.pub/2020/circuits/) and [Distill's Discussion Article experiment](https://distill.pub/2019/advex-bugs-discussion/), the authors invited several external researchers who we had previously discussed our preliminary results with to comment on this work. Their comments are included below.
@@ -831,7 +855,11 @@ Inspired by the original [Circuits Thread](https://distill.pub/2020/circuits/) a
 
 Redwood Research has been working on toy models of polysemanticity, inspired by Anthropic's work. We plan to separately publish our results, and during our research we replicated many of the experiments in this paper. Specifically, we replicated all plots in the [Demonstrating Superposition](#demonstrating) and [Superposition as a Phase Change](#phase-change) sections (visualizations of the relu models with different sparsities and the phase diagrams) as well as the plot in [The Geometry of Superposition – Uniform Superposition](#geometry-uniform). We found the phase diagrams look quite different depending on the activation function, suggesting that in this toy model some activation functions induce more polysemanticity than others.
 
+---
+
 Original Authors' Response:  Redwood's further analysis of the superposition phase change significantly advanced our own understanding of the issue – we're very excited for their analysis to be shared with the world. We also appreciate the independent replication of our basic results.
+
+---
 
 Update: The research by Redwood mentioned in the previous comment, Polysemanticity and Capacity in Neural Networks ([Alignment Forum](https://www.alignmentforum.org/posts/kWp4R9SYgKJFHAufB/polysemanticity-and-capacity-in-neural-networks), [Arxiv](https://arxiv.org/abs/2210.01892)) is out! They study a slightly different toy model, and get some really interesting results. Highlights include analytical traction on understanding a variant of the toy model, understanding superposition in terms of constrained optimization, and analysis of the role different activation functions play.
 
@@ -855,6 +883,8 @@ Although many of these loss surfaces (Figure 1a, 1b) have minima qualitatively s
 
 As Figure 1c shows, some combinations of sparsity and relative feature importance lead to loss surfaces with two minima (once the symmetry (W\_1, W\_2) \to (-W\_1, -W\_2) has been accounted for). If this pattern holds for larger values of n and m (and we see no reason why it would not) this could account for the [Discrete "Energy Level" Jumps phenomenon](#learning-jumps) as solutions hop between minima. In some cases (e.g. when parameters approach those needed for a phase transition) the global minimum can have a considerably smaller basin of attraction than local minima. The transition between the antipodal and confused-feature solutions appears to be discontinuous.
 
+---
+
 Original Authors' Response:  This closed form analysis of the n=2, m=1 case is fascinating. We hadn't realized that W\_1\simeq W\_2 \simeq \frac{1}{\sqrt{2}} could be a solution without correlated features! The clarification of the "blurry behavior" and the observation about local minima are also very interesting. More generally, we're very grateful for the independent replication of our core results.
 
 ### [Replication](#comment-openai)
@@ -862,6 +892,8 @@ Original Authors' Response:  This closed form analysis of the n=2, m=1 case is 
 [Jeffrey Wu](https://www.wuthejeff.com/) and [Dan Mossing](https://dmossing.github.io/) are members of the Alignment team at [OpenAI](https://openai.com/).
 
 We are very excited about these toy models of polysemanticity. This work sits at a rare intersection of being plausibly very important for training more interpretable models and being very simple and elegant. The results have been surprisingly easy to replicate – we have reproduced (with very little fuss) plots similar to those in the [Demonstrating Superposition – Basic Results](#demonstrating-basic-results), [Geometry – Feature Dimensionality](#geometry-dimensionality), and [Learning Dynamics – Discrete "Energy Level" Jumps](#learning-jumps) sections.
+
+---
 
 Original Authors' Response:  We really appreciate this replication of our basic results. Some of our findings were quite surprising to us, and this gives us more confidence that they aren't the result of an idiosyncratic quirk or bug in our implementations.
 

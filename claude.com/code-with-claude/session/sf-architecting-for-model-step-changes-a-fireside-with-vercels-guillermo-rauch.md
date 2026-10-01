@@ -4,50 +4,38 @@
 
 When Opus 4.5 landed, v0 was ready on day one — not by luck, but by design. Guillermo Rauch sits down with Angela Jiang at Anthropic to unpack how Vercel architects for model step-changes: the bets that paid off, the ones that didn't, and what becoming an "agent-pilled company" actually looks like inside a frontier platform team.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-03:20PM – 03:50PM
+:   03:20PM – 03:50PM
 
 Speaker(s)
+:   Guillermo Rauch
 
-Guillermo Rauch
+    CEO,
 
-CEO,
+    Vercel
 
-Vercel
+    Angela Jiang
 
-Angela Jiang
+    Head of Product, Claude Platform,
 
-Head of Product, Claude Platform,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Architecting for model step-changes: A fireside with Vercel's Guillermo Rauch](https://assets.claude.com/61cfd43bdd45564802d4e3c2e4ae92caf1b16937.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9d0027ca599eac5207e0_architecting-model-step-changes.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Architecting for model step-changes: A fireside with Vercel's Guillermo Rauch | Session | Code w/ Claude 2026

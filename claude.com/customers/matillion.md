@@ -4,31 +4,21 @@ Case study | Claude Code
 
 # Matillion reduces data pipeline creation from 40 hours to 1 with Claude-powered AI assistant
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e3aee403418d70ca8696b_Matillion%20Light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e3af1ff5f7ee730c2d247_Matillion%20Dark.svg)
+![Matillion logo](https://assets.claude.com/0a5afa2130fc21df3a1fdc821106375024884a33.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-Europe
+:   Europe
 
 41% faster pull request completion with Claude Code
 
@@ -40,51 +30,9 @@ Sophisticated data transformations that took a customer 40 hours now take 1 hour
 
 Introducing Claude Code
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Introducing Claude Code](https://assets.claude.com/56575a2d86ba511e0095b0cb9a92cafe7079c820.jpg?w=2400&q=75&fm=webp&fit=max)
 
 See Claude Code in action—from concept to commit in one seamless workflow.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Introducing Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-[Next](#)Next
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-Introducing Claude Code
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Matillion](https://www.matillion.com) is a data integration platform that helps data teams build and manage pipelines for AI and analytics. Thousands of enterprises including Cisco, London Stock Exchange Group, and Slack use Matillion for insights, operational analytics, and machine learning applications.
 
@@ -133,58 +81,16 @@ Looking ahead, Matillion plans to expand Maia's capabilities to capture semantic
 
 "Capturing these types of semantic detail and having Maia use them efficiently is our next challenge," Julian explains. "Anthropic's models will be key to that."
 
-"We tested multiple models side by side, and Claude consistently delivered the best results for both accuracy and reliability."
+> "We tested multiple models side by side, and Claude consistently delivered the best results for both accuracy and reliability."
 
-Julian Wiffen
+Julian WiffenChief of AI and Data Science, Matillion
 
-Chief of AI and Data Science, Matillion
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

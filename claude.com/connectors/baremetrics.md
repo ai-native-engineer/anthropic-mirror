@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://github.com/Baremetrics/bm-mcp)
+More[Support (opens in new tab)](https://github.com/Baremetrics/bm-mcp)[Privacy policy (opens in new tab)](https://baremetrics.com/privacy)
 
 Read-only access to Baremetrics SaaS analytics — metrics, customers, subscriptions, plans, charges, and events.
 

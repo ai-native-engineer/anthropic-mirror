@@ -78,7 +78,7 @@ With a **middle ground** (one token per word or subword) the sentence costs 5 to
 
 A tokenizer's vocabulary is *baked into the model*, and cannot be changed after it is trained. Any specific model is said to be "locked to a tokenizer" because it only ever learned what `token 4062` means, not what `"quick"` means.
 
-Bonus readingByte-pair encoding
+Bonus reading Byte-pair encoding
 
 Vocabularies like this are usually *grown* rather than hand-picked. The most common process is an algorithm called **byte-pair encoding** (BPE). It starts with the smallest possible token (individual bytes) so that every possible character (and every emoji fragment) is already covered. Then it scans an enormous pile of text for the pair of adjacent pieces that appears most often, glues that pair into a new single piece, and adds it to the vocabulary. It repeats this until the vocabulary reaches the researcher's target size. Common words emerge early on and end up as single tokens; rarer words seldom do.
 
@@ -144,7 +144,7 @@ If these four statements feel true, you've got what this lesson set out to teach
 
 *Next: [How context affects Claude's performance and cost(opens in new tab)](https://academy.claude.com/tutorials/parametric-memory-and-context) · [Choosing the right Claude model(opens in new tab)](https://academy.claude.com/tutorials/choosing-the-right-claude-model) · [choose an effort level in Cowork and Chat(opens in new tab)](https://academy.claude.com/tutorials/how-to-select-the-right-effort-setting-for-claude-cowork-and-chat) · [in Claude Code(opens in new tab)](https://academy.claude.com/tutorials/choosing-the-right-effort-level-in-claude-code)*
 
-*Learn more: [AI Fluency(opens in new tab)](https://academy.claude.com/collections/ai-fluency) · [AI capabilities and limitations(opens in new tab)](https://academy.claude.com/courses/ai-capabilities-and-limitations)*
+*Learn more: [How AI works(opens in new tab)](https://academy.claude.com/collections/how-ai-works) · [AI capabilities and limitations(opens in new tab)](https://academy.claude.com/courses/ai-capabilities-and-limitations)*
 
 * [Three ways to represent text](#three-ways-to-represent-text)
 * [Tokens](#tokens)

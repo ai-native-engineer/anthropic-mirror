@@ -1,56 +1,94 @@
 <!-- source: https://claude.com/product/design -->
 
-Claude Design stays on brand for daily work
-
-[Next](#)Next
-
-New design system import, editor and Claude Code sync, higher shared limits, more connected apps.
-
-See what's new
-
-[See what's new](https://claude.com/blog/ claude-design-stays-on-brand-for-daily-work)See what's new
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a32f0ce3acdbbc3c4395c05_og-claude-design.jpg)
-
 # Claude Design
 
-## Your idea, designed with Claude
+Design your idea with Claude
 
-Explore more directions than a deadline allows. Describe a prototype, deck, or one-pager, and Claude builds a draft. Refine it yourself, or hand it off to your tools or Claude Code. You're the designer, from start to finish.
+Describe a visual and Claude builds a first version, on brand. Refine, share, or hand off to the tools you use. You're the designer, start to finish.
 
 Start designing
 
-[Start designing](http://claude.ai/login?returnTo=%2Fdesign)Start designing
+[Start designing](https://claude.ai/artifacts)Start designing
 
 [Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/design/claude-design-thumbnail.webm)
 
+Now you can use Claude Design from inside any conversation with Claude.
+
+Learn more
+
+[Learn more](https://claude.com/features/artifacts)Learn more
+
 ## Frontier intelligence for every type of design work
 
-### Prototypes
+Asset creation
 
-Turn a static mockup into a shareable, interactive prototype you can test with real people. No PRs, no code review.
+One-pagers
 
-### Wireframes and mockups
+Mockups
 
-Sketch a feature flow, then hand it to Claude Code to build or to a designer to refine.
+Active
 
-### Design explorations
+Prompt
 
-Generate a dozen directions in minutes, then narrow down in your primary tool.
+Find my weakest revenue month from last year and plan a promo to address it. Draft the strategy, generate the campaign assets in Canva, segment my list in HubSpot, and stage the send. Show me everything before anything goes out.
 
-### Pitch decks
+Connectors
 
-Go from a rough outline to a finished, on-brand deck. Export to PPTX or send it where you work.
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c4094afe9398607424b105_quickbooks.svg)
 
-### Marketing collateral
+Intuit QuickBooks
 
-Landing pages, social assets, and campaign visuals, ready for a designer to polish.
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
 
-### Documents
+Canva
 
-Create a resume or a one-pager and export to PDF.
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+
+Run your next campaign to grow your business
+
+Dig into your numbers in Intuit QuickBooks, plan a promotion to get sales up, generate branded assets in Canva, and get your next campaign staged in HubSpot. You decide what goes out and when.
+
+Prompt
+
+Turn this proposal into a one-pager a prospect will want to open. Pull their details from Salesforce and export it as a PDF.
+
+Connectors
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90847a743b3af65ea2137f_Salesforce.com_logo.svg)
+
+Salesforce - Beta
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e318eaad6802d0604536_Google%20Drive.jpg)
+
+Google Drive
+
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+
+Turn a proposal into a one-pager
+
+Make something a prospect actually wants to open, without waiting on a design queue, while staying on brand.
+
+Prompt
+
+Turn this rough idea into a clickable flow. Share it so the team can react, then open a ticket in Linear once we agree on it.
+
+Connectors
+
+![Linear logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab43729f44eabd60b9e2ec0_6ab4360ab06e949f996372ed_startups-square-linear-light.svg)
+
+Linear
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e8b534085f2b4436d1dc_github.png)
+
+GitHub MCP
+
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+
+Mock up the flow before it’s a ticket
+
+Turn a rough idea into a clickable flow your team can react to, before anyone writes a spec.
 
 ## How it works
 
@@ -58,7 +96,7 @@ Create a resume or a one-pager and export to PDF.
 
 Tell Claude what you need. It builds a first version you can react to, and you refine until it's yours.
 
-### Build in your design system.
+### Build in your design system
 
 Import from GitHub, design files, or your local codebase so Claude can build with your real components.The output looks like your company, not a template.
 
@@ -74,13 +112,33 @@ Comment on any element, edit text directly, or use the adjustment sliders Claude
 
 Export reliably to PDF and PowerPoint or send your work to the apps you already use—the list of connectors now includes Adobe, Canva and more.
 
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
+
+## Yours to share and finish
+
+### Share a link
+
+Every artifact gets a link, private by default until you're ready.
+
+### Export it
+
+Download into common file types, including PowerPoint, PDF, or HTML.
+
+### Pass it on
+
+Send visuals and slides on to the tools you already use and keep going there.
+
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a32f3c077a6f746c3b8bd0a_adobe-logo_color.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a32f3c3f6940852aa73fd76_adobe-logo_white.svg)
 
 "Adobe’s mission is to empower everyone to create — wherever they choose to work. We're excited to build on our Anthropic collaboration, making it possible for anyone to start their concepts in Claude and use the Adobe for creativity connector to take social posts, presentations, flyers and more from draft to done in Adobe Express. Marketers can also turn an idea from Claude Design into a personalized, on-brand website or email campaign ready to deliver to customers in just a few clicks with Adobe Experience Manager and Adobe Journey Optimizer."
 
 Govind Balakrishnan, Senior Vice President, Express Product Group, Creativity & Productivity
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f628079049002c70825_Lovable-light-theme.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f6571ade0cef16d3413_Lovable-dark-theme.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed7_6ab2c6eb2a0f7493d7d5b0ed_startups-wordmark-lovable-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8be3466f0c993603eef_6ab2c6ebbcffe96ca440c8d3_startups-wordmark-lovable-dark.svg)
 
 "At Lovable, we believe the people closest to a problem should have the power to solve it themselves. Through our partnership with Claude Design, we're excited to see even more people sketching out solutions for the world around them. Now they can seamlessly bring those ideas to life inside Lovable as production-ready applications."
 
@@ -110,7 +168,7 @@ Hagit Kauffman, VP of Brand and Design
 
 Andrew Qu, Chief of Software
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5eb091e9b1deda6f7435_Gamma-light-theme.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5eb921a69f6d1bc0efb1_Gamma-dark-theme.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da4_6ab2c6ea45f4990cf30cf13d_startups-wordmark-gamma-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da4_6ab2c6ea45f4990cf30cf13d_startups-wordmark-gamma-light.svg)
 
 “Generating a deck is the easy part now; making it yours has always been the hard part. Connecting Claude Design to Gamma closes that gap, we built this with Anthropic so anything you design in Claude can move straight into Gamma, fully editable, the moment you want to take it further.”
 
@@ -124,36 +182,42 @@ Jon Noronha, Co-founder
 
 ## FAQ
 
-### What is Claude Design?
+### How can I access Claude Design?
 
-Claude Design is an Anthropic beta product that lets users collaborate with Claude to create on-brand visual work like designs, decks, and prototypes.It's early, and we're shipping improvements often.
+You can now use Claude Design in any conversation with Claude, including in Claude Code and the Artifacts tab, with Claude Tag coming soon. All of its features, including on-canvas editing, come with it.
 
-### Which plans include it?
+### What can I bring in and where can I send my work?
 
-Claude Design is in beta on Claude Pro, Max, Team, and Enterprise plans and included with your subscription. Start designing at [claude.ai/design](https://claude.ai/design).
-
-### I’m on Enterprise and don’t see it.
-
-It's off by default. An admin can enable it in Organization settings. See the admin guide in the Help Center.
-
-### What can I bring in, and where can I send my work?
-
-Import from your codebase, a web capture, or DOCX, PPTX, and XLSX files. Export to PPTX, PDF, or HTML, share an org-scoped link, hand off to Claude Code, or send to the apps you already use daily. The list of connectors now includes Adobe, Base44, Canva, Gamma, Lovable, Miro, Replit, Vercel and Wix, with more destinations coming soon.
+Import from your codebase, or DOCX, PPTX, and XLSX files. Export to PPTX, PDF, or HTML, hand off to Claude Code, or send to the apps you already use daily. Learn more about available destinations to send to in the [Help Center.](#)
 
 ### Will it match my brand?
 
-Bring in one or several design systems from a GitHub repo, design files, or raw uploads. Claude builds with your components, checks its output against your design system, and makes corrections before you see it. For larger teams, a new admin role can approve one standard system and lock down edits, so the work always matches your company guidelines.
+Bring in one or several design systems from a GitHub repo, design files, or raw uploads. Claude builds with your components, checks its output against your design system, and makes corrections before you see it. For larger teams, an admin role can approve one standard system and lock down edits, so the work always matches your company guidelines.
 
-### What are the usage limits?
+### What services does Claude Design connect with?
 
-Claude Design shares usage limits with chat, Claude Cowork, and Claude Code. See the Help Center for current details.
+Claude Design connects with Adobe, Canva, Gamma, Lovable, Miro, Replit, Vercel, and Wix, so your designs, prototypes, and files move between the tools your team already uses.
+
+### Can admins limit Claude Design to one design system?
+
+Yes. Admins can lock a team to a single approved design system, so every design stays on brand no matter who's building it.
+
+### How do I create designs from Claude Code?
+
+From your Claude Code session on desktop or from the terminal, ask Claude to turn your idea into a design, or use /design to create, edit, and sync design projects.
+
+### How do I bring in my company's design system?
+
+The new, integrated Claude Design has a revamped Design Systems feature, which you can manage in Settings > Design Systems. To bring an existing design system over, open the Design tab at the bottom of the sidebar and click Migrate team design systems in the banner. Each design system becomes an artifact Claude can use in any conversation, including in Claude Code. Migrated systems aren't perfect, so each one shows a banner: click Let Claude clean it up and Claude tidies the guide, the tokens and the components. You can create a design system using Claude Code, which works best for organizations with existing React design systems, or in any conversation with Claude, which works best for brand design systems with fonts, colors and brand guidelines. [Learn more](#).
+
+### In which plan is Design included?
+
+Claude Design is included in all paid plans. Admins must turn it on in Organization settings.
+
+### What are my usage limits?
+
+Artifacts, including work made with Claude Design, Claude Slides and Claude Docs, count toward your plan's usage limits, like the rest of your work with Claude. Larger requests, like a full deck or design, use more of your limit than a typical message. See the [Help Center](#) for current details.
 
 [Prev](#)Prev
 
 [Next](#)Next
-
-## Start your next design with Claude
-
-Start designing
-
-[Start designing](http://claude.ai/login?returnTo=%2Fdesign)Start designing

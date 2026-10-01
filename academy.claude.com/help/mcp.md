@@ -19,15 +19,15 @@ The connector is a Model Context Protocol (MCP) server at `https://academy.claud
 
 ### Search Claude Academy `search_academy`
 
-Keyword search across courses, lessons, tutorials and use cases, optionally limited to one kind of content or one product. Returns ranked results with links.
+Keyword search across courses, lessons, tutorials and use cases, optionally limited to one kind of content or one product. Returns ranked results with links, and says which pages include video.
 
 ### Get a Claude Academy item `get_content`
 
-Reads one item by its Academy path or URL. Lessons, tutorials and use cases come back in full; a course returns its summary, objectives and ordered lesson list. A quiz or members-only lesson returns its summary, objectives and outline — open it on the site.
+Reads one item by its Academy path or URL. Lessons, tutorials and use cases come back in full; a course returns its summary, objectives and ordered lesson list. A quiz or members-only lesson returns its summary, objectives and outline — open it on the site. A page with video says how many.
 
 ### List Claude Academy content `list_content`
 
-Lists everything published on Academy, optionally filtered by kind or product. Courses show their lesson count; lessons are listed only when you ask for kind=lesson (or through their course).
+Lists everything published on Academy, optionally filtered by kind or product. Courses show their lesson count; lessons are listed only when you ask for kind=lesson (or through their course). Items with video say how many.
 
 Content is English-language; Academy’s translated pages are not searched. You can filter by kind (course, lesson, tutorial, use case) and by product — Claude.ai, Claude Cowork, Claude Code, the Claude Platform and the other products Academy covers.
 

@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # Caylent turns months of migration work into days with Claude Agent SDK
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Caylent](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05bcd76e1d673fc80f2_caylent-light-mode.svg)![Caylent](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05d723ff69d39ca2748_caylent-dark-mode.svg)
+![Caylent logo](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 90% reduction in engineering hours
 
@@ -55,61 +44,21 @@ One database migration can cost more than 10,000 hours of engineering work befor
 
 ## The challenge
 
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698395d5956e6e0e78f3e486_image-claude-sdk.jpg)
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-Read more
-
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)Read more
-
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Building agents with the Claude Agent SDK
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
 ## Migration math that priced out modernization
 
 Caylent's work centers on getting customer systems onto AWS and modernizing what already runs there, and database migration was the sharpest pain. When a customer moves from a legacy commercial database to a modern open-source one on AWS, thousands of stored procedures have to be translated one by one — roughly four hours each, by engineers fluent in both platforms. That expertise is rare, and many customers deferred entirely, letting technical debt compound.
 
 Cloud migration assessments had a parallel problem: mapping application and server dependencies for a mid-sized environment consumed months of analysis before a single server moved. "Human bandwidth set a hard ceiling on how many engagements we could accurately scope," the team explained.
 
+Building agents with the Claude Agent SDK
+
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
+
+The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
+
+[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+
 ## The solution
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Amazon Bedrock
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
 ## Proven on Caylent first
 
@@ -129,21 +78,15 @@ Each workflow Accelerate runs for a customer is now a pipeline of stages assigne
 
 Everything stays inside the customer's AWS account: no data transit to external systems, no customer data used for model training, and an AWS CloudTrail audit log capturing every AI-assisted action. Accelerate also runs before a contract is signed. In hours rather than weeks, it produces a complexity breakdown, a time estimate, and projected savings, so the first sales conversation starts from evidence.
 
-"Caylent runs on Claude."
+Claude on Amazon Bedrock
 
-Randall Hunt,
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
-Chief Technology Officer, Caylent
+Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Caylent runs on Claude."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Randall Hunt, Chief Technology Officer, Caylent
 
 ## The outcome
 
@@ -161,36 +104,12 @@ The architecture reaches past migration too: in Accelerate for Agentic Cloud Ope
 
 Caylent's newest practice is Claude-powered from day one: in April 2026, the company launched ACE, its Anthropic Consulting and Engineering practice, advancing its role as a Preferred Services Partner in the Claude Partner Network. Forward-deployed teams embed inside customer organizations to build the integrations and internal capabilities that make AI adoption stick. Every stage of the engagement runs on Claude Code, and DevBench is now available to ACE customers. Demand for that work is concentrating among software-intensive enterprises, and the team sees the question changing: "They have stopped asking whether AI belongs in the software development lifecycle and started asking how to operationalize it."
 
-## Related stories
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
 
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-How can a two-person fabrication studio make room for problems it’s never solved before?
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-Customer story
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
-
-[Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
-
-Quantium scales Claude across Australia's largest enterprises
-
-Customer story
-
-[Customer story](https://claude.com/customers/quantium-qa)Customer story
+### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)

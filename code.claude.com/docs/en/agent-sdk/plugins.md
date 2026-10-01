@@ -4,20 +4,20 @@
 
 > Load custom plugins to extend Claude Code with skills, agents, hooks, and MCP servers through the Agent SDK
 
-Plugins allow you to extend Claude Code with custom functionality that can be shared across projects. Through the Agent SDK, you can programmatically load plugins from local directories to add capabilities to your agent sessions. A plugin can include:
+Plugins let you extend Claude Code with custom functionality that can be shared across projects. Through the Agent SDK, you can programmatically load plugins from local directories to add capabilities to your agent sessions. A plugin can include:
 
 * **Skills**: capabilities Claude invokes autonomously when relevant. You can also invoke a plugin skill directly with `/plugin-name:skill-name`.
 * **Agents**: specialized subagents for specific tasks
 * **Hooks**: event handlers that respond to tool use and other events
 * **MCP servers**: external tool integrations via Model Context Protocol
 
-For complete information on plugin structure and how to create plugins, see [Plugins](/docs/en/plugins).
+For complete information on plugin structure and how to create plugins, see [Plugins](https://code.claude.com/docs/en/plugins/overview).
 
 ## Loading plugins
 
 Load plugins by providing their local file system paths in your options configuration. The `type` field must be `"local"`, the only value the SDK accepts. The SDK supports loading multiple plugins from different locations.
 
-To use a plugin distributed through a [marketplace](/docs/en/plugin-marketplaces) or remote repository, download it first and provide the local directory path. For the directory layout a plugin needs, see the [Plugin structure reference](#plugin-structure-reference) below.
+To use a plugin distributed through a [marketplace](https://code.claude.com/docs/en/plugins/overview) or remote repository, download it first and provide the local directory path. For the directory layout a plugin needs, see the [Plugin structure reference](#plugin-structure-reference) below.
 
 <CodeGroup>
   ```typescript TypeScript theme={null}
@@ -61,7 +61,7 @@ To use a plugin distributed through a [marketplace](/docs/en/plugin-marketplaces
 
 Plugin paths can be:
 
-* **Relative paths**: resolved relative to your current working directory (for example, `"./plugins/my-plugin"`)
+* **Relative paths**: resolved relative to the `cwd` option (for example, `"./plugins/my-plugin"`)
 * **Absolute paths**: full file system paths (for example, `"/home/user/plugins/my-plugin"`)
 
 <Note>
@@ -126,7 +126,7 @@ When plugins load successfully, they appear in the system initialization message
   ```
 </CodeGroup>
 
-## Using plugin skills
+## Use plugin skills
 
 Skills from plugins are automatically namespaced with the plugin name to avoid conflicts. To invoke one directly, send `/plugin-name:skill-name` as the prompt.
 
@@ -303,7 +303,7 @@ plugins: [
 
 ### Plugin not loading
 
-If your plugin doesn't appear in the init message:
+If your plugin doesn't appear in the init message's `plugins` list, check its [`plugin_errors`](https://code.claude.com/docs/en/agent-sdk/typescript#sdksystemmessage) field for the reason, then work through these checks:
 
 1. **Check the path**: ensure the path points to the plugin root directory, the parent of `skills/`, `agents/`, `hooks/`, `commands/`, or `.claude-plugin/`
 2. **Validate plugin.json**: if your plugin includes a manifest, ensure it has valid JSON syntax
@@ -320,8 +320,8 @@ If plugin skills don't work:
 
 ## See also
 
-* [Plugins](/docs/en/plugins) - Complete plugin development guide
-* [Plugins reference](/docs/en/plugins-reference) - Technical specifications
-* [Commands](/docs/en/agent-sdk/skills#dispatch-commands-by-name) - Dispatching commands in the SDK
-* [Subagents](/docs/en/agent-sdk/subagents) - Working with specialized agents
-* [Skills](/docs/en/agent-sdk/skills) - Using Agent Skills
+* [Plugins](https://code.claude.com/docs/en/plugins/overview) - Complete plugin development guide
+* [Plugins reference](https://code.claude.com/docs/en/plugins/manifest-reference) - Technical specifications
+* [Commands](https://code.claude.com/docs/en/agent-sdk/skills#dispatch-commands-by-name) - Dispatching commands in the SDK
+* [Subagents](https://code.claude.com/docs/en/agent-sdk/subagents) - Working with specialized agents
+* [Skills](https://code.claude.com/docs/en/agent-sdk/skills) - Using Agent Skills

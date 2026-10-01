@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
 
 # How the product designer who built Claude Design uses it to explore ideas before building them
@@ -42,15 +44,15 @@ I put all that into a small internal prototype and shared it with the team. Prod
 
 I first realized how compelling Claude Design was at an idea pitch session during an [Anthropic Labs](https://www.anthropic.com/news/introducing-anthropic-labs) team offsite: every person there threw together slides using it, often in the middle of the meeting before their turn to present. That session convinced the Labs team to staff it, and Claude Design went from a side project to a real project.
 
-We stopped describing it as a tool for product mockups. Claude Design became a tool for producing any kind of visual communication: slide decks, landing pages, one-pagers you print as a PDF, emails, animations, visuals to share on social media. I think of it as one click above product design: you collaborate with Claude on visuals whose main job is communication and ideation.
+We stopped describing it as a tool for product mockups. Claude Design became a tool for producing any kind of visual communication: slide decks, landing pages, one-pagers you print as a PDF, emails, animations, visuals to share on social media. Decks became one of the most common things people made with Claude Design, so they now have their own starting point, Claude Slides, which you can ask for in any conversation with Claude or start from the Artifacts tab. I think of it as one click above product design: you collaborate with Claude on visuals whose main job is communication and ideation.
 
-As models get better at vision, so does the range and quality of work Claude Design can do. Our latest Opus-class model, [Claude Opus 5](https://www.anthropic.com/news/claude-opus-5), is better than previous Opus models at reading the charts, diagrams, and screenshots, making it powerful when paired with Claude Design for creating presentation-worthy decks and memos.
+As models get better at vision, so does the range and quality of work Claude Design can do. Our latest Opus-class model, [Claude Opus 5](https://www.anthropic.com/news/claude-opus-5), is better than previous Opus models at reading charts, diagrams, and screenshots, making it powerful when paired with Claude Design for creating presentation-worthy decks and memos.
 
 ## **What Claude Design is not meant to do**
 
 Claude Design doesn't have an image model and isn’t built for image generation, so it's a poor fit for logo design—though that hasn’t stopped people from trying. The better approach here is to bring in the logo and assets you already have. The rest of the product works the same way: Claude creates options and starting points so you don’t have to stare at a blank canvas, and you choose what's good on its own, or as a combination of multiple versions.
 
-And if you're shipping production software, stick with Claude Code. Claude Code is for coding; Claude Design is for the other parts of the design work: early ideation, collaboration, or getting buy-in on a direction before anyone commits to building it. The two work together round-trip, so you can sync a prototype you started in Claude Code to Claude Design for iteration and editing on the canvas, or hand off a prototype you’re ready to build from Claude Design to Claude Code. As models get better at building production software, the work that matters most moves earlier in the process: having good ideas, getting everyone aligned, and collecting feedback while an idea is still early.
+And if you're shipping production software, stick with Claude Code. Claude Code is for coding; Claude Design is for the other parts of the design work: early ideation, collaboration, or getting buy-in on a direction before anyone commits to building it. Claude Design now works inside Claude Code, so you can ask for a design from the session you already have open, on desktop or in the terminal, or use /design to create, edit, and sync design projects. When a design is ready to become software, hand it to Claude Code, which continues from your existing work instead of starting over from a screenshot. As models get better at building production software, the work that matters most moves earlier in the process: having good ideas, getting everyone aligned, and collecting feedback while an idea is still early.
 
 ## **How I use Claude Design in my daily work**
 
@@ -68,13 +70,13 @@ I use Claude Design every day for what you’d call bread-and-butter design work
 
 1. **Do the thinking before you prompt.** The best and most efficient way to get output that matches your vision, is to tell Claude what you need up front. I spend a lot of time writing prompts before I design. Sometimes I dictate them in Claude Design with the voice button. Other times I type them in the Notes app on my phone from the couch, or record a voice note on a walk and paste the transcript later. Whichever method of communicating you prefer, figure out what you want while you're away from the computer, so Claude can execute your exact vision when you sit down.
 2. **Tell Claude what it should look like.** Left undirected, Claude picks one of its favorite aesthetics. [You'd probably recognize them.](https://www.newyorker.com/the-ai-design-aesthetic-thats-taking-over-the-internet) Head that off by specifying fonts and colors, or providing a moodboard of images for inspiration, or asking Claude to brainstorm font-and-color pairings and going back and forth until a pairing feels right.
-3. **Turn recurring work into a design system.** Upload your brand files and assets such as logos, slide decks, screenshots, typography specs, and anything else you reuse, and Claude will analyze them and [generate a design system](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design). This way, each artifact you make afterward starts from your choices, rather than a blank slate.
+3. **Turn recurring work into a design system.** Bring in your brand files and assets (logos, slide decks, screenshots, typography specs, anything else you reuse) as raw uploads, design files, or a GitHub repo, and Claude will analyze them and [generate a design system](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design). You can keep more than one. From then on, Claude builds with your components and checks its output against the system and corrects it before you see it, so each artifact starts from your choices rather than a blank slate. For larger teams, an admin can approve one standard system and lock down edits.
 4. **Ask for ten options, then remix.** Most of them won't be good, and that's fine; one or two will be. Then say, "I like option B and a little of option D. Give me five riffs that smoosh those together."
 5. **Sketch what you can't describe.** If you have a layout in your head and no words for it, draw it on paper and upload a photo.
 6. **Point and talk.** Instead of writing a paragraph identifying which element you mean, click on it and speak. You need to have dictation enabled on your device, then select “comment” and click into the comment box. Your words will appear in the comment box as if you are typing.
 7. **Wireframe first when fidelity doesn't matter.** Asking for wireframes is much faster, and it keeps Claude focused on the higher-level structure of a design instead of the visuals. This is a great way to try many different ideas quickly.
 8. **Make the last mile manual.** Use the direct editing tools (rearrange, delete, edit text, resize, change colors) for final touches instead of prompting for them. Direct edits use no tokens, and small calls like sizing and alignment are better eyeballed anyway.
-9. **Give Claude your real context.** If you're designing a feature for an existing app or website, connect GitHub: Claude will fetch your components and existing screens and use them as a starting point, and with a few tries it can recreate your existing designs with pretty high fidelity. Web search and MCP connections work in Claude Design too, whenever the design depends on outside information.
+9. **Give Claude your real context.** If you're designing a feature for an existing app or website, connect GitHub, or work from your local codebase in Claude Code: Claude will fetch your components and existing screens and use them as a starting point, and with a few tries it can recreate your existing designs with pretty high fidelity. If you ask for a design in the middle of a conversation, Claude builds from the files and analysis already in it and references your memory, projects, and skills. Connectors and web search work too, whenever the design depends on outside information.
 10. **Keep working alongside Claude.** You don’t have to wait for Claude to deliver a finished result before prompting new changes or tasks. You can queue up multiple messages at once, or keep talking while Claude is still working on the previous turn.
 
 ## **Make it alive**
@@ -83,7 +85,7 @@ There's a Bret Victor talk every designer should watch at some point, called [St
 
 I'd encourage designers, in Claude Design or any other tool, to think about how to make their creations alive. My favorite Claude Design creations are the ones that don't fit into existing boxes: docs with interactive simulations, slide decks that talk to you, diagrams that are also videos, designs that are also their own editors. Code, specifically HTML, is an amazing medium for creativity, and it's finally somewhat easy for designers to create with.
 
-Claude Design took its current shape because people at Anthropic kept finding uses I hadn't planned for; it is now available in beta on Claude Pro, Max, Team, and Enterprise plans. [Try it](https://claude.com/product/design) and take it somewhere we haven't thought of yet.
+Claude Design took its current shape because people at Anthropic kept finding uses I hadn't planned for. It now works inside any conversation with Claude, including Claude Code and the Artifacts tab, in beta on paid plans. If you already work at claude.ai/design, nothing changes for you. it is now available in beta on Claude Pro, Max, Team, and Enterprise plans. [Try it](https://claude.com/product/design) and take it somewhere we haven't thought of yet.
 
 *This article was written by Nate Parrott, a product designer at Anthropic, and expresses his opinions, usage patterns, and advice on Claude Design.*
 
@@ -113,53 +115,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
 
-Sep 10, 2026
+Jul 20, 2026
 
-### What 1,000 small business owners taught us about AI
-
-Enterprise AI
-
-[What 1,000 small business owners taught us about AI](#)What 1,000 small business owners taught us about AI
-
-[What 1,000 small business owners taught us about AI](https://claude.com/blog/what-1-000-small-business-owners-taught-us-about-ai)What 1,000 small business owners taught us about AI
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Jun 24, 2026
-
-### Building effective human-agent teams
+### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
 Enterprise AI
 
-[Building effective human-agent teams](#)Building effective human-agent teams
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-[Building effective human-agent teams](https://claude.com/blog/building-effective-human-agent-teams)Building effective human-agent teams
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
 
-Aug 28, 2026
+Sep 30, 2026
 
-### How Anthropic employees use Claude Tag
+### How Anthropic's sales team rebuilt inbound with Claude Managed Agents
 
 Enterprise AI
 
-[How Anthropic employees use Claude Tag](#)How Anthropic employees use Claude Tag
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](#)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
 
-[How Anthropic employees use Claude Tag](https://claude.com/blog/how-anthropic-employees-use-claude-tag)How Anthropic employees use Claude Tag
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+May 21, 2026
+
+### Claude now works with more security and compliance tools
+
+Enterprise AI
+
+[Claude now works with more security and compliance tools](#)Claude now works with more security and compliance tools
+
+[Claude now works with more security and compliance tools](https://claude.com/blog/compliance-api-security-partners)Claude now works with more security and compliance tools
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
 Aug 21, 2026
 
-### The AI-Native SDLC playbook
+### The AI-native SDLC playbook
 
 Enterprise AI
 
-[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](#)The AI-native SDLC playbook
 
-[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
 
 ## Transform how your organization operates with Claude
 

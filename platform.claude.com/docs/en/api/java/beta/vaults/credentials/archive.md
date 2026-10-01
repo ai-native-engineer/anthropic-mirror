@@ -19,7 +19,11 @@ Archive Credential
 
   - `String vaultId`
 
+    Identifier of the vault containing the credential.
+
   - `Optional<String> credentialId`
+
+    Unique identifier of the credential to archive.
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -115,11 +119,23 @@ Archive Credential
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ## Returns
 
-- `class BetaManagedAgentsCredential:`
+- `class BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -131,15 +147,15 @@ Archive Credential
 
   - `Optional<LocalDateTime> archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
-    - `class BetaManagedAgentsMcpOAuthAuthResponse:`
+    - `class BetaManagedAgentsMcpOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -157,7 +173,7 @@ Archive Credential
 
       - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `String clientId`
 
@@ -169,21 +185,19 @@ Archive Credential
 
         - `TokenEndpointAuth tokenEndpointAuth`
 
-          Token endpoint requires no client authentication.
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
+          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `Type type`
 
-          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
+          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `Type type`
 
-          - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
+          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -197,7 +211,7 @@ Archive Credential
 
           OAuth scope for the refresh request.
 
-    - `class BetaManagedAgentsStaticBearerAuthResponse:`
+    - `class BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -207,7 +221,7 @@ Archive Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
+    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -229,13 +243,13 @@ Archive Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse:`
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `Type type`
 
-        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse:`
+        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 

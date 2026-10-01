@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/platform/api -->
 
+Explore here
+
 [Next](#)Next
 
 BETA
@@ -54,7 +56,7 @@ Contact sales
 
 ## Trusted by
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f628079049002c70825_Lovable-light-theme.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f6571ade0cef16d3413_Lovable-dark-theme.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed7_6ab2c6eb2a0f7493d7d5b0ed_startups-wordmark-lovable-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8be3466f0c993603eef_6ab2c6ebbcffe96ca440c8d3_startups-wordmark-lovable-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaf1b161d57cbe7095b8_GitLab_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaebe118de085a232f53_GitLab_dark.svg)
 
@@ -78,7 +80,7 @@ Contact sales
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68db36ce5254656fdbac3c90_SLA-Slack-from-Salesforce-logo%201.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68db36d1588af40e62128f8f_SLA-Slack-from-Salesforce-logo-inverse%201.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01fd9c3a4170a4fe203b6_loreal-logo-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01fdfc3a4170a4fe209ef_loreal-logo-dark.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aac5cce6ed8625b28477794_logo_loreal-light-mode.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aac5cd4273cd14fead4045c_logo_loreal-dark-mode.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ada683bb0532fc4582a3_Snowflake_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adab7a0103ed60805b38_Snowflake_dark.svg)
 
@@ -94,14 +96,6 @@ Batch processing
 
 Next generation intelligence for long-running agents
 
-Input
-
-$10 / MTok
-
-Output
-
-$50 / MTok
-
 Prompt caching
 
 Read
@@ -112,6 +106,14 @@ Write
 
 $12.50 / MTok
 
+Input
+
+$10 / MTok
+
+Output
+
+$50 / MTok
+
 ## Model use cases:
 
 * Multi-day autonomous projects
@@ -121,27 +123,27 @@ Explore Fable
 
 [Explore Fable](https://www.anthropic.com/claude/fable)Explore Fable
 
-### Opus 5
+### Opus 5.5
 
-Ideal for complex agentic coding and enterprise work
-
-Input
-
-$5 / MTok
-
-Output
-
-$25 / MTok
+Daily driver for agentic coding and enterprise work
 
 Prompt caching
 
 Read
 
-$0.50 / MTok
+$0.20 / MTok
 
 Write
 
-$6.25 / MTok
+$5 / MTok
+
+Input
+
+$4 / MTok
+
+Output
+
+$20 / MTok
 
 ## Model use cases:
 
@@ -152,17 +154,9 @@ Explore Opus
 
 [Explore Opus](https://www.anthropic.com/claude/opus)Explore Opus
 
-### Sonnet 5
+### Sonnet 5.5
 
 High-performance model for coding and agents
-
-Input
-
-$2 / MTok
-
-Output
-
-$10 / MTok
 
 Prompt caching
 
@@ -173,6 +167,14 @@ $0.20 / MTok
 Write
 
 $2.50 / MTok
+
+Input
+
+$2 / MTok
+
+Output
+
+$10 / MTok
 
 ## Model use cases:
 
@@ -187,14 +189,6 @@ Explore Sonnet
 
 Fastest, most cost-effective model
 
-Input
-
-$1 / MTok
-
-Output
-
-$5 / MTok
-
 Prompt caching
 
 Read
@@ -204,6 +198,14 @@ $0.10 / MTok
 Write
 
 $1.25 / MTok
+
+Input
+
+$1 / MTok
+
+Output
+
+$5 / MTok
 
 ## Model use cases:
 
@@ -216,7 +218,7 @@ Explore Haiku
 
 **For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens.** [**Learn more**](https://platform.claude.com/docs/en/build-with-claude/data-residency)**.**
 
-Get up to 2.5x faster speeds with fast mode for Opus 5 at 2x standard pricing. [Learn more](https://platform.claude.com/docs/en/about-claude/pricing#fast-mode-pricing).
+Get up to 2.5x faster speeds with fast mode for Opus 5.5 at 2x standard pricing. [Learn more](https://platform.claude.com/docs/en/about-claude/pricing#fast-mode-pricing).
 
 Prompt caching pricing reflects 5-minute TTL. Learn about [extended prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#1-hour-cache-duration).
 
@@ -512,6 +514,60 @@ Control API keys, members, token limits, and security per workspace.
 
 ### See why businesses build on the Claude Platform
 
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
+
+“Developers want agents that can take on real software work and finish it. In our testing across GitHub Copilot CLI and VS Code, Claude Opus 5.5 used among the fewest tokens and steps we measured. In VS Code, it solved more terminal tasks than Opus 5 in less than half the steps. More than making individual tasks more efficient, it’s making developers’ bigger projects more achievable.”
+
+Mario Rodriguez, Chief Product Officer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed7_6ab2c6eb2a0f7493d7d5b0ed_startups-wordmark-lovable-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8be3466f0c993603eef_6ab2c6ebbcffe96ca440c8d3_startups-wordmark-lovable-dark.svg)
+
+“For Lovable builders, Opus 5.5 means faster builds with the same quality, whether you’re starting from scratch or working on a live app. It gathers context once, makes fewer and more complete edits, and doesn’t get stuck retrying, finishing in a third to half fewer steps and using significantly fewer tokens along the way.”
+
+Fabian Hedin, CTO & Co-founder
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4fac9a204dd3aef4556_spotify-logo-black.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
+
+“With Claude Opus 5.5, we’ve seen a clear improvement in token efficiency across our internal evaluations, as we’ve been able to complete the same tasks both cheaper and faster.”
+
+Aleksandar Mitic, Senior Engineer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a277c3714419cc7f58a9342_logo_rogo-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a277c483b67dd0f46bcdb09_logo_rogo-dark.svg)
+
+“Financial firms need outputs that are consistently correct. At its lowest effort setting, Claude Opus 5.5 beat Opus 5 at high effort on our BigFinance Bench with about 60% fewer output tokens. Its answers are shorter and better structured, and its slides come out denser, more in line with industry standards.”
+
+Strib Walker, Head of Product
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa863c8a450480170023_Factory_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa8cfc7e786bb0781067_Factory_dark.svg)
+
+“Claude Opus 5.5 is the first model we’d default to at medium effort. In our testing it matched Opus 5 on high effort, while using 20 to 25% fewer output tokens. On long, messy investigations it always came back with a clear, actionable answer. This means our customers get more done for less.”
+
+Zimu Li, Member of Technical Staff
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8c287936531790c85c4_box_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8bdc1ea299a1a768655_box_dark.svg)
+
+“Our customers use Box AI on enormous amounts of content, so speed and cost are a top priority. In our evaluations, Claude Opus 5.5 used a third of the tokens Opus 5 did, and its answers were 40% less verbose without losing accuracy. We expect that to matter a lot for teams running agents across their content in areas like financial services and the public sector.”
+
+Yashodha Bhavnani, VP of AI Products
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a7b7ecec9603146404c563_logo_epic-light-mode.png)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a7b7f0f2952dbeffa953f2_logo_epic-dark-mode.png)
+
+“In Epic’s early testing, Claude Sonnet 5.5 cleared the same quality bar you’d expect from a higher-tier model, holding up on a system design audit and a data-flow review. The new model managed tens of thousands of lines of code for gameplay system architecture, kept responses snappy, handled multi-hour tasks, and delivered with less prescriptive prompting.”
+
+Daniel Vogel, Chief Operating Officer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68db36ce5254656fdbac3c90_SLA-Slack-from-Salesforce-logo%201.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68db36d1588af40e62128f8f_SLA-Slack-from-Salesforce-logo-inverse%201.svg)
+
+“Without changing any of our prompts, Claude Sonnet 5.5 did better than Sonnet 5 on almost all of our offline Slackbot evals, in fewer steps and with about 14% fewer output tokens. When someone gives Slackbot a task, quality and speed are what matter most, and Sonnet 5.5 allows Slackbot to deliver better outcomes for users, faster.”
+
+Curtis Allen, Principal Engineer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aacf49352cdc3b7fcc725_logo_zendesk-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aacfdb5405b27e0e45afe_logo_zendesk-dark.svg)
+
+“We fed Claude Sonnet 5.5 hundreds of real support use cases across replies and escalation requests. It made fewer wrong decisions and resolved tickets faster than the Claude models we use in production today. Tickets were processed 20% faster, getting our customers the help they need without the wait.”
+
+Abhinay Kathuria, Director of AI
+
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4898064ee45d6186056ab_Frame.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4897e0ac296b8c65e5713_Frame-1.svg)
 
 “Claude Fable 5.1 is a leading model for our incident investigation evals, which use real production incidents to assess how effectively our agent, Bits Investigation, can produce root cause analyses. We evaluate our agent's output against root causes identified by our engineers. In these evaluations, it has demonstrated stronger reasoning than Opus 5 and has successfully diagnosed the most complex production incidents we've tested.”
@@ -562,30 +618,6 @@ Read story
 
 Joel Hron, CTO
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8c287936531790c85c4_box_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8bdc1ea299a1a768655_box_dark.svg)
-
-“Claude Opus 5 delivers the industry intelligence and accuracy that is essential for the analysis of specialized enterprise content. Box found that Opus 5 outperforms Opus 4.8 by 8% and delivers notable performance gains in the data analysis (11% improvement) and due diligence (17% improvement) workflows that technology, healthcare, and public sector organizations rely on daily.”
-
-Ben Kus, CTO
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa863c8a450480170023_Factory_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa8cfc7e786bb0781067_Factory_dark.svg)
-
-“Claude Opus 5’s judgment is what stands out. Handing off a PR, it doesn’t rush to publish: it verifies the branches, checks the template, and thinks through test implications so the handoff is clean. The older models tended to jump ahead and get caught on our checks.”
-
-Zimu Li, Member of Technical Staff
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aedd1d4ccaa7aaecee72_zapier_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aed89af0a9a659d820f0_zapier_dark.svg)
-
-“Claude Opus 5 topped Zapier’s AutomationBench leaderboard without spending more tokens than prior Claude models. It took a raw account-health workbook and ran a full churn-prevention sequence end to end: flagging at-risk accounts, alerting the right owner, and summarizing for retention ops. Previous models didn’t pass; Opus 5 hit 100%.”
-
-Wade Foster, CEO
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c024045f129ad1fd87a3d7_Group.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0240a3029ad76b17b6e21_Clip%20path%20group.svg)
-
-“Claude Opus 5 is a clear step up in performance on legal agent work compared to prior Opus models, and we saw the biggest gains in practice areas like corporate governance and arbitration. We were also impressed with Opus 5’s ability to maintain quality at lower reasoning levels, achieving similar performance while generating 26% fewer tokens on average compared to Opus 4.8 at max reasoning.”
-
-Niko Grupen, Head of Applied Research
-
 [Prev](#)Prev
 
 0/5
@@ -594,13 +626,13 @@ Niko Grupen, Head of Applied Research
 
 ## Technical resources
 
-[New rules of context engineering for Claude](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models)New rules of context engineering for Claude
+[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
 
-New rules of context engineering for Claude
+Reducing cost and improving performance with Claude Platform
 
 Blog
 
-[Blog](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models)Blog
+[Blog](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Blog
 
 [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)Demystifying evals for AI agents
 
@@ -626,13 +658,13 @@ Docs
 
 [Docs](https://platform.claude.com/docs/en/managed-agents/overview)Docs
 
-[The advisor strategy: Give Sonnet an intelligence boost with Opus](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool)The advisor strategy: Give Sonnet an intelligence boost with Opus
+[CLI, SDKs, and libraries](https://platform.claude.com/docs/en/cli-sdks-libraries/overview)CLI, SDKs, and libraries
 
-The advisor strategy: Give Sonnet an intelligence boost with Opus
+CLI, SDKs, and libraries
 
 Docs
 
-[Docs](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool)Docs
+[Docs](https://platform.claude.com/docs/en/cli-sdks-libraries/overview)Docs
 
 [Building agents that reach production systems with MCP](https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp)Building agents that reach production systems with MCP
 

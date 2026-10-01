@@ -57,6 +57,16 @@ Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
+![](https://compass.maryland.gov/assets/compass-icon.png)
+
+### [Maryland Community Compass](https://claude.com/connectors/maryland-compass)
+
+Trending
+
+Maryland's neighborhood development data platform.
+
+[Add Maryland Community Compass in Claude (opens in new tab)](https://claude.ai/directory/68edb405-8774-419f-b9d8-32f0a95229dd "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=vibeprospecting.ai&sz=96)
 
 ### [Vibe Prospecting](https://claude.com/connectors/vibeprospecting)
@@ -65,24 +75,6 @@ Find and enrich company and contact data in Claude for prospecting, lead generat
 
 [Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")
 
-![](https://compass.maryland.gov/assets/compass-icon.png)
-
-### [Maryland Community Compass](https://claude.com/connectors/maryland-compass)
-
-New
-
-Maryland's neighborhood development data platform.
-
-[Add Maryland Community Compass in Claude (opens in new tab)](https://claude.ai/directory/68edb405-8774-419f-b9d8-32f0a95229dd "Add in Claude")
-
-![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
-
-### [Mobbin](https://claude.com/connectors/mobbin)
-
-Find UI & UX design references
-
-[Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
-
 ![](https://cdn.prod.website-files.com/685be7dcd32275d3830651d3/685be7dcd32275d383065e48_RS_favicon.png)
 
 ### [Riverside](https://claude.com/connectors/riverside)
@@ -90,3 +82,11 @@ Find UI & UX design references
 Prep, edit, clip, and publish your videos and podcasts
 
 [Add Riverside in Claude (opens in new tab)](https://claude.ai/directory/3366d1e9-5d1d-49b1-a758-677949a84fd9 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=idealista.com&sz=96)
+
+### [idealista](https://claude.com/connectors/idealista)
+
+Find properties to buy or rent
+
+[Add idealista in Claude (opens in new tab)](https://claude.ai/directory/a93a736f-6b7a-46d3-849a-48f75534183a "Add in Claude")

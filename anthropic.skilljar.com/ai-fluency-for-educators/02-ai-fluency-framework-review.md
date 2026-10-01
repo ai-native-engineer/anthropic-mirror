@@ -1,21 +1,5 @@
 <!-- https://anthropic.skilljar.com/ai-fluency-for-educators/326779 -->
 
-Anthropic
-
-Open in Claude
-
-
-
-Anthropic
-
-Open in Claude
-
-Ask questions about this course
-
-Copy notes
-
-Copy full course notes for LLMs
-
 *Estimated Time: 15 minutes*
 
 ## What you'll learn

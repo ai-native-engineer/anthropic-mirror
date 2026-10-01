@@ -4,31 +4,21 @@ Q&A | Claude Code
 
 # A conversation with Seth Hain about Epic’s internal AI adoption
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a7b7ecec9603146404c563_logo_epic-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a7b7f0f2952dbeffa953f2_logo_epic-dark-mode.png)
+![Epic logo](https://assets.claude.com/eba99cadd0dd874d08d32b4f4c0cfbea1596372e.png)
 
 Industry:
-
-Healthcare
+:   Healthcare
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-North America
+:   North America
 
 195 million
 
@@ -40,63 +30,19 @@ of Claude Code usage is from non-developers
 
 The Enterprise AI Transformation Guide for Healthcare & Life Sciences
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69aa00aae4130200a0ea5240_enterprise-hcls.jpg)
+![The Enterprise AI Transformation Guide for Healthcare & Life Sciences](https://assets.claude.com/c5ab9a4570d97f2864fdab84b83b2ae79e618f39.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate your enterprise AI transformation with proven strategies from Anthropic's customers.
 
-Read more
-
-[Read more](https://resources.anthropic.com/hcls-transformation-guide)Read more
-
-The Enterprise AI Transformation Guide for Healthcare & Life Sciences
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Accelerate your enterprise AI transformation with proven strategies from Anthropic's customers.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-The Enterprise AI Transformation Guide for Healthcare & Life Sciences
-
-Accelerate your enterprise AI transformation with proven strategies from Anthropic's customers.
+[Read more](https://resources.anthropic.com/hcls-transformation-guide)
 
 Advancing Claude in healthcare and the life sciences
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6961abe753199c35cdc7f2a2_HCLS%20Launch%20-%20Blog%20-%20Social%20Image%20-%201200%20x%20628%20A.png)
+![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png?w=2400&q=75&fm=webp&fit=max)
 
 Transform healthcare from insight to action
 
-Read more
-
-[Read more](https://www.anthropic.com/news/healthcare-life-sciences)Read more
-
-Advancing Claude in healthcare and the life sciences
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Transform healthcare from insight to action
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Advancing Claude in healthcare and the life sciences
-
-Transform healthcare from insight to action
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://www.anthropic.com/news/healthcare-life-sciences)
 
 At Anthropic’s *“The Briefing: Enterprise Agents”,* leaders from some of the world’s largest organizations shared how they’re scaling AI adoption. One of those leaders was Seth Hain, SVP of R&D at Epic—the healthcare technology company behind MyChart, which is used by over 195 million patients around the world to access lab results, schedule appointments, communicate with their doctors, and more.
 
@@ -157,58 +103,16 @@ Beyond that, we’re building medical event models internally at Epic—AI train
 
 ‍
 
-"There is an immediate opportunity for agentic AI to help every patient, clinician, and health system operator."
+> "There is an immediate opportunity for agentic AI to help every patient, clinician, and health system operator."
 
-Seth Hain
+Seth HainSVP of R&D, Epic
 
-SVP of R&D, Epic
+[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### League cuts product development cycle times in half with Claude](https://claude.com/customers/league)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-[Next](#)Next
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Zingage](https://assets.claude.com/7a6b9b092d1ec61d938402cc6744e4d94ed2564a.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)How League went all in on Claude in a regulated industry
-
-How League went all in on Claude in a regulated industry
-
-Customer story
-
-[Customer story](https://claude.com/customers/league-qa)Customer story
-
-[League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
-
-League cuts product development cycle times in half with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/league)Customer story
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
-
-How Zingage automates care coordination for 400+ home care agencies with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/zingage)Customer story
+### How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)

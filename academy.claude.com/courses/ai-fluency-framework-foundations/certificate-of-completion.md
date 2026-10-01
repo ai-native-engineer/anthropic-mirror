@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/certificate-of-completion -->
 
-Quiz 1 of 1 · AI Fluency: Framework & FoundationsCourse quiz
+Quiz 1 of 1 · AI Fluency: Framework and foundationsCourse quiz
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # Course quiz
 
@@ -14,7 +14,7 @@ You've reached the final quiz for AI Fluency: Framework & Foundations. Its 10 qu
 
 [Previous lessonConclusion](https://academy.claude.com/courses/ai-fluency-framework-foundations/conclusion)[Next lessonAdditional activities](https://academy.claude.com/courses/ai-fluency-framework-foundations/additional-activities)
 
-Quiz 1 of 1 · AI Fluency: Framework & FoundationsCourse quiz
+Quiz 1 of 1 · AI Fluency: Framework and foundationsCourse quiz
 
 Introduction to AI Fluency
 

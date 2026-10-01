@@ -23,3 +23,5 @@ We're grateful to the security community for its partnership in helping us make 
 The bug bounty program in this post has concluded. Participants will transition to a new bug bounty initiative we’re rolling out today that’s focused on stress-testing our [Constitutional Classifiers system](https://www.anthropic.com/news/constitutional-classifiers) on the new Claude Opus 4 model and testing other safety systems we may develop. We’re still accepting applications to participate in this new invite-only program. You can apply for an invite through our [application form](https://forms.gle/3ocTorSkkuvcGePn9).
 
 To further advance AI safety, we are also accepting reports of universal jailbreaks for ASL-3 uses of concern (meaning those which elicit information related to biological threats) found on public platforms or forums, such as social media. For more information, see [here](https://docs.google.com/forms/d/e/1FAIpQLSfJAE2lJC0uKkkrKemR2ef_Q0yFFqiwjzcSE4lzMTdDQDuPcQ/viewform).
+
+Testing our safety defenses with a new bug bounty program \ Anthropic

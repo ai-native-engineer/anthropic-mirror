@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build -->
 
-Lesson 8 of 9 · AI Fluency for BuildersStand behind what you build
+Lesson 8 of 9 · AI Fluency for buildersStand behind what you build
 
-3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+3. /[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
-[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
 # Stand behind what you build
 
@@ -62,7 +62,7 @@ You’ve built, evaluated, and shipped the Clinic Wait Time Checker. In the fina
 
 [Previous lessonDiscernment for user experience](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-user-experience)[Next lessonClosure & looking forward](https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward)
 
-Lesson 8 of 9 · AI Fluency for BuildersStand behind what you build
+Lesson 8 of 9 · AI Fluency for buildersStand behind what you build
 
 Introduction and AI Fluency framework
 

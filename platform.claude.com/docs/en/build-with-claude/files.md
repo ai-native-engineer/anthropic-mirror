@@ -4,12 +4,18 @@
 title: Files API
 url: https://platform.claude.com/docs/en/build-with-claude/files
 description: Upload files once, reference them by file_id in Messages requests, and download outputs created by skills or the code execution tool.
+featureMetadata:
+  status: ga
+  zdr: not-eligible
+  supportedPlatforms:
+    Claude API: ga
+    Claude Platform on AWS: ga
+    Amazon Bedrock: not available
+    Google Cloud: not available
+    Microsoft Foundry:
+      availability: ga
+      note: On [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), the Files API requires a [Hosted on Anthropic deployment](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry#additional-features-not-supported-when-hosted-on-azure).
 ---
-
-## Compatibility
-- [ZDR](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention): not eligible
-- Platforms: Claude API, Claude Platform on AWS (beta), Microsoft Foundry (beta) [1]; not available on Amazon Bedrock, Google Cloud
-1. On [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), the Files API requires a [Hosted on Anthropic deployment](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry#additional-features-not-supported-when-hosted-on-azure).
 
 The Files API lets you upload and manage files to use with the Claude API without re-uploading content with each request. This is particularly useful when using the [code execution tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool) to provide inputs (for example, datasets and documents) and then download outputs (for example, charts). You can [explore the API reference directly](https://platform.claude.com/docs/en/api/files/upload), in addition to this guide.
 
@@ -175,7 +181,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
     -H "content-type: application/json" \
     -d @- <<EOF
   {
-    "model": "claude-opus-5",
+    "model": "claude-opus-5-5",
     "max_tokens": 1024,
     "messages": [
       {
@@ -201,7 +207,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
 
   ```bash CLI
   ant messages create <<YAML
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 1024
   messages:
     - role: user
@@ -217,7 +223,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
 
   ```python Python
   response = client.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=1024,
       messages=[
           {
@@ -240,7 +246,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
 
   ```typescript TypeScript
   const response = await client.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [
       {
@@ -269,7 +275,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
   var response = await client.Messages.Create(
       new MessageCreateParams
       {
-          Model = Model.ClaudeOpus5,
+          Model = Model.ClaudeOpus5_5,
           MaxTokens = 1024,
           Messages =
           [
@@ -294,7 +300,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
   ```go Go
   msg, err := client.Messages.New(context.Background(),
   	anthropic.MessageNewParams{
-  		Model:     anthropic.ModelClaudeOpus5,
+  		Model:     anthropic.ModelClaudeOpus5_5,
   		MaxTokens: 1024,
   		Messages: []anthropic.MessageParam{
   			anthropic.NewUserMessage(
@@ -314,7 +320,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
 
   ```java Java
   MessageCreateParams params = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(1024)
       .addUserMessageOfBlockParams(List.of(
           ContentBlockParam.ofText(TextBlockParam.builder()
@@ -348,7 +354,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
               ],
           ],
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
   );
 
   echo $response;
@@ -356,7 +362,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
 
   ```ruby Ruby
   response = client.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [
       {
@@ -450,7 +456,7 @@ The following examples read a text file and send its contents as plain text:
     -H "anthropic-version: 2023-06-01" \
     -d @- <<EOF
   {
-    "model": "claude-opus-5",
+    "model": "claude-opus-5-5",
     "max_tokens": 1024,
     "messages": [
       {
@@ -470,7 +476,7 @@ The following examples read a text file and send its contents as plain text:
   ```bash CLI
   # The "@./path" reference inlines the file contents directly into the field.
   ant messages create \
-    --model claude-opus-5 \
+    --model claude-opus-5-5 \
     --max-tokens 1024 \
     --transform 'content.#(type=="text").text' \
     --raw-output <<'YAML'
@@ -494,7 +500,7 @@ The following examples read a text file and send its contents as plain text:
       text_content = f.read()
 
   response = client.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=1024,
       messages=[
           {
@@ -523,7 +529,7 @@ The following examples read a text file and send its contents as plain text:
   const textContent = await fs.readFile("document.txt", "utf-8");
 
   const response = await client.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [
       {
@@ -552,7 +558,7 @@ The following examples read a text file and send its contents as plain text:
 
   var parameters = new MessageCreateParams
   {
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Messages = [new()
       {
@@ -581,7 +587,7 @@ The following examples read a text file and send its contents as plain text:
   }
 
   response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 1024,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock(
@@ -607,7 +613,7 @@ The following examples read a text file and send its contents as plain text:
   String textContent = Files.readString(Path.of("document.txt"));
 
   MessageCreateParams params = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(1024L)
       .addUserMessage("Here's the document content:\n\n" + textContent + "\n\nPlease summarize this document.")
       .build();
@@ -637,7 +643,7 @@ The following examples read a text file and send its contents as plain text:
               ]
           ]
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
   );
 
   foreach ($message->content as $block) {
@@ -654,7 +660,7 @@ The following examples read a text file and send its contents as plain text:
   text_content = File.read("document.txt")
 
   message = client.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [
       {
@@ -683,7 +689,7 @@ The following examples read a text file and send its contents as plain text:
 
 #### List files
 
-Retrieve a list of your uploaded files. The endpoint is paginated: each request returns up to `limit` files (20 by default, and at most 1,000), and the response's `next_page` cursor fetches the next page when passed back as the `page` parameter. Files are ordered newest first. See the [List Files API reference](https://platform.claude.com/docs/en/api/files/list). The SDKs return the first page and provide auto-pagination helpers. The CLI example bounds the total with `--max-items`:
+Retrieve a list of your uploaded files. The endpoint is paginated: each request returns up to `limit` files (20 by default, and at most 1,000), and the response's `next_page` cursor fetches the next page when passed back as the `page` parameter. Files are ordered newest first. See the [List Files API reference](https://platform.claude.com/docs/en/api/files/list). The SDK returns the first page and provides [auto-pagination](https://platform.claude.com/docs/en/api/overview#pagination) helpers. The CLI example bounds the total with `--max-items`:
 
 <CodeGroup>
   ```bash cURL
@@ -785,7 +791,7 @@ Retrieve information about a specific file:
   ```
 
   ```go Go
-  metadata, err := client.Files.GetMetadata(context.TODO(), fileID)
+  metadata, err := client.Files.GetMetadata(context.TODO(), fileID, anthropic.FileGetMetadataParams{})
   if err != nil {
   	log.Fatal(err)
   }
@@ -839,7 +845,7 @@ Remove a file from your workspace:
   ```
 
   ```go Go
-  _, err = client.Files.Delete(context.TODO(), fileID)
+  _, err = client.Files.Delete(context.TODO(), fileID, anthropic.FileDeleteParams{})
   if err != nil {
   	log.Fatal(err)
   }
@@ -898,7 +904,7 @@ Download files that were created by [skills](https://platform.claude.com/docs/en
 
   ```go Go
   func downloadFile(client anthropic.Client, fileID string) error {
-  	resp, err := client.Files.Download(context.TODO(), fileID)
+  	resp, err := client.Files.Download(context.TODO(), fileID, anthropic.FileDownloadParams{})
   	if err != nil {
   		return err
   	}

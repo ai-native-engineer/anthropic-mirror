@@ -3,10 +3,10 @@
 ---
 title: Manage resources as code with ant apply
 url: https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply
-description: Declare agents, environments, skills, memory stores, and deployments as files in your repository and keep the API's resources in sync with them using ant apply.
+description: Declare agents, environments, skills, memory stores, deployments, and vaults as files in your repository and keep the API's resources in sync with them using ant apply.
 ---
 
-`ant apply` creates and updates Claude API resources from files: agents, environments, skills, memory stores, and deployments. They live in your repository and change through the same review as your code. You describe each resource in a file, run `ant apply`, and approve the plan it shows. Then you commit the `claude-lock.json` it writes, so the next run updates the same resources instead of creating new ones.
+`ant apply` creates and updates Claude API resources from files: agents, environments, skills, memory stores, deployments, and vaults. They live in your repository and change through the same review as your code. You describe each resource in a file, run `ant apply`, and approve the plan it shows. Then you commit the `claude-lock.json` it writes, so the next run updates the same resources instead of creating new ones.
 
 To install and authenticate the CLI, see the [CLI quickstart](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart). `ant apply` requires CLI version 1.30.0 or later.
 
@@ -14,24 +14,26 @@ To install and authenticate the CLI, see the [CLI quickstart](https://platform.c
 
 Write the agent as a Markdown file under `agents/` and apply it:
 
-<MultiFileExample language="cli" label="CLI">
-  ```bash CLI
-  ant apply agents/summarizer.md
-  ```
-
-  <File filename="agents/summarizer.md">
-    ```markdown
-    ---
-    name: Summarizer
-    model: claude-opus-5
-    tools:
-      - type: agent_toolset_20260401
-    ---
-
-    You are a helpful assistant that writes concise summaries.
+<CodeGroup>
+  <CodeGroupItem>
+    ```bash CLI
+    ant apply agents/summarizer.md
     ```
-  </File>
-</MultiFileExample>
+
+    <File filename="agents/summarizer.md">
+      ```markdown
+      ---
+      name: Summarizer
+      model: claude-opus-5-5
+      tools:
+        - type: agent_toolset_20260401
+      ---
+
+      You are a helpful assistant that writes concise summaries.
+      ```
+    </File>
+  </CodeGroupItem>
+</CodeGroup>
 
 The frontmatter holds the agent's configuration (the fields from [Define your agent](https://platform.claude.com/docs/en/managed-agents/agent-setup)) and the body is its system prompt. `ant apply` [infers](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply#kind-inference) that the file is an agent from its path, here the `agents/` directory.
 
@@ -103,21 +105,18 @@ You can declaratively define the other resources as files as well. A file holds 
 * A [memory store](https://platform.claude.com/docs/en/managed-agents/memory) is a YAML file in `memory_stores/`.
 * A [deployment](https://platform.claude.com/docs/en/managed-agents/scheduled-deployments) is a Markdown file in `deployments/`: the frontmatter is the request body and the prose becomes the message that starts each session.
 * A [skill](https://platform.claude.com/docs/en/managed-agents/skills) is a directory with a `SKILL.md` at its root, conventionally under `skills/`, uploaded as one bundle.
+* A [vault](https://platform.claude.com/docs/en/managed-agents/vaults) is a YAML file in `vaults/` whose only fields are `display_name` and, optionally, `metadata`. Vault files need CLI version 1.34.0 or later.
 
-Any resource except a skill can be written as YAML, JSON, or Markdown. In Markdown, the frontmatter is the body and the prose fills the kind's text field: an agent's `system`, an environment's or memory store's `description`, a deployment's first message.
+Any resource except a skill can be written as YAML, JSON, or Markdown. In Markdown, the frontmatter is the body and the prose fills the kind's text field: an agent's `system`, an environment's or memory store's `description`, a deployment's first message. A vault has no text field, so `ant apply` refuses a vault Markdown file that has prose.
 
-Resources refer to each other by path. Wherever the API expects another resource's ID, write the relative path to that resource's file instead. In this project, the reviewer agent lists `../skills/pr-summary` under `skills`, the lead agent lists `./reviewer.md` in its roster, and the deployment names its agent, environment, and memory store by path. `ant apply` creates them in dependency order and fills in the real IDs. Apply the whole directory:
+Resources refer to each other by path. Wherever the API expects another resource's ID, write the relative path to that resource's file instead. In this project, the reviewer agent lists `../skills/pr-summary` under `skills`, the lead agent lists `./reviewer.md` in its roster, and the deployment names its agent, environment, and memory store by path. `ant apply` creates them in dependency order and fills in the real IDs. The project has six files:
 
-<MultiFileExample language="cli" label="CLI">
-  ```bash CLI
-  ant apply .
-  ```
-
+<FileExplorer>
   <File filename="agents/reviewer.md">
     ```markdown
     ---
     name: Code reviewer
-    model: claude-opus-5
+    model: claude-opus-5-5
     tools:
       - type: agent_toolset_20260401
     skills:
@@ -132,7 +131,7 @@ Resources refer to each other by path. Wherever the API expects another resource
     ```markdown
     ---
     name: Engineering lead
-    model: claude-opus-5
+    model: claude-opus-5-5
     multiagent:
       type: coordinator
       agents:
@@ -158,17 +157,20 @@ Resources refer to each other by path. Wherever the API expects another resource
 
   <File filename="environments/cloud.yaml">
     ```yaml
+    # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
     name: review-env
-    description: Cloud container with unrestricted networking for review sessions.
+    description: Cloud container with limited networking for review sessions.
     config:
       type: cloud
       networking:
-        type: unrestricted
+        type: limited
+        allow_package_managers: true
     ```
   </File>
 
   <File filename="memory_stores/review-notes.yaml">
     ```yaml
+    # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/memory_store.json
     name: Review notes
     description: Recurring issues and house-style decisions the reviewer has recorded between runs.
     ```
@@ -192,7 +194,13 @@ Resources refer to each other by path. Wherever the API expects another resource
     Review any open pull requests. Start with the oldest.
     ```
   </File>
-</MultiFileExample>
+</FileExplorer>
+
+Apply the whole directory:
+
+```bash CLI
+ant apply .
+```
 
 `claude-lock.json` then has an entry for every file in the project.
 
@@ -205,8 +213,9 @@ To point at a resource these files don't manage, write its ID (`agent_...`, `ski
 When `ant apply` walks a directory, it determines each file's kind from the first of these that matches:
 
 1. A top-level `type` field in the file.
-2. The directory the file is directly in: `agents/`, `environments/`, `memory_stores/`, or `deployments/`.
+2. The directory the file is directly in: `agents/`, `environments/`, `memory_stores/`, `deployments/`, or `vaults/`.
 3. A file name that starts with the kind, such as `environment_staging.md`.
+   * Vaults are the exception: `ant apply` does not take the kind from a name such as `vault_staging.yaml`, because other tools name their secrets files `vault.yml`. Keep a vault file in `vaults/` or give it `type: vault`.
 
 It skips files that match none of these, such as READMEs and CI configuration, unless you name them on the command line. A named Markdown file that matches none is treated as an agent, and a named YAML or JSON file that matches none is an error.
 

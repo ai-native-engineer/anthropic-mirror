@@ -23,13 +23,14 @@ Three banners can appear at the top of the page:
 
 ##  Domains
 
-Claude for Government routes users to your tenant by the domain of their email address, so at least one domain must be registered before anyone can sign in. The **Domains** section lists every domain registered to your tenant, along with whether it is verified and whether it was registered by Anthropic or by you.
+Claude for Government routes users to your tenant by the domain of their email address, so at least one domain must be registered before anyone can sign in. The **Domains** section lists every domain registered to your tenant, along with whether it is verified and whether it was registered by Anthropic or by you. Your tenant can have more than one domain. However many domains are registered here, your tenant has one set of [admin portals](https://claude.com/docs/government/tenant-admin/overview#tenants-and-organizations), and the [routing rules](#routing-rules) decide which organization each person joins.
 Domains that Anthropic registered on your behalf during onboarding are already verified. To add one yourself, enter the domain in the **Claim a domain** field and click **Claim**. You will be shown a DNS TXT record to publish on that domain; once the record is live, click **Verify now** and the domain becomes active.
 Until at least one domain is verified, the Single sign-on section’s Connect button and the SCIM provisioning section’s **Generate token** button are both unavailable, and each section shows a banner explaining why. Existing tenant administrators can still sign in by email link during this time.
 
 ##  Single sign-on
 
-Every user signs in through your agency’s identity provider (for example, Microsoft Entra, Okta, or ADFS). You register Claude for Government as an application in your identity provider, then enter your provider’s connection details here. Once connected, sign-ins are redirected to your provider. A second sign-in from the same browser within a few minutes, such as connecting Claude Desktop right after signing in on the web, may not be redirected again.
+Every user signs in through your agency’s identity provider (for example, Microsoft Entra, Okta, or ADFS). Your identity provider needs to support SAML 2.0 or OpenID Connect (OIDC).
+You register Claude for Government as an application in your identity provider, then enter your provider’s connection details here. Once connected, sign-ins are redirected to your provider. A second sign-in from the same browser within a few minutes, such as connecting Claude Desktop right after signing in on the web, may not be redirected again.
 
 You need at least one verified domain before you can connect single sign-on. Until then, the Connect button is unavailable and a banner prompts you to verify a domain first. If single sign-on was already connected before your last domain was removed, the existing connection stays editable.
 
@@ -70,7 +71,8 @@ Saving a new single sign-on configuration takes effect immediately and applies t
 
 ##  SCIM provisioning
 
-SCIM is the standard protocol identity providers use to push users and groups to a connected service automatically, so that accounts are created, updated, and deactivated in step with your agency’s directory. Connecting SCIM is optional; without it, users are created the first time they sign in.
+SCIM is the standard protocol identity providers use to push users and groups to a connected service automatically, so that accounts are created, updated, and deactivated in step with your agency’s directory. Connecting SCIM is optional; without it, users are created the first time they sign in. With SCIM connected, a person your directory has never sent still gets an account the first time they sign in, if a [sign-in rule](#sign-in-rules) covers them.
+[Provisioning rules](#provisioning-rules-scim), [group mappings](https://claude.com/docs/government/org-admin/provisioning), and [group-specific settings](https://claude.com/docs/government/config/overview#group-specific-settings) need SCIM, because they act on the [directory groups](#directory-groups) your identity provider pushes. Model access and usage limits come from each person’s [seat tier](https://claude.com/docs/government/org-admin/seat-tiers), which an organization owner can assign on the [Users](https://claude.com/docs/government/org-admin/users) page without SCIM.
 
 You need at least one verified domain before you can generate a SCIM token. Until then, **Generate token** is unavailable and a banner prompts you to verify a domain first.
 
@@ -87,7 +89,7 @@ Once a token is active and your directory completes its first sync, the provisio
 
 ##  Directory groups
 
-Once your identity provider has pushed groups over SCIM, they appear here with their member counts. Drag the groups into the order you want; this priority is used for group-level configuration on the [Config](https://claude.com/docs/government/config/overview#group-specific-settings) page.
+Once your identity provider has pushed groups over SCIM, they appear here with their member counts. To change the order, drag a group by the handle at the start of its row or use the **…** menu at the end. The order you set here is the priority used for group-level configuration on the [Config](https://claude.com/docs/government/config/overview#group-specific-settings) page.
 
 ##  Routing rules
 
@@ -119,7 +121,7 @@ Each sign-in rule reads as a sentence, for example *“Anyone with email domain 
 * An **email domain** rule matches the domain of the user’s email address exactly. You choose from your tenant’s verified domains; you cannot type an arbitrary domain. Subdomains are not matched automatically, so `sub.example.gov` needs its own rule if you want it routed.
 * An **identity provider (IdP) group** rule matches a value in the group membership list that your identity provider includes in the sign-in token. You type the exact value your provider sends, and matching is exact and case-sensitive.
 
-Rules are evaluated from top to bottom, and the first match wins. When you have more than one rule, drag the handle next to a rule (or focus the handle and press the up or down arrow key) to reorder the list. Only one rule can exist for any given condition. If you pick a domain or group that already has a rule, a message below the form shows which organization it currently routes to and asks you to remove that rule first.
+Rules are evaluated from top to bottom, and the first match wins. To change the order, drag a rule by the handle at the start of its row or use the **…** menu at the end. Only one rule can exist for any given condition. If you pick a domain or group that already has a rule, a message below the form shows which organization it currently routes to and asks you to remove that rule first.
 Each rule shows a status line with diagnostics:
 
 * **Last matched** (or **Never matched**) tells you when the rule most recently placed or moved someone.

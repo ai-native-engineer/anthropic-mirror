@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Braintrust revolutionizes talent acquisition and career growth with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Braintrust logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c33a9af93bd71d75bd7439_cs-logo-braintrust-light-theme.svg)![Braintrust logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c33a9da6a96649c861b9fa_cs-logo-braintrust-dark-theme.svg)
+![Braintrust logo](https://assets.claude.com/e902bcd557abee20fb67ab82f79395b90141b73c.svg)
 
 Industry:
-
-Recruiting
+:   Recruiting
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 25% more applicants
 
@@ -37,42 +27,6 @@ for Claude-powered job descriptions
 $150K saved
 
 with AI-powered talent screening
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Braintrust, an AI-powered recruiting platform, uses Claude to speed up the hiring process for clients while empowering job seekers to advance their careers. With Claude, Braintrust has achieved:
 
@@ -102,7 +56,7 @@ Braintrust integrated Claude into key features to enhance their platform:
 2. Job Description Generator: This Claude-powered assistant helps clients quickly create compelling job postings, increasing the number of qualified applicants.
 3. Semantic Search: A feature in development that allows recruiters to search for candidates using natural language queries instead of rigid filters.
 
-![Braintrust product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04ec814909b7ddfdacc_1fece41dd44994f156b3fee773a685d9dd9713b0-1920x983.jpeg)
+![Braintrust product screen](https://assets.claude.com/9d7b7b0b458c70ae55bf09c22eaf4abd031f5d18.jpg)
 
 ## Better outcomes for employers and job seekers
 
@@ -120,44 +74,10 @@ The company is excited about Claude's potential to reduce hiring bias. Luneva em
 
 As Braintrust continues to innovate with Claude, they aim to create a recruiting ecosystem that unlocks human potential, fosters diversity, and efficiently connects talent with opportunities. By harnessing AI, Braintrust is working towards a future where companies and candidates can thrive in a streamlined, transparent, and equitable hiring landscape.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Fountain](https://assets.claude.com/b71e514bd0b898b54389212058f29c0dfcf6b27f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Fountain accelerates frontline workforce hiring and management with Claude](https://claude.com/customers/fountain)[![micro1](https://assets.claude.com/b1bad452489c0ab55beeb4cbeb4b05543378b7bb.svg)
 
-[Next](#)Next
+### micro1 transforms technical recruiting with Claude](https://claude.com/customers/micro1)[![Skillfully](https://assets.claude.com/4d045f8f15c950f0b55087335dd918f70f8db501.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Fountain accelerates frontline workforce hiring and management with Claude](https://claude.com/customers/fountain)Fountain accelerates frontline workforce hiring and management with Claude
-
-Fountain accelerates frontline workforce hiring and management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/fountain)Customer story
-
-[micro1 transforms technical recruiting with Claude](https://claude.com/customers/micro1)micro1 transforms technical recruiting with Claude
-
-micro1 transforms technical recruiting with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/micro1)Customer story
-
-[Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)Skillfully transforms hiring through AI-powered skill simulations with Claude
-
-Skillfully transforms hiring through AI-powered skill simulations with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/skillfully)Customer story
+### Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)

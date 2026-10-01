@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice -->
 
-Lesson 6 of 10 · AI Fluency for pK–12 EducatorsCreating high quality AI outputs
+Lesson 6 of 10 · AI Fluency for pK–12 educatorsCreating high quality AI outputs
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # Creating high quality AI outputs
 
@@ -36,11 +36,11 @@ DescriptionCommunicate the vision so the model can act on it.
 
 DiscernmentJudge what came back, and feed that judgment forward.
 
-Describe what good looks like.Clear, specific prompting that turns your vision into terms the model can act on.
+Describe what good looks like. Clear, specific prompting that turns your vision into terms the model can act on.
 
 PromptInner LoopRefine
 
-Judge what came back.Judge what comes back—quality, relevance, bias—so your next prompt is sharper.
+Judge what came back. Judge what comes back—quality, relevance, bias—so your next prompt is sharper.
 
 Quick check
 
@@ -89,7 +89,7 @@ In the next lesson, we'll put Delegation and Diligence into practice with a data
 
 [Previous lessonAI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations)[Next lessonEthics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)
 
-Lesson 6 of 10 · AI Fluency for pK–12 EducatorsCreating high quality AI outputs
+Lesson 6 of 10 · AI Fluency for pK–12 educatorsCreating high quality AI outputs
 
 How this course was made
 

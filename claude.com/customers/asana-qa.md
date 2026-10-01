@@ -4,47 +4,17 @@ Q&A | Claude Managed Agents
 
 # How Asana built AI Teammates on Claude Opus 4.6
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f7e645f7fe4aabfb7a4_asana-logo-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f851118c8688fe503ab_asana-logo-dark.svg)
+![Asana logo](https://assets.claude.com/b8ffecd4a133f2860151d51156002816a54772e7.svg)
 
 Case Study: Asana
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c16e5688acc2af1a8c146c_og_case-study-asana%20(1).jpg)
+![Case Study: Asana](https://assets.claude.com/31ff11ed9e7a6ed870b2496665c777adf096b948.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Read more about how Asana supercharges work management with Claude.
 
-Read more
-
-[Read more](https://claude.com/customers/asana)Read more
-
-Case Study: Asana
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Read more about how Asana supercharges work management with Claude.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: Asana
-
-Read more about how Asana supercharges work management with Claude.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/customers/asana)
 
 Asana recently launched [Asana AI Teammates](https://asana.com/product/ai/ai-teammates), powered by Claude Opus 4.6 **a**nd [Claude Managed Agents](https://claude.com/blog/claude-managed-agents). We sat down with Arnab Bose, Chief Product Officer at Asana, to discuss his thoughts on collaborative agents and why Asana chose Claude as their model layer.
 
@@ -54,7 +24,7 @@ Asana recently launched [Asana AI Teammates](https://asana.com/product/ai/ai-tea
 
 The industry defaulted to individual-first because it's the easiest problem to solve technically. What breaks at enterprise scale is coordination. AI actually increases the coordination tax. With an AI agent, a marketing manager can draft a brief in five minutes, but they still run into bottlenecks with rounds of reviews and syncing with a launch timeline that multiple teams depend on. When every person has their own AI assistant working independently, you create more fragmentation, not less. Collaboration is what makes real autonomy possible.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c1b3256b82290a188756af_Asana_QA_Image1small.png)
+![](https://assets.claude.com/d6a9669f0c725bcbe117f74224b62769a619b436.png)
 
 "We've been especially impressed by Claude's ability to handle multi-step workflows," said Arnab Bose, Chief Product Officer at Asana. "That level of synthesis and judgment is what sets Claude apart."
 
@@ -78,7 +48,7 @@ We've been especially impressed by its ability to handle multi-step workflows, f
 
 ‍
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c1b120eb115620f2c01a08_Asana_QA_Image.png)
+![](https://assets.claude.com/41a8e53dbc809aee9cef3c59291a0394ae9d9cae.png)
 
 "Our principle is that AI Teammates should be autonomous on execution, but humans own the decisions." —Arnab Bose, Chief Product Officer at Asana
 
@@ -88,11 +58,9 @@ We've been especially impressed by its ability to handle multi-step workflows, f
 
 The Launch Planner AI Teammate takes on that coordination layer by living inside the workflow. It monitors progress across workstreams, flags dependencies, reports on status, and proactively surfaces what needs attention. Now the human program manager goes from spending hours stitching together spreadsheets to reviewing a structured summary and making decisions.
 
-"By using different Claude models, we're able to optimize for speed, reasoning power, or balance between the two—whatever it takes to move work forward."
+> "By using different Claude models, we're able to optimize for speed, reasoning power, or balance between the two—whatever it takes to move work forward."
 
-Arnab Bose
-
-Chief Product Officer, Asana
+Arnab BoseChief Product Officer, Asana
 
 **Anthropic: CIOs are worried about agent sprawl: too many bots, no visibility, unpredictable costs. How should enterprises be thinking about governance?**
 
@@ -110,84 +78,20 @@ Three principles shaped our approach. First, admins control whether users can ac
 
 Introducing Claude Opus 4.6
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698529955ffaa6de831ec14e_opus%201%20(4).jpg)
+![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
 
-Read more
+> "The vision is that people spend their time on the creative, strategic, high-judgment work that drives the business. Not AI that replaces people, but AI that works alongside them as a true teammate."
 
-[Read more](#)Read more
+Arnab BoseChief Product Officer, Asana
 
-Introducing Claude Opus 4.6
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.6
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-"The vision is that people spend their time on the creative, strategic, high-judgment work that drives the business. Not AI that replaces people, but AI that works alongside them as a true teammate."
-
-Arnab Bose
-
-Chief Product Officer, Asana
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

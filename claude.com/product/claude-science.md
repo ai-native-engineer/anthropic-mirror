@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/product/claude-science -->
 
+Explore here
+
 Claude Team plan for scientists
 
 [Next](#)Next
@@ -362,7 +364,7 @@ Connectors bring your internal APIs, ELNs, and bespoke pipelines into the workfl
 
 Explore connectors
 
-[Explore connectors](https://claude.com/archive/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Claude Science resources
 
@@ -3320,7 +3322,7 @@ Docs
 
 [Docs](https://claude.com/docs/claude-science/overview)Docs
 
-## FAQs
+## FAQ
 
 ### Is Claude Science a new model?
 

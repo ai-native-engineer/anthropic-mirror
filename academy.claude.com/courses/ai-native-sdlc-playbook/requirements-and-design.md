@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/requirements-and-design -->
 
-Lesson 3 of 14 · The AI-Native SDLC PlaybookRequirements and design
+Lesson 3 of 14 · The AI-native SDLC playbookRequirements and design
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Requirements and design
 
@@ -55,7 +55,7 @@ Instead of policy conflicts being discovered in a review weeks later, the live p
 
 [Previous lessonCapture as intent.md](https://academy.claude.com/courses/ai-native-sdlc-playbook/capture-intent)[Next lessonClaude Code plan mode as the default starting point](https://academy.claude.com/courses/ai-native-sdlc-playbook/plan-mode)
 
-Lesson 3 of 14 · The AI-Native SDLC PlaybookRequirements and design
+Lesson 3 of 14 · The AI-native SDLC playbookRequirements and design
 
 Introduction
 

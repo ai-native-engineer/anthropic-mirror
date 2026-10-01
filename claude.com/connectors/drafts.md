@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/agiletortoise/drafts-mcp-server#readme)[Support (opens in new tab)](https://getdrafts.com)
+More[Documentation (opens in new tab)](https://github.com/agiletortoise/drafts-mcp-server#readme)[Support (opens in new tab)](https://getdrafts.com)[Privacy policy (opens in new tab)](https://getdrafts.com/support/privacy)
 
 A Model Context Protocol (MCP) server that enables AI assistants to interact with the Drafts app on macOS through AppleScript. Manage drafts, workspaces, tags, and run actions programmatically.
 

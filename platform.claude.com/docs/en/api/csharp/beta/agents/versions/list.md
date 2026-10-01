@@ -19,7 +19,7 @@ List Agent Versions
 
   - `required string agentID`
 
-    Path param: Path parameter agent_id
+    Path param: Agent ID to list versions for.
 
   - `int limit`
 
@@ -125,6 +125,14 @@ List Agent Versions
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -133,7 +141,7 @@ List Agent Versions
 
 ## Returns
 
-- `class BetaManagedAgentsAgent:`
+- `class BetaManagedAgentsAgent`
 
   A Managed Agents `agent`.
 
@@ -143,7 +151,7 @@ List Agent Versions
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -175,13 +183,21 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
+      - `ClaudeOpus5_5("claude-opus-5-5")`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
+
       - `ClaudeFable5_1("claude-fable-5-1")`
 
         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
       - `ClaudeSonnet5("claude-sonnet-5")`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `ClaudeFable5("claude-fable-5")`
 
@@ -233,33 +249,33 @@ List Agent Versions
 
     - `Effort Effort`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
-      - `class BetaManagedAgentsEffortLow:`
+      - `class BetaManagedAgentsEffortLow`
 
         Low effort. Favors latency over reasoning depth.
 
         - `required Type Type`
 
-      - `class BetaManagedAgentsEffortMedium:`
+      - `class BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `required Type Type`
 
-      - `class BetaManagedAgentsEffortHigh:`
+      - `class BetaManagedAgentsEffortHigh`
 
         High effort. Favors reasoning depth.
 
         - `required Type Type`
 
-      - `class BetaManagedAgentsEffortXhigh:`
+      - `class BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `required Type Type`
 
-      - `class BetaManagedAgentsEffortMax:`
+      - `class BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
@@ -271,7 +287,7 @@ List Agent Versions
 
     - `Speed Speed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `Standard("standard")`
 
@@ -279,7 +295,7 @@ List Agent Versions
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `required Type Type`
 
@@ -287,7 +303,7 @@ List Agent Versions
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `class BetaManagedAgentsAgentReference:`
+      - `class BetaManagedAgentsAgentReference`
 
         A resolved agent reference with a concrete version.
 
@@ -299,7 +315,7 @@ List Agent Versions
 
           format: int32
 
-      - `class BetaManagedAgentsAdvisor:`
+      - `class BetaManagedAgentsAdvisor`
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -313,7 +329,7 @@ List Agent Versions
 
   - `required IReadOnlyList<Skill> Skills`
 
-    - `class BetaManagedAgentsAnthropicSkill:`
+    - `class BetaManagedAgentsAnthropicSkill`
 
       A resolved Anthropic-managed skill.
 
@@ -323,7 +339,7 @@ List Agent Versions
 
       - `required string Version`
 
-    - `class BetaManagedAgentsCustomSkill:`
+    - `class BetaManagedAgentsCustomSkill`
 
       A resolved user-created custom skill.
 
@@ -337,13 +353,13 @@ List Agent Versions
 
   - `required IReadOnlyList<Tool> Tools`
 
-    - `class BetaManagedAgentsAgentToolset20260401:`
+    - `class BetaManagedAgentsAgentToolset20260401`
 
       - `required Type Type`
 
       - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
 
-        - `class BetaManagedAgentsBashToolConfig:`
+        - `class BetaManagedAgentsBashToolConfig`
 
           Configuration for the bash tool.
 
@@ -357,25 +373,25 @@ List Agent Versions
 
             Permission policy for tool execution.
 
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
 
               - `required Type Type`
 
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `required Type Type`
 
-            - `class BetaManagedAgentsAutoPolicy:`
+            - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `JsonElement Type = "auto"`
 
-        - `class BetaManagedAgentsEditToolConfig:`
+        - `class BetaManagedAgentsEditToolConfig`
 
           Configuration for the edit tool.
 
@@ -389,19 +405,19 @@ List Agent Versions
 
             Permission policy for tool execution.
 
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-            - `class BetaManagedAgentsAutoPolicy:`
+            - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-        - `class BetaManagedAgentsReadToolConfig:`
+        - `class BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
 
@@ -415,19 +431,19 @@ List Agent Versions
 
             Permission policy for tool execution.
 
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-            - `class BetaManagedAgentsAutoPolicy:`
+            - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-        - `class BetaManagedAgentsWriteToolConfig:`
+        - `class BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
 
@@ -441,19 +457,19 @@ List Agent Versions
 
             Permission policy for tool execution.
 
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-            - `class BetaManagedAgentsAutoPolicy:`
+            - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-        - `class BetaManagedAgentsGlobToolConfig:`
+        - `class BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
 
@@ -467,19 +483,19 @@ List Agent Versions
 
             Permission policy for tool execution.
 
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-            - `class BetaManagedAgentsAutoPolicy:`
+            - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-        - `class BetaManagedAgentsGrepToolConfig:`
+        - `class BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
 
@@ -493,19 +509,19 @@ List Agent Versions
 
             Permission policy for tool execution.
 
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-            - `class BetaManagedAgentsAutoPolicy:`
+            - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-        - `class BetaManagedAgentsWebFetchToolConfig:`
+        - `class BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
 
@@ -519,15 +535,15 @@ List Agent Versions
 
             Permission policy for tool execution.
 
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-            - `class BetaManagedAgentsAutoPolicy:`
+            - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -539,7 +555,7 @@ List Agent Versions
 
             format: int32
 
-        - `class BetaManagedAgentsWebSearchToolConfig:`
+        - `class BetaManagedAgentsWebSearchToolConfig`
 
           Configuration for the web_search tool.
 
@@ -553,15 +569,15 @@ List Agent Versions
 
             Permission policy for tool execution.
 
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
+            - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-            - `class BetaManagedAgentsAutoPolicy:`
+            - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -609,19 +625,19 @@ List Agent Versions
 
           Permission policy for tool execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
 
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
+          - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAutoPolicy:`
+          - `class BetaManagedAgentsAutoPolicy`
 
             The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-    - `class BetaManagedAgentsMcpToolset:`
+    - `class BetaManagedAgentsMcpToolset`
 
       - `required Type Type`
 
@@ -635,15 +651,15 @@ List Agent Versions
 
           Permission policy for tool execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
 
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
+          - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAutoPolicy:`
+          - `class BetaManagedAgentsAutoPolicy`
 
             The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -657,21 +673,21 @@ List Agent Versions
 
           Permission policy for tool execution.
 
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
 
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
+          - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
 
-          - `class BetaManagedAgentsAutoPolicy:`
+          - `class BetaManagedAgentsAutoPolicy`
 
             The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `required string McpServerName`
 
-    - `class BetaManagedAgentsCustomTool:`
+    - `class BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
 

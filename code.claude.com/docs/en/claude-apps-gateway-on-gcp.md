@@ -5,10 +5,10 @@
 > A worked example of running Claude apps gateway on Google Cloud: Cloud Run or GKE, Cloud SQL for PostgreSQL, Secret Manager, and service-account auth to Google Cloud's Agent Platform.
 
 <Note>
-  This page walks through one way to run Claude apps gateway on Google Cloud. The configuration is a working example for customer-managed infrastructure rather than a supported production deployment; use it to see how the pieces fit together before adapting it to your own environment. For the platform-agnostic requirements, see the [deployment guide](/docs/en/claude-apps-gateway-deploy).
+  This page walks through one way to run Claude apps gateway on Google Cloud. The configuration is a working example for customer-managed infrastructure rather than a supported production deployment; use it to see how the pieces fit together before adapting it to your own environment. For the platform-agnostic requirements, see the [deployment guide](https://code.claude.com/docs/en/claude-apps-gateway-deploy).
 </Note>
 
-This example provisions Claude apps gateway on Google Cloud with Google Cloud's Agent Platform as the model upstream, using either Cloud Run or GKE for compute. Google Workspace is the example identity provider (IdP), but any OpenID Connect (OIDC) compliant IdP works; only the `oidc` block changes. See [Identity provider setup](/docs/en/claude-apps-gateway-deploy#identity-provider-setup) for per-IdP details.
+This example provisions Claude apps gateway on Google Cloud with Google Cloud's Agent Platform as the model upstream, using either Cloud Run or GKE for compute. Google Workspace is the example identity provider (IdP), but any OpenID Connect (OIDC) compliant IdP works; only the `oidc` block changes. See [Identity provider setup](https://code.claude.com/docs/en/claude-apps-gateway-deploy#identity-provider-setup) for per-IdP details.
 
 ## What you'll build
 
@@ -20,7 +20,7 @@ The deployment consists of:
 
 * **Cloud Run** service or **GKE** Deployment running the gateway container
 * **Artifact Registry** repository for the gateway image
-* **Cloud SQL for PostgreSQL** instance, private IP only, for the gateway's [store](/docs/en/claude-apps-gateway-config#store)
+* **Cloud SQL for PostgreSQL** instance, private IP only, for the gateway's [store](https://code.claude.com/docs/en/claude-apps-gateway-config#store)
 * **Secret Manager** secrets for `gateway.yaml`, the JWT signing key, the OIDC client secret, and the Postgres URL
 * **Service account** with `roles/aiplatform.user`, attached directly on Cloud Run or bound via Workload Identity on GKE
 * **HTTPS front end** that you provide: an internal Application Load Balancer in front of Cloud Run, which this walkthrough configures the gateway for but doesn't create, or an internal **GKE Ingress** of class `gce-internal` on GKE
@@ -31,7 +31,7 @@ The deployment consists of:
 * The `gcloud` CLI, authenticated with `gcloud auth login`, and Docker installed locally
 * For the GKE track: `kubectl`, and a GKE cluster on the VPC created in the walkthrough below
 * Access to the Claude models you need in Model Garden, in a region that publishes them
-* A Google Workspace OAuth 2.0 web-application client with redirect URI `https://<gateway-host>/oauth/callback`; see [Identity provider setup](/docs/en/claude-apps-gateway-deploy#identity-provider-setup)
+* A Google Workspace OAuth 2.0 web-application client with redirect URI `https://<gateway-host>/oauth/callback`; see [Identity provider setup](https://code.claude.com/docs/en/claude-apps-gateway-deploy#identity-provider-setup)
 * A TLS hostname for the gateway, typically an internal DNS name pointing at the load balancer
 
 Set the project and region once:
@@ -86,7 +86,7 @@ The steps below provision the full deployment with `gcloud` commands.
   </Step>
 
   <Step title="Build and push the image to Artifact Registry">
-    Build the image per the [container image requirements](/docs/en/claude-apps-gateway-deploy#container-image), using the `linux-x64` glibc binary, and push it:
+    Build the image per the [container image requirements](https://code.claude.com/docs/en/claude-apps-gateway-deploy#container-image), using the `linux-x64` glibc binary, and push it:
 
     ```bash theme={null}
     gcloud artifacts repositories create claude-gateway \
@@ -133,20 +133,20 @@ The steps below provision the full deployment with `gcloud` commands.
   </Step>
 
   <Step title="Write gateway.yaml">
-    The `upstreams` block points at Google Cloud's Agent Platform with `auth: {}`, so the gateway authenticates via Application Default Credentials from the runtime service account. See the [configuration reference](/docs/en/claude-apps-gateway-config) for every field.
+    The `upstreams` block points at Google Cloud's Agent Platform with `auth: {}`, so the gateway authenticates via Application Default Credentials from the runtime service account. See the [configuration reference](https://code.claude.com/docs/en/claude-apps-gateway-config) for every field.
 
     Two `listen` fields describe what fronts the gateway:
 
-    * `public_url`: the external `https://` origin, required for any non-loopback bind; see the [`listen` reference](/docs/en/claude-apps-gateway-config#listen). The gateway builds the IdP `redirect_uri` and its discovery document only from this value, never from `X-Forwarded-*` headers.
+    * `public_url`: the external `https://` origin, required for any non-loopback bind; see the [`listen` reference](https://code.claude.com/docs/en/claude-apps-gateway-config#listen). The gateway builds the IdP `redirect_uri` and its discovery document only from this value, never from `X-Forwarded-*` headers.
     * `trusted_proxies`: the front end's source ranges. The gateway honors `X-Forwarded-For` only when the TCP peer is in this list, then walks the chain past trusted hops, so per-IP sign-in rate limits and audit events record developer IPs instead of the load balancer's.
 
-    Set `trusted_proxies` to match your front end. An external GKE Ingress of class `gce` isn't listed: it provisions a public forwarding-rule address, which the `/login` [private-network check](/docs/en/claude-apps-gateway#prerequisites) rejects.
+    Set `trusted_proxies` to match your front end. An external GKE Ingress of class `gce` isn't listed: it provisions a public forwarding-rule address, which the `/login` [private-network check](https://code.claude.com/docs/en/claude-apps-gateway#prerequisites) rejects.
 
-    | Front end                                                | `trusted_proxies`                                   |
-    | -------------------------------------------------------- | --------------------------------------------------- |
-    | Cloud Run reached directly, no load balancer             | `[169.254.0.0/16]`                                  |
+    | Front end | `trusted_proxies` |
+    | - | - |
+    | Cloud Run reached directly, no load balancer | `[169.254.0.0/16]` |
     | Internal Application Load Balancer in front of Cloud Run | `169.254.0.0/16` plus your proxy-only subnet's CIDR |
-    | GKE internal Ingress, class `gce-internal`               | Your proxy-only subnet's CIDR                       |
+    | GKE internal Ingress, class `gce-internal` | Your proxy-only subnet's CIDR |
 
     The example below uses the internal-load-balancer-in-front-of-Cloud-Run values.
 
@@ -171,6 +171,8 @@ The steps below provision the full deployment with `gcloud` commands.
 
     store:
       postgres_url: ${GATEWAY_POSTGRES_URL}          # GKE: ${file:/secrets/postgres-url}
+      # readiness_grace_seconds: 300                 # keep passing the readiness probe
+                                                     # through a Cloud SQL failover
 
     upstreams:
       - provider: vertex
@@ -180,19 +182,19 @@ The steps below provision the full deployment with `gcloud` commands.
     ```
 
     <Note>
-      Google id\_tokens carry no `groups` claim. To use group-based policies in [`managed.policies`](/docs/en/claude-apps-gateway-config#managed) with Google Workspace as the IdP, configure [`oidc.google_groups`](/docs/en/claude-apps-gateway-config#oidc), which looks up each user's groups through the Admin SDK Directory API using a service account with domain-wide delegation. Without it, match on `email_domain` instead.
+      Google id\_tokens carry no `groups` claim. To use group-based policies in [`managed.policies`](https://code.claude.com/docs/en/claude-apps-gateway-config#managed) with Google Workspace as the IdP, configure [`oidc.google_groups`](https://code.claude.com/docs/en/claude-apps-gateway-config#oidc), which looks up each user's groups through the Admin SDK Directory API using a service account with domain-wide delegation. Without it, match on `email_domain` instead.
     </Note>
   </Step>
 
   <Step title="Store secrets in Secret Manager">
     Create four secrets and grant `roles/secretmanager.secretAccessor` to the `claude-gateway` service account:
 
-    | Secret                       | Source                                          |
-    | ---------------------------- | ----------------------------------------------- |
-    | `gateway-jwt-secret`         | `openssl rand -base64 32`                       |
-    | `gateway-oidc-client-secret` | Google Cloud Console → OAuth client             |
-    | `gateway-postgres-url`       | `$GATEWAY_POSTGRES_URL` from the Cloud SQL step |
-    | `gateway-config`             | the full `gateway.yaml` from the previous step  |
+    | Secret | Source |
+    | - | - |
+    | `gateway-jwt-secret` | `openssl rand -base64 32` |
+    | `gateway-oidc-client-secret` | Google Cloud Console → OAuth client |
+    | `gateway-postgres-url` | `$GATEWAY_POSTGRES_URL` from the Cloud SQL step |
+    | `gateway-config` | the full `gateway.yaml` from the previous step |
 
     How the secrets reach the container differs by track:
 
@@ -219,7 +221,7 @@ The steps below provision the full deployment with `gcloud` commands.
           --no-invoker-iam-check
         ```
 
-        Direct VPC egress, via `--network`, `--subnet`, and `--vpc-egress=private-ranges-only`, lets the service reach the Cloud SQL private IP directly. Each instance holds up to [`store.max_connections`](/docs/en/claude-apps-gateway-config#store) Postgres connections, five by default, so keep maximum instances × `store.max_connections` below your Cloud SQL tier's connection limit; the [reference assets](#terraform-reference) cap instances at 8 for the `db-g1-small` tier for this reason. Public egress to Google Cloud's Agent Platform endpoints and `accounts.google.com` goes directly to the internet rather than through the VPC, so no Cloud NAT is needed.
+        Direct VPC egress, via `--network`, `--subnet`, and `--vpc-egress=private-ranges-only`, lets the service reach the Cloud SQL private IP directly. Each instance holds up to [`store.max_connections`](https://code.claude.com/docs/en/claude-apps-gateway-config#store) Postgres connections, five by default, so keep maximum instances × `store.max_connections` below your Cloud SQL tier's connection limit; the [reference assets](#terraform-reference) cap instances at 8 for the `db-g1-small` tier for this reason. Public egress to Google Cloud's Agent Platform endpoints and `accounts.google.com` goes directly to the internet rather than through the VPC, so no Cloud NAT is needed.
 
         The invoker IAM check must be open or disabled. The gateway runs its own OIDC and its clients carry no GCP token, so Cloud Run's invoker check has to admit unauthenticated requests. The gateway's OIDC sign-in authenticates the request once it reaches the container, with `allowed_email_domains` gating which domains may sign in.
 
@@ -230,7 +232,7 @@ The steps below provision the full deployment with `gcloud` commands.
 
         Ingress restriction via `--ingress` is a separate, independent layer from the invoker check; keep it set to limit the service to your corporate network.
 
-        By default the Cloud Run `*.run.app` URL resolves to a public address, which the `/login` [private-network check](/docs/en/claude-apps-gateway#prerequisites) rejects. Two topologies give developers a privately resolvable hostname, and Cloud Run provisions neither for you:
+        By default the Cloud Run `*.run.app` URL resolves to a public address, which the `/login` [private-network check](https://code.claude.com/docs/en/claude-apps-gateway#prerequisites) rejects. Two topologies give developers a privately resolvable hostname, and Cloud Run provisions neither for you:
 
         * **Internal Application Load Balancer**, the topology this page's `gateway.yaml` assumes: provision an internal Application Load Balancer in front of the service with an internal DNS name and certificate, and set `listen.public_url` to that hostname. The `internal` ingress setting already admits traffic from internal Application Load Balancers; `internal-and-cloud-load-balancing` additionally admits external Application Load Balancers, whose public addresses the `/login` private-network check rejects, so no topology on this page needs it.
         * **Internal-only ingress with no load balancer**: keep the deploy command as is and leave `listen.public_url` as the `*.run.app` URL, the default in the [reference assets](#terraform-reference) below. For `*.run.app` to resolve privately, your network team must already operate a Private Service Connect endpoint for Google APIs, a Cloud DNS private zone resolving `*.run.app` to it, and on-premises routing to that endpoint.
@@ -265,7 +267,7 @@ The steps below provision the full deployment with `gcloud` commands.
           iam.gke.io/gcp-service-account="claude-gateway@${PROJECT_ID}.iam.gserviceaccount.com"
         ```
 
-        Deploy the gateway as a standard Deployment plus a Service and an internal Ingress, class `gce-internal`, as described in [Kubernetes deployment](/docs/en/claude-apps-gateway-deploy#kubernetes), with:
+        Deploy the gateway as a standard Deployment plus a Service and an internal Ingress, class `gce-internal`, as described in [Kubernetes deployment](https://code.claude.com/docs/en/claude-apps-gateway-deploy#kubernetes), with:
 
         * `serviceAccountName: gateway`
         * the Secret Manager CSI driver mounting secrets at `/secrets`
@@ -273,7 +275,7 @@ The steps below provision the full deployment with `gcloud` commands.
 
         Attach a BackendConfig with a raised `timeoutSec` to the gateway Service: the load balancer backend service behind GKE Ingress defaults to a 30-second timeout, which cuts off long streaming responses.
 
-        Don't apply an egress NetworkPolicy that blocks `169.254.169.254` on a Workload Identity cluster; the pod must reach the metadata server for credentials. The gateway's built-in [SSRF guard](/docs/en/claude-apps-gateway-deploy#threat-model-summary) is the defense there.
+        Don't apply an egress NetworkPolicy that blocks `169.254.169.254` on a Workload Identity cluster; the pod must reach the metadata server for credentials. The gateway's built-in [SSRF guard](https://code.claude.com/docs/en/claude-apps-gateway-deploy#threat-model-summary) is the defense there.
 
         The gateway logs a boot warning that the metadata endpoint is reachable and suggests applying an egress NetworkPolicy. Under Workload Identity that warning is expected, because the pod needs the endpoint.
       </Tab>
@@ -281,7 +283,7 @@ The steps below provision the full deployment with `gcloud` commands.
   </Step>
 
   <Step title="Push the gateway URL to developer machines">
-    The gateway is now running, but developers can't reach it from `/login` until the gateway URL is on their machines. Deploy the full [managed settings snippet](/docs/en/claude-apps-gateway#set-the-gateway-url), with `forceLoginMethod`, `forceLoginGatewayUrl`, and the `parentSettingsBehavior: "merge"` opt-in, to each device via MDM. There is no gateway option in the login picker for a developer to select manually.
+    The gateway is now running, but developers can't reach it from `/login` until the gateway URL is on their machines. Deploy the full [managed settings snippet](https://code.claude.com/docs/en/claude-apps-gateway#set-the-gateway-url), with `forceLoginMethod`, `forceLoginGatewayUrl`, and the `parentSettingsBehavior: "merge"` opt-in, to each device via MDM. There is no gateway option in the login picker for a developer to select manually.
   </Step>
 </Steps>
 
@@ -299,19 +301,19 @@ The assets are provided as working examples, not as a supported production artif
 
 ## Troubleshooting
 
-For gateway boot and login errors, see the platform-agnostic [troubleshooting table](/docs/en/claude-apps-gateway-deploy#troubleshooting). The entries below are specific to Google Cloud.
+For gateway boot and login errors, see the platform-agnostic [troubleshooting table](https://code.claude.com/docs/en/claude-apps-gateway-deploy#troubleshooting). The entries below are specific to Google Cloud.
 
-| Symptom                                                                                  | Cause                                                                                                                               | Fix                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cloud Run returns `403 Forbidden` before reaching the container                          | The invoker IAM check is still enabled                                                                                              | Deploy with `--no-invoker-iam-check`, or grant `allUsers` the `run.invoker` role with `--allow-unauthenticated`                                                                                                             |
-| `--no-invoker-iam-check` rejected with `invoker_iam_disabled is not currently available` | Blocked by `constraints/run.managed.requireInvokerIam`                                                                              | Use `--allow-unauthenticated`. If Domain Restricted Sharing via `constraints/iam.allowedPolicyMemberDomains` blocks that too, use the GKE track, which exposes the gateway at the network layer with no `allUsers` binding. |
-| `Container manifest type … must support amd64/linux` at deploy                           | Image was built on a non-amd64 host, or buildx emitted an OCI image index                                                           | Build with `--platform=linux/amd64 --provenance=false`                                                                                                                                                                      |
-| Gateway boot exits with a Postgres connection-timeout error on Cloud Run                 | Service isn't attached to the VPC, or Cloud SQL has no private IP on that VPC; the store stops waiting after 5 seconds              | Deploy with `--network` and `--subnet` for Direct VPC egress, and create the Cloud SQL instance with `--no-assign-ip` and `--network` pointing at the same VPC                                                              |
-| Google Cloud's Agent Platform requests return `403 PERMISSION_DENIED`                    | Runtime isn't using the `claude-gateway` service account, or the model isn't enabled in Model Garden for the project                | Set `--service-account` on Cloud Run or bind Workload Identity on GKE, and enable each Claude model in Model Garden for the target region                                                                                   |
-| Streaming responses cut off after a fixed duration                                       | Front-end request timeout: the load balancer backend service behind GKE Ingress defaults to 30 seconds and Cloud Run to 300 seconds | Attach a BackendConfig with a raised `timeoutSec` on GKE, or deploy with `--timeout=3600` on Cloud Run                                                                                                                      |
+| Symptom | Cause | Fix |
+| - | - | - |
+| Cloud Run returns `403 Forbidden` before reaching the container | The invoker IAM check is still enabled | Deploy with `--no-invoker-iam-check`, or grant `allUsers` the `run.invoker` role with `--allow-unauthenticated` |
+| `--no-invoker-iam-check` rejected with `invoker_iam_disabled is not currently available` | Blocked by `constraints/run.managed.requireInvokerIam` | Use `--allow-unauthenticated`. If Domain Restricted Sharing via `constraints/iam.allowedPolicyMemberDomains` blocks that too, use the GKE track, which exposes the gateway at the network layer with no `allUsers` binding. |
+| `Container manifest type … must support amd64/linux` at deploy | Image was built on a non-amd64 host, or buildx emitted an OCI image index | Build with `--platform=linux/amd64 --provenance=false` |
+| Gateway boot exits with a Postgres connection-timeout error on Cloud Run | Service isn't attached to the VPC, or Cloud SQL has no private IP on that VPC | Deploy with `--network` and `--subnet` for Direct VPC egress, and create the Cloud SQL instance with `--no-assign-ip` and `--network` pointing at the same VPC |
+| Google Cloud's Agent Platform requests return `403 PERMISSION_DENIED` | Runtime isn't using the `claude-gateway` service account, or the model isn't enabled in Model Garden for the project | Set `--service-account` on Cloud Run or bind Workload Identity on GKE, and enable each Claude model in Model Garden for the target region |
+| Streaming responses cut off after a fixed duration | Front-end request timeout: the load balancer backend service behind GKE Ingress defaults to 30 seconds and Cloud Run to 300 seconds | Attach a BackendConfig with a raised `timeoutSec` on GKE, or deploy with `--timeout=3600` on Cloud Run |
 
 ## Next steps
 
-* [Configuration reference](/docs/en/claude-apps-gateway-config): every `gateway.yaml` option, including `managed.policies` and `telemetry`
-* [Deployment and operations](/docs/en/claude-apps-gateway-deploy): IdP setup, health checks, JWT secret rotation, upgrades, and the security model
-* [Claude apps gateway overview](/docs/en/claude-apps-gateway): quickstart and connecting developers
+* [Configuration reference](https://code.claude.com/docs/en/claude-apps-gateway-config): every `gateway.yaml` option, including `managed.policies` and `telemetry`
+* [Deployment and operations](https://code.claude.com/docs/en/claude-apps-gateway-deploy): IdP setup, health checks, JWT secret rotation, upgrades, and the security model
+* [Claude apps gateway overview](https://code.claude.com/docs/en/claude-apps-gateway): quickstart and connecting developers

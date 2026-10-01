@@ -17,11 +17,15 @@ Update Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to update.
 
 - `auth?:optional Auth`
 
-  Updated authentication details for a credential.
+  Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
 - `displayName?:optional string`
 
@@ -37,9 +41,13 @@ Update Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -49,11 +57,11 @@ Update Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 

@@ -4,31 +4,21 @@ Case study | Claude
 
 # Carvana turns Slack alerts into production fixes with Claude Tag
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a97624449e9faa7a99adab9_logo_carvana-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a976247318d4486e007daf9_logo_carvana-dark-mode.svg)
+![Carvana logo](https://assets.claude.com/6d55e4e27973e13fce3e66d63ef5618d65cb12ae.svg)
 
 Industry:
-
-Retail Services
+:   Retail Services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Tag
+:   [Claude Tag](https://claude.com/product/tag)
 
 Location:
-
-North America
+:   North America
 
 56% fewer alerts
 
@@ -51,16 +41,6 @@ A production alert at [Carvana](https://www.carvana.com/) used to wait for an en
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
 ## Multiplayer AI Carvana had to maintain
 
 Carvana wanted AI inside Slack, where entire teams could watch it work and jump in. It built that twice on its own. The first version was a homegrown agent loop: an API call wired to a few tools, sometimes looping back for a second pass. Then, about a year ago, came a second one: the Claude Agent SDK wrapped in a Slack app. Both shipped, and both did the job.
@@ -68,16 +48,6 @@ Carvana wanted AI inside Slack, where entire teams could watch it work and jump 
 "Our internal tools demonstrated what was possible," said Alex Devkar, SVP of Engineering and Analytics at Carvana, "but maintaining them required time and resources that could be better spent running the business." A small team had to babysit the bots on top of its real work. Access controls presented a bigger challenge. The homegrown bots were limited, especially because connecting them to additional services while preserving team-specific permissions would have required significant additional work. Carvana’s wholesale platform team ultimately chose not to adopt the tools because the team was uncertain how long they would be supported, or whether another migration would soon follow.
 
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ## Managed agents with per-team identities
 
@@ -101,21 +71,9 @@ The wholesale platform team gave Claude Tag the hardest test: two weeks in its i
 
 Not every issue needs to interrupt an engineer in real time. Some teams schedule Claude Tag to check pipelines and feature flags hourly, identify problems, and initiate the appropriate follow-up. The approach costs less than continuous monitoring while helping engineers stay focused on higher-priority work, Devkar said.
 
-"Claude Tag gives us the flexibility to provide teams with access to the data they need while maintaining appropriate controls. Previously, we would have had to build and maintain those protections ourselves."
+> "Claude Tag gives us the flexibility to provide teams with access to the data they need while maintaining appropriate controls. Previously, we would have had to build and maintain those protections ourselves."
 
-Alex Devkar
-
-SVP of Engineering and Analytics, Carvana
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Alex DevkarSVP of Engineering and Analytics, Carvana
 
 ## The outcome
 
@@ -131,26 +89,12 @@ The change shows up in more than the two numbers above. People filed issues befo
 
 The next frontier for AI coding assistants is bigger than triage. Half a dozen teams inside Carvana are now building multiplayer flows on top of Claude Tag. "This evolution is a more collaborative environment where product managers and engineers can move from identifying a bug or proposing an idea to developing and shipping a solution together," he said. "That work can begin in the tools where teams already collaborate, without every step requiring someone to open a code editor. That's the key in a multiplayer environment."
 
-"That work can begin in the tools where teams already collaborate, without every step requiring someone to open a code editor. That's the key in a multiplayer environment."
+> "That work can begin in the tools where teams already collaborate, without every step requiring someone to open a code editor. That's the key in a multiplayer environment."
 
-Alex Devkar
+Alex DevkarSVP of Engineering and Analytics, Carvana
 
-SVP of Engineering and Analytics, Carvana
+[![Shy Bird](https://assets.claude.com/9d2b2c26c7073e477b39005906610be869c4d2ec.svg)
 
-## Related stories
+### How can a Boston restaurant owner pay people what they deserve and still keep the lights on?](https://claude.com/customers/shy-bird)[![Advantage Solutions](https://assets.claude.com/97c2cf17bb75ef2c4f1d0986904838b87ab4f8b5.svg)
 
-[How can a Boston restaurant owner pay people what they deserve and still keep the lights on?](https://claude.com/customers/shy-bird)How can a Boston restaurant owner pay people what they deserve and still keep the lights on?
-
-How can a Boston restaurant owner pay people what they deserve and still keep the lights on?
-
-Customer story
-
-[Customer story](https://claude.com/customers/shy-bird)Customer story
-
-[Advantage Solutions gives frontline managers 70,000 hours back with Claude](https://claude.com/customers/advantage-solutions)Advantage Solutions gives frontline managers 70,000 hours back with Claude
-
-Advantage Solutions gives frontline managers 70,000 hours back with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/advantage-solutions)Customer story
+### Advantage Solutions gives frontline managers 70,000 hours back with Claude](https://claude.com/customers/advantage-solutions)

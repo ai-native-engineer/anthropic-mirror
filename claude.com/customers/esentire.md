@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # How eSentire runs expert-level threat investigations at scale with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![eSentire logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0cee98c46fbfc3647c5ee_cs-logo-esentire-light-theme.svg)![eSentire logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0cefaf54d17d8ec7af392_cs-logo-esentire-dark-theme.svg)
+![eSentire logo](https://assets.claude.com/46efa7db946e65ffa6f40bbc941a6448bbe5fb42.svg)
 
 Industry:
-
-Cybersecurity
+:   Cybersecurity
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 99.96% ransomware containment before encryption
 
@@ -44,63 +33,17 @@ each averaging 44 tool calls across endpoint, identity, network, and cloud telem
 
 Introducing Claude Opus 4.6
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698529955ffaa6de831ec14e_opus%201%20(4).jpg)
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Read more
-
-[Read more](#)Read more
-
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.6
+![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
 
 Building agents with the Claude Agent SDK
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698395d5956e6e0e78f3e486_image-claude-sdk.jpg)
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
 
-Read more
-
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)Read more
-
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Building agents with the Claude Agent SDK
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
 
 eSentire is a managed detection and response (MDR) provider that protects millions of endpoints across thousands of customers worldwide. Its Atlas platform uses Claude to run autonomous threat investigations, analyzing signals across endpoint, identity, network, and cloud telemetry to catch and contain attacks in minutes.
 
@@ -159,58 +102,16 @@ The platform is expanding to ingest and respond across any security technology a
 
 ‍
 
-"We needed Claude to solve unknown problems in live customer environments, thousands of times a day. That's a fundamentally different challenge, and Opus 4.6 is meeting it."
+> "We needed Claude to solve unknown problems in live customer environments, thousands of times a day. That's a fundamentally different challenge, and Opus 4.6 is meeting it."
 
-Dustin Hillard
+Dustin HillardCPTO, eSentire
 
-CPTO, eSentire
+[![Vega Security](https://assets.claude.com/4e1839348313fbe4c8f3c96d6c7cbc95f53e13c6.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-[Next](#)Next
+### Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera)[![Kai](https://assets.claude.com/aff2397c0fd3708b6d0b23554c2ce5f81a3f7c56.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/vega)Customer story
-
-[Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
-
-Cyera on making Claude Cowork the front door to 40 tools
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera-qa)Customer story
-
-[Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera) Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera)Customer story
-
-[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
-
-Kai delivers preemptive exposure management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/kai)Customer story
+### Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai)

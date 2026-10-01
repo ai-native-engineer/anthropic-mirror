@@ -1,17 +1,15 @@
 <!-- https://anthropic.skilljar.com/introduction-to-claude-cowork/485949 -->
 
-**Estimated time:** 8 minutes
+## What you'll learn
 
-### Learning objectives
+*Estimated time: 8 minutes*
 
 By the end of this lesson you'll be able to:
 
 * Explain what an eval is and why it matters before you share or rely on a skill
 * Run a lightweight eval through skill-creator
 
----
-
-### Why this matters
+## Why this matters
 
 When you build a skill or bundle them into a plugin, you're essentially building a small product that other people will use. And like anything you'd hand to a colleague — a template, a spreadsheet model, a checklist — it's worth a test drive before it leaves your desk.
 
@@ -19,7 +17,7 @@ When you use a skill you built, you know how to work around any issues or failur
 
 Testing a skill with evals — short for evaluations — is how you catch those stumbles before someone else does. Don't let the word intimidate you. An eval is just a try-out: a realistic request goes in, you look at what comes out, and you tell Claude what to fix. No code, no test scripts — just your judgment about whether the result is good enough to put your name on.
 
-### How the eval system works
+## How the eval system works
 
 When you build a skill with skill-creator — Claude's built-in helper for creating skills — it walks you through evals as part of the process. Here's what that actually looks like.
 
@@ -37,7 +35,7 @@ Review each pair and give feedback in plain English, right on the review page. A
 
 Once you submit your feedback, Claude revises the skill for you based on what you said.
 
-### Iterate on the skill
+## Iterate on the skill
 
 Your feedback is the fix. Once you submit it, Claude updates the skill — rewriting the instructions, adjusting the examples, tightening what it asks for — and you can run the same prompts again to see if the change stuck.
 
@@ -45,13 +43,23 @@ Change one thing at a time. If the first round showed the skill was too wordy *a
 
 And if the outputs already look great on the first pass? You're done. Evals aren't a hoop to jump through — they're there for when you need confidence, not ceremony.
 
-### Try it now
+## Try it now
 
 Step through a mock eval review below — three prompts, each with a with-skill and a without-skill output side by side.
 
+For each pair: pick the version you'd actually send, and write one line of feedback you'd give Claude. That's the whole loop.
+
+## What’s next
+
+In the next lesson, you'll move from "this works for me" to "this works for the team" — the patterns and choices that turn personal workflows into shared infrastructure.
+
+<!-- embed: https://academy.claude.com/embed/courses/introduction-to-claude-cowork/SkillEvalReview -->
+
+Exercise: For three mock meeting-recap prompts, the learner compares a with-skill and without-skill output against house-rule checks, picks which they'd send, and writes feedback for Claude to revise.
+
 Read an eval
 
-An eval is just two outputs side by side, with a few rules of what “good” looks like. **Your job is to pick which one you'd actually send** — and tell Claude what to change.
+An eval is just two outputs side by side, with a few rules of what “good” looks like. **Your job is to pick which one you’d actually send** — and tell Claude what to change.
 
 **1** of 3
 
@@ -61,189 +69,51 @@ Typical case
 
 Prompt
 
-Write the recap for today's product sync. Notes are in `notes/2026-05-01-product-sync.md`.
+Write the recap for today’s product sync. Notes are in `notes/2026-05-01-product-sync.md`.
 
-With skill ✓✓✓✓ 4/4
+With skill✓✓✓✓4/4
 
-##### Product sync — recap
+Product sync — recap
 
-###### Decisions
+Decisions
 
 * Ship the new onboarding flow to 10% of new sign-ups starting Monday.
 * Pause the in-app tour redesign until after launch.
 
-###### Action items
+Action items
 
 * Maya — finalize the rollout plan by Fri May 9.
 * Devon — instrument the new flow for activation rate by Wed May 7.
 * Priya — draft the announcement post by Mon May 12.
 
-###### Open questions
+Open questions
 
 * *Do we need legal sign-off on the new copy before 10%?*
 
 House rules
 
-* ✓ Leads with decisions
-* ✓ Every action item has an owner and a date
-* ✓ Open questions called out
-* ✓ Under 150 words
+* ✓Pass:Leads with decisions
+* ✓Pass:Every action item has an owner and a date
+* ✓Pass:Open questions called out
+* ✓Pass:Under 150 words
 
-Without skill ×××✓ 1/4
+Without skill×××✓1/4
 
-##### Product sync recap
+Product sync recap
 
 The team had a productive discussion about the new onboarding flow this morning. After reviewing the latest mockups, the group decided to move ahead with a 10% rollout starting next Monday. The in-app tour redesign came up but the consensus was to revisit it after launch.
 
-Maya offered to finalize the rollout plan and Devon mentioned he'd look at the instrumentation. Priya is going to draft something for the announcement. There was also some back and forth about whether legal needs to weigh in on the new copy — the team didn't reach a conclusion on that.
+Maya offered to finalize the rollout plan and Devon mentioned he’d look at the instrumentation. Priya is going to draft something for the announcement. There was also some back and forth about whether legal needs to weigh in on the new copy — the team didn’t reach a conclusion on that.
 
 Overall *a productive meeting with clear next steps*.
 
 House rules
 
-* × Leads with decisions
-* × Every action item has an owner and a date
-* × Open questions called out
-* ✓ Under 150 words
+* ×Fail:Leads with decisions
+* ×Fail:Every action item has an owner and a date
+* ×Fail:Open questions called out
+* ✓Pass:Under 150 words
 
 Which one would you send?
 
-I'd send this one
-
-
-I'd send this one
-
-One thing you'd tell Claude to change
-
-Messy input
-
-### Recap a stand-up from rough, partly pasted-in notes
-
-Prompt
-
-Recap the marketing stand-up — notes are pretty rough, half of it is just pasted Slack messages.
-
-With skill ✓✓✓× 3/4
-
-##### Marketing stand-up — recap
-
-###### Decisions
-
-* Move the webinar from May 14 to May 21 to avoid the customer-conference overlap.
-
-###### Action items
-
-* Jordan — update the registration page and re-send invites by Mon May 5.
-* *(owner unclear — confirm with Priya?)* — rework the email cadence around the new date by Wed May 7.
-
-###### Open questions
-
-* Do we need to notify partners who promoted the original date?
-* Who's on point for the rescheduled day-of logistics?
-
-House rules
-
-* ✓ Leads with decisions
-* ✓ Every action item has an owner and a date *(or flagged)*
-* ✓ Open questions called out
-* × Under 150 words *(164)*
-
-Without skill ✓××✓ 2/4
-
-##### Marketing stand-up
-
-The team agreed to push the webinar from May 14 to May 21 because the customer conference is the same week. Jordan will update the landing page and re-send invites.
-
-*Priya will rework the email cadence around the new date.* The team also discussed how to handle the partners who already promoted the original date and the day-of logistics for the new date.
-
-Good progress — everyone's aligned on the move.
-
-House rules
-
-* ✓ Leads with decisions
-* × Every action item has an owner and a date *(invented an owner)*
-* × Open questions called out *(buried in prose)*
-* ✓ Under 150 words
-
-Which one would you send?
-
-I'd send this one
-
-
-I'd send this one
-
-One thing you'd tell Claude to change
-
-Style vs. substance
-
-### Recap for an exec who reads only the first three lines
-
-Prompt
-
-Recap for the exec check-in — keep it brief, they only read the first three lines.
-
-With skill ✓✓✓× 3/4
-
-##### Exec check-in — recap
-
-###### Decisions
-
-* Move the launch from May 28 to *June 12* to absorb the QA delay.
-* Hold the customer-comms plan until the new date is locked.
-
-###### Action items
-
-* Sam — circulate the revised launch plan by Mon May 5.
-
-###### Open questions
-
-* Does the new date affect the Q2 number we committed to?
-
-House rules
-
-* ✓ Leads with decisions
-* ✓ Every action item has an owner and a date
-* ✓ Open questions called out
-* × Headline in the first three lines *(date pushed to line 5)*
-
-Without skill ✓✓×✓ 3/4
-
-##### Exec check-in
-
-*Launch moved to June 12* — QA needs another two weeks for the new auth flow, and shipping on May 28 would land us with a partial release.
-
-Customer comms are on hold until the date is locked. Sam will circulate the revised plan by Monday May 5.
-
-*Open: does the new date affect the Q2 commit?* — flagged for finance to confirm.
-
-House rules
-
-* ✓ Leads with decisions
-* ✓ Every action item has an owner and a date
-* × Open questions called out *(buried in prose)*
-* ✓ Headline in the first three lines
-
-Which one would you send?
-
-I'd send this one
-
-
-I'd send this one
-
-One thing you'd tell Claude to change
-
-**That's a full eval round.** When it's your skill, Claude takes your picks and feedback and revises it for you.
-
-For each pair: pick the version you'd actually send, and write one line of feedback you'd give Claude. That's the whole loop.
-
-### What’s next
-
-In the next lesson, you'll move from "this works for me" to "this works for the team" — the patterns and choices that turn personal workflows into shared infrastructure.
-
-#### Feedback
-
-As you progress through the course, we'd love to hear how you're using concepts from it in your work, plus any feedback you may have. Share your feedback [here](https://docs.google.com/forms/d/e/1FAIpQLScol7ZPi1cxhXy40g0AQieFbhTNQoVNm1Bvvs2gD1giMzOXHQ/viewform).
-
-#### Acknowledgments and license
-
-*Copyright 2026 Anthropic. All rights reserved.*
+One thing you’d tell Claude to change

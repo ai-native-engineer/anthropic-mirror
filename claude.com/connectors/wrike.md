@@ -10,24 +10,23 @@ Access your Wrike workspace directly from Claude to plan, prioritise, update and
 
 ## Tools
 
-* wrike\_get\_tasks
-* wrike\_create\_task
-* wrike\_update\_task
-* wrike\_search\_tasks
-* wrike\_batch\_update\_tasks
-* wrike\_get\_task\_comments
-* wrike\_get\_folder\_project
-* wrike\_search\_folder\_project
-* wrike\_create\_folder\_project
-* wrike\_update\_folder\_project
-* wrike\_get\_spaces
-* wrike\_get\_contacts
-* wrike\_get\_my\_contact\_id
-* wrike\_get\_custom\_fields
-* wrike\_search\_custom\_types
-* wrike\_get\_workflows
-* wrike\_get\_approvals
-* wrike\_convert\_numeric\_id
+* create\_item\_comment
+* get\_item\_comments
+* get\_item\_details
+* get\_my\_inbox
+* get\_users
+* search\_customitemtypes
+* search\_item\_customfields
+* search\_items
+* search\_users
+* search\_workflows
+* get\_approvals
+* search\_approvals
+* create\_project\_folder\_item
+* create\_task\_item
+* get\_items\_children
+* update\_items
+* search\_spaces
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
@@ -57,14 +56,6 @@ Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claud
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
-
-### [Atlassian Rovo](https://claude.com/connectors/atlassian)
-
-Access Jira & Confluence from Claude
-
-[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
-
 ![](https://www.notion.so/images/notion-logo-block-main.svg)
 
 ### [Notion](https://claude.com/connectors/notion)
@@ -72,6 +63,14 @@ Access Jira & Confluence from Claude
 Connect your Notion workspace to search, update, and power workflows across tools
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
+
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
+
+Access Jira & Confluence from Claude
+
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 

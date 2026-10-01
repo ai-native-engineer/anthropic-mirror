@@ -18,25 +18,25 @@ The difference is most noticeable in terminal emulators where rendering throughp
 
 ## Enable fullscreen rendering
 
-Run `/tui fullscreen` inside any Claude Code conversation. The CLI saves the [`tui` setting](/docs/en/settings-reference#tui) and relaunches into fullscreen with your conversation intact, so you can switch mid-session without losing context. Run `/tui default` to switch back to the classic renderer, or `/tui` with no argument to print which renderer is active.
+Run `/tui fullscreen` inside any Claude Code conversation. The CLI saves the [`tui` setting](https://code.claude.com/docs/en/settings-reference#tui) and relaunches into fullscreen with your conversation intact, so you can switch mid-session without losing context. Run `/tui default` to switch back to the classic renderer, or `/tui` with no argument to print which renderer is active.
 
-In [screen reader mode](/docs/en/accessibility), Claude Code always uses the classic renderer except in attached [background sessions](/docs/en/agent-view), which still render fullscreen. If you run `/tui fullscreen` in any other session, Claude Code prints an explanation instead of switching and doesn't change the saved `tui` setting.
+In [screen reader mode](https://code.claude.com/docs/en/accessibility), Claude Code always uses the classic renderer except in attached [background sessions](https://code.claude.com/docs/en/agent-view), which still render fullscreen. If you run `/tui fullscreen` in any other session, Claude Code prints an explanation instead of switching and doesn't change the saved `tui` setting.
 
 Claude Code carries these into the relaunched session:
 
-* The conversation as it appears on screen. After a [`/rewind`](/docs/en/checkpointing#rewind-and-summarize), that means:
+* The conversation as it appears on screen. After a [`/rewind`](https://code.claude.com/docs/en/checkpointing#rewind-and-summarize), that means:
   * If you rewound earlier in the session, Claude Code relaunches from the rewound point, not from the longer transcript saved on disk. For example, if you rewound past your last three messages, the relaunched session opens without them
   * If you rewound to before your first message, Claude Code relaunches with an empty conversation
-* Your [permission mode](/docs/en/permission-modes) and [effort level](/docs/en/model-config#adjust-effort-level)
-* The model you last picked with [`/model`](/docs/en/model-config#setting-your-model)
-* Rules you passed with [`--allowed-tools` or `--disallowed-tools`](/docs/en/cli-reference#cli-flags), and your `--agent`, `--agents`, and `--append-system-prompt` flags
+* Your [permission mode](https://code.claude.com/docs/en/permission-modes) and [effort level](https://code.claude.com/docs/en/model-config#adjust-effort-level)
+* The model you last picked with [`/model`](https://code.claude.com/docs/en/model-config#setting-your-model)
+* Rules you passed with [`--allowed-tools` or `--disallowed-tools`](https://code.claude.com/docs/en/cli-reference#cli-flags), and your `--agent`, `--agents`, `--append-system-prompt`, and `--system-prompt-snapshot` flags
 
 Claude Code declines to relaunch if the session has a restriction it can't pass to the restarted process. Restrictions it can't pass include:
 
-* Launch flags such as a [`--system-prompt`](/docs/en/cli-reference#cli-flags) replacement, a [`--tools`](/docs/en/cli-reference#cli-flags) allowlist, or [`--setting-sources`](/docs/en/cli-reference#cli-flags)
-* Deny or ask rules that a [hook or SDK permission update](/docs/en/hooks#permission-update-entries) added for this session only
+* Launch flags such as a [`--system-prompt`](https://code.claude.com/docs/en/cli-reference#cli-flags) replacement, a [`--tools`](https://code.claude.com/docs/en/cli-reference#cli-flags) allowlist, or [`--setting-sources`](https://code.claude.com/docs/en/cli-reference#cli-flags)
+* Deny or ask rules that a [hook or SDK permission update](https://code.claude.com/docs/en/hooks#permission-update-entries) added for this session only
 
-In that case Claude Code prints [`Cannot switch renderers in this session`](/docs/en/errors#cannot-switch-renderers-in-this-session) with the reasons. It doesn't switch or save anything.
+In that case Claude Code prints [`Cannot switch renderers in this session`](https://code.claude.com/docs/en/errors#cannot-switch-renderers-in-this-session) with the reasons. It doesn't switch or save anything.
 
 You can also set the `CLAUDE_CODE_NO_FLICKER` environment variable before starting Claude Code:
 
@@ -44,25 +44,25 @@ You can also set the `CLAUDE_CODE_NO_FLICKER` environment variable before starti
 CLAUDE_CODE_NO_FLICKER=1 claude
 ```
 
-For how the [`tui`](/docs/en/settings-reference#tui) setting and the variable combine when both are set, see the setting's entry. After a [failed fullscreen start](#fullscreen-renderer-didnt-finish-starting), Claude Code still honors the variable but not the setting. The `/tui` command clears `CLAUDE_CODE_NO_FLICKER` from the relaunched process so the setting it writes takes effect.
+For how the [`tui`](https://code.claude.com/docs/en/settings-reference#tui) setting and the variable combine when both are set, see the setting's entry. After a [failed fullscreen start](#fullscreen-renderer-didnt-finish-starting), Claude Code still honors the variable but not the setting. The `/tui` command clears `CLAUDE_CODE_NO_FLICKER` from the relaunched process so the setting it writes takes effect.
 
 ### Fullscreen by default
 
-Attached [background sessions](/docs/en/agent-view) render fullscreen, and other sessions in [screen reader mode](/docs/en/accessibility) use the classic renderer. Otherwise, Claude Code starts you in the renderer from the first row of this table that matches your setup:
+Attached [background sessions](https://code.claude.com/docs/en/agent-view) render fullscreen, and other sessions in [screen reader mode](https://code.claude.com/docs/en/accessibility) use the classic renderer. Otherwise, Claude Code starts you in the renderer from the first row of this table that matches your setup:
 
-| Your situation                                                                                                                                                                            | Renderer you start in          |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------- |
-| You set [`CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1`](/docs/en/env-vars) or `CLAUDE_CODE_NO_FLICKER=0`                                                                                            | Classic                        |
-| You set `CLAUDE_CODE_NO_FLICKER=1`                                                                                                                                                        | Fullscreen                     |
-| Claude Code [turned fullscreen off after a failed fullscreen start](#fullscreen-renderer-didnt-finish-starting) on this machine                                                           | Classic                        |
-| You're in iTerm2's [`tmux -CC` integration mode](#use-with-tmux), or you're connected over SSH to Claude Code running on Windows                                                          | Classic                        |
-| You saved a [`tui` setting](/docs/en/settings-reference#tui)                                                                                                                                   | The renderer the setting names |
-| Your session doesn't [fetch feature flags from Anthropic](/docs/en/env-vars#features-that-need-feature-flag-fetching), and Claude Code has stopped offering the startup dialog on this machine | Classic                        |
-| Your session doesn't fetch feature flags from Anthropic, and this machine's first Claude Code launch ran v2.1.239 or later                                                                | Fullscreen                     |
-| Your session fetches feature flags from Anthropic, and you first used Claude Code on or after May 6, 2026                                                                                 | Fullscreen                     |
-| Anything else                                                                                                                                                                             | Classic                        |
+| Your situation | Renderer you start in |
+| :- | :- |
+| You set [`CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1`](https://code.claude.com/docs/en/env-vars) or `CLAUDE_CODE_NO_FLICKER=0` | Classic |
+| You set `CLAUDE_CODE_NO_FLICKER=1` | Fullscreen |
+| Claude Code [turned fullscreen off after a failed fullscreen start](#fullscreen-renderer-didnt-finish-starting) on this machine | Classic |
+| You're in iTerm2's [`tmux -CC` integration mode](#use-with-tmux), or you're connected over SSH to Claude Code running on Windows | Classic |
+| You saved a [`tui` setting](https://code.claude.com/docs/en/settings-reference#tui) | The renderer the setting names |
+| Your session doesn't [fetch feature flags from Anthropic](https://code.claude.com/docs/en/env-vars#features-that-need-feature-flag-fetching), and Claude Code has stopped offering the startup dialog on this machine | Classic |
+| Your session doesn't fetch feature flags from Anthropic, and this machine's first Claude Code launch ran v2.1.239 or later | Fullscreen |
+| Your session fetches feature flags from Anthropic, and you first used Claude Code on or after May 6, 2026 | Fullscreen |
+| Anything else | Classic |
 
-Sessions that don't fetch feature flags include those through [Amazon Bedrock](/docs/en/amazon-bedrock), [Google Cloud's Agent Platform](/docs/en/google-vertex-ai), or [Microsoft Foundry](/docs/en/microsoft-foundry), and those with telemetry turned off.
+Sessions that don't fetch feature flags include those through [Amazon Bedrock](https://code.claude.com/docs/en/amazon-bedrock), [Google Cloud's Agent Platform](https://code.claude.com/docs/en/google-vertex-ai), or [Microsoft Foundry](https://code.claude.com/docs/en/microsoft-foundry), and those with telemetry turned off.
 
 If you start in the classic renderer and haven't saved a `tui` setting, Claude Code may open a dialog at startup offering the switch:
 
@@ -76,11 +76,11 @@ Fullscreen rendering changes how the CLI draws to your terminal. The input box s
 
 Because the conversation lives in the alternate screen buffer instead of your terminal's scrollback, a few things work differently:
 
-| Before                                              | Now                                                                            | Details                                                                   |
-| :-------------------------------------------------- | :----------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
-| `Cmd+f` or tmux search to find text                 | `Ctrl+o` for transcript mode, then `/` to search or `[` to write to scrollback | [Search and review the conversation](#search-and-review-the-conversation) |
-| Terminal's native click-and-drag to select and copy | In-app selection, copies automatically on mouse release                        | [Use the mouse](#use-the-mouse)                                           |
-| `Cmd`-click to open a URL                           | `Cmd`-click on macOS, `Ctrl`-click elsewhere                                   | [Use the mouse](#use-the-mouse)                                           |
+| Before | Now | Details |
+| :- | :- | :- |
+| `Cmd+f` or tmux search to find text | `Ctrl+o` for transcript mode, then `/` to search or `[` to write to scrollback | [Search and review the conversation](#search-and-review-the-conversation) |
+| Terminal's native click-and-drag to select and copy | In-app selection, copies automatically on mouse release | [Use the mouse](#use-the-mouse) |
+| `Cmd`-click to open a URL | `Cmd`-click on macOS, `Ctrl`-click elsewhere | [Use the mouse](#use-the-mouse) |
 
 If mouse capture interferes with your workflow, you can [turn it off](#keep-native-text-selection) while keeping the flicker-free rendering.
 
@@ -90,10 +90,14 @@ Fullscreen rendering captures mouse events and handles them inside Claude Code:
 
 * **Click in the prompt input** to position your cursor anywhere in the text you're typing.
 * **Click a suggestion in the `/` command or `@` file list** to accept it. Hovering highlights the row under your cursor.
-* **Click an option in a select menu** to choose it. This covers permission prompts, `/model`, `/config`, and other dialogs that show a list of options. Hovering shows a pointer on the row under your cursor. Requires Claude Code v2.1.187 or later.
+* **Click an option in a select menu** to choose it. This covers permission prompts, `/model`, `/config`, and other dialogs that show a list of options. Hovering shows a pointer on the row under your cursor.
 * **Click an option in a multi-select menu** to toggle it, and click the submit button to confirm your choices. Clicking a free-text row, such as the `Other` row in a multiple-choice question, focuses its input field so you can type an answer. Requires Claude Code v2.1.208 or later.
+* **Click a setting's value in the `/config` panel** to change it, and scroll the settings list with the mouse wheel. Requires Claude Code v2.1.271 or later.
+* **Scroll a select or multi-select menu with the mouse wheel** when it has more options than it shows at once, such as the `/model` list in a short terminal window. The wheel scrolls the list while the pointer is over its options. Requires Claude Code v2.1.280 or later.
+* **Scroll an overflowing list with its scrollbar.** In list panels such as `/skills`, `/mcp`, and `/plugin`'s Installed list, a scrollbar appears beside a list with more rows than fit while the pointer is over it. Click the track to jump to that point, or drag the thumb. Requires Claude Code v2.1.281 or later.
 * **Click a collapsed tool result** to expand it and see the full output. Click again to collapse. The tool call and its result expand together. Only messages that have more to show are clickable.
   * Clicking also expands the output of a `!` shell command, whether an older truncated result or the live progress row while the command runs. Requires Claude Code v2.1.257 or later.
+  * Clicking also expands a dim `Message from @<sender>` line when the sender is a [teammate](https://code.claude.com/docs/en/agent-teams) or another agent running in your session. The line for a message from [one of your other sessions](https://code.claude.com/docs/en/cross-session-messaging#what-a-message-looks-like) also shows the message's first line and isn't clickable, so press `Ctrl+o` to read that one.
 * **Hold `Cmd` on macOS, or `Ctrl` on Linux and Windows, and click a URL or file path** to open it. Plain `http://` and `https://` URLs open in your browser, and file paths in tool output, like the ones printed after an Edit or Write, open in your default application. A plain click without the modifier doesn't open links, matching native terminal behavior.
   * Claude Code renders a network (UNC) path, such as `\\server\share\file.ts`, as plain text with no link, because opening a network path can send your Windows credentials to the host it names.
   * Some macOS terminals forward `Cmd`+click to the running app instead of opening the link themselves, and the terminal mouse protocol has no way to encode the `Cmd` key, so Claude Code receives a plain click. In Ghostty, and in Warp on macOS, Claude Code detects this and lets a plain click on a link open it, and holding `Cmd` still works.
@@ -112,7 +116,7 @@ In the normal prompt view, what happens to an active selection depends on the ke
 * **`Esc`**: Claude Code performs the key's usual action, such as interrupting the running response or dismissing an open dialog, and the selection stays highlighted.
 * **`PgUp`, `PgDn`, `Ctrl+Home`, `Ctrl+End`, or `Shift`, `Alt` or `Option`, or `Cmd`, `Win`, or `Super` with an arrow, `Home`, or `End` key**: the selection stays.
 * **Any other key, including plain arrow keys, `Enter`, and typed characters**: Claude Code clears the selection.
-* **A key bound to [`selection:clear`](/docs/en/keybindings#scroll-actions)**: Claude Code clears the selection, even when the key is `Esc` or another key that otherwise keeps it. The action has no default binding.
+* **A key bound to [`selection:clear`](https://code.claude.com/docs/en/keybindings#scroll-actions)**: Claude Code clears the selection, even when the key is `Esc` or another key that otherwise keeps it. The action has no default binding.
 
 In [transcript mode](#search-and-review-the-conversation), the navigation and search keys listed there also keep the selection.
 
@@ -120,14 +124,14 @@ In [transcript mode](#search-and-review-the-conversation), the navigation and se
 
 Fullscreen rendering handles scrolling inside the app. Use these shortcuts to navigate:
 
-| Shortcut        | Action                                               |
-| :-------------- | :--------------------------------------------------- |
-| `PgUp` / `PgDn` | Scroll up or down by half a screen                   |
-| `Ctrl+Home`     | Jump to the start of the conversation                |
-| `Ctrl+End`      | Jump to the latest message and re-enable auto-follow |
-| Mouse wheel     | Scroll a few lines at a time                         |
+| Shortcut | Action |
+| :- | :- |
+| `PgUp` / `PgDn` | Scroll up or down by half a screen |
+| `Ctrl+Home` | Jump to the start of the conversation |
+| `Ctrl+End` | Jump to the latest message and re-enable auto-follow |
+| Mouse wheel | Scroll a few lines at a time |
 
-You can scroll back to the start of the session even after [compaction](/docs/en/context-window#what-survives-compaction). Claude continues working from the compaction summary, but Claude Code keeps every earlier message in the fullscreen scrollback across repeated compactions.
+You can scroll back to the start of the session even after [compaction](https://code.claude.com/docs/en/context-window#what-survives-compaction). Claude continues working from the compaction summary, but Claude Code keeps every earlier message in the fullscreen scrollback across repeated compactions.
 
 On keyboards without dedicated `PgUp`, `PgDn`, `Home`, or `End` keys, like MacBook keyboards, hold `Fn` with the arrow keys: `Fn+↑` sends `PgUp`, `Fn+↓` sends `PgDn`, `Fn+←` sends `Home`, and `Fn+→` sends `End`. `Ctrl+Fn+→` doesn't reach Claude Code on macOS, so a MacBook keyboard has no working jump-to-bottom chord by default. Instead, use one of these options:
 
@@ -135,7 +139,7 @@ On keyboards without dedicated `PgUp`, `PgDn`, `Home`, or `End` keys, like MacBo
 * Scroll to the bottom with the mouse wheel to resume following.
 * Rebind `scroll:bottom` to a chord your keyboard can send.
 
-These actions are rebindable. See [Scroll actions](/docs/en/keybindings#scroll-actions) for the full list of action names, including half-page and full-page variants that have no default binding.
+These actions are rebindable. See [Scroll actions](https://code.claude.com/docs/en/keybindings#scroll-actions) for the full list of action names, including half-page and full-page variants that have no default binding.
 
 While you're scrolled up, a dim header row at the top of the conversation shows the most recent prompt that has scrolled above the view. Click the row to jump to that prompt.
 
@@ -145,7 +149,7 @@ Scrolling up pauses auto-follow so new output doesn't pull you back to the botto
 
 While auto-follow is paused, the view also stays where you scrolled it when a response finishes streaming.
 
-The button's keyboard hint reflects what your keyboard can send. On macOS it suggests clicking, or `Fn+↓` to scroll, because `Ctrl+End` doesn't reach Claude Code from a Mac keyboard. Rebind [`scroll:bottom`](/docs/en/keybindings#scroll-actions) and the button shows your chord on every platform.
+The button's keyboard hint reflects what your keyboard can send. On macOS it suggests clicking, or `Fn+↓` to scroll, because `Ctrl+End` doesn't reach Claude Code from a Mac keyboard. Rebind [`scroll:bottom`](https://code.claude.com/docs/en/keybindings#scroll-actions) and the button shows your chord on every platform.
 
 On a terminal too narrow for the full label, the button shortens the hint instead of wrapping onto the transcript row underneath.
 
@@ -169,7 +173,7 @@ To adjust scroll speed interactively, run `/scroll-speed`. The dialog shows a ru
 
 The command writes the same value the `CLAUDE_CODE_SCROLL_SPEED` environment variable sets, persisted to `~/.claude/settings.json`. The dialog's maximum is 10: if you set a higher value through the environment variable, the dialog shows 10, and saving from the dialog persists 10. The command isn't available in the JetBrains IDE terminal.
 
-Separately from the base speed, Claude Code accelerates the scroll rate when you spin the wheel quickly, so a fast spin covers more distance than the same number of slow notches. To turn acceleration off and keep a constant rate per notch, set `wheelScrollAccelerationEnabled` to `false` in [`settings.json`](/docs/en/settings-reference#all-settings). This setting requires Claude Code v2.1.174 or later.
+Separately from the base speed, Claude Code accelerates the scroll rate when you spin the wheel quickly, so a fast spin covers more distance than the same number of slow notches. To turn acceleration off and keep a constant rate per notch, set `wheelScrollAccelerationEnabled` to `false` in [`settings.json`](https://code.claude.com/docs/en/settings-reference#all-settings). This setting requires Claude Code v2.1.174 or later.
 
 ### Scroll in the JetBrains IDE terminal
 
@@ -185,16 +189,16 @@ For a quieter view that shows only your last prompt, a one-line summary of tool 
 
 Transcript mode gains `less`-style navigation and search:
 
-| Key                                  | Action                                                                                                 |
-| :----------------------------------- | :----------------------------------------------------------------------------------------------------- |
-| `/`                                  | Open search. Type to find matches, `Enter` to accept, `Esc` to cancel and restore your scroll position |
-| `n` / `N`                            | Jump to next or previous match. Works after you've closed the search bar                               |
-| `j` / `k` or `↑` / `↓`               | Scroll one line                                                                                        |
-| `g` / `G` or `Home` / `End`          | Jump to top or bottom                                                                                  |
-| `{` / `}`                            | Jump to the previous or next prompt                                                                    |
-| `Ctrl+u` / `Ctrl+d`                  | Scroll half a page                                                                                     |
-| `Ctrl+b` / `Ctrl+f` or `Space` / `b` | Scroll a full page                                                                                     |
-| `Ctrl+o`, `Esc`, or `q`              | Exit transcript mode and return to the prompt                                                          |
+| Key | Action |
+| :- | :- |
+| `/` | Open search. Type to find matches, `Enter` to accept, `Esc` to cancel and restore your scroll position |
+| `n` / `N` | Jump to next or previous match. Works after you've closed the search bar |
+| `j` / `k` or `↑` / `↓` | Scroll one line |
+| `g` / `G` or `Home` / `End` | Jump to top or bottom |
+| `{` / `}` | Jump to the previous or next prompt |
+| `Ctrl+u` / `Ctrl+d` | Scroll half a page |
+| `Ctrl+b` / `Ctrl+f` or `Space` / `b` | Scroll a full page |
+| `Ctrl+o`, `Esc`, or `q` | Exit transcript mode and return to the prompt |
 
 Your terminal's `Cmd+f` and tmux search don't see the conversation because it lives in the alternate screen buffer, not the native scrollback. To hand the content back to your terminal, press `Ctrl+o` to enter transcript mode first, then:
 
@@ -203,15 +207,15 @@ Your terminal's `Cmd+f` and tmux search don't see the conversation because it li
 
 ## Watch your changes in the diff panel
 
-In fullscreen rendering, [`/diff`](/docs/en/interactive-mode#review-changes-with-%2Fdiff) opens a panel beside the conversation rather than a viewer you have to close, so you can watch the changes accumulate while Claude works. In a wide terminal the panel can also open on its own once Claude starts editing files. [Diff panel](/docs/en/interactive-mode#diff-panel) covers what it shows, how to keep it closed, and how to change what it compares against.
+In fullscreen rendering, [`/diff`](https://code.claude.com/docs/en/interactive-mode#review-changes-with-%2Fdiff) opens a panel beside the conversation rather than a viewer you have to close, so you can watch the changes accumulate while Claude works. In a wide terminal the panel can also open on its own once Claude starts editing files. [Diff panel](https://code.claude.com/docs/en/interactive-mode#diff-panel) covers what it shows, how to keep it closed, and how to change what it compares against.
 
 ## Clear the conversation
 
 Run `/clear` to start a new conversation.
 
-To clear the screen and keep the conversation, press `Ctrl+L`. The earlier messages scroll up out of view, and you can scroll back with `PgUp` or the mouse wheel to read them again. Before v2.1.260, `Ctrl+L` redrew the screen without clearing it. Before v2.1.238, pressing it twice within two seconds ran `/clear`.
+If the display looks garbled or partially blank, press `Ctrl+L` to redraw the screen. The redraw keeps the conversation and your input in place.
 
-`Cmd+K` does the same as `Ctrl+L` when your terminal passes it through to Claude Code. iTerm2 and Terminal.app handle `Cmd+K` themselves, and Claude Code redraws the conversation instead of clearing it, so press `Ctrl+L` on those terminals.
+`Cmd+K` does the same as `Ctrl+L` when your terminal passes it through to Claude Code. iTerm2 and Terminal.app handle `Cmd+K` themselves and clear their own screen, and Claude Code detects the cleared screen and repaints the conversation. Before v2.1.280, starting with v2.1.260, pressing `Ctrl+L`, or `Cmd+K` where it reaches Claude Code, cleared the screen in fullscreen rendering. Before v2.1.238, pressing `Ctrl+L` twice within two seconds ran `/clear`.
 
 ## Use with tmux
 
@@ -241,7 +245,7 @@ Claude Code writes the selection to your system clipboard, and the path it uses 
 
 Inside tmux it also writes to the tmux paste buffer. Over SSH it falls back to OSC 52 escape sequences. Inside GNU screen, Claude Code copies long selections to the clipboard too. Before v2.1.219, if you copied a selection longer than roughly 570 characters, GNU screen printed base64 text into the window instead. Claude Code prints a toast after each copy telling you which path it used.
 
-Some terminals block OSC 52 by default. iTerm2 blocks it until you turn on Settings → General → Selection → Applications in terminal may access clipboard; running [`/terminal-setup`](/docs/en/terminal-config) in iTerm2 enables this for you.
+Some terminals block OSC 52 by default. iTerm2 blocks it until you turn on Settings → General → Selection → Applications in terminal may access clipboard; running [`/terminal-setup`](https://code.claude.com/docs/en/terminal-config) in iTerm2 enables this for you.
 
 For a one-off native selection, the key to use depends on your terminal:
 
@@ -260,9 +264,9 @@ If you rely on native selection all the time, set `CLAUDE_CODE_DISABLE_MOUSE=1` 
 CLAUDE_CODE_NO_FLICKER=1 CLAUDE_CODE_DISABLE_MOUSE=1 claude
 ```
 
-With mouse capture disabled, keyboard scrolling with `PgUp`, `PgDn`, `Ctrl+Home`, and `Ctrl+End` still works, and your terminal handles selection natively. You lose click-to-position-cursor, click-to-expand tool output, URL clicking, and wheel scrolling inside Claude Code.
+With mouse capture disabled, keyboard scrolling with `PgUp`, `PgDn`, `Ctrl+Home`, and `Ctrl+End` still works, and your terminal handles selection natively. You lose click-to-position-cursor, click-to-expand, URL clicking, and wheel scrolling inside Claude Code.
 
-To keep wheel scrolling but turn off click, drag, and hover handling, set `CLAUDE_CODE_DISABLE_MOUSE_CLICKS=1` instead. Requires Claude Code v2.1.195 or later. `CLAUDE_CODE_DISABLE_MOUSE` takes precedence when both variables are set.
+To keep wheel scrolling but turn off click, drag, and hover handling, set `CLAUDE_CODE_DISABLE_MOUSE_CLICKS=1` instead. `CLAUDE_CODE_DISABLE_MOUSE` takes precedence when both variables are set.
 
 With clicks disabled, Claude Code still captures the mouse, so the wheel and touchpad scroll the conversation but left clicks do nothing inside Claude Code. You still need to hold your terminal's key for native click-and-drag selection. Right-click and middle-click paste continue to work on terminals that support them.
 
@@ -272,7 +276,7 @@ With clicks disabled, Claude Code still captures the mouse, so the wheel and tou
 
 Fullscreen rendering sends only the cells that changed between frames. Some terminals, most commonly Windows Terminal and other ConPTY-backed hosts, coalesce these positioned writes incorrectly and leave fragments of earlier output on screen until you resize the window.
 
-Set [`CLAUDE_CODE_ALT_SCREEN_FULL_REPAINT=1`](/docs/en/env-vars) to repaint every cell on every frame instead of sending incremental updates.
+Set [`CLAUDE_CODE_ALT_SCREEN_FULL_REPAINT=1`](https://code.claude.com/docs/en/env-vars) to repaint every cell on every frame instead of sending incremental updates.
 
 On Windows PowerShell:
 
@@ -287,7 +291,7 @@ On macOS or Linux:
 CLAUDE_CODE_ALT_SCREEN_FULL_REPAINT=1 claude
 ```
 
-On Windows, Claude Code already enables full repaint automatically for background sessions and [agent view](/docs/en/agent-view), so you only need to set the variable for an interactive fullscreen session you launched directly.
+On Windows, Claude Code already enables full repaint automatically for background sessions and [agent view](https://code.claude.com/docs/en/agent-view), so you only need to set the variable for an interactive fullscreen session you launched directly.
 
 <h3 id="fullscreen-renderer-didnt-finish-starting">
   `Claude Code's fullscreen renderer didn't finish starting last time` appears at startup
@@ -319,4 +323,4 @@ If you encounter a problem, run `/feedback` inside Claude Code to report it, or 
 
 To turn fullscreen rendering off, run `/tui default`, or unset `CLAUDE_CODE_NO_FLICKER` if you enabled it that way. When you switch back with `/tui default`, Claude Code may first show an optional feedback prompt asking what made you switch. Type a reason and press `Enter` to send it, or press `Esc` to skip. The CLI relaunches into the classic renderer either way. To force the classic renderer regardless of the saved `tui` setting, set `CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1`. The classic renderer keeps the conversation in your terminal's native scrollback so `Cmd+f` and tmux copy mode work as usual.
 
-Background sessions opened from [agent view](/docs/en/agent-view) or `claude attach` always use fullscreen rendering. The attaching terminal enters the alternate screen buffer to show the session, and the classic renderer has no scrollback or mouse handling there, so the `tui` setting and `CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN` don't apply to them.
+Background sessions opened from [agent view](https://code.claude.com/docs/en/agent-view) or `claude attach` always use fullscreen rendering. The attaching terminal enters the alternate screen buffer to show the session, and the classic renderer has no scrollback or mouse handling there, so the `tui` setting and `CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN` don't apply to them.

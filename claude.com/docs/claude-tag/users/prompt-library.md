@@ -115,6 +115,16 @@ Create, audit, and stop the scheduled jobs Claude runs in this channel. For past
 
 **Why it works**: you name which job. Any channel member can disable a scheduled job; you don’t need to find an admin to stop a noisy routine.
 
+##  Fan out work across threads
+
+Give Claude a list of independent tasks in a channel thread, and ask it to open one thread per task. Claude posts a top-level message for each task in the same channel, works in the replies under it, and replies in the thread where you asked with a link to each new thread.
+
+```
+@Claude for each of these issues, start a new thread in this channel and fix it there. Open a draft PR in each, and post the links here when the threads are up.
+```
+
+**Why it works**: each new thread [runs its own session](https://claude.com/docs/claude-tag/users/good-habits#start-a-new-thread-for-a-new-task) in its own sandbox, so the tasks run at the same time and you can review each one on its own. To continue one existing discussion in a new thread instead, use [`!fork`](https://claude.com/docs/claude-tag/users/commands#fork-a-thread).
+
 ##  Steer work mid-thread
 
 Reply in the same thread; once Claude is working there, you don’t need to @-mention it again.

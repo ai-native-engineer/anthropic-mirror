@@ -14,6 +14,8 @@ We study realism win rate, a metric for measuring how distinguishable [Petri](ht
 
 Research done as part of the [Anthropic Fellows Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
 
+---
+
 Automated auditing agents like [Petri](https://alignment.anthropic.com/2025/petri/) are increasingly used to evaluate the propensities of LLMs. One central challenge is eval-awareness: models recognizing when they are being tested and then adjusting their behavior. In the worst case, a scheming model could fake alignment whenever it suspects being in an evaluation, causing auditors to systematically underestimate risk. Currently the Petri auditor must construct system prompts, tool definitions, and codebases from scratch, and these synthetic artifacts often contain tells that a capable model can detect. This motivates the need to measure and improve the realism of audits.
 
 Previous work primarily measured realism by either seeing if models verbalized situational awareness ([Goldowsky-Dill et al.](https://www.lesswrong.com/posts/E3daBewppAiECN3Ao/claude-sonnet-3-7-often-knows-when-it-s-in-alignment), [Sonnet 4.5 System Card](https://www-cdn.anthropic.com/963373e433e489a87a10c823c52a0a013e9172dd.pdf)) (which would fail to catch unverbalized situational awareness), or asking the model if a transcript was realistic post hoc ([Needham et al.](https://arxiv.org/abs/2505.23836?), [Ivanov and Kadochnikov](https://www.lesswrong.com/posts/TBk2dbWkg2F7dB3jb/it-s-hard-to-make-scheming-evals-look-realistic-for-llms), [Williams et al.](https://alignment.openai.com/prod-evals/)), which is hard to interpret because it’s unclear how well calibrated models are at answering this kind of question.
@@ -28,6 +30,8 @@ Overall, our results suggest that practitioners should consider giving auditing 
 ![](https://alignment.anthropic.com/2026/coding-audit-realism/fig1.png)
 
 Average realism win rate across 5 reward hacking Petri audit scenarios. Realism win rate measures how often an LLM judge (Sonnet 4.5 with thinking) selects the audit transcript over a real Claude Code transcript as more realistic. Giving the auditor access to real system prompts, tool definitions, and codebases increases average win rate from 4.6% to 32.8%.
+
+---
 
 ## Methods
 
@@ -70,6 +74,8 @@ Resource-specific tools: We equip the Petri auditor with four new tools that ar
 * read\_file: allows the auditor to read full files in its resources.
 * send\_file\_as\_tool\_result: allows the auditor to send large files directly to the target (with optional edits) as tool results.
 * search\_in\_files: allows the auditor to do grep-like searches in codebase resources and send the results directly to the target.
+
+---
 
 ## Results
 
@@ -149,6 +155,8 @@ Sonnet 4.5 reward hacking rates by auditor affordance. We find that though resou
 
 It’s worth noting that this is only a preliminary step in investigating how realism affects target behavior. These results might vary wildly by target model, task, and realism thresholds (e.g. maybe models will only change behavior if they are 99%+ confident if they are in deployment or an eval). We leave further analysis to future work.
 
+---
+
 ## Limitations
 
 Our results have several limitations. We focus on agentic coding scenarios, which is only a small slice of the deployment contexts we want to simulate with audits. We found negative results in improving chat focussed audits (see Appendix H and our companion [post](https://www.lesswrong.com/posts/jdoDvKGLbaaJWnDpE/tools-to-generate-realistic-prompts-help-surprisingly-little)), where further work is needed to improve realism.
@@ -157,9 +165,13 @@ Our primary metric, realism win rate, is highly dependent on the deployment data
 
 Finally, we only focus on a small set of auditor, target, and judge models. The effectiveness of resources may vary based on the models used in audits.
 
+---
+
 ## Acknowledgements
 
 We’d like to thank Kai Fronsdal for helpful feedback on both this post and our Petri PR. We’re also grateful to Oscar Balcells Obeso, Robert Kirk, Aengus Lynch, Jordan Taylor, Joseph Bloom, and Thomas Read for valuable discussion.
+
+---
 
 ## Appendix
 

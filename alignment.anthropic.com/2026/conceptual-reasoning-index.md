@@ -15,6 +15,8 @@ We aggregate the benchmarks into the Conceptual Reasoning Index (CRI), available
 
 This work was done in collaboration with Anthropic.
 
+---
+
 ## Background
 
 Once models can perform work that reduces AI risk at the level of human experts, AI(-assisted) output in the area might dwarf unassisted human output. This suggests that a major determinant of whether we address AI risks in time is how early we can automate or uplift this work, relative to high-risk capabilities. One way to influence this might be to selectively improve models' relevant skills, such as reasoning about how to govern and align AI and how to avoid catastrophic cooperation failures involving AI.
@@ -26,6 +28,8 @@ Current AI training depends heavily on abundant data and reliable feedback on th
 * Lastly, some important questions, such as which values AIs should have, may lack a ground truth entirely (yet we still think progress can be made by arguing about these questions).
 
 Given these properties, efforts to reduce risk from advanced AI may particularly benefit from an improved ability to reason about questions where empirical evidence is limited, there is no (practically) verifiable answer, and one therefore has to rely heavily on argumentation. We refer to this as conceptual reasoning. Improving this capability requires being able to measure it, so we built three benchmarks: [LMCA](https://conceptualreasoning.ai/lmca), [ACCoRD](https://conceptualreasoning.ai/accord), and [DTBench capabilities](https://conceptualreasoning.ai/dtbench). We also construct an aggregate of these benchmarks, the Conceptual Reasoning Index (CRI), to give a sense of models' overall conceptual reasoning capabilities.
+
+---
 
 ## Our benchmarks
 
@@ -55,6 +59,8 @@ The ACCoRD dataset contains close to 14,000 model-generated consistency constrai
 
 The full DTBench suite includes an additional 130 questions that measure models' decision-theoretic attitudes. We do not include these in the CRI.
 
+---
+
 ## Results
 
 The chart below shows the CRI scores of Anthropic's best models and the highest-scoring model from each other AI company we evaluated, as of August 10, 2026. We also include scores for Claude Fable 5, Muse Spark 1.2, and Gemini 3.6 Flash, which are their respective companies’ top-performing models on many external benchmarks, though not on the CRI. The CRI is currently a weighted average of LMCA (60%), ACCoRD (20%), and DTBench capabilities (20%). In the future, we plan to add new benchmarks to the index, retire saturated ones, and potentially adjust the relative weights.
@@ -76,6 +82,8 @@ The highest-scoring models on both LMCA and ACCoRD are still well below these be
 ![](https://alignment.anthropic.com/2026/conceptual-reasoning-index/fig3.png)
 
 Each plotted data point is the score of the respective lab's most generally capable model at the time of release. The shaded band is the trend line's 95% confidence interval. The ACCoRD score of GPT-4 is based on incomplete data since the model refused to fully answer 18% of the benchmark's items.
+
+---
 
 ## Conclusion
 

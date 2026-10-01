@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/streamablehttp-in-depth -->
 
-Lesson 10 of 11 · Model Context Protocol: Advanced TopicsStreamableHTTP in depth
+Lesson 10 of 11 · Model Context Protocol: Advanced topicsStreamableHTTP in depth
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # StreamableHTTP in depth
 
@@ -75,7 +75,7 @@ When building MCP applications with StreamableHTTP, remember that session IDs ar
 
 [Previous lessonThe StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport)[Next lessonState and the StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/state-and-the-streamablehttp-transport)
 
-Lesson 10 of 11 · Model Context Protocol: Advanced TopicsStreamableHTTP in depth
+Lesson 10 of 11 · Model Context Protocol: Advanced topicsStreamableHTTP in depth
 
 Core MCP features
 

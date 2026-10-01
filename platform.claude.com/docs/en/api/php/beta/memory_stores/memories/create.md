@@ -17,6 +17,8 @@ Create a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store to create the memory in (`memstore_...`).
+
 - `content: string`
 
   UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
@@ -27,7 +29,7 @@ Create a memory
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -35,9 +37,13 @@ Create a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -55,7 +61,7 @@ Create a memory
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
   - `string memoryStoreID`
 
@@ -63,7 +69,7 @@ Create a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -71,7 +77,7 @@ Create a memory
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `?string content`
 

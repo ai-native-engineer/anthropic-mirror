@@ -4,33 +4,21 @@ Q&A | Claude Managed Agents
 
 # Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Rakuten logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5faa6352b26bf7542cb9b_logo_rakuten-light.svg)![Rakuten logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5fab610bf0d091b541153_logo_rakuten-dark.svg)
+![Rakuten logo](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
 Industry:
-
-Ecommerce
+:   Ecommerce
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Managed Agents
-
-[Claude Platform](https://claude.com/platform/api)
+:   Claude Managed Agents[Claude Platform](https://claude.com/platform/api)
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 Major releases every two weeks
 
@@ -42,35 +30,11 @@ in initial critical errors
 
 Claude Managed Agents: Get to production 10x faster
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d6874d9013e4890f253b80_managed-agents-og.jpg)
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
-Read more
-
-[Read more](https://claude.com/blog/claude-managed-agents)Read more
-
-Claude Managed Agents: Get to production 10x faster
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Managed Agents: Get to production 10x faster
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/blog/claude-managed-agents)
 
 [Rakuten](https://www.rakuten.com/) is a global technology company with over 70 businesses spanning e-commerce, travel, fintech, digital content, and communications. As part of its company-wide "AI-nization" strategy, the company moved from using Claude Code to accelerate software development to building AI agents that work alongside employees in every business function. Yusuke Kaji, General Manager of AI for Business at Rakuten, spoke with Anthropic about why the team adopted Claude Managed Agents, what it took to go from experiment to production, and what changes when employees start delegating outcomes to agents instead of tasks. The following conversation has been edited for length and clarity.
 
@@ -90,11 +54,9 @@ In practice, we integrate agents with Slack, Microsoft Teams, and our own Kanban
 
 We learned we can get things done anywhere, particularly from our mobile devices. Information density tends to be sparse in written communication. By natively supporting mobile, we use voice to communicate with agents, capturing more detail about the problem we want to solve while assigning tasks on the go. We see this as especially encouraging because we have Rakuten Mobile as a mobile communications business. We democratized the telecom industry, and now, using this mobile network, we can democratize innovation with AI agents.
 
-“Technical innovation starts with a small group of users and then quickly scales to change the world. We see the agent as the next wave of that pattern.”
+> “Technical innovation starts with a small group of users and then quickly scales to change the world. We see the agent as the next wave of that pattern.”
 
-Yusuke Kaji
-
-General Manager of AI for Business at Rakuten
+Yusuke KajiGeneral Manager of AI for Business at Rakuten
 
 ## Walk us through how the task system works in practice. What does a typical workflow look like?
 
@@ -130,84 +92,22 @@ When agents retain memory at scale, the organization itself learns. Today, insti
 
 Case Study: Rakuten
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d68a29adf244215ac55985_og_case-study-rakuten.jpg)
+![Case Study: Rakuten](https://assets.claude.com/93db54b4af90793b8d000d9690f17d18c86facf7.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Rakuten uses Claude Code to accelerate software development, achieving 7 hours of autonomous coding and reducing feature delivery time from 24 days to 5 with 99.9% accuracy.
 
-Read more
+[Read more](https://claude.com/customers/rakuten)
 
-[Read more](https://claude.com/customers/rakuten)Read more
+> “With Managed Agents, our power users become like Galileo, contributing across domains far beyond a single specialty or discipline. We deploy each specialist agent within a week”
 
-Case Study: Rakuten
+Yusuke KajiGeneral Manager of AI for Business at Rakuten
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Reversia](https://assets.claude.com/86b324fdb04166c3b115b1cf48071e52e83d08cf.svg)
 
-[Next](#)Next
+### Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-Rakuten uses Claude Code to accelerate software development, achieving 7 hours of autonomous coding and reducing feature delivery time from 24 days to 5 with 99.9% accuracy.
+### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
-Video caption
+### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)[![L'Oreal](https://assets.claude.com/206c93e387b69b9a7fe23c7b2d3d33d66bc0fc60.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: Rakuten
-
-Rakuten uses Claude Code to accelerate software development, achieving 7 hours of autonomous coding and reducing feature delivery time from 24 days to 5 with 99.9% accuracy.
-
-“With Managed Agents, our power users become like Galileo, contributing across domains far beyond a single specialty or discipline. We deploy each specialist agent within a week”
-
-Yusuke Kaji
-
-General Manager of AI for Business at Rakuten
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
-
-Reversia translates e-commerce stores across 110+ languages with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/reversia)Customer story
-
-[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
-
-Rakuten accelerates development with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten)Customer story
-
-[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-Customer story
-
-[Customer story](https://claude.com/customers/shopify)Customer story
-
-[L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)L'Oréal advances conversational analytics with Claude
-
-L'Oréal advances conversational analytics with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/loreal)Customer story
+### L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)

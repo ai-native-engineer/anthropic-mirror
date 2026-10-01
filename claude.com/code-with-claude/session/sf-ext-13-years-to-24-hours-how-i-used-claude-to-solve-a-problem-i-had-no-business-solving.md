@@ -4,38 +4,28 @@
 
 How a marketing hire at a wholesale cigar company used Claude Code to out-ship his dev agency and become the most effective engineer his company never hired, and the four-part framework anyone can borrow.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 7, 2026
+:   May 7, 2026
 
 Time
-
-01:20PM – 01:50PM
+:   01:20PM – 01:50PM
 
 Speaker(s)
+:   Philip Parkinson
 
-Philip Parkinson
+    Innovation Specialist,
 
-Innovation Specialist,
+    SZ Wholesale
 
-SZ Wholesale
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+The cigar company's accidental engineer | Session | Code w/ Claude 2026

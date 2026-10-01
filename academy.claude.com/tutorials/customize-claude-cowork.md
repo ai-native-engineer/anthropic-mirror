@@ -12,7 +12,7 @@ The set up that makes Claude Cowork specific to your work or team.
 
 [Open Cowork](claude://cowork/new)
 
-![](https://academy.claude.com/assets/v1/thumbnail.light-jeypcq29.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bsl631sl.png)
+![](https://academy.claude.com/assets/v1/thumbnail.light-elo1j6u1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bl2sp83f.png)
 
 [Claude Cowork(opens in new tab)](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) runs full tasks across your files and tools. Customizing it once means every task after that starts with your systems connected and your team's process already in place. For the quickstart, see [Get started in Cowork in three steps(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps).
 
@@ -20,7 +20,7 @@ The set up that makes Claude Cowork specific to your work or team.
 
 ### **Connectors**[](#connectors)
 
-[Connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) plug Cowork into the systems where your work already is — Slack, HubSpot, Microsoft 365, Jira, your company's internal tools — giving it the context to understand a task and the ability to act on it. With a connector enabled, Claude can read your data *and* write back: update a ticket, draft a reply, post to a channel, save a file.
+[Connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) plug Cowork into the systems where your work already is — Slack, [Salesforce(opens in new tab)](https://claude.ai/desktop/directory/salesforce-headless-360), Microsoft 365, Jira, your company's internal tools — giving it the context to understand a task and the ability to act on it. With a connector enabled, Claude can read your data *and* write back: update a ticket, draft a reply, post to a channel, save a file.
 
 Enable connectors from the **Customize** panel in the left sidebar. Authorize once; Claude can then use that tool in any session.
 
@@ -30,7 +30,7 @@ Enable connectors from the **Customize** panel in the left sidebar. Authorize on
 
 Instructions are standing rules you write for how Claude should work — tone, formatting, which sources to check first, conventions to follow. Set them at two levels:
 
-**1. Global instructions** apply to every Cowork session you run. *Edit them at Settings → Cowork → Global instructions (desktop app only).*
+**1. Global instructions** apply to every Cowork session you run. *Edit them in Settings, under Global instructions (called Instructions for Claude in some versions of the app).*
 
 **2. Project instructions** apply only inside that Project, on top of your global ones. *Edit them in the* [*Project's*(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) *right panel under Instructions.*
 
@@ -82,7 +82,7 @@ Once you're set up, additional Cowork features can take you further:
 
 For more on working in Cowork:
 
-* [When to use Chat vs Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) — how to choose the right mode for the task you're working on.
+* [Choosing between Claude Cowork or Chat(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) — when a task is worth handing over and when a conversation is enough.
 * [Building plugins from scratch(opens in new tab)](https://academy.claude.com/tutorials/how-to-build-a-plugin-from-scratch-in-cowork) — when the marketplace doesn't have what you need.
 
 * [Level 1: Your context and tools](#level-1-your-context-and-tools)

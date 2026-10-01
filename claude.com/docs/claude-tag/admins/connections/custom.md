@@ -46,7 +46,9 @@ After saving, where the credential has an allow rule, you can narrow it by HTTP 
 | **GCP IAP (with Service Account Key)** | Google Cloud services behind Identity-Aware Proxy |
 | **OAuth 2.0 JWT bearer** | APIs that accept a JWT signed with your private key in exchange for an access token (DocuSign, for example) |
 | **OAuth 2.0 client credentials** | Machine-to-machine OAuth with a client ID and secret |
-| **MCP Connector** | OAuth sign-in. Sign in once as an admin; the agent acts as that account. |
+| **MCP Connector** | OAuth sign-in to one of the providers in the picker or to a [remote MCP connector](https://claude.com/docs/connectors/custom/add-unlisted) your organization has added on claude.ai. Sign in once as an admin; the agent acts as that account. Other OAuth APIs can’t be connected this way. |
+
+The **MCP Connector** type signs in to a connector from your organization’s connector library. If you register a new connector from this form with **Add custom connector…**, that connector is added to the library on the **Connectors** page at [`claude.ai/admin-settings/connectors`](https://claude.ai/admin-settings/connectors), not only to the bundle. Removing the connection from the bundle later leaves the library entry in place.
 
 For GitHub repositories, use the GitHub connection at [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github) rather than a credential from this table.
 If you’re unsure which type, check the service’s API authentication docs for which header or flow it expects.
@@ -58,9 +60,10 @@ Agent Proxy signs requests to hostnames in these forms:
 
 * `service.region.amazonaws.com`
 * S3 virtual-hosted-style endpoints, for example `my-bucket.s3.us-east-1.amazonaws.com`
-* The regionless hosts of global AWS services such as IAM, STS, and CloudFront
+* Service hostnames with extra parts before the service name, as long as the region is the last part before `amazonaws.com`, for example the Amazon ECR API host `api.ecr.us-east-1.amazonaws.com` or the host of an API Gateway invoke URL, `abc123.execute-api.us-east-1.amazonaws.com`
+* Hosts with no region for S3 and for a fixed set of services that includes IAM, STS, Route 53, CloudFront, and Organizations, for example `iam.amazonaws.com` or `sts.amazonaws.com`
 
-Apart from S3 virtual-hosted-style endpoints, Agent Proxy can’t read the service from a hostname that has extra parts before the service name, so requests to those hosts fail before reaching AWS. Examples include the host of an API Gateway invoke URL, such as `abc123.execute-api.us-east-1.amazonaws.com`, and the host of an Amazon Managed Workflows for Apache Airflow (MWAA) environment. The proxy also can’t sign requests to an API Gateway custom domain or to a non-AWS API that uses Signature Version 4.
+Requests to other hostnames fail before reaching AWS. Agent Proxy can’t sign a request to a hostname with no region for any other service, such as `ec2.amazonaws.com`, or to a hostname with the region before the service name, such as an OpenSearch domain endpoint (`my-domain.us-east-1.es.amazonaws.com`). It also can’t sign requests to an API Gateway custom domain or to a non-AWS API that uses Signature Version 4.
 
 | Field | Value |
 | --- | --- |
@@ -70,7 +73,7 @@ Apart from S3 virtual-hosted-style endpoints, Agent Proxy can’t read the servi
 | Allowed websites | The AWS service endpoint host, for example `s3.us-east-1.amazonaws.com` or `lambda.us-east-1.amazonaws.com` |
 
 Use long-lived credentials from a dedicated IAM user where you can. Temporary STS credentials work but expire on their own schedule, and the connection stops working when they do; you re-enter all three values to rotate.
-Claude can call the endpoint with `curl`, an AWS SDK, or the AWS CLI. The sandbox holds no real AWS credentials, so a CLI or SDK signs the request with placeholder values; Agent Proxy strips that signature and re-signs with the stored credential before the request leaves for AWS. The one shape it can’t re-sign is chunked payload signing. If Claude reports that chunked signing isn’t supported through the proxy, have it set `payload_signing_enabled = false` in `~/.aws/config` and retry.
+Claude can call the endpoint with `curl`, an AWS SDK, or the AWS CLI. The sandbox holds no real AWS credentials, so a CLI or SDK signs the request with placeholder values; Agent Proxy strips that signature and re-signs with the stored credential before the request leaves for AWS. If a request comes back with HTTP 502 and a reason that begins `injection failed ("<connection name>")`, Agent Proxy couldn’t sign it. The troubleshooting entry [An AWS request fails after a successful sign-in](https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting#an-aws-request-fails-after-a-successful-sign-in) lists each cause the reason text names and its fix; the causes and fixes are the same for a connection that stores an access key.
 
 ####  When AWS returns `SignatureDoesNotMatch`
 
@@ -95,7 +98,7 @@ Saving also fails when a PEM-encoded key isn’t an RSA key or has a passphrase.
 
 ##  Add a custom MCP server
 
-The server must be a remote endpoint that Claude can reach at a URL over the internet. An MCP server that runs on a person’s machine over stdio, including one packaged as a [desktop extension](https://claude.com/docs/connectors/custom/desktop-extensions), can’t be connected, because [sessions](https://claude.com/docs/claude-tag/concepts/glossary#session) run in a cloud sandbox that Anthropic hosts, not on anyone’s machine. Host the server as a remote endpoint first, then follow the steps below.
+The server must be a remote endpoint that Claude can reach at a URL over the internet. An MCP server that runs on a person’s machine over stdio, including one packaged as a [desktop extension](https://claude.com/docs/connectors/custom/add-unlisted#install-a-local-connector-in-the-desktop-app), can’t be connected, because [sessions](https://claude.com/docs/claude-tag/concepts/glossary#session) run in a cloud sandbox that Anthropic hosts, not on anyone’s machine. Host the server as a remote endpoint first, then follow the steps below.
 To give Claude an MCP server (one you run, or a vendor’s hosted MCP endpoint), the pattern is a plugin plus a credential:
 
 1

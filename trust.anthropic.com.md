@@ -74,7 +74,7 @@ View all
 SOC 2
 [Anthropic] 2025 Type 2 SOC 2 and CSA STAR L2 Report.pdf
 [Anthropic] 2025 Type 2 SOC 3 Report.pdf
-[Anthropic] 2026 SOC 2 Bridge Letter.pdf
+[Anthropic] 2026 SOC 2 Bridge Letter (Aug 2026).pdf
 ISO
 [Anthropic] ISO 27001 Certificate (2025).pdf
 [Anthropic] ISO 42001 Certificate (2025).pdf
@@ -90,6 +90,7 @@ Claude Certification Package Overview
 Opens in new tab
 Claude for Government (C4G) PFCS-SS FedRAMP High Authorization Package
 Opens in new tab
+Claude for Government (C4G) FedRAMP Secure Configuration Guide
 International Compliance
 [Anthropic Ireland Limited] Cyber Essentials Certificate (2025)
 Questionnaires
@@ -106,29 +107,29 @@ Global Code of Conduct
 Global Vendor Code of Conduct
 Best Practices and Whitepapers
 [Anthropic] CMEK - Cryptographic Design Whitepaper
-Claude Cowork Security Best Practices
+Claude Cowork and Unified Claude Security Best Practices
 Claude Cowork Desktop Security Architecture Overview
 Claude Desktop Security Overview (Third-party platforms)
 
-View 8 more
+View 9 more
 
 Security Advisories
 CVE-2026-22561 - DLL Search Order Hijacking in Claude for Windows installer
 Model Documentation Forms
 Claude Sonnet 5 Model Documentation Form
+Claude Sonnet 5.5 Model Documentation Form for downstream providers
 Claude Opus 4.7 Model Documentation Form
 Claude Opus 4.8 Model Documentation Form
-Claude Opus 5 Model Documentation Form
 
-View 3 more
+View 5 more
 
 Training Data Summaries
 AB 2013 Training Data Summary
 Claude Sonnet 5 Training Data Summary
+Claude Sonnet 5.5 Training Data Summary
 Claude Opus 4.7 Training Data Summary
-Claude Opus 4.8 Training Data Summary
 
-View 4 more
+View 6 more
 
 Other Documents
 [Anthropic] Data Processing Addendum

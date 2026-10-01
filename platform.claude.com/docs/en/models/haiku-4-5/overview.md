@@ -18,16 +18,16 @@ Context window: 200K tokens · Max output: 64K tokens · Input pricing: $1 / MTo
 
 ## How it compares
 
-| Model                                                                             | Context | Max output | Price / MTok | Latency  | Thinking             | Default effort | Knowledge cutoff |
-| :-------------------------------------------------------------------------------- | :------ | :--------- | :----------- | :------- | :------------------- | :------------- | :--------------- |
-| [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) | 1M      | 128K       | $10 / $50    | Slower   | Adaptive (always on) | `high`         | Jun 2026         |
-| [Claude Opus 5](https://platform.claude.com/docs/en/models/opus-5/overview)       | 1M      | 128K       | $5 / $25     | Moderate | Adaptive             | `high`         | May 2026         |
-| [Claude Sonnet 5](https://platform.claude.com/docs/en/models/sonnet-5/overview)   | 1M      | 128K       | $2 / $10     | Fast     | Adaptive             | `high`         | Jan 2026         |
-| **Claude Haiku 4.5** (this model)                                                 | 200K    | 64K        | $1 / $5      | Fastest  | Extended             | —              | Feb 2025         |
+| Model                                                                               | Context | Max output | Price / MTok | Latency  | Thinking             | Default effort | Knowledge cutoff |
+| :---------------------------------------------------------------------------------- | :------ | :--------- | :----------- | :------- | :------------------- | :------------- | :--------------- |
+| [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)   | 1M      | 128K       | $10 / $50    | Slower   | Adaptive (always on) | `high`         | Jun 2026         |
+| [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)     | 1M      | 128K       | $4 / $20     | Moderate | Adaptive (always on) | `medium`       | Jun 2026         |
+| [Claude Sonnet 5.5](https://platform.claude.com/docs/en/models/sonnet-5-5/overview) | 1M      | 128K       | $2 / $10     | Fast     | Adaptive             | `high`         | Jun 2026         |
+| **Claude Haiku 4.5** (this model)                                                   | 200K    | 64K        | $1 / $5      | Fastest  | Extended             | —              | Feb 2025         |
 
 * **Context:** 1M tokens is roughly 555k words or 2.5M Unicode characters on the current tokenizer (introduced with Claude Opus 4.7); models before it fit about 750k words in 1M tokens. 200k tokens is roughly 150k words.
-* **Max output:** Synchronous Messages API limit. On the Message Batches API, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 support up to 300k output tokens with the output-300k-2026-03-24 beta header.
-* **Price / MTok:** Input / output, base price per million tokens. Batch API requests are 50% off; prompt caching reads cost 10% of the base input price (2.5% on Claude Fable 5.1 and Claude Mythos 5.1). See Pricing for the full list.
+* **Max output:** Synchronous Messages API limit. On the Message Batches API, Claude Opus 5.5, Claude Opus 5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 support up to 300k output tokens with the output-300k-2026-03-24 beta header.
+* **Price / MTok:** Input / output, base price per million tokens. Batch API requests are 50% off; prompt caching reads cost 10% of the base input price (2.5% on Claude Fable 5.1 and Claude Mythos 5.1, 5% on Claude Opus 5.5). See Pricing for the full list.
 * **Latency:** Comparative latency, relative to the current lineup, as published in the models overview. Actual latency depends on prompt length, output length, and thinking effort.
 * **Thinking:** Adaptive thinking lets the model decide how much to think, steered by effort. Extended thinking is the manual budget\_tokens mode on earlier models.
 * **Default effort:** The effort parameter’s default on the Claude API. Models without a value don’t support the parameter.
@@ -49,15 +49,16 @@ Context window: 200K tokens · Max output: 64K tokens · Input pricing: $1 / MTo
 
 ### Pricing
 
-| Feature                                                                                | Value                                                               |
-| :------------------------------------------------------------------------------------- | :------------------------------------------------------------------ |
-| Input                                                                                  | $1 / MTok                                                           |
-| Output                                                                                 | $5 / MTok                                                           |
-| [5m cache write](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) | $1.25 / MTok                                                        |
-| [1h cache write](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) | $2 / MTok                                                           |
-| [Cache read](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)     | $0.10 / MTok                                                        |
-| [Batch API](https://platform.claude.com/docs/en/build-with-claude/batch-processing)    | 50% discount on input and output                                    |
-| Full price list                                                                        | [Pricing](https://platform.claude.com/docs/en/about-claude/pricing) |
+| Feature                                                                                | Value                            |
+| :------------------------------------------------------------------------------------- | :------------------------------- |
+| Input                                                                                  | $1 / MTok                        |
+| Output                                                                                 | $5 / MTok                        |
+| [5m cache write](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) | $1.25 / MTok                     |
+| [1h cache write](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) | $2 / MTok                        |
+| [Cache read](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)     | $0.10 / MTok                     |
+| [Batch API](https://platform.claude.com/docs/en/build-with-claude/batch-processing)    | 50% discount on input and output |
+
+[Full price list](https://platform.claude.com/docs/en/about-claude/pricing)
 
 ### Capabilities
 
@@ -106,7 +107,7 @@ Context window: 200K tokens · Max output: 64K tokens · Input pricing: $1 / MTo
 ## Reference
 
 <CardGroup cols={3}>
-  <Card title="System prompt" icon="text" href="https://platform.claude.com/docs/en/release-notes/system-prompts#claude-haiku-4-5">
+  <Card title="System prompt" icon="text" href="https://platform.claude.com/docs/en/release-notes/system-prompts/overview#claude-haiku-4-5">
     The system prompt Claude Haiku 4.5 uses on claude.ai and the Claude apps.
   </Card>
 

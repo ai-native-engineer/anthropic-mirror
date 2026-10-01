@@ -4,13 +4,15 @@
 title: Reference
 url: https://platform.claude.com/docs/en/managed-agents/reference
 description: Event types, self-hosted worker CLI flags, supported MCP server types, rate limits, and branding guidelines for Claude Managed Agents.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
 
 This page collects reference material for Claude Managed Agents. For task-oriented guides, follow the links in each section. For the operations on the session resource, see [Session operations](https://platform.claude.com/docs/en/managed-agents/session-operations).
-
-<Note>
-  Managed Agents API requests require the `managed-agents-2026-04-01` beta header, except memory store endpoints, which use `agent-memory-2026-07-22` instead. The SDK sets the correct beta header automatically. See [Beta headers](https://platform.claude.com/docs/en/api/beta-headers#endpoint-specific-headers).
-</Note>
 
 ## Event types
 
@@ -76,9 +78,9 @@ Persisted event type strings follow a `{domain}.{action}` naming convention; the
   </Tab>
 
   <Tab title="System events">
-    | Type             | Description                                                                                                                                                                                                                                                                                                                                |
-    | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-    | `system.message` | Append privileged system-level context that applies to the accompanying turn and all subsequent turns. Supported on Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5, and Claude Opus 4.8. On an unsupported primary model the event is rejected with `model_does_not_support_mid_conversation_system`. |
+    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                    |
+    | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+    | `system.message` | Append privileged system-level context that applies to the accompanying turn and all subsequent turns. Supported on Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5.5, Claude Opus 5, Claude Opus 4.8, and Claude Sonnet 5.5. On an unsupported primary model the event is rejected with `model_does_not_support_mid_conversation_system`. |
   </Tab>
 
   <Tab title="Event deltas">
@@ -95,15 +97,15 @@ Persisted event type strings follow a `{domain}.{action}` naming convention; the
 
 These are the `ant beta:worker` CLI flags for the pre-built worker that drives a `self_hosted` environment. See [Self-hosted sandboxes](https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes) for setting up the environment, running a worker, and the SDK helper options.
 
-| Flag                   | Description                                                                                                                                                                           |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--environment-id`     | The environment to poll for work. Also reads from `ANTHROPIC_ENVIRONMENT_ID`.                                                                                                         |
-| `--environment-key`    | Authenticates the worker with this environment. Also reads from `ANTHROPIC_ENVIRONMENT_KEY`.                                                                                          |
-| `--workdir`            | Directory where skills are downloaded and tools read and write files. Defaults to `.` (the current directory); the system default working directory is `/workspace`.                  |
-| `--on-work`            | Script to call for each claimed work item instead of running tools in-process. Receives session details as environment variables.                                                     |
-| `--unrestricted-paths` | Allow the file tools to read and write paths outside `--workdir`. The workdir check is a guardrail for the file tools only, not a sandbox; it does not constrain bash.                |
-| `--max-idle`           | How long to wait after the session goes idle with an `end_turn` [stop reason](https://platform.claude.com/docs/en/api/handling-stop-reasons) before shutting down. Defaults to `60s`. |
-| `--log-format`         | Log output format. Use `json` for structured log ingestion. Defaults to `text`.                                                                                                       |
+| Flag                   | Description                                                                                                                                                                                         |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--environment-id`     | The environment to poll for work. Also reads from `ANTHROPIC_ENVIRONMENT_ID`.                                                                                                                       |
+| `--environment-key`    | Authenticates the worker with this environment. Also reads from `ANTHROPIC_ENVIRONMENT_KEY`.                                                                                                        |
+| `--workdir`            | Directory where skills are downloaded and tools read and write files. Defaults to `.` (the current directory); the system default working directory is `/workspace`.                                |
+| `--on-work`            | Script to call for each claimed work item instead of running tools in-process. Receives session details as environment variables.                                                                   |
+| `--unrestricted-paths` | Allow the file tools to read and write paths outside `--workdir`. The workdir check is a guardrail for the file tools only, not a sandbox; it does not constrain bash.                              |
+| `--max-idle`           | How long to wait after the session goes idle with an `end_turn` [stop reason](https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons) before shutting down. Defaults to `60s`. |
+| `--log-format`         | Log output format. Use `json` for structured log ingestion. Defaults to `text`.                                                                                                                     |
 
 The CLI worker does not mount [memory stores](https://platform.claude.com/docs/en/managed-agents/memory): a session that attaches one still runs, but the agent finds nothing at the store's `mount_path` and no changes sync back to the store. To use memory stores in sessions on a self-hosted environment, run the SDK worker instead; see [Use memory stores](https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes#use-memory-stores).
 

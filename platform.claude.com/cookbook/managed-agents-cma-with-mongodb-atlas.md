@@ -281,6 +281,10 @@ notes\_agent = client.beta.agents.create(
 
 name="cookbook-mongodb-notes",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-with-mongodb-atlas"},
+
 model=MODEL,
 
 system=(
@@ -1565,7 +1569,17 @@ Be concise. Move to the next transaction after recording a decision."""
 
 agent = client.beta.agents.create(
 
-name="MongoDB Atlas fraud reviewer", model=MODEL, system=SYSTEM, tools=TOOLS
+name="MongoDB Atlas fraud reviewer",
+
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-with-mongodb-atlas"},
+
+model=MODEL,
+
+system=SYSTEM,
+
+tools=TOOLS,
 
 )
 

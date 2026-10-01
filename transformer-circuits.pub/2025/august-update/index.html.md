@@ -10,6 +10,8 @@ New Posts
 
 * [Circuit Vignette: How does a persona modify the Assistant’s response?](#vignette)
 
+---
+
 ## [Circuit Vignette: How does a persona modify the Assistant’s response?](#vignette)
 
 Isaac Kauvar; edited by Joshua Batson

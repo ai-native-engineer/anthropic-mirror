@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/one-organization-or-many -->
 
-Lesson 4 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutOne organization or many
+Lesson 4 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutOne organization or many
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # One organization or many
 
@@ -92,7 +92,7 @@ The next lesson covers what a group is, what a member gets when they belong to t
 
 [Previous lessonPrerequisites](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/prerequisites)[Next lessonYour groups](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/your-groups)
 
-Lesson 4 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutOne organization or many
+Lesson 4 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutOne organization or many
 
 The plan
 

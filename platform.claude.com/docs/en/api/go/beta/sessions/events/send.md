@@ -23,7 +23,7 @@ Send Events
 
     Body param: Events to send to the `session`.
 
-    - `type BetaManagedAgentsUserMessageEventParams struct{…}`
+    - `type BetaManagedAgentsUserMessageEventParams`
 
       Parameters for sending a user message to the session.
 
@@ -33,7 +33,7 @@ Send Events
 
         Array of content blocks for the user message.
 
-        - `type BetaManagedAgentsTextBlock struct{…}`
+        - `type BetaManagedAgentsTextBlock`
 
           Regular text content.
 
@@ -45,7 +45,7 @@ Send Events
 
             minLength: 1
 
-        - `type BetaManagedAgentsImageBlock struct{…}`
+        - `type BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
@@ -53,9 +53,9 @@ Send Events
 
           - `Source BetaManagedAgentsImageBlockSourceUnion`
 
-            Union type for image source variants.
+            The source of the image data.
 
-            - `type BetaManagedAgentsBase64ImageSource struct{…}`
+            - `type BetaManagedAgentsBase64ImageSource`
 
               Base64-encoded image data.
 
@@ -73,7 +73,7 @@ Send Events
 
                 minLength: 1
 
-            - `type BetaManagedAgentsURLImageSource struct{…}`
+            - `type BetaManagedAgentsURLImageSource`
 
               Image referenced by URL.
 
@@ -85,7 +85,7 @@ Send Events
 
                 minLength: 1
 
-            - `type BetaManagedAgentsFileImageSource struct{…}`
+            - `type BetaManagedAgentsFileImageSource`
 
               Image referenced by file ID.
 
@@ -97,7 +97,7 @@ Send Events
 
                 minLength: 1
 
-        - `type BetaManagedAgentsDocumentBlock struct{…}`
+        - `type BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -105,9 +105,9 @@ Send Events
 
           - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
-            Union type for document source variants.
+            The source of the document data.
 
-            - `type BetaManagedAgentsBase64DocumentSource struct{…}`
+            - `type BetaManagedAgentsBase64DocumentSource`
 
               Base64-encoded document data.
 
@@ -125,7 +125,7 @@ Send Events
 
                 minLength: 1
 
-            - `type BetaManagedAgentsPlainTextDocumentSource struct{…}`
+            - `type BetaManagedAgentsPlainTextDocumentSource`
 
               Plain text document content.
 
@@ -141,7 +141,7 @@ Send Events
 
                 MIME type of the text content. Must be "text/plain".
 
-            - `type BetaManagedAgentsURLDocumentSource struct{…}`
+            - `type BetaManagedAgentsURLDocumentSource`
 
               Document referenced by URL.
 
@@ -153,7 +153,7 @@ Send Events
 
                 minLength: 1
 
-            - `type BetaManagedAgentsFileDocumentSource struct{…}`
+            - `type BetaManagedAgentsFileDocumentSource`
 
               Document referenced by file ID.
 
@@ -173,13 +173,13 @@ Send Events
 
             The title of the document.
 
-        - `type BetaManagedAgentsRedactedBlockParam struct{…}`
+        - `type BetaManagedAgentsRedactedBlockParam`
 
           Placeholder for content withheld by Anthropic model policy.
 
           - `Type BetaManagedAgentsRedactedBlockType`
 
-    - `type BetaManagedAgentsUserInterruptEventParamsResp struct{…}`
+    - `type BetaManagedAgentsUserInterruptEventParamsResp`
 
       Parameters for sending an interrupt to pause the agent.
 
@@ -189,7 +189,7 @@ Send Events
 
         If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-    - `type BetaManagedAgentsUserToolConfirmationEventParamsResp struct{…}`
+    - `type BetaManagedAgentsUserToolConfirmationEventParamsResp`
 
       Parameters for confirming or denying a tool execution request.
 
@@ -197,7 +197,7 @@ Send Events
 
       - `Result BetaManagedAgentsUserToolConfirmationEventParamsResult`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `const BetaManagedAgentsUserToolConfirmationEventParamsResultAllow BetaManagedAgentsUserToolConfirmationEventParamsResult = "allow"`
 
@@ -215,7 +215,7 @@ Send Events
 
         maxLength: 10000
 
-    - `type BetaManagedAgentsUserCustomToolResultEventParamsResp struct{…}`
+    - `type BetaManagedAgentsUserCustomToolResultEventParamsResp`
 
       Parameters for providing the result of a custom tool execution.
 
@@ -231,19 +231,19 @@ Send Events
 
         The result content returned by the tool.
 
-        - `type BetaManagedAgentsTextBlock struct{…}`
+        - `type BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `type BetaManagedAgentsImageBlock struct{…}`
+        - `type BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `type BetaManagedAgentsDocumentBlock struct{…}`
+        - `type BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `type BetaManagedAgentsSearchResultBlock struct{…}`
+        - `type BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -251,7 +251,7 @@ Send Events
 
           - `Citations BetaManagedAgentsSearchResultCitations`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `Enabled bool`
 
@@ -285,7 +285,7 @@ Send Events
 
         Whether the tool execution resulted in an error.
 
-    - `type BetaManagedAgentsUserDefineOutcomeEventParams struct{…}`
+    - `type BetaManagedAgentsUserDefineOutcomeEventParams`
 
       Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
 
@@ -297,9 +297,9 @@ Send Events
 
       - `Rubric BetaManagedAgentsUserDefineOutcomeEventParamsRubricUnionResp`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
-        - `type BetaManagedAgentsFileRubricParams struct{…}`
+        - `type BetaManagedAgentsFileRubricParams`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -309,7 +309,7 @@ Send Events
 
             ID of the rubric file.
 
-        - `type BetaManagedAgentsTextRubricParams struct{…}`
+        - `type BetaManagedAgentsTextRubricParams`
 
           Rubric content provided inline as text.
 
@@ -327,7 +327,7 @@ Send Events
 
         format: int32
 
-    - `type BetaManagedAgentsUserToolResultEventParamsResp struct{…}`
+    - `type BetaManagedAgentsUserToolResultEventParamsResp`
 
       Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -343,19 +343,19 @@ Send Events
 
         The result content returned by the tool.
 
-        - `type BetaManagedAgentsTextBlock struct{…}`
+        - `type BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `type BetaManagedAgentsImageBlock struct{…}`
+        - `type BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `type BetaManagedAgentsDocumentBlock struct{…}`
+        - `type BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `type BetaManagedAgentsSearchResultBlock struct{…}`
+        - `type BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -363,7 +363,7 @@ Send Events
 
         Whether the tool execution resulted in an error.
 
-    - `type BetaManagedAgentsSystemMessageEventParamsResp struct{…}`
+    - `type BetaManagedAgentsSystemMessageEventParamsResp`
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
@@ -385,99 +385,103 @@ Send Events
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `string`
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
-    - `type AnthropicBeta string`
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
 
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
 
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
 
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
 
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
 
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
 
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
 
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
 
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
 
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
 
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
 
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
 
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
 
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
 
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
 
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
 
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
 
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
 
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
 
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
 
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
 
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
 
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
-      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
 
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
 
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
 
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
 
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
 
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
 
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
 
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
 
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -487,7 +491,7 @@ Send Events
 
 ## Returns
 
-- `type BetaManagedAgentsSendSessionEvents struct{…}`
+- `type BetaManagedAgentsSendSessionEvents`
 
   Events that were successfully sent to the session.
 
@@ -495,7 +499,7 @@ Send Events
 
     Sent events
 
-    - `type BetaManagedAgentsUserMessageEvent struct{…}`
+    - `type BetaManagedAgentsUserMessageEvent`
 
       A user message event in the session conversation.
 
@@ -509,7 +513,7 @@ Send Events
 
         Array of content blocks comprising the user message.
 
-        - `type BetaManagedAgentsTextBlock struct{…}`
+        - `type BetaManagedAgentsTextBlock`
 
           Regular text content.
 
@@ -521,7 +525,7 @@ Send Events
 
             minLength: 1
 
-        - `type BetaManagedAgentsImageBlock struct{…}`
+        - `type BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
@@ -529,9 +533,9 @@ Send Events
 
           - `Source BetaManagedAgentsImageBlockSourceUnion`
 
-            Union type for image source variants.
+            The source of the image data.
 
-            - `type BetaManagedAgentsBase64ImageSource struct{…}`
+            - `type BetaManagedAgentsBase64ImageSource`
 
               Base64-encoded image data.
 
@@ -549,7 +553,7 @@ Send Events
 
                 minLength: 1
 
-            - `type BetaManagedAgentsURLImageSource struct{…}`
+            - `type BetaManagedAgentsURLImageSource`
 
               Image referenced by URL.
 
@@ -561,7 +565,7 @@ Send Events
 
                 minLength: 1
 
-            - `type BetaManagedAgentsFileImageSource struct{…}`
+            - `type BetaManagedAgentsFileImageSource`
 
               Image referenced by file ID.
 
@@ -573,7 +577,7 @@ Send Events
 
                 minLength: 1
 
-        - `type BetaManagedAgentsDocumentBlock struct{…}`
+        - `type BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -581,9 +585,9 @@ Send Events
 
           - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
-            Union type for document source variants.
+            The source of the document data.
 
-            - `type BetaManagedAgentsBase64DocumentSource struct{…}`
+            - `type BetaManagedAgentsBase64DocumentSource`
 
               Base64-encoded document data.
 
@@ -601,7 +605,7 @@ Send Events
 
                 minLength: 1
 
-            - `type BetaManagedAgentsPlainTextDocumentSource struct{…}`
+            - `type BetaManagedAgentsPlainTextDocumentSource`
 
               Plain text document content.
 
@@ -617,7 +621,7 @@ Send Events
 
                 MIME type of the text content. Must be "text/plain".
 
-            - `type BetaManagedAgentsURLDocumentSource struct{…}`
+            - `type BetaManagedAgentsURLDocumentSource`
 
               Document referenced by URL.
 
@@ -629,7 +633,7 @@ Send Events
 
                 minLength: 1
 
-            - `type BetaManagedAgentsFileDocumentSource struct{…}`
+            - `type BetaManagedAgentsFileDocumentSource`
 
               Document referenced by file ID.
 
@@ -649,7 +653,7 @@ Send Events
 
             The title of the document.
 
-        - `type BetaManagedAgentsRedactedBlockParam struct{…}`
+        - `type BetaManagedAgentsRedactedBlockParam`
 
           Placeholder for content withheld by Anthropic model policy.
 
@@ -657,11 +661,11 @@ Send Events
 
       - `ProcessedAt Time Optional`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the agent finished processing this message.
 
         format: date-time
 
-    - `type BetaManagedAgentsUserInterruptEvent struct{…}`
+    - `type BetaManagedAgentsUserInterruptEvent`
 
       An interrupt event that pauses agent execution and returns control to the user.
 
@@ -673,7 +677,7 @@ Send Events
 
       - `ProcessedAt Time Optional`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the interrupt was processed.
 
         format: date-time
 
@@ -681,7 +685,7 @@ Send Events
 
         If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-    - `type BetaManagedAgentsUserToolConfirmationEvent struct{…}`
+    - `type BetaManagedAgentsUserToolConfirmationEvent`
 
       A tool confirmation event that approves or denies a pending tool execution.
 
@@ -693,7 +697,7 @@ Send Events
 
       - `Result BetaManagedAgentsUserToolConfirmationEventResult`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `const BetaManagedAgentsUserToolConfirmationEventResultAllow BetaManagedAgentsUserToolConfirmationEventResult = "allow"`
 
@@ -711,15 +715,15 @@ Send Events
 
       - `ProcessedAt Time Optional`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the confirmation was processed.
 
         format: date-time
 
       - `SessionThreadID string Optional`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-    - `type BetaManagedAgentsUserCustomToolResultEvent struct{…}`
+    - `type BetaManagedAgentsUserCustomToolResultEvent`
 
       Event sent by the client providing the result of a custom tool execution.
 
@@ -737,19 +741,19 @@ Send Events
 
         The result content returned by the tool.
 
-        - `type BetaManagedAgentsTextBlock struct{…}`
+        - `type BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `type BetaManagedAgentsImageBlock struct{…}`
+        - `type BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `type BetaManagedAgentsDocumentBlock struct{…}`
+        - `type BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `type BetaManagedAgentsSearchResultBlock struct{…}`
+        - `type BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -757,7 +761,7 @@ Send Events
 
           - `Citations BetaManagedAgentsSearchResultCitations`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `Enabled bool`
 
@@ -793,15 +797,15 @@ Send Events
 
       - `ProcessedAt Time Optional`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `SessionThreadID string Optional`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-    - `type BetaManagedAgentsUserDefineOutcomeEvent struct{…}`
+    - `type BetaManagedAgentsUserDefineOutcomeEvent`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -827,15 +831,15 @@ Send Events
 
       - `ProcessedAt Time`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the outcome was accepted.
 
         format: date-time
 
       - `Rubric BetaManagedAgentsUserDefineOutcomeEventRubricUnion`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-        - `type BetaManagedAgentsFileRubric struct{…}`
+        - `type BetaManagedAgentsFileRubric`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -845,7 +849,7 @@ Send Events
 
             ID of the rubric file.
 
-        - `type BetaManagedAgentsTextRubric struct{…}`
+        - `type BetaManagedAgentsTextRubric`
 
           Rubric content provided inline as text.
 
@@ -855,7 +859,7 @@ Send Events
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-    - `type BetaManagedAgentsUserToolResultEvent struct{…}`
+    - `type BetaManagedAgentsUserToolResultEvent`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -873,19 +877,19 @@ Send Events
 
         The result content returned by the tool.
 
-        - `type BetaManagedAgentsTextBlock struct{…}`
+        - `type BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `type BetaManagedAgentsImageBlock struct{…}`
+        - `type BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `type BetaManagedAgentsDocumentBlock struct{…}`
+        - `type BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `type BetaManagedAgentsSearchResultBlock struct{…}`
+        - `type BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -895,15 +899,15 @@ Send Events
 
       - `ProcessedAt Time Optional`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `SessionThreadID string Optional`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-    - `type BetaManagedAgentsSystemMessageEvent struct{…}`
+    - `type BetaManagedAgentsSystemMessageEvent`
 
       A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
@@ -927,7 +931,7 @@ Send Events
 
       - `ProcessedAt Time Optional`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this system message was processed.
 
         format: date-time
 

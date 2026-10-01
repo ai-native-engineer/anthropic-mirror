@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://www.celayix.com)
+More[Support (opens in new tab)](https://www.celayix.com)[Privacy policy (opens in new tab)](https://www.celayix.com/privacy-policy/)
 
 Connects your LLM to the hosted Celayix MCP server. Authenticate once with a Celayix MCP token (generated via the Celayix Token API) and ask the LLM natural questions like "show shifts for next week" or "who are our active customers?". Sessions are generated automatically — no per-tool login required.
 

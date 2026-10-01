@@ -47,6 +47,10 @@ name="us\_records\_analyst",
 
 description="Answers questions about internal records, pinned to US inference.",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-pin-inference-geo"},
+
 model={"id": MODEL, "inference\_geo": "us"},
 
 system="You answer questions about the records you are given, concisely.",

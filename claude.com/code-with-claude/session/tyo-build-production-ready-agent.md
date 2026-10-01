@@ -4,43 +4,42 @@
 
 A hands-on build session for Claude Managed Agents. You'll deploy a production-ready agent from scratch, then debug and monitor it live in the developer console.
 
-Details
+## Details
 
 City
-
-Tokyo, JP
+:   Tokyo, JP
 
 Date
-
-10 June 2026
+:   10 June 2026
 
 Time
-
-14:30 – 15:15
+:   14:30 – 15:15
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Gabe Cemaj
 
-Gabe Cemaj
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 Language
+:   English
 
-English
-
-Agenda
+## Agenda
 
 Demos and office hours run all day. Drop by for a demo between sessions. Sign up in advance for office hours. All times in Japan Standard Time (JST).
 
 **A note on language.** Sessions run primarily in English with some in Japanese (marked on the agenda), and live simultaneous interpretation is available in both directions throughout the event. Office hours are held in English.
 
 Session track
+
+* All tracks
+* Research
+* Claude Platform
+* Claude Code
 
 08:00 – 09:00
 
@@ -53,12 +52,6 @@ Check-in and breakfast
 ·
 
 (Main stage)
-
-(
-
-Main stage
-
-)
 
 ·
 
@@ -78,7 +71,7 @@ Katelyn Lesse
 
 Anthropic
 
-10:00AM – 10:30AM
+10:00 – 10:30
 
 Morning break
 
@@ -96,8 +89,6 @@ Main stage
 
 )
 
-Claude Code
-
 ·
 
 Charmaine Lee
@@ -113,8 +104,6 @@ Anthropic
 Breakout stage
 
 )
-
-Claude Platform
 
 ·
 
@@ -134,8 +123,6 @@ Workshop
 
 )
 
-Research
-
 ·
 
 Rodrigo Olivares
@@ -154,8 +141,6 @@ Main stage
 
 )
 
-Claude Platform
-
 ·
 
 Danny Wu
@@ -171,8 +156,6 @@ Canva
 Breakout stage
 
 )
-
-Research
 
 ·
 
@@ -192,8 +175,6 @@ Workshop
 
 )
 
-Claude Code
-
 ·
 
 Sosuke Suzuki
@@ -211,8 +192,6 @@ Anthropic
 Main stage
 
 )
-
-Claude Platform
 
 ·
 
@@ -240,8 +219,6 @@ Breakout stage
 
 )
 
-Claude Code
-
 ·
 
 Kohei Noguchi
@@ -266,8 +243,6 @@ Workshop
 
 )
 
-Claude Code
-
 ·
 
 Sid Bidasaria
@@ -287,8 +262,6 @@ Workshop
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -310,8 +283,6 @@ Main stage
 
 )
 
-Research
-
 ·
 
 Yusuke Kaji
@@ -327,8 +298,6 @@ Rakuten Group, Inc.
 Breakout stage
 
 )
-
-Research
 
 ·
 
@@ -347,8 +316,6 @@ Anthropic
 Workshop
 
 )
-
-Claude Platform
 
 ·
 
@@ -370,8 +337,6 @@ Main stage
 
 )
 
-Claude Platform
-
 ·
 
 Kentaro Someya
@@ -392,8 +357,6 @@ Breakout stage
 
 )
 
-Claude Code
-
 ·
 
 Fiona Fung
@@ -412,8 +375,6 @@ Main stage
 
 )
 
-Research
-
 ·
 
 Theo Chu
@@ -431,8 +392,6 @@ Breakout stage
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -453,8 +412,6 @@ Workshop
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -480,8 +437,6 @@ Main stage
 
 )
 
-Research
-
 ·
 
 Yuki Kitamura
@@ -499,8 +454,6 @@ Breakout stage
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -524,8 +477,6 @@ Workshop
 
 )
 
-Claude Code
-
 ·
 
 Ash Prabaker
@@ -547,8 +498,6 @@ Anthropic
 Main stage
 
 )
-
-Claude Platform
 
 ·
 
@@ -572,8 +521,6 @@ Breakout stage
 
 )
 
-Claude Code
-
 ·
 
 Yu Nakai
@@ -591,8 +538,6 @@ Mercari, Inc.
 Workshop
 
 )
-
-Research
 
 ·
 
@@ -626,16 +571,8 @@ Evening
 
 Evening reception
 
-Anthropic's developer conference
+## Anthropic's developer conference, recorded
 
-Join us for a day of hands-on workshops, live demos of new capabilities and conversations with the teams behind Claude. Watch live from anywhere.
+Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 Tokyo and ready to replay.
 
-Attend virtually
-
-[Learn more](https://claude.com/code-with-claude/register-livestream)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+[Browse recordings](https://claude.com/code-with-claude/tokyo)

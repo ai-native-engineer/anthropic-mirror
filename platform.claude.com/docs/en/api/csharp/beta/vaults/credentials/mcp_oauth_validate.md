@@ -19,11 +19,11 @@ Validate Credential
 
   - `required string vaultID`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `required string credentialID`
 
-    Path param: Path parameter credential_id
+    Path param: Unique identifier of the credential to validate.
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -119,6 +119,14 @@ Validate Credential
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -127,7 +135,7 @@ Validate Credential
 
 ## Returns
 
-- `class BetaManagedAgentsCredentialValidation:`
+- `class BetaManagedAgentsCredentialValidation`
 
   Result of live-probing a credential against its configured MCP server.
 
@@ -143,11 +151,11 @@ Validate Credential
 
   - `required BetaManagedAgentsMcpProbe? McpProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `required string Body`
 
@@ -173,37 +181,51 @@ Validate Credential
 
   - `required BetaManagedAgentsRefreshObject? Refresh`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `required Status Status`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
+      Outcome of the refresh attempt.
 
       - `Succeeded("succeeded")`
 
+        The token endpoint returned a new access token.
+
       - `Failed("failed")`
+
+        The token endpoint returned an error response. See `http_response` for detail.
 
       - `ConnectError("connect_error")`
 
+        The token endpoint could not be reached (DNS, TLS, or connection error).
+
       - `NoRefreshToken("no_refresh_token")`
+
+        No refresh token is stored for the credential, so no exchange was attempted.
 
   - `required BetaManagedAgentsCredentialValidationStatus Status`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `Valid("valid")`
 
+      The credential successfully authenticated against its MCP server.
+
     - `Invalid("invalid")`
+
+      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
 
     - `Unknown("unknown")`
 
+      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
+
   - `required DateTimeOffset ValidatedAt`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 

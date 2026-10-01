@@ -12,6 +12,8 @@ New Posts
 * [Interpretable dense features](#dense)
 * [So You Want to Work in Mechanistic Interpretability?](#work)
 
+---
+
 ## [Life of an unsuccessful jailbreak](#jailbreak)
 
 Brian Chen and Jack Lindsey; edited by Adam Jermyn and Joshua Batson
@@ -122,6 +124,8 @@ These examples are a warning that feature visualizations may be unhelpful or act
 
 When interpreting a feature visualization, it’s useful to consider what types of prompts might be missing or what spurious correlations might be present in the dataset used to produce the visualization that could make it misleading. Manual experimentation with novel prompts or methods that can generate highly-activating novel prompts outside the dataset, such as [fluent dreaming](https://arxiv.org/abs/2402.01702), may shed additional light on what causes a feature to activate in ways that compensate for such limitations.
 
+---
+
 ## [Interpretable dense features](#dense)
 
 Brian Chen and Josh Batson; edited by Adam Jermyn
@@ -150,6 +154,8 @@ In Sun et al., the authors compared residual stream SAE latents over multiple SA
 Both Stolfo et al. and Sun et al. found that dense SAE latents tend to come in antipodal pairs, i.e., two latents which activate disjointly and have decoder vectors pointing in opposite directions. We computed analogous angles between our CLT features – the cosine similarity between normalized concatenated decoder vectors over all MLP outputs – and did not find evidence that our dense CLT features are mostly orthogonal or form antipodal pairs. For example, our early-layer features #1 (content-words), #5 (newlines), and #8 (commas) are similar (similarity ~0.5). The features which are most semantically complementary, #2 (unlikely to end sentence) and #9 (possible ends of sentences/clauses), have only mild dissimilarity (similarity −0.14). There is no logical reason that antipodal SAE features (representations spanning a rank-one subspace) would correspond to antipodal CLT features (transformations with opposite effects), and indeed we don't find them. This is an example of how, while they have similar architectures, SAEs and transcoders solve different problems and can result in different geometries.
 
 ![](images/f85032b5c0fa0ba3.png)
+
+---
 
 ## [So You Want to Work in Mechanistic Interpretability?](#work)
 

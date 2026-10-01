@@ -2,7 +2,9 @@
 
 # Is my data used for model training?
 
-Updated over 3 weeks ago
+August 18, 2026
+
+Table of contents
 
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see [here](https://privacy.anthropic.com/en/articles/10023580-is-my-data-used-for-model-training).*
 
@@ -20,16 +22,20 @@ We de-link your feedback from your user and customer IDs before it’s used by A
 
 Here’s an example of what you’ll see when using the thumbs up/thumbs down button to provide a feedback report from claude.ai:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1789086600&signature=1f0678a164bc1ec4e4034cf358ebde241e1a15dba2ec2066ee3be65608552250&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDBa858dg%2FKUdTynhlx8WmiBpgnqctGQH1LLY%0AJFdYfxnrZ%2FM%2FnV8eMJI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1789086600&signature=1f0678a164bc1ec4e4034cf358ebde241e1a15dba2ec2066ee3be65608552250&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDBa858dg%2FKUdTynhlx8WmiBpgnqctGQH1LLY%0AJFdYfxnrZ%2FM%2FnV8eMJI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790856900&signature=8fb645ed6fd145c4855710f522fc10bccbad4994299e6667d7ab6fc20da6201b&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B06sdv%2FKUdTynhlx8%2FaY8xIuhDhxqt8NZP%0AdqH8CLB7rPkUr1MTHfo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790856900&signature=8fb645ed6fd145c4855710f522fc10bccbad4994299e6667d7ab6fc20da6201b&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B06sdv%2FKUdTynhlx8%2FaY8xIuhDhxqt8NZP%0AdqH8CLB7rPkUr1MTHfo%3D%0A)
 
 ## Disabling Feedback
 
 As a Primary Owner or Owner of a Team or Enterprise plan, you can disable the ability for members of your organization to submit feedback to Anthropic via the thumbs up / down button using the **Rate chats** setting, under Organization settings > Data and Privacy:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1789086600&signature=048c7c2c2df10929abda358f9edda8adb0e9ef3024a358f38670fb2a162c9365&req=diAiEc55lIFXUPMW1HO4zaA59KPVuBDY1xJ%2BJFalRXbuEZMicuAzdo0Oqe8Q%0AEHW6i24kw3a9x8ol4hE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1789086600&signature=048c7c2c2df10929abda358f9edda8adb0e9ef3024a358f38670fb2a162c9365&req=diAiEc55lIFXUPMW1HO4zaA59KPVuBDY1xJ%2BJFalRXbuEZMicuAzdo0Oqe8Q%0AEHW6i24kw3a9x8ol4hE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790856900&signature=2e27c82ce6f6a5d34769796d7f51a38cf1d09ac8a0277636888fa63a703696fb&req=diAiEc55lIFXUPMW1HO4zaA59ardtRDX1xJ%2BJFalRXZAiFwakB3Wgx%2FPAsri%0A9aY9AzKjU0ag%2FBhrKlI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790856900&signature=2e27c82ce6f6a5d34769796d7f51a38cf1d09ac8a0277636888fa63a703696fb&req=diAiEc55lIFXUPMW1HO4zaA59ardtRDX1xJ%2BJFalRXZAiFwakB3Wgx%2FPAsri%0A9aY9AzKjU0ag%2FBhrKlI%3D%0A)
+
+---
 
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)
+
+Table of contents

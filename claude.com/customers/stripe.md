@@ -4,31 +4,21 @@ Case study | Claude Code
 
 # Stripe deploys Claude Code to 1,370 engineers with zero-configuration enterprise rollout
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Stripe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adf8d23ff734739d3a80_Stripe_light.svg)![Stripe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adfff1546febae66f812_Stripe_dark.svg)
+![Stripe logo](https://assets.claude.com/0e2493b60dbe1a71a144ca649e1916bade399bf7.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-North America
+:   North America
 
 1,370 engineers using Claude Code
 
@@ -40,63 +30,19 @@ A Scala-to-Java migration using Claude models that would have taken an estimated
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+[Read more](https://claude.com/product/claude-code)
 
 How enterprises are building AI agents in 2026
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6938f1ba14ef8dffb304fae8_2026%20State%20of%20AI%20Agents%20Report%20-%20Blog%20-%201200%20x%20630%20E.png)
+![How enterprises are building AI agents in 2026](https://assets.claude.com/faaa398e4d7a94cfce273d40c67bf04482996e0d.png?w=2400&q=75&fm=webp&fit=max)
 
 New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
 
-Read more
-
-[Read more](https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026)Read more
-
-How enterprises are building AI agents in 2026
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How enterprises are building AI agents in 2026
-
-New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026)
 
 [**Stripe**](https://stripe.com) builds financial infrastructure for the internet, powering payments for millions of businesses worldwide. The company's developer infrastructure team ensures that Stripe engineers have the most productive experience of their careers through tooling and platform capabilities.
 
@@ -108,7 +54,7 @@ New research from 500+ technical leaders reveals how enterprises are deploying A
 * Created an education program that reframed AI assistants as capable new engineers who need context, not replacements who work autonomously
 * Built a foundation for AI-powered agents focused on maintaining Stripe's 5.5 nines of reliability
 
-# The challenge
+## The challenge
 
 Stripe needed a CLI-native coding assistant that met [enterprise security requirements](https://claude.com/solutions/enterprise). For Stripe's developer infrastructure team, led by Scott MacVicar, the challenge wasn't choosing a single winner; it was enabling engineers to find the tools that fit their individual workflows while maintaining enterprise-grade security.
 
@@ -116,11 +62,11 @@ Stripe needed a CLI-native coding assistant that met [enterprise security requir
 
 But breadth created its own problems. Enterprise security requirements meant Stripe couldn't simply let engineers install whatever they wanted. Supply chain attacks are a real concern, and random JavaScript packages on corporate laptops posed unacceptable risk.
 
-# Claude Code enables zero-friction adoption
+## Claude Code enables zero-friction adoption
 
 The path to deployment required collaboration. MacVicar worked directly with Anthropic to produce an enterprise binary version of Claude Code, a process that took two to three months of testing and iteration. The result was a signed binary that could be deployed safely across the organization, bypassing the npm dependency chain that had posed security concerns.
 
-# Treating AI assistants like capable new engineers
+## Treating AI assistants like capable new engineers
 
 "We came up with our internal distribution mechanism," MacVicar explained. "It's pre-installed on everyone's laptop. It's pre-installed on everyone's development box. It's pre-configured with the rules, the tokens, the authentication. It just works out of the box so no one has to go make an account or read all the configurations."
 
@@ -132,7 +78,7 @@ The biggest challenge hasn't been technical—it's been educational. Engineers i
 
 This framing changed how engineers prompted their AI assistants. Instead of expecting magic, they learned to provide context: point to documentation, show example code, explain architectural patterns. The team reinforced this through engineering all-hands presentations, dedicated training sessions, and strategically placed "hint buttons" throughout internal tools. Local examples proved more effective than centralized training. Teams that discovered effective prompts for their specific codebases shared those patterns within their groups, creating organic knowledge transfer. For MacVicar's team, this education work is as important as the tooling itself. This approach to onboarding, treating AI as a collaborator that needs context rather than a replacement, reflects how Stripe and Anthropic see the future of AI-assisted development.
 
-# The results: Building towards AI agents for reliability
+## The results: Building towards AI agents for reliability
 
 Engineers report higher satisfaction with their tooling. While the team hasn't isolated metrics attributable to any single AI assistant, the signals are positive across the board. One concrete example: a team used Claude models to migrate 10,000 lines of Scala to Java in four days, a project estimated at ten engineering weeks by hand. The migration enabled a newer version of the JDK, enabling performance improvements that had been stuck behind the manual effort required. "Sentiment's up,” MacVicar said. "People like it. The vibes are good."
 
@@ -146,58 +92,16 @@ For now, Stripe continues learning what works across its suite of AI tools. The 
 
 ‍
 
-"Claude Code is pre-installed on everyone's laptop. It just works out of the box."
+> "Claude Code is pre-installed on everyone's laptop. It just works out of the box."
 
-Scott MacVicar
+Scott MacVicarDeveloper infrastructure team lead, Stripe
 
-Developer infrastructure team lead, Stripe
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

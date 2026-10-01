@@ -6,7 +6,7 @@
 
 # Map your understanding and build lessons from the gaps
 
-Claude Opus 4.6 traces your confusion to its source. It maps what you already understand, finds the specific misconception underneath, and builds personalized learning experiences around it.
+Claude Opus 5 traces your confusion to its source. It maps what you already understand, finds the specific misconception underneath, and builds personalized learning experiences around it.
 
 20 minPersonalClaude.ai
 
@@ -18,7 +18,7 @@ Try in ClaudeCopy prompt
 
 ## 1. Describe the task[](#1-describe-the-task)
 
-Opus 4.6 maps what you already understand before trying to explain anything. It asks diagnostic questions, finds the specific point where your reasoning breaks, and builds the explanation from that gap.
+Opus 5 maps what you already understand before trying to explain anything. It asks diagnostic questions, finds the specific point where your reasoning breaks, and builds the explanation from that gap.
 
 From a single conversation, it produces three artifacts: an interactive lesson built around your misconception, a workbook that applies the concept to your own data, and a concept map connecting forward. Describe the concept you're stuck on and what you do understand. The prompt below does three things worth copying: it pins down the exact step where understanding breaks, it says what a good explanation would let you do afterward, and it attaches the data the workbook will be built from.
 
@@ -34,12 +34,12 @@ The diagnostic works from conversation alone. Files come in only when you want t
 
 ### Required context[](#required-context)
 
-* No files needed for the diagnostic itself. If you want a personalized workbook, attach a CSV or XLSX export of your data, the way the example prompt attaches a hiring pipeline export that runs from applications through 12-month retention. Opus 4.6 scans across the full dataset and builds the analysis around your actual figures.
+* No files needed for the diagnostic itself. If you want a personalized workbook, attach a CSV or XLSX export of your data, the way the example prompt attaches a hiring pipeline export that runs from applications through 12-month retention. Opus 5 scans across the full dataset and builds the analysis around your actual figures.
 
 ### Optional context[](#optional-context)
 
 * Your screening or pipeline data: CSV or XLSX with candidate records, interview scores, hiring decisions, and outcomes, or any data where you're using a signal to screen or sort a population
-* [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) gives Opus 4.6 space to think step by step before responding. For a task like this, where Claude needs to reason carefully about your knowledge structure to find a hidden misconception, that extra reasoning depth makes the diagnostic more precise. You can see Claude's thinking process as it works through the problem.
+* [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) gives Opus 5 space to think step by step before responding. For a task like this, where Claude needs to reason carefully about your knowledge structure to find a hidden misconception, that extra reasoning depth makes the diagnostic more precise. You can see Claude's thinking process as it works through the problem.
 
 [
 
@@ -47,7 +47,7 @@ Extended Thinking](https://support.claude.com/en/articles/10574485-using-extende
 
 ## 3. What Claude creates[](#3-what-claude-creates)
 
-Claude asks diagnostic questions first, probing what you know until it identifies the specific misconception. Then it rebuilds from the gap and produces all three artifacts. Opus 4.6 stays persistent through this entire sequence, and its writing keeps pace: the explanation, lesson, workbook, and concept map all maintain a consistent voice calibrated to your actual comprehension level.
+Claude asks diagnostic questions first, probing what you know until it identifies the specific misconception. Then it rebuilds from the gap and produces all three artifacts. Opus 5 stays persistent through this entire sequence, and its writing keeps pace: the explanation, lesson, workbook, and concept map all maintain a consistent voice calibrated to your actual comprehension level.
 
 Let me figure out where your understanding is solid and where it breaks.
 
@@ -87,7 +87,7 @@ Each follow-up below builds on something the first conversation produced: the si
 
 ### Test it against your own data[](#test-it-against-your-own-data)
 
-The workbook gives you the baseline. Push on the signal you most want to believe. Opus 4.6 scans across large files and datasets before responding, so it handles messy real-world numbers without oversimplifying.
+The workbook gives you the baseline. Push on the signal you most want to believe. Opus 5 scans across large files and datasets before responding, so it handles messy real-world numbers without oversimplifying.
 
 *Walk me through which interview criteria actually predict success once you factor in the base rates. I especially want to know about our new case study exercise—we added it in Q3 and our hire quality seems better. Is the case study a real signal or are we seeing what we want to see?*
 
@@ -103,7 +103,7 @@ Copy prompt
 
 ### Build a longer learning sequence[](#build-a-longer-learning-sequence)
 
-Work through the concept map one piece at a time. Opus 4.6 carries instructions through longer conversations without drifting, so the diagnostic context holds as you move through related topics.
+Work through the concept map one piece at a time. Opus 5 carries instructions through longer conversations without drifting, so the diagnostic context holds as you move through related topics.
 
 *Now that I understand base rates, I want to build out my understanding of the related concepts on the map—signal detection theory, information gain, and the prosecutor's fallacy. Can you create a learning sequence that covers them one at a time, with a workbook exercise for each?*
 
@@ -113,11 +113,11 @@ Open in Claude
 
 ### Front-load what you know[](#front-load-what-you-know)
 
-Opus 4.6 invests in understanding your knowledge structure before trying to change it. The more clearly you describe where your understanding is solid, the faster Claude can locate where it breaks. What you get out mostly reflects what you put in, so spend your effort describing your starting point rather than hunting for the perfect phrasing. “I understand basic probability but I can’t follow base rate arguments” is a sharper starting point than “I don’t understand statistics.” The gap between what clicks and what doesn’t is usually where the misconception lives.
+Opus 5 invests in understanding your knowledge structure before trying to change it. The more clearly you describe where your understanding is solid, the faster Claude can locate where it breaks. What you get out mostly reflects what you put in, so spend your effort describing your starting point rather than hunting for the perfect phrasing. “I understand basic probability but I can’t follow base rate arguments” is a sharper starting point than “I don’t understand statistics.” The gap between what clicks and what doesn’t is usually where the misconception lives.
 
 ### Say it once[](#say-it-once)
 
-You don’t need to repeat your requirements or add “and remember to...” reminders. Opus 4.6 follows instructions precisely through the full diagnostic, the artifact construction, and any follow-ups. State what you want upfront and trust that it carries through.
+You don’t need to repeat your requirements or add “and remember to...” reminders. Opus 5 follows instructions precisely through the full diagnostic, the artifact construction, and any follow-ups. State what you want upfront and trust that it carries through.
 
 ### Check the workbook against your own data[](#check-the-workbook-against-your-own-data)
 

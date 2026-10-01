@@ -1,38 +1,26 @@
 <!-- source: https://claude.com/customers/airops -->
 
+[Skip to main content](#main-content)
+
 Case study | Claude Platform
 
 # AirOps doubles team productivity and ships agents in weeks with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e93783e22682968ebf2ce0_logo_airops-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e937860464913d21cd6764_logo_airops-dark-mode.svg)
+![AirOps logo](https://assets.claude.com/c750d9c26fa005c7bdeb026c29d7d74a7eceaea6.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Location:
-
-North America
+:   North America
 
 2x productivity across the team
 
@@ -53,32 +41,6 @@ Agent SDK eliminated orchestration overhead, accelerating development velocity
 
 ## The challenge
 
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698395d5956e6e0e78f3e486_image-claude-sdk.jpg)
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-Read more
-
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)Read more
-
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Building agents with the Claude Agent SDK
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
 ## Balancing creativity, accuracy, and performance at scale
 
 Great content needs to reflect a brand's voice, deliver genuine information gain for readers, and perform well in search to reach its intended audience. Most models struggle to hold all three requirements at once, and often fall short on quality or perform inconsistently as prompts grow more complex.
@@ -87,33 +49,15 @@ AirOps scores every piece of content against dozens of checks before it publishe
 
 "There is always a healthy tension in great organic content," Alex Halliday, AirOps CEO, explained. "It needs to be a balance between brand, performance, and information gain. Most models fail to strike that balance, either struggling with creativity or instruction adherence."
 
+Building agents with the Claude Agent SDK
+
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
+
+The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
+
+[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+
 ## The solution
-
-Introducing Agent Skills
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6902681b6935a6f61e64165c_og_introducing-agent-skills.jpg)
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-Read more
-
-[Read more](https://claude.com/blog/skills)Read more
-
-Introducing Agent Skills
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Agent Skills
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
 ## Selecting Claude for voice consistency and coherence
 
@@ -145,21 +89,17 @@ The SDK also changed how the engineering team spends its time. The team now spen
 
 "Before, we spent a lot of time rerouting LLM calls, updating schemas, and dealing with orchestration configurations whenever we made changes," Halliday said. "Now we focus on output quality and the human-to-agent experience."
 
-"Opus consistently outperformed on what matters for marketing: natural writing, instruction following, and voice consistency."
+Introducing Agent Skills
 
-Alex Halliday
+![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg?w=2400&q=75&fm=webp&fit=max)
 
-CEO, AirOps
+Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/blog/skills)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Opus consistently outperformed on what matters for marketing: natural writing, instruction following, and voice consistency."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Alex HallidayCEO, AirOps
 
 ## The outcome
 
@@ -177,42 +117,16 @@ AirOps' agent runtime is currently in alpha with customers including Ramp, Carta
 
 "We're building toward a world where an agent identifies an underperforming page, drafts updated content grounded in brand voice, and publishes it, with a human only needing to confirm strategy and provide edits when needed," Halliday added. "Claude is central to that vision."
 
-"Development with the SDK was straightforward and more powerful. Time to quality went from 60 hours to 5 hours."
+> "Development with the SDK was straightforward and more powerful. Time to quality went from 60 hours to 5 hours."
 
-Alex Halliday
+Alex HallidayCEO, AirOps
 
-CEO, AirOps
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

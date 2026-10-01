@@ -17,7 +17,7 @@ Update Vault
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Unique identifier of the vault to update.
 
 - `--display-name: optional string`
 
@@ -53,7 +53,7 @@ Update Vault
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 

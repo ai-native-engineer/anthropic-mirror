@@ -75,6 +75,10 @@ worker = client.beta.agents.create(
 
 name="search-worker",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-plan-big-execute-small"},
+
 model=WORKER\_MODEL,
 
 # Everything off except the two web tools: the worker's job is
@@ -138,6 +142,10 @@ betas=BETAS,
 coordinator = client.beta.agents.create(
 
 name="search-coordinator",
+
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-plan-big-execute-small"},
 
 model=COORDINATOR\_MODEL,
 
@@ -304,6 +312,10 @@ Same question, quiet stream.
 solo = client.beta.agents.create(
 
 name="solo-researcher",
+
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-plan-big-execute-small"},
 
 model=COORDINATOR\_MODEL,
 

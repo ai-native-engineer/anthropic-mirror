@@ -4,39 +4,24 @@ Case study | Claude
 
 # Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)
+![Cox Communications logo](https://assets.claude.com/35d574effa3dde30106bd5391b519b38c0eb5954.svg)
 
 Industry:
-
-Telecommunications
+:   Telecommunications
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Cowork](https://claude.com/product/cowork)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)[Claude Cowork](https://claude.com/product/cowork)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 7x ROI
 
@@ -45,6 +30,8 @@ on Cox Communications' first year of AI investment
 55% faster speed to market,
 
 an early indication of a 2-point lift in B2B conversion, and 40% higher efficiency
+
+*June 29, 2026*
 
 [Cox Communications](https://www.cox.com/residential/home.html) is the largest private broadband provider in the United States, with 15,000 employees serving six million customers over a fiber network that reaches roughly 12 million homes and businesses. Its commercial business sells broadband, wireless, and connectivity to companies of every size. Cox set out to rebuild how it markets and sells, working with Claude and its strategic transformation partner Accenture.
 
@@ -59,28 +46,6 @@ an early indication of a 2-point lift in B2B conversion, and 40% higher efficien
 
 ## The challenge
 
-Q&A: Cox Communications
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d784a19779036e8feeae8_og_case-study-cox.jpg)
-
-Cox Communications President Mark Greatrex sat down with Anthropic to talk about rolling out AI to 15,000 people.
-
-Q&A: Cox Communications
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Cox Communications President Mark Greatrex sat down with Anthropic to talk about rolling out AI to 15,000 people.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A: Cox Communications
-
-Cox Communications President Mark Greatrex sat down with Anthropic to talk about rolling out AI to 15,000 people.
-
 ## A growth engine that had run out of room
 
 Adopting AI across a company of this size was a challenge in itself: standardizing on tools teams could trust, getting people who had never written code building safely, and deciding what was worth building at all. Leadership set three priorities: revenue growth, customer experience, and cost. Growth was the top priority, and the hardest to deliver.
@@ -91,33 +56,13 @@ Field sales ran on fairly manual effort. A seller heading to a street of small b
 
 Eric Pace, who leads Cox's AI Center of Excellence, had been fielding the same request from leadership for five years. "We want actual marketing automation," he said, "not automated steps in the flow, not more SaaS applications that make it easier for humans to do what they're already doing." Until recently, the building blocks for that kind of automation did not exist.
 
+Q&A: Cox Communications
+
+![Q&A: Cox Communications](https://assets.claude.com/b7d33f6423f00381ed5d8609dd320f74ae6f42b1.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Cox Communications President Mark Greatrex sat down with Anthropic to talk about rolling out AI to 15,000 people.
+
 ## The solution
-
-Cowork
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Read more
-
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
 ## A trusted partner, a default model, and a stack they could monitor and control
 
@@ -165,21 +110,17 @@ To capture the judgment that used to live only in people's heads, Accenture also
 
 Cox is running the pilot on a broader segment of small business buyers who purchase a single product digitally, a slice challenging to serve with dedicated human attention. The target is on the order of 1,000 new customers in four to six weeks. Pace frames it as a chance to "push the envelope and test our chops" on what an agentic system can do.
 
-"We inject Claude models behind the scenes to drive insights or intelligence that we couldn't get before."
+Cowork
 
-Eric Pace
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Head of AI, Cox Communications
+Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/product/cowork)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "We inject Claude models behind the scenes to drive insights or intelligence that we couldn't get before."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Eric PaceHead of AI, Cox Communications
 
 ## The outcome
 
@@ -195,18 +136,10 @@ Iteration sped up too. "You're not doing traditional A/B testing where you do a 
 
 The agentic go-to-market pilot is meant to prove a pattern the company can repeat across every function. "It's a blueprint we can apply everywhere," Pace said, "ultimately driving toward our goal, which is to make the company 10x what it is."
 
-"Every time we show up, we say, 'Yes, this sounds expensive, but look at the value it's producing.'"
+> "Every time we show up, we say, 'Yes, this sounds expensive, but look at the value it's producing.'"
 
-Eric Pace
+Eric PaceHead of AI, Cox Communications
 
-Head of AI, Cox Communications
+[![Cox Communications](https://assets.claude.com/35d574effa3dde30106bd5391b519b38c0eb5954.svg)
 
-## Related stories
-
-[Cox Communications on scaling Claude across largest privately-held telecom company in US](https://claude.com/customers/cox-communications-qa)Cox Communications on scaling Claude across largest privately-held telecom company in US
-
-Cox Communications on scaling Claude across largest privately-held telecom company in US
-
-Customer story
-
-[Customer story](https://claude.com/customers/cox-communications-qa)Customer story
+### Cox Communications on scaling Claude across largest privately-held telecom company in US](https://claude.com/customers/cox-communications-qa)

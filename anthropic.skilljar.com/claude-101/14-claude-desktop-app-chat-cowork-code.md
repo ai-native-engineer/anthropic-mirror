@@ -1,115 +1,113 @@
 <!-- https://anthropic.skilljar.com/claude-101/440908 -->
 
-**What you'll learn**
+## What you'll learn
 
-*Estimated time: 6 minutes*
+*Estimated time: 11 minutes*
 
 By the end of this lesson you'll be able to:
 
-* Identify the three modes in the Claude desktop app — Chat, Cowork, and Code — and what each is designed for
-* Explain key features unique to each mode, including quick entry, scheduled tasks, and local vs. remote development
-* Choose the right mode based on the type of work you need to accomplish
+* Distinguish the ways you work with Claude on the desktop — working with Claude turn by turn, handing whole tasks off for Claude to run, and building software in your codebase
+* Recognize which shape of work a task calls for before you start it
+* Find where each way of working lives in the desktop app today
 
-## Navigating the Claude desktop app: Chat, Cowork, Code
+## Working with Claude on your desktop
 
-The Claude desktop app gives you three ways to work with Claude: Chat, Cowork, and Code — from quick questions to complex research to building software.
+The Claude desktop app is your home base for working with Claude — from a quick question mid-meeting to a report Claude assembles from six sources while you do something else. The work sorts into three shapes, and knowing which one you're in is the whole skill of this lesson:
 
-Chat is the same Claude you know from claude.ai, plus quick entry, screenshots, dictation, and connectors that come from running natively on your computer. Cowork is an agentic tool — you give it a goal, connect it to your tools and resources, and let it do the work. With Cowork, Claude has the reach and the room to do more. This broader scope allows it to conduct more thorough research and analysis, and produce more complex documents and deliverables. Code is for building software, from writing and testing code to deploying it.
+* **Working with Claude, turn by turn.** You and Claude go back and forth. You ask, Claude answers, you steer, it revises. The thinking happens in the exchange.
+* **Handing work off to Claude.** You describe an outcome — a finished brief, a formatted deliverable, a task that runs every Monday — and Claude plans it, does it, and comes back with the result. You review the plan and the output; you don't stitch the steps together yourself.
+* **Building software with Claude Code.** Claude works directly in a codebase: reading it, writing and testing code, running commands. Built for developers, and worth knowing about even if you never open it.
 
-Cowork and Code run on the same engine. Both are Claude Code underneath — local to your machine, capable of independent work, able to spin up sub-agents and sustain long tasks. This allows Claude to work through larger tasks on its own, like research and writing or building software.
+The first two are where most knowledge workers spend their day; the third is the developer's workspace. The rest of this lesson makes the difference concrete, then shows where each one lives in the app today.
 
-Each mode is designed around the work it serves, showing you what matters and giving you control where you need it.
+**In the product today.** Turn-by-turn work happens in Chat. Work you hand off runs in Cowork. Building software happens in the Code tab. All three live in the Claude desktop app.
 
-## Chat
+## Working with Claude, turn by turn
 
-![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a8c30634a6c3e545269791_69a8a456caa28723041a6eea_699e1b746d83c9fb55a56d31_698be3352261cf694fdae308_698bdd295c5f5d680c01e63c_Screenshot%25252525202026-02-09%2525252520at%25252525204.38.22%25252525E2%2525252580%25252525AFPM.png)
+This is Claude as a thinking partner: the shape of work where the value is in the exchange itself. You bring a half-formed idea, an unfamiliar dashboard, a paragraph that isn't landing — and you work it out together, one turn at a time.
 
-Chat excels when you need to ask questions, brainstorm, draft, or work through problems back and forth.
+**Reach for this when:**
 
-If you've used claude.ai, this works the same way, with a few things that come from running natively on your computer:
-
-* **Quick entry.** Double-tap the Option key on Mac to pull up Claude over whatever you're working on. It responds in a compact window that stays on top as you switch between apps. You never have to leave what you're doing to ask a question.
-* **Screenshots and window sharing.** Capture a screenshot or share a window so Claude sees exactly what you're looking at. Faster than describing what's on your screen, and more precise. (Mac)
-* **Dictation.** Talk through a problem instead of typing. Useful when you're thinking out loud, away from your keyboard, or working through something where speaking is faster than writing. (Mac)
-* **Desktop connectors.** Connect local tools and services through connectors so Claude can work with other tools on your machine.
-
-**Try it out when:**
-
-* You're staring at an unfamiliar dashboard. Double-tap Option, drag your cursor over the window to screenshot it, and ask “what do these metrics mean?” Claude answers in the overlay while the dashboard stays in view.
-* You're in between meetings and want to think through how to structure a presentation. Open quick entry, switch to voice, and talk it through. Claude drafts an outline from what you said.
-* You've been jotting down ideas for a product launch across Apple Notes for weeks. You add the Notes connector from Settings and ask Claude: “Pull together everything in my notes about the Osprey launch, figure out where I left things half-finished, and check my other connected tools for anything that fills in the gaps.” Claude reads your notes on your machine, pieces together what you have, and follows up where you trailed off.
-
-## Cowork
-
-![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a8c30634a6c3e54526979c_69a8a456caa28723041a6ee7_699e2c4828218e71872531df_699e289b7bffb76b5ebedc79_Screenshot%252525202026-02-24%25252520at%252525202.39.06%252525E2%25252580%252525AFPM.png)
-
-Claude Cowork is built for work that takes real effort: pulling information from many sources, making sense of it, and producing something finished.
-
-In Cowork, Claude can multitask, tackling different parts of a project at a time, so it has the scope to draw from more sources and the stamina to see things through. Thorough research briefs, cross-source financial analysis, end-to-end contract review, polished slide decks from material spread across sources.
-
-Before starting, Claude often asks a short set of questions to pin down what you need: scope, format, constraints. It builds a plan you can review in the sidebar. As it works, you see the task come together: sources it's drawing from, files taking shape, progress through the plan. You can run multiple tasks at once, each in its own conversation, and switch between them from the sidebar.
-
-* **Folder access.** Point Claude to a folder on your computer and it reads what's there, figures out what's relevant, and saves finished work back to the same place. You can also upload files, paste content into the conversation, or connect tools that pull in what Claude needs.
-* **Scheduled tasks.** Claude can handle recurring work on a schedule: a daily briefing that pulls from your Slack and calendar, a weekly roundup of what shipped, a morning inbox triage that sorts what needs your attention. You define the task and when it should run, and Claude handles it automatically each time the app is open. If your computer or the app was closed when a task was due, it catches up when you're back.
-* **Subagents.** Background workers that Claude spins up to handle parts of a task in parallel. If you ask for something complex — like a research brief that pulls from multiple sources — Claude breaks it into subtasks, assigns each to a subagent with its own context, and coordinates the results, giving you one finished deliverable.
-* **Dispatch.** A persistent conversation thread that allows you to continue your Cowork conversations from your phone. From the Claude mobile app, you can hand Claude tasks that use everything on your computer — your files, connectors, plugins, even desktop apps. To use this feature, you need both the desktop and mobile apps, with your computer awake and the desktop app open.
-* **Projects.** Projects in Cowork let you group related tasks into dedicated workspaces with their own files, context, instructions, and memory. If you use projects on Claude, Cowork projects work similarly, but they live locally on your desktop and are built around the tasks you run through Cowork.
-* **Browser use.** Connect Claude in Chrome and Claude can navigate websites, interact with pages, and pull what it finds directly into the task it's working on. This is how Cowork does things like check competitor pricing across ten sites or gather data from pages that don't have an API.
-* **Computer use.** When Claude doesn't have a connector or plugin for what you need, it can navigate your computer directly — clicking, typing, and opening apps just like you would. Claude follows a priority order: connectors first, then Chrome, then screen interaction, so it always picks the fastest, most reliable path. You'll see a permission prompt before Claude accesses each app, and you can set up a blocklist for anything you want off-limits. Computer use is in research preview on Pro and Max plans, macOS only (Windows coming soon)
-* **Plugins.** Plugins give Claude capabilities it doesn't have on its own: pulling live financial data, searching your company's internal knowledge base, or working within a specific compliance framework. Browse and add them from the Cowork interface to fit the task.
-* **Protected environment.** Cowork runs in a contained space on your computer. Claude can read, create, and edit files within the folders you share, but can't access anything outside them.
+* **The answer changes what you ask next.** You're brainstorming, and each response opens the next question. You couldn't have written the whole request up front, because you didn't know yet.
+* **You want to stay in it.** Drafting, editing, thinking out loud — the point is your judgment on every turn, not a finished thing at the end.
+* **It's quick.** A question, a rewrite, a "what does this mean?" — small enough that setting up a whole task would be overhead.
 
 **Try it out when:**
 
-* You want to query all your tools like you would a database. Ask “review what we decided about pricing last quarter across meeting notes, Slack, and email, then update our Q3 deck with the findings?” and Cowork finds the answer across meeting notes, slide decks, email, and Slack threads.
-* You're researching a new market, scoping competitors, evaluating tools. For any research that might span multiple tabs with hard to extract information, Cowork visits the sites, reads the reports, pulls the pricing, and delivers a structured brief with sources, without you opening a single browser tab.
-* You need to work through a folder of 50+ project documents including contracts, financial reports, and meeting transcripts. You can ask Cowork to find the documents most relevant to your initiative, and produce a summary memo. Cowork reads every page, cross-references across the full set, and pulls out the patterns that only emerge from reading all of them. Review fifty like you'd review five.
-* You keep doing the same work every morning — checking messages, pulling together a status update, prepping for the day's meetings. Set it up once as a scheduled task and Claude handles it on repeat, so you start the day with answers instead of admin.
+* You're staring at an unfamiliar dashboard. Screenshot it and ask "what do these metrics mean?" Claude explains while the dashboard stays in view, and your follow-up ("okay, which of these should I actually worry about?") is the next turn.
+* You're between meetings and need to structure a presentation. Talk it through by voice; Claude drafts an outline from what you said; you push back on section three; it revises. Four turns, done before your next call.
+* You've been jotting product-launch ideas across Apple Notes for weeks. Ask Claude to pull together everything about the launch, figure out what you left half-finished, and check your other connected tools for gaps. Then work the gaps together.
 
-Cowork is available to Pro, Max, Team, and Enterprise users, with new capabilities being added regularly.
+**In the product today.** In the desktop app this is Chat — the same Claude you know from claude.ai, plus a few things that come from running natively on your computer:
 
-## Code
+* **Quick entry.** Double-tap the Option key (Mac) to pull Claude up over whatever you're working on. It answers in a compact window that stays on top as you switch apps.
+* **Screenshots and window sharing.** Capture a screenshot or share a window so Claude sees what you see. (Mac)
+* **Dictation.** Talk through a problem instead of typing. (Mac)
+* **Desktop connectors.** Connect local tools and services so Claude can work with what's on your machine.
 
-![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a8c30634a6c3e545269794_69a8a455caa28723041a6ee1_699e1b736d83c9fb55a56d2a_698be3342261cf694fdae301_698bdd78a6031117e6bb41d6_Screenshot%25252525202026-02-09%2525252520at%252525252012.52.07%25252525E2%2525252580%25252525AFPM.png)
+## Handing work off to Claude
 
-The Code tab gives you access to the power of Claude Code, running directly inside the desktop app. This gives you a full development environment for building software.
+Working agentically with Claude is a new way of working for many people. Instead of asking a question, you hand Claude the whole piece of work — gather the context, do the analysis, produce the finished thing — and it comes back done. You're delegating, not just chatting.
 
-Via Code, Claude works directly in your codebase: reading what's there, writing and modifying code, running commands. Visual diffs show what changed, a built-in terminal shows commands as they run, and git tracks every version so you can always roll back.
+**Reach for this when:**
 
-Where Cowork runs in a contained workspace limited to the folders you share, Code runs directly in your project with full access to your file system, terminal, and development tools.
+* **The task has several steps you'd normally do in sequence.** Pull the figures, compare them, draft the summary, format the doc. Handed off, that's one instruction, not four errands.
+* **The output is finished files, where you need them.** A batch of renamed files, a spreadsheet saved into the right folder, a formatted PDF on your desktop — delivered to your file system, not handed back for you to file away. (A deck or doc on its own doesn't need a hand-off: on paid plans you can make those as artifacts in any conversation — see the "Creating with artifacts" lesson.)
+* **The work spans your tools.** Meeting notes in one place, the thread in Slack, last quarter's numbers in a spreadsheet. Set up a Friday roll-up as a scheduled task and Claude gathers all three itself every time it runs — nothing for you to round up first.
+* **It should happen on a schedule, or while you're doing something else.** A Friday review of what shipped. A Monday briefing that preps you for your next meeting.
 
-You choose where work happens:
+Handing work off doesn't mean stepping back from it. Before Claude starts, it may ask a few questions to pin down scope and format, and it shows you the plan. As it works, you can watch the task take shape — the sources it's drawing from, the files forming, its progress through the plan — and steer at any point. And when Claude is set to ask before acting, it stops for your approval on the actions that matter, like sending an email or sharing a file. You stay in control of what leaves your desk.
 
-* **Local:** You select a folder on your computer and Claude works directly with those files. Because it runs on your machine, Claude can read your project, access local tools, and run a development server you can preview in your browser.
-* **Remote:** You connect a GitHub repository and Claude works in a cloud environment. Sessions continue even if you close the app, so you can start a big refactor and check back later. Good for larger codebases or when you want to keep development off your local machine.
+**Try it out when:**
 
-Three interaction modes let you control how much Claude does on its own:
+* You want to query all your tools like a database. "Review what we decided about pricing last quarter across meeting notes, Slack, and email, then update the Q3 deck with the findings." Claude finds the answer across all of them and updates the deck. Hand it off, keep working, check the result.
+* You have a folder of 50+ project documents — contracts, financial reports, meeting transcripts. Ask Claude to find the ones most relevant to your initiative and produce a summary memo. It reads every page and pulls out the patterns that only emerge from reading all of them. Review fifty like you'd review five.
+* You do the same work every Monday morning — check messages, assemble a status update, prep for the day's meetings. Set it up once as a scheduled task, and start Monday with answers instead of admin.
 
-* **Ask:** Claude proposes every change and waits for your approval. You review a visual diff and accept or reject before anything is modified.
-* **Code:** Claude applies file changes automatically but checks before running terminal commands.
-* **Plan:** Claude outlines its full approach before touching anything. A dedicated plan viewer lets you review and revisit the strategy as work progresses.
+**In the product today.** In the desktop app, you can hand off tasks in Cowork. What that gives you today:
 
-You can run multiple sessions across projects and filter them by status (Active or Archived) and environment (Local or Cloud) from the sidebar.
+* **Local folder access.** Point Claude at a folder; it reads what's there and saves finished work back to the same place. This is the concrete difference from turn-by-turn Chat, which can read what you upload but hands finished files back as downloads rather than saving them into your folder.
+* **Scheduled tasks.** Set a task once — a daily briefing, a weekly roundup, a morning inbox triage — and Claude runs it on the cadence you set. Scheduled tasks run remotely, so they run even when your computer is asleep or the app is closed. A task that needs files on your computer runs locally, only while the app is open.
+* **Subagents.** For a big job, Claude splits the work across background workers running in parallel, each with its own context, and hands you one finished deliverable.
+* **Projects.** Group related tasks into a workspace with its own files, instructions, and memory — like projects in Chat, but built around the tasks you run.
+* **Browser use.** With Claude in Chrome, Claude navigates websites and pulls what it finds straight into the task — competitor pricing across ten sites, data from pages with no API.
+* **Computer use.** When there's no connector for what you need, Claude can operate your computer directly — clicking, typing, opening apps — asking permission before each app it touches, with a blocklist for anything off-limits. In research preview on Pro and Max plans.
+* **Plugins.** Ready-made bundles of skills, connectors, and agents built for a specific kind of work — a sales plugin, a finance one, a legal one — so Claude works the way that role works. Browse and add them under Customize → Plugins.
 
-The Code tab is available on Pro, Max, Team, and Enterprise users.
+Cowork is available to Pro, Max, Team, and Enterprise users, with new capabilities added regularly.
 
-## Comparing the three modes
+## Building software with Claude Code
 
-|  | Chat | Cowork | Code |
-| --- | --- | --- | --- |
-| **Optimized for** | Quicker exchanges: exploring ideas, iterative drafting, quick answers, learning through dialogue | Complex or sustained work: research, analysis, file organization, producing finished documents and deliverables | Building software: writing, testing, running and deploying code |
-| **Key features** | Quick entry, dictation | Work from local folders, plugins, subagents, scheduled tasks | Ask/Code/Plan modes, visual diffs, git integration, local and remote environments |
-| **Tools and extensions** | Connectors, Skills, Claude in Chrome | Connectors (local and remote), Skills, Claude in Chrome, Plugins, Computer Use | Connectors, Skills, Claude in Chrome, Plugins, Hooks |
+If you write code, the desktop app gives you a full development environment. Claude works directly in your codebase — reading what's there, writing and modifying code, running commands. Visual diffs show what changed, a built-in terminal shows commands as they run, and git tracks every version so you can always roll back. If you're not a developer, the takeaway is just this: it's a separate tab, and this course doesn't need it — [Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action) covers it in depth.
+
+You choose where the work happens:
+
+* **Local.** Select a folder on your computer and Claude works directly with those files — reading your project, using local tools, and running a development server you can preview in your browser.
+* **Cloud.** Connect a GitHub repository and Claude works in a cloud environment. Sessions continue even if you close the app, so you can start a big refactor and check back later. Good for larger codebases, or when you want to keep the work off your machine. You can run Cowork in the cloud in the same spirit — see [Cowork in the cloud](https://academy.claude.com/courses/introduction-to-claude-cowork) in the Introduction to Claude Cowork course (in beta, on eligible plans).
+
+You also choose how much Claude does on its own, with settings including:
+
+* **Manually approve.** Claude proposes every change and waits for your approval.
+* **Accept edits.** Claude applies file edits automatically.
+* **Plan.** Claude creates a plan before making changes.
+
+**In the product today.** This lives in the Code tab of the desktop app, available on Pro, Max, Team, and Enterprise plans. You can run multiple sessions across projects and filter them by environment (Local or Cloud) and status from the sidebar.
+
+## Choosing the right shape for the task
+
+You won't pick a tab first — you'll notice what kind of work is in front of you, and the tab follows. Here's the whole lesson in one table.
+
+| You're about to… | The shape it takes | Where it lives today |
+| --- | --- | --- |
+| Ask, brainstorm, draft, or think something through, turn by turn | Working with Claude, turn by turn | Chat (quick entry, dictation, screenshots) |
+| Hand off a multi-step task that ends in a finished deliverable, spans your tools, or runs on a schedule | Handing work off | Cowork (folder access, connectors, scheduled tasks, subagents) |
+| Write, test, run, and ship code in a codebase | Building software | The Code tab (Local or Cloud) |
 
 ## Lesson reflection
 
-* Think about the tasks you most commonly use Claude for. Which mode — Chat, Cowork, or Code — would best fit each of those tasks?
-* Consider a recent project where you needed to pull information from multiple sources. How might Cowork have changed your workflow?
+* Think about how you used Claude this week. Which requests were turn-by-turn thinking, and which were really whole tasks you fed in one question at a time because that's the habit?
+* Take the task you'd most like off your plate. Is it multi-step, does it need files saved and organized on your computer, does it span your tools? If yes to any, it's a hand-off — write down the outcome you'd describe to Claude, not the first question you'd ask.
 
 ## What's next
 
-In the next module, you'll learn how to organize your work and knowledge using Projects.
-
-#### Feedback
-
-As you progress through the course, we'd love to hear how you're using the Claude desktop app in your work, plus any feedback you may have. Share your feedback [here](https://forms.gle/RvHPBwQt9ZmcDc1P9).
+In the next module, you'll learn how to organize your work and knowledge using projects.

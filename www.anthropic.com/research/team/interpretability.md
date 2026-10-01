@@ -16,15 +16,19 @@ It's very challenging to reason about the safety of neural networks without unde
 
 Some Interpretability researchers have deep backgrounds in machine learning – one member of the team is often described as having started mechanistic interpretability, while another was on the famous scaling laws paper. Other members joined after careers in astronomy, physics, mathematics, biology, data visualization, and more.
 
-![Video thumbnail](https://cdn.sanity.io/images/4zrzovbb/website/77496fb929e6cb90088dee79f93835d043e5b4c2-1280x720.jpg)
+![Video thumbnail](https://cdn.sanity.io/images/4zrzovbb/website/6071a582f06f7b7b9a7cf73e100ec1f25c281442-1280x720.jpg)
 
-[## Natural Language Autoencoders: Turning Claude’s thoughts into text
+[## A global workspace in language models
 
-InterpretabilityMay 7, 2026
+InterpretabilityJul 6, 2026
 
-AI models like Claude talk in words but think in numbers. In this study, we train Claude to translate its thoughts into human-readable text.](https://www.anthropic.com/research/natural-language-autoencoders)
+New interpretability research reveals an emergent mental workspace in Claude that holds internal thoughts that don’t appear in the model’s output.](https://www.anthropic.com/research/global-workspace)
 
-[InterpretabilityApr 2, 2026
+[InterpretabilityMay 7, 2026
+
+#### Natural Language Autoencoders: Turning Claude’s thoughts into text
+
+AI models like Claude talk in words but think in numbers. In this study, we train Claude to translate its thoughts into human-readable text.](https://www.anthropic.com/research/natural-language-autoencoders)[InterpretabilityApr 2, 2026
 
 #### Emotion concepts and their function in a large language model
 
@@ -36,11 +40,7 @@ Who is the Assistant? We investigate the character that most modern language mod
 
 #### Signs of introspection in large language models
 
-Can Claude access and report on its own internal states? This research finds evidence for a limited but functional ability to introspect.](https://www.anthropic.com/research/introspection)[InterpretabilityAug 1, 2025
-
-#### Persona vectors: Monitoring and controlling character traits in language models
-
-AI models represent character traits as patterns of activations within their neural networks. By extracting "persona vectors" for traits like sycophancy or hallucination, we can monitor personality shifts and mitigate undesirable behaviors.](https://www.anthropic.com/research/persona-vectors)
+Can Claude access and report on its own internal states? This research finds evidence for a limited but functional ability to introspect.](https://www.anthropic.com/research/introspection)
 
 ## Publications
 

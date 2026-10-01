@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability -->
 
-Lesson 10 of 13 · AI Capabilities and LimitationsSteerability
+Lesson 10 of 13 · AI capabilities and limitationsSteerability
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Steerability
 
@@ -67,7 +67,7 @@ You've now met all four properties individually. In the next lesson we look at h
 
 [Previous lessonTry It Out: Working Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt)[Next lessonTry It Out: Steerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7)
 
-Lesson 10 of 13 · AI Capabilities and LimitationsSteerability
+Lesson 10 of 13 · AI capabilities and limitationsSteerability
 
 Getting started
 

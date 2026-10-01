@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907 -->
 
-Lesson 7 of 13 · AI Capabilities and LimitationsTry It Out: Knowledge
+Lesson 7 of 13 · AI capabilities and limitationsTry It Out: Knowledge
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Try It Out: Knowledge
 
@@ -12,7 +12,7 @@ Lesson 75 min
 
 [Previous lessonKnowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge)[Next lessonWorking Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory)
 
-Lesson 7 of 13 · AI Capabilities and LimitationsTry It Out: Knowledge
+Lesson 7 of 13 · AI capabilities and limitationsTry It Out: Knowledge
 
 Getting started
 

@@ -21,11 +21,15 @@ Create User Profile
 
   - `AccessType accessType`
 
-    Body param: How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    Body param: How the platform uses the API for this entity. `application` (default): the profile represents an individual end-user of the platform's product. `passthrough`: the profile identifies a company the platform resells Claude access to.
 
     - `Application("application")`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `Passthrough("passthrough")`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `string? externalID`
 
@@ -39,7 +43,7 @@ Create User Profile
 
   - `DateTimeOffset externalUserOnboardedAt`
 
-    Body param: A timestamp in RFC 3339 format
+    Body param: When the entity this profile represents opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future. Optional. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
     format: date-time
 
@@ -147,9 +151,27 @@ Create User Profile
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class BetaUserProfile:`
+- `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `required Type Type`
 
@@ -161,7 +183,7 @@ Create User Profile
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -185,17 +207,21 @@ Create User Profile
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `AccessType AccessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `Application("application")`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `Passthrough("passthrough")`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `string? ExternalID`
 
@@ -203,17 +229,23 @@ Create User Profile
 
   - `BetaUserProfileExternalUserDetails ExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `required AccountStatus? AccountStatus`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `Active("active")`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `Suspended("suspended")`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `Blocked("blocked")`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `required string? Country`
 
@@ -225,7 +257,7 @@ Create User Profile
 
     - `required EntityType? EntityType`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `Individual("individual")`
 
@@ -241,7 +273,7 @@ Create User Profile
 
     - `required DateTimeOffset? OnboardedAt`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -251,7 +283,7 @@ Create User Profile
 
   - `DateTimeOffset? ExternalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -313,29 +345,39 @@ List User Profiles
 
   - `int limit`
 
-    Query param: Query parameter for limit
+    Query param: The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
     format: int32
 
   - `Order order`
 
-    Query param: Query parameter for order
+    Query param: The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
     - `Asc("asc")`
 
+      Oldest first when `order_by` is `created_at`, or names in ascending order when `order_by` is `name`.
+
     - `Desc("desc")`
+
+      Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
 
   - `OrderBy orderBy`
 
-    Query param: Query parameter for order_by
+    Query param: The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
     - `CreatedAt("created_at")`
 
+      Sort by when each user profile was created. This is the default.
+
     - `Name("name")`
+
+      Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
 
   - `string page`
 
-    Query param: Query parameter for page
+    Query param: The cursor for the page to return, taken from `next_page` in a previous response.
+
+    Leave it out to get the first page.
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -431,9 +473,27 @@ List User Profiles
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class BetaUserProfile:`
+- `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `required Type Type`
 
@@ -445,7 +505,7 @@ List User Profiles
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -469,17 +529,21 @@ List User Profiles
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `AccessType AccessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `Application("application")`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `Passthrough("passthrough")`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `string? ExternalID`
 
@@ -487,17 +551,23 @@ List User Profiles
 
   - `BetaUserProfileExternalUserDetails ExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `required AccountStatus? AccountStatus`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `Active("active")`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `Suspended("suspended")`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `Blocked("blocked")`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `required string? Country`
 
@@ -509,7 +579,7 @@ List User Profiles
 
     - `required EntityType? EntityType`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `Individual("individual")`
 
@@ -525,7 +595,7 @@ List User Profiles
 
     - `required DateTimeOffset? OnboardedAt`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -535,7 +605,7 @@ List User Profiles
 
   - `DateTimeOffset? ExternalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -604,7 +674,7 @@ Get User Profile
 
   - `required string userProfileID`
 
-    Path parameter user_profile_id
+    The ID of the user profile to get (`uprof_...`).
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -700,9 +770,27 @@ Get User Profile
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+  - `string workspaceID`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class BetaUserProfile:`
+- `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `required Type Type`
 
@@ -714,7 +802,7 @@ Get User Profile
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -738,17 +826,21 @@ Get User Profile
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `AccessType AccessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `Application("application")`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `Passthrough("passthrough")`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `string? ExternalID`
 
@@ -756,17 +848,23 @@ Get User Profile
 
   - `BetaUserProfileExternalUserDetails ExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `required AccountStatus? AccountStatus`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `Active("active")`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `Suspended("suspended")`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `Blocked("blocked")`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `required string? Country`
 
@@ -778,7 +876,7 @@ Get User Profile
 
     - `required EntityType? EntityType`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `Individual("individual")`
 
@@ -794,7 +892,7 @@ Get User Profile
 
     - `required DateTimeOffset? OnboardedAt`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -804,7 +902,7 @@ Get User Profile
 
   - `DateTimeOffset? ExternalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -869,15 +967,19 @@ Update User Profile
 
   - `required string userProfileID`
 
-    Path param: Path parameter user_profile_id
+    Path param: The ID of the user profile to update (`uprof_...`).
 
   - `AccessType? accessType`
 
-    Body param: How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    Body param: If present, replaces the stored access type. Omit to leave unchanged.
 
     - `Application("application")`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `Passthrough("passthrough")`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `string? externalID`
 
@@ -891,7 +993,7 @@ Update User Profile
 
   - `DateTimeOffset externalUserOnboardedAt`
 
-    Body param: A timestamp in RFC 3339 format
+    Body param: If present, replaces the stored account creation time. Omit to leave unchanged; once set, the value cannot be cleared and `null` is rejected. Must be a complete RFC 3339 timestamp no more than 1 minute in the future. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
     format: date-time
 
@@ -999,9 +1101,27 @@ Update User Profile
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class BetaUserProfile:`
+- `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `required Type Type`
 
@@ -1013,7 +1133,7 @@ Update User Profile
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -1037,17 +1157,21 @@ Update User Profile
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `AccessType AccessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `Application("application")`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `Passthrough("passthrough")`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `string? ExternalID`
 
@@ -1055,17 +1179,23 @@ Update User Profile
 
   - `BetaUserProfileExternalUserDetails ExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `required AccountStatus? AccountStatus`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `Active("active")`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `Suspended("suspended")`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `Blocked("blocked")`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `required string? Country`
 
@@ -1077,7 +1207,7 @@ Update User Profile
 
     - `required EntityType? EntityType`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `Individual("individual")`
 
@@ -1093,7 +1223,7 @@ Update User Profile
 
     - `required DateTimeOffset? OnboardedAt`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -1103,7 +1233,7 @@ Update User Profile
 
   - `DateTimeOffset? ExternalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -1168,7 +1298,7 @@ Create Enrollment URL
 
   - `required string userProfileID`
 
-    Path parameter user_profile_id
+    The ID of the user profile to create an enrollment URL for (`uprof_...`).
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -1264,9 +1394,25 @@ Create Enrollment URL
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+  - `string workspaceID`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `class BetaUserProfileEnrollmentUrl:`
+- `class BetaUserProfileEnrollmentUrl`
+
+  A URL to give to the entity that a user profile represents, so that the entity can enroll for a trust grant.
 
   - `required Type Type`
 
@@ -1274,7 +1420,7 @@ Create Enrollment URL
 
   - `required DateTimeOffset ExpiresAt`
 
-    A timestamp in RFC 3339 format
+    When this enrollment URL expires, in RFC 3339 format.
 
     format: date-time
 
@@ -1309,7 +1455,11 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
 ### Beta User Profile
 
-- `class BetaUserProfile:`
+- `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `required Type Type`
 
@@ -1321,7 +1471,7 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -1345,17 +1495,21 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `AccessType AccessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `Application("application")`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `Passthrough("passthrough")`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `string? ExternalID`
 
@@ -1363,17 +1517,23 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
   - `BetaUserProfileExternalUserDetails ExternalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `required AccountStatus? AccountStatus`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `Active("active")`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `Suspended("suspended")`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `Blocked("blocked")`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `required string? Country`
 
@@ -1385,7 +1545,7 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
     - `required EntityType? EntityType`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `Individual("individual")`
 
@@ -1401,7 +1561,7 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
     - `required DateTimeOffset? OnboardedAt`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -1411,7 +1571,7 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
   - `DateTimeOffset? ExternalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -1421,7 +1581,9 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
 ### Beta User Profile Enrollment URL
 
-- `class BetaUserProfileEnrollmentUrl:`
+- `class BetaUserProfileEnrollmentUrl`
+
+  A URL to give to the entity that a user profile represents, so that the entity can enroll for a trust grant.
 
   - `required Type Type`
 
@@ -1429,7 +1591,7 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
   - `required DateTimeOffset ExpiresAt`
 
-    A timestamp in RFC 3339 format
+    When this enrollment URL expires, in RFC 3339 format.
 
     format: date-time
 
@@ -1439,19 +1601,25 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
 ### Beta User Profile External User Details
 
-- `class BetaUserProfileExternalUserDetails:`
+- `class BetaUserProfileExternalUserDetails`
 
   Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
 
   - `required AccountStatus? AccountStatus`
 
-    The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
     - `Active("active")`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `Suspended("suspended")`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `Blocked("blocked")`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `required string? Country`
 
@@ -1463,7 +1631,7 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
   - `required EntityType? EntityType`
 
-    What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
     - `Individual("individual")`
 
@@ -1479,7 +1647,7 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
   - `required DateTimeOffset? OnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
     format: date-time
 
@@ -1489,17 +1657,23 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
 ### Beta User Profile External User Details Params
 
-- `class BetaUserProfileExternalUserDetailsParams:`
+- `class BetaUserProfileExternalUserDetailsParams`
 
   - `AccountStatus? AccountStatus`
 
-    The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`.
 
     - `Active("active")`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `Suspended("suspended")`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `Blocked("blocked")`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `string? Country`
 
@@ -1513,7 +1687,7 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
   - `EntityType? EntityType`
 
-    What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`.
 
     - `Individual("individual")`
 
@@ -1531,7 +1705,7 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
   - `DateTimeOffset OnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future.
 
     format: date-time
 
@@ -1543,7 +1717,9 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 
 ### Beta User Profile Trust Grant
 
-- `class BetaUserProfileTrustGrant:`
+- `class BetaUserProfileTrustGrant`
+
+  The status of one trust grant on a user profile, listed in the profile's `trust_grants` map under the grant's name.
 
   - `required Status Status`
 

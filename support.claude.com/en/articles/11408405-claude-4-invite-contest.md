@@ -91,7 +91,7 @@ If you're selected as a winner and are already subscribed to the Max plan, we’
 After the four months expire, you will be put back into the original subscription or plan you started on before winning.
 
 * [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
-* [Choose a Claude plan](https://support.claude.com/en/articles/11049762-choose-a-claude-plan)
 * [Claude 4 Invite Sweepstakes Official Rules](https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
 * [How to gift a Claude subscription](https://support.claude.com/en/articles/12938627-how-to-gift-a-claude-subscription)
 * [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)

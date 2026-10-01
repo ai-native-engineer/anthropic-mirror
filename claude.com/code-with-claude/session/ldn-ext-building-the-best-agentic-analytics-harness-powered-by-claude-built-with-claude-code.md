@@ -4,44 +4,32 @@
 
 Omni built the best agentic harness for analytics tailored for and powered by Claude models, with 99% of the platform's code written using Claude Code. Cofounder & CTO Chris Merrick shows how they architect their multi-agent system, design and size their tools, and evaluate effectiveness.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-11:30 – 12:00
+:   11:30 – 12:00
 
 Speaker(s)
+:   Chris Merrick
 
-Chris Merrick
+    Co-founder and CTO,
 
-Co-founder and CTO,
-
-Omni
+    Omni
 
 ## Watch recording
 
-[Play video](#)Play video
+![Building the best agentic analytics harness: Powered by Claude, built with Claude Code](https://i.ytimg.com/vi/K4-flzsPraE/maxresdefault.jpg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Building the best agentic analytics harness: Powered by Claude, built with Claude Code | Session | Code w/ Claude 2026

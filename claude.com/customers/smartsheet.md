@@ -4,39 +4,24 @@ Case study | Claude Platform
 
 # Smartsheet builds conversational AI into work management with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f38328b656237f4016577d_logo_smartsheet-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f3832fe3e370fa2a73d164_logo_smartsheet-dark-mode.svg)
+![Smartsheet logo](https://assets.claude.com/98dd7325d229f43827e27496d9dbf6cba23dba6d.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 1.76 million MCP tool calls
 
@@ -59,32 +44,6 @@ than peers on the same teams
 
 ## The challenge
 
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
 ## Bringing conversational AI to 120,000 organizations
 
 Smartsheet's customers run business critical projects on its platform and need to extract insights from their data, while ensuring that governance, auditability, and security of that data persist. Many enterprises operate across multiple systems, data warehouses, and project repositories, creating silos that make a unified view of work difficult to achieve.
@@ -95,29 +54,15 @@ Inside the company, the engineering team faced its own version of the same chall
 
 "You have to change your culture to be OK with letting the tool write code for you, and then go further: teaching it your team's patterns so it gets better at the team and org level, not just individually," Garner said.
 
+Claude Code
+
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+
+[Read more](https://claude.com/product/claude-code)
+
 ## The solution
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Amazon Bedrock
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
 ## Selecting Claude for conversational quality
 
@@ -143,21 +88,15 @@ Claude Enterprise launched company-wide on the same day as Smartsheet's fiscal y
 
 "Once a few early adopters started shipping at 5x their previous rate, demand pulled itself," said Soin. "This stopped being an individual productivity story. It's a team-level and now a customer-facing capability.”
 
-"The best thing about Claude Code is that it works the way engineers already think. Engineers picked that up organically, which tells you the tool design is right."
+Claude on Amazon Bedrock
 
-Drew Garner
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
-SVP of AI & Data Platform, Smartsheet
+Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "The best thing about Claude Code is that it works the way engineers already think. Engineers picked that up organically, which tells you the tool design is right."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Drew GarnerSVP of AI & Data Platform, Smartsheet
 
 ## The outcome
 
@@ -175,42 +114,16 @@ Smartsheet is expanding its MCP server toward parity with what users can do insi
 
 Soin added: “The endgame is simple: every corporate system, reachable through Claude. MCP is how we get there."
 
-"Routing through Amazon Bedrock meant Claude inherited our existing controls: auditability, data residency, and the access policy as code."
+> "Routing through Amazon Bedrock meant Claude inherited our existing controls: auditability, data residency, and the access policy as code."
 
-Ravi Soin
+Ravi SoinChief Information & Security Officer, Smartsheet
 
-Chief Information & Security Officer, Smartsheet
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

@@ -4,31 +4,21 @@ Case study | Claude
 
 # National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a55559df0004018c79475f0_logo_ndwa-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5539289ec4e572157996af_logo_ndwa-dark-mode.svg)
+![National Domestic Workers Alliance logo](https://assets.claude.com/8cdd9e0611e1a8258e4b24391c64186909732176.svg)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude for Nonprofits
+:   Claude for Nonprofits
 
 Location:
-
-North America
+:   North America
 
 93% of beta testers took action
 
@@ -51,65 +41,21 @@ Founded 19 years ago, the [National Domestic Workers Alliance](https://www.domes
 
 ## The challenge
 
-Q&A: National Domestic Workers Alliance
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a553bcc5d2b7b22e0e870f1_og_case-study-NDWA-Q%26A.jpg)
-
-Read the interview with co-founder Ai-jen Poo to see how they use Claude for Nonprofits.
-
-Read more
-
-[Read more](https://claude.com/customers/national-domestic-workers-alliance-qa)Read more
-
-Q&A: National Domestic Workers Alliance
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Read the interview with co-founder Ai-jen Poo to see how they use Claude for Nonprofits.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A: National Domestic Workers Alliance
-
-Read the interview with co-founder Ai-jen Poo to see how they use Claude for Nonprofits.
-
 ## Advocating alone, behind closed doors
 
 A domestic worker is usually the only worker in their workplace. There is no HR department, no manager to escalate to, and no coworkers to compare notes with. "You're really on your own to negotiate," said Ai-jen Poo, president and co-founder of the National Domestic Workers Alliance. For decades, domestic work sat outside many of the basic labor protections most workers take for granted, like minimum wage and social security. Some of this has changed, but enforcing those protections, or negotiating for anything beyond the legal minimum, still falls to each individual worker.
 
 The stakes are high and personal. "Every time you're asking for something, you are risking potentially losing your job," Poo said, describing a "wild west" with no clear work agreements and little job security. The cost is paid quietly: workers go in sick rather than ask for paid time off, or miss a child's school event rather than risk the conversation. NDWA had spent decades building a response to this: know-your-rights trainings, sample contracts, one-on-one guidance. But that collective wisdom can’t always reach a worker at the moment they need it most, alone and unsure, often late at night.
 
+Q&A: National Domestic Workers Alliance
+
+![Q&A: National Domestic Workers Alliance](https://assets.claude.com/40dece83d129addcb4099b700d6f9ffb4ab75d0d.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Read the interview with co-founder Ai-jen Poo to see how they use Claude for Nonprofits.
+
+[Read more](https://claude.com/customers/national-domestic-workers-alliance-qa)
+
 ## The solution
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-Read more
-
-[Read more](https://claude.com/solutions/nonprofits)Read more
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
 ## An AI platform chosen by workers
 
@@ -127,21 +73,17 @@ Beyond privacy, the team evaluated each candidate model provider continuously fo
 
 The hardest evaluation work is the tool’s behavior in high-stakes moments. The NDWA team built guardrails so Ask Aya does not stray into the unauthorized practice of law or sensitive immigration questions, referring workers instead to attorneys, local affiliates, or NDWA's fully staffed worker experience team. “Ask Aya knows the nuances of these cases,” Liibbe said. “We are legitimately getting in contact with people based on those referrals.” A tool like this can look simple, she said, but "building a durable digital product that's embedded in an organization, connected to the rest of the human-centered ecosystem, and verifiably providing accurate and helpful information is much harder."
 
-"Almost half of our beta testers came into testing very skeptical of AI, and 50% left feeling more comfortable using Ask Aya than any other chatbot."
+Nonprofits
 
-Laura Liibbe
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Senior Director of Product, National Domestic Workers Alliance
+Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/solutions/nonprofits)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Almost half of our beta testers came into testing very skeptical of AI, and 50% left feeling more comfortable using Ask Aya than any other chatbot."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Laura LiibbeSenior Director of Product, National Domestic Workers Alliance
 
 ## The outcome
 
@@ -153,42 +95,16 @@ Trust shows up in the numbers too. "Almost half of our beta testers came into te
 
 For NDWA, Ask Aya is a door into something larger than any single negotiation. "There is a level of empowerment that can be achieved individually and supported by technology," Poo said. "But there is a different level of impact that can be achieved in community.” According to Poo, “that is the promise of dignity-driven AI: technology built with workers, governed by workers, and connected to the trusted support systems that help some of the most vulnerable workers in our economy build dignity, security, and voice.”
 
-"That is the promise of dignity-driven AI: technology built with workers, governed by workers, and connected to the trusted support systems that help some of the most vulnerable workers."
+> "That is the promise of dignity-driven AI: technology built with workers, governed by workers, and connected to the trusted support systems that help some of the most vulnerable workers."
 
-Ai-jen Poo
+Ai-jen Poo Co-founder and President, National Domestic Workers Alliance
 
-Co-founder and President, National Domestic Workers Alliance
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-## Related stories
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Mercy Corps on what AI makes possible in humanitarian work
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

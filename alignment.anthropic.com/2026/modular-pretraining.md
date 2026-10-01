@@ -20,6 +20,8 @@ Frontier AI models have knowledge that could be misused for nefarious purposes. 
 
 This work was done at AE Studio, in collaboration with Anthropic.
 
+---
+
 One of the major threats from frontier AI models is the misuse of legitimately helpful knowledge for harmful tasks, such as creating biological weapons or attacking critical infrastructure. AI companies already manage this risk with a mix of defenses: training models to[refuse harmful requests](https://www.anthropic.com/research/training-a-helpful-and-harmless-assistant-with-reinforcement-learning-from-human-feedback), running[classifiers](https://www.anthropic.com/research/constitutional-classifiers) to detect and reject dangerous queries, and restricting which users can access which models[through vetting and tiered deployment](https://www.anthropic.com/news/expanding-project-glasswing). Each has drawbacks. Refusals and classifiers are behavioral layers on top of knowledge the model still has; they can be[jailbroken](https://www.aisi.gov.uk/blog/boundary-point-jailbreaking-a-new-way-to-break-the-strongest-ai-defences) and must be retuned for every release. Tiered access works at the level of whole models and whole accounts, so it forces a coarse trade-off: either a user gets every capability the model has, or they get a weaker model across the board.
 
 An alternative approach is access control at the level of individual capabilities. For example, a deployment that includes advanced virology knowledge for a vetted biosecurity lab and excludes it everywhere else, with general performance unchanged in both cases. The most direct route to achieve this would be to train separate models on separately filtered datasets, reserving the most capable model variants for high-trust settings. But training multiple frontier models is prohibitively expensive.
@@ -33,6 +35,8 @@ This post covers our main lessons learned:
 3. Capability removal improves with scale. Across [Chinchilla-optimal](https://arxiv.org/abs/2203.15556) training runs from 50M to 5B parameters, GRAM and LoRA closely match the general performance of data filtered models. Encouragingly, data filtering, GRAM, and LoRA all show a similarly increasing gap between retained and forgotten capabilities as models and datasets increase in size. (Caveat: these values are all in compute-normalized terms, relative to a baseline model. In absolute terms, the bigger models are still better at the forgotten capabilities.)
 4. GRAM may have advantages over alternatives, including LoRA. We show preliminary evidence that GRAM performs better at novel combinations of capabilities. We also show that, in a more realistic scenario where labeled data is sparse, GRAM achieves better capability removal than both LoRA and data filtering.
 
+---
+
 ## The Method
 
 ![](https://alignment.anthropic.com/2026/modular-pretraining/fig1.png)
@@ -44,6 +48,8 @@ To apply GRAM, we start with a randomly initialized language model, a general tr
 GRAM induces specialization in the modules by being selective about which parts of the model predict and learn from each type of data. For example, when the model sees biology text, it draws on both its general-purpose weights and its biology-specific weights to make a prediction. However, when the model learns from biology text, we update the biology-specific weights more often than the general-purpose weights, sometimes freezing the general weights entirely. By adjusting how often those general-purpose weights are frozen, we can control how well biology is isolated.
 
 Throughout our experiments, we calculate model performance in terms of Compute Ratio, a compute-adjusted version of loss. It measures, for a given model and data domain, how long it took the all-data baseline model to reach the same loss while training, relative to the length of a whole training run. A value of 1.0 matches the baseline and a value of 0.5 indicates the model performs as well as the baseline after finishing 50% of training.
+
+---
 
 ## Results
 
@@ -81,6 +87,8 @@ The experiments described so far used a single model size. To investigate how o
 
 We find that all of these methods perform favorably when increasing the scale of the models. Each method keeps general-purpose and retained performance near that of a baseline model trained on all data. The gap on the forgotten domain widens with scale: bigger models fall further behind the all-data baseline on virology when the capability is removed, and recover less performance when fine-tuned on virology data. GRAM and LoRA track filtering at every scale and both require only a fifth of filtering's training compute.
 
+---
+
 ## Advantages of GRAM
 
 GRAM and LoRA perform similarly in our main setting, but we found two scenarios where they come apart.
@@ -103,6 +111,8 @@ Every other experiment assumed every batch carries an accurate label, but this i
 
 Our results show that with GRAM, the modules that are unrelated to the data learn far less than the relevant modules. We see this in the final performance of each method: GRAM has a much larger drop in performance after deleting auxiliary parameters, indicating better isolation of auxiliary capabilities into the relevant module. Notably, GRAM beats data filtering, the unlearning method researchers typically treat as a gold standard. This finding is consistent with prior research on this subject ([Cloud et al., 2024](https://arxiv.org/abs/2410.04332); [Shilov et al., 2025](https://arxiv.org/abs/2512.05648)) showing that GRAM can outcompete data filtering on capability removal when labeled data is sparse. We think this property of GRAM is particularly exciting and worthy of more investigation.
 
+---
+
 ## Discussion
 
 Our work leaves open questions.
@@ -120,6 +130,8 @@ We are excited about future research on:
 3. Better understanding how modular pretraining works when data is imperfectly labeled, including when the label errors aren’t random and independent from the data.
 
 Check out our [paper](https://arxiv.org/abs/2607.08077) to learn more!
+
+---
 
 ## Acknowledgements
 

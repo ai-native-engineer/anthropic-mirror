@@ -35,4 +35,4 @@ Voice mode has its own language setting, separate from your display language. To
 * [Use voice mode](https://support.claude.com/en/articles/11101966-use-voice-mode)
 * [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
 * [Use quick entry with Claude Desktop on Mac](https://support.claude.com/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac)
-* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)

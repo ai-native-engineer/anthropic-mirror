@@ -57,9 +57,13 @@ List Deployment Runs
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -69,11 +73,11 @@ List Deployment Runs
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
   - `string deploymentID`
 
@@ -81,7 +85,7 @@ List Deployment Runs
 
   - `?Error error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
   - `?string sessionID`
 
@@ -89,7 +93,7 @@ List Deployment Runs
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
 ## Example
 

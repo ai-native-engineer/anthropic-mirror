@@ -129,13 +129,21 @@ Long poll for work items in the queue.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
   - `string anthropicWorkerID`
 
     Header param: Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
 
 ## Returns
 
-- `class BetaSelfHostedWork:`
+- `class BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 

@@ -78,7 +78,7 @@ Co-founder and CEO
 
 [](https://assets.claude.ai/brand/videos/startup-founders/lovable-supercut.webm)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f628079049002c70825_Lovable-light-theme.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f6571ade0cef16d3413_Lovable-dark-theme.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed7_6ab2c6eb2a0f7493d7d5b0ed_startups-wordmark-lovable-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8be3466f0c993603eef_6ab2c6ebbcffe96ca440c8d3_startups-wordmark-lovable-dark.svg)
 
 Anton Osika thinks moving fast and doing it right are the same job. Lovable lets anyone build software through conversation, no engineering team required. Two months after launch, millions of people were already on the platform. Anton's working thesis is that the most underrated advantage in AI is trust. Gaining trust requires craft, care, and obsession. Partnering with Anthropic has been central to that bet: dedicated people embedded in their work, building together.
 

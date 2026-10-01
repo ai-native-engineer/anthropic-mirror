@@ -4,31 +4,21 @@ Case study | Claude Managed Agents
 
 # Notion builds agent orchestration where teams and Claude collaborate on real work
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Notion logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba17a186e44af7d97dae57_Frame.svg)![Notion logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba179c1c4432fa78b2f126_Frame-1.svg)
+![Notion logo](https://assets.claude.com/19e0cdfaef9d2980bddd19cd993076d62b46c0c7.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Managed Agents on the Claude Platform
+:   Claude Managed Agents
 
 Location:
-
-North America
+:   North America
 
 30+ concurrent agent tasks from a single task board
 
@@ -51,32 +41,6 @@ Notion is a collaborative AI workspace where teams and agents work together, use
 
 ## The challenge
 
-Q&A: Notion Product Manager Eric Liu
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d66fcff40d6b828398a62c_og_case-study-notion.jpg)
-
-Notion product manager Eric Liu explains how his team built agent orchestration with Claude managed agents.
-
-Read more
-
-[Read more](https://claude.com/customers/notion-qa)Read more
-
-Q&A: Notion Product Manager Eric Liu
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Notion product manager Eric Liu explains how his team built agent orchestration with Claude managed agents.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A: Notion Product Manager Eric Liu
-
-Notion product manager Eric Liu explains how his team built agent orchestration with Claude managed agents.
-
 ## From finding information to doing the work
 
 Notion users generate enormous amounts of knowledge: meeting notes, project docs, process guides, product specs. The first challenge was making it all findable. Customer support teams need troubleshooting steps. New sales reps need Salesforce processes. Product designers need brand guidelines. Before Claude, answering these questions meant searching across pages manually or waiting for a colleague who knew where to look.
@@ -85,33 +49,15 @@ Notion users generate enormous amounts of knowledge: meeting notes, project docs
 
 But as AI agents became capable of producing real work, a second challenge emerged: most agent interactions are one-to-one, a single person working with a single agent on a single machine. There's no visibility into what agents produce, no approval workflows, no way for colleagues to step in and iterate together. "People are building super powerful agents for every vertical slice of work, from customer support to coding," said Eric Liu, Product Manager at Notion. "Why don't we bring it all into Notion?"
 
+Q&A: Notion Product Manager Eric Liu
+
+![Q&A: Notion Product Manager Eric Liu ](https://assets.claude.com/1251e47b710d3ece843ec079f8d14f4553d7546a.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Notion product manager Eric Liu explains how his team built agent orchestration with Claude managed agents.
+
+[Read more](https://claude.com/customers/notion-qa)
+
 ## The solution
-
-Claude Managed Agents: Get to production 10x faster
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d6874d9013e4890f253b80_managed-agents-og.jpg)
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-Read more
-
-[Read more](https://claude.com/blog/claude-managed-agents)Read more
-
-Claude Managed Agents: Get to production 10x faster
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Managed Agents: Get to production 10x faster
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
 ## Selection Claude for agent workflows
 
@@ -121,21 +67,17 @@ When evaluating models for its AI features, Notion looked for quality that match
 
 As Notion expanded into agent workflows, Claude's strengths proved equally relevant. "We've found that Opus 4.6 excels at interpreting what users actually want, producing shareable content on the first try," said Sarah Sachs, AI Lead Engineer at Notion. "Combined with its speed, token efficiency, and surprisingly low cost, it's the first time we're making Opus available in Notion Agent."
 
-“We integrated Claude Managed Agents, which can handle long-running sessions, manage memory, and deliver high-quality outputs over time, to make that possible.”
+Claude Managed Agents: Get to production 10x faster
 
-Eric Liu
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Product Manager, Notion
+We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/blog/claude-managed-agents)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> “We integrated Claude Managed Agents, which can handle long-running sessions, manage memory, and deliver high-quality outputs over time, to make that possible.”
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Eric LiuProduct Manager, Notion
 
 ## The outcome
 
@@ -165,42 +107,16 @@ The AI assistant has proven especially valuable for onboarding. "When someone ne
 
 Notion is building toward a workspace where the same tools that organize human collaboration, task boards, suggested edits, version history, also serve as the interface for working with agents. "Approval flows, suggested edits, all those things that humans already understand," Liu said. "We are the translation layer to agents." As Claude's capabilities advance, Notion plans to expand with broader data sources, additional connectors, and deeper agent workflows that extend across both technical and non-technical work. Liu added: "We want to be the place where people and agents meet to do work."
 
-“We saw that customers were willing to jump through hoops to have a native experience of agents within Notion, and Claude was the one people wanted most.”
+> “We saw that customers were willing to jump through hoops to have a native experience of agents within Notion, and Claude was the one people wanted most.”
 
-Eric Liu
+Eric LiuProduct Manager, Notion
 
-Product Manager, Notion
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

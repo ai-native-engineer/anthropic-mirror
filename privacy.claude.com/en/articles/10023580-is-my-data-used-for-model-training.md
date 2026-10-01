@@ -2,6 +2,8 @@
 
 # Is my data used for model training?
 
+Table of contents
+
 *This article is about our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code. For our commercial products such as Claude for Work and the Anthropic API, see* *[here](https://privacy.anthropic.com/en/articles/7996868-is-my-data-used-for-model-training).*
 
 We will use your chats and coding sessions (including to improve our models) if:
@@ -24,10 +26,14 @@ We de-link your feedback from your user ID (e.g. email address) before it’s us
 
 Here’s an example of what you’ll see when using the thumbs up / down button to provide a feedback report:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1789086600&signature=6562e528ece834bfe00aae737757764e813fa2c13447ea4eae2bb80523846a93&req=dSQvEMB3nYFYXvMW1HO4zdLW1H6hBzPeS2MKBI2FW5XlcCoj6iQNe0T%2BbWcw%0ARa5Q8sFk5vwBCMDFlOQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1789086600&signature=6562e528ece834bfe00aae737757764e813fa2c13447ea4eae2bb80523846a93&req=dSQvEMB3nYFYXvMW1HO4zdLW1H6hBzPeS2MKBI2FW5XlcCoj6iQNe0T%2BbWcw%0ARa5Q8sFk5vwBCMDFlOQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1790856000&signature=f267ace462b15a10c0b9f2e176cf2af9ae399d0ea513ca31736c190a0af4624d&req=dSQvEMB3nYFYXvMW1HO4zdLW1XepCjPYS2MKBI2FW5VlZS%2B4uMMON4e16PD%2F%0AKf0c%2BnkdffQtW5Z4qvw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1790856000&signature=f267ace462b15a10c0b9f2e176cf2af9ae399d0ea513ca31736c190a0af4624d&req=dSQvEMB3nYFYXvMW1HO4zdLW1XepCjPYS2MKBI2FW5VlZS%2B4uMMON4e16PD%2F%0AKf0c%2BnkdffQtW5Z4qvw%3D%0A)
+
+---
 
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [How do I change my model improvement privacy settings?](https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings)
+
+Table of contents

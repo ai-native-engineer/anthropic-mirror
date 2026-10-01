@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-fluency-for-small-businesses -->
 
-Lesson 1 of 9 · AI Fluency for Small BusinessesAI Fluency for small businesses
+Lesson 1 of 8 · AI Fluency for small businessesAI Fluency for small businesses
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # AI Fluency for small businesses
 
@@ -82,7 +82,7 @@ In the next lesson, you'll learn the 4D Framework — the four competencies at t
 
 [Next lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework)
 
-Lesson 1 of 9 · AI Fluency for Small BusinessesAI Fluency for small businesses
+Lesson 1 of 8 · AI Fluency for small businessesAI Fluency for small businesses
 
 Introduction and AI Fluency framework
 
@@ -92,7 +92,6 @@ Introduction and AI Fluency framework
 How AI works
 
 * [AI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
-* [Explore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
 
 The Description-Discernment loop
 

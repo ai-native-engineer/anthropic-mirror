@@ -94,8 +94,6 @@ Watch sessions
 
 Add to calendar
 
-![]()
-
 ## Claude Founder House Berlin
 
 Add to calendar
@@ -248,7 +246,7 @@ Co-Founder & CAIO, Parloa
 
 Agenda
 
-* Jun 18
+* 18 Jun
 
 Day 1Day 2Day 3Day 3
 

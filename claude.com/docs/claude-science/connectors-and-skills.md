@@ -12,17 +12,17 @@ Connectors give Claude access to external data sources during an analysis. Skill
 
 ##  Featured connectors
 
-Claude Science includes Featured connectors to public life-sciences databases. They’re on by default and can be turned off individually in **Settings > Connectors**. On Team and Enterprise plans, your organization can also turn individual Featured connectors off for everyone, and in organizations with HIPAA compliance enabled they start off until an admin turns them on. A connector your organization has off stays listed, grayed, and Claude can’t use it (see [Featured connectors and skills](https://claude.com/docs/claude-science/admin-controls#featured-connectors-and-skills)). Featured connectors are read-only and don’t require an account or key. Some underlying databases have non-commercial or attribution terms; review each source’s license for your use case.
+Claude Science includes Featured connectors to public research databases, most of them in the life sciences. They’re on by default and can be turned off individually in **Settings > Connectors**. On Team and Enterprise plans, your organization can also turn individual Featured connectors off for everyone, and in organizations with HIPAA compliance enabled they start off until an admin turns them on. A connector your organization has off stays listed, grayed, and Claude can’t use it (see [Featured connectors and skills](https://claude.com/docs/claude-science/admin-controls#featured-connectors-and-skills)). Featured connectors are read-only and don’t require an account or key, except that the Literature Graph needs a free OpenAlex API key to search OpenAlex (see [Available credentials](https://claude.com/docs/claude-science/literature-access#available-credentials)). Some underlying databases have non-commercial or attribution terms; review each source’s license for your use case.
 
 | Connector | Sources |
 | --- | --- |
 | Genomes | Ensembl (incl. VEP), UCSC |
 | Genes & Ontologies | MyGene, UniProt, GO, Reactome, OLS |
 | Variants | gnomAD, ClinVar, dbSNP |
-| Human Genetics | GWAS Catalog, eQTL Catalogue, FinnGen, BioBank Japan |
+| Human Genetics | GWAS Catalog, FinnGen, BioBank Japan |
 | Clinical Genomics | ClinGen, CIViC, Open Targets |
 | Expression | GTEx |
-| Regulation | ENCODE, JASPAR, UniBind |
+| Regulation | JASPAR, UniBind |
 | Protein Annotation | InterPro, Pfam, Human Protein Atlas, STRING |
 | Structures & Interactions | PDB, AlphaFold, EMDB, Complex Portal, IntAct |
 | RNA | Rfam |
@@ -34,13 +34,25 @@ Claude Science includes Featured connectors to public life-sciences databases. T
 | Research Resources | Grants.gov, Antibody Registry |
 
 Additional Featured connectors: **BioMart**, **CellGuide** (CELLxGENE cell types), **ZINC** (purchasable chemical space), and **Ketcher Chemistry** (2D molecule sketcher).
-Four Directory connectors are available from the [connector directory](https://claude.com/connectors) and are accessible in Claude Science and other Claude products: **PubMed**, **Clinical Trials**, **ChEMBL**, and **bioRxiv**. On Team and Enterprise plans, directory connectors appear only after an admin adds them.
+Four Directory connectors are available from the [connector directory](https://claude.com/connectors) and are accessible in Claude Science and other Claude products: **PubMed**, **Clinical Trials**, **ChEMBL**, and **bioRxiv**. On Team and Enterprise plans, directory connectors appear only once they’re added for your organization.
 By choosing to enable connectors, you authorize Claude to use the optional enabled resources on your behalf and confirm you have the necessary rights and licenses. These resources and content they reach may be subject to third-party terms (viewable in Settings), and you are solely responsible for compliance. On Team and Enterprise plans, an admin in your organization gives this authorization for the team when turning Claude Science on and choosing which connectors members can use, and you remain responsible for complying with those terms.
 
 ##  Using connectors
 
 Name a source in your request, or describe what you need and Claude chooses from available connector tools. Connector queries appear in the conversation as expandable code steps. Featured connectors you’ve previously enabled run without a permission card. Connectors you add yourself prompt for approval per tool, with Once, This conversation, This project, or Global scope.
 The databases behind Featured connectors are on the network allowlist in groups under Settings > Network. Turning off a group disables the connectors that depend on it.
+
+##  When the connector you need isn’t listed
+
+Connectors you’ve added in claude.ai, and ones your organization has added for you, also appear in Claude Science under **Settings > Connectors**. If one needs a sign-in, the app opens claude.ai, where you connect it with your own account.
+If what you need still isn’t there, try these:
+
+* **Ask Claude first.** Many public databases and tools work without a connector, because the code Claude runs can reach websites directly. The first time Claude needs a new site, a permission card asks you to allow it. If your organization manages the list of allowed sites, ask an admin to add it. See [Sandbox](https://claude.com/docs/claude-science/core-concepts#sandbox).
+* **Add one from the Connectors Directory.** Go to **Settings > Connectors > Add connector > Browse Connectors Directory**, which opens the directory in claude.ai. On Pro and Max plans, add the connector there and it appears in Claude Science. On Team and Enterprise plans, you may be able to add it yourself; if not, an admin can add it for your organization. On a Team plan, select **Request** on the connector’s listing to ask your admins.
+* **Add one yourself.** If the tool’s maker gives you a web address for its connector (sometimes called an MCP server URL), go to **Settings > Connectors > Add connector > Remote URL** and paste it in. If the maker gives you a command to run instead, choose **Local command** and enter it there. On Team and Enterprise plans, this works only if your organization allows custom connectors. See [Custom connectors](https://claude.com/docs/claude-science/custom-connectors).
+* **Ask the tool’s maker.** If no connector exists yet, ask them to build one and [submit it to the Connectors Directory](https://claude.com/docs/connectors/building/submission).
+
+Admins can find the full set of options in [Add a connector your organization needs](https://claude.com/docs/claude-science/admin-controls#add-a-connector-your-organization-needs).
 
 ##  Skills
 

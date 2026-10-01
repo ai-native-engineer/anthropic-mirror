@@ -129,9 +129,17 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
 ## Returns
 
-- `class BetaSelfHostedWorkHeartbeatResponse:`
+- `class BetaSelfHostedWorkHeartbeatResponse`
 
   Response after recording a heartbeat for a work item.
 

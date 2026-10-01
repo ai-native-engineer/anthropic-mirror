@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/visibility-what-you-can-measure -->
 
-Lesson 11 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutVisibility: what you can measure
+Lesson 11 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutVisibility: what you can measure
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Visibility: what you can measure
 
@@ -127,7 +127,7 @@ You can now prove what happened. Whether the rollout is *working* is a different
 
 [Previous lessonManaging spend](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/managing-spend)[Next lessonAdoption signals](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/adoption-signals)
 
-Lesson 11 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutVisibility: what you can measure
+Lesson 11 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutVisibility: what you can measure
 
 The plan
 

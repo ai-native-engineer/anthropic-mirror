@@ -51,7 +51,7 @@ Create Vault
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -151,7 +151,7 @@ List Vaults
 
     - `archived_at: string`
 
-      A timestamp in RFC 3339 format
+      When the vault was archived. Null if not archived.
 
       format: date-time
 
@@ -219,7 +219,7 @@ Get Vault
 
 - `--vault-id: string`
 
-  Path parameter vault_id
+  Unique identifier of the vault to retrieve.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -245,7 +245,7 @@ Get Vault
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -305,7 +305,7 @@ Update Vault
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Unique identifier of the vault to update.
 
 - `--display-name: optional string`
 
@@ -341,7 +341,7 @@ Update Vault
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -401,7 +401,7 @@ Delete Vault
 
 - `--vault-id: string`
 
-  Path parameter vault_id
+  Unique identifier of the vault to delete.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -454,7 +454,7 @@ Archive Vault
 
 - `--vault-id: string`
 
-  Path parameter vault_id
+  Unique identifier of the vault to archive.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -480,7 +480,7 @@ Archive Vault
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -556,7 +556,7 @@ ant beta:vaults archive \
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -594,11 +594,11 @@ Create Credential
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault to create the credential in.
 
 - `--auth: BetaManagedAgentsMCPOAuthCreateParams or BetaManagedAgentsStaticBearerCreateParams or BetaManagedAgentsEnvironmentVariableCreateParams`
 
-  Body param: Authentication details for creating a credential.
+  Body param: Authentication configuration for the credential.
 
 - `--display-name: optional string`
 
@@ -634,13 +634,13 @@ Create Credential
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `beta_managed_agents_mcp_oauth_auth_response: object`
 
@@ -660,7 +660,7 @@ Create Credential
 
       - `refresh: optional object`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -671,8 +671,6 @@ Create Credential
           Token endpoint URL used to refresh the access token.
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
 
           - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
@@ -818,7 +816,7 @@ List Credentials
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault to list credentials for.
 
 - `--include-archived: optional boolean`
 
@@ -862,13 +860,13 @@ List Credentials
 
     - `archived_at: string`
 
-      A timestamp in RFC 3339 format
+      When the credential was archived. Null if not archived.
 
       format: date-time
 
     - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-      Authentication details for a credential.
+      Authentication configuration for this credential.
 
       - `beta_managed_agents_mcp_oauth_auth_response: object`
 
@@ -888,7 +886,7 @@ List Credentials
 
         - `refresh: optional object`
 
-          OAuth refresh token configuration returned in credential responses.
+          Refresh token configuration, if the credential supports token refresh.
 
           - `client_id: string`
 
@@ -899,8 +897,6 @@ List Credentials
             Token endpoint URL used to refresh the access token.
 
           - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-            Token endpoint requires no client authentication.
 
             - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
@@ -1054,11 +1050,11 @@ Get Credential
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault containing the credential.
 
 - `--credential-id: string`
 
-  Path param: Path parameter credential_id
+  Path param: Unique identifier of the credential to retrieve.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -1084,13 +1080,13 @@ Get Credential
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `beta_managed_agents_mcp_oauth_auth_response: object`
 
@@ -1110,7 +1106,7 @@ Get Credential
 
       - `refresh: optional object`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -1121,8 +1117,6 @@ Get Credential
           Token endpoint URL used to refresh the access token.
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
 
           - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
@@ -1268,15 +1262,15 @@ Update Credential
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault containing the credential.
 
 - `--credential-id: string`
 
-  Path param: Path parameter credential_id
+  Path param: Unique identifier of the credential to update.
 
 - `--auth: optional BetaManagedAgentsMCPOAuthUpdateParams or BetaManagedAgentsStaticBearerUpdateParams or BetaManagedAgentsEnvironmentVariableUpdateParams`
 
-  Body param: Updated authentication details for a credential.
+  Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
 - `--display-name: optional string`
 
@@ -1312,13 +1306,13 @@ Update Credential
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `beta_managed_agents_mcp_oauth_auth_response: object`
 
@@ -1338,7 +1332,7 @@ Update Credential
 
       - `refresh: optional object`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -1349,8 +1343,6 @@ Update Credential
           Token endpoint URL used to refresh the access token.
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
 
           - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
@@ -1496,11 +1488,11 @@ Delete Credential
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault containing the credential.
 
 - `--credential-id: string`
 
-  Path param: Path parameter credential_id
+  Path param: Unique identifier of the credential to delete.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -1554,11 +1546,11 @@ Archive Credential
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault containing the credential.
 
 - `--credential-id: string`
 
-  Path param: Path parameter credential_id
+  Path param: Unique identifier of the credential to archive.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -1584,13 +1576,13 @@ Archive Credential
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `beta_managed_agents_mcp_oauth_auth_response: object`
 
@@ -1610,7 +1602,7 @@ Archive Credential
 
       - `refresh: optional object`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -1621,8 +1613,6 @@ Archive Credential
           Token endpoint URL used to refresh the access token.
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
 
           - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
@@ -1768,11 +1758,11 @@ Validate Credential
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault containing the credential.
 
 - `--credential-id: string`
 
-  Path param: Path parameter credential_id
+  Path param: Unique identifier of the credential to validate.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -1802,11 +1792,11 @@ Validate Credential
 
   - `mcp_probe: object`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `http_response: object`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `body: string`
 
@@ -1832,11 +1822,11 @@ Validate Credential
 
   - `refresh: object`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `http_response: object`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
       - `body: string`
 
@@ -1858,29 +1848,43 @@ Validate Credential
 
     - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
+      Outcome of the refresh attempt.
 
       - `"succeeded"`
 
+        The token endpoint returned a new access token.
+
       - `"failed"`
+
+        The token endpoint returned an error response. See `http_response` for detail.
 
       - `"connect_error"`
 
+        The token endpoint could not be reached (DNS, TLS, or connection error).
+
       - `"no_refresh_token"`
+
+        No refresh token is stored for the credential, so no exchange was attempted.
 
   - `status: "valid" or "invalid" or "unknown"`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `"valid"`
 
+      The credential successfully authenticated against its MCP server.
+
     - `"invalid"`
+
+      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
 
     - `"unknown"`
 
+      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
+
   - `validated_at: string`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 

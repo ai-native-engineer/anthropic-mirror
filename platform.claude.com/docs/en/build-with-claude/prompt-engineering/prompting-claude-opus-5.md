@@ -6,13 +6,9 @@ url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/pr
 description: Behavioral differences and prompting patterns for Claude Opus 5, covering response verbosity, agentic narration, task scoping, subagent delegation, self-correction, and output artifacts when thinking is disabled.
 ---
 
-This guide covers the prompting patterns specific to Claude Opus 5. For the model's capabilities and API changes, see [What's new in Claude Opus 5](https://platform.claude.com/docs/en/models/opus-5/whats-new-opus-5). For techniques that apply across all current Claude models, see [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices).
+This guide covers the prompting patterns specific to Claude Opus 5. For the model's specifications, see [Claude Opus 5](https://platform.claude.com/docs/en/models/opus-5/overview). For techniques that apply across all current Claude models, see [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices).
 
 Claude Opus 5 is built for complex agentic coding and enterprise work, with particular strengths in long-horizon agentic tasks. It performs well out of the box on existing Claude Opus 4.8 prompts. The following patterns cover the behaviors that most often require tuning.
-
-<Note>
-  For API changes when migrating from Claude Opus 4.8 (thinking on by default, and disabling thinking capped at `high` effort), see the [migration guide](https://platform.claude.com/docs/en/models/opus-5/migration-guide#migrating-from-claude-opus-4-8-to-claude-opus-5).
-</Note>
 
 ## Capability improvements
 
@@ -80,7 +76,7 @@ Claude Opus 5 delegates to subagents more readily than prior models. Delegation 
 Delegate to a subagent only for large tasks that are genuinely independent and parallelizable, such as a wide multi-file investigation. Do not delegate work you can finish yourself in a handful of tool calls, and do not use subagents to verify or double-check your own work. If one subagent can complete the task, use one rather than several, and keep spawn counts low.
 ```
 
-If your harness is Claude Code or the Claude Agent SDK, the deterministic caps are the `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` and `CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS` environment variables and the SDK's `max_budget_usd` option. They require Claude Code 2.1.217 or later, so update a pinned SDK before pointing it at Claude Opus 5. Claude Code adds a delegation instruction of its own on Claude Opus 5 only when you use its `claude_code` system prompt preset; with a custom or omitted system prompt, add a delegation instruction such as the example in this section yourself. See [Cap subagent depth, concurrency, and spend](https://code.claude.com/docs/en/agent-sdk/subagents#cap-subagent-depth-concurrency-and-spend) in the Agent SDK docs.
+If your harness is Claude Code or the Claude Agent SDK, the deterministic caps are the `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` and `CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS` environment variables and the SDK's `max_budget_usd` (python; typescript: `maxBudgetUsd`) option. They require Claude Code 2.1.217 or later, so update a pinned SDK before pointing it at Claude Opus 5. Claude Code adds a delegation instruction of its own on Claude Opus 5 only when you use its `claude_code` system prompt preset; with a custom or omitted system prompt, add a delegation instruction such as the example in this section yourself. See [Cap subagent depth, concurrency, and spend](https://code.claude.com/docs/en/agent-sdk/subagents#cap-subagent-depth-concurrency-and-spend) in the Agent SDK docs.
 
 ## Self-correction
 
@@ -94,7 +90,7 @@ Only correct an earlier statement when the error would change the user's code, c
 
 ## Running with thinking disabled
 
-Claude Opus 5 runs with [thinking](https://platform.claude.com/docs/en/build-with-claude/thinking) on by default, and thinking can be disabled only at [effort](https://platform.claude.com/docs/en/build-with-claude/effort) `high` or below; see the [migration guide](https://platform.claude.com/docs/en/models/opus-5/migration-guide#migrating-from-claude-opus-4-8-to-claude-opus-5). With thinking disabled, two artifacts can occasionally appear in the model's visible output. The primary mitigation for both is to keep thinking enabled and control token cost with lower effort levels instead of disabling thinking: for most tasks, thinking enabled at `low` effort performs better than thinking disabled at similar cost.
+Claude Opus 5 runs with [thinking](https://platform.claude.com/docs/en/build-with-claude/thinking) on by default, and thinking can be disabled only at [effort](https://platform.claude.com/docs/en/build-with-claude/effort) `high` or below. A request that combines `thinking: {"type": "disabled"}` with effort `xhigh` or `max` returns a 400 error. With thinking disabled, two artifacts can occasionally appear in the model's visible output. The primary mitigation for both is to keep thinking enabled and control token cost with lower effort levels instead of disabling thinking: for most tasks, thinking enabled at `low` effort performs better than thinking disabled at similar cost.
 
 **Tool calls as text.** With thinking disabled, the model occasionally writes a tool call into its user-facing text instead of emitting a structured `tool_use` block. The turn completes normally and the call never runs, and in agentic loops the leaked text stays in the conversation history, so later turns are affected as well. This is most common on tool-heavy workloads such as search.
 

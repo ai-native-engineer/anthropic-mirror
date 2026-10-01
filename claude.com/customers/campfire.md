@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Campfire accelerates accounting with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Campfire logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4634e75d12114c5055837_cs-logo-campfire-light-theme.svg)![Campfire logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c46353437e8d4e99b4e7ae_cs-logo-campfire-dark-theme.svg)
+![Campfire logo](https://assets.claude.com/547f3af27e33331c1409324c549d765f790ca68d.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 3-day reduction
 
@@ -37,42 +27,6 @@ in monthly close time
 90% reduction
 
 in bank reconciliation time
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Campfire, a modern accounting software provider for high-growth tech companies, uses Claude to automate complex accounting tasks and reduce monthly close times. Their Claude-powered platform includes invoicing, billing, revenue accounting, financial statements, and AI-powered conversational reporting.
 
@@ -115,52 +69,12 @@ Campfire envisions a fundamental transformation of the accounting profession. Au
 
 "Our ultimate goal is to elevate the accounting profession," said Glasgow. By automating routine and repetitive aspects of accounting work, Campfire aims to transform accountants from number-crunchers to strategic advisors focused on driving business growth and making high-impact financial decisions. With the power of generative AI, they're creating a future where accounting teams can dedicate their expertise to what they do best—providing the strategic insights that help businesses thrive.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-[Next](#)Next
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-Video caption
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)

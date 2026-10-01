@@ -10,9 +10,13 @@ API, Console, Team & Enterprise plans
 
 [## Claude for Education](https://privacy.claude.com/en/collections/13847394-claude-for-education)
 
+---
+
 * [Who owns and manages the data of my Claude for Education account?](https://privacy.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
 
 [## Compliance Controls & Certifications](https://privacy.claude.com/en/collections/10671789-compliance-controls-certifications)
+
+---
 
 * [Business Associate Agreements (BAA) for Commercial Customers](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [What Certifications has Anthropic obtained?](https://privacy.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained)
@@ -20,9 +24,13 @@ API, Console, Team & Enterprise plans
 
 [## Cookies](https://privacy.claude.com/en/collections/10672397-cookies)
 
+---
+
 * [What Cookies Does Anthropic Use?](https://privacy.claude.com/en/articles/9020432-what-cookies-does-anthropic-use)
 
 [## Data Handling & Retention](https://privacy.claude.com/en/collections/10672411-data-handling-retention)
+
+---
 
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
@@ -38,6 +46,8 @@ API, Console, Team & Enterprise plans
 
 [## Policies & Terms of Service](https://privacy.claude.com/en/collections/10672414-policies-terms-of-service)
 
+---
+
 * [What is Anthropic’s policy for handling governmental requests for user information?](https://privacy.claude.com/en/articles/9519291-what-is-anthropic-s-policy-for-handling-governmental-requests-for-user-information)
 * [Why am I receiving an 'Output blocked by content filtering policy' error?](https://privacy.claude.com/en/articles/9205721-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error)
 * [I think a user is infringing my copyright or other intellectual property. How do I report it?](https://privacy.claude.com/en/articles/7996901-i-think-a-user-is-infringing-my-copyright-or-other-intellectual-property-how-do-i-report-it)
@@ -45,6 +55,8 @@ API, Console, Team & Enterprise plans
 * [Does Anthropic crawl data from the web, and how can site owners block the crawler?](https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
 
 [## Privacy Settings & Controls](https://privacy.claude.com/en/collections/10672417-privacy-settings-controls)
+
+---
 
 * [Can you delete data that I sent via Team and Enterprise plans?](https://privacy.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans)
 * [Deleting commercial Anthropic accounts](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts)
@@ -54,6 +66,8 @@ API, Console, Team & Enterprise plans
 * [Export your organization's data](https://privacy.claude.com/en/articles/13346720-export-your-organization-s-data)
 
 [## FAQs](https://privacy.claude.com/en/collections/10672412-faqs)
+
+---
 
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Who owns and manages the data of my team?](https://privacy.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)

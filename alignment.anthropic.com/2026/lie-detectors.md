@@ -213,6 +213,8 @@ We set out hoping robust lie detection could provide a foundation for alignment.
 
 Until detectors track deception itself rather than the surface form of the settings that produce it, in-distribution accuracy will keep overstating what they can catch.
 
+---
+
 ## Appendix
 
 ### A1: Judge Models and Annotation Pipeline

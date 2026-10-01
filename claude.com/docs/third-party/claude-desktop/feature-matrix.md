@@ -12,7 +12,7 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 
 ##  Key differences
 
-**Configuration.** Claude Enterprise uses a web-based admin console. Claude Desktop on 3P is configured via [MDM](https://claude.com/docs/third-party/claude-desktop/mdm) (Jamf, Intune, Group Policy) or a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap); organizations in the admin console beta can instead manage it from **Organization settings** on claude.ai.
+**Configuration.** Both are administered from the web-based [admin console](https://claude.com/docs/third-party/claude-desktop/admin-console) in **Organization settings** on claude.ai. Claude Desktop on 3P can also be configured through [MDM](https://claude.com/docs/third-party/claude-desktop/mdm) (Jamf, Intune, Group Policy) or a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap).
 **Telemetry.** Claude Desktop on 3P sends usage and debugging metrics only, and these can be fully disabled via managed configuration. Claude Enterprise does not offer telemetry toggles. See [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry).
 **Inference.** Claude Desktop on 3P routes all inference through the provider you configure, and data handling at the inference endpoint depends on that provider. For Google Cloud’s Agent Platform and Amazon Bedrock, data handling is governed by Google Cloud and Amazon Bedrock respectively. For Microsoft Foundry, Anthropic operates the Claude models and handles conversation data as an independent processor for Microsoft. See [Data handling by provider](https://claude.com/docs/third-party/claude-desktop/overview#data-handling-by-provider) on the Overview page for each provider’s data path.
 **Pricing.** Claude Desktop on 3P is token-based consumption billed by your cloud provider, with no seat licensing.
@@ -22,17 +22,21 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 
 | Feature | Claude Enterprise | Claude Desktop on 3P |
 | --- | --- | --- |
-| Chat | ✓ | ✓ (admin opt-in) |
+| Chat | ✓ | ✓ |
 | Cowork | ✓ | ✓ |
 | Code | ✓ | ✓ |
-| Auto mode (Code) | ✓ | ✓ (admin opt-in) |
-| Automatically approve / Skip all approvals (Cowork) | — ¶ | ✓ (admin opt-in) |
+| Auto mode (Code) | ✓ | ✓ |
+| [SSH remote Code sessions](https://claude.com/docs/third-party/claude-desktop/ssh-remote-sessions) | ✓ | ✓ |
+| Automatically approve (Cowork) | — ¶ | ✓ Δ |
+| Skip all approvals (Cowork) | — ¶ | — |
 | Projects | ✓ | ✓ |
 | Code execution for analysis | ✓ | ✓ |
 | Web search | ✓ | ✓ § |
+| [Built-in browser](https://claude.com/docs/third-party/claude-desktop/browser) | ✓ | ✓ |
 | File access, upload, and export | ✓ | ✓ |
 | Local MCP | ✓ | ✓ |
 | Remote MCP | ✓ | ✓ |
+| [Microsoft 365](https://claude.com/docs/third-party/claude-desktop/connectors-m365) and [GitHub](https://claude.com/docs/third-party/claude-desktop/connectors-github) connectors | ✓ | ✓ |
 | Skills, plugins, and hooks | ✓ | ✓ |
 | Artifacts | ✓ | ✓ |
 | Memory | ✓ | ✓ † |
@@ -43,7 +47,7 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 | Mobile | ✓ | — |
 | claude.ai web-based access | ✓ | — |
 | Voice mode | ✓ | — |
-| Claude in Chrome | ✓ | — |
+| [Claude in Chrome](https://claude.com/docs/third-party/claude-desktop/browser#claude-in-chrome) | ✓ | ✓ ‖ |
 | Claude Design | ✓ | — |
 | Claude Security | ✓ | — |
 | Claude Tag | ✓ | — |
@@ -52,6 +56,8 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 § Amazon Bedrock deployments and gateways that do not forward Anthropic server tools need a web search provider configured first; see [Web search options](https://claude.com/docs/third-party/claude-desktop/web-tools#web-search-options).
 † Memory in Claude Desktop on 3P is stored on the device, not on Anthropic infrastructure. Users can review, delete, or pause it under **Settings → Cowork → Memory**; see [Memory](https://claude.com/docs/third-party/claude-desktop/data-storage#memory). Chat-history search and nightly summary generation are not available in Chat on 3P.
 ¶ Cowork’s Automatically approve and Skip all approvals modes are not available for Claude Enterprise organizations.
+Δ Offered when an administrator sets [`autoModeEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#automodeenabled) to `true`.
+‖ Claude in Chrome works with Claude Desktop on 3P only in organizations managed from the [Enterprise Admin Console](https://claude.com/docs/third-party/claude-desktop/admin-console).
 
 ##  Admin features
 
@@ -61,12 +67,14 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 | Skills, hooks, and plugins distribution | ✓ | ✓ |
 | MCP server allowlist | ✓ | ✓ |
 | Feature toggles (web search, local MCP, etc.) | ✓ | ✓ |
-| Auto-updates | ✓ | ✓ (configurable) |
-| Per-user spend caps | ✓ (differentiated) | ✓ (blanket only) |
+| Auto-updates | ✓ | ✓ |
+| Per-user usage caps | ✓ | ✓ |
+| [Data retention policies](https://claude.com/docs/third-party/claude-desktop/data-storage#automatic-deletion-of-idle-sessions) | ✓ | ✓ |
 | Compliance API | ✓ | — ‡ |
 | Analytics API | ✓ | — ‡ |
 | OpenTelemetry export | ✓ | ✓ |
-| User management via UI | ✓ | — |
-| RBAC | ✓ | via MDM |
+| User management via UI | ✓ | ✓ ◊ |
+| RBAC | ✓ | ✓ ◊ |
 
 ‡ Many of these capabilities can be achieved via OpenTelemetry export to your own collector. See [Monitoring](https://claude.com/docs/cowork/monitoring).
+◊ With the [Enterprise Admin Console](https://claude.com/docs/third-party/claude-desktop/admin-console), administrators add users and groups, connect single sign-on and SCIM, assign administrator roles, and set per-group permission policies from **Organization settings** on claude.ai. Deployments configured through MDM or a bootstrap server manage access through those channels.

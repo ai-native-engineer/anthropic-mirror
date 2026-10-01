@@ -23,13 +23,13 @@ This video demonstrates how to apply your deep disciplinary knowledge to make th
 
 ## Exercises
 
-For our final exercise we’re going to give our AI partners a break and just talk to our human colleagues!
+For our final exercise we’re going to give our AI partners a break and just talk to our human colleagues!  
 
 However, having all participants work through the exercise from the previous lesson individually will facilitate these conversations.
 
-In whatever manner makes sense for your context, schedule some organized time to work through the 4D framework with your colleagues.
+In whatever manner makes sense for your context, schedule some organized time to work through the 4D framework with your colleagues. 
 
-Here are some suggested topics to help guide your discussion:
+Here are some suggested topics to help guide your discussion: 
 
 *For Discernment - "What does quality look like in our field?"*
 
@@ -81,7 +81,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license. This course is based on The AI Fluency Framework by Dakan and Feller.Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: BUj8mjy6oxI -->
 
 [![Applying Discipline Expertise To AI Fluency](https://img.youtube.com/vi/BUj8mjy6oxI/hqdefault.jpg)](https://www.youtube.com/watch?v=BUj8mjy6oxI)

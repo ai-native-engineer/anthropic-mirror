@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server)[Support (opens in new tab)](https://www.figma.com)
+More[Documentation (opens in new tab)](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server)[Support (opens in new tab)](https://www.figma.com)[Privacy policy (opens in new tab)](https://www.figma.com/legal/privacy/)
 
 The Figma MCP server helps you pull in Figma context and generate high-quality code that aligns with your codebase and design intent. Use the MCP server to retrieve code resources from Figma Design or Make files, and turn your ideas into production apps.
 

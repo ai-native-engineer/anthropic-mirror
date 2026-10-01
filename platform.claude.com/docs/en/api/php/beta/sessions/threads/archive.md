@@ -25,9 +25,13 @@ Archive Session Thread
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `ManagedAgentsSessionThread`
+- `class ManagedAgentsSessionThread`
 
   - `Type type`
 
@@ -37,15 +41,15 @@ Archive Session Thread
 
   - `Agent agent`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
   - `?string parentThreadID`
 
@@ -57,19 +61,19 @@ Archive Session Thread
 
   - `?ManagedAgentsSessionThreadStats stats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
   - `ManagedAgentsSessionThreadStatus status`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
   - `?ManagedAgentsSessionThreadUsage usage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
 ## Example
 

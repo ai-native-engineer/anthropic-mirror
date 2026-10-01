@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz -->
 
-Quiz 1 of 1 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutCourse quiz
+Quiz 1 of 1 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutCourse quiz
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Course quiz
 
@@ -12,7 +12,7 @@ Quiz10 min
 
 [Previous lessonWhen a new product arrives](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/when-a-new-product-arrives)[Up nextCompletion badge](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/badge)
 
-Quiz 1 of 1 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutCourse quiz
+Quiz 1 of 1 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutCourse quiz
 
 The plan
 

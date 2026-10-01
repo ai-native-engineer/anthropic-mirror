@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Freedom Forever automates permit workflows with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697cff85878a4b10b577a326_logo_freedomforever-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697cff89716ed55051dcaaa0_logo_freedomforever-dark-mode.png)
+![Freedom Forever logo](https://assets.claude.com/fa03a03a8542dff81427864a2e6dcc95140ddda3.png)
 
 Industry:
-
-Energy
+:   Energy
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 97.5% benchmark success
 
@@ -40,51 +30,9 @@ in the first month of production
 
 Introducing Claude Code
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Introducing Claude Code](https://assets.claude.com/56575a2d86ba511e0095b0cb9a92cafe7079c820.jpg?w=2400&q=75&fm=webp&fit=max)
 
 See Claude Code in action—from concept to commit in one seamless workflow.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Introducing Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-[Next](#)Next
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-Introducing Claude Code
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Freedom Forever](https://www.freedomforever.com), the largest residential solar installer in the United States, handles the full lifecycle of solar installation—from sales and permitting through design, installation, and ongoing monitoring. The company has 3,000 employees, primarily field operations and installation crews, and a 50-person software and product team.
 
@@ -135,34 +83,10 @@ The company also recently migrated their sales support agent from another framew
 
 The internal agent console they built on top of the SDK now serves as a platform for the entire team, with only a handful of developers working directly in the SDK layer while many more use the UI to configure skills and workflows. "We're going headfirst with Claude and the Agent SDK," said Richardson. "We see it as the future for a lot of our work and want to be deeply embedded."
 
-"Claude Agent SDK scored 97.5% on our benchmark—we couldn't break it."
+> "Claude Agent SDK scored 97.5% on our benchmark—we couldn't break it."
 
-Rob Richardson
+Rob RichardsonVP of Product, Freedom Forever
 
-VP of Product, Freedom Forever
+[![SoFlo](https://assets.claude.com/a9a39544bc75c80dfb11f2b1bf87e215b3f7b834.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How can a small team revive solar power and restore trust?](https://claude.com/customers/soflo)How can a small team revive solar power and restore trust?
-
-How can a small team revive solar power and restore trust?
-
-Customer story
-
-[Customer story](https://claude.com/customers/soflo)Customer story
+### How can a small team revive solar power and restore trust?](https://claude.com/customers/soflo)

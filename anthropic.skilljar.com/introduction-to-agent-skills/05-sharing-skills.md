@@ -58,7 +58,16 @@ Administrators can deploy skills organization-wide through managed settings. Ent
 The managed settings file supports features like `strictKnownMarketplaces` to control where plugins can be installed from:
 
 ```
-"strictKnownMarketplaces": [ { "source": "github", "repo": "acme-corp/approved-plugins" }, { "source": "npm", "package": "@acme-corp/compliance-plugins" } ]
+"strictKnownMarketplaces": [
+  {
+    "source": "github",
+    "repo": "acme-corp/approved-plugins"
+  },
+  {
+    "source": "npm",
+    "package": "@acme-corp/compliance-plugins"
+  }
+]
 ```
 
 This is the right choice for mandatory standards, security requirements, compliance workflows, and coding practices that *must* be consistent across the organization. The keyword here is "must."
@@ -80,7 +89,14 @@ To create a custom subagent with skills, add an agent markdown file in `.claude/
 The generated agent file includes a `skills` field that lists which skills to load. Here's what the frontmatter looks like:
 
 ```
---- name: frontend-security-accessibility-reviewer description: "Use this agent when you need to review frontend code for accessibility..." tools: Bash, Glob, Grep, Read, WebFetch, WebSearch, Skill... model: sonnet color: blue skills: accessibility-audit, performance-check ---
+---
+name: frontend-security-accessibility-reviewer
+description: "Use this agent when you need to review frontend code for accessibility..."
+tools: Bash, Glob, Grep, Read, WebFetch, WebSearch, Skill...
+model: sonnet
+color: blue
+skills: accessibility-audit, performance-check
+---
 ```
 
 When you delegate to this subagent, it has both skills loaded and applies them to every review. First make sure the skills exist in your `.claude/skills` directory, then either create a new subagent or add the `skills` field to an existing agent's markdown file.
@@ -103,7 +119,6 @@ In the final lesson, you'll learn how to troubleshoot common skill issues — fr
 #### Feedback
 
 As you progress through the course, we'd love to hear how you're using skills in your work, plus any feedback you may have. Share your feedback [here](https://forms.gle/RvHPBwQt9ZmcDc1P9).
-
 <!-- youtube: OCBi3eScNLk -->
 
 [![Sharing Skills](https://img.youtube.com/vi/OCBi3eScNLk/hqdefault.jpg)](https://www.youtube.com/watch?v=OCBi3eScNLk)

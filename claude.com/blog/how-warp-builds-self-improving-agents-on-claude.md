@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
 
 # How Warp builds self-improving agents on Claude
@@ -29,7 +31,7 @@ Learn how Warp devised a simple development pattern that anyone can use to crea
 
   Michael Segner
 
-*In our series, , we highlight how startups are transforming their industries with AI. In this article, we share how Warp turned stateless user feedback into a self-improvement loop for its agents.*
+*In our series, we highlight how startups are transforming their industries with AI. In this article, we share how Warp turned stateless user feedback into a self-improvement loop for its agents.*
 
 | The quick pitch | |
 | --- | --- |
@@ -133,6 +135,30 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 29, 2026
+
+### Agents you can coach: how Asana builds human-agent teams with Claude
+
+Agents
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](#)Agents you can coach: how Asana builds human-agent teams with Claude
+
+[Agents you can coach: how Asana builds human-agent teams with Claude](https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)Agents you can coach: how Asana builds human-agent teams with Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 28, 2026
+
+### Giving companies more control over their AI agents, with NVIDIA
+
+Agents
+
+[Giving companies more control over their AI agents, with NVIDIA](#)Giving companies more control over their AI agents, with NVIDIA
+
+[Giving companies more control over their AI agents, with NVIDIA](https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia)Giving companies more control over their AI agents, with NVIDIA
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 Sep 8, 2026
@@ -156,30 +182,6 @@ Product announcements
 [Building commerce agents with Claude](#)Building commerce agents with Claude
 
 [Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Sep 2, 2026
-
-### A guide to the anatomy of effective commerce agents
-
-Agents
-
-[A guide to the anatomy of effective commerce agents](#)A guide to the anatomy of effective commerce agents
-
-[A guide to the anatomy of effective commerce agents](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)A guide to the anatomy of effective commerce agents
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
-
-Aug 13, 2026
-
-### Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
-
-Agents
-
-[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
-
-[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 ## Transform how your organization operates with Claude
 

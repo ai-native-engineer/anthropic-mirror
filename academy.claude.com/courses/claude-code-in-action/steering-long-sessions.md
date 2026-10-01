@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions -->
 
-Lesson 1 of 9 · Claude Code in ActionSteering long sessions
+Lesson 1 of 9 · Claude Code in actionSteering long sessions
 
-3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+3. /[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
-[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
 # Steering long sessions
 
@@ -97,7 +97,7 @@ Do that, and you can trust a long run without babysitting every step of it.
 
 [Next lessonA CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)
 
-Lesson 1 of 9 · Claude Code in ActionSteering long sessions
+Lesson 1 of 9 · Claude Code in actionSteering long sessions
 
 Steer the work
 

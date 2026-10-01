@@ -11,6 +11,8 @@ New Posts
 * [Investigating successor heads](#successor-heads)
 * [Oversampling a Topic in the SAE Training Set Results in More Detailed Features Related to that Topic](#oversampling)
 
+---
+
 ## [Investigating successor heads](#successor-heads)
 
 Emmanuel Ameisen, Joshua Batson; edited by Jack Lindsey
@@ -72,6 +74,8 @@ We also computed head attributions on the same sequential datasets (based on the
 ### Conclusion
 
 We reproduce the finding of Gould et al. that multiple successor heads exist in a small transformer model, which promote ordinal token succession through direct effects. It would be interesting to evaluate which contexts those heads are used in, e.g., are they also involved in incrementing lists, or years, or in natural prose ("The next day, Tuesday,..."). Finally, we note that two components found in the ICA decomposition of heads, which approximately implemented ordinal succession (but somewhat forgetting which sequence) and copy sequence category (but forget which ordinal) are consistent with the compositional linear representation of ordinal value and sequence category identified in Gould et al. It would be interesting if such head decompositions, in general, could be used to identify compositional linear factors of the residual stream.
+
+---
 
 ## [Oversampling a Topic in the SAE Training Set Results in More Detailed Features Related to that Topic](#oversampling)
 

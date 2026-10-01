@@ -188,7 +188,7 @@ Copy the message body from each table below directly into Slack or Teams. Replac
 
 |  |
 | --- |
-| 🧩 **Tip: Give Claude permission to actually think about the hard ones**    Got a bug that’s defeated you twice? Don’t ask for a fast answer — ask for a careful one.    `/effort max` pushes reasoning depth to the top of the scale. Claude takes longer, explores more branches, and the answer is more likely to hold up under scrutiny. Team and Enterprise plans already default to high, so max is the step up. Save it for the problems where being wrong costs you an afternoon.    **Try it now:** type `/effort max`  before describing your hardest open bug. Then go refill your water while it works.    📖 **[Effort levels](https://code.claude.com/docs/en/model-config#adjust-effort-level)** |
+| 🧩 **Tip: Give Claude permission to actually think about the hard ones**    Got a bug that’s defeated you twice? Don’t ask for a fast answer — ask for a careful one.    `/effort max` pushes reasoning depth to the top of the scale. Claude takes longer, explores more branches, and the answer is more likely to hold up under scrutiny. Save it for the problems where being wrong costs you an afternoon.    **Try it now:** type `/effort max`  before describing your hardest open bug. Then go refill your water while it works.    📖 **[Effort levels](https://code.claude.com/docs/en/model-config#adjust-effort-level)** |
 
 **Message 14 — Screenshots and images**
 

@@ -4,33 +4,21 @@ Q&A | Claude for Nonprofits
 
 # Mercy Corps on what AI makes possible in humanitarian work
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e04954c57899e16ee740_logo_mercycorps-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e053a5775e0a59000aec_logo_mercycorps-dark-mode.svg)
+![Mercy Corps logo](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
-
-[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
+:   [Claude Enterprise](https://claude.com/solutions/enterprise)[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
 
 Location:
-
-North America
+:   North America
 
 200 programs
 
@@ -42,35 +30,11 @@ with Claude
 
 Case Study: Mercy Corp
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a724e3aa58721f547eabc9c_og_case-study-Mercy%20Corp.jpg)
+![Case Study: Mercy Corp](https://assets.claude.com/f124c6a81ef6abb8d583bb34c3e967652ddecf4f.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Read the case study on how Mercy Corps accelerates its global humanitarian response to community feedback with Claude.
 
-Read more
-
-[Read more](https://claude.com/customers/mercy-corps)Read more
-
-Case Study: Mercy Corp
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Read the case study on how Mercy Corps accelerates its global humanitarian response to community feedback with Claude.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: Mercy Corp
-
-Read the case study on how Mercy Corps accelerates its global humanitarian response to community feedback with Claude.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/customers/mercy-corps)
 
 [Mercy Corps](https://www.mercycorps.org/), which will become [Prosper Global](https://zwly9k6z.r.us-east-1.awstrack.me/L0/https:%2F%2Fmercycorps.org%2Fprosperglobal/1/0100019d01864701-f53b4393-a8ad-492e-980a-824a7b486f64-000000/MPXTVzXYNuCQpgoLLDYEYzPStEs=470) later in 2026 as part of its organizational evolution, is a global humanitarian organization running more than 200 programs across 35+ countries. Nayid Orozco is its AI Solutions and Delivery Manager, responsible for the organization's Claude deployment, from administering the Enterprise workspace to setting the guidelines that govern what data can be used. We spoke with Orozco about Mercy Corps' 13-team pilot, what changes when field teams hold the tools themselves, and where AI fits in the future of humanitarian work.
 
@@ -82,11 +46,9 @@ Read the case study on how Mercy Corps accelerates its global humanitarian respo
 
 **Orozco:** I work in our Technology for Development group and serve as a link between the teams using Claude and our legal and data protection colleagues. The teams that use Claude most heavily are our Community Accountability team and our monitoring, evaluation, and learning (MEL) team.
 
-"AI lets us do things we simply could not do before or were never going to be resourced to do—even though we knew they mattered."
+> "AI lets us do things we simply could not do before or were never going to be resourced to do—even though we knew they mattered."
 
-Nayid Orozco
-
-AI Solutions and Delivery Manager, Mercy Corp
+Nayid OrozcoAI Solutions and Delivery Manager, Mercy Corp
 
 ## Anthropic: What does the MEL team's work with Claude look like?
 
@@ -102,7 +64,7 @@ In Kenya, our JobTech Alliance team offers another example: its members, who do 
 
 ## Anthropic: Some of this work now sits with country teams rather than at headquarters. How do you think about that shift?
 
-**Orozco:** That shift is immense. Country teams hold the deepest knowledge of the contexts they work in, and giving them Claude lets them build on that contextual knowledge and do their own analysis instead of waiting on the center.  We've learned critical lessons about bringing field teams on board in new contexts. They need persistent context, so they are not rebuilding background every session. They need version-aware accuracy on technical systems, a low-bandwidth option for remote districts, and short practical training rather than long sessions. The result is more direct program action, more data-driven decision making, and a more organic approach to adaptive management, one that moves away from traditional top-down models toward locally led action. More than any single efficiency gain, that is what we think matters most about expanding Claude to the field.
+**Orozco:** That shift is immense. Country teams hold the deepest knowledge of the contexts they work in, and giving them Claude lets them build on that contextual knowledge and do their own analysis instead of waiting on the center. We've learned critical lessons about bringing field teams on board in new contexts. They need persistent context, so they are not rebuilding background every session. They need version-aware accuracy on technical systems, a low-bandwidth option for remote districts, and short practical training rather than long sessions. The result is more direct program action, more data-driven decision making, and a more organic approach to adaptive management, one that moves away from traditional top-down models toward locally led action. More than any single efficiency gain, that is what we think matters most about expanding Claude to the field.
 
 ## Anthropic: How do you think about data protection and human oversight?
 
@@ -114,37 +76,15 @@ In Kenya, our JobTech Alliance team offers another example: its members, who do 
 
 Nonprofits
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
-Read more
+[Read more](https://claude.com/solutions/nonprofits)
 
-[Read more](https://claude.com/solutions/nonprofits)Read more
+> "The way we most want to influence where AI goes in humanitarian work is pushing the benefits outward to local actors, rather than keeping them inside large organizations."
 
-Nonprofits
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-"The way we most want to influence where AI goes in humanitarian work is pushing the benefits outward to local actors, rather than keeping them inside large organizations."
-
-Nayid Orozco
-
-AI Solutions and Delivery Manager, Mercy Corp
+Nayid OrozcoAI Solutions and Delivery Manager, Mercy Corp
 
 ## Anthropic: What would you tell another humanitarian organization that wants to use AI responsibly but isn't sure where to start?
 
@@ -162,52 +102,12 @@ Our Innovation Catalyst platform is another effort taking shape, weaving AI for 
 
 **Orozco:** AI can move us from a sector that consistently underutilizes the learning from its own work to one that uses it consistently and efficiently. That change feeds better design, better implementation, and greater impact for people in the places where we work. Claude in particular is well suited to this, because it is strong at operational research, learning work, and analyzing qualitative datasets. That’s exactly the kind of data learning our work depends on. The way we most want to influence where AI goes in humanitarian work is pushing the benefits outward to local actors, rather than keeping them inside large organizations.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Video caption
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)[![National Domestic Workers Alliance](https://assets.claude.com/8cdd9e0611e1a8258e4b24391c64186909732176.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
-
-[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Customer story
-
-[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story
+### Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)

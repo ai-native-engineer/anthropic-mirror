@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # Zapia powers local commerce for millions across Latin America with Claude and Google Cloud
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Zapia logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c37718fbe46b980b9ae7f6_cs-logo-zapia-light-theme.png)![Zapia logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c37726009b9484b7777297_cs-logo-zapia-dark-theme.png)
+![Zapia logo](https://assets.claude.com/f8043d349b12d6042c25685ae76387b216ec1f58.png)
 
 Industry:
-
-Ecommerce
+:   Ecommerce
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-Google
+:   Google
 
 Location:
-
-South America
+:   South America
 
 2.5 million users
 
@@ -41,42 +30,6 @@ in first year across Latin America
 90%+ positive
 
 user feedback and satisfaction
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Zapia](https://zapia.com/en) helps Latin American consumers discover products, make purchases, and get support through popular messaging apps like WhatsApp. With Claude on Google Cloud, Zapia is transforming commerce for millions across the region. Google Cloud is a fully-managed, unified AI development platform for building and using generative AI.
 
@@ -133,52 +86,12 @@ BrainLogic sees Zapia as the start of AI's impact on commerce in Latin America. 
 
 Looking ahead, Zapia is poised to play a crucial role in Latin America's technological advancement. Loeff concludes, “It will empower local artisans in remote villages and ambitious digital entrepreneurs alike. AI has the potential to democratize high-quality services across Latin America, regardless of location or economic status. It's a tool that helps everyone."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Reversia](https://assets.claude.com/86b324fdb04166c3b115b1cf48071e52e83d08cf.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-[Next](#)Next
+### Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-Video caption
+### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
-
-Reversia translates e-commerce stores across 110+ languages with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/reversia)Customer story
-
-[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten-qa)Customer story
-
-[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
-
-Rakuten accelerates development with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten)Customer story
-
-[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-Customer story
-
-[Customer story](https://claude.com/customers/shopify)Customer story
+### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)

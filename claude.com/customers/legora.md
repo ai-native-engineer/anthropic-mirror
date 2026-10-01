@@ -4,33 +4,21 @@ Case study | Claude Platform
 
 # Legora helps lawyers work more efficiently with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1ee88fa4444e45d9d0c0bf_maxresdefault.jpg)
+![Video thumbnail](https://assets.claude.com/bc408f1de16c14c88cd9f4d8cc5ea498b23c6218.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
-
-Legal
+:   Legal
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Europe
+:   Europe
 
 18% higher
 
@@ -39,42 +27,6 @@ performance on large legal evaluation set
 Enterprise-grade
 
 reliability and consistency in legal workflows
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Legora builds AI-powered legal technology that helps law firms and in-house legal teams work more efficiently. Legora uses Claude throughout their platform to power assistant tools, document review, and intelligent workflows.
 
@@ -126,52 +78,12 @@ This philosophy drives their expanding collaboration with Anthropic. Beyond thei
 
 With Claude at their foundation, Legora is building the future of legal technology—where AI enhances rather than replaces the essential human elements of legal work.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Spellbook](https://assets.claude.com/6d8c2b327807c9a9dc5b911946df64b7a0cbda3c.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)[![EvenUp](https://assets.claude.com/466446f5f59635a264efe3e688a42b51c0e88976.svg)
 
-[Next](#)Next
+### EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)[![Eve Legal](https://assets.claude.com/f1efc487a08ab700dd2f0a0d09e717745da3e2d0.svg)
 
-Video caption
+### Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)[![GC AI](https://assets.claude.com/bf75981f3c09a3118604def848ab045ebfd0bfb5.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)Spellbook runs 530,000 contract reviews a month with Claude
-
-Spellbook runs 530,000 contract reviews a month with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/spellbook)Customer story
-
-[EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/evenup)Customer story
-
-[Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/eve-legal)Customer story
-
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/gc-ai)Customer story
+### GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)

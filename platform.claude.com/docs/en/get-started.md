@@ -9,7 +9,7 @@ description: Make your first API call to Claude and build a simple web search as
 ## Prerequisites
 
 * A [Claude Console account](https://platform.claude.com)
-* An [API key](https://platform.claude.com/settings/keys)
+* An [API key](https://platform.claude.com/docs/en/get-api-key)
 
 ## Call the API
 
@@ -33,7 +33,7 @@ description: Make your first API call to Claude and build a simple web search as
           -H "x-api-key: $ANTHROPIC_API_KEY" \
           -H "anthropic-version: 2023-06-01" \
           -d '{
-            "model": "claude-opus-5",
+            "model": "claude-opus-5-5",
             "max_tokens": 1000,
             "messages": [
               {
@@ -48,7 +48,7 @@ description: Make your first API call to Claude and build a simple web search as
 
         ```json Output
         {
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "id": "msg_013mHbppMPd2PrVJzGMZPt2D",
           "type": "message",
           "role": "assistant",
@@ -104,7 +104,7 @@ description: Make your first API call to Claude and build a simple web search as
 
         ```bash CLI
         ant messages create \
-          --model claude-opus-5 \
+          --model claude-opus-5-5 \
           --max-tokens 1000 \
           --message '{
             role: user,
@@ -116,7 +116,7 @@ description: Make your first API call to Claude and build a simple web search as
 
         ```json Output
         {
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "id": "msg_01N1ycuCkM5Mzd7WhTU4fwST",
           "type": "message",
           "role": "assistant",
@@ -163,7 +163,7 @@ description: Make your first API call to Claude and build a simple web search as
         client = anthropic.Anthropic()
 
         message = client.messages.create(
-            model="claude-opus-5",
+            model="claude-opus-5-5",
             max_tokens=1000,
             messages=[
                 {
@@ -223,7 +223,7 @@ description: Make your first API call to Claude and build a simple web search as
         const client = new Anthropic();
 
         const message = await client.messages.create({
-          model: "claude-opus-5",
+          model: "claude-opus-5-5",
           max_tokens: 1000,
           messages: [
             {
@@ -288,7 +288,7 @@ description: Make your first API call to Claude and build a simple web search as
 
         var message = await client.Messages.Create(new MessageCreateParams
         {
-            Model = Model.ClaudeOpus5,
+            Model = Model.ClaudeOpus5_5,
             MaxTokens = 1000,
             Messages =
             [
@@ -364,7 +364,7 @@ description: Make your first API call to Claude and build a simple web search as
         	client := anthropic.NewClient()
 
         	message, err := client.Messages.New(context.Background(), anthropic.MessageNewParams{
-        		Model:     anthropic.ModelClaudeOpus5,
+        		Model:     anthropic.ModelClaudeOpus5_5,
         		MaxTokens: 1000,
         		Messages: []anthropic.MessageParam{
         			anthropic.NewUserMessage(anthropic.NewTextBlock("What should I search for to find the latest developments in renewable energy?")),
@@ -438,7 +438,7 @@ description: Make your first API call to Claude and build a simple web search as
             }
 
             dependencies {
-                implementation("com.anthropic:anthropic-java:2.60.0")
+                implementation("com.anthropic:anthropic-java:2.66.0")
             }
 
             application {
@@ -464,7 +464,7 @@ description: Make your first API call to Claude and build a simple web search as
                 <dependency>
                   <groupId>com.anthropic</groupId>
                   <artifactId>anthropic-java</artifactId>
-                  <version>2.60.0</version>
+                  <version>2.66.0</version>
                 </dependency>
               </dependencies>
             </project>
@@ -486,7 +486,7 @@ description: Make your first API call to Claude and build a simple web search as
             var client = AnthropicOkHttpClient.fromEnv();
 
             var params = MessageCreateParams.builder()
-                .model(Model.CLAUDE_OPUS_5)
+                .model(Model.CLAUDE_OPUS_5_5)
                 .maxTokens(1000)
                 .addUserMessage(
                     "What should I search for to find the latest developments in renewable energy?"
@@ -558,7 +558,7 @@ description: Make your first API call to Claude and build a simple web search as
         $client = new Client();
 
         $message = $client->messages->create(
-            model: Model::CLAUDE_OPUS_5,
+            model: Model::CLAUDE_OPUS_5_5,
             maxTokens: 1000,
             messages: [
                 [
@@ -619,7 +619,7 @@ description: Make your first API call to Claude and build a simple web search as
         client = Anthropic::Client.new
 
         message = client.messages.create(
-          model: Anthropic::Model::CLAUDE_OPUS_5,
+          model: Anthropic::Model::CLAUDE_OPUS_5_5,
           max_tokens: 1000,
           messages: [
             {

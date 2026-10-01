@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Trellix deploys autonomous security agents with Claude in Amazon Bedrock
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![trellix_logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cc1ef38d7b8e842f98aac6_68c304c851281f47fc047e1c_cs-logo-trellix-light-theme%201.svg)![trellix_logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cc1efb841bccf6f57603f7_Clip%20path%20group.svg)
+![Trellix logo](https://assets.claude.com/1023b604e778c1c5d5646feb4817094ae1865bb6.svg)
 
 Industry:
-
-Cybersecurity
+:   Cybersecurity
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 8 hours saved
 
@@ -37,42 +27,6 @@ for every 100 security alerts processed
 99.8% reduction
 
 in development time from 40 hours to 5 minutes
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Trellix, a leading cybersecurity company, uses Claude in [Amazon Bedrock](https://aws.amazon.com/bedrock/) to power AI agents that autonomously analyze security alerts, automate development tasks, and streamline operations, allowing human analysts to focus on strategic work while saving thousands of hours of manual effort.
 
@@ -134,52 +88,12 @@ Trellix believes AI will reshape cybersecurity by enabling truly comprehensive p
 
 Holste explains, "The security industry has always moved too slowly compared to attackers. AI fundamentally changes the equation—it's like giving defenders a jetpack when they've been limited to walking." This transformation isn't just about speed—it heralds a new era where security teams can finally get ahead of threats, predict attacks before they happen, and protect digital assets with unprecedented effectiveness. For the first time in cybersecurity history, defenders will have the tools to not just keep pace with attackers, but to take the lead in safeguarding our digital future.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Vega Security](https://assets.claude.com/4e1839348313fbe4c8f3c96d6c7cbc95f53e13c6.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-[Next](#)Next
+### Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-Video caption
+### Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera)[![Kai](https://assets.claude.com/aff2397c0fd3708b6d0b23554c2ce5f81a3f7c56.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/vega)Customer story
-
-[Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
-
-Cyera on making Claude Cowork the front door to 40 tools
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera-qa)Customer story
-
-[Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera) Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera)Customer story
-
-[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
-
-Kai delivers preemptive exposure management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/kai)Customer story
+### Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai)

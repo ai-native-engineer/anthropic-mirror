@@ -4,33 +4,21 @@ Q&A | Claude Cowork
 
 # How Zapier's marketing and engineering teams use Claude Cowork to delegate real work
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Zapier logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aedd1d4ccaa7aaecee72_zapier_light.svg)![Zapier logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aed89af0a9a659d820f0_zapier_dark.svg)
+![Zapier logo](https://assets.claude.com/76ec34d2d040fb1dd2dd94a7950788e0a82a09b6.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Cowork](https://claude.com/product/cowork)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Cowork](https://claude.com/product/cowork)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Location:
-
-North America
+:   North America
 
 ~15 minutes
 
@@ -42,35 +30,11 @@ synthesizing live data from 6 engineering systems in one Cowork session.
 
 Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Read more
-
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/product/cowork)
 
 [Zapier](https://zapier.com/) connects nearly 8,000 apps for more than 3.4 million businesses, and internally, AI adoption runs deep: 97% of employees use AI in their daily work, with thousands of AI agents deployed across the company. Zapier was also one of Anthropic's earliest MCP partners.
 
@@ -114,11 +78,9 @@ I can keep doing other things while it runs. In this case, the result was a shar
 
 The skills layer is what makes this repeatable. Rather than re-prompting from scratch each time, the PMM context travels with the tool. The biggest mistake people make is treating Cowork as a conversation that ends. At the end of every working session, I ask: what should we remember from this? Claude captures it so everything compounds. Each session makes the next one smarter.
 
-“The barrier between ‘having an idea’ and ‘shipping something’ has collapsed. I genuinely cannot remember doing my job without it.”
+> “The barrier between ‘having an idea’ and ‘shipping something’ has collapsed. I genuinely cannot remember doing my job without it.”
 
-Larisa Cavallaro
-
-AI Automation Engineer, Zapier
+Larisa CavallaroAI Automation Engineer, Zapier
 
 ## How do you think about trusting Cowork's output? Is there a review loop, and has it changed over time?
 
@@ -148,84 +110,22 @@ The barrier between "having an idea" and "shipping something" has collapsed. The
 
 Claude Enterprise, now available self-serve
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690515bc9c9d273cbf764a30_og_amazon-bedrock-general-availability.jpg)
+![Claude Enterprise, now available self-serve](https://assets.claude.com/72d1034a360474d7ac2b1ae9b198d5b09a23d97c.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Any organization can now purchase Claude Enterprise directly—no sales conversation required. Set up SSO, invite team members, and start working in minutes.
 
-Read more
+[Read more](https://claude.com/blog/self-serve-enterprise)
 
-[Read more](https://claude.com/blog/self-serve-enterprise)Read more
+> “The biggest mistake people make is treating Cowork as a conversation that ends. Claude captures it so everything compounds. Each session makes the next one smarter.”
 
-Claude Enterprise, now available self-serve
+Joe StychHead of Product Marketing, Zapier
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Next](#)Next
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-Any organization can now purchase Claude Enterprise directly—no sales conversation required. Set up SSO, invite team members, and start working in minutes.
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Enterprise, now available self-serve
-
-Any organization can now purchase Claude Enterprise directly—no sales conversation required. Set up SSO, invite team members, and start working in minutes.
-
-“The biggest mistake people make is treating Cowork as a conversation that ends. Claude captures it so everything compounds. Each session makes the next one smarter.”
-
-Joe Stych
-
-Head of Product Marketing, Zapier
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

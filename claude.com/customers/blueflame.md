@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # BlueFlame AI empowers lean investment teams to achieve institutional-scale analysis with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Blueflame logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c31006247b4243ac8ac86c_cs-logo-blueflame-light-theme.svg)![Blueflame logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c3100885d4d24e967bbbb1_cs-logo-blueflame-dark-theme.svg)
+![Blueflame logo](https://assets.claude.com/268457c2a2eb777d72a51ffa4aea5a8c5d459d8a.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 Minutes not hours
 
@@ -37,42 +27,6 @@ document analysis time reduction
 30 queries daily
 
 average client usage
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 BlueFlame uses Claude to give small investment teams enterprise-grade analytical capabilities, enabling lean teams to analyze vast document sets and uncover insights at institutional scale—without needing in-house technical expertise.
 
@@ -105,9 +59,7 @@ BlueFlame's platform democratizes sophisticated analysis capabilities, providing
 * Generation of tailored investment insights
 * Comprehensive due diligence automation
 
-![BlueFlame product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf058f586050e261b3054_ad0b91a36a38783e04ce3930cb87627e74147b28-1920x1009.jpeg)
-
-![BlueFlame product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf058f586050e261b3050_feb32b98eb4f862c56d4697d95c25f10bbf71522-1920x1037.jpeg)
+![BlueFlame product screen](https://assets.claude.com/4d94a3ff4d6d55afb82910e60bbc97e877282ac0.jpg)![BlueFlame product screen](https://assets.claude.com/faf90edf99dec4e1e6a77ff18f2096712cd1f3fb.jpg)
 
 The platform doesn't just save time—it enables small teams to perform analysis that was previously impossible without large technical departments. "This isn't just about saving time—we're enabling analysis that was economically unfeasible before," said Lindemann.
 
@@ -121,52 +73,12 @@ BlueFlame sees AI as key to leveling the playing field in investment analysis. "
 
 The company views their partnership with Anthropic as crucial to realizing their long term vision. "The partnership between Anthropic's horizontal technology and BlueFlame's vertical application delivers the best of both worlds to clients," said Lindemann. Together, they're democratizing institutional-grade analysis capabilities, enabling lean teams to compete effectively in an increasingly sophisticated investment landscape.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-[Next](#)Next
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-Video caption
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)

@@ -25,8 +25,8 @@ Before you start: check that you have what setup needs
 | --- | --- | --- |
 | A **Team or Enterprise plan** on claude.ai | Claude Tag is available on Team and Enterprise plans, on Anthropic’s first-party service. It isn’t available on individual plans (Free, Pro, or Max), or for third-party deployments. | Start a Team or Enterprise plan at [claude.com/pricing](https://claude.com/pricing) |
 | A Claude organization **without Zero Data Retention (ZDR) or customer-managed encryption (CMEK)** | Claude Tag stores channel memory and session transcripts, which ZDR doesn’t permit. A CMEK policy doesn’t allow Claude Tag either. | Claude Tag isn’t available to organizations with a ZDR or CMEK policy |
-| **Routines** enabled for your Claude organization | Until it is, Claude answers every mention and DM with a reply that it’s unavailable and does no work. | An admin enables Routines at [`claude.ai/admin-settings/claude-code`](https://claude.ai/admin-settings/claude-code) |
-| **Owner** role in the Claude organization you’re setting up | Pairing a workspace and creating Access bundles are Owner-only writes. Roles are per organization, so being an Owner elsewhere doesn’t carry over. | Ask an Owner to run setup, or have one promote you at [`claude.ai/admin-settings/members`](https://claude.ai/admin-settings/members) |
+| **Routines** enabled for your Claude organization | Until it is, Claude answers every mention and DM with a reply that it’s unavailable and does no work. | An admin turns on [**Admin settings > Capabilities > Remote sessions > Routines**](https://claude.ai/admin-settings/capabilities) |
+| **Owner** role in the Claude organization you’re setting up | Pairing a workspace is an Owner-only write. Roles are per organization, so being an Owner elsewhere doesn’t carry over. | Ask an Owner to run setup, or have one promote you at [`claude.ai/admin-settings/members`](https://claude.ai/admin-settings/members) |
 | A **Slack workspace admin** | Running `@Claude connect` requires a Slack workspace admin; installing the app usually does too. | If that’s someone else, [send them the install request](#if-you-re-not-the-slack-workspace-admin) early (app approval can take time), and plan to be online together when you pair; pairing codes expire 15 minutes after they’re issued |
 | **Usage credits** (Team plans) | Channel work draws from your organization’s usage balance; on a Team plan nothing runs until credits are loaded. | Check whether your organization has a [launch usage credit](https://support.claude.com/en/articles/15575654-claude-tag-launch-promo-for-claude-team-and-enterprise) before buying; otherwise, buy credits at [`claude.ai/admin-settings/usage`](https://claude.ai/admin-settings/usage) |
 | *(Optional)* The **Claude GitHub App** linked to your Claude organization | Linking GitHub first turns setup’s GitHub step into repository selection instead of an app install. | [Link your GitHub organization](https://claude.com/docs/claude-tag/admins/configure-github#link-your-github-organization) first, or grant repository access after setup |
@@ -44,7 +44,7 @@ Install the Claude app in Slack, get a pairing code from Slack, and paste it on 
 
 Add the Claude app to Slack
 
-**Where:** the Slack Marketplace, at [claude.com/claude-for-slack](https://claude.com/claude-for-slack).Click **Add the Claude app** on the setup page to open the listing, then click **Add to Slack** and approve the permissions. If the app is already installed, click **Add to Slack** anyway: you reinstall over the existing app with its current permissions and keep your settings.
+**Where:** the Slack Marketplace, at [claude.com/claude-for-slack](https://claude.com/claude-for-slack).Click **Add the Claude app** on the setup page to open the listing, then click **Add to Slack** and approve the permissions. If the app is already installed, click **Add to Slack** anyway: you reinstall over the existing app with its current permissions and keep your settings.On Slack Enterprise Grid, installing takes two Slack actions. See [Set up Claude Tag on Enterprise Grid](https://claude.com/docs/claude-tag/admins/workspaces#set-up-claude-tag-on-enterprise-grid) for the steps.
 
 2
 
@@ -89,7 +89,7 @@ Please install the Claude app (https://claude.com/claude-for-slack) in [workspac
 
 If your Slack is on Enterprise Grid
 
-When a Grid org admin sends `@Claude connect`, the reply includes two codes: a `workspace_` code that pairs only that workspace, and an `enterprise_` code that pairs every workspace in the Grid that doesn’t already have its own pairing. Paste the `enterprise_` code if Claude should work across the Grid; DMs for users homed in other Grid workspaces only work with a Grid-wide pairing. See [Pair an Enterprise Grid](https://claude.com/docs/claude-tag/admins/workspaces#pair-an-enterprise-grid).
+When a Slack Org Owner or Org Admin sends `@Claude connect`, the reply includes two codes. One begins `workspace_` and pairs only the workspace the admin sent the command in, and one begins `enterprise_` and pairs the whole Grid. Paste the `enterprise_` code. See [Pair an Enterprise Grid](https://claude.com/docs/claude-tag/admins/workspaces#pair-an-enterprise-grid).
 
 ##  Choose Claude’s first tools
 
@@ -144,7 +144,7 @@ To finish this step later, select **Skip** and confirm past the warning that Cla
 ##  Launch Claude Tag
 
 **Where:** the Claude Tag setup page at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag).
-Channel work draws from your organization’s usage balance, not from individual seats; the spend limit caps how much of that balance Claude Tag can use each month. DMs run on the user’s own claude.ai account and aren’t capped by this limit. If your organization has a [launch usage credit](https://support.claude.com/en/articles/15575654-claude-tag-launch-promo-for-claude-team-and-enterprise), the launch screen shows the amount and the date it runs through, and after launch the admin page shows it under **Included usage** with how much is used. You’re billed for usage beyond it, up to the spend limit.
+Channel work draws from your organization’s usage balance, not from individual seats; the spend limit caps how much of that balance Claude Tag can use each month. DMs from members who have connected a Claude account run on the member’s own claude.ai account and aren’t capped by this limit. For members who haven’t, see [Direct messages from members without a Claude account](https://claude.com/docs/claude-tag/admins/restrict-access#direct-messages-from-members-without-a-claude-account). If your organization has a [launch usage credit](https://support.claude.com/en/articles/15575654-claude-tag-launch-promo-for-claude-team-and-enterprise), the launch screen shows the amount and the date it runs through, and after launch the admin page shows it under **Included usage** with how much is used. You’re billed for usage beyond it, up to the spend limit.
 If the setup page shows a **Buy usage credits** step before Launch, buy credits on that step to continue. The launch screen then doesn’t include **Set monthly spend limits**, so set a limit after launch at [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag).
 
 1

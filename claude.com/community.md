@@ -18,6 +18,128 @@ View events
 
 [View events](https://luma.com/claudecommunity)View events
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+View all
+
+[View all](https://luma.com/claudecommunity)View all
+
+title
+
+Location
+
+Date
+
+JP
+
+Kesennuma | Claude for Business
+
+Kesennuma, JP
+
+October 1, 2026
+
+Pier 7, 1-11 Minamimachikaigan, Kesennuma, Miyagi 988-0018, Japan
+
+[Kesennuma | Claude for Business](https://luma.com/claude-tpx0)Kesennuma | Claude for Business
+
+MX
+
+Mexico City | El Club Violeta Vol. 1 Claude Meetup
+
+Ciudad de México, MX
+
+October 1, 2026
+
+UTOPÍA Elena Poniatowska Amor, Av Miguel Hidalgo 128, San Lucas, Coyoacán, 04100 Ciudad de México, CDMX, Mexico
+
+[Mexico City | El Club Violeta Vol. 1 Claude Meetup](https://luma.com/claude-1er9)Mexico City | El Club Violeta Vol. 1 Claude Meetup
+
+CH
+
+Zurich | Claude Conversation on Climate
+
+Zürich, CH
+
+October 2, 2026
+
+Sonneggstrasse 76, 8006 Zürich, Switzerland
+
+[Zurich | Claude Conversation on Climate](https://luma.com/claude-ycsc)Zurich | Claude Conversation on Climate
+
+ES
+
+Madrid | 48-hour Claude Code Hackathon
+
+Madrid, ES
+
+October 2, 2026
+
+C/ de Aranjuez, 2, Tetuán, 28039 Madrid, Spain
+
+[Madrid | 48-hour Claude Code Hackathon](https://luma.com/claude-dyek)Madrid | 48-hour Claude Code Hackathon
+
+JP
+
+Tokyo | Claude Meetup for Healthcare Professionals
+
+Minato City, JP
+
+October 2, 2026
+
+2-chōme-8-14 Hamamatsuchō, Minato City, Tokyo 105-0013, Japan
+
+[Tokyo | Claude Meetup for Healthcare Professionals](https://luma.com/claude-urwj)Tokyo | Claude Meetup for Healthcare Professionals
+
+IN
+
+Calicut | Claude Impact Lab - Superhuman Lab
+
+Kozhikode, IN
+
+October 3, 2026
+
+Institute of Palliative Medicine, Medical college P.O., 7RHV+2QC, Palakottuvayal, Kozhikode, Kerala 673008, India
+
+[Calicut | Claude Impact Lab - Superhuman Lab](https://luma.com/claude-06vm)Calicut | Claude Impact Lab - Superhuman Lab
+
+US
+
+Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop
+
+Key Largo, US
+
+October 3, 2026
+
+REEF Ocean Exploration Center for Marine Conservation, 98380 Overseas Hwy, Key Largo, FL 33037, USA
+
+[Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop](https://luma.com/claude-5bay)Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop
+
+SE
+
+Stockholm | Claude for Freelancers & Self-Employed
+
+Stockholm, SE
+
+October 5, 2026
+
+Kvadrat Holding, Kungsbroplan 3A, 112 27 Stockholm, Sweden
+
+[Stockholm | Claude for Freelancers & Self-Employed](https://luma.com/claude-2qhw)Stockholm | Claude for Freelancers & Self-Employed
+
+[View more](https://claude.com/community?46f68bc1_page=2)
+
+1 / 7
+
+No posts for those filters
+
+Try another search or clear some of your filters.
+
+Clear all filters
+
+[Clear all filters](#)Clear all filters
+
 ## Bring your big ideas in to the world
 
 Build and lead the community you want to see.

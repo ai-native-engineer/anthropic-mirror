@@ -41,6 +41,8 @@ Finally, in addition to being instrumental for tying induction heads to in-conte
 
 The rest of the paper is organized as follows. We start by clarifying several key concepts and definitions, including in-context learning, induction heads, and a “per-token loss analysis” method we use throughout. We then present the 6 arguments one by one, drawing on evidence from analysis of 34 transformers over the course of training, including more than 50,000 attention head ablations (the data of which is shown in the [Model Analysis Table](#model-analysis-table)). We then discuss some unexplained “curiosities” in our findings, as well as reviewing related work.
 
+---
+
 ## [Key Concepts](#key-concepts)
 
 ### [In-context Learning](#in-context-learning-key-concept)
@@ -102,6 +104,8 @@ A more detailed discussion of technical details can be found in the [Appendix](#
 
 By applying this method to snapshots over training for multiple models, we can visualize and compare how different models' training trajectories evolve in terms of their outputs. Since we're using PCA, each direction can be thought of as a vector of log-likelihoods that models are moving along. We particularly focus on the first two principal components, since we can easily visualize those. Of course, models also move in directions not captured by the first two principal components, but it's a useful visualization for capturing the highest-level story of training.
 
+---
+
 ## [Arguments that induction heads are the mechanism for the majority of in-context learning.](#toc-arguments)
 
 Now we’ll proceed to the main part of the paper, which makes the case that induction heads may provide the primary mechanism for the majority of in-context learning for transformer models in general. As stated in the introduction, this is a very broad hypothesis and much of our evidence is indirect, but nevertheless we believe that all the lines of evidence together make a relatively strong, though not conclusive, case.
@@ -142,6 +146,8 @@ Here is the list of arguments we’ll be making, one per section, repeated from 
 * [Argument 6](#argument-extrapolation) (Continuity from small to large models): In the previous 5 arguments, the case for induction heads explaining in-context learning is stronger for small models than for large ones.  However, many behaviors and data related to both induction heads and in-context learning are smoothly continuous from small to large models, suggesting the simplest explanation is that mechanisms are the same.
 
 For each argument, we’ll have a similar table to the one in this section, showing the strength of the evidence provided by that claim as it applies to large/small models and some/most of context learning. The table above is the sum of the evidence from all six lines of reasoning.
+
+---
 
 ## [Argument 1: Transformer language models undergo a “phase change” during training, during which induction heads form and simultaneously in-context learning improves dramatically.](#argument-phase-change)
 
@@ -243,6 +249,8 @@ However, the following issues and confounds suggest caution:
 
 One point worth noting here is that the argument that induction heads account for most in-context learning at the transition point of the phase change is more solid than the argument that they account for most in-context learning at the end of training – a lot could be changing during training even as the in-context learning score remains constant.
 
+---
+
 ## [Argument 2: When we change the transformer architecture in a way that shifts when induction heads form or whether they can form, the dramatic improvement in in-context learning shifts in a precisely matching way.](#argument-architectural-requirements)
 
 Strength of Argument for Sub-Claims
@@ -285,6 +293,8 @@ These plots are an excerpt of the [Model Analysis Table](#model-analysis-table);
 
 However, we probably shouldn't make too strong an inference about large models on this evidence. This experiment suggests that induction heads are the minimal mechanism for greatly increased in-context learning in transformers. But one could easily imagine that in larger models, this mechanism isn’t the whole story, and also this experiment doesn’t refute the idea of the mechanism of in-context learning changing over the course of training.
 
+---
+
 ## [Argument 3: When we directly “knock out” induction heads in small models at test-time, the amount of in-context learning greatly decreases.](#argument-ablations)
 
 Strength of Argument for Sub-Claims
@@ -324,6 +334,8 @@ Unfortunately, we do not have ablations for our full-scale models.Note that the 
 * Our ablations measure the marginal effects of removing attention heads from the model. To the extent two heads do something similar and the layer norm before the logits rescales things, the importance of individual heads may be masked.
 
 All things considered, we feel comfortable concluding from this that induction heads are the primary mechanism for in-context learning in small attention-only models, but see this evidence as only suggestive for the MLP case.
+
+---
 
 ## [Argument 4: Despite being defined narrowly as copying random sequences, induction heads can implement surprisingly abstract types of in-context learning.](#argument-induction-heads-can-implement-abstract-behaviors)
 
@@ -402,6 +414,8 @@ But this still leaves the question: why do the same heads that inductively copy 
 
 In [Argument 5](#argument-induction-head-mechanism) we’ll strengthen this argument by giving a mechanistic account of how induction heads (when doing simple copying with prefix-matching) attend back to the token that comes next in the pattern, and observe that the actual mechanism they use could naturally generalize to more abstract pattern matching.  Our point in this section is just that it's actually quite natural for these more abstract induction heads to also exhibit the basic copying behaviors underlying our definition.
 
+---
+
 ## [Argument 5: For small models, we can explain mechanistically how induction heads work, and can show they contribute to in-context learning. Furthermore, the actual mechanism of operation suggests natural ways in which it could be re-purposed to perform more general in-context learning.](#argument-induction-head-mechanism)
 
 Strength of Argument for Sub-Claims
@@ -460,6 +474,8 @@ What about the induction heads we saw in [Argument 2](#argument-induction-heads
 
 When we [first introduced](#definition-of-induction-heads) induction heads, we observed that they could be seen as a kind of "in-context nearest neighbor" algorithm. From this perspective, it seems natural that applying the same mechanism to more abstract features can produce more complex behavior.
 
+---
+
 ## [Argument 6: Extrapolation from small models suggests induction heads are responsible for the majority of in-context learning in large models.](#argument-extrapolation)
 
 Strength of Argument for Sub-Claims
@@ -487,6 +503,8 @@ If things change from the small model case to the large model case, where do the
 On the flip side, there are many cases where large models behave very differently than small models (see discussion of phase changes with respect to model size in [Related Work](#related-work)). Extrapolating from small models to models many orders of magnitude larger is something one should do with caution.
 
 The most compelling alternative possibility we see is that other composition mechanisms may also form during the phase change. Larger models have more heads, which gives them more capacity for other interesting Q-composition and K-composition mechanisms that small models can’t afford to express. If all “composition heads” form simultaneously during the phase change, then it’s possible that above some size, non-induction composition heads could together account for more of the phase change and in-context learning improvement than induction heads do.
+
+---
 
 ## [Model Analysis Table](#model-analysis-table)
 
@@ -533,6 +551,8 @@ Snapshots from these models were saved at exponential step numbers, at an interv
 
 The “smeared key” architecture modification described in [Argument 2](#argument-architectural-requirements) is as follows: we introduce a trainable real parameter \alpha used as \sigma(\alpha) \in [0, 1] that interpolates between the key for the current token and previous token: k\_j = \sigma(\alpha) k\_j + (1-\sigma(\alpha)) k\_{j-1} (In the case of the very first token in the context, no interpolation happens). These models were otherwise proportioned and trained exactly the same as the [small models](#small-models). We present these only at one-layer and two-layer sizes.
 
+---
+
 ## [Unexplained Curiosities](#curiosities)
 
 As with all scientific investigations, in the course of this work we’ve encountered a few unexplained phenomena. In this section, we discuss these and provide very preliminary investigations of a few that were especially surprising.
@@ -573,6 +593,8 @@ And in the [Appendix](#evaluators-on-models):
 
 * Full-scale models above 16 layers start to show a small number of heads that score well on “prefix search”, but get a negative score on copying, which means they are not induction heads. What can we learn about these “anti-copying prefix-search” heads?
 
+---
+
 ## [Discussion](#discussion)
 
 ### [Safety Implications](#safety-implications)
@@ -588,6 +610,8 @@ Mesa-Optimization: There have been some concerns that the underlying mechanism o
 ### [Linking Learning Dynamics, Scaling Laws, and Mechanistic Interpretability](#multiple-levels-of-analysis)
 
 The in-context-learning phase change may be a useful "Rosetta stone" linking mechanistic interpretability, learning dynamics, and statistical physics-like empirical properties of neural networks (e.g. scaling laws or phase changes). If one wants to investigate the intersections of these lines of work, the phase change seems like an ideal starting point: a concrete example where these lines of inquiry are intertwined, which can be explored in small models, bounded in a small sliver of the training process, and is linked to a capability (in-context learning) the community is excited about.
+
+---
 
 ## [Related Work](#related-work)
 
@@ -660,6 +684,8 @@ Separate from all of this, it's worth mentioning that increasingly there's evid
 #### Attention Patterns in Translation-like Tasks
 
 In [Argument 4](#argument-induction-heads-can-implement-abstract-behaviors), we saw an induction head that helps implement translation. Although we're not aware of anything quite so general in the prior literature, there are reports of attention patterns which, in retrospect, seem somewhat similar. Often, in translation-like tasks, we see attention attend to the token which is about to be translated. We see this in literal translation (e.g. ) and also in voice recognition (e.g.  where the model attends to the portion of the audio about to be transcribed). Visualizations of this in the encoder-decoder context often slightly obscure the induction-like nature of the attention patterns, because the decoder is visualized in terms of the output tokens predicted per time step rather than its input tokens.
+
+---
 
 ## [Comments & Replications](#comments-replications)
 

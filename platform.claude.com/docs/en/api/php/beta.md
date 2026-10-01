@@ -11,7 +11,9 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Anthropic Beta
 
-- `AnthropicBeta`
+- `class AnthropicBeta`
+
+  - `string`
 
   - `"message-batches-2024-09-24"`
 
@@ -103,9 +105,17 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
   - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
 ### Beta API Error
 
-- `BetaAPIError`
+- `class BetaAPIError`
 
   - `"api_error" type`
 
@@ -113,7 +123,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Authentication Error
 
-- `BetaAuthenticationError`
+- `class BetaAuthenticationError`
 
   - `"authentication_error" type`
 
@@ -121,7 +131,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Billing Error
 
-- `BetaBillingError`
+- `class BetaBillingError`
 
   - `"billing_error" type`
 
@@ -129,61 +139,61 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Currency
 
-- `BetaCurrency`
+- `enum BetaCurrency`
 
 ### Beta Error
 
-- `BetaError`
+- `class BetaError`
 
-  - `BetaInvalidRequestError`
+  - `class BetaInvalidRequestError`
 
     - `"invalid_request_error" type`
 
     - `string message`
 
-  - `BetaAuthenticationError`
+  - `class BetaAuthenticationError`
 
     - `"authentication_error" type`
 
     - `string message`
 
-  - `BetaBillingError`
+  - `class BetaBillingError`
 
     - `"billing_error" type`
 
     - `string message`
 
-  - `BetaPermissionError`
+  - `class BetaPermissionError`
 
     - `"permission_error" type`
 
     - `string message`
 
-  - `BetaNotFoundError`
+  - `class BetaNotFoundError`
 
     - `"not_found_error" type`
 
     - `string message`
 
-  - `BetaRateLimitError`
+  - `class BetaRateLimitError`
 
     - `"rate_limit_error" type`
 
     - `string message`
 
-  - `BetaGatewayTimeoutError`
+  - `class BetaGatewayTimeoutError`
 
     - `"timeout_error" type`
 
     - `string message`
 
-  - `BetaAPIError`
+  - `class BetaAPIError`
 
     - `"api_error" type`
 
     - `string message`
 
-  - `BetaOverloadedError`
+  - `class BetaOverloadedError`
 
     - `"overloaded_error" type`
 
@@ -191,7 +201,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Error Response
 
-- `BetaErrorResponse`
+- `class BetaErrorResponse`
 
   - `"error" type`
 
@@ -201,7 +211,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Gateway Timeout Error
 
-- `BetaGatewayTimeoutError`
+- `class BetaGatewayTimeoutError`
 
   - `"timeout_error" type`
 
@@ -209,7 +219,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Invalid Request Error
 
-- `BetaInvalidRequestError`
+- `class BetaInvalidRequestError`
 
   - `"invalid_request_error" type`
 
@@ -217,7 +227,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Monetary Amount
 
-- `BetaMonetaryAmount`
+- `class BetaMonetaryAmount`
 
   - `string amount`
 
@@ -229,7 +239,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Not Found Error
 
-- `BetaNotFoundError`
+- `class BetaNotFoundError`
 
   - `"not_found_error" type`
 
@@ -237,7 +247,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Overloaded Error
 
-- `BetaOverloadedError`
+- `class BetaOverloadedError`
 
   - `"overloaded_error" type`
 
@@ -245,7 +255,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Permission Error
 
-- `BetaPermissionError`
+- `class BetaPermissionError`
 
   - `"permission_error" type`
 
@@ -253,7 +263,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Rate Limit Error
 
-- `BetaRateLimitError`
+- `class BetaRateLimitError`
 
   - `"rate_limit_error" type`
 
@@ -295,9 +305,13 @@ The Models API response can be used to determine which models are available for 
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaModelInfo`
+- `class BetaModelInfo`
 
   - `"model" type`
 
@@ -315,7 +329,7 @@ The Models API response can be used to determine which models are available for 
 
   - `?BetaModelCapabilities capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
   - `\Datetime createdAt`
 
@@ -371,6 +385,12 @@ var_dump($page);
           "supported": true
         },
         "code_execution": {
+          "supported": true
+        },
+        "compaction": {
+          "summarize": {
+            "supported": true
+          },
           "supported": true
         },
         "context_management": {
@@ -459,9 +479,13 @@ The Models API response can be used to determine information about a specific mo
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaModelInfo`
+- `class BetaModelInfo`
 
   - `"model" type`
 
@@ -479,7 +503,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `?BetaModelCapabilities capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
   - `\Datetime createdAt`
 
@@ -531,6 +555,12 @@ var_dump($betaModelInfo);
       "supported": true
     },
     "code_execution": {
+      "supported": true
+    },
+    "compaction": {
+      "summarize": {
+        "supported": true
+      },
       "supported": true
     },
     "context_management": {
@@ -596,7 +626,7 @@ var_dump($betaModelInfo);
 
 ### Create a Message
 
-`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?FallbackCreditToken fallbackCreditToken, ?BetaFallbacksParam fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessage`
+`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaCompactionConfig compaction, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?FallbackCreditToken fallbackCreditToken, ?BetaFallbacksParam fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessage`
 
 **POST** `/v1/messages`
 
@@ -679,6 +709,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
+- `compaction?:optional BetaCompactionConfig`
+
+  Compaction configuration.
+
+  When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
+
 - `container?:optional Container`
 
   Container identifier for reuse across requests.
@@ -691,8 +727,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `diagnostics?:optional BetaDiagnosticsParam`
 
-  Request-level diagnostics. Currently carries the previous response
-  id for prompt-cache divergence reporting.
+  Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
 - `fallbackCreditToken?:optional FallbackCreditToken`
 
@@ -745,7 +780,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `speed?:optional Speed`
 
-  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
 - `stopSequences?:optional list<string>`
 
@@ -757,9 +792,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `stream?:optional bool`
 
-  Whether to incrementally stream the response using server-sent events.
+  Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-  See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+  In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
 - `system?:optional System`
 
@@ -853,6 +888,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `outputFormat?:optional BetaJSONOutputFormat`
 
   **Deprecated**
@@ -863,7 +902,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `temperature?:optional float`
 
-  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Amount of randomness injected into the response.
 
@@ -893,7 +932,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 #### Returns
 
-- `BetaMessage`
+- `class BetaMessage`
 
   - `"message" type`
 
@@ -909,7 +948,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `?BetaContainer container`
 
-    Information about the container used in the request (for the code execution tool)
+    Information about the container used in this request.
+
+    This will be non-null if a container tool (e.g. code execution) was used.
 
   - `list<BetaContentBlock> content`
 
@@ -948,8 +989,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `?BetaDiagnostics diagnostics`
 
-    Response envelope for request-level diagnostics. Present (possibly
-    null) whenever the caller supplied `diagnostics` on the request.
+    Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
   - `Model model`
 
@@ -965,7 +1005,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `?BetaRefusalStopDetails stopDetails`
 
-    Structured information about a refusal.
+    Structured information about why model output stopped.
+
+    This is `null` when the `stop_reason` has no additional detail to report.
 
   - `?BetaStopReason stopReason`
 
@@ -1001,33 +1043,39 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-  - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+  - `?list<BetaInputTransformation> inputTransformations`
 
-    Changes the API made to the request's input before showing it to the model:
-    one entry per change, in request order. Today the only entry type is
-    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-    block from the request's `messages` that was removed from the prompt instead
-    of being shown to the model because it failed a binding check. More entry
-    types may be added over time; ignore types you do not recognize.
+    Changes the API made to the request's input before showing it to the model,
+    and blocks that failed a binding check but were left unchanged: one entry per
+    block, in request order. Two entry types today. `thinking_dropped` — a
+    `thinking`, `redacted_thinking` or `connector_text` block from the request's
+    `messages` that was removed from the prompt instead of being shown to the
+    model because it failed a binding check. `thinking_mismatch_allowed` — a
+    `thinking` or `redacted_thinking` block that failed the conversation check
+    (the conversation before it differs from the one it was created in, or it
+    carries no record of one on a model that requires it) and was shown to the
+    model all the same, because that check is not enforced for this request.
+    More entry types may be added over time; ignore types you do not recognize.
 
     Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
     every such response from a model that supports extended thinking, as `[]`
-    when nothing was changed; without the beta, blocks are removed all the same
-    but nothing is reported. Removed blocks contribute nothing to
-    `usage.input_tokens`. When streaming, the array is final in `message_start`;
-    the final `message_delta` event carries it only when a server-side model
-    fallback happened mid-stream, in which case it holds the serving model's
-    entries and replaces the one in `message_start`.
+    when there is no entry to report; without the beta, blocks are removed or
+    left in place all the same but nothing is reported. Removed blocks contribute
+    nothing to `usage.input_tokens`; blocks left in place count as sent. When
+    streaming, the array is final in `message_start`; the final `message_delta`
+    event carries it only when a server-side model fallback happened mid-stream,
+    in which case it holds the serving model's entries and replaces the one in
+    `message_start`.
 
-- `BetaRawMessageStreamEvent`
+- `class BetaRawMessageStreamEvent`
 
-  - `BetaRawMessageStartEvent`
+  - `class BetaRawMessageStartEvent`
 
     - `"message_start" type`
 
     - `BetaMessage message`
 
-  - `BetaRawMessageDeltaEvent`
+  - `class BetaRawMessageDeltaEvent`
 
     - `"message_delta" type`
 
@@ -1049,39 +1097,43 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-    - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+    - `?list<BetaInputTransformation> inputTransformations`
 
-      Changes the API made to the request's input before showing it to the model:
-      one entry per change, in request order. Today the only entry type is
-      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-      block from the request's `messages` that was removed from the prompt instead
-      of being shown to the model because it failed a binding check. More entry
-      types may be added over time; ignore types you do not recognize.
+      Changes the API made to the request's input before showing it to the model,
+      and blocks that failed a binding check but were left unchanged: one entry per
+      block, in request order. Two entry types today. `thinking_dropped` — a
+      `thinking`, `redacted_thinking` or `connector_text` block from the request's
+      `messages` that was removed from the prompt instead of being shown to the
+      model because it failed a binding check. `thinking_mismatch_allowed` — a
+      `thinking` or `redacted_thinking` block that failed the conversation check
+      (the conversation before it differs from the one it was created in, or it
+      carries no record of one on a model that requires it) and was shown to the
+      model all the same, because that check is not enforced for this request.
+      More entry types may be added over time; ignore types you do not recognize.
 
       Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
       every such response from a model that supports extended thinking, as `[]`
-      when nothing was changed; without the beta, blocks are removed all the same
-      but nothing is reported. Removed blocks contribute nothing to
-      `usage.input_tokens`. When streaming, the array is final in `message_start`;
-      the final `message_delta` event carries it only when a server-side model
-      fallback happened mid-stream, in which case it holds the serving model's
-      entries and replaces the one in `message_start`.
+      when there is no entry to report; without the beta, blocks are removed or
+      left in place all the same but nothing is reported. Removed blocks contribute
+      nothing to `usage.input_tokens`; blocks left in place count as sent. When
+      streaming, the array is final in `message_start`; the final `message_delta`
+      event carries it only when a server-side model fallback happened mid-stream,
+      in which case it holds the serving model's entries and replaces the one in
+      `message_start`.
 
-  - `BetaRawMessageStopEvent`
+  - `class BetaRawMessageStopEvent`
 
     - `"message_stop" type`
 
-  - `BetaRawContentBlockStartEvent`
+  - `class BetaRawContentBlockStartEvent`
 
     - `"content_block_start" type`
 
     - `ContentBlock contentBlock`
 
-      Response model for a file uploaded to the container.
-
     - `int index`
 
-  - `BetaRawContentBlockDeltaEvent`
+  - `class BetaRawContentBlockDeltaEvent`
 
     - `"content_block_delta" type`
 
@@ -1089,7 +1141,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `int index`
 
-  - `BetaRawContentBlockStopEvent`
+  - `class BetaRawContentBlockStopEvent`
 
     - `"content_block_stop" type`
 
@@ -1116,6 +1168,7 @@ $betaMessage = $client->beta->messages->create(
   ],
   model: Model::CLAUDE_OPUS_5,
   cacheControl: ['type' => 'ephemeral', 'ttl' => '5m'],
+  compaction: ['type' => 'summarize', 'instructions' => 'instructions'],
   container: [
     'id' => 'id',
     'skills' => [
@@ -1295,7 +1348,7 @@ var_dump($betaMessage);
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-fable-5-1",
+        "model": "claude-sonnet-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -1323,7 +1376,7 @@ var_dump($betaMessage);
 
 ### Count tokens in a Message
 
-`$client->beta->messages->countTokens(list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaContextManagementConfig contextManagement, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?Speed speed, ?System system, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<Tool> tools, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessageTokensCount`
+`$client->beta->messages->countTokens(list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaCompactionConfig compaction, ?BetaContextManagementConfig contextManagement, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?Speed speed, ?System system, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<Tool> tools, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessageTokensCount`
 
 **POST** `/v1/messages/count_tokens`
 
@@ -1396,6 +1449,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
+- `compaction?:optional BetaCompactionConfig`
+
+  Compaction configuration.
+
+  When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
+
 - `contextManagement?:optional BetaContextManagementConfig`
 
   Context management configuration.
@@ -1412,7 +1471,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `speed?:optional Speed`
 
-  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
 - `system?:optional System`
 
@@ -1506,6 +1565,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `outputFormat?:optional BetaJSONOutputFormat`
 
   **Deprecated**
@@ -1516,7 +1579,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 #### Returns
 
-- `BetaMessageTokensCount`
+- `class BetaMessageTokensCount`
 
   - `?BetaCountTokensContextManagementResponse contextManagement`
 
@@ -1546,6 +1609,7 @@ $betaMessageTokensCount = $client->beta->messages->countTokens(
   ],
   model: Model::CLAUDE_OPUS_5,
   cacheControl: ['type' => 'ephemeral', 'ttl' => '5m'],
+  compaction: ['type' => 'summarize', 'instructions' => 'instructions'],
   contextManagement: [
     'edits' => [
       [
@@ -1666,9 +1730,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -1745,6 +1813,9 @@ $betaMessageBatch = $client->beta->messages->batches->create(
         ],
         'model' => Model::CLAUDE_OPUS_5,
         'cacheControl' => ['type' => 'ephemeral', 'ttl' => '5m'],
+        'compaction' => [
+          'type' => 'summarize', 'instructions' => 'instructions'
+        ],
         'container' => [
           'id' => 'id',
           'skills' => [
@@ -1895,9 +1966,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -2024,9 +2099,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -2152,9 +2231,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -2271,9 +2354,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `DeletedMessageBatch`
+- `class DeletedMessageBatch`
 
   - `"message_batch_deleted" type`
 
@@ -2336,9 +2423,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatchIndividualResponse`
+- `class MessageBatchIndividualResponse`
 
   - `string customID`
 
@@ -2408,7 +2499,7 @@ Create Agent
 
 - `multiagent?:optional BetaManagedAgentsMultiagentParams`
 
-  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+  Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
 
 - `skills?:optional list<BetaManagedAgentsSkillParams>`
 
@@ -2428,9 +2519,13 @@ Create Agent
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -2438,7 +2533,7 @@ Create Agent
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -2456,7 +2551,7 @@ Create Agent
 
   - `?BetaManagedAgentsMultiagent multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
   - `string name`
 
@@ -2637,9 +2732,13 @@ List Agents
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -2647,7 +2746,7 @@ List Agents
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -2665,7 +2764,7 @@ List Agents
 
   - `?BetaManagedAgentsMultiagent multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
   - `string name`
 
@@ -2799,6 +2898,8 @@ Get Agent
 
 - `agentID: string`
 
+  Unique identifier of the agent to retrieve.
+
 - `version?:optional int`
 
   Agent version. Omit for the most recent version. Must be at least 1 if specified.
@@ -2809,9 +2910,13 @@ Get Agent
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -2819,7 +2924,7 @@ Get Agent
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -2837,7 +2942,7 @@ Get Agent
 
   - `?BetaManagedAgentsMultiagent multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
   - `string name`
 
@@ -2963,6 +3068,8 @@ Update Agent
 
 - `agentID: string`
 
+  Unique identifier of the agent to update.
+
 - `description?:optional string`
 
   Description. Omit to preserve; send empty string or null to clear.
@@ -2981,7 +3088,7 @@ Update Agent
 
 - `multiagent?:optional BetaManagedAgentsMultiagentParams`
 
-  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+  Multiagent orchestration configuration. Full replacement. Omit to preserve; send null to clear.
 
 - `name?:optional string`
 
@@ -3009,9 +3116,13 @@ Update Agent
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -3019,7 +3130,7 @@ Update Agent
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -3037,7 +3148,7 @@ Update Agent
 
   - `?BetaManagedAgentsMultiagent multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
   - `string name`
 
@@ -3201,15 +3312,21 @@ Archive Agent
 
 - `agentID: string`
 
+  Unique identifier of the agent to archive.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -3217,7 +3334,7 @@ Archive Agent
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -3235,7 +3352,7 @@ Archive Agent
 
   - `?BetaManagedAgentsMultiagent multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
   - `string name`
 
@@ -3362,6 +3479,8 @@ List Agent Versions
 
 - `agentID: string`
 
+  Agent ID to list versions for.
+
 - `limit?:optional int`
 
   Maximum results per page. Default 20, maximum 100.
@@ -3376,9 +3495,13 @@ List Agent Versions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -3386,7 +3509,7 @@ List Agent Versions
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -3404,7 +3527,7 @@ List Agent Versions
 
   - `?BetaManagedAgentsMultiagent multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
   - `string name`
 
@@ -3562,9 +3685,13 @@ Create a new environment with the specified configuration.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -3726,9 +3853,13 @@ List environments with pagination support.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -3862,9 +3993,13 @@ Retrieve a specific environment by ID.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -4011,9 +4146,13 @@ Update an existing environment's configuration.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -4162,9 +4301,13 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironmentDeleteResponse`
+- `class BetaEnvironmentDeleteResponse`
 
   - `Type type`
 
@@ -4219,9 +4362,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -4354,9 +4501,13 @@ Retrieve detailed information about a specific work item.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -4486,7 +4637,7 @@ Long poll for work items in the queue.
 
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -4607,7 +4758,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -4734,7 +4885,7 @@ Record a heartbeat for a work item to maintain the lease.
 
 #### Returns
 
-- `SelfHostedWorkHeartbeatResponse`
+- `class SelfHostedWorkHeartbeatResponse`
 
   - `"work_heartbeat" type`
 
@@ -4820,9 +4971,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -4951,7 +5106,7 @@ List work items in an environment.
 
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -5080,9 +5235,13 @@ Update work item metadata with merge semantics.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -5199,9 +5358,13 @@ Get statistics about the work queue for an environment.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SelfHostedWorkQueueStats`
+- `class SelfHostedWorkQueueStats`
 
   - `"work_queue_stats" type`
 
@@ -5275,7 +5438,7 @@ Create Session
 
 - `budget?:optional BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Enforced spend ceiling for the session. Omit to create an uncapped session. Every model the session can run — the agent's model and each callable agent's model — must have a public list price, or the request is rejected with reason `model_not_budgetable`.
 
 - `initialEvents?:optional list<InitialEvent>`
 
@@ -5303,9 +5466,13 @@ Create Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -5317,11 +5484,11 @@ Create Session
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
   - `\Datetime createdAt`
 
@@ -5339,11 +5506,9 @@ Create Session
 
   - `BetaManagedAgentsSessionStats stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
   - `Status status`
-
-    SessionStatus enum
 
   - `?string title`
 
@@ -5353,7 +5518,7 @@ Create Session
 
   - `BetaManagedAgentsSessionUsage usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
   - `list<string> vaultIDs`
 
@@ -5664,9 +5829,13 @@ List Sessions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -5678,11 +5847,11 @@ List Sessions
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
   - `\Datetime createdAt`
 
@@ -5700,11 +5869,9 @@ List Sessions
 
   - `BetaManagedAgentsSessionStats stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
   - `Status status`
-
-    SessionStatus enum
 
   - `?string title`
 
@@ -5714,7 +5881,7 @@ List Sessions
 
   - `BetaManagedAgentsSessionUsage usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
   - `list<string> vaultIDs`
 
@@ -5972,9 +6139,13 @@ Get Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -5986,11 +6157,11 @@ Get Session
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
   - `\Datetime createdAt`
 
@@ -6008,11 +6179,9 @@ Get Session
 
   - `BetaManagedAgentsSessionStats stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
   - `Status status`
-
-    SessionStatus enum
 
   - `?string title`
 
@@ -6022,7 +6191,7 @@ Get Session
 
   - `BetaManagedAgentsSessionUsage usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
   - `list<string> vaultIDs`
 
@@ -6258,11 +6427,11 @@ Update Session
 
 - `agent?:optional BetaManagedAgentsSessionAgentUpdate`
 
-  Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
+  Agent configuration update. Only `tools` and `mcp_servers` are updatable mid-session. Only valid for sessions created from an agent or deployment reference. The session must not be running.
 
 - `budget?:optional BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Enforced spend ceiling for the session. Set an object to replace the budget of a session that was created with one, or `null` to remove it; omit to preserve. A budget cannot be added to a session created without one (rejected with reason `budget_create_only`), and a removed budget cannot be re-added. Allowed in any non-terminated status. Lowering `max_list_cost` to at or below the session's consumed list cost is rejected with reason `budget_not_raised`, and every model the session can run must have a public list price or the request is rejected with reason `model_not_budgetable`.
 
 - `metadata?:optional array<string,string>`
 
@@ -6282,9 +6451,13 @@ Update Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -6296,11 +6469,11 @@ Update Session
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
   - `\Datetime createdAt`
 
@@ -6318,11 +6491,9 @@ Update Session
 
   - `BetaManagedAgentsSessionStats stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
   - `Status status`
-
-    SessionStatus enum
 
   - `?string title`
 
@@ -6332,7 +6503,7 @@ Update Session
 
   - `BetaManagedAgentsSessionUsage usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
   - `list<string> vaultIDs`
 
@@ -6604,9 +6775,13 @@ Delete Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeletedSession`
+- `class BetaManagedAgentsDeletedSession`
 
   - `Type type`
 
@@ -6657,9 +6832,13 @@ Archive Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -6671,11 +6850,11 @@ Archive Session
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
   - `\Datetime createdAt`
 
@@ -6693,11 +6872,9 @@ Archive Session
 
   - `BetaManagedAgentsSessionStats stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
   - `Status status`
-
-    SessionStatus enum
 
   - `?string title`
 
@@ -6707,7 +6884,7 @@ Archive Session
 
   - `BetaManagedAgentsSessionUsage usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
   - `list<string> vaultIDs`
 
@@ -6933,7 +7110,7 @@ var_dump($betaManagedAgentsSession);
 
 ### List Events
 
-`$client->beta->sessions->events->list(string sessionID, ?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?int limit, ?Order order, ?string page, ?list<string> types, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<ManagedAgentsSessionEvent>`
+`$client->beta->sessions->events->list(string sessionID, ?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?int limit, ?Order order, ?string page, ?list<ManagedAgentsSessionEventType> types, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<ManagedAgentsSessionEvent>`
 
 **GET** `/v1/sessions/{session_id}/events`
 
@@ -6961,8 +7138,6 @@ List Events
 
 - `limit?:optional int`
 
-  Query parameter for limit
-
 - `order?:optional Order`
 
   Sort direction for results, ordered by the event's `processed_at`. Defaults to `asc` (chronological).
@@ -6971,7 +7146,7 @@ List Events
 
   Opaque pagination cursor from a previous response's `next_page`.
 
-- `types?:optional list<string>`
+- `types?:optional list<ManagedAgentsSessionEventType>`
 
   Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
 
@@ -6981,11 +7156,15 @@ List Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionEvent`
+- `class ManagedAgentsSessionEvent`
 
-  - `ManagedAgentsUserMessageEvent`
+  - `class ManagedAgentsUserMessageEvent`
 
     - `Type type`
 
@@ -6999,9 +7178,9 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
-  - `ManagedAgentsUserInterruptEvent`
+  - `class ManagedAgentsUserInterruptEvent`
 
     - `Type type`
 
@@ -7011,13 +7190,13 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
     - `?string sessionThreadID`
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `ManagedAgentsUserToolConfirmationEvent`
+  - `class ManagedAgentsUserToolConfirmationEvent`
 
     - `Type type`
 
@@ -7027,7 +7206,7 @@ List Events
 
     - `Result result`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
     - `string toolUseID`
 
@@ -7039,13 +7218,13 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
     - `?string sessionThreadID`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsUserCustomToolResultEvent`
+  - `class ManagedAgentsUserCustomToolResultEvent`
 
     - `Type type`
 
@@ -7067,13 +7246,13 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsAgentCustomToolUseEvent`
+  - `class ManagedAgentsAgentCustomToolUseEvent`
 
     - `Type type`
 
@@ -7091,13 +7270,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMessageEvent`
+  - `class ManagedAgentsAgentMessageEvent`
 
     - `Type type`
 
@@ -7111,9 +7290,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
-  - `ManagedAgentsAgentThinkingEvent`
+  - `class ManagedAgentsAgentThinkingEvent`
 
     - `Type type`
 
@@ -7123,9 +7302,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
-  - `ManagedAgentsAgentMCPToolUseEvent`
+  - `class ManagedAgentsAgentMCPToolUseEvent`
 
     - `Type type`
 
@@ -7147,21 +7326,21 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMCPToolResultEvent`
+  - `class ManagedAgentsAgentMCPToolResultEvent`
 
     - `Type type`
 
@@ -7175,7 +7354,7 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `?list<Content> content`
 
@@ -7185,7 +7364,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentToolUseEvent`
+  - `class ManagedAgentsAgentToolUseEvent`
 
     - `Type type`
 
@@ -7203,21 +7382,21 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentToolResultEvent`
+  - `class ManagedAgentsAgentToolResultEvent`
 
     - `Type type`
 
@@ -7227,7 +7406,7 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `string toolUseID`
 
@@ -7241,7 +7420,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentThreadMessageReceivedEvent`
+  - `class ManagedAgentsAgentThreadMessageReceivedEvent`
 
     - `Type type`
 
@@ -7259,13 +7438,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
     - `?string fromAgentName`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `ManagedAgentsAgentThreadMessageSentEvent`
+  - `class ManagedAgentsAgentThreadMessageSentEvent`
 
     - `Type type`
 
@@ -7279,7 +7458,7 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
     - `string toSessionThreadID`
 
@@ -7289,7 +7468,7 @@ List Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `ManagedAgentsAgentThreadContextCompactedEvent`
+  - `class ManagedAgentsAgentThreadContextCompactedEvent`
 
     - `Type type`
 
@@ -7299,9 +7478,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
-  - `ManagedAgentsSessionErrorEvent`
+  - `class ManagedAgentsSessionErrorEvent`
 
     - `Type type`
 
@@ -7311,13 +7490,11 @@ List Events
 
     - `Error error`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
-  - `ManagedAgentsSessionStatusRescheduledEvent`
+  - `class ManagedAgentsSessionStatusRescheduledEvent`
 
     - `Type type`
 
@@ -7327,21 +7504,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionStatusRunningEvent`
-
-    - `Type type`
-
-    - `string id`
-
-      Unique identifier for this event.
-
-    - `\Datetime processedAt`
-
-      A timestamp in RFC 3339 format
-
-  - `ManagedAgentsSessionStatusIdleEvent`
+  - `class ManagedAgentsSessionStatusRunningEvent`
 
     - `Type type`
 
@@ -7351,13 +7516,27 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
+
+  - `class ManagedAgentsSessionStatusIdleEvent`
+
+    - `Type type`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `\Datetime processedAt`
+
+      Timestamp of status change.
+
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
 
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionStatusTerminatedEvent`
+  - `class ManagedAgentsSessionStatusTerminatedEvent`
 
     - `Type type`
 
@@ -7367,9 +7546,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionThreadCreatedEvent`
+  - `class ManagedAgentsSessionThreadCreatedEvent`
 
     - `Type type`
 
@@ -7383,13 +7562,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
     - `string sessionThreadID`
 
       Public `sthr_` ID of the newly created thread.
 
-  - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     - `Type type`
 
@@ -7407,9 +7586,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
-  - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     - `Type type`
 
@@ -7435,7 +7614,7 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
     - `string result`
 
@@ -7443,9 +7622,9 @@ List Events
 
     - `ManagedAgentsSpanModelUsage usage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
-  - `ManagedAgentsSpanModelRequestStartEvent`
+  - `class ManagedAgentsSpanModelRequestStartEvent`
 
     - `Type type`
 
@@ -7455,9 +7634,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
-  - `ManagedAgentsSpanModelRequestEndEvent`
+  - `class ManagedAgentsSpanModelRequestEndEvent`
 
     - `Type type`
 
@@ -7475,13 +7654,13 @@ List Events
 
     - `ManagedAgentsSpanModelUsage modelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
-  - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     - `Type type`
 
@@ -7499,9 +7678,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
-  - `ManagedAgentsUserDefineOutcomeEvent`
+  - `class ManagedAgentsUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -7523,13 +7702,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
     - `Rubric rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-  - `ManagedAgentsSessionDeletedEvent`
+  - `class ManagedAgentsSessionDeletedEvent`
 
     - `Type type`
 
@@ -7539,9 +7718,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
-  - `ManagedAgentsSessionThreadStatusRunningEvent`
+  - `class ManagedAgentsSessionThreadStatusRunningEvent`
 
     - `Type type`
 
@@ -7555,13 +7734,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that started running.
 
-  - `ManagedAgentsSessionThreadStatusIdleEvent`
+  - `class ManagedAgentsSessionThreadStatusIdleEvent`
 
     - `Type type`
 
@@ -7575,17 +7754,19 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that went idle.
 
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `class ManagedAgentsSessionThreadStatusTerminatedEvent`
 
     - `Type type`
 
@@ -7599,13 +7780,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `class BetaManagedAgentsUserToolResultEvent`
 
     - `Type type`
 
@@ -7627,13 +7808,13 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `class ManagedAgentsSessionThreadStatusRescheduledEvent`
 
     - `Type type`
 
@@ -7647,13 +7828,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `class BetaManagedAgentsSessionUpdatedEvent`
 
     - `Type type`
 
@@ -7663,15 +7844,15 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
     - `?BetaManagedAgentsSessionAgent agent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
     - `?array<string,string> metadata`
 
@@ -7681,7 +7862,7 @@ List Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `class BetaManagedAgentsSystemMessageEvent`
 
     - `Type type`
 
@@ -7695,9 +7876,9 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `class BetaManagedAgentsSessionUsageEvent`
 
     - `Type type`
 
@@ -7707,15 +7888,15 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
     - `ManagedAgentsSessionUsageSnapshot usage`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -7735,7 +7916,7 @@ $page = $client->beta->sessions->events->list(
   limit: 0,
   order: 'asc',
   page: 'page',
-  types: ['string'],
+  types: [ManagedAgentsSessionEventType::USER_MESSAGE],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
@@ -7797,9 +7978,13 @@ Send Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSendSessionEvents`
+- `class ManagedAgentsSendSessionEvents`
 
   - `?list<Data> data`
 
@@ -7871,11 +8056,15 @@ Stream Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsStreamSessionEvents`
+- `class ManagedAgentsStreamSessionEvents`
 
-  - `ManagedAgentsUserMessageEvent`
+  - `class ManagedAgentsUserMessageEvent`
 
     - `Type type`
 
@@ -7889,9 +8078,9 @@ Stream Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
-  - `ManagedAgentsUserInterruptEvent`
+  - `class ManagedAgentsUserInterruptEvent`
 
     - `Type type`
 
@@ -7901,13 +8090,13 @@ Stream Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
     - `?string sessionThreadID`
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `ManagedAgentsUserToolConfirmationEvent`
+  - `class ManagedAgentsUserToolConfirmationEvent`
 
     - `Type type`
 
@@ -7917,7 +8106,7 @@ Stream Events
 
     - `Result result`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
     - `string toolUseID`
 
@@ -7929,13 +8118,13 @@ Stream Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
     - `?string sessionThreadID`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsUserCustomToolResultEvent`
+  - `class ManagedAgentsUserCustomToolResultEvent`
 
     - `Type type`
 
@@ -7957,13 +8146,13 @@ Stream Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsAgentCustomToolUseEvent`
+  - `class ManagedAgentsAgentCustomToolUseEvent`
 
     - `Type type`
 
@@ -7981,13 +8170,13 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMessageEvent`
+  - `class ManagedAgentsAgentMessageEvent`
 
     - `Type type`
 
@@ -8001,9 +8190,9 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
-  - `ManagedAgentsAgentThinkingEvent`
+  - `class ManagedAgentsAgentThinkingEvent`
 
     - `Type type`
 
@@ -8013,9 +8202,9 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
-  - `ManagedAgentsAgentMCPToolUseEvent`
+  - `class ManagedAgentsAgentMCPToolUseEvent`
 
     - `Type type`
 
@@ -8037,21 +8226,21 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMCPToolResultEvent`
+  - `class ManagedAgentsAgentMCPToolResultEvent`
 
     - `Type type`
 
@@ -8065,7 +8254,7 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `?list<Content> content`
 
@@ -8075,7 +8264,7 @@ Stream Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentToolUseEvent`
+  - `class ManagedAgentsAgentToolUseEvent`
 
     - `Type type`
 
@@ -8093,21 +8282,21 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentToolResultEvent`
+  - `class ManagedAgentsAgentToolResultEvent`
 
     - `Type type`
 
@@ -8117,7 +8306,7 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `string toolUseID`
 
@@ -8131,7 +8320,7 @@ Stream Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentThreadMessageReceivedEvent`
+  - `class ManagedAgentsAgentThreadMessageReceivedEvent`
 
     - `Type type`
 
@@ -8149,13 +8338,13 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
     - `?string fromAgentName`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `ManagedAgentsAgentThreadMessageSentEvent`
+  - `class ManagedAgentsAgentThreadMessageSentEvent`
 
     - `Type type`
 
@@ -8169,7 +8358,7 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
     - `string toSessionThreadID`
 
@@ -8179,7 +8368,7 @@ Stream Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `ManagedAgentsAgentThreadContextCompactedEvent`
+  - `class ManagedAgentsAgentThreadContextCompactedEvent`
 
     - `Type type`
 
@@ -8189,9 +8378,9 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
-  - `ManagedAgentsSessionErrorEvent`
+  - `class ManagedAgentsSessionErrorEvent`
 
     - `Type type`
 
@@ -8201,13 +8390,11 @@ Stream Events
 
     - `Error error`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
-  - `ManagedAgentsSessionStatusRescheduledEvent`
+  - `class ManagedAgentsSessionStatusRescheduledEvent`
 
     - `Type type`
 
@@ -8217,21 +8404,9 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionStatusRunningEvent`
-
-    - `Type type`
-
-    - `string id`
-
-      Unique identifier for this event.
-
-    - `\Datetime processedAt`
-
-      A timestamp in RFC 3339 format
-
-  - `ManagedAgentsSessionStatusIdleEvent`
+  - `class ManagedAgentsSessionStatusRunningEvent`
 
     - `Type type`
 
@@ -8241,13 +8416,27 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
+
+  - `class ManagedAgentsSessionStatusIdleEvent`
+
+    - `Type type`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `\Datetime processedAt`
+
+      Timestamp of status change.
+
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
 
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionStatusTerminatedEvent`
+  - `class ManagedAgentsSessionStatusTerminatedEvent`
 
     - `Type type`
 
@@ -8257,9 +8446,9 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionThreadCreatedEvent`
+  - `class ManagedAgentsSessionThreadCreatedEvent`
 
     - `Type type`
 
@@ -8273,13 +8462,13 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
     - `string sessionThreadID`
 
       Public `sthr_` ID of the newly created thread.
 
-  - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     - `Type type`
 
@@ -8297,9 +8486,9 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
-  - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     - `Type type`
 
@@ -8325,7 +8514,7 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
     - `string result`
 
@@ -8333,9 +8522,9 @@ Stream Events
 
     - `ManagedAgentsSpanModelUsage usage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
-  - `ManagedAgentsSpanModelRequestStartEvent`
+  - `class ManagedAgentsSpanModelRequestStartEvent`
 
     - `Type type`
 
@@ -8345,9 +8534,9 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
-  - `ManagedAgentsSpanModelRequestEndEvent`
+  - `class ManagedAgentsSpanModelRequestEndEvent`
 
     - `Type type`
 
@@ -8365,13 +8554,13 @@ Stream Events
 
     - `ManagedAgentsSpanModelUsage modelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
-  - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     - `Type type`
 
@@ -8389,9 +8578,9 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
-  - `ManagedAgentsUserDefineOutcomeEvent`
+  - `class ManagedAgentsUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -8413,13 +8602,13 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
     - `Rubric rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-  - `ManagedAgentsSessionDeletedEvent`
+  - `class ManagedAgentsSessionDeletedEvent`
 
     - `Type type`
 
@@ -8429,9 +8618,9 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
-  - `ManagedAgentsSessionThreadStatusRunningEvent`
+  - `class ManagedAgentsSessionThreadStatusRunningEvent`
 
     - `Type type`
 
@@ -8445,13 +8634,13 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that started running.
 
-  - `ManagedAgentsSessionThreadStatusIdleEvent`
+  - `class ManagedAgentsSessionThreadStatusIdleEvent`
 
     - `Type type`
 
@@ -8465,17 +8654,19 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that went idle.
 
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `class ManagedAgentsSessionThreadStatusTerminatedEvent`
 
     - `Type type`
 
@@ -8489,13 +8680,13 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `class BetaManagedAgentsUserToolResultEvent`
 
     - `Type type`
 
@@ -8517,13 +8708,13 @@ Stream Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `class ManagedAgentsSessionThreadStatusRescheduledEvent`
 
     - `Type type`
 
@@ -8537,13 +8728,13 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `class BetaManagedAgentsSessionUpdatedEvent`
 
     - `Type type`
 
@@ -8553,15 +8744,15 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
     - `?BetaManagedAgentsSessionAgent agent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
     - `?array<string,string> metadata`
 
@@ -8571,7 +8762,7 @@ Stream Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsStartEvent`
+  - `class BetaManagedAgentsStartEvent`
 
     - `Type type`
 
@@ -8579,7 +8770,7 @@ Stream Events
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
-  - `BetaManagedAgentsDeltaEvent`
+  - `class BetaManagedAgentsDeltaEvent`
 
     - `Type type`
 
@@ -8591,7 +8782,7 @@ Stream Events
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `class BetaManagedAgentsSystemMessageEvent`
 
     - `Type type`
 
@@ -8605,9 +8796,9 @@ Stream Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `class BetaManagedAgentsSessionUsageEvent`
 
     - `Type type`
 
@@ -8617,15 +8808,15 @@ Stream Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
     - `ManagedAgentsSessionUsageSnapshot usage`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -8696,9 +8887,13 @@ Add Session Resource
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsFileResource`
+- `class ManagedAgentsFileResource`
 
   - `Type type`
 
@@ -8776,11 +8971,15 @@ List Session Resources
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionResource`
+- `class ManagedAgentsSessionResource`
 
-  - `ManagedAgentsGitHubRepositoryResource`
+  - `class ManagedAgentsGitHubRepositoryResource`
 
     - `Type type`
 
@@ -8800,7 +8999,7 @@ List Session Resources
 
     - `?Checkout checkout`
 
-  - `ManagedAgentsFileResource`
+  - `class ManagedAgentsFileResource`
 
     - `Type type`
 
@@ -8818,7 +9017,7 @@ List Session Resources
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsMemoryStoreResource`
+  - `class ManagedAgentsMemoryStoreResource`
 
     - `Type type`
 
@@ -8828,7 +9027,7 @@ List Session Resources
 
     - `?Access access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `?string description`
 
@@ -8916,11 +9115,15 @@ Get Session Resource
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ResourceGetResponse`
+- `class ResourceGetResponse`
 
-  - `ManagedAgentsGitHubRepositoryResource`
+  - `class ManagedAgentsGitHubRepositoryResource`
 
     - `Type type`
 
@@ -8940,7 +9143,7 @@ Get Session Resource
 
     - `?Checkout checkout`
 
-  - `ManagedAgentsFileResource`
+  - `class ManagedAgentsFileResource`
 
     - `Type type`
 
@@ -8958,7 +9161,7 @@ Get Session Resource
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsMemoryStoreResource`
+  - `class ManagedAgentsMemoryStoreResource`
 
     - `Type type`
 
@@ -8968,7 +9171,7 @@ Get Session Resource
 
     - `?Access access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `?string description`
 
@@ -9046,11 +9249,15 @@ Update Session Resource
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ResourceUpdateResponse`
+- `class ResourceUpdateResponse`
 
-  - `ManagedAgentsGitHubRepositoryResource`
+  - `class ManagedAgentsGitHubRepositoryResource`
 
     - `Type type`
 
@@ -9070,7 +9277,7 @@ Update Session Resource
 
     - `?Checkout checkout`
 
-  - `ManagedAgentsFileResource`
+  - `class ManagedAgentsFileResource`
 
     - `Type type`
 
@@ -9088,7 +9295,7 @@ Update Session Resource
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsMemoryStoreResource`
+  - `class ManagedAgentsMemoryStoreResource`
 
     - `Type type`
 
@@ -9098,7 +9305,7 @@ Update Session Resource
 
     - `?Access access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `?string description`
 
@@ -9173,9 +9380,13 @@ Delete Session Resource
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsDeleteSessionResource`
+- `class ManagedAgentsDeleteSessionResource`
 
   - `Type type`
 
@@ -9241,9 +9452,13 @@ List Session Threads
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionThread`
+- `class ManagedAgentsSessionThread`
 
   - `Type type`
 
@@ -9253,15 +9468,15 @@ List Session Threads
 
   - `Agent agent`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
   - `?string parentThreadID`
 
@@ -9273,19 +9488,19 @@ List Session Threads
 
   - `?ManagedAgentsSessionThreadStats stats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
   - `ManagedAgentsSessionThreadStatus status`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
   - `?ManagedAgentsSessionThreadUsage usage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
 #### Example
 
@@ -9421,9 +9636,13 @@ Get Session Thread
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionThread`
+- `class ManagedAgentsSessionThread`
 
   - `Type type`
 
@@ -9433,15 +9652,15 @@ Get Session Thread
 
   - `Agent agent`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
   - `?string parentThreadID`
 
@@ -9453,19 +9672,19 @@ Get Session Thread
 
   - `?ManagedAgentsSessionThreadStats stats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
   - `ManagedAgentsSessionThreadStatus status`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
   - `?ManagedAgentsSessionThreadUsage usage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
 #### Example
 
@@ -9595,9 +9814,13 @@ Archive Session Thread
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionThread`
+- `class ManagedAgentsSessionThread`
 
   - `Type type`
 
@@ -9607,15 +9830,15 @@ Archive Session Thread
 
   - `Agent agent`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
   - `?string parentThreadID`
 
@@ -9627,19 +9850,19 @@ Archive Session Thread
 
   - `?ManagedAgentsSessionThreadStats stats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
   - `ManagedAgentsSessionThreadStatus status`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
   - `?ManagedAgentsSessionThreadUsage usage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
 #### Example
 
@@ -9767,11 +9990,7 @@ List Session Thread Events
 
 - `limit?:optional int`
 
-  Query parameter for limit
-
 - `page?:optional string`
-
-  Query parameter for page
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -9779,11 +9998,15 @@ List Session Thread Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionEvent`
+- `class ManagedAgentsSessionEvent`
 
-  - `ManagedAgentsUserMessageEvent`
+  - `class ManagedAgentsUserMessageEvent`
 
     - `Type type`
 
@@ -9797,9 +10020,9 @@ List Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
-  - `ManagedAgentsUserInterruptEvent`
+  - `class ManagedAgentsUserInterruptEvent`
 
     - `Type type`
 
@@ -9809,13 +10032,13 @@ List Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
     - `?string sessionThreadID`
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `ManagedAgentsUserToolConfirmationEvent`
+  - `class ManagedAgentsUserToolConfirmationEvent`
 
     - `Type type`
 
@@ -9825,7 +10048,7 @@ List Session Thread Events
 
     - `Result result`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
     - `string toolUseID`
 
@@ -9837,13 +10060,13 @@ List Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
     - `?string sessionThreadID`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsUserCustomToolResultEvent`
+  - `class ManagedAgentsUserCustomToolResultEvent`
 
     - `Type type`
 
@@ -9865,13 +10088,13 @@ List Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsAgentCustomToolUseEvent`
+  - `class ManagedAgentsAgentCustomToolUseEvent`
 
     - `Type type`
 
@@ -9889,13 +10112,13 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMessageEvent`
+  - `class ManagedAgentsAgentMessageEvent`
 
     - `Type type`
 
@@ -9909,9 +10132,9 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
-  - `ManagedAgentsAgentThinkingEvent`
+  - `class ManagedAgentsAgentThinkingEvent`
 
     - `Type type`
 
@@ -9921,9 +10144,9 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
-  - `ManagedAgentsAgentMCPToolUseEvent`
+  - `class ManagedAgentsAgentMCPToolUseEvent`
 
     - `Type type`
 
@@ -9945,21 +10168,21 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMCPToolResultEvent`
+  - `class ManagedAgentsAgentMCPToolResultEvent`
 
     - `Type type`
 
@@ -9973,7 +10196,7 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `?list<Content> content`
 
@@ -9983,7 +10206,7 @@ List Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentToolUseEvent`
+  - `class ManagedAgentsAgentToolUseEvent`
 
     - `Type type`
 
@@ -10001,21 +10224,21 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentToolResultEvent`
+  - `class ManagedAgentsAgentToolResultEvent`
 
     - `Type type`
 
@@ -10025,7 +10248,7 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `string toolUseID`
 
@@ -10039,7 +10262,7 @@ List Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentThreadMessageReceivedEvent`
+  - `class ManagedAgentsAgentThreadMessageReceivedEvent`
 
     - `Type type`
 
@@ -10057,13 +10280,13 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
     - `?string fromAgentName`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `ManagedAgentsAgentThreadMessageSentEvent`
+  - `class ManagedAgentsAgentThreadMessageSentEvent`
 
     - `Type type`
 
@@ -10077,7 +10300,7 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
     - `string toSessionThreadID`
 
@@ -10087,7 +10310,7 @@ List Session Thread Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `ManagedAgentsAgentThreadContextCompactedEvent`
+  - `class ManagedAgentsAgentThreadContextCompactedEvent`
 
     - `Type type`
 
@@ -10097,9 +10320,9 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
-  - `ManagedAgentsSessionErrorEvent`
+  - `class ManagedAgentsSessionErrorEvent`
 
     - `Type type`
 
@@ -10109,13 +10332,11 @@ List Session Thread Events
 
     - `Error error`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
-  - `ManagedAgentsSessionStatusRescheduledEvent`
+  - `class ManagedAgentsSessionStatusRescheduledEvent`
 
     - `Type type`
 
@@ -10125,21 +10346,9 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionStatusRunningEvent`
-
-    - `Type type`
-
-    - `string id`
-
-      Unique identifier for this event.
-
-    - `\Datetime processedAt`
-
-      A timestamp in RFC 3339 format
-
-  - `ManagedAgentsSessionStatusIdleEvent`
+  - `class ManagedAgentsSessionStatusRunningEvent`
 
     - `Type type`
 
@@ -10149,13 +10358,27 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
+
+  - `class ManagedAgentsSessionStatusIdleEvent`
+
+    - `Type type`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `\Datetime processedAt`
+
+      Timestamp of status change.
+
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
 
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionStatusTerminatedEvent`
+  - `class ManagedAgentsSessionStatusTerminatedEvent`
 
     - `Type type`
 
@@ -10165,9 +10388,9 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionThreadCreatedEvent`
+  - `class ManagedAgentsSessionThreadCreatedEvent`
 
     - `Type type`
 
@@ -10181,13 +10404,13 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
     - `string sessionThreadID`
 
       Public `sthr_` ID of the newly created thread.
 
-  - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     - `Type type`
 
@@ -10205,9 +10428,9 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
-  - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     - `Type type`
 
@@ -10233,7 +10456,7 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
     - `string result`
 
@@ -10241,9 +10464,9 @@ List Session Thread Events
 
     - `ManagedAgentsSpanModelUsage usage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
-  - `ManagedAgentsSpanModelRequestStartEvent`
+  - `class ManagedAgentsSpanModelRequestStartEvent`
 
     - `Type type`
 
@@ -10253,9 +10476,9 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
-  - `ManagedAgentsSpanModelRequestEndEvent`
+  - `class ManagedAgentsSpanModelRequestEndEvent`
 
     - `Type type`
 
@@ -10273,13 +10496,13 @@ List Session Thread Events
 
     - `ManagedAgentsSpanModelUsage modelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
-  - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     - `Type type`
 
@@ -10297,9 +10520,9 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
-  - `ManagedAgentsUserDefineOutcomeEvent`
+  - `class ManagedAgentsUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -10321,13 +10544,13 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
     - `Rubric rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-  - `ManagedAgentsSessionDeletedEvent`
+  - `class ManagedAgentsSessionDeletedEvent`
 
     - `Type type`
 
@@ -10337,9 +10560,9 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
-  - `ManagedAgentsSessionThreadStatusRunningEvent`
+  - `class ManagedAgentsSessionThreadStatusRunningEvent`
 
     - `Type type`
 
@@ -10353,13 +10576,13 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that started running.
 
-  - `ManagedAgentsSessionThreadStatusIdleEvent`
+  - `class ManagedAgentsSessionThreadStatusIdleEvent`
 
     - `Type type`
 
@@ -10373,17 +10596,19 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that went idle.
 
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `class ManagedAgentsSessionThreadStatusTerminatedEvent`
 
     - `Type type`
 
@@ -10397,13 +10622,13 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `class BetaManagedAgentsUserToolResultEvent`
 
     - `Type type`
 
@@ -10425,13 +10650,13 @@ List Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `class ManagedAgentsSessionThreadStatusRescheduledEvent`
 
     - `Type type`
 
@@ -10445,13 +10670,13 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `class BetaManagedAgentsSessionUpdatedEvent`
 
     - `Type type`
 
@@ -10461,15 +10686,15 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
     - `?BetaManagedAgentsSessionAgent agent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
     - `?array<string,string> metadata`
 
@@ -10479,7 +10704,7 @@ List Session Thread Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `class BetaManagedAgentsSystemMessageEvent`
 
     - `Type type`
 
@@ -10493,9 +10718,9 @@ List Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `class BetaManagedAgentsSessionUsageEvent`
 
     - `Type type`
 
@@ -10505,15 +10730,15 @@ List Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
     - `ManagedAgentsSessionUsageSnapshot usage`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -10581,11 +10806,15 @@ Stream Session Thread Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsStreamSessionThreadEvents`
+- `class ManagedAgentsStreamSessionThreadEvents`
 
-  - `ManagedAgentsUserMessageEvent`
+  - `class ManagedAgentsUserMessageEvent`
 
     - `Type type`
 
@@ -10599,9 +10828,9 @@ Stream Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
-  - `ManagedAgentsUserInterruptEvent`
+  - `class ManagedAgentsUserInterruptEvent`
 
     - `Type type`
 
@@ -10611,13 +10840,13 @@ Stream Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
     - `?string sessionThreadID`
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `ManagedAgentsUserToolConfirmationEvent`
+  - `class ManagedAgentsUserToolConfirmationEvent`
 
     - `Type type`
 
@@ -10627,7 +10856,7 @@ Stream Session Thread Events
 
     - `Result result`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
     - `string toolUseID`
 
@@ -10639,13 +10868,13 @@ Stream Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
     - `?string sessionThreadID`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsUserCustomToolResultEvent`
+  - `class ManagedAgentsUserCustomToolResultEvent`
 
     - `Type type`
 
@@ -10667,13 +10896,13 @@ Stream Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsAgentCustomToolUseEvent`
+  - `class ManagedAgentsAgentCustomToolUseEvent`
 
     - `Type type`
 
@@ -10691,13 +10920,13 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMessageEvent`
+  - `class ManagedAgentsAgentMessageEvent`
 
     - `Type type`
 
@@ -10711,9 +10940,9 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
-  - `ManagedAgentsAgentThinkingEvent`
+  - `class ManagedAgentsAgentThinkingEvent`
 
     - `Type type`
 
@@ -10723,9 +10952,9 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
-  - `ManagedAgentsAgentMCPToolUseEvent`
+  - `class ManagedAgentsAgentMCPToolUseEvent`
 
     - `Type type`
 
@@ -10747,21 +10976,21 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMCPToolResultEvent`
+  - `class ManagedAgentsAgentMCPToolResultEvent`
 
     - `Type type`
 
@@ -10775,7 +11004,7 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `?list<Content> content`
 
@@ -10785,7 +11014,7 @@ Stream Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentToolUseEvent`
+  - `class ManagedAgentsAgentToolUseEvent`
 
     - `Type type`
 
@@ -10803,21 +11032,21 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentToolResultEvent`
+  - `class ManagedAgentsAgentToolResultEvent`
 
     - `Type type`
 
@@ -10827,7 +11056,7 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `string toolUseID`
 
@@ -10841,7 +11070,7 @@ Stream Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentThreadMessageReceivedEvent`
+  - `class ManagedAgentsAgentThreadMessageReceivedEvent`
 
     - `Type type`
 
@@ -10859,13 +11088,13 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
     - `?string fromAgentName`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `ManagedAgentsAgentThreadMessageSentEvent`
+  - `class ManagedAgentsAgentThreadMessageSentEvent`
 
     - `Type type`
 
@@ -10879,7 +11108,7 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
     - `string toSessionThreadID`
 
@@ -10889,7 +11118,7 @@ Stream Session Thread Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `ManagedAgentsAgentThreadContextCompactedEvent`
+  - `class ManagedAgentsAgentThreadContextCompactedEvent`
 
     - `Type type`
 
@@ -10899,9 +11128,9 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
-  - `ManagedAgentsSessionErrorEvent`
+  - `class ManagedAgentsSessionErrorEvent`
 
     - `Type type`
 
@@ -10911,13 +11140,11 @@ Stream Session Thread Events
 
     - `Error error`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
-  - `ManagedAgentsSessionStatusRescheduledEvent`
+  - `class ManagedAgentsSessionStatusRescheduledEvent`
 
     - `Type type`
 
@@ -10927,21 +11154,9 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionStatusRunningEvent`
-
-    - `Type type`
-
-    - `string id`
-
-      Unique identifier for this event.
-
-    - `\Datetime processedAt`
-
-      A timestamp in RFC 3339 format
-
-  - `ManagedAgentsSessionStatusIdleEvent`
+  - `class ManagedAgentsSessionStatusRunningEvent`
 
     - `Type type`
 
@@ -10951,13 +11166,27 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
+
+  - `class ManagedAgentsSessionStatusIdleEvent`
+
+    - `Type type`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `\Datetime processedAt`
+
+      Timestamp of status change.
+
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
 
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionStatusTerminatedEvent`
+  - `class ManagedAgentsSessionStatusTerminatedEvent`
 
     - `Type type`
 
@@ -10967,9 +11196,9 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionThreadCreatedEvent`
+  - `class ManagedAgentsSessionThreadCreatedEvent`
 
     - `Type type`
 
@@ -10983,13 +11212,13 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
     - `string sessionThreadID`
 
       Public `sthr_` ID of the newly created thread.
 
-  - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     - `Type type`
 
@@ -11007,9 +11236,9 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
-  - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     - `Type type`
 
@@ -11035,7 +11264,7 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
     - `string result`
 
@@ -11043,9 +11272,9 @@ Stream Session Thread Events
 
     - `ManagedAgentsSpanModelUsage usage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
-  - `ManagedAgentsSpanModelRequestStartEvent`
+  - `class ManagedAgentsSpanModelRequestStartEvent`
 
     - `Type type`
 
@@ -11055,9 +11284,9 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
-  - `ManagedAgentsSpanModelRequestEndEvent`
+  - `class ManagedAgentsSpanModelRequestEndEvent`
 
     - `Type type`
 
@@ -11075,13 +11304,13 @@ Stream Session Thread Events
 
     - `ManagedAgentsSpanModelUsage modelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
-  - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     - `Type type`
 
@@ -11099,9 +11328,9 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
-  - `ManagedAgentsUserDefineOutcomeEvent`
+  - `class ManagedAgentsUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -11123,13 +11352,13 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
     - `Rubric rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-  - `ManagedAgentsSessionDeletedEvent`
+  - `class ManagedAgentsSessionDeletedEvent`
 
     - `Type type`
 
@@ -11139,9 +11368,9 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
-  - `ManagedAgentsSessionThreadStatusRunningEvent`
+  - `class ManagedAgentsSessionThreadStatusRunningEvent`
 
     - `Type type`
 
@@ -11155,13 +11384,13 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that started running.
 
-  - `ManagedAgentsSessionThreadStatusIdleEvent`
+  - `class ManagedAgentsSessionThreadStatusIdleEvent`
 
     - `Type type`
 
@@ -11175,17 +11404,19 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that went idle.
 
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `class ManagedAgentsSessionThreadStatusTerminatedEvent`
 
     - `Type type`
 
@@ -11199,13 +11430,13 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `class BetaManagedAgentsUserToolResultEvent`
 
     - `Type type`
 
@@ -11227,13 +11458,13 @@ Stream Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `class ManagedAgentsSessionThreadStatusRescheduledEvent`
 
     - `Type type`
 
@@ -11247,13 +11478,13 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `class BetaManagedAgentsSessionUpdatedEvent`
 
     - `Type type`
 
@@ -11263,15 +11494,15 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
     - `?BetaManagedAgentsSessionAgent agent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
     - `?array<string,string> metadata`
 
@@ -11281,7 +11512,7 @@ Stream Session Thread Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsStartEvent`
+  - `class BetaManagedAgentsStartEvent`
 
     - `Type type`
 
@@ -11289,7 +11520,7 @@ Stream Session Thread Events
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
-  - `BetaManagedAgentsDeltaEvent`
+  - `class BetaManagedAgentsDeltaEvent`
 
     - `Type type`
 
@@ -11301,7 +11532,7 @@ Stream Session Thread Events
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `class BetaManagedAgentsSystemMessageEvent`
 
     - `Type type`
 
@@ -11315,9 +11546,9 @@ Stream Session Thread Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `class BetaManagedAgentsSessionUsageEvent`
 
     - `Type type`
 
@@ -11327,15 +11558,15 @@ Stream Session Thread Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
     - `ManagedAgentsSessionUsageSnapshot usage`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -11408,7 +11639,7 @@ Create Deployment
 
 - `budget?:optional BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Enforced spend ceiling stamped onto each session created from this deployment, copied at session-creation time. Omit to leave sessions uncapped. The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
 - `description?:optional string`
 
@@ -11424,7 +11655,7 @@ Create Deployment
 
 - `schedule?:optional BetaManagedAgentsScheduleParams`
 
-  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+  Optional recurring cron schedule. When present, the deployment fires automatically. Both expression and timezone are required when schedule is set.
 
 - `vaultIDs?:optional list<string>`
 
@@ -11436,9 +11667,13 @@ Create Deployment
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -11448,15 +11683,15 @@ Create Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -11480,7 +11715,7 @@ Create Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -11488,15 +11723,15 @@ Create Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -11504,7 +11739,7 @@ Create Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 #### Example
 
@@ -11662,9 +11897,13 @@ List Deployments
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -11674,15 +11913,15 @@ List Deployments
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -11706,7 +11945,7 @@ List Deployments
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -11714,15 +11953,15 @@ List Deployments
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -11730,7 +11969,7 @@ List Deployments
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 #### Example
 
@@ -11840,15 +12079,21 @@ Get Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -11858,15 +12103,15 @@ Get Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -11890,7 +12135,7 @@ Get Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -11898,15 +12143,15 @@ Get Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -11914,7 +12159,7 @@ Get Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 #### Example
 
@@ -12013,13 +12258,15 @@ Update Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to update.
+
 - `agent?:optional Agent`
 
   Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
 
 - `budget?:optional BetaManagedAgentsBudgetLimit`
 
-  A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+  Spend ceiling for future sessions. Full replacement. Omit to preserve; send null to clear (sessions created afterwards are uncapped). The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
 - `description?:optional string`
 
@@ -12047,7 +12294,7 @@ Update Deployment
 
 - `schedule?:optional BetaManagedAgentsScheduleParams`
 
-  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+  Cron schedule. Full replacement. Omit to preserve; send null to clear (revert to manual-only).
 
 - `vaultIDs?:optional list<string>`
 
@@ -12059,9 +12306,13 @@ Update Deployment
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -12071,15 +12322,15 @@ Update Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -12103,7 +12354,7 @@ Update Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -12111,15 +12362,15 @@ Update Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -12127,7 +12378,7 @@ Update Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 #### Example
 
@@ -12254,15 +12505,21 @@ Archive Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to archive.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -12272,15 +12529,15 @@ Archive Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -12304,7 +12561,7 @@ Archive Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -12312,15 +12569,15 @@ Archive Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -12328,7 +12585,7 @@ Archive Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 #### Example
 
@@ -12427,15 +12684,21 @@ Run Deployment Now
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to run.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -12445,11 +12708,11 @@ Run Deployment Now
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
   - `string deploymentID`
 
@@ -12457,7 +12720,7 @@ Run Deployment Now
 
   - `?Error error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
   - `?string sessionID`
 
@@ -12465,7 +12728,7 @@ Run Deployment Now
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
 #### Example
 
@@ -12522,15 +12785,21 @@ Pause Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to pause.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -12540,15 +12809,15 @@ Pause Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -12572,7 +12841,7 @@ Pause Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -12580,15 +12849,15 @@ Pause Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -12596,7 +12865,7 @@ Pause Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 #### Example
 
@@ -12695,15 +12964,21 @@ Unpause Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to unpause.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -12713,15 +12988,15 @@ Unpause Deployment
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
   - `?string description`
 
@@ -12745,7 +13020,7 @@ Unpause Deployment
 
   - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
   - `list<BetaManagedAgentsSessionResourceConfig> resources`
 
@@ -12753,15 +13028,15 @@ Unpause Deployment
 
   - `?BetaManagedAgentsSchedule schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
   - `BetaManagedAgentsDeploymentStatus status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
   - `list<string> vaultIDs`
 
@@ -12769,7 +13044,7 @@ Unpause Deployment
 
   - `?BetaManagedAgentsBudgetLimit budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
 #### Example
 
@@ -12910,9 +13185,13 @@ List Deployment Runs
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -12922,11 +13201,11 @@ List Deployment Runs
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
   - `string deploymentID`
 
@@ -12934,7 +13213,7 @@ List Deployment Runs
 
   - `?Error error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
   - `?string sessionID`
 
@@ -12942,7 +13221,7 @@ List Deployment Runs
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
 #### Example
 
@@ -13012,15 +13291,21 @@ Get Deployment Run
 
 - `deploymentRunID: string`
 
+  Unique identifier of the deployment run.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -13030,11 +13315,11 @@ Get Deployment Run
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
   - `string deploymentID`
 
@@ -13042,7 +13327,7 @@ Get Deployment Run
 
   - `?Error error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
   - `?string sessionID`
 
@@ -13050,7 +13335,7 @@ Get Deployment Run
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
 #### Example
 
@@ -13121,9 +13406,13 @@ Create Vault
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13133,7 +13422,7 @@ Create Vault
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -13214,9 +13503,13 @@ List Vaults
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13226,7 +13519,7 @@ List Vaults
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -13297,15 +13590,21 @@ Get Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to retrieve.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13315,7 +13614,7 @@ Get Vault
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -13379,6 +13678,8 @@ Update Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to update.
+
 - `displayName?:optional string`
 
   Updated human-readable name for the vault. 1-255 characters.
@@ -13393,9 +13694,13 @@ Update Vault
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13405,7 +13710,7 @@ Update Vault
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -13471,15 +13776,21 @@ Delete Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to delete.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeletedVault`
+- `class BetaManagedAgentsDeletedVault`
 
   - `Type type`
 
@@ -13526,15 +13837,21 @@ Archive Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to archive.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13544,7 +13861,7 @@ Archive Vault
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
   - `\Datetime createdAt`
 
@@ -13610,9 +13927,11 @@ Create Credential
 
 - `vaultID: string`
 
+  Identifier of the vault to create the credential in.
+
 - `auth: Auth`
 
-  Authentication details for creating a credential.
+  Authentication configuration for the credential.
 
 - `displayName?:optional string`
 
@@ -13628,9 +13947,13 @@ Create Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -13640,11 +13963,11 @@ Create Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -13724,6 +14047,8 @@ List Credentials
 
 - `vaultID: string`
 
+  Identifier of the vault to list credentials for.
+
 - `includeArchived?:optional bool`
 
   Whether to include archived credentials in the results.
@@ -13742,9 +14067,13 @@ List Credentials
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -13754,11 +14083,11 @@ List Credentials
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -13839,7 +14168,11 @@ Get Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to retrieve.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -13847,9 +14180,13 @@ Get Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -13859,11 +14196,11 @@ Get Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -13937,11 +14274,15 @@ Update Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to update.
 
 - `auth?:optional Auth`
 
-  Updated authentication details for a credential.
+  Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
 - `displayName?:optional string`
 
@@ -13957,9 +14298,13 @@ Update Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -13969,11 +14314,11 @@ Update Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -14061,7 +14406,11 @@ Delete Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to delete.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -14069,9 +14418,13 @@ Delete Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsDeletedCredential`
+- `class ManagedAgentsDeletedCredential`
 
   - `Type type`
 
@@ -14123,7 +14476,11 @@ Archive Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to archive.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -14131,9 +14488,13 @@ Archive Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -14143,11 +14504,11 @@ Archive Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -14221,7 +14582,11 @@ Validate Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to validate.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -14229,9 +14594,13 @@ Validate Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredentialValidation`
+- `class ManagedAgentsCredentialValidation`
 
   - `Type type`
 
@@ -14245,19 +14614,19 @@ Validate Credential
 
   - `?ManagedAgentsMCPProbe mcpProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
   - `?ManagedAgentsRefreshObject refresh`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
   - `ManagedAgentsCredentialValidationStatus status`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
   - `\Datetime validatedAt`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
   - `string vaultID`
 
@@ -14347,9 +14716,13 @@ Create a memory store
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14359,7 +14732,7 @@ Create a memory store
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
   - `string name`
 
@@ -14367,11 +14740,11 @@ Create a memory store
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
   - `?string description`
 
@@ -14454,9 +14827,13 @@ List memory stores
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14466,7 +14843,7 @@ List memory stores
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
   - `string name`
 
@@ -14474,11 +14851,11 @@ List memory stores
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
   - `?string description`
 
@@ -14544,15 +14921,21 @@ Retrieve a memory store
 
 - `memoryStoreID: string`
 
+  ID of the memory store to retrieve (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14562,7 +14945,7 @@ Retrieve a memory store
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
   - `string name`
 
@@ -14570,11 +14953,11 @@ Retrieve a memory store
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
   - `?string description`
 
@@ -14631,6 +15014,8 @@ Update a memory store
 
 - `memoryStoreID: string`
 
+  ID of the memory store to update (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`. Updating an archived store returns 400.
+
 - `description?:optional string`
 
   New description for the store, up to 1024 characters. Pass an empty string to clear it.
@@ -14649,9 +15034,13 @@ Update a memory store
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14661,7 +15050,7 @@ Update a memory store
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
   - `string name`
 
@@ -14669,11 +15058,11 @@ Update a memory store
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
   - `?string description`
 
@@ -14733,15 +15122,21 @@ Delete a memory store
 
 - `memoryStoreID: string`
 
+  ID of the memory store to permanently delete (a `memstore_...` identifier). Required. Deletion cascades to all memories and memory versions in the store and cannot be undone.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeletedMemoryStore`
+- `class BetaManagedAgentsDeletedMemoryStore`
 
   - `Type type`
 
@@ -14788,15 +15183,21 @@ Archive a memory store
 
 - `memoryStoreID: string`
 
+  ID of the memory store to archive (a `memstore_...` identifier). Required. Archiving is one-way and idempotent; archived stores cannot be unarchived. Enumerate IDs via `GET /v1/memory_stores`.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14806,7 +15207,7 @@ Archive a memory store
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
   - `string name`
 
@@ -14814,11 +15215,11 @@ Archive a memory store
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
   - `?string description`
 
@@ -14877,6 +15278,8 @@ Create a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store to create the memory in (`memstore_...`).
+
 - `content: string`
 
   UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
@@ -14887,7 +15290,7 @@ Create a memory
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -14895,9 +15298,13 @@ Create a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -14915,7 +15322,7 @@ Create a memory
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
   - `string memoryStoreID`
 
@@ -14923,7 +15330,7 @@ Create a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -14931,7 +15338,7 @@ Create a memory
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `?string content`
 
@@ -14987,6 +15394,8 @@ List memories
 
 - `memoryStoreID: string`
 
+  The ID of the memory store to list memories from (`memstore_...`).
+
 - `depth?:optional int`
 
   `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
@@ -15013,11 +15422,15 @@ List memories
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemoryListItem`
+- `class ManagedAgentsMemoryListItem`
 
-  - `ManagedAgentsMemory`
+  - `class ManagedAgentsMemory`
 
     - `Type type`
 
@@ -15035,7 +15448,7 @@ List memories
 
     - `\Datetime createdAt`
 
-      A timestamp in RFC 3339 format
+      When this memory was created, in RFC 3339 format.
 
     - `string memoryStoreID`
 
@@ -15043,7 +15456,7 @@ List memories
 
     - `string memoryVersionID`
 
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `string path`
 
@@ -15051,13 +15464,13 @@ List memories
 
     - `\Datetime updatedAt`
 
-      A timestamp in RFC 3339 format
+      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `?string content`
 
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-  - `ManagedAgentsMemoryPrefix`
+  - `class ManagedAgentsMemoryPrefix`
 
     - `Type type`
 
@@ -15122,11 +15535,15 @@ Retrieve a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to retrieve (`mem_...`).
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15134,9 +15551,13 @@ Retrieve a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -15154,7 +15575,7 @@ Retrieve a memory
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
   - `string memoryStoreID`
 
@@ -15162,7 +15583,7 @@ Retrieve a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -15170,7 +15591,7 @@ Retrieve a memory
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `?string content`
 
@@ -15225,11 +15646,15 @@ Update a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to update (`mem_...`).
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `content?:optional string`
 
@@ -15241,7 +15666,7 @@ Update a memory
 
 - `precondition?:optional ManagedAgentsPrecondition`
 
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+  Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15249,9 +15674,13 @@ Update a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -15269,7 +15698,7 @@ Update a memory
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
   - `string memoryStoreID`
 
@@ -15277,7 +15706,7 @@ Update a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -15285,7 +15714,7 @@ Update a memory
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `?string content`
 
@@ -15345,11 +15774,17 @@ Delete a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to delete (`mem_...`).
 
 - `expectedContentSha256?:optional string`
 
-  Query parameter for expected_content_sha256
+  Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
+
+  If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15357,9 +15792,13 @@ Delete a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsDeletedMemory`
+- `class ManagedAgentsDeletedMemory`
 
   - `Type type`
 
@@ -15410,9 +15849,11 @@ List memory versions
 
 - `memoryStoreID: string`
 
+  The ID of the memory store whose version history to list (`memstore_...`).
+
 - `apiKeyID?:optional string`
 
-  Query parameter for api_key_id
+  Return only versions written with the API key that has this ID.
 
 - `createdAtGte?:optional \Datetime`
 
@@ -15424,31 +15865,33 @@ List memory versions
 
 - `limit?:optional int`
 
-  Query parameter for limit
+  The maximum number of versions to return per page. Defaults to 20.
 
 - `memoryID?:optional string`
 
-  Query parameter for memory_id
+  Return only versions of the memory with this ID (`mem_...`).
+
+  The filter still works after the memory is deleted. The results then include the version whose `operation` is `deleted`.
 
 - `operation?:optional ManagedAgentsMemoryVersionOperation`
 
-  Query parameter for operation
+  Return only versions that record this kind of change.
 
 - `page?:optional string`
 
-  Query parameter for page
+  The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
 
 - `serviceAccountID?:optional string`
 
-  Query parameter for service_account_id
+  Return only versions written by the service account with this ID (`svac_...`).
 
 - `sessionID?:optional string`
 
-  Query parameter for session_id
+  Return only versions written by the session with this ID.
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15456,9 +15899,13 @@ List memory versions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemoryVersion`
+- `class ManagedAgentsMemoryVersion`
 
   - `Type type`
 
@@ -15468,11 +15915,11 @@ List memory versions
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this version was written, in RFC 3339 format.
 
   - `string memoryID`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `string memoryStoreID`
 
@@ -15480,7 +15927,7 @@ List memory versions
 
   - `ManagedAgentsMemoryVersionOperation operation`
 
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
 
   - `?string content`
 
@@ -15496,7 +15943,7 @@ List memory versions
 
   - `?ManagedAgentsActor createdBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
 
   - `?string path`
 
@@ -15504,11 +15951,11 @@ List memory versions
 
   - `?\Datetime redactedAt`
 
-    A timestamp in RFC 3339 format
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
 
   - `?ManagedAgentsActor redactedBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
 
 #### Example
 
@@ -15581,11 +16028,15 @@ Retrieve a memory version
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the version (`memstore_...`).
+
 - `memoryVersionID: string`
+
+  The ID of the memory version to retrieve (`memver_...`).
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15593,9 +16044,13 @@ Retrieve a memory version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemoryVersion`
+- `class ManagedAgentsMemoryVersion`
 
   - `Type type`
 
@@ -15605,11 +16060,11 @@ Retrieve a memory version
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this version was written, in RFC 3339 format.
 
   - `string memoryID`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `string memoryStoreID`
 
@@ -15617,7 +16072,7 @@ Retrieve a memory version
 
   - `ManagedAgentsMemoryVersionOperation operation`
 
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
 
   - `?string content`
 
@@ -15633,7 +16088,7 @@ Retrieve a memory version
 
   - `?ManagedAgentsActor createdBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
 
   - `?string path`
 
@@ -15641,11 +16096,11 @@ Retrieve a memory version
 
   - `?\Datetime redactedAt`
 
-    A timestamp in RFC 3339 format
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
 
   - `?ManagedAgentsActor redactedBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
 
 #### Example
 
@@ -15709,7 +16164,11 @@ Redact a memory version
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the version (`memstore_...`).
+
 - `memoryVersionID: string`
+
+  The ID of the memory version to redact (`memver_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15717,9 +16176,13 @@ Redact a memory version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemoryVersion`
+- `class ManagedAgentsMemoryVersion`
 
   - `Type type`
 
@@ -15729,11 +16192,11 @@ Redact a memory version
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this version was written, in RFC 3339 format.
 
   - `string memoryID`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `string memoryStoreID`
 
@@ -15741,7 +16204,7 @@ Redact a memory version
 
   - `ManagedAgentsMemoryVersionOperation operation`
 
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
 
   - `?string content`
 
@@ -15757,7 +16220,7 @@ Redact a memory version
 
   - `?ManagedAgentsActor createdBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
 
   - `?string path`
 
@@ -15765,11 +16228,11 @@ Redact a memory version
 
   - `?\Datetime redactedAt`
 
-    A timestamp in RFC 3339 format
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/redact).
 
   - `?ManagedAgentsActor redactedBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
 
 #### Example
 
@@ -15846,9 +16309,13 @@ Upload File
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -15964,9 +16431,13 @@ List Files
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -16073,6 +16544,10 @@ Download File
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `mixed`
@@ -16115,9 +16590,13 @@ Get File Metadata
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -16216,9 +16695,13 @@ Delete File
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDeletedFile`
+- `class BetaDeletedFile`
 
   - `?Type type`
 
@@ -16287,9 +16770,13 @@ Create Skill
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -16408,9 +16895,13 @@ List Skills
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -16516,9 +17007,13 @@ Get Skill
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -16617,9 +17112,13 @@ Delete Skill
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDeletedSkill`
+- `class BetaDeletedSkill`
 
   - `"skill_deleted" type`
 
@@ -16690,9 +17189,13 @@ Create Skill Version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SkillVersion`
+- `class SkillVersion`
 
   - `"skill_version" type`
 
@@ -16796,9 +17299,13 @@ List Skill Versions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SkillVersion`
+- `class SkillVersion`
 
   - `"skill_version" type`
 
@@ -16900,6 +17407,10 @@ Download a skill version's content as a zip archive.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `mixed`
@@ -16951,9 +17462,13 @@ Get Skill Version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SkillVersion`
+- `class SkillVersion`
 
   - `"skill_version" type`
 
@@ -17049,9 +17564,13 @@ Delete Skill Version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `DeletedSkillVersion`
+- `class DeletedSkillVersion`
 
   - `"skill_version_deleted" type`
 
@@ -17092,56 +17611,11 @@ var_dump($betaDeletedSkillVersion);
 }
 ```
 
-## Beta › Webhooks
-
-### Unwrap
-
-`$client->beta->webhooks->unwrap(): void`
-
-Verifies the webhook signature from the `webhook-id`, `webhook-timestamp` and `webhook-signature`
-headers using your webhook signing key, then parses the payload into an event. Fails if the
-signature is missing or invalid.
-
-#### Example
-
-```php
-<?php
-
-require_once dirname(__DIR__) . '/vendor/autoload.php';
-
-$client = new Client(apiKey: 'my-anthropic-api-key');
-
-$result = $client->beta->webhooks->unwrap();
-
-var_dump($result);
-```
-
-### Parse Unverified
-
-`$client->beta->webhooks->parseUnverified(): void`
-
-Parses a webhook payload into an event without verifying its signature. Prefer `unwrap()` unless
-you have already verified the signature yourself.
-
-#### Example
-
-```php
-<?php
-
-require_once dirname(__DIR__) . '/vendor/autoload.php';
-
-$client = new Client(apiKey: 'my-anthropic-api-key');
-
-$result = $client->beta->webhooks->parseUnverified();
-
-var_dump($result);
-```
-
 ## Beta › User Profiles
 
 ### Create User Profile
 
-`$client->beta->userProfiles->create(?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas): BetaUserProfile`
+`$client->beta->userProfiles->create(?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfile`
 
 **POST** `/v1/user_profiles`
 
@@ -17151,7 +17625,7 @@ Create User Profile
 
 - `accessType?:optional AccessType`
 
-  How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+  How the platform uses the API for this entity. `application` (default): the profile represents an individual end-user of the platform's product. `passthrough`: the profile identifies a company the platform resells Claude access to.
 
 - `externalID?:optional string`
 
@@ -17163,7 +17637,7 @@ Create User Profile
 
 - `externalUserOnboardedAt?:optional \Datetime`
 
-  A timestamp in RFC 3339 format
+  When the entity this profile represents opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future. Optional. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
 - `metadata?:optional array<string,string>`
 
@@ -17177,9 +17651,15 @@ Create User Profile
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -17191,7 +17671,7 @@ Create User Profile
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -17203,11 +17683,11 @@ Create User Profile
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -17215,11 +17695,11 @@ Create User Profile
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -17250,6 +17730,7 @@ $betaUserProfile = $client->beta->userProfiles->create(
   metadata: [],
   name: 'x',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfile);
@@ -17287,7 +17768,7 @@ var_dump($betaUserProfile);
 
 ### List User Profiles
 
-`$client->beta->userProfiles->list(?int limit, ?Order order, ?OrderBy orderBy, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaUserProfile>`
+`$client->beta->userProfiles->list(?int limit, ?Order order, ?OrderBy orderBy, ?string page, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<BetaUserProfile>`
 
 **GET** `/v1/user_profiles`
 
@@ -17297,27 +17778,35 @@ List User Profiles
 
 - `limit?:optional int`
 
-  Query parameter for limit
+  The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
 - `order?:optional Order`
 
-  Query parameter for order
+  The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
 - `orderBy?:optional OrderBy`
 
-  Query parameter for order_by
+  The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
 - `page?:optional string`
 
-  Query parameter for page
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
 
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -17329,7 +17818,7 @@ List User Profiles
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -17341,11 +17830,11 @@ List User Profiles
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -17353,11 +17842,11 @@ List User Profiles
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -17378,6 +17867,7 @@ $page = $client->beta->userProfiles->list(
   orderBy: 'created_at',
   page: 'page',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -17420,7 +17910,7 @@ var_dump($page);
 
 ### Get User Profile
 
-`$client->beta->userProfiles->retrieve(string userProfileID, ?list<AnthropicBeta> betas): BetaUserProfile`
+`$client->beta->userProfiles->retrieve(string userProfileID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfile`
 
 **GET** `/v1/user_profiles/{user_profile_id}`
 
@@ -17430,13 +17920,21 @@ Get User Profile
 
 - `userProfileID: string`
 
+  The ID of the user profile to get (`uprof_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -17448,7 +17946,7 @@ Get User Profile
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -17460,11 +17958,11 @@ Get User Profile
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -17472,11 +17970,11 @@ Get User Profile
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -17494,6 +17992,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaUserProfile = $client->beta->userProfiles->retrieve(
   'uprof_011CZkZCu8hGbp5mYRQgUmz9',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfile);
@@ -17531,7 +18030,7 @@ var_dump($betaUserProfile);
 
 ### Update User Profile
 
-`$client->beta->userProfiles->update(string userProfileID, ?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas): BetaUserProfile`
+`$client->beta->userProfiles->update(string userProfileID, ?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfile`
 
 **POST** `/v1/user_profiles/{user_profile_id}`
 
@@ -17541,9 +18040,11 @@ Update User Profile
 
 - `userProfileID: string`
 
+  The ID of the user profile to update (`uprof_...`).
+
 - `accessType?:optional AccessType`
 
-  How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+  If present, replaces the stored access type. Omit to leave unchanged.
 
 - `externalID?:optional string`
 
@@ -17555,7 +18056,7 @@ Update User Profile
 
 - `externalUserOnboardedAt?:optional \Datetime`
 
-  A timestamp in RFC 3339 format
+  If present, replaces the stored account creation time. Omit to leave unchanged; once set, the value cannot be cleared and `null` is rejected. Must be a complete RFC 3339 timestamp no more than 1 minute in the future. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
 - `metadata?:optional array<string,string>`
 
@@ -17569,9 +18070,15 @@ Update User Profile
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -17583,7 +18090,7 @@ Update User Profile
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -17595,11 +18102,11 @@ Update User Profile
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -17607,11 +18114,11 @@ Update User Profile
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -17643,6 +18150,7 @@ $betaUserProfile = $client->beta->userProfiles->update(
   metadata: ['foo' => 'string'],
   name: 'x',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfile);
@@ -17680,7 +18188,7 @@ var_dump($betaUserProfile);
 
 ### Create Enrollment URL
 
-`$client->beta->userProfiles->createEnrollmentURL(string userProfileID, ?list<AnthropicBeta> betas): BetaUserProfileEnrollmentURL`
+`$client->beta->userProfiles->createEnrollmentURL(string userProfileID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfileEnrollmentURL`
 
 **POST** `/v1/user_profiles/{user_profile_id}/enrollment_url`
 
@@ -17690,13 +18198,21 @@ Create Enrollment URL
 
 - `userProfileID: string`
 
+  The ID of the user profile to create an enrollment URL for (`uprof_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfileEnrollmentURL`
+- `class BetaUserProfileEnrollmentURL`
 
   - `Type type`
 
@@ -17704,7 +18220,7 @@ Create Enrollment URL
 
   - `\Datetime expiresAt`
 
-    A timestamp in RFC 3339 format
+    When this enrollment URL expires, in RFC 3339 format.
 
   - `string url`
 
@@ -17725,6 +18241,7 @@ $betaUserProfileEnrollmentURL = $client
   ->createEnrollmentURL(
   'uprof_011CZkZCu8hGbp5mYRQgUmz9',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfileEnrollmentURL);
@@ -17748,21 +18265,35 @@ var_dump($betaUserProfileEnrollmentURL);
 
 **POST** `/v1/dreams`
 
-Create a Dream
+Start an asynchronous job that uses past sessions to produce a reorganized version of a memory store and get back the dream to poll for the result.
+
+By default the dream writes its result to a new memory store and doesn't change the input memory store. The response has `status` set to `pending` and an empty `outputs` array. Poll the dream until `status` is `completed`, `failed`, or `canceled`.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#create-a-dream) to learn more about creating dreams.
 
 #### Parameters
 
 - `inputs: list<BetaDreamInput>`
 
+  The memory store and sessions for the dream to read, as exactly one `memory_store` entry and exactly one `sessions` entry.
+
 - `model: Model`
 
-  Model identifier and configuration applied to every pipeline stage.
+  The model that runs a dream, given as a model ID or as an object with `id` and `speed`.
+
+  In the object form, `speed` can only be `standard`.
+
+  The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists the supported models.
 
 - `instructions?:optional string`
 
+  Guidance that steers how the dream reads the sessions and organizes the output memory store, from 1 to 4,096 characters.
+
+  See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#steer-with-instructions) for what kinds of instructions work well.
+
 - `outputBehavior?:optional BetaOutputBehavior`
 
-  The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
+  Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -17770,53 +18301,83 @@ Create a Dream
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
 
+    The unique ID of the dream (`drm_...`).
+
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
   - `?\Datetime endedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
   - `?BetaDreamError error`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
   - `list<BetaDreamOutput> outputs`
 
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
   - `?string sessionID`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
 
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
 #### Example
 
@@ -17889,33 +18450,41 @@ var_dump($betaDream);
 
 **GET** `/v1/dreams`
 
-List Dreams
+List the dreams in the workspace, newest first.
+
+Archived dreams are left out unless `include_archived` is `true`.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#list-dreams) for how to page through dreams.
 
 #### Parameters
 
 - `createdAtGt?:optional \Datetime`
 
-  Return dreams with `created_at` strictly after this timestamp (exclusive lower bound, RFC 3339). Unset applies no lower bound.
+  Return only dreams created after this time (exclusive), in RFC 3339.
 
 - `createdAtLt?:optional \Datetime`
 
-  Return dreams with `created_at` strictly before this timestamp (exclusive upper bound, RFC 3339). Unset applies no upper bound.
+  Return only dreams created before this time (exclusive), in RFC 3339.
 
 - `includeArchived?:optional bool`
 
-  Query parameter for include_archived
+  Whether to include archived dreams. Defaults to `false`.
 
 - `limit?:optional int`
 
-  Query parameter for limit
+  The maximum number of dreams to return, from 1 to 100. Defaults to 20.
 
 - `page?:optional string`
 
-  Query parameter for page
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
 
 - `statuses?:optional list<BetaDreamStatus>`
 
-  Filter by lifecycle status. Repeat the parameter to match any of multiple statuses. Empty applies no status filter.
+  Return only dreams that have one of these statuses.
+
+  Repeat the parameter to give more than one status. Leave it out to return dreams of every status.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -17923,53 +18492,83 @@ List Dreams
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
 
+    The unique ID of the dream (`drm_...`).
+
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
   - `?\Datetime endedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
   - `?BetaDreamError error`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
   - `list<BetaDreamOutput> outputs`
 
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
   - `?string sessionID`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
 
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
 #### Example
 
@@ -18049,11 +18648,17 @@ var_dump($page);
 
 **GET** `/v1/dreams/{dream_id}`
 
-Get a Dream
+Get a dream by ID to check its status, output memory store, and token usage.
+
+Archived dreams are returned too.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#track-progress) for how to poll a dream and what each status means.
 
 #### Parameters
 
 - `dreamID: string`
+
+  The ID of the dream to get (`drm_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -18061,53 +18666,83 @@ Get a Dream
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
 
+    The unique ID of the dream (`drm_...`).
+
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
   - `?\Datetime endedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
   - `?BetaDreamError error`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
   - `list<BetaDreamOutput> outputs`
 
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
   - `?string sessionID`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
 
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
 #### Example
 
@@ -18177,11 +18812,17 @@ var_dump($betaDream);
 
 **POST** `/v1/dreams/{dream_id}/cancel`
 
-Cancel a Dream
+Stop a `pending` or `running` dream.
+
+The response shows `status` as `canceled`, unless the dream reached `completed` or `failed` first. `usage` can keep changing after the response. Canceling a `canceled` dream returns it unchanged. Canceling a `completed` or `failed` dream returns a 400 error.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#cancel-a-dream) to learn more about canceling dreams.
 
 #### Parameters
 
 - `dreamID: string`
+
+  The ID of the dream to cancel (`drm_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -18189,53 +18830,83 @@ Cancel a Dream
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
 
+    The unique ID of the dream (`drm_...`).
+
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
   - `?\Datetime endedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
   - `?BetaDreamError error`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
   - `list<BetaDreamOutput> outputs`
 
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
   - `?string sessionID`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
 
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
 #### Example
 
@@ -18305,11 +18976,17 @@ var_dump($betaDream);
 
 **POST** `/v1/dreams/{dream_id}/archive`
 
-Archive a Dream
+Hide a `completed`, `failed`, or `canceled` dream from the default list of dreams.
+
+Archiving a `pending` or `running` dream returns a 400 error, so cancel it first. Archiving an archived dream returns it unchanged. An archived dream can still be fetched by ID. Archiving can't be undone.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#archive-a-dream) to learn more about archiving dreams.
 
 #### Parameters
 
 - `dreamID: string`
+
+  The ID of the dream to archive (`drm_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -18317,53 +18994,83 @@ Archive a Dream
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
 
+    The unique ID of the dream (`drm_...`).
+
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
   - `?\Datetime endedAt`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
   - `?BetaDreamError error`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
   - `list<BetaDreamOutput> outputs`
 
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
+
   - `?string sessionID`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
 
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
 #### Example
 
@@ -18451,9 +19158,13 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnel`
+- `class BetaTunnel`
 
   - `"tunnel" type`
 
@@ -18463,11 +19174,11 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was created.
 
   - `?string displayName`
 
@@ -18522,15 +19233,21 @@ Fetches a tunnel by ID.
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnel`
+- `class BetaTunnel`
 
   - `"tunnel" type`
 
@@ -18540,11 +19257,11 @@ Fetches a tunnel by ID.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was created.
 
   - `?string displayName`
 
@@ -18615,9 +19332,13 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnel`
+- `class BetaTunnel`
 
   - `"tunnel" type`
 
@@ -18627,11 +19348,11 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was created.
 
   - `?string displayName`
 
@@ -18693,15 +19414,21 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnel`
+- `class BetaTunnel`
 
   - `"tunnel" type`
 
@@ -18711,11 +19438,11 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was created.
 
   - `?string displayName`
 
@@ -18770,15 +19497,21 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnelToken`
+- `class BetaTunnelToken`
 
   - `"tunnel_token" type`
 
@@ -18832,6 +19565,8 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `reason?:optional string`
 
   Optional free-text reason for the rotation, recorded for audit.
@@ -18842,9 +19577,13 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnelToken`
+- `class BetaTunnelToken`
 
   - `"tunnel_token" type`
 
@@ -18901,6 +19640,8 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `caCertificatePEM: string`
 
   PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
@@ -18911,9 +19652,13 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `TunnelCertificate`
+- `class TunnelCertificate`
 
   - `"tunnel_certificate" type`
 
@@ -18923,15 +19668,15 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was registered.
 
   - `?\Datetime expiresAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
 
   - `string fingerprint`
 
@@ -18988,7 +19733,11 @@ Fetches a tunnel certificate by ID.
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `certificateID: string`
+
+  ID of the certificate (`tcrt_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -18996,9 +19745,13 @@ Fetches a tunnel certificate by ID.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `TunnelCertificate`
+- `class TunnelCertificate`
 
   - `"tunnel_certificate" type`
 
@@ -19008,15 +19761,15 @@ Fetches a tunnel certificate by ID.
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was registered.
 
   - `?\Datetime expiresAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
 
   - `string fingerprint`
 
@@ -19073,6 +19826,8 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `includeArchived?:optional bool`
 
   Whether to include archived certificates in the results. Defaults to false.
@@ -19091,9 +19846,13 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `TunnelCertificate`
+- `class TunnelCertificate`
 
   - `"tunnel_certificate" type`
 
@@ -19103,15 +19862,15 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was registered.
 
   - `?\Datetime expiresAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
 
   - `string fingerprint`
 
@@ -19175,7 +19934,11 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `certificateID: string`
+
+  ID of the certificate to archive (`tcrt_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -19183,9 +19946,13 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `TunnelCertificate`
+- `class TunnelCertificate`
 
   - `"tunnel_certificate" type`
 
@@ -19195,15 +19962,15 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was registered.
 
   - `?\Datetime expiresAt`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
 
   - `string fingerprint`
 
@@ -19258,7 +20025,7 @@ Retrieve information about the organization associated with the authenticated AP
 
 #### Returns
 
-- `BetaOrganization`
+- `class BetaOrganization`
 
   - `"organization" type`
 
@@ -19340,7 +20107,7 @@ List API Keys
 
 #### Returns
 
-- `APIKey`
+- `class APIKey`
 
   - `"api_key" type`
 
@@ -19463,7 +20230,7 @@ Retrieve information about a single API key in your organization, looked up by i
 
 #### Returns
 
-- `APIKey`
+- `class APIKey`
 
   - `"api_key" type`
 
@@ -19580,7 +20347,7 @@ Update API Key
 
 #### Returns
 
-- `APIKey`
+- `class APIKey`
 
   - `"api_key" type`
 
@@ -19701,7 +20468,7 @@ Create an external key config owned by the caller's organization.
 
 #### Returns
 
-- `ExternalKey`
+- `class ExternalKey`
 
   - `"external_key" type`
 
@@ -19799,7 +20566,7 @@ Results are ordered by creation time (newest first). Use the
 
 #### Returns
 
-- `ExternalKey`
+- `class ExternalKey`
 
   - `"external_key" type`
 
@@ -19884,7 +20651,7 @@ Retrieve a single external key config in the caller's organization by ID.
 
 #### Returns
 
-- `ExternalKey`
+- `class ExternalKey`
 
   - `"external_key" type`
 
@@ -19982,7 +20749,7 @@ encrypted data requires the original key identity to decrypt.
 
 #### Returns
 
-- `ExternalKey`
+- `class ExternalKey`
 
   - `"external_key" type`
 
@@ -20074,7 +20841,7 @@ The request is rejected if any workspace still references this config.
 
 #### Returns
 
-- `ExternalKeyDeleteResponse`
+- `class ExternalKeyDeleteResponse`
 
   - `"external_key_deleted" type`
 
@@ -20128,7 +20895,7 @@ message if it failed or timed out.
 
 #### Returns
 
-- `ExternalKeyValidateResponse`
+- `class ExternalKeyValidateResponse`
 
   - `"external_key_validation" type`
 
@@ -20174,7 +20941,7 @@ var_dump($response);
 
 **POST** `/v1/organizations/federation_issuers`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Register an OIDC issuer that Anthropic will trust for workload identity
 federation in your organization.
@@ -20216,7 +20983,7 @@ matched as the JWT's `iss` claim and is not fetched.
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20266,11 +21033,7 @@ matched as the JWT's `iss` claim and is not fetched.
 
   - `?BetaFederationIssuerPollStatus pollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
   - `\Datetime updatedAt`
 
@@ -20346,7 +21109,7 @@ var_dump($betaFederationIssuer);
 
 **GET** `/v1/organizations/federation_issuers`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List federation issuers in your organization.
 
@@ -20376,7 +21139,7 @@ Archived issuers are excluded unless `include_archived=true`.
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20426,11 +21189,7 @@ Archived issuers are excluded unless `include_archived=true`.
 
   - `?BetaFederationIssuerPollStatus pollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
   - `\Datetime updatedAt`
 
@@ -20500,7 +21259,7 @@ var_dump($page);
 
 **GET** `/v1/organizations/federation_issuers/{federation_issuer_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a federation issuer by its ID (`fdis_...`).
 
@@ -20516,7 +21275,7 @@ Retrieve a federation issuer by its ID (`fdis_...`).
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20566,11 +21325,7 @@ Retrieve a federation issuer by its ID (`fdis_...`).
 
   - `?BetaFederationIssuerPollStatus pollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
   - `\Datetime updatedAt`
 
@@ -20637,7 +21392,7 @@ var_dump($betaFederationIssuer);
 
 **POST** `/v1/organizations/federation_issuers/{federation_issuer_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Partially update a federation issuer.
 
@@ -20684,7 +21439,7 @@ session.
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20734,11 +21489,7 @@ session.
 
   - `?BetaFederationIssuerPollStatus pollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
   - `\Datetime updatedAt`
 
@@ -20816,7 +21567,7 @@ var_dump($betaFederationIssuer);
 
 **POST** `/v1/organizations/federation_issuers/{federation_issuer_id}/archive`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Archive a federation issuer.
 
@@ -20837,7 +21588,7 @@ issuer cannot be changed), or recreate them against another issuer.
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20887,11 +21638,7 @@ issuer cannot be changed), or recreate them against another issuer.
 
   - `?BetaFederationIssuerPollStatus pollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
   - `\Datetime updatedAt`
 
@@ -20960,7 +21707,7 @@ var_dump($betaFederationIssuer);
 
 **POST** `/v1/organizations/federation_rules`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Create a federation rule owned by your organization.
 
@@ -21026,7 +21773,7 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21189,7 +21936,7 @@ var_dump($betaFederationRule);
 
 **GET** `/v1/organizations/federation_rules`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List federation rules in your organization.
 
@@ -21224,7 +21971,7 @@ unless `include_archived=true`.
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21377,7 +22124,7 @@ var_dump($page);
 
 **GET** `/v1/organizations/federation_rules/{federation_rule_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a federation rule by its ID (`fdrl_...`).
 
@@ -21393,7 +22140,7 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21537,7 +22284,7 @@ var_dump($betaFederationRule);
 
 **POST** `/v1/organizations/federation_rules/{federation_rule_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Partially update a federation rule.
 
@@ -21577,11 +22324,7 @@ Console session.
 
 - `match?:optional BetaFederationRuleMatch`
 
-  Does the incoming JWT qualify?
-
-  All populated fields must pass; omitted fields are skipped. At least one
-  of `subject_prefix` (other than a wildcard-only value like `*`), `claims`,
-  or `condition` is required; `audience` alone is not sufficient.
+  Replaces the entire match object. All populated matcher fields must pass.
 
 - `name?:optional string`
 
@@ -21593,7 +22336,7 @@ Console session.
 
 - `target?:optional BetaServiceAccountTarget`
 
-  Bind to a fixed service account by ID.
+  Replaces the entire target object. Currently always a `service_account` target.
 
 - `tokenLifetimeSeconds?:optional int`
 
@@ -21609,7 +22352,7 @@ Console session.
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21772,7 +22515,7 @@ var_dump($betaFederationRule);
 
 **POST** `/v1/organizations/federation_rules/{federation_rule_id}/archive`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Archive a federation rule.
 
@@ -21796,7 +22539,7 @@ other scopes require a Console session.
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21942,7 +22685,7 @@ var_dump($betaFederationRule);
 
 **POST** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Enable a federation rule for a workspace.
 
@@ -21971,7 +22714,7 @@ other scopes require a Console session.
 
 #### Returns
 
-- `BetaFederationRuleWorkspace`
+- `class BetaFederationRuleWorkspace`
 
   - `"federation_rule_workspace" type`
 
@@ -22038,7 +22781,7 @@ var_dump($betaFederationRuleWorkspace);
 
 **GET** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List workspaces where this federation rule is enabled.
 
@@ -22070,7 +22813,7 @@ rules with `applies_to_all_workspaces` or a legacy single
 
 #### Returns
 
-- `BetaFederationRuleWorkspace`
+- `class BetaFederationRuleWorkspace`
 
   - `"federation_rule_workspace" type`
 
@@ -22137,7 +22880,7 @@ var_dump($page);
 
 **DELETE** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces/{workspace_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Disable a federation rule for a workspace.
 
@@ -22162,7 +22905,7 @@ Console session.
 
 #### Returns
 
-- `WorkspaceRemoveResponse`
+- `class WorkspaceRemoveResponse`
 
   - `"federation_rule_workspace_deleted" type`
 
@@ -22232,7 +22975,7 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 
 #### Returns
 
-- `OrganizationInvite`
+- `class OrganizationInvite`
 
   - `"invite" type`
 
@@ -22348,7 +23091,7 @@ List the organization's invites.
 
 #### Returns
 
-- `OrganizationInvite`
+- `class OrganizationInvite`
 
   - `"invite" type`
 
@@ -22450,7 +23193,7 @@ Retrieve an invite by ID.
 
 #### Returns
 
-- `OrganizationInvite`
+- `class OrganizationInvite`
 
   - `"invite" type`
 
@@ -22540,7 +23283,7 @@ Delete a pending invite.
 
 #### Returns
 
-- `InviteDeleteResponse`
+- `class InviteDeleteResponse`
 
   - `"invite_deleted" type`
 
@@ -22583,7 +23326,7 @@ var_dump($invite);
 
 **POST** `/v1/organizations/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Create a service account.
 
@@ -22615,7 +23358,7 @@ accounts.
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -22702,7 +23445,7 @@ var_dump($betaServiceAccount);
 
 **GET** `/v1/organizations/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List service accounts in the caller's organization.
 
@@ -22734,7 +23477,7 @@ archived service accounts.
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -22826,7 +23569,7 @@ var_dump($page);
 
 **GET** `/v1/organizations/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a service account by its ID (`svac_...`).
 
@@ -22842,7 +23585,7 @@ Retrieve a service account by its ID (`svac_...`).
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -22926,7 +23669,7 @@ var_dump($betaServiceAccount);
 
 **POST** `/v1/organizations/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Update a service account.
 
@@ -22955,7 +23698,7 @@ interactive credential (a user OAuth token or a Console session).
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -23042,7 +23785,7 @@ var_dump($betaServiceAccount);
 
 **POST** `/v1/organizations/service_accounts/{service_account_id}/archive`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Archive a service account.
 
@@ -23063,7 +23806,7 @@ those rules first or change their target to another service account.
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -23149,7 +23892,7 @@ var_dump($betaServiceAccount);
 
 **POST** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Add a service account to a workspace with the given `workspace_role`.
 
@@ -23180,7 +23923,7 @@ rejected.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -23247,7 +23990,7 @@ var_dump($betaServiceAccountWorkspaceMember);
 
 **GET** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List the workspaces a service account is a member of.
 
@@ -23287,7 +24030,7 @@ page to recover.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -23354,7 +24097,7 @@ var_dump($page);
 
 **DELETE** `/v1/organizations/service_accounts/{service_account_id}/workspaces/{workspace_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Remove a service account from a workspace.
 
@@ -23382,7 +24125,7 @@ to the implicit `workspace_user` membership. Archived workspaces return
 
 #### Returns
 
-- `WorkspaceRemoveResponse`
+- `class WorkspaceRemoveResponse`
 
   - `"service_account_workspace_member_deleted" type`
 
@@ -23462,7 +24205,7 @@ List the organization's members.
 
 #### Returns
 
-- `OrganizationUser`
+- `class OrganizationUser`
 
   - `"user" type`
 
@@ -23546,7 +24289,7 @@ Retrieve a member of the organization by user ID.
 
 #### Returns
 
-- `OrganizationUser`
+- `class OrganizationUser`
 
   - `"user" type`
 
@@ -23623,7 +24366,7 @@ Update a member's organization role.
 
 #### Returns
 
-- `OrganizationUser`
+- `class OrganizationUser`
 
   - `"user" type`
 
@@ -23696,7 +24439,7 @@ Remove a member from the organization.
 
 #### Returns
 
-- `UserRemoveResponse`
+- `class UserRemoveResponse`
 
   - `"user_deleted" type`
 
@@ -23767,7 +24510,7 @@ List Workspaces
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -23859,8 +24602,8 @@ var_dump($page);
       "created_at": "2024-10-30T23:58:27.427722Z",
       "data_residency": {
         "allowed_inference_geos": "unrestricted",
-        "default_inference_geo": "default_inference_geo",
-        "workspace_geo": "workspace_geo"
+        "default_inference_geo": "global",
+        "workspace_geo": "us"
       },
       "display_color": "#6C5BB9",
       "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -23924,7 +24667,7 @@ Create Workspace
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -24023,8 +24766,8 @@ var_dump($betaWorkspace);
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -24053,7 +24796,7 @@ Get Workspace
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -24143,8 +24886,8 @@ var_dump($betaWorkspace);
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -24201,7 +24944,7 @@ Update Workspace
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -24298,8 +25041,8 @@ var_dump($betaWorkspace);
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -24326,7 +25069,7 @@ Archive Workspace
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -24416,8 +25159,8 @@ var_dump($betaWorkspace);
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -24434,15 +25177,17 @@ var_dump($betaWorkspace);
 
 ### List Workspace Rate Limits
 
-`$client->beta->organization->workspaces->rateLimits->list(string workspaceID, ?GroupType groupType, ?int limit, ?string page): PageCursor<BetaWorkspaceRateLimit>`
+`$client->beta->organization->workspaces->rateLimits->list(string workspaceID, ?GroupType groupType, ?bool includeInherited, ?int limit, ?string page): PageCursor<BetaWorkspaceRateLimit>`
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/rate_limits`
 
-List rate-limit overrides configured for a workspace.
+List a workspace's rate limits.
 
-Returns only the groups and limiter types that have a workspace-level
-override. Groups without overrides inherit the organization limits and
-are not listed; use `GET /v1/organizations/rate_limits` to see those.
+By default, returns only the groups and limiter types that have a
+workspace-level override. With `include_inherited=true`, returns every
+group with organization-level limits the workspace can see, listing for
+each the values it inherits from the organization as well as its own
+overrides. Each value's `source` says which it is.
 
 When `limit` is omitted, every matching entry is returned in a single
 page; when `limit` truncates the result, follow `next_page` to fetch
@@ -24458,6 +25203,12 @@ the remaining entries.
 
   Filter by group type.
 
+- `includeInherited?:optional bool`
+
+  Also list the limiter values the workspace inherits from the organization, including groups with no workspace-level override.
+
+  default: false
+
 - `limit?:optional int`
 
   Maximum number of items to return per page. Ranges from `1` to `1000`.
@@ -24470,19 +25221,19 @@ the remaining entries.
 
 #### Returns
 
-- `BetaWorkspaceRateLimit`
+- `class BetaWorkspaceRateLimit`
 
   - `"workspace_rate_limit" type`
 
     Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
 
-  - `GroupType groupType`
+  - `Group group`
 
-    The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+    The rate-limit group this entry's limits apply to. Its `type` equals `group_type`.
 
   - `list<BetaWorkspaceRateLimitValue> limits`
 
-    The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
+    The workspace's limiter values for this group. By default only the limiter types with a workspace-level override are listed. With `include_inherited` set to `true`, the limiter types the workspace inherits from the organization are listed too, each marked by `source`.
 
   - `?list<string> models`
 
@@ -24490,11 +25241,17 @@ the remaining entries.
 
   - `string rateLimitID`
 
-    The `id` of the RateLimit group this override applies to.
+    The `id` of the organization's RateLimit entry this entry applies to.
 
   - `string workspaceID`
 
-    ID of the Workspace this override applies to.
+    ID of the Workspace this entry applies to.
+
+  - `GroupType groupType`
+
+    **Deprecated**: Use `group.type` instead. `group_type` is still returned and always equals `group.type`.
+
+    Deprecated: use `group.type` instead. The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`. Always equal to `group.type`.
 
 #### Example
 
@@ -24506,7 +25263,11 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->beta->organization->workspaces->rateLimits->list(
-  'workspace_id', groupType: 'batch', limit: 1, page: 'page'
+  'workspace_id',
+  groupType: 'batch',
+  includeInherited: true,
+  limit: 1,
+  page: 'page',
 );
 
 var_dump($page);
@@ -24518,10 +25279,18 @@ var_dump($page);
 {
   "data": [
     {
+      "group": {
+        "id": "id",
+        "display_name": "display_name",
+        "type": "model_group"
+      },
       "group_type": "batch",
       "limits": [
         {
           "org_limit": 0,
+          "source": {
+            "type": "workspace"
+          },
           "type": "type",
           "value": 0
         }
@@ -24572,7 +25341,7 @@ List Workspace Members
 
 #### Returns
 
-- `WorkspaceMember`
+- `class WorkspaceMember`
 
   - `"workspace_member" type`
 
@@ -24650,7 +25419,7 @@ Create Workspace Member
 
 #### Returns
 
-- `WorkspaceMember`
+- `class WorkspaceMember`
 
   - `"workspace_member" type`
 
@@ -24719,7 +25488,7 @@ Get Workspace Member
 
 #### Returns
 
-- `WorkspaceMember`
+- `class WorkspaceMember`
 
   - `"workspace_member" type`
 
@@ -24793,7 +25562,7 @@ Update Workspace Member
 
 #### Returns
 
-- `WorkspaceMember`
+- `class WorkspaceMember`
 
   - `"workspace_member" type`
 
@@ -24862,7 +25631,7 @@ Delete Workspace Member
 
 #### Returns
 
-- `MemberRemoveResponse`
+- `class MemberRemoveResponse`
 
   - `"workspace_member_deleted" type`
 
@@ -24912,7 +25681,7 @@ var_dump($member);
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 List the service accounts that are members of a workspace.
 
@@ -24945,7 +25714,7 @@ omitted from the results.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -25012,7 +25781,7 @@ var_dump($page);
 
 **POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Add a service account to a workspace with the given `workspace_role`.
 
@@ -25045,7 +25814,7 @@ accounts cannot be added and are rejected.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -25112,7 +25881,7 @@ var_dump($betaServiceAccountWorkspaceMember);
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a service account's membership in a workspace.
 
@@ -25139,7 +25908,7 @@ account returns 404.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -25205,7 +25974,7 @@ var_dump($betaServiceAccountWorkspaceMember);
 
 **POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Change a service account's role in a workspace.
 
@@ -25236,7 +26005,7 @@ rejected.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -25303,7 +26072,7 @@ var_dump($betaServiceAccountWorkspaceMember);
 
 **DELETE** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
 
 Remove a service account from a workspace.
 
@@ -25329,7 +26098,7 @@ membership. Archived workspaces return 400.
 
 #### Returns
 
-- `ServiceAccountRemoveResponse`
+- `class ServiceAccountRemoveResponse`
 
   - `"service_account_workspace_member_deleted" type`
 
@@ -25414,7 +26183,7 @@ the remaining entries.
 
 #### Returns
 
-- `OrganizationRateLimit`
+- `class OrganizationRateLimit`
 
   - `"rate_limit" type`
 
@@ -25422,11 +26191,11 @@ the remaining entries.
 
   - `string id`
 
-    Stable identifier for this rate-limit group within the organization.
+    Identifier of this rate-limit entry. It is stable within the organization and differs between organizations; the group's own identifier is `group.id`.
 
-  - `GroupType groupType`
+  - `Group group`
 
-    The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+    The rate-limit group this entry's limits apply to. Its `type` equals `group_type`.
 
   - `list<OrganizationRateLimitValue> limits`
 
@@ -25435,6 +26204,12 @@ the remaining entries.
   - `?list<string> models`
 
     Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
+
+  - `GroupType groupType`
+
+    **Deprecated**: Use `group.type` instead. `group_type` is still returned and always equals `group.type`.
+
+    Deprecated: use `group.type` instead. The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`. Always equal to `group.type`.
 
 #### Example
 
@@ -25459,6 +26234,11 @@ var_dump($page);
   "data": [
     {
       "id": "id",
+      "group": {
+        "id": "id",
+        "display_name": "display_name",
+        "type": "model_group"
+      },
       "group_type": "batch",
       "limits": [
         {
@@ -25493,7 +26273,7 @@ organization reads the state inherited from the parent's configuration.
 
 #### Returns
 
-- `ComplianceSettings`
+- `class ComplianceSettings`
 
   - `"compliance_settings" type`
 
@@ -25559,7 +26339,7 @@ compliance settings.
 
 #### Returns
 
-- `ComplianceSettings`
+- `class ComplianceSettings`
 
   - `"compliance_settings" type`
 
@@ -25593,5 +26373,2421 @@ var_dump($betaComplianceSettings);
     "type": "enabled"
   },
   "type": "compliance_settings"
+}
+```
+
+## Beta › Organization › Plugins
+
+### Create Plugin
+
+`$client->beta->organization->plugins->create(list<string> files, ?string marketplaceID, ?string releaseNotes, ?list<AnthropicBeta> betas): Plugin`
+
+**POST** `/v1/organizations/plugins`
+
+Create an organization-owned Plugin and its first version by uploading the
+version's files.
+
+The upload is `multipart/form-data`: the version's files (`files`, each part sent
+as `files[]`), with an optional `marketplace_id` and `release_notes`. The manifest's `name` becomes the
+Plugin's `name`, and `display_name`, `description` and `manifest_version` come
+from the manifest too.
+
+`name` may contain lowercase letters (from any alphabet), digits, and hyphens, up
+to 64 characters. Uppercase letters, spaces, underscores, and other punctuation are
+rejected.
+
+The `name` must be unique within the marketplace: a name already taken
+returns a 409 with `error_code` `plugin_name_taken` and, when a Plugin holds it,
+that Plugin's ID in `details.plugin_id`. A Plugin going into the organization's
+library marketplace is also refused with a 409 when one of its skills has the name of
+an organization skill (a skill an administrator uploaded for the whole organization
+in claude.ai): `error_code` `skill_name_taken`, with that name in
+`details.skill_name`; rename the skill, or remove the organization skill in
+claude.ai. A 503 with `error_code`
+`registration_pending` means the Plugin and its version were stored (their IDs are
+in `details`) but are not yet usable in claude.ai: do not retry the create (the
+retry would return `plugin_name_taken`); create a version on the stored Plugin
+instead, which completes it.
+
+For a worked example, see [Create a plugin](https://platform.claude.com/docs/en/manage-claude/plugins-api#create-a-plugin)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `files: list<string>`
+
+  The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+
+- `marketplaceID?:optional string`
+
+  ID of the organization-owned plugin marketplace to create the Plugin in (prefixed `marketplace_`). It must be a `manual` marketplace, one whose Plugins are uploaded rather than synchronized from a repository. When omitted, the Plugin is created in the organization's library marketplace, an organization-owned `manual` marketplace created on first use.
+
+- `releaseNotes?:optional string`
+
+  Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class Plugin`
+
+  - `"plugin" type`
+
+    Always `plugin`.
+
+  - `string id`
+
+    The Plugin's ID.
+
+  - `?list<PluginComponent> components`
+
+    What the served version contains; null when not enumerated.
+
+  - `?PluginContentScan contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?CreatedBy createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+  - `?string description`
+
+    The served version's description.
+
+  - `?string displayName`
+
+    The served version's display name.
+
+  - `string latestVersionID`
+
+    The newest version.
+
+  - `?string manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `string marketplaceID`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `string name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `?OrganizationInstallationPreference organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+  - `?bool organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+  - `?Reach reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+  - `string servedVersionID`
+
+    The version claude.ai serves to members.
+
+  - `bool servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `\Datetime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPlugin = $client->beta->organization->plugins->create(
+  files: [
+    FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
+  ],
+  marketplaceID: 'marketplace_id',
+  releaseNotes: 'release_notes',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPlugin);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Get Plugin
+
+`$client->beta->organization->plugins->retrieve(string pluginID, ?string organizationID, ?list<AnthropicBeta> betas): Plugin`
+
+**GET** `/v1/organizations/plugins/{plugin_id}`
+
+Retrieve a Plugin by ID.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `organizationID?:optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class Plugin`
+
+  - `"plugin" type`
+
+    Always `plugin`.
+
+  - `string id`
+
+    The Plugin's ID.
+
+  - `?list<PluginComponent> components`
+
+    What the served version contains; null when not enumerated.
+
+  - `?PluginContentScan contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?CreatedBy createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+  - `?string description`
+
+    The served version's description.
+
+  - `?string displayName`
+
+    The served version's display name.
+
+  - `string latestVersionID`
+
+    The newest version.
+
+  - `?string manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `string marketplaceID`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `string name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `?OrganizationInstallationPreference organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+  - `?bool organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+  - `?Reach reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+  - `string servedVersionID`
+
+    The version claude.ai serves to members.
+
+  - `bool servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `\Datetime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPlugin = $client->beta->organization->plugins->retrieve(
+  'plugin_id',
+  organizationID: 'organization_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPlugin);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Update Plugin
+
+`$client->beta->organization->plugins->update(string pluginID, string servedVersionID, ?list<AnthropicBeta> betas): Plugin`
+
+**POST** `/v1/organizations/plugins/{plugin_id}`
+
+Change which stored version of an organization-owned Plugin is served to members,
+for example to roll back to an earlier one. This pins the served version: later
+uploads are stored but no longer change what is served, and pinning cannot currently
+be undone, here or in claude.ai.
+
+Pass the version as `served_version_id`: an earlier one to roll back, a later one to
+start serving a version that was stored without being served, or the one already
+served to pin it without changing what is served. No new version is created.
+
+When the organization has content scanning enabled, a version whose scan is still
+running is refused with a 409 (`error_code` `scan_pending`; retry once the scan
+finishes) and one whose scan failed, errored or reached no verdict with a 400
+(`scan_failed`; a `warn` is accepted). When the Plugin is in the organization's
+library marketplace, a version other than the one served is also refused with a 409
+when one of its skills has a name that an organization skill (one an administrator
+uploaded for the whole organization in claude.ai) has since taken: `error_code`
+`skill_name_taken`, with that name in `details.skill_name`. A member-owned Plugin
+cannot be updated here (403).
+
+This endpoint does not write installation settings; they are written at
+`/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `servedVersionID: string`
+
+  Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class Plugin`
+
+  - `"plugin" type`
+
+    Always `plugin`.
+
+  - `string id`
+
+    The Plugin's ID.
+
+  - `?list<PluginComponent> components`
+
+    What the served version contains; null when not enumerated.
+
+  - `?PluginContentScan contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?CreatedBy createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+  - `?string description`
+
+    The served version's description.
+
+  - `?string displayName`
+
+    The served version's display name.
+
+  - `string latestVersionID`
+
+    The newest version.
+
+  - `?string manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `string marketplaceID`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `string name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `?OrganizationInstallationPreference organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+  - `?bool organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+  - `?Reach reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+  - `string servedVersionID`
+
+    The version claude.ai serves to members.
+
+  - `bool servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `\Datetime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPlugin = $client->beta->organization->plugins->update(
+  'plugin_id',
+  servedVersionID: 'pluginver_01KaZmQpRsTuVwXyZ2b4c6d8',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPlugin);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### List Plugins
+
+`$client->beta->organization->plugins->list(?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?int limit, ?string marketplaceID, ?string organizationID, ?OwnerType ownerType, ?string ownerUserID, ?string page, ?list<AnthropicBeta> betas): PageCursor<Plugin>`
+
+**GET** `/v1/organizations/plugins`
+
+List the Plugins created under the organization, newest first: those in the
+organization's own plugin marketplaces and those in members' personal plugin
+marketplaces.
+
+Plugins in members' personal marketplaces are listed with the same detail as the
+organization's own, and their files can be downloaded through the version archive
+endpoint, which records each such download on the Compliance API activity feed.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `createdAtGt?:optional \Datetime`
+
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+- `createdAtGte?:optional \Datetime`
+
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+- `createdAtLt?:optional \Datetime`
+
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+- `createdAtLte?:optional \Datetime`
+
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `100`.
+
+  default: 20
+
+- `marketplaceID?:optional string`
+
+  Only Plugins in this plugin marketplace (prefixed `marketplace_`).
+
+- `organizationID?:optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `ownerType?:optional OwnerType`
+
+  `organization` for Plugins in the organization's plugin marketplaces, `user` for Plugins in members' personal plugin marketplaces.
+
+- `ownerUserID?:optional string`
+
+  Only Plugins in this member's personal plugin marketplaces (prefixed `user_`); a removed member's ID is accepted.
+
+- `page?:optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class Plugin`
+
+  - `"plugin" type`
+
+    Always `plugin`.
+
+  - `string id`
+
+    The Plugin's ID.
+
+  - `?list<PluginComponent> components`
+
+    What the served version contains; null when not enumerated.
+
+  - `?PluginContentScan contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?CreatedBy createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+  - `?string description`
+
+    The served version's description.
+
+  - `?string displayName`
+
+    The served version's display name.
+
+  - `string latestVersionID`
+
+    The newest version.
+
+  - `?string manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `string marketplaceID`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `string name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `?OrganizationInstallationPreference organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+  - `?bool organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+  - `?Reach reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+  - `string servedVersionID`
+
+    The version claude.ai serves to members.
+
+  - `bool servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `\Datetime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->plugins->list(
+  createdAtGt: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  createdAtGte: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  createdAtLt: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  createdAtLte: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  limit: 1,
+  marketplaceID: 'marketplace_id',
+  organizationID: 'organization_id',
+  ownerType: 'organization',
+  ownerUserID: 'owner_user_id',
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "components": [
+        {
+          "description": "description",
+          "name": "review-pr",
+          "type": "skill"
+        }
+      ],
+      "content_scan": {
+        "assessment": "warn",
+        "reason": "credential-exposure",
+        "status": "completed"
+      },
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "created_by": {
+        "email_address": "user@example.com",
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "description": "Reviews pull requests against your team's conventions.",
+      "display_name": "Code Review Helper",
+      "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+      "manifest_version": "1.2.0",
+      "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+      "name": "code-review-helper",
+      "organization_installation_preference": "available",
+      "organization_installation_preference_inherited": true,
+      "owner": {
+        "type": "organization"
+      },
+      "reach": "contained",
+      "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+      "served_version_pinned": true,
+      "type": "plugin",
+      "updated_at": "2026-03-14T09:26:53.589793Z"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Delete Plugin
+
+`$client->beta->organization->plugins->delete(string pluginID, ?list<AnthropicBeta> betas): DeletedPlugin`
+
+**DELETE** `/v1/organizations/plugins/{plugin_id}`
+
+Permanently delete a Plugin and every version it holds, exactly as when an
+administrator deletes it in claude.ai. The Plugin may belong to the organization or
+to a member, including a member who has since left the organization.
+
+An organization-owned Plugin's installation settings go with it; a member-owned
+Plugin's shares are withdrawn and its owner no longer has it.
+
+To take an organization-owned Plugin out of use reversibly, set its
+organization-wide installation setting to `not_available` instead (and
+remove or change any group settings, which override it for their members). Only a
+Plugin in a `manual` marketplace can be deleted here; one synchronized from a
+repository is removed by removing it from the repository (400).
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class DeletedPlugin`
+
+  - `"plugin_deleted" type`
+
+    Always `plugin_deleted`.
+
+  - `string id`
+
+    The deleted Plugin's ID.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaDeletedPlugin = $client->beta->organization->plugins->delete(
+  'plugin_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+);
+
+var_dump($betaDeletedPlugin);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "type": "plugin_deleted"
+}
+```
+
+## Beta › Organization › Plugins › Versions
+
+### Create Plugin Version
+
+`$client->beta->organization->plugins->versions->create(string pluginID, list<string> files, ?string releaseNotes, ?list<AnthropicBeta> betas): BetaPluginVersion`
+
+**POST** `/v1/organizations/plugins/{plugin_id}/versions`
+
+Add a version to an organization-owned Plugin by uploading the new version's
+files; it becomes the version served to members unless the Plugin's served version
+has been pinned.
+
+The upload is the same `multipart/form-data` as creating a Plugin: the version's
+files (`files`, each part sent as `files[]`) and optional `release_notes`. The uploaded manifest's `name`
+must equal the Plugin's `name`. Returns the stored version; read the Plugin back to
+see which version it serves.
+
+Only a Plugin in a `manual` marketplace takes uploads; a Plugin synchronized from
+a repository gets its versions from the repository. When the Plugin is in the
+organization's library marketplace, a version that adds a skill with the name of an
+organization skill (a skill an administrator uploaded for the whole organization in
+claude.ai) is refused with a 409: `error_code` `skill_name_taken`, with that name in
+`details.skill_name`. A 503 with `error_code`
+`registration_pending` means the version was stored but is not yet usable; a later
+version create on the Plugin completes it.
+
+For a worked example, see [Create a version](https://platform.claude.com/docs/en/manage-claude/plugins-api#create-a-version)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `files: list<string>`
+
+  The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+
+- `releaseNotes?:optional string`
+
+  Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class BetaPluginVersion`
+
+  - `"plugin_version" type`
+
+    Always `plugin_version`.
+
+  - `string id`
+
+    The version's ID.
+
+  - `?list<PluginComponent> components`
+
+    What the version contains; null when not enumerated.
+
+  - `?PluginContentScan contentScan`
+
+    This version's content scan; null when it has not been scanned.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?CreatedBy createdBy`
+
+    Who uploaded this version; null when not recorded.
+
+  - `?string description`
+
+    The manifest's description; null when it declares none.
+
+  - `?string displayName`
+
+    The manifest's display name; null when it declares none.
+
+  - `?string manifestVersion`
+
+    The version string the manifest declares; null when it declares none.
+
+  - `string pluginID`
+
+    The Plugin's ID.
+
+  - `?Reach reach`
+
+    How far the version reaches: `remote`, `privileged` or `contained`, as on the Plugin; null when not classifiable.
+
+  - `?string releaseNotes`
+
+    As supplied with the upload; null when none were supplied.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPluginVersion = $client->beta->organization->plugins->versions->create(
+  'plugin_id',
+  files: [
+    FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
+  ],
+  releaseNotes: 'release_notes',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPluginVersion);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "manifest_version": "1.2.0",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "reach": "contained",
+  "release_notes": "Adds a review checklist for database migrations.",
+  "type": "plugin_version"
+}
+```
+
+### List Plugin Versions
+
+`$client->beta->organization->plugins->versions->list(string pluginID, ?int limit, ?string organizationID, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaPluginVersion>`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/versions`
+
+List a Plugin's versions, newest first.
+
+The first item of the first page is the version the Plugin's `latest_version_id`
+refers to.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20
+
+- `organizationID?:optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `page?:optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class BetaPluginVersion`
+
+  - `"plugin_version" type`
+
+    Always `plugin_version`.
+
+  - `string id`
+
+    The version's ID.
+
+  - `?list<PluginComponent> components`
+
+    What the version contains; null when not enumerated.
+
+  - `?PluginContentScan contentScan`
+
+    This version's content scan; null when it has not been scanned.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?CreatedBy createdBy`
+
+    Who uploaded this version; null when not recorded.
+
+  - `?string description`
+
+    The manifest's description; null when it declares none.
+
+  - `?string displayName`
+
+    The manifest's display name; null when it declares none.
+
+  - `?string manifestVersion`
+
+    The version string the manifest declares; null when it declares none.
+
+  - `string pluginID`
+
+    The Plugin's ID.
+
+  - `?Reach reach`
+
+    How far the version reaches: `remote`, `privileged` or `contained`, as on the Plugin; null when not classifiable.
+
+  - `?string releaseNotes`
+
+    As supplied with the upload; null when none were supplied.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->plugins->versions->list(
+  'plugin_id',
+  limit: 1,
+  organizationID: 'organization_id',
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+      "components": [
+        {
+          "description": "description",
+          "name": "review-pr",
+          "type": "skill"
+        }
+      ],
+      "content_scan": {
+        "assessment": "warn",
+        "reason": "credential-exposure",
+        "status": "completed"
+      },
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "created_by": {
+        "email_address": "user@example.com",
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "description": "Reviews pull requests against your team's conventions.",
+      "display_name": "Code Review Helper",
+      "manifest_version": "1.2.0",
+      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "reach": "contained",
+      "release_notes": "Adds a review checklist for database migrations.",
+      "type": "plugin_version"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Get Plugin Version
+
+`$client->beta->organization->plugins->versions->retrieve(string version, string pluginID, ?string organizationID, ?list<AnthropicBeta> betas): BetaPluginVersion`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/versions/{version}`
+
+Retrieve one version of a Plugin by its ID, or the Plugin's newest version.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `version: string`
+
+  ID of the Plugin Version (prefixed `pluginver_`), or `latest` for the newest one.
+
+- `organizationID?:optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class BetaPluginVersion`
+
+  - `"plugin_version" type`
+
+    Always `plugin_version`.
+
+  - `string id`
+
+    The version's ID.
+
+  - `?list<PluginComponent> components`
+
+    What the version contains; null when not enumerated.
+
+  - `?PluginContentScan contentScan`
+
+    This version's content scan; null when it has not been scanned.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?CreatedBy createdBy`
+
+    Who uploaded this version; null when not recorded.
+
+  - `?string description`
+
+    The manifest's description; null when it declares none.
+
+  - `?string displayName`
+
+    The manifest's display name; null when it declares none.
+
+  - `?string manifestVersion`
+
+    The version string the manifest declares; null when it declares none.
+
+  - `string pluginID`
+
+    The Plugin's ID.
+
+  - `?Reach reach`
+
+    How far the version reaches: `remote`, `privileged` or `contained`, as on the Plugin; null when not classifiable.
+
+  - `?string releaseNotes`
+
+    As supplied with the upload; null when none were supplied.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPluginVersion = $client->beta->organization->plugins->versions->retrieve(
+  'version',
+  pluginID: 'plugin_id',
+  organizationID: 'organization_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPluginVersion);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "manifest_version": "1.2.0",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "reach": "contained",
+  "release_notes": "Adds a review checklist for database migrations.",
+  "type": "plugin_version"
+}
+```
+
+### Download Plugin Version Archive
+
+`$client->beta->organization->plugins->versions->download(string version, string pluginID, ?string organizationID, ?list<AnthropicBeta> betas): download`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/versions/{version}/content`
+
+Download one version's `.zip` archive, exactly as stored. Each download of a
+Plugin from a member's personal plugin marketplace is recorded on the Compliance API
+activity feed.
+
+The response body is the archive (`Content-Type: application/zip`), sent as an
+attachment whose filename is derived from the Plugin's name; name saved files from
+the IDs in the request path, since that filename is not unique.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every read scope above (`read:plugins`, `read:org_audit`, and
+`read:compliance_org_data`) can download the files of plugins in members' personal
+marketplaces, including files that claude.ai's admin settings do not show, and a
+`read:org_audit` or `read:compliance_org_data` key created for all of your parent
+organization's linked organizations can do this in any organization under it that has
+access to this API, by passing `organization_id`. Each such download records a
+`claude_plugin_archive_accessed` event on the Compliance API activity feed,
+identifying the key, the plugin, the version, and the member. Downloads of
+organization-owned plugins are not recorded.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `version: string`
+
+  ID of the Plugin Version (prefixed `pluginver_`). `latest` is not accepted here.
+
+- `organizationID?:optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `mixed`
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$response = $client->beta->organization->plugins->versions->download(
+  'version',
+  pluginID: 'plugin_id',
+  organizationID: 'organization_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($response);
+```
+
+## Beta › Organization › Plugins › Installation Settings
+
+### List Plugin Installation Settings
+
+`$client->beta->organization->plugins->installationSettings->list(string pluginID, ?int limit, ?string organizationID, ?string page, ?TargetType targetType, ?list<AnthropicBeta> betas): PageCursor<BetaPluginInstallationSetting>`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/installation_settings`
+
+List an organization-owned Plugin's installation settings, which say which
+members it is for, most recently created first.
+
+The list holds the Plugin's own organization-wide setting (absent while the Plugin
+inherits its marketplace's default) and each RBAC Group's own setting. A
+member-owned Plugin has shares instead, so this path returns 404 for one.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `100`.
+
+  default: 20
+
+- `organizationID?:optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `page?:optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+- `targetType?:optional TargetType`
+
+  Only settings for this kind of target: `organization` (the organization-wide setting) or `rbac_group` (an RBAC Group's).
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class BetaPluginInstallationSetting`
+
+  - `"plugin_installation_setting" type`
+
+    Always `plugin_installation_setting`.
+
+  - `\Datetime createdAt`
+
+    When the target was first given a setting for this Plugin.
+
+  - `InstallationPreference installationPreference`
+
+    The setting the target holds for this Plugin. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+  - `string pluginID`
+
+    The Plugin's ID.
+
+  - `Target target`
+
+    Whose setting this is: `organization` (the Plugin's own organization-wide setting) or `rbac_group` (one RBAC Group's own setting); `organization_member` does not occur here.
+
+  - `\Datetime updatedAt`
+
+    When its setting last changed.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->plugins->installationSettings->list(
+  'plugin_id',
+  limit: 1,
+  organizationID: 'organization_id',
+  page: 'page',
+  targetType: 'organization',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "installation_preference": "required",
+      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "target": {
+        "type": "organization"
+      },
+      "type": "plugin_installation_setting",
+      "updated_at": "2026-03-14T09:26:53.589793Z"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Set Plugin Installation Setting
+
+`$client->beta->organization->plugins->installationSettings->set(string target, string pluginID, InstallationPreference installationPreference, ?list<AnthropicBeta> betas): BetaPluginInstallationSetting`
+
+**POST** `/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`
+
+Set or change an organization-owned Plugin's installation setting for the whole
+organization or for one RBAC Group.
+
+Writing the value a target already holds of its own changes nothing.
+
+A member-owned Plugin has shares instead of installation settings, so this path
+returns 404 for one.
+
+Send a Plugin's installation-setting writes one at a time. If several writes for the
+same Plugin arrive at the same time, the server handles them one after another and
+can answer some of them with `503` instead of applying them. That `503` carries
+`x-should-retry: true`, and the write is safe to repeat: wait a second or two, then
+send it again.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `target: string`
+
+  The target whose setting is written: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Writing the `organization` target stops the Plugin from inheriting its marketplace's default, even when the value written equals that default.
+
+- `installationPreference: InstallationPreference`
+
+  The installation setting the target is to hold for this Plugin: one of `required`, `auto_install`, `available`, `not_available`.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class BetaPluginInstallationSetting`
+
+  - `"plugin_installation_setting" type`
+
+    Always `plugin_installation_setting`.
+
+  - `\Datetime createdAt`
+
+    When the target was first given a setting for this Plugin.
+
+  - `InstallationPreference installationPreference`
+
+    The setting the target holds for this Plugin. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+  - `string pluginID`
+
+    The Plugin's ID.
+
+  - `Target target`
+
+    Whose setting this is: `organization` (the Plugin's own organization-wide setting) or `rbac_group` (one RBAC Group's own setting); `organization_member` does not occur here.
+
+  - `\Datetime updatedAt`
+
+    When its setting last changed.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPluginInstallationSetting = $client
+  ->beta
+  ->organization
+  ->plugins
+  ->installationSettings
+  ->set(
+  'target',
+  pluginID: 'plugin_id',
+  installationPreference: 'required',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPluginInstallationSetting);
+```
+
+##### Response (200)
+
+```json
+{
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "installation_preference": "required",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "target": {
+    "type": "organization"
+  },
+  "type": "plugin_installation_setting",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Remove Plugin Installation Setting
+
+`$client->beta->organization->plugins->installationSettings->remove(string target, string pluginID, ?list<AnthropicBeta> betas): BetaDeletedPluginInstallationSetting`
+
+**DELETE** `/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`
+
+Remove an organization-owned Plugin's own installation setting for the whole
+organization or for one RBAC Group.
+
+Removing the `organization` target returns the Plugin to its marketplace's default
+installation setting and leaves the groups' settings in place. Removing a group's
+setting makes the group's members fall back to the Plugin's organization-wide setting
+or to the settings of their other groups.
+
+A target that holds no setting of its own returns 404 (a Plugin that already inherits
+its marketplace's default holds no `organization` setting), and so does a member-owned
+Plugin.
+
+A removal counts as one of the Plugin's installation-setting writes: send all of those
+writes one at a time. If several arrive for the same Plugin at the same time, the server
+handles them one after another and can answer some of them with `503` and
+`x-should-retry: true` instead of applying them; wait a second or two and send the
+removal again. A `404` on the repeat means the setting is already gone.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `target: string`
+
+  The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class BetaDeletedPluginInstallationSetting`
+
+  - `"plugin_installation_setting_deleted" type`
+
+    Always `plugin_installation_setting_deleted`.
+
+  - `string pluginID`
+
+    The Plugin's ID.
+
+  - `Target target`
+
+    Whose setting was removed.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaDeletedPluginInstallationSetting = $client
+  ->beta
+  ->organization
+  ->plugins
+  ->installationSettings
+  ->remove(
+  'target',
+  pluginID: 'plugin_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaDeletedPluginInstallationSetting);
+```
+
+##### Response (200)
+
+```json
+{
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "target": {
+    "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+    "type": "rbac_group"
+  },
+  "type": "plugin_installation_setting_deleted"
+}
+```
+
+## Beta › Organization › Plugins › Shares
+
+### List Plugin Shares
+
+`$client->beta->organization->plugins->shares->list(string pluginID, ?int limit, ?string organizationID, ?string page, ?TargetType targetType, ?list<AnthropicBeta> betas): PageCursor<BetaPluginShare>`
+
+**GET** `/v1/organizations/plugins/{plugin_id}/shares`
+
+List the shares the owner of a member-owned Plugin has given — to every member of
+the organization, to an RBAC Group, or to one member — most recently granted first.
+
+Shares are read-only in this API: members give and withdraw them in claude.ai, and
+who gave a share is recorded on the Compliance API activity feed rather than on the
+share. An organization-owned Plugin has installation settings instead, so this path
+returns 404 for one.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `pluginID: string`
+
+  ID of the Plugin (prefixed `plugin_`).
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `100`.
+
+  default: 20
+
+- `organizationID?:optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `page?:optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+- `targetType?:optional TargetType`
+
+  Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class BetaPluginShare`
+
+  - `"plugin_share" type`
+
+    Always `plugin_share`.
+
+  - `\Datetime grantedAt`
+
+    When the share was given; a share whose role is later changed in claude.ai is re-granted and carries the time of that change.
+
+  - `string pluginID`
+
+    The Plugin's ID.
+
+  - `Target target`
+
+    Who the Plugin is shared with: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->plugins->shares->list(
+  'plugin_id',
+  limit: 1,
+  organizationID: 'organization_id',
+  page: 'page',
+  targetType: 'organization',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "granted_at": "2026-03-14T09:26:53.589793Z",
+      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+      "target": {
+        "type": "organization"
+      },
+      "type": "plugin_share"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+## Beta › Organization › Plugin Marketplaces
+
+### List Plugin Marketplaces
+
+`$client->beta->organization->pluginMarketplaces->list(?int limit, ?string organizationID, ?OwnerType ownerType, ?string page, ?Source source, ?list<AnthropicBeta> betas): PageCursor<PluginMarketplace>`
+
+**GET** `/v1/organizations/plugin_marketplaces`
+
+List the plugin marketplaces Plugins live in, newest first: the organization's own
+and its members' personal ones.
+
+Plugin marketplaces are created, connected to a repository and deleted in
+claude.ai, not through this API. The organization's library marketplace, the
+organization-owned `manual` marketplace that uploads go to when no marketplace is
+named, is created the first time something is put in it and is listed from then on.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20
+
+- `organizationID?:optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `ownerType?:optional OwnerType`
+
+  `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
+
+- `page?:optional string`
+
+  Optionally set to the `next_page` token from the previous response.
+
+- `source?:optional Source`
+
+  Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class PluginMarketplace`
+
+  - `"plugin_marketplace" type`
+
+    Always `plugin_marketplace`.
+
+  - `string id`
+
+    The plugin marketplace's ID, prefixed `marketplace_`.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?DefaultInstallationPreference defaultInstallationPreference`
+
+    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+  - `?\Datetime lastSyncEndedAt`
+
+    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
+
+  - `?string lastSyncReadSha`
+
+    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
+
+  - `string name`
+
+    Fixed for the plugin marketplace's lifetime.
+
+  - `Owner owner`
+
+    The organization, or the member whose personal plugin marketplace it is.
+
+  - `Source source`
+
+    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
+
+  - `?SyncStatus syncStatus`
+
+    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->pluginMarketplaces->list(
+  limit: 1,
+  organizationID: 'organization_id',
+  ownerType: 'organization',
+  page: 'page',
+  source: 'directory',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+      "created_at": "2026-03-14T09:26:53.589793Z",
+      "default_installation_preference": "available",
+      "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
+      "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+      "name": "engineering-tools",
+      "owner": {
+        "type": "organization"
+      },
+      "source": "github",
+      "sync_status": "success",
+      "type": "plugin_marketplace"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Get Plugin Marketplace
+
+`$client->beta->organization->pluginMarketplaces->retrieve(string marketplaceID, ?string organizationID, ?list<AnthropicBeta> betas): PluginMarketplace`
+
+**GET** `/v1/organizations/plugin_marketplaces/{marketplace_id}`
+
+Retrieve a plugin marketplace by ID.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `marketplaceID: string`
+
+  ID of the plugin marketplace (prefixed `marketplace_`).
+
+- `organizationID?:optional string`
+
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class PluginMarketplace`
+
+  - `"plugin_marketplace" type`
+
+    Always `plugin_marketplace`.
+
+  - `string id`
+
+    The plugin marketplace's ID, prefixed `marketplace_`.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?DefaultInstallationPreference defaultInstallationPreference`
+
+    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+  - `?\Datetime lastSyncEndedAt`
+
+    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
+
+  - `?string lastSyncReadSha`
+
+    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
+
+  - `string name`
+
+    Fixed for the plugin marketplace's lifetime.
+
+  - `Owner owner`
+
+    The organization, or the member whose personal plugin marketplace it is.
+
+  - `Source source`
+
+    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
+
+  - `?SyncStatus syncStatus`
+
+    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPluginMarketplace = $client
+  ->beta
+  ->organization
+  ->pluginMarketplaces
+  ->retrieve(
+  'marketplace_id',
+  organizationID: 'organization_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPluginMarketplace);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "default_installation_preference": "available",
+  "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
+  "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "name": "engineering-tools",
+  "owner": {
+    "type": "organization"
+  },
+  "source": "github",
+  "sync_status": "success",
+  "type": "plugin_marketplace"
+}
+```
+
+### Update Plugin Marketplace
+
+`$client->beta->organization->pluginMarketplaces->update(string marketplaceID, DefaultInstallationPreference defaultInstallationPreference, ?list<AnthropicBeta> betas): PluginMarketplace`
+
+**POST** `/v1/organizations/plugin_marketplaces/{marketplace_id}`
+
+Set the default installation setting of one of the organization's own plugin
+marketplaces. Every Plugin in it without a setting of its own gets this default as
+its organization-wide setting, including Plugins added later.
+
+Pass it as `default_installation_preference`. A member's personal marketplace
+cannot be updated here (403).
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `marketplaceID: string`
+
+  ID of the plugin marketplace (prefixed `marketplace_`).
+
+- `defaultInstallationPreference: DefaultInstallationPreference`
+
+  The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class PluginMarketplace`
+
+  - `"plugin_marketplace" type`
+
+    Always `plugin_marketplace`.
+
+  - `string id`
+
+    The plugin marketplace's ID, prefixed `marketplace_`.
+
+  - `\Datetime createdAt`
+
+    RFC 3339.
+
+  - `?DefaultInstallationPreference defaultInstallationPreference`
+
+    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+  - `?\Datetime lastSyncEndedAt`
+
+    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
+
+  - `?string lastSyncReadSha`
+
+    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
+
+  - `string name`
+
+    Fixed for the plugin marketplace's lifetime.
+
+  - `Owner owner`
+
+    The organization, or the member whose personal plugin marketplace it is.
+
+  - `Source source`
+
+    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
+
+  - `?SyncStatus syncStatus`
+
+    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPluginMarketplace = $client
+  ->beta
+  ->organization
+  ->pluginMarketplaces
+  ->update(
+  'marketplace_id',
+  defaultInstallationPreference: 'available',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPluginMarketplace);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "default_installation_preference": "available",
+  "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
+  "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "name": "engineering-tools",
+  "owner": {
+    "type": "organization"
+  },
+  "source": "github",
+  "sync_status": "success",
+  "type": "plugin_marketplace"
+}
+```
+
+### Validate Plugin Marketplace Repository
+
+`$client->beta->organization->pluginMarketplaces->validateRepository(string repositoryURL, ?string ref, ?list<AnthropicBeta> betas): PluginMarketplaceValidationReport`
+
+**POST** `/v1/organizations/plugin_marketplaces/validate_repository`
+
+Check whether a plugin marketplace held in a public GitHub repository would
+synchronize into claude.ai, without connecting or storing it.
+
+To check a `.zip` of the marketplace directory instead, use Validate Plugin Marketplace Archive.
+
+The report says whether `marketplace.json` is well-formed, which plugins a
+synchronization would skip and why, and which plugins would synchronize only in
+part, with some files left out. A repository that is missing, private, or has no such branch or commit is reported, not refused: the response is a report with `valid: false`. Plugin sources outside the marketplace
+are fetched anonymously from GitHub, so a private one is reported as not found; a
+source on any other host is not fetched here, and the report notes that it will be
+checked when the marketplace actually synchronizes.
+
+Nothing is recorded on the Compliance API activity feed.
+
+For a worked example, see [Validate marketplace content](https://platform.claude.com/docs/en/manage-claude/plugins-api#validate-marketplace-content)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not grant it.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `repositoryURL: string`
+
+  The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
+
+- `ref?:optional string`
+
+  The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class PluginMarketplaceValidationReport`
+
+  - `"plugin_marketplace_validation_report" type`
+
+    Always `plugin_marketplace_validation_report`.
+
+  - `?string commitSha`
+
+    The full SHA of the commit that was validated: for a repository, the commit that was read; for an uploaded archive, the commit recorded in the archive's comment (as a Git host's download writes it; not verified), else null.
+
+  - `?string manifestError`
+
+    Set when nothing could be validated: the repository or archive could not be read, or marketplace.json is missing, malformed or over a limit. Null otherwise.
+
+  - `?string manifestErrorCode`
+
+    A stable identifier for `manifest_error`; null when that is.
+
+  - `list<PluginMarketplaceValidationPluginError> pluginErrors`
+
+    One entry per plugin a synchronization would skip entirely, keyed by the plugin's name in marketplace.json.
+
+  - `list<PluginMarketplaceValidationPluginWarnings> pluginWarnings`
+
+    One entry per plugin that would synchronize with some of its contents left out, keyed by the plugin's name in marketplace.json.
+
+  - `?string ref`
+
+    For a repository, the branch that was read by name: the one requested, or else the branch a synchronization of this repository is set to read. Null when no branch is named or set and the repository's default branch was read, for a request by commit SHA, and for an uploaded archive.
+
+  - `int totalPluginCount`
+
+    How many plugins marketplace.json declares; 0 when it could not be read.
+
+  - `bool valid`
+
+    True when marketplace.json is well-formed and no plugin would be skipped; warnings never make it false.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPluginMarketplaceValidationReport = $client
+  ->beta
+  ->organization
+  ->pluginMarketplaces
+  ->validateRepository(
+  repositoryURL: 'https://github.com/example-org/example-marketplace',
+  ref: 'main',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPluginMarketplaceValidationReport);
+```
+
+##### Response (200)
+
+```json
+{
+  "commit_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "manifest_error": "manifest_error",
+  "manifest_error_code": "marketplace_sync_manifest_not_found",
+  "plugin_errors": [
+    {
+      "error": "error",
+      "error_code": "marketplace_sync_plugin_missing_manifest",
+      "name": "name"
+    }
+  ],
+  "plugin_warnings": [
+    {
+      "name": "name",
+      "warnings": [
+        {
+          "error_code": "marketplace_sync_zipball_symlink_dangling",
+          "message": "message"
+        }
+      ]
+    }
+  ],
+  "ref": "main",
+  "total_plugin_count": 0,
+  "type": "plugin_marketplace_validation_report",
+  "valid": false
+}
+```
+
+### Validate Plugin Marketplace Archive
+
+`$client->beta->organization->pluginMarketplaces->validateArchive(string archive, ?list<AnthropicBeta> betas): PluginMarketplaceValidationReport`
+
+**POST** `/v1/organizations/plugin_marketplaces/validate_archive`
+
+Check whether a plugin marketplace, uploaded as a `.zip` of the marketplace
+directory, would synchronize into claude.ai, without connecting or storing it.
+
+To check a public GitHub repository instead, use Validate Plugin Marketplace Repository.
+
+The report says whether `marketplace.json` is well-formed, which plugins a
+synchronization would skip and why, and which plugins would synchronize only in
+part, with some files left out. An archive that cannot be read as a marketplace is reported, not refused: the response is a report with `valid: false`. Plugin sources outside the marketplace
+are fetched anonymously from GitHub, so a private one is reported as not found; a
+source on any other host is not fetched here, and the report notes that it will be
+checked when the marketplace actually synchronizes.
+
+Nothing is recorded on the Compliance API activity feed.
+
+For a worked example, see [Validate marketplace content](https://platform.claude.com/docs/en/manage-claude/plugins-api#validate-marketplace-content)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not grant it.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `archive: string`
+
+  A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+#### Returns
+
+- `class PluginMarketplaceValidationReport`
+
+  - `"plugin_marketplace_validation_report" type`
+
+    Always `plugin_marketplace_validation_report`.
+
+  - `?string commitSha`
+
+    The full SHA of the commit that was validated: for a repository, the commit that was read; for an uploaded archive, the commit recorded in the archive's comment (as a Git host's download writes it; not verified), else null.
+
+  - `?string manifestError`
+
+    Set when nothing could be validated: the repository or archive could not be read, or marketplace.json is missing, malformed or over a limit. Null otherwise.
+
+  - `?string manifestErrorCode`
+
+    A stable identifier for `manifest_error`; null when that is.
+
+  - `list<PluginMarketplaceValidationPluginError> pluginErrors`
+
+    One entry per plugin a synchronization would skip entirely, keyed by the plugin's name in marketplace.json.
+
+  - `list<PluginMarketplaceValidationPluginWarnings> pluginWarnings`
+
+    One entry per plugin that would synchronize with some of its contents left out, keyed by the plugin's name in marketplace.json.
+
+  - `?string ref`
+
+    For a repository, the branch that was read by name: the one requested, or else the branch a synchronization of this repository is set to read. Null when no branch is named or set and the repository's default branch was read, for a request by commit SHA, and for an uploaded archive.
+
+  - `int totalPluginCount`
+
+    How many plugins marketplace.json declares; 0 when it could not be read.
+
+  - `bool valid`
+
+    True when marketplace.json is well-formed and no plugin would be skipped; warnings never make it false.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaPluginMarketplaceValidationReport = $client
+  ->beta
+  ->organization
+  ->pluginMarketplaces
+  ->validateArchive(
+  archive: FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaPluginMarketplaceValidationReport);
+```
+
+##### Response (200)
+
+```json
+{
+  "commit_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+  "manifest_error": "manifest_error",
+  "manifest_error_code": "marketplace_sync_manifest_not_found",
+  "plugin_errors": [
+    {
+      "error": "error",
+      "error_code": "marketplace_sync_plugin_missing_manifest",
+      "name": "name"
+    }
+  ],
+  "plugin_warnings": [
+    {
+      "name": "name",
+      "warnings": [
+        {
+          "error_code": "marketplace_sync_zipball_symlink_dangling",
+          "message": "message"
+        }
+      ]
+    }
+  ],
+  "ref": "main",
+  "total_plugin_count": 0,
+  "type": "plugin_marketplace_validation_report",
+  "valid": false
 }
 ```

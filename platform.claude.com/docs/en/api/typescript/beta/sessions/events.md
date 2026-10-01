@@ -47,7 +47,7 @@ List Events
 
   - `limit?: number`
 
-    Query param: Query parameter for limit
+    Query param
 
     format: int32
 
@@ -63,9 +63,77 @@ List Events
 
     Query param: Opaque pagination cursor from a previous response's `next_page`.
 
-  - `types?: Array<string>`
+  - `types?: Array<BetaManagedAgentsSessionEventType>`
 
     Query param: Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
+
+    - `"user.message"`
+
+    - `"user.interrupt"`
+
+    - `"user.tool_confirmation"`
+
+    - `"user.custom_tool_result"`
+
+    - `"agent.custom_tool_use"`
+
+    - `"agent.message"`
+
+    - `"agent.thinking"`
+
+    - `"agent.mcp_tool_use"`
+
+    - `"agent.mcp_tool_result"`
+
+    - `"agent.tool_use"`
+
+    - `"agent.tool_result"`
+
+    - `"agent.thread_message_received"`
+
+    - `"agent.thread_message_sent"`
+
+    - `"agent.thread_context_compacted"`
+
+    - `"session.error"`
+
+    - `"session.status_rescheduled"`
+
+    - `"session.status_running"`
+
+    - `"session.status_idle"`
+
+    - `"session.status_terminated"`
+
+    - `"session.thread_created"`
+
+    - `"span.outcome_evaluation_start"`
+
+    - `"span.outcome_evaluation_end"`
+
+    - `"span.model_request_start"`
+
+    - `"span.model_request_end"`
+
+    - `"span.outcome_evaluation_ongoing"`
+
+    - `"user.define_outcome"`
+
+    - `"session.thread_status_running"`
+
+    - `"session.thread_status_idle"`
+
+    - `"session.thread_status_terminated"`
+
+    - `"user.tool_result"`
+
+    - `"session.thread_status_rescheduled"`
+
+    - `"session.updated"`
+
+    - `"system.message"`
+
+    - `"session.usage"`
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -73,97 +141,103 @@ List Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -173,11 +247,11 @@ List Events
 
 ### Returns
 
-- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
+- `type BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
 
   Union type for all event types in a session.
 
-  - `BetaManagedAgentsUserMessageEvent`
+  - `interface BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
 
@@ -191,7 +265,7 @@ List Events
 
       Array of content blocks comprising the user message.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
@@ -203,7 +277,7 @@ List Events
 
           minLength: 1
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
@@ -211,9 +285,9 @@ List Events
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
-          - `BetaManagedAgentsBase64ImageSource`
+          - `interface BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
 
@@ -231,7 +305,7 @@ List Events
 
               minLength: 1
 
-          - `BetaManagedAgentsURLImageSource`
+          - `interface BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
 
@@ -243,7 +317,7 @@ List Events
 
               minLength: 1
 
-          - `BetaManagedAgentsFileImageSource`
+          - `interface BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
 
@@ -255,7 +329,7 @@ List Events
 
               minLength: 1
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -263,9 +337,9 @@ List Events
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
-          - `BetaManagedAgentsBase64DocumentSource`
+          - `interface BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
 
@@ -283,7 +357,7 @@ List Events
 
               minLength: 1
 
-          - `BetaManagedAgentsPlainTextDocumentSource`
+          - `interface BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
 
@@ -299,7 +373,7 @@ List Events
 
               MIME type of the text content. Must be "text/plain".
 
-          - `BetaManagedAgentsURLDocumentSource`
+          - `interface BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
 
@@ -311,7 +385,7 @@ List Events
 
               minLength: 1
 
-          - `BetaManagedAgentsFileDocumentSource`
+          - `interface BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
 
@@ -331,7 +405,7 @@ List Events
 
           The title of the document.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -339,11 +413,11 @@ List Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
-  - `BetaManagedAgentsUserInterruptEvent`
+  - `interface BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
 
@@ -355,7 +429,7 @@ List Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -363,7 +437,7 @@ List Events
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `BetaManagedAgentsUserToolConfirmationEvent`
+  - `interface BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
 
@@ -375,7 +449,7 @@ List Events
 
     - `result: "allow" | "deny"`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `"allow"`
 
@@ -393,15 +467,15 @@ List Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsUserCustomToolResultEvent`
+  - `interface BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
 
@@ -419,19 +493,19 @@ List Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -439,7 +513,7 @@ List Events
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: boolean`
 
@@ -475,15 +549,15 @@ List Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsAgentCustomToolUseEvent`
+  - `interface BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
@@ -503,15 +577,15 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMessageEvent`
+  - `interface BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
 
@@ -525,21 +599,21 @@ List Events
 
       Array of text blocks comprising the agent response.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
-  - `BetaManagedAgentsAgentThinkingEvent`
+  - `interface BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
 
@@ -551,11 +625,11 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
-  - `BetaManagedAgentsAgentMCPToolUseEvent`
+  - `interface BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
 
@@ -579,13 +653,13 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `"allow"`
 
@@ -595,21 +669,21 @@ List Events
 
     - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
         The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
         - `type: "always_allow"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
         The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
         - `type: "always_ask"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAuto`
+      - `interface BetaManagedAgentsAgentToolEvaluationAuto`
 
         The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -617,15 +691,15 @@ List Events
 
         - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
             The server judged the invocation safe to execute without client approval.
 
             - `type: "allow"`
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
             The server reached no judgement; the invocation is held for client approval.
 
@@ -637,7 +711,7 @@ List Events
 
               maxLength: 64
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
             The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -651,9 +725,9 @@ List Events
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMCPToolResultEvent`
+  - `interface BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
 
@@ -669,7 +743,7 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -677,19 +751,19 @@ List Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -697,7 +771,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentToolUseEvent`
+  - `interface BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
 
@@ -717,29 +791,23 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
+      The evaluated permission policy for this tool invocation.
 
     - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentToolResultEvent`
+  - `interface BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
 
@@ -751,7 +819,7 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -763,19 +831,19 @@ List Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -783,7 +851,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
 
@@ -797,19 +865,19 @@ List Events
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -819,7 +887,7 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -827,7 +895,7 @@ List Events
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `BetaManagedAgentsAgentThreadMessageSentEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
 
@@ -841,25 +909,25 @@ List Events
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -871,7 +939,7 @@ List Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `BetaManagedAgentsAgentThreadContextCompactedEvent`
+  - `interface BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
 
@@ -883,11 +951,11 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionErrorEvent`
+  - `interface BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
 
@@ -897,11 +965,9 @@ List Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `BetaManagedAgentsUnknownError`
+      - `interface BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
 
@@ -913,27 +979,27 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
             - `type: "retrying"`
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
             - `type: "exhausted"`
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
             - `type: "terminal"`
 
-      - `BetaManagedAgentsModelOverloadedError`
+      - `interface BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
 
@@ -945,21 +1011,21 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRateLimitedError`
+      - `interface BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
 
@@ -971,21 +1037,21 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRequestFailedError`
+      - `interface BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
 
@@ -997,21 +1063,21 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPConnectionFailedError`
+      - `interface BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
 
@@ -1027,21 +1093,21 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPAuthenticationFailedError`
+      - `interface BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
 
@@ -1057,21 +1123,21 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsBillingError`
+      - `interface BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
 
@@ -1083,21 +1149,21 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsCredentialHostUnreachableError`
+      - `interface BetaManagedAgentsCredentialHostUnreachableError`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
 
@@ -1113,17 +1179,17 @@ List Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
@@ -1131,13 +1197,163 @@ List Events
 
           ID of the vault containing the affected credential.
 
+      - `interface BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: "repository_authentication_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: "repository_forbidden_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: "repository_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: "repository_checkout_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: "repository_clone_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
 
@@ -1149,11 +1365,11 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
 
@@ -1165,11 +1381,11 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
 
@@ -1181,21 +1397,43 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the session stopped. `null` when there is nothing more to report.
 
-      - `BetaManagedAgentsSessionEndTurn`
+      - `type: "refusal"`
+
+      - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `"cyber"`
+
+        - `"bio"`
+
+        - `"frontier_llm"`
+
+        - `"reasoning_extraction"`
+
+        - `"general_harms"`
+
+      - `explanation: string | null`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
         - `type: "end_turn"`
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
@@ -1205,19 +1443,25 @@ List Events
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `type: "budget_reached"`
 
-  - `BetaManagedAgentsSessionStatusTerminatedEvent`
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: "refusal"`
+
+  - `interface BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
 
@@ -1229,11 +1473,11 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadCreatedEvent`
+  - `interface BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
 
@@ -1249,7 +1493,7 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -1257,7 +1501,7 @@ List Events
 
       Public `sthr_` ID of the newly created thread.
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
 
@@ -1279,11 +1523,11 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
 
@@ -1313,7 +1557,7 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -1323,7 +1567,7 @@ List Events
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `cache_creation_input_tokens: number`
 
@@ -1351,13 +1595,13 @@ List Events
 
       - `speed?: "standard" | "fast" | null`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `"standard"`
 
         - `"fast"`
 
-  - `BetaManagedAgentsSpanModelRequestStartEvent`
+  - `interface BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
 
@@ -1369,11 +1613,11 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanModelRequestEndEvent`
+  - `interface BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
 
@@ -1393,15 +1637,15 @@ List Events
 
     - `model_usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
 
@@ -1423,11 +1667,11 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
-  - `BetaManagedAgentsUserDefineOutcomeEvent`
+  - `interface BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -1453,15 +1697,15 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-      - `BetaManagedAgentsFileRubric`
+      - `interface BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
 
@@ -1471,7 +1715,7 @@ List Events
 
           ID of the rubric file.
 
-      - `BetaManagedAgentsTextRubric`
+      - `interface BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
 
@@ -1481,7 +1725,7 @@ List Events
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-  - `BetaManagedAgentsSessionDeletedEvent`
+  - `interface BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
 
@@ -1493,11 +1737,11 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1513,7 +1757,7 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -1521,7 +1765,7 @@ List Events
 
       Public sthr_ ID of the thread that started running.
 
-  - `BetaManagedAgentsSessionThreadStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1537,7 +1781,7 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -1545,27 +1789,33 @@ List Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
 
-      - `BetaManagedAgentsSessionEndTurn`
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+  - `interface BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1581,7 +1831,7 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -1589,7 +1839,7 @@ List Events
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `interface BetaManagedAgentsUserToolResultEvent`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -1607,19 +1857,19 @@ List Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -1629,15 +1879,15 @@ List Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1653,7 +1903,7 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -1661,7 +1911,7 @@ List Events
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `interface BetaManagedAgentsSessionUpdatedEvent`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
 
@@ -1673,13 +1923,13 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `agent?: BetaManagedAgentsSessionAgent | null`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `type: "agent"`
 
@@ -1705,95 +1955,101 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-fable-5-1" | "claude-sonnet-5" | "claude-fable-5" | 11 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-fable-5-1"`
+            Efficient model for coding and agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-opus-5-5"`
 
-            - `"claude-sonnet-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              High-performance model for coding and agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-sonnet-5"`
 
-            - `"claude-opus-5"`
+            Efficient model for coding and agents
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-fable-5"`
 
-            - `"claude-opus-4-8"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-5"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `"claude-opus-4-6"`
 
-            - `"claude-haiku-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Fastest model with near-frontier intelligence
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-opus-4-5-20251101"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-sonnet-4-5-20250929"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `(string & {})`
 
         - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
-          - `BetaManagedAgentsEffortLow`
+          - `interface BetaManagedAgentsEffortLow`
 
             Low effort. Favors latency over reasoning depth.
 
             - `type: "low"`
 
-          - `BetaManagedAgentsEffortMedium`
+          - `interface BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: "medium"`
 
-          - `BetaManagedAgentsEffortHigh`
+          - `interface BetaManagedAgentsEffortHigh`
 
             High effort. Favors reasoning depth.
 
             - `type: "high"`
 
-          - `BetaManagedAgentsEffortXhigh`
+          - `interface BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: "xhigh"`
 
-          - `BetaManagedAgentsEffortMax`
+          - `interface BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
@@ -1805,7 +2061,7 @@ List Events
 
         - `speed?: "standard" | "fast"`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `"standard"`
 
@@ -1813,7 +2069,7 @@ List Events
 
       - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `type: "coordinator"`
 
@@ -1821,7 +2077,7 @@ List Events
 
           Full `agent` definitions the coordinator may spawn as session threads.
 
-          - `BetaManagedAgentsSessionThreadAgent`
+          - `interface BetaManagedAgentsSessionThreadAgent`
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
@@ -1847,7 +2103,7 @@ List Events
 
             - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-              - `BetaManagedAgentsAnthropicSkill`
+              - `interface BetaManagedAgentsAnthropicSkill`
 
                 A resolved Anthropic-managed skill.
 
@@ -1857,7 +2113,7 @@ List Events
 
                 - `version: string`
 
-              - `BetaManagedAgentsCustomSkill`
+              - `interface BetaManagedAgentsCustomSkill`
 
                 A resolved user-created custom skill.
 
@@ -1871,13 +2127,13 @@ List Events
 
             - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-              - `BetaManagedAgentsAgentToolset20260401`
+              - `interface BetaManagedAgentsAgentToolset20260401`
 
                 - `type: "agent_toolset_20260401"`
 
                 - `configs: Array<BetaManagedAgentsAgentToolConfig>`
 
-                  - `BetaManagedAgentsBashToolConfig`
+                  - `interface BetaManagedAgentsBashToolConfig`
 
                     Configuration for the bash tool.
 
@@ -1891,25 +2147,25 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
                         - `type: "always_allow"`
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
                         - `type: "always_ask"`
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                         - `type: "auto"`
 
-                  - `BetaManagedAgentsEditToolConfig`
+                  - `interface BetaManagedAgentsEditToolConfig`
 
                     Configuration for the edit tool.
 
@@ -1923,19 +2179,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsReadToolConfig`
+                  - `interface BetaManagedAgentsReadToolConfig`
 
                     Configuration for the read tool.
 
@@ -1949,19 +2205,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWriteToolConfig`
+                  - `interface BetaManagedAgentsWriteToolConfig`
 
                     Configuration for the write tool.
 
@@ -1975,19 +2231,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGlobToolConfig`
+                  - `interface BetaManagedAgentsGlobToolConfig`
 
                     Configuration for the glob tool.
 
@@ -2001,19 +2257,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGrepToolConfig`
+                  - `interface BetaManagedAgentsGrepToolConfig`
 
                     Configuration for the grep tool.
 
@@ -2027,19 +2283,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWebFetchToolConfig`
+                  - `interface BetaManagedAgentsWebFetchToolConfig`
 
                     Configuration for the web_fetch tool.
 
@@ -2053,15 +2309,15 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -2073,7 +2329,7 @@ List Events
 
                       format: int32
 
-                  - `BetaManagedAgentsWebSearchToolConfig`
+                  - `interface BetaManagedAgentsWebSearchToolConfig`
 
                     Configuration for the web_search tool.
 
@@ -2087,15 +2343,15 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -2143,19 +2399,19 @@ List Events
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-              - `BetaManagedAgentsMCPToolset`
+              - `interface BetaManagedAgentsMCPToolset`
 
                 - `type: "mcp_toolset"`
 
@@ -2169,15 +2425,15 @@ List Events
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -2191,21 +2447,21 @@ List Events
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `mcp_server_name: string`
 
-              - `BetaManagedAgentsCustomTool`
+              - `interface BetaManagedAgentsCustomTool`
 
                 A custom tool as returned in API responses.
 
@@ -2229,7 +2485,7 @@ List Events
 
               format: int32
 
-          - `BetaManagedAgentsAdvisor`
+          - `interface BetaManagedAgentsAdvisor`
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -2243,11 +2499,11 @@ List Events
 
       - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-        - `BetaManagedAgentsAnthropicSkill`
+        - `interface BetaManagedAgentsAnthropicSkill`
 
           A resolved Anthropic-managed skill.
 
-        - `BetaManagedAgentsCustomSkill`
+        - `interface BetaManagedAgentsCustomSkill`
 
           A resolved user-created custom skill.
 
@@ -2255,11 +2511,11 @@ List Events
 
       - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-        - `BetaManagedAgentsAgentToolset20260401`
+        - `interface BetaManagedAgentsAgentToolset20260401`
 
-        - `BetaManagedAgentsMCPToolset`
+        - `interface BetaManagedAgentsMCPToolset`
 
-        - `BetaManagedAgentsCustomTool`
+        - `interface BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
 
@@ -2269,13 +2525,13 @@ List Events
 
     - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `type: "limit"`
 
       - `max_list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `amount: string`
 
@@ -2293,7 +2549,7 @@ List Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `interface BetaManagedAgentsSystemMessageEvent`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
@@ -2317,11 +2573,11 @@ List Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `interface BetaManagedAgentsSessionUsageEvent`
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
@@ -2333,13 +2589,13 @@ List Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `active_seconds?: number`
 
@@ -2349,7 +2605,7 @@ List Events
 
       - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens?: number`
 
@@ -2377,7 +2633,7 @@ List Events
 
       - `list_cost?: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `output_tokens?: number`
 
@@ -2387,7 +2643,7 @@ List Events
 
       - `server_tool_use?: BetaManagedAgentsServerToolUsage`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `web_fetch_requests?: number`
 
@@ -2403,7 +2659,7 @@ List Events
 
     - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 ### Example
 
@@ -2472,7 +2728,7 @@ Send Events
 
     Body param: Events to send to the `session`.
 
-    - `BetaManagedAgentsUserMessageEventParams`
+    - `interface BetaManagedAgentsUserMessageEventParams`
 
       Parameters for sending a user message to the session.
 
@@ -2482,7 +2738,7 @@ Send Events
 
         Array of content blocks for the user message.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
@@ -2494,7 +2750,7 @@ Send Events
 
             minLength: 1
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
@@ -2502,9 +2758,9 @@ Send Events
 
           - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-            Union type for image source variants.
+            The source of the image data.
 
-            - `BetaManagedAgentsBase64ImageSource`
+            - `interface BetaManagedAgentsBase64ImageSource`
 
               Base64-encoded image data.
 
@@ -2522,7 +2778,7 @@ Send Events
 
                 minLength: 1
 
-            - `BetaManagedAgentsURLImageSource`
+            - `interface BetaManagedAgentsURLImageSource`
 
               Image referenced by URL.
 
@@ -2534,7 +2790,7 @@ Send Events
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileImageSource`
+            - `interface BetaManagedAgentsFileImageSource`
 
               Image referenced by file ID.
 
@@ -2546,7 +2802,7 @@ Send Events
 
                 minLength: 1
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -2554,9 +2810,9 @@ Send Events
 
           - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-            Union type for document source variants.
+            The source of the document data.
 
-            - `BetaManagedAgentsBase64DocumentSource`
+            - `interface BetaManagedAgentsBase64DocumentSource`
 
               Base64-encoded document data.
 
@@ -2574,7 +2830,7 @@ Send Events
 
                 minLength: 1
 
-            - `BetaManagedAgentsPlainTextDocumentSource`
+            - `interface BetaManagedAgentsPlainTextDocumentSource`
 
               Plain text document content.
 
@@ -2590,7 +2846,7 @@ Send Events
 
                 MIME type of the text content. Must be "text/plain".
 
-            - `BetaManagedAgentsURLDocumentSource`
+            - `interface BetaManagedAgentsURLDocumentSource`
 
               Document referenced by URL.
 
@@ -2602,7 +2858,7 @@ Send Events
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileDocumentSource`
+            - `interface BetaManagedAgentsFileDocumentSource`
 
               Document referenced by file ID.
 
@@ -2622,13 +2878,13 @@ Send Events
 
             The title of the document.
 
-        - `BetaManagedAgentsRedactedBlock`
+        - `interface BetaManagedAgentsRedactedBlock`
 
           Placeholder for content withheld by Anthropic model policy.
 
           - `type: "redacted"`
 
-    - `BetaManagedAgentsUserInterruptEventParams`
+    - `interface BetaManagedAgentsUserInterruptEventParams`
 
       Parameters for sending an interrupt to pause the agent.
 
@@ -2638,7 +2894,7 @@ Send Events
 
         If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-    - `BetaManagedAgentsUserToolConfirmationEventParams`
+    - `interface BetaManagedAgentsUserToolConfirmationEventParams`
 
       Parameters for confirming or denying a tool execution request.
 
@@ -2646,7 +2902,7 @@ Send Events
 
       - `result: "allow" | "deny"`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `"allow"`
 
@@ -2664,7 +2920,7 @@ Send Events
 
         maxLength: 10000
 
-    - `BetaManagedAgentsUserCustomToolResultEventParams`
+    - `interface BetaManagedAgentsUserCustomToolResultEventParams`
 
       Parameters for providing the result of a custom tool execution.
 
@@ -2680,19 +2936,19 @@ Send Events
 
         The result content returned by the tool.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `BetaManagedAgentsSearchResultBlock`
+        - `interface BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -2700,7 +2956,7 @@ Send Events
 
           - `citations: BetaManagedAgentsSearchResultCitations`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `enabled: boolean`
 
@@ -2734,7 +2990,7 @@ Send Events
 
         Whether the tool execution resulted in an error.
 
-    - `BetaManagedAgentsUserDefineOutcomeEventParams`
+    - `interface BetaManagedAgentsUserDefineOutcomeEventParams`
 
       Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
 
@@ -2746,9 +3002,9 @@ Send Events
 
       - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
-        - `BetaManagedAgentsFileRubricParams`
+        - `interface BetaManagedAgentsFileRubricParams`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -2758,7 +3014,7 @@ Send Events
 
             ID of the rubric file.
 
-        - `BetaManagedAgentsTextRubricParams`
+        - `interface BetaManagedAgentsTextRubricParams`
 
           Rubric content provided inline as text.
 
@@ -2776,7 +3032,7 @@ Send Events
 
         format: int32
 
-    - `BetaManagedAgentsUserToolResultEventParams`
+    - `interface BetaManagedAgentsUserToolResultEventParams`
 
       Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -2792,19 +3048,19 @@ Send Events
 
         The result content returned by the tool.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `BetaManagedAgentsSearchResultBlock`
+        - `interface BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -2812,7 +3068,7 @@ Send Events
 
         Whether the tool execution resulted in an error.
 
-    - `BetaManagedAgentsSystemMessageEventParams`
+    - `interface BetaManagedAgentsSystemMessageEventParams`
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
@@ -2836,97 +3092,103 @@ Send Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -2936,7 +3198,7 @@ Send Events
 
 ### Returns
 
-- `BetaManagedAgentsSendSessionEvents`
+- `interface BetaManagedAgentsSendSessionEvents`
 
   Events that were successfully sent to the session.
 
@@ -2944,7 +3206,7 @@ Send Events
 
     Sent events
 
-    - `BetaManagedAgentsUserMessageEvent`
+    - `interface BetaManagedAgentsUserMessageEvent`
 
       A user message event in the session conversation.
 
@@ -2958,7 +3220,7 @@ Send Events
 
         Array of content blocks comprising the user message.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
@@ -2970,7 +3232,7 @@ Send Events
 
             minLength: 1
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
@@ -2978,9 +3240,9 @@ Send Events
 
           - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-            Union type for image source variants.
+            The source of the image data.
 
-            - `BetaManagedAgentsBase64ImageSource`
+            - `interface BetaManagedAgentsBase64ImageSource`
 
               Base64-encoded image data.
 
@@ -2998,7 +3260,7 @@ Send Events
 
                 minLength: 1
 
-            - `BetaManagedAgentsURLImageSource`
+            - `interface BetaManagedAgentsURLImageSource`
 
               Image referenced by URL.
 
@@ -3010,7 +3272,7 @@ Send Events
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileImageSource`
+            - `interface BetaManagedAgentsFileImageSource`
 
               Image referenced by file ID.
 
@@ -3022,7 +3284,7 @@ Send Events
 
                 minLength: 1
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -3030,9 +3292,9 @@ Send Events
 
           - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-            Union type for document source variants.
+            The source of the document data.
 
-            - `BetaManagedAgentsBase64DocumentSource`
+            - `interface BetaManagedAgentsBase64DocumentSource`
 
               Base64-encoded document data.
 
@@ -3050,7 +3312,7 @@ Send Events
 
                 minLength: 1
 
-            - `BetaManagedAgentsPlainTextDocumentSource`
+            - `interface BetaManagedAgentsPlainTextDocumentSource`
 
               Plain text document content.
 
@@ -3066,7 +3328,7 @@ Send Events
 
                 MIME type of the text content. Must be "text/plain".
 
-            - `BetaManagedAgentsURLDocumentSource`
+            - `interface BetaManagedAgentsURLDocumentSource`
 
               Document referenced by URL.
 
@@ -3078,7 +3340,7 @@ Send Events
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileDocumentSource`
+            - `interface BetaManagedAgentsFileDocumentSource`
 
               Document referenced by file ID.
 
@@ -3098,7 +3360,7 @@ Send Events
 
             The title of the document.
 
-        - `BetaManagedAgentsRedactedBlock`
+        - `interface BetaManagedAgentsRedactedBlock`
 
           Placeholder for content withheld by Anthropic model policy.
 
@@ -3106,11 +3368,11 @@ Send Events
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the agent finished processing this message.
 
         format: date-time
 
-    - `BetaManagedAgentsUserInterruptEvent`
+    - `interface BetaManagedAgentsUserInterruptEvent`
 
       An interrupt event that pauses agent execution and returns control to the user.
 
@@ -3122,7 +3384,7 @@ Send Events
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the interrupt was processed.
 
         format: date-time
 
@@ -3130,7 +3392,7 @@ Send Events
 
         If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-    - `BetaManagedAgentsUserToolConfirmationEvent`
+    - `interface BetaManagedAgentsUserToolConfirmationEvent`
 
       A tool confirmation event that approves or denies a pending tool execution.
 
@@ -3142,7 +3404,7 @@ Send Events
 
       - `result: "allow" | "deny"`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `"allow"`
 
@@ -3160,15 +3422,15 @@ Send Events
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the confirmation was processed.
 
         format: date-time
 
       - `session_thread_id?: string | null`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-    - `BetaManagedAgentsUserCustomToolResultEvent`
+    - `interface BetaManagedAgentsUserCustomToolResultEvent`
 
       Event sent by the client providing the result of a custom tool execution.
 
@@ -3186,19 +3448,19 @@ Send Events
 
         The result content returned by the tool.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `BetaManagedAgentsSearchResultBlock`
+        - `interface BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -3206,7 +3468,7 @@ Send Events
 
           - `citations: BetaManagedAgentsSearchResultCitations`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `enabled: boolean`
 
@@ -3242,15 +3504,15 @@ Send Events
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id?: string | null`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-    - `BetaManagedAgentsUserDefineOutcomeEvent`
+    - `interface BetaManagedAgentsUserDefineOutcomeEvent`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -3276,15 +3538,15 @@ Send Events
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the outcome was accepted.
 
         format: date-time
 
       - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-        - `BetaManagedAgentsFileRubric`
+        - `interface BetaManagedAgentsFileRubric`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -3294,7 +3556,7 @@ Send Events
 
             ID of the rubric file.
 
-        - `BetaManagedAgentsTextRubric`
+        - `interface BetaManagedAgentsTextRubric`
 
           Rubric content provided inline as text.
 
@@ -3304,7 +3566,7 @@ Send Events
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-    - `BetaManagedAgentsUserToolResultEvent`
+    - `interface BetaManagedAgentsUserToolResultEvent`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -3322,19 +3584,19 @@ Send Events
 
         The result content returned by the tool.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `BetaManagedAgentsSearchResultBlock`
+        - `interface BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -3344,15 +3606,15 @@ Send Events
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id?: string | null`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-    - `BetaManagedAgentsSystemMessageEvent`
+    - `interface BetaManagedAgentsSystemMessageEvent`
 
       A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
@@ -3376,7 +3638,7 @@ Send Events
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this system message was processed.
 
         format: date-time
 
@@ -3449,97 +3711,103 @@ Stream Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24"`
 
-      - `"message-batches-2024-09-24"`
+    - `"prompt-caching-2024-07-31"`
 
-      - `"prompt-caching-2024-07-31"`
+    - `"computer-use-2024-10-22"`
 
-      - `"computer-use-2024-10-22"`
+    - `"computer-use-2025-01-24"`
 
-      - `"computer-use-2025-01-24"`
+    - `"pdfs-2024-09-25"`
 
-      - `"pdfs-2024-09-25"`
+    - `"token-counting-2024-11-01"`
 
-      - `"token-counting-2024-11-01"`
+    - `"token-efficient-tools-2025-02-19"`
 
-      - `"token-efficient-tools-2025-02-19"`
+    - `"output-128k-2025-02-19"`
 
-      - `"output-128k-2025-02-19"`
+    - `"files-api-2025-04-14"`
 
-      - `"files-api-2025-04-14"`
+    - `"mcp-client-2025-04-04"`
 
-      - `"mcp-client-2025-04-04"`
+    - `"mcp-client-2025-11-20"`
 
-      - `"mcp-client-2025-11-20"`
+    - `"dev-full-thinking-2025-05-14"`
 
-      - `"dev-full-thinking-2025-05-14"`
+    - `"interleaved-thinking-2025-05-14"`
 
-      - `"interleaved-thinking-2025-05-14"`
+    - `"code-execution-2025-05-22"`
 
-      - `"code-execution-2025-05-22"`
+    - `"extended-cache-ttl-2025-04-11"`
 
-      - `"extended-cache-ttl-2025-04-11"`
+    - `"context-1m-2025-08-07"`
 
-      - `"context-1m-2025-08-07"`
+    - `"context-management-2025-06-27"`
 
-      - `"context-management-2025-06-27"`
+    - `"model-context-window-exceeded-2025-08-26"`
 
-      - `"model-context-window-exceeded-2025-08-26"`
+    - `"skills-2025-10-02"`
 
-      - `"skills-2025-10-02"`
+    - `"fast-mode-2026-02-01"`
 
-      - `"fast-mode-2026-02-01"`
+    - `"output-300k-2026-03-24"`
 
-      - `"output-300k-2026-03-24"`
+    - `"user-profiles-2026-03-24"`
 
-      - `"user-profiles-2026-03-24"`
+    - `"user-profiles-2026-08-18"`
 
-      - `"user-profiles-2026-08-18"`
+    - `"user-profiles-2026-09-04"`
 
-      - `"user-profiles-2026-09-04"`
+    - `"advisor-tool-2026-03-01"`
 
-      - `"advisor-tool-2026-03-01"`
+    - `"managed-agents-2026-04-01"`
 
-      - `"managed-agents-2026-04-01"`
+    - `"cache-diagnosis-2026-04-07"`
 
-      - `"cache-diagnosis-2026-04-07"`
+    - `"dreaming-2026-04-21"`
 
-      - `"dreaming-2026-04-21"`
+    - `"thinking-token-count-2026-05-13"`
 
-      - `"thinking-token-count-2026-05-13"`
+    - `"server-side-fallback-2026-06-01"`
 
-      - `"server-side-fallback-2026-06-01"`
+    - `"server-side-fallback-2026-07-01"`
 
-      - `"server-side-fallback-2026-07-01"`
+    - `"fallback-credit-2026-06-01"`
 
-      - `"fallback-credit-2026-06-01"`
+    - `"fallback-credit-2026-07-01"`
 
-      - `"fallback-credit-2026-07-01"`
+    - `"agent-memory-2026-07-22"`
 
-      - `"agent-memory-2026-07-22"`
+    - `"mid-conversation-tool-changes-2026-07-01"`
 
-      - `"mid-conversation-tool-changes-2026-07-01"`
+    - `"compact-2026-01-12"`
 
-      - `"compact-2026-01-12"`
+    - `"computer-use-2025-11-24"`
 
-      - `"computer-use-2025-11-24"`
+    - `"mcp-tunnels-2026-06-22"`
 
-      - `"mcp-tunnels-2026-06-22"`
+    - `"structured-outputs-2025-11-13"`
 
-      - `"structured-outputs-2025-11-13"`
+    - `"task-budgets-2026-03-13"`
 
-      - `"task-budgets-2026-03-13"`
+    - `"thinking-display-updates-2026-08-18"`
 
-      - `"thinking-display-updates-2026-08-18"`
+    - `"ce-user-management-2026-07-13"`
 
-      - `"ce-user-management-2026-07-13"`
+    - `"mid-conversation-output-config-2026-07-01"`
 
-      - `"mid-conversation-output-config-2026-07-01"`
+    - `"thinking-binding-controls-2026-08-01"`
 
-      - `"thinking-binding-controls-2026-08-01"`
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
-      - `"mid-conversation-system-clear-at-2026-08-21"`
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
 
   - `workspace_id?: string`
 
@@ -3549,11 +3817,11 @@ Stream Events
 
 ### Returns
 
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
+- `type BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
 
   Server-sent event in the session stream.
 
-  - `BetaManagedAgentsUserMessageEvent`
+  - `interface BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
 
@@ -3567,7 +3835,7 @@ Stream Events
 
       Array of content blocks comprising the user message.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
@@ -3579,7 +3847,7 @@ Stream Events
 
           minLength: 1
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
@@ -3587,9 +3855,9 @@ Stream Events
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
-          - `BetaManagedAgentsBase64ImageSource`
+          - `interface BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
 
@@ -3607,7 +3875,7 @@ Stream Events
 
               minLength: 1
 
-          - `BetaManagedAgentsURLImageSource`
+          - `interface BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
 
@@ -3619,7 +3887,7 @@ Stream Events
 
               minLength: 1
 
-          - `BetaManagedAgentsFileImageSource`
+          - `interface BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
 
@@ -3631,7 +3899,7 @@ Stream Events
 
               minLength: 1
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -3639,9 +3907,9 @@ Stream Events
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
-          - `BetaManagedAgentsBase64DocumentSource`
+          - `interface BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
 
@@ -3659,7 +3927,7 @@ Stream Events
 
               minLength: 1
 
-          - `BetaManagedAgentsPlainTextDocumentSource`
+          - `interface BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
 
@@ -3675,7 +3943,7 @@ Stream Events
 
               MIME type of the text content. Must be "text/plain".
 
-          - `BetaManagedAgentsURLDocumentSource`
+          - `interface BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
 
@@ -3687,7 +3955,7 @@ Stream Events
 
               minLength: 1
 
-          - `BetaManagedAgentsFileDocumentSource`
+          - `interface BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
 
@@ -3707,7 +3975,7 @@ Stream Events
 
           The title of the document.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -3715,11 +3983,11 @@ Stream Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
-  - `BetaManagedAgentsUserInterruptEvent`
+  - `interface BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
 
@@ -3731,7 +3999,7 @@ Stream Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -3739,7 +4007,7 @@ Stream Events
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `BetaManagedAgentsUserToolConfirmationEvent`
+  - `interface BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
 
@@ -3751,7 +4019,7 @@ Stream Events
 
     - `result: "allow" | "deny"`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `"allow"`
 
@@ -3769,15 +4037,15 @@ Stream Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsUserCustomToolResultEvent`
+  - `interface BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
 
@@ -3795,19 +4063,19 @@ Stream Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -3815,7 +4083,7 @@ Stream Events
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: boolean`
 
@@ -3851,15 +4119,15 @@ Stream Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsAgentCustomToolUseEvent`
+  - `interface BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
@@ -3879,15 +4147,15 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMessageEvent`
+  - `interface BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
 
@@ -3901,21 +4169,21 @@ Stream Events
 
       Array of text blocks comprising the agent response.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
-  - `BetaManagedAgentsAgentThinkingEvent`
+  - `interface BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
 
@@ -3927,11 +4195,11 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
-  - `BetaManagedAgentsAgentMCPToolUseEvent`
+  - `interface BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
 
@@ -3955,13 +4223,13 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `"allow"`
 
@@ -3971,21 +4239,21 @@ Stream Events
 
     - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
         The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
         - `type: "always_allow"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
         The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
         - `type: "always_ask"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAuto`
+      - `interface BetaManagedAgentsAgentToolEvaluationAuto`
 
         The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -3993,15 +4261,15 @@ Stream Events
 
         - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
             The server judged the invocation safe to execute without client approval.
 
             - `type: "allow"`
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
             The server reached no judgement; the invocation is held for client approval.
 
@@ -4013,7 +4281,7 @@ Stream Events
 
               maxLength: 64
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
             The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -4027,9 +4295,9 @@ Stream Events
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMCPToolResultEvent`
+  - `interface BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
 
@@ -4045,7 +4313,7 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -4053,19 +4321,19 @@ Stream Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -4073,7 +4341,7 @@ Stream Events
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentToolUseEvent`
+  - `interface BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
 
@@ -4093,29 +4361,23 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
+      The evaluated permission policy for this tool invocation.
 
     - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentToolResultEvent`
+  - `interface BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
 
@@ -4127,7 +4389,7 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -4139,19 +4401,19 @@ Stream Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -4159,7 +4421,7 @@ Stream Events
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
 
@@ -4173,19 +4435,19 @@ Stream Events
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -4195,7 +4457,7 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -4203,7 +4465,7 @@ Stream Events
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `BetaManagedAgentsAgentThreadMessageSentEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
 
@@ -4217,25 +4479,25 @@ Stream Events
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -4247,7 +4509,7 @@ Stream Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `BetaManagedAgentsAgentThreadContextCompactedEvent`
+  - `interface BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
 
@@ -4259,11 +4521,11 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionErrorEvent`
+  - `interface BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
 
@@ -4273,11 +4535,9 @@ Stream Events
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `BetaManagedAgentsUnknownError`
+      - `interface BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
 
@@ -4289,27 +4549,27 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
             - `type: "retrying"`
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
             - `type: "exhausted"`
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
             - `type: "terminal"`
 
-      - `BetaManagedAgentsModelOverloadedError`
+      - `interface BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
 
@@ -4321,21 +4581,21 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRateLimitedError`
+      - `interface BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
 
@@ -4347,21 +4607,21 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRequestFailedError`
+      - `interface BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
 
@@ -4373,21 +4633,21 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPConnectionFailedError`
+      - `interface BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
 
@@ -4403,21 +4663,21 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPAuthenticationFailedError`
+      - `interface BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
 
@@ -4433,21 +4693,21 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsBillingError`
+      - `interface BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
 
@@ -4459,21 +4719,21 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsCredentialHostUnreachableError`
+      - `interface BetaManagedAgentsCredentialHostUnreachableError`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
 
@@ -4489,17 +4749,17 @@ Stream Events
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
@@ -4507,13 +4767,163 @@ Stream Events
 
           ID of the vault containing the affected credential.
 
+      - `interface BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: "repository_authentication_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: "repository_forbidden_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: "repository_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: "repository_checkout_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: "repository_clone_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
 
@@ -4525,11 +4935,11 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
 
@@ -4541,11 +4951,11 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
 
@@ -4557,21 +4967,43 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the session stopped. `null` when there is nothing more to report.
 
-      - `BetaManagedAgentsSessionEndTurn`
+      - `type: "refusal"`
+
+      - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `"cyber"`
+
+        - `"bio"`
+
+        - `"frontier_llm"`
+
+        - `"reasoning_extraction"`
+
+        - `"general_harms"`
+
+      - `explanation: string | null`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
         - `type: "end_turn"`
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
@@ -4581,19 +5013,25 @@ Stream Events
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `type: "budget_reached"`
 
-  - `BetaManagedAgentsSessionStatusTerminatedEvent`
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: "refusal"`
+
+  - `interface BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
 
@@ -4605,11 +5043,11 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadCreatedEvent`
+  - `interface BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
 
@@ -4625,7 +5063,7 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -4633,7 +5071,7 @@ Stream Events
 
       Public `sthr_` ID of the newly created thread.
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
 
@@ -4655,11 +5093,11 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
 
@@ -4689,7 +5127,7 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -4699,7 +5137,7 @@ Stream Events
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `cache_creation_input_tokens: number`
 
@@ -4727,13 +5165,13 @@ Stream Events
 
       - `speed?: "standard" | "fast" | null`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `"standard"`
 
         - `"fast"`
 
-  - `BetaManagedAgentsSpanModelRequestStartEvent`
+  - `interface BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
 
@@ -4745,11 +5183,11 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanModelRequestEndEvent`
+  - `interface BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
 
@@ -4769,15 +5207,15 @@ Stream Events
 
     - `model_usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
 
@@ -4799,11 +5237,11 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
-  - `BetaManagedAgentsUserDefineOutcomeEvent`
+  - `interface BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -4829,15 +5267,15 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-      - `BetaManagedAgentsFileRubric`
+      - `interface BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
 
@@ -4847,7 +5285,7 @@ Stream Events
 
           ID of the rubric file.
 
-      - `BetaManagedAgentsTextRubric`
+      - `interface BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
 
@@ -4857,7 +5295,7 @@ Stream Events
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-  - `BetaManagedAgentsSessionDeletedEvent`
+  - `interface BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
 
@@ -4869,11 +5307,11 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -4889,7 +5327,7 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -4897,7 +5335,7 @@ Stream Events
 
       Public sthr_ ID of the thread that started running.
 
-  - `BetaManagedAgentsSessionThreadStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -4913,7 +5351,7 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -4921,27 +5359,33 @@ Stream Events
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
 
-      - `BetaManagedAgentsSessionEndTurn`
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+  - `interface BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -4957,7 +5401,7 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -4965,7 +5409,7 @@ Stream Events
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `interface BetaManagedAgentsUserToolResultEvent`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -4983,19 +5427,19 @@ Stream Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -5005,15 +5449,15 @@ Stream Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -5029,7 +5473,7 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -5037,7 +5481,7 @@ Stream Events
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `interface BetaManagedAgentsSessionUpdatedEvent`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
 
@@ -5049,13 +5493,13 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `agent?: BetaManagedAgentsSessionAgent | null`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `type: "agent"`
 
@@ -5081,95 +5525,101 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-fable-5-1" | "claude-sonnet-5" | "claude-fable-5" | 11 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-fable-5-1"`
+            Efficient model for coding and agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-opus-5-5"`
 
-            - `"claude-sonnet-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              High-performance model for coding and agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-sonnet-5"`
 
-            - `"claude-opus-5"`
+            Efficient model for coding and agents
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-fable-5"`
 
-            - `"claude-opus-4-8"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-5"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `"claude-opus-4-6"`
 
-            - `"claude-haiku-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Fastest model with near-frontier intelligence
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-opus-4-5-20251101"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-sonnet-4-5-20250929"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `(string & {})`
 
         - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
-          - `BetaManagedAgentsEffortLow`
+          - `interface BetaManagedAgentsEffortLow`
 
             Low effort. Favors latency over reasoning depth.
 
             - `type: "low"`
 
-          - `BetaManagedAgentsEffortMedium`
+          - `interface BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: "medium"`
 
-          - `BetaManagedAgentsEffortHigh`
+          - `interface BetaManagedAgentsEffortHigh`
 
             High effort. Favors reasoning depth.
 
             - `type: "high"`
 
-          - `BetaManagedAgentsEffortXhigh`
+          - `interface BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: "xhigh"`
 
-          - `BetaManagedAgentsEffortMax`
+          - `interface BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
@@ -5181,7 +5631,7 @@ Stream Events
 
         - `speed?: "standard" | "fast"`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `"standard"`
 
@@ -5189,7 +5639,7 @@ Stream Events
 
       - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `type: "coordinator"`
 
@@ -5197,7 +5647,7 @@ Stream Events
 
           Full `agent` definitions the coordinator may spawn as session threads.
 
-          - `BetaManagedAgentsSessionThreadAgent`
+          - `interface BetaManagedAgentsSessionThreadAgent`
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
@@ -5223,7 +5673,7 @@ Stream Events
 
             - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-              - `BetaManagedAgentsAnthropicSkill`
+              - `interface BetaManagedAgentsAnthropicSkill`
 
                 A resolved Anthropic-managed skill.
 
@@ -5233,7 +5683,7 @@ Stream Events
 
                 - `version: string`
 
-              - `BetaManagedAgentsCustomSkill`
+              - `interface BetaManagedAgentsCustomSkill`
 
                 A resolved user-created custom skill.
 
@@ -5247,13 +5697,13 @@ Stream Events
 
             - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-              - `BetaManagedAgentsAgentToolset20260401`
+              - `interface BetaManagedAgentsAgentToolset20260401`
 
                 - `type: "agent_toolset_20260401"`
 
                 - `configs: Array<BetaManagedAgentsAgentToolConfig>`
 
-                  - `BetaManagedAgentsBashToolConfig`
+                  - `interface BetaManagedAgentsBashToolConfig`
 
                     Configuration for the bash tool.
 
@@ -5267,25 +5717,25 @@ Stream Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
                         - `type: "always_allow"`
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
                         - `type: "always_ask"`
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                         - `type: "auto"`
 
-                  - `BetaManagedAgentsEditToolConfig`
+                  - `interface BetaManagedAgentsEditToolConfig`
 
                     Configuration for the edit tool.
 
@@ -5299,19 +5749,19 @@ Stream Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsReadToolConfig`
+                  - `interface BetaManagedAgentsReadToolConfig`
 
                     Configuration for the read tool.
 
@@ -5325,19 +5775,19 @@ Stream Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWriteToolConfig`
+                  - `interface BetaManagedAgentsWriteToolConfig`
 
                     Configuration for the write tool.
 
@@ -5351,19 +5801,19 @@ Stream Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGlobToolConfig`
+                  - `interface BetaManagedAgentsGlobToolConfig`
 
                     Configuration for the glob tool.
 
@@ -5377,19 +5827,19 @@ Stream Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGrepToolConfig`
+                  - `interface BetaManagedAgentsGrepToolConfig`
 
                     Configuration for the grep tool.
 
@@ -5403,19 +5853,19 @@ Stream Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWebFetchToolConfig`
+                  - `interface BetaManagedAgentsWebFetchToolConfig`
 
                     Configuration for the web_fetch tool.
 
@@ -5429,15 +5879,15 @@ Stream Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -5449,7 +5899,7 @@ Stream Events
 
                       format: int32
 
-                  - `BetaManagedAgentsWebSearchToolConfig`
+                  - `interface BetaManagedAgentsWebSearchToolConfig`
 
                     Configuration for the web_search tool.
 
@@ -5463,15 +5913,15 @@ Stream Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -5519,19 +5969,19 @@ Stream Events
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-              - `BetaManagedAgentsMCPToolset`
+              - `interface BetaManagedAgentsMCPToolset`
 
                 - `type: "mcp_toolset"`
 
@@ -5545,15 +5995,15 @@ Stream Events
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -5567,21 +6017,21 @@ Stream Events
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `mcp_server_name: string`
 
-              - `BetaManagedAgentsCustomTool`
+              - `interface BetaManagedAgentsCustomTool`
 
                 A custom tool as returned in API responses.
 
@@ -5605,7 +6055,7 @@ Stream Events
 
               format: int32
 
-          - `BetaManagedAgentsAdvisor`
+          - `interface BetaManagedAgentsAdvisor`
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -5619,11 +6069,11 @@ Stream Events
 
       - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-        - `BetaManagedAgentsAnthropicSkill`
+        - `interface BetaManagedAgentsAnthropicSkill`
 
           A resolved Anthropic-managed skill.
 
-        - `BetaManagedAgentsCustomSkill`
+        - `interface BetaManagedAgentsCustomSkill`
 
           A resolved user-created custom skill.
 
@@ -5631,11 +6081,11 @@ Stream Events
 
       - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-        - `BetaManagedAgentsAgentToolset20260401`
+        - `interface BetaManagedAgentsAgentToolset20260401`
 
-        - `BetaManagedAgentsMCPToolset`
+        - `interface BetaManagedAgentsMCPToolset`
 
-        - `BetaManagedAgentsCustomTool`
+        - `interface BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
 
@@ -5645,13 +6095,13 @@ Stream Events
 
     - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `type: "limit"`
 
       - `max_list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `amount: string`
 
@@ -5669,7 +6119,7 @@ Stream Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsStartEvent`
+  - `interface BetaManagedAgentsStartEvent`
 
     Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
 
@@ -5679,7 +6129,7 @@ Stream Events
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
-      - `BetaManagedAgentsAgentMessagePreview`
+      - `interface BetaManagedAgentsAgentMessagePreview`
 
         - `type: "agent.message"`
 
@@ -5687,7 +6137,7 @@ Stream Events
 
           The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
 
-      - `BetaManagedAgentsAgentThinkingPreview`
+      - `interface BetaManagedAgentsAgentThinkingPreview`
 
         - `type: "agent.thinking"`
 
@@ -5695,7 +6145,7 @@ Stream Events
 
           The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
 
-  - `BetaManagedAgentsDeltaEvent`
+  - `interface BetaManagedAgentsDeltaEvent`
 
     An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
 
@@ -5709,19 +6159,17 @@ Stream Events
 
       - `content: BetaManagedAgentsTextBlock`
 
-        Regular text content.
+        A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
 
       - `index?: number`
 
         Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
 
-        format: uint32
-
     - `event_id: string`
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `interface BetaManagedAgentsSystemMessageEvent`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
@@ -5745,11 +6193,11 @@ Stream Events
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `interface BetaManagedAgentsSessionUsageEvent`
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
@@ -5761,13 +6209,13 @@ Stream Events
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `active_seconds?: number`
 
@@ -5777,7 +6225,7 @@ Stream Events
 
       - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens?: number`
 
@@ -5805,7 +6253,7 @@ Stream Events
 
       - `list_cost?: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `output_tokens?: number`
 
@@ -5815,7 +6263,7 @@ Stream Events
 
       - `server_tool_use?: BetaManagedAgentsServerToolUsage`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `web_fetch_requests?: number`
 
@@ -5831,7 +6279,7 @@ Stream Events
 
     - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 ### Example
 
@@ -5869,17 +6317,17 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Auto Evaluated Permission
 
-- `BetaManagedAgentsAgentAutoEvaluatedPermission = BetaManagedAgentsAgentAutoEvaluatedPermissionAllow | BetaManagedAgentsAgentAutoEvaluatedPermissionAsk | BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+- `type BetaManagedAgentsAgentAutoEvaluatedPermission = BetaManagedAgentsAgentAutoEvaluatedPermissionAllow | BetaManagedAgentsAgentAutoEvaluatedPermissionAsk | BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
   The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
 
-  - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+  - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
     The server judged the invocation safe to execute without client approval.
 
     - `type: "allow"`
 
-  - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+  - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
     The server reached no judgement; the invocation is held for client approval.
 
@@ -5891,7 +6339,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       maxLength: 64
 
-  - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+  - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
     The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -5905,7 +6353,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Auto Evaluated Permission Allow
 
-- `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+- `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
   The server judged the invocation safe to execute without client approval.
 
@@ -5913,7 +6361,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Auto Evaluated Permission Ask
 
-- `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+- `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
   The server reached no judgement; the invocation is held for client approval.
 
@@ -5927,7 +6375,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Auto Evaluated Permission Deny
 
-- `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+- `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
   The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -5941,7 +6389,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Custom Tool Use Event
 
-- `BetaManagedAgentsAgentCustomToolUseEvent`
+- `interface BetaManagedAgentsAgentCustomToolUseEvent`
 
   Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
@@ -5961,17 +6409,27 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this tool use was processed.
 
     format: date-time
 
   - `session_thread_id?: string | null`
 
-    When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+    When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
+
+### Beta Managed Agents Agent Evaluated Permission
+
+- `type BetaManagedAgentsAgentEvaluatedPermission = "allow" | "ask" | "deny"`
+
+  - `"allow"`
+
+  - `"ask"`
+
+  - `"deny"`
 
 ### Beta Managed Agents Agent MCP Tool Result Event
 
-- `BetaManagedAgentsAgentMCPToolResultEvent`
+- `interface BetaManagedAgentsAgentMCPToolResultEvent`
 
   Event representing the result of an MCP tool execution.
 
@@ -5987,7 +6445,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this event was processed.
 
     format: date-time
 
@@ -5995,7 +6453,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     The result content returned by the tool.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -6007,7 +6465,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsImageBlock`
+    - `interface BetaManagedAgentsImageBlock`
 
       Image content specified directly as base64 data or as a reference via a URL.
 
@@ -6015,9 +6473,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
-        - `BetaManagedAgentsBase64ImageSource`
+        - `interface BetaManagedAgentsBase64ImageSource`
 
           Base64-encoded image data.
 
@@ -6035,7 +6493,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsURLImageSource`
+        - `interface BetaManagedAgentsURLImageSource`
 
           Image referenced by URL.
 
@@ -6047,7 +6505,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileImageSource`
+        - `interface BetaManagedAgentsFileImageSource`
 
           Image referenced by file ID.
 
@@ -6059,7 +6517,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-    - `BetaManagedAgentsDocumentBlock`
+    - `interface BetaManagedAgentsDocumentBlock`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -6067,9 +6525,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
-        - `BetaManagedAgentsBase64DocumentSource`
+        - `interface BetaManagedAgentsBase64DocumentSource`
 
           Base64-encoded document data.
 
@@ -6087,7 +6545,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsPlainTextDocumentSource`
+        - `interface BetaManagedAgentsPlainTextDocumentSource`
 
           Plain text document content.
 
@@ -6103,7 +6561,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             MIME type of the text content. Must be "text/plain".
 
-        - `BetaManagedAgentsURLDocumentSource`
+        - `interface BetaManagedAgentsURLDocumentSource`
 
           Document referenced by URL.
 
@@ -6115,7 +6573,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileDocumentSource`
+        - `interface BetaManagedAgentsFileDocumentSource`
 
           Document referenced by file ID.
 
@@ -6135,7 +6593,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The title of the document.
 
-    - `BetaManagedAgentsSearchResultBlock`
+    - `interface BetaManagedAgentsSearchResultBlock`
 
       A block containing a web search result.
 
@@ -6143,7 +6601,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `citations: BetaManagedAgentsSearchResultCitations`
 
-        Citation settings for a search result.
+        Citation settings for this search result.
 
         - `enabled: boolean`
 
@@ -6179,7 +6637,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent MCP Tool Use Event
 
-- `BetaManagedAgentsAgentMCPToolUseEvent`
+- `interface BetaManagedAgentsAgentMCPToolUseEvent`
 
   Event emitted when the agent invokes a tool provided by an MCP server.
 
@@ -6203,13 +6661,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this event was processed.
 
     format: date-time
 
-  - `evaluated_permission?: "allow" | "ask" | "deny"`
+  - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-    AgentEvaluatedPermission enum
+    The evaluated permission policy for this tool invocation.
 
     - `"allow"`
 
@@ -6219,21 +6677,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-    Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+    Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
-    - `BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+    - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
       The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
       - `type: "always_allow"`
 
-    - `BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+    - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
       The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
       - `type: "always_ask"`
 
-    - `BetaManagedAgentsAgentToolEvaluationAuto`
+    - `interface BetaManagedAgentsAgentToolEvaluationAuto`
 
       The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -6241,15 +6699,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-        The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+        The server's judgement for this invocation.
 
-        - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+        - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
           The server judged the invocation safe to execute without client approval.
 
           - `type: "allow"`
 
-        - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+        - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
           The server reached no judgement; the invocation is held for client approval.
 
@@ -6261,7 +6719,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             maxLength: 64
 
-        - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+        - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
           The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -6275,11 +6733,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `session_thread_id?: string | null`
 
-    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
 ### Beta Managed Agents Agent Message Event
 
-- `BetaManagedAgentsAgentMessageEvent`
+- `interface BetaManagedAgentsAgentMessageEvent`
 
   An agent response event in the session conversation.
 
@@ -6293,7 +6751,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     Array of text blocks comprising the agent response.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -6305,7 +6763,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsRedactedBlock`
+    - `interface BetaManagedAgentsRedactedBlock`
 
       Placeholder for content withheld by Anthropic model policy.
 
@@ -6313,13 +6771,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this response was generated.
 
     format: date-time
 
 ### Beta Managed Agents Agent Thinking Event
 
-- `BetaManagedAgentsAgentThinkingEvent`
+- `interface BetaManagedAgentsAgentThinkingEvent`
 
   Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
 
@@ -6331,13 +6789,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this thinking was produced.
 
     format: date-time
 
 ### Beta Managed Agents Agent Thread Context Compacted Event
 
-- `BetaManagedAgentsAgentThreadContextCompactedEvent`
+- `interface BetaManagedAgentsAgentThreadContextCompactedEvent`
 
   Indicates that context compaction (summarization) occurred during the session.
 
@@ -6349,13 +6807,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when compaction was processed.
 
     format: date-time
 
 ### Beta Managed Agents Agent Thread Message Received Event
 
-- `BetaManagedAgentsAgentThreadMessageReceivedEvent`
+- `interface BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
   Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
 
@@ -6369,7 +6827,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     Message content blocks.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -6381,7 +6839,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsImageBlock`
+    - `interface BetaManagedAgentsImageBlock`
 
       Image content specified directly as base64 data or as a reference via a URL.
 
@@ -6389,9 +6847,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
-        - `BetaManagedAgentsBase64ImageSource`
+        - `interface BetaManagedAgentsBase64ImageSource`
 
           Base64-encoded image data.
 
@@ -6409,7 +6867,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsURLImageSource`
+        - `interface BetaManagedAgentsURLImageSource`
 
           Image referenced by URL.
 
@@ -6421,7 +6879,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileImageSource`
+        - `interface BetaManagedAgentsFileImageSource`
 
           Image referenced by file ID.
 
@@ -6433,7 +6891,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-    - `BetaManagedAgentsDocumentBlock`
+    - `interface BetaManagedAgentsDocumentBlock`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -6441,9 +6899,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
-        - `BetaManagedAgentsBase64DocumentSource`
+        - `interface BetaManagedAgentsBase64DocumentSource`
 
           Base64-encoded document data.
 
@@ -6461,7 +6919,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsPlainTextDocumentSource`
+        - `interface BetaManagedAgentsPlainTextDocumentSource`
 
           Plain text document content.
 
@@ -6477,7 +6935,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             MIME type of the text content. Must be "text/plain".
 
-        - `BetaManagedAgentsURLDocumentSource`
+        - `interface BetaManagedAgentsURLDocumentSource`
 
           Document referenced by URL.
 
@@ -6489,7 +6947,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileDocumentSource`
+        - `interface BetaManagedAgentsFileDocumentSource`
 
           Document referenced by file ID.
 
@@ -6509,7 +6967,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The title of the document.
 
-    - `BetaManagedAgentsRedactedBlock`
+    - `interface BetaManagedAgentsRedactedBlock`
 
       Placeholder for content withheld by Anthropic model policy.
 
@@ -6521,7 +6979,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the message was received.
 
     format: date-time
 
@@ -6531,7 +6989,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Thread Message Sent Event
 
-- `BetaManagedAgentsAgentThreadMessageSentEvent`
+- `interface BetaManagedAgentsAgentThreadMessageSentEvent`
 
   Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
 
@@ -6545,7 +7003,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     Message content blocks.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -6557,7 +7015,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsImageBlock`
+    - `interface BetaManagedAgentsImageBlock`
 
       Image content specified directly as base64 data or as a reference via a URL.
 
@@ -6565,9 +7023,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
-        - `BetaManagedAgentsBase64ImageSource`
+        - `interface BetaManagedAgentsBase64ImageSource`
 
           Base64-encoded image data.
 
@@ -6585,7 +7043,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsURLImageSource`
+        - `interface BetaManagedAgentsURLImageSource`
 
           Image referenced by URL.
 
@@ -6597,7 +7055,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileImageSource`
+        - `interface BetaManagedAgentsFileImageSource`
 
           Image referenced by file ID.
 
@@ -6609,7 +7067,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-    - `BetaManagedAgentsDocumentBlock`
+    - `interface BetaManagedAgentsDocumentBlock`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -6617,9 +7075,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
-        - `BetaManagedAgentsBase64DocumentSource`
+        - `interface BetaManagedAgentsBase64DocumentSource`
 
           Base64-encoded document data.
 
@@ -6637,7 +7095,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsPlainTextDocumentSource`
+        - `interface BetaManagedAgentsPlainTextDocumentSource`
 
           Plain text document content.
 
@@ -6653,7 +7111,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             MIME type of the text content. Must be "text/plain".
 
-        - `BetaManagedAgentsURLDocumentSource`
+        - `interface BetaManagedAgentsURLDocumentSource`
 
           Document referenced by URL.
 
@@ -6665,7 +7123,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileDocumentSource`
+        - `interface BetaManagedAgentsFileDocumentSource`
 
           Document referenced by file ID.
 
@@ -6685,7 +7143,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The title of the document.
 
-    - `BetaManagedAgentsRedactedBlock`
+    - `interface BetaManagedAgentsRedactedBlock`
 
       Placeholder for content withheld by Anthropic model policy.
 
@@ -6693,7 +7151,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the message was sent.
 
     format: date-time
 
@@ -6707,23 +7165,23 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Tool Evaluation
 
-- `BetaManagedAgentsAgentToolEvaluation = BetaManagedAgentsAgentToolEvaluationAlwaysAllow | BetaManagedAgentsAgentToolEvaluationAlwaysAsk | BetaManagedAgentsAgentToolEvaluationAuto`
+- `type BetaManagedAgentsAgentToolEvaluation = BetaManagedAgentsAgentToolEvaluationAlwaysAllow | BetaManagedAgentsAgentToolEvaluationAlwaysAsk | BetaManagedAgentsAgentToolEvaluationAuto`
 
   Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
 
-  - `BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+  - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
     The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
     - `type: "always_allow"`
 
-  - `BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+  - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
     The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
     - `type: "always_ask"`
 
-  - `BetaManagedAgentsAgentToolEvaluationAuto`
+  - `interface BetaManagedAgentsAgentToolEvaluationAuto`
 
     The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -6731,15 +7189,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-      The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+      The server's judgement for this invocation.
 
-      - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+      - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
         The server judged the invocation safe to execute without client approval.
 
         - `type: "allow"`
 
-      - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+      - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
         The server reached no judgement; the invocation is held for client approval.
 
@@ -6751,7 +7209,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           maxLength: 64
 
-      - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+      - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
         The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -6765,7 +7223,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Tool Evaluation Always Allow
 
-- `BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+- `interface BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
   The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
@@ -6773,7 +7231,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Tool Evaluation Always Ask
 
-- `BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+- `interface BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
   The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
@@ -6781,7 +7239,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Tool Evaluation Auto
 
-- `BetaManagedAgentsAgentToolEvaluationAuto`
+- `interface BetaManagedAgentsAgentToolEvaluationAuto`
 
   The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -6789,15 +7247,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-    The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+    The server's judgement for this invocation.
 
-    - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+    - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
       The server judged the invocation safe to execute without client approval.
 
       - `type: "allow"`
 
-    - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+    - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
       The server reached no judgement; the invocation is held for client approval.
 
@@ -6809,7 +7267,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         maxLength: 64
 
-    - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+    - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
       The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -6823,7 +7281,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Tool Result Event
 
-- `BetaManagedAgentsAgentToolResultEvent`
+- `interface BetaManagedAgentsAgentToolResultEvent`
 
   Event representing the result of an agent tool execution.
 
@@ -6835,7 +7293,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this event was processed.
 
     format: date-time
 
@@ -6847,7 +7305,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     The result content returned by the tool.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -6859,7 +7317,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsImageBlock`
+    - `interface BetaManagedAgentsImageBlock`
 
       Image content specified directly as base64 data or as a reference via a URL.
 
@@ -6867,9 +7325,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
-        - `BetaManagedAgentsBase64ImageSource`
+        - `interface BetaManagedAgentsBase64ImageSource`
 
           Base64-encoded image data.
 
@@ -6887,7 +7345,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsURLImageSource`
+        - `interface BetaManagedAgentsURLImageSource`
 
           Image referenced by URL.
 
@@ -6899,7 +7357,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileImageSource`
+        - `interface BetaManagedAgentsFileImageSource`
 
           Image referenced by file ID.
 
@@ -6911,7 +7369,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-    - `BetaManagedAgentsDocumentBlock`
+    - `interface BetaManagedAgentsDocumentBlock`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -6919,9 +7377,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
-        - `BetaManagedAgentsBase64DocumentSource`
+        - `interface BetaManagedAgentsBase64DocumentSource`
 
           Base64-encoded document data.
 
@@ -6939,7 +7397,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsPlainTextDocumentSource`
+        - `interface BetaManagedAgentsPlainTextDocumentSource`
 
           Plain text document content.
 
@@ -6955,7 +7413,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             MIME type of the text content. Must be "text/plain".
 
-        - `BetaManagedAgentsURLDocumentSource`
+        - `interface BetaManagedAgentsURLDocumentSource`
 
           Document referenced by URL.
 
@@ -6967,7 +7425,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileDocumentSource`
+        - `interface BetaManagedAgentsFileDocumentSource`
 
           Document referenced by file ID.
 
@@ -6987,7 +7445,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The title of the document.
 
-    - `BetaManagedAgentsSearchResultBlock`
+    - `interface BetaManagedAgentsSearchResultBlock`
 
       A block containing a web search result.
 
@@ -6995,7 +7453,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `citations: BetaManagedAgentsSearchResultCitations`
 
-        Citation settings for a search result.
+        Citation settings for this search result.
 
         - `enabled: boolean`
 
@@ -7031,7 +7489,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Agent Tool Use Event
 
-- `BetaManagedAgentsAgentToolUseEvent`
+- `interface BetaManagedAgentsAgentToolUseEvent`
 
   Event emitted when the agent invokes a built-in agent tool.
 
@@ -7051,13 +7509,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this event was processed.
 
     format: date-time
 
-  - `evaluated_permission?: "allow" | "ask" | "deny"`
+  - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-    AgentEvaluatedPermission enum
+    The evaluated permission policy for this tool invocation.
 
     - `"allow"`
 
@@ -7067,21 +7525,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-    Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+    Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
-    - `BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+    - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
       The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
       - `type: "always_allow"`
 
-    - `BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+    - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
       The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
       - `type: "always_ask"`
 
-    - `BetaManagedAgentsAgentToolEvaluationAuto`
+    - `interface BetaManagedAgentsAgentToolEvaluationAuto`
 
       The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -7089,15 +7547,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-        The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+        The server's judgement for this invocation.
 
-        - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+        - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
           The server judged the invocation safe to execute without client approval.
 
           - `type: "allow"`
 
-        - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+        - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
           The server reached no judgement; the invocation is held for client approval.
 
@@ -7109,7 +7567,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             maxLength: 64
 
-        - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+        - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
           The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -7123,11 +7581,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `session_thread_id?: string | null`
 
-    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
 ### Beta Managed Agents Base64 Document Source
 
-- `BetaManagedAgentsBase64DocumentSource`
+- `interface BetaManagedAgentsBase64DocumentSource`
 
   Base64-encoded document data.
 
@@ -7147,7 +7605,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Base64 Image Source
 
-- `BetaManagedAgentsBase64ImageSource`
+- `interface BetaManagedAgentsBase64ImageSource`
 
   Base64-encoded image data.
 
@@ -7167,7 +7625,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Billing Error
 
-- `BetaManagedAgentsBillingError`
+- `interface BetaManagedAgentsBillingError`
 
   The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
 
@@ -7179,21 +7637,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-    What the client should do next in response to this error.
+    What the client should do next.
 
-    - `BetaManagedAgentsRetryStatusRetrying`
+    - `interface BetaManagedAgentsRetryStatusRetrying`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
       - `type: "retrying"`
 
-    - `BetaManagedAgentsRetryStatusExhausted`
+    - `interface BetaManagedAgentsRetryStatusExhausted`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
       - `type: "exhausted"`
 
-    - `BetaManagedAgentsRetryStatusTerminal`
+    - `interface BetaManagedAgentsRetryStatusTerminal`
 
       The session encountered a terminal error and will transition to `terminated` state.
 
@@ -7201,7 +7659,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Credential Host Unreachable Error
 
-- `BetaManagedAgentsCredentialHostUnreachableError`
+- `interface BetaManagedAgentsCredentialHostUnreachableError`
 
   An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
 
@@ -7217,21 +7675,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-    What the client should do next in response to this error.
+    What the client should do next.
 
-    - `BetaManagedAgentsRetryStatusRetrying`
+    - `interface BetaManagedAgentsRetryStatusRetrying`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
       - `type: "retrying"`
 
-    - `BetaManagedAgentsRetryStatusExhausted`
+    - `interface BetaManagedAgentsRetryStatusExhausted`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
       - `type: "exhausted"`
 
-    - `BetaManagedAgentsRetryStatusTerminal`
+    - `interface BetaManagedAgentsRetryStatusTerminal`
 
       The session encountered a terminal error and will transition to `terminated` state.
 
@@ -7243,7 +7701,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Document Block
 
-- `BetaManagedAgentsDocumentBlock`
+- `interface BetaManagedAgentsDocumentBlock`
 
   Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -7251,9 +7709,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-    Union type for document source variants.
+    The source of the document data.
 
-    - `BetaManagedAgentsBase64DocumentSource`
+    - `interface BetaManagedAgentsBase64DocumentSource`
 
       Base64-encoded document data.
 
@@ -7271,7 +7729,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsPlainTextDocumentSource`
+    - `interface BetaManagedAgentsPlainTextDocumentSource`
 
       Plain text document content.
 
@@ -7287,7 +7745,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         MIME type of the text content. Must be "text/plain".
 
-    - `BetaManagedAgentsURLDocumentSource`
+    - `interface BetaManagedAgentsURLDocumentSource`
 
       Document referenced by URL.
 
@@ -7299,7 +7757,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsFileDocumentSource`
+    - `interface BetaManagedAgentsFileDocumentSource`
 
       Document referenced by file ID.
 
@@ -7321,11 +7779,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Event Params
 
-- `BetaManagedAgentsEventParams = BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserInterruptEventParams | BetaManagedAgentsUserToolConfirmationEventParams | 4 more`
+- `type BetaManagedAgentsEventParams = BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserInterruptEventParams | BetaManagedAgentsUserToolConfirmationEventParams | 4 more`
 
   Union type for event parameters that can be sent to a session.
 
-  - `BetaManagedAgentsUserMessageEventParams`
+  - `interface BetaManagedAgentsUserMessageEventParams`
 
     Parameters for sending a user message to the session.
 
@@ -7335,7 +7793,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Array of content blocks for the user message.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
@@ -7347,7 +7805,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           minLength: 1
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
@@ -7355,9 +7813,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
-          - `BetaManagedAgentsBase64ImageSource`
+          - `interface BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
 
@@ -7375,7 +7833,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsURLImageSource`
+          - `interface BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
 
@@ -7387,7 +7845,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsFileImageSource`
+          - `interface BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
 
@@ -7399,7 +7857,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -7407,9 +7865,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
-          - `BetaManagedAgentsBase64DocumentSource`
+          - `interface BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
 
@@ -7427,7 +7885,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsPlainTextDocumentSource`
+          - `interface BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
 
@@ -7443,7 +7901,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               MIME type of the text content. Must be "text/plain".
 
-          - `BetaManagedAgentsURLDocumentSource`
+          - `interface BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
 
@@ -7455,7 +7913,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsFileDocumentSource`
+          - `interface BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
 
@@ -7475,13 +7933,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           The title of the document.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
         - `type: "redacted"`
 
-  - `BetaManagedAgentsUserInterruptEventParams`
+  - `interface BetaManagedAgentsUserInterruptEventParams`
 
     Parameters for sending an interrupt to pause the agent.
 
@@ -7491,7 +7949,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `BetaManagedAgentsUserToolConfirmationEventParams`
+  - `interface BetaManagedAgentsUserToolConfirmationEventParams`
 
     Parameters for confirming or denying a tool execution request.
 
@@ -7499,7 +7957,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `result: "allow" | "deny"`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `"allow"`
 
@@ -7517,7 +7975,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       maxLength: 10000
 
-  - `BetaManagedAgentsUserCustomToolResultEventParams`
+  - `interface BetaManagedAgentsUserCustomToolResultEventParams`
 
     Parameters for providing the result of a custom tool execution.
 
@@ -7533,19 +7991,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -7553,7 +8011,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: boolean`
 
@@ -7587,7 +8045,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsUserDefineOutcomeEventParams`
+  - `interface BetaManagedAgentsUserDefineOutcomeEventParams`
 
     Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
 
@@ -7599,9 +8057,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. Text or file reference.
 
-      - `BetaManagedAgentsFileRubricParams`
+      - `interface BetaManagedAgentsFileRubricParams`
 
         Rubric referenced by a file uploaded via the Files API.
 
@@ -7611,7 +8069,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           ID of the rubric file.
 
-      - `BetaManagedAgentsTextRubricParams`
+      - `interface BetaManagedAgentsTextRubricParams`
 
         Rubric content provided inline as text.
 
@@ -7629,7 +8087,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       format: int32
 
-  - `BetaManagedAgentsUserToolResultEventParams`
+  - `interface BetaManagedAgentsUserToolResultEventParams`
 
     Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -7645,19 +8103,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -7665,7 +8123,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsSystemMessageEventParams`
+  - `interface BetaManagedAgentsSystemMessageEventParams`
 
     Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
@@ -7685,7 +8143,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents File Document Source
 
-- `BetaManagedAgentsFileDocumentSource`
+- `interface BetaManagedAgentsFileDocumentSource`
 
   Document referenced by file ID.
 
@@ -7699,7 +8157,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents File Image Source
 
-- `BetaManagedAgentsFileImageSource`
+- `interface BetaManagedAgentsFileImageSource`
 
   Image referenced by file ID.
 
@@ -7713,7 +8171,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents File Rubric
 
-- `BetaManagedAgentsFileRubric`
+- `interface BetaManagedAgentsFileRubric`
 
   Rubric referenced by a file uploaded via the Files API.
 
@@ -7725,7 +8183,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents File Rubric Params
 
-- `BetaManagedAgentsFileRubricParams`
+- `interface BetaManagedAgentsFileRubricParams`
 
   Rubric referenced by a file uploaded via the Files API.
 
@@ -7737,7 +8195,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Image Block
 
-- `BetaManagedAgentsImageBlock`
+- `interface BetaManagedAgentsImageBlock`
 
   Image content specified directly as base64 data or as a reference via a URL.
 
@@ -7745,9 +8203,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-    Union type for image source variants.
+    The source of the image data.
 
-    - `BetaManagedAgentsBase64ImageSource`
+    - `interface BetaManagedAgentsBase64ImageSource`
 
       Base64-encoded image data.
 
@@ -7765,7 +8223,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsURLImageSource`
+    - `interface BetaManagedAgentsURLImageSource`
 
       Image referenced by URL.
 
@@ -7777,7 +8235,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsFileImageSource`
+    - `interface BetaManagedAgentsFileImageSource`
 
       Image referenced by file ID.
 
@@ -7791,7 +8249,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents MCP Authentication Failed Error
 
-- `BetaManagedAgentsMCPAuthenticationFailedError`
+- `interface BetaManagedAgentsMCPAuthenticationFailedError`
 
   Authentication to an MCP server failed.
 
@@ -7807,21 +8265,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-    What the client should do next in response to this error.
+    What the client should do next.
 
-    - `BetaManagedAgentsRetryStatusRetrying`
+    - `interface BetaManagedAgentsRetryStatusRetrying`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
       - `type: "retrying"`
 
-    - `BetaManagedAgentsRetryStatusExhausted`
+    - `interface BetaManagedAgentsRetryStatusExhausted`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
       - `type: "exhausted"`
 
-    - `BetaManagedAgentsRetryStatusTerminal`
+    - `interface BetaManagedAgentsRetryStatusTerminal`
 
       The session encountered a terminal error and will transition to `terminated` state.
 
@@ -7829,7 +8287,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents MCP Connection Failed Error
 
-- `BetaManagedAgentsMCPConnectionFailedError`
+- `interface BetaManagedAgentsMCPConnectionFailedError`
 
   Failed to connect to an MCP server.
 
@@ -7845,21 +8303,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-    What the client should do next in response to this error.
+    What the client should do next.
 
-    - `BetaManagedAgentsRetryStatusRetrying`
+    - `interface BetaManagedAgentsRetryStatusRetrying`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
       - `type: "retrying"`
 
-    - `BetaManagedAgentsRetryStatusExhausted`
+    - `interface BetaManagedAgentsRetryStatusExhausted`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
       - `type: "exhausted"`
 
-    - `BetaManagedAgentsRetryStatusTerminal`
+    - `interface BetaManagedAgentsRetryStatusTerminal`
 
       The session encountered a terminal error and will transition to `terminated` state.
 
@@ -7867,7 +8325,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Model Overloaded Error
 
-- `BetaManagedAgentsModelOverloadedError`
+- `interface BetaManagedAgentsModelOverloadedError`
 
   The model is currently overloaded. Emitted after automatic retries are exhausted.
 
@@ -7879,21 +8337,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-    What the client should do next in response to this error.
+    What the client should do next.
 
-    - `BetaManagedAgentsRetryStatusRetrying`
+    - `interface BetaManagedAgentsRetryStatusRetrying`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
       - `type: "retrying"`
 
-    - `BetaManagedAgentsRetryStatusExhausted`
+    - `interface BetaManagedAgentsRetryStatusExhausted`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
       - `type: "exhausted"`
 
-    - `BetaManagedAgentsRetryStatusTerminal`
+    - `interface BetaManagedAgentsRetryStatusTerminal`
 
       The session encountered a terminal error and will transition to `terminated` state.
 
@@ -7901,7 +8359,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Model Rate Limited Error
 
-- `BetaManagedAgentsModelRateLimitedError`
+- `interface BetaManagedAgentsModelRateLimitedError`
 
   The model request was rate-limited.
 
@@ -7913,21 +8371,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-    What the client should do next in response to this error.
+    What the client should do next.
 
-    - `BetaManagedAgentsRetryStatusRetrying`
+    - `interface BetaManagedAgentsRetryStatusRetrying`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
       - `type: "retrying"`
 
-    - `BetaManagedAgentsRetryStatusExhausted`
+    - `interface BetaManagedAgentsRetryStatusExhausted`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
       - `type: "exhausted"`
 
-    - `BetaManagedAgentsRetryStatusTerminal`
+    - `interface BetaManagedAgentsRetryStatusTerminal`
 
       The session encountered a terminal error and will transition to `terminated` state.
 
@@ -7935,7 +8393,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Model Request Failed Error
 
-- `BetaManagedAgentsModelRequestFailedError`
+- `interface BetaManagedAgentsModelRequestFailedError`
 
   A model request failed for a reason other than overload or rate-limiting.
 
@@ -7947,21 +8405,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-    What the client should do next in response to this error.
+    What the client should do next.
 
-    - `BetaManagedAgentsRetryStatusRetrying`
+    - `interface BetaManagedAgentsRetryStatusRetrying`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
       - `type: "retrying"`
 
-    - `BetaManagedAgentsRetryStatusExhausted`
+    - `interface BetaManagedAgentsRetryStatusExhausted`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
       - `type: "exhausted"`
 
-    - `BetaManagedAgentsRetryStatusTerminal`
+    - `interface BetaManagedAgentsRetryStatusTerminal`
 
       The session encountered a terminal error and will transition to `terminated` state.
 
@@ -7969,7 +8427,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Plain Text Document Source
 
-- `BetaManagedAgentsPlainTextDocumentSource`
+- `interface BetaManagedAgentsPlainTextDocumentSource`
 
   Plain text document content.
 
@@ -7987,15 +8445,205 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Redacted Block
 
-- `BetaManagedAgentsRedactedBlock`
+- `interface BetaManagedAgentsRedactedBlock`
 
   Placeholder for content withheld by Anthropic model policy.
 
   - `type: "redacted"`
 
+### Beta Managed Agents Repository Authentication Error
+
+- `interface BetaManagedAgentsRepositoryAuthenticationError`
+
+  The repository host rejected the credentials, or required credentials and received none.
+
+  - `type: "repository_authentication_error"`
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `repository_url: string | null`
+
+    URL of the repository that could not be cloned. Null when it could not be identified.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+    - `interface BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: "retrying"`
+
+    - `interface BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: "exhausted"`
+
+    - `interface BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: "terminal"`
+
+### Beta Managed Agents Repository Checkout Error
+
+- `interface BetaManagedAgentsRepositoryCheckoutError`
+
+  The requested branch or commit does not exist in the repository.
+
+  - `type: "repository_checkout_error"`
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `repository_url: string | null`
+
+    URL of the repository that could not be cloned. Null when it could not be identified.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+    - `interface BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: "retrying"`
+
+    - `interface BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: "exhausted"`
+
+    - `interface BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: "terminal"`
+
+### Beta Managed Agents Repository Clone Error
+
+- `interface BetaManagedAgentsRepositoryCloneError`
+
+  The repository could not be cloned.
+
+  - `type: "repository_clone_error"`
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `repository_url: string | null`
+
+    URL of the repository that could not be cloned. Null when it could not be identified.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+    - `interface BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: "retrying"`
+
+    - `interface BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: "exhausted"`
+
+    - `interface BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: "terminal"`
+
+### Beta Managed Agents Repository Forbidden Error
+
+- `interface BetaManagedAgentsRepositoryForbiddenError`
+
+  The repository host refused access to the repository.
+
+  - `type: "repository_forbidden_error"`
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `repository_url: string | null`
+
+    URL of the repository that could not be cloned. Null when it could not be identified.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+    - `interface BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: "retrying"`
+
+    - `interface BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: "exhausted"`
+
+    - `interface BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: "terminal"`
+
+### Beta Managed Agents Repository Not Found Error
+
+- `interface BetaManagedAgentsRepositoryNotFoundError`
+
+  The repository host reported the repository as not found.
+
+  - `type: "repository_not_found_error"`
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `repository_url: string | null`
+
+    URL of the repository that could not be cloned. Null when it could not be identified.
+
+  - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+    What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+    - `interface BetaManagedAgentsRetryStatusRetrying`
+
+      The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+      - `type: "retrying"`
+
+    - `interface BetaManagedAgentsRetryStatusExhausted`
+
+      This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+      - `type: "exhausted"`
+
+    - `interface BetaManagedAgentsRetryStatusTerminal`
+
+      The session encountered a terminal error and will transition to `terminated` state.
+
+      - `type: "terminal"`
+
 ### Beta Managed Agents Retry Status Exhausted
 
-- `BetaManagedAgentsRetryStatusExhausted`
+- `interface BetaManagedAgentsRetryStatusExhausted`
 
   This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
@@ -8003,7 +8651,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Retry Status Retrying
 
-- `BetaManagedAgentsRetryStatusRetrying`
+- `interface BetaManagedAgentsRetryStatusRetrying`
 
   The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
@@ -8011,7 +8659,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Retry Status Terminal
 
-- `BetaManagedAgentsRetryStatusTerminal`
+- `interface BetaManagedAgentsRetryStatusTerminal`
 
   The session encountered a terminal error and will transition to `terminated` state.
 
@@ -8019,7 +8667,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Search Result Block
 
-- `BetaManagedAgentsSearchResultBlock`
+- `interface BetaManagedAgentsSearchResultBlock`
 
   A block containing a web search result.
 
@@ -8027,7 +8675,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `citations: BetaManagedAgentsSearchResultCitations`
 
-    Citation settings for a search result.
+    Citation settings for this search result.
 
     - `enabled: boolean`
 
@@ -8059,7 +8707,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Search Result Citations
 
-- `BetaManagedAgentsSearchResultCitations`
+- `interface BetaManagedAgentsSearchResultCitations`
 
   Citation settings for a search result.
 
@@ -8069,7 +8717,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Search Result Content
 
-- `BetaManagedAgentsSearchResultContent`
+- `interface BetaManagedAgentsSearchResultContent`
 
   Text content within a search result.
 
@@ -8083,7 +8731,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Send Session Events
 
-- `BetaManagedAgentsSendSessionEvents`
+- `interface BetaManagedAgentsSendSessionEvents`
 
   Events that were successfully sent to the session.
 
@@ -8091,7 +8739,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     Sent events
 
-    - `BetaManagedAgentsUserMessageEvent`
+    - `interface BetaManagedAgentsUserMessageEvent`
 
       A user message event in the session conversation.
 
@@ -8105,7 +8753,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         Array of content blocks comprising the user message.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
@@ -8117,7 +8765,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
@@ -8125,9 +8773,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-            Union type for image source variants.
+            The source of the image data.
 
-            - `BetaManagedAgentsBase64ImageSource`
+            - `interface BetaManagedAgentsBase64ImageSource`
 
               Base64-encoded image data.
 
@@ -8145,7 +8793,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                 minLength: 1
 
-            - `BetaManagedAgentsURLImageSource`
+            - `interface BetaManagedAgentsURLImageSource`
 
               Image referenced by URL.
 
@@ -8157,7 +8805,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileImageSource`
+            - `interface BetaManagedAgentsFileImageSource`
 
               Image referenced by file ID.
 
@@ -8169,7 +8817,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                 minLength: 1
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -8177,9 +8825,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-            Union type for document source variants.
+            The source of the document data.
 
-            - `BetaManagedAgentsBase64DocumentSource`
+            - `interface BetaManagedAgentsBase64DocumentSource`
 
               Base64-encoded document data.
 
@@ -8197,7 +8845,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                 minLength: 1
 
-            - `BetaManagedAgentsPlainTextDocumentSource`
+            - `interface BetaManagedAgentsPlainTextDocumentSource`
 
               Plain text document content.
 
@@ -8213,7 +8861,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                 MIME type of the text content. Must be "text/plain".
 
-            - `BetaManagedAgentsURLDocumentSource`
+            - `interface BetaManagedAgentsURLDocumentSource`
 
               Document referenced by URL.
 
@@ -8225,7 +8873,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileDocumentSource`
+            - `interface BetaManagedAgentsFileDocumentSource`
 
               Document referenced by file ID.
 
@@ -8245,7 +8893,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             The title of the document.
 
-        - `BetaManagedAgentsRedactedBlock`
+        - `interface BetaManagedAgentsRedactedBlock`
 
           Placeholder for content withheld by Anthropic model policy.
 
@@ -8253,11 +8901,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the agent finished processing this message.
 
         format: date-time
 
-    - `BetaManagedAgentsUserInterruptEvent`
+    - `interface BetaManagedAgentsUserInterruptEvent`
 
       An interrupt event that pauses agent execution and returns control to the user.
 
@@ -8269,7 +8917,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the interrupt was processed.
 
         format: date-time
 
@@ -8277,7 +8925,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-    - `BetaManagedAgentsUserToolConfirmationEvent`
+    - `interface BetaManagedAgentsUserToolConfirmationEvent`
 
       A tool confirmation event that approves or denies a pending tool execution.
 
@@ -8289,7 +8937,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `result: "allow" | "deny"`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `"allow"`
 
@@ -8307,15 +8955,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the confirmation was processed.
 
         format: date-time
 
       - `session_thread_id?: string | null`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-    - `BetaManagedAgentsUserCustomToolResultEvent`
+    - `interface BetaManagedAgentsUserCustomToolResultEvent`
 
       Event sent by the client providing the result of a custom tool execution.
 
@@ -8333,19 +8981,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The result content returned by the tool.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `BetaManagedAgentsSearchResultBlock`
+        - `interface BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -8353,7 +9001,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           - `citations: BetaManagedAgentsSearchResultCitations`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `enabled: boolean`
 
@@ -8389,15 +9037,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id?: string | null`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-    - `BetaManagedAgentsUserDefineOutcomeEvent`
+    - `interface BetaManagedAgentsUserDefineOutcomeEvent`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -8423,15 +9071,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `processed_at: string`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the outcome was accepted.
 
         format: date-time
 
       - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-        - `BetaManagedAgentsFileRubric`
+        - `interface BetaManagedAgentsFileRubric`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -8441,7 +9089,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             ID of the rubric file.
 
-        - `BetaManagedAgentsTextRubric`
+        - `interface BetaManagedAgentsTextRubric`
 
           Rubric content provided inline as text.
 
@@ -8451,7 +9099,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-    - `BetaManagedAgentsUserToolResultEvent`
+    - `interface BetaManagedAgentsUserToolResultEvent`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -8469,19 +9117,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The result content returned by the tool.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `BetaManagedAgentsSearchResultBlock`
+        - `interface BetaManagedAgentsSearchResultBlock`
 
           A block containing a web search result.
 
@@ -8491,15 +9139,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
       - `session_thread_id?: string | null`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-    - `BetaManagedAgentsSystemMessageEvent`
+    - `interface BetaManagedAgentsSystemMessageEvent`
 
       A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
@@ -8523,13 +9171,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `processed_at?: string | null`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this system message was processed.
 
         format: date-time
 
 ### Beta Managed Agents Session Budget Reached
 
-- `BetaManagedAgentsSessionBudgetReached`
+- `interface BetaManagedAgentsSessionBudgetReached`
 
   The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
@@ -8537,7 +9185,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Session Deleted Event
 
-- `BetaManagedAgentsSessionDeletedEvent`
+- `interface BetaManagedAgentsSessionDeletedEvent`
 
   Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
 
@@ -8549,13 +9197,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the session was deleted.
 
     format: date-time
 
 ### Beta Managed Agents Session End Turn
 
-- `BetaManagedAgentsSessionEndTurn`
+- `interface BetaManagedAgentsSessionEndTurn`
 
   The agent completed its turn naturally and is ready for the next user message.
 
@@ -8563,7 +9211,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Session Error Event
 
-- `BetaManagedAgentsSessionErrorEvent`
+- `interface BetaManagedAgentsSessionErrorEvent`
 
   An error event indicating a problem occurred during session execution.
 
@@ -8573,11 +9221,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     Unique identifier for this event.
 
-  - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+  - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
-    An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-    - `BetaManagedAgentsUnknownError`
+    - `interface BetaManagedAgentsUnknownError`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
 
@@ -8589,27 +9235,27 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-        What the client should do next in response to this error.
+        What the client should do next.
 
-        - `BetaManagedAgentsRetryStatusRetrying`
+        - `interface BetaManagedAgentsRetryStatusRetrying`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
           - `type: "retrying"`
 
-        - `BetaManagedAgentsRetryStatusExhausted`
+        - `interface BetaManagedAgentsRetryStatusExhausted`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
           - `type: "exhausted"`
 
-        - `BetaManagedAgentsRetryStatusTerminal`
+        - `interface BetaManagedAgentsRetryStatusTerminal`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
           - `type: "terminal"`
 
-    - `BetaManagedAgentsModelOverloadedError`
+    - `interface BetaManagedAgentsModelOverloadedError`
 
       The model is currently overloaded. Emitted after automatic retries are exhausted.
 
@@ -8621,21 +9267,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-        What the client should do next in response to this error.
+        What the client should do next.
 
-        - `BetaManagedAgentsRetryStatusRetrying`
+        - `interface BetaManagedAgentsRetryStatusRetrying`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-        - `BetaManagedAgentsRetryStatusExhausted`
+        - `interface BetaManagedAgentsRetryStatusExhausted`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-        - `BetaManagedAgentsRetryStatusTerminal`
+        - `interface BetaManagedAgentsRetryStatusTerminal`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-    - `BetaManagedAgentsModelRateLimitedError`
+    - `interface BetaManagedAgentsModelRateLimitedError`
 
       The model request was rate-limited.
 
@@ -8647,21 +9293,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-        What the client should do next in response to this error.
+        What the client should do next.
 
-        - `BetaManagedAgentsRetryStatusRetrying`
+        - `interface BetaManagedAgentsRetryStatusRetrying`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-        - `BetaManagedAgentsRetryStatusExhausted`
+        - `interface BetaManagedAgentsRetryStatusExhausted`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-        - `BetaManagedAgentsRetryStatusTerminal`
+        - `interface BetaManagedAgentsRetryStatusTerminal`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-    - `BetaManagedAgentsModelRequestFailedError`
+    - `interface BetaManagedAgentsModelRequestFailedError`
 
       A model request failed for a reason other than overload or rate-limiting.
 
@@ -8673,21 +9319,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-        What the client should do next in response to this error.
+        What the client should do next.
 
-        - `BetaManagedAgentsRetryStatusRetrying`
+        - `interface BetaManagedAgentsRetryStatusRetrying`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-        - `BetaManagedAgentsRetryStatusExhausted`
+        - `interface BetaManagedAgentsRetryStatusExhausted`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-        - `BetaManagedAgentsRetryStatusTerminal`
+        - `interface BetaManagedAgentsRetryStatusTerminal`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-    - `BetaManagedAgentsMCPConnectionFailedError`
+    - `interface BetaManagedAgentsMCPConnectionFailedError`
 
       Failed to connect to an MCP server.
 
@@ -8703,21 +9349,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-        What the client should do next in response to this error.
+        What the client should do next.
 
-        - `BetaManagedAgentsRetryStatusRetrying`
+        - `interface BetaManagedAgentsRetryStatusRetrying`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-        - `BetaManagedAgentsRetryStatusExhausted`
+        - `interface BetaManagedAgentsRetryStatusExhausted`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-        - `BetaManagedAgentsRetryStatusTerminal`
+        - `interface BetaManagedAgentsRetryStatusTerminal`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-    - `BetaManagedAgentsMCPAuthenticationFailedError`
+    - `interface BetaManagedAgentsMCPAuthenticationFailedError`
 
       Authentication to an MCP server failed.
 
@@ -8733,21 +9379,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-        What the client should do next in response to this error.
+        What the client should do next.
 
-        - `BetaManagedAgentsRetryStatusRetrying`
+        - `interface BetaManagedAgentsRetryStatusRetrying`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-        - `BetaManagedAgentsRetryStatusExhausted`
+        - `interface BetaManagedAgentsRetryStatusExhausted`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-        - `BetaManagedAgentsRetryStatusTerminal`
+        - `interface BetaManagedAgentsRetryStatusTerminal`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-    - `BetaManagedAgentsBillingError`
+    - `interface BetaManagedAgentsBillingError`
 
       The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
 
@@ -8759,21 +9405,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-        What the client should do next in response to this error.
+        What the client should do next.
 
-        - `BetaManagedAgentsRetryStatusRetrying`
+        - `interface BetaManagedAgentsRetryStatusRetrying`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-        - `BetaManagedAgentsRetryStatusExhausted`
+        - `interface BetaManagedAgentsRetryStatusExhausted`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-        - `BetaManagedAgentsRetryStatusTerminal`
+        - `interface BetaManagedAgentsRetryStatusTerminal`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-    - `BetaManagedAgentsCredentialHostUnreachableError`
+    - `interface BetaManagedAgentsCredentialHostUnreachableError`
 
       An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
 
@@ -8789,17 +9435,17 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-        What the client should do next in response to this error.
+        What the client should do next.
 
-        - `BetaManagedAgentsRetryStatusRetrying`
+        - `interface BetaManagedAgentsRetryStatusRetrying`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-        - `BetaManagedAgentsRetryStatusExhausted`
+        - `interface BetaManagedAgentsRetryStatusExhausted`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-        - `BetaManagedAgentsRetryStatusTerminal`
+        - `interface BetaManagedAgentsRetryStatusTerminal`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
@@ -8807,19 +9453,169 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         ID of the vault containing the affected credential.
 
+    - `interface BetaManagedAgentsRepositoryAuthenticationError`
+
+      The repository host rejected the credentials, or required credentials and received none.
+
+      - `type: "repository_authentication_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `repository_url: string | null`
+
+        URL of the repository that could not be cloned. Null when it could not be identified.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+        - `interface BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `interface BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `interface BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+    - `interface BetaManagedAgentsRepositoryForbiddenError`
+
+      The repository host refused access to the repository.
+
+      - `type: "repository_forbidden_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `repository_url: string | null`
+
+        URL of the repository that could not be cloned. Null when it could not be identified.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+        - `interface BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `interface BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `interface BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+    - `interface BetaManagedAgentsRepositoryNotFoundError`
+
+      The repository host reported the repository as not found.
+
+      - `type: "repository_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `repository_url: string | null`
+
+        URL of the repository that could not be cloned. Null when it could not be identified.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+        - `interface BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `interface BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `interface BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+    - `interface BetaManagedAgentsRepositoryCheckoutError`
+
+      The requested branch or commit does not exist in the repository.
+
+      - `type: "repository_checkout_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `repository_url: string | null`
+
+        URL of the repository that could not be cloned. Null when it could not be identified.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+        - `interface BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `interface BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `interface BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
+    - `interface BetaManagedAgentsRepositoryCloneError`
+
+      The repository could not be cloned.
+
+      - `type: "repository_clone_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `repository_url: string | null`
+
+        URL of the repository that could not be cloned. Null when it could not be identified.
+
+      - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+        What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+        - `interface BetaManagedAgentsRetryStatusRetrying`
+
+          The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+        - `interface BetaManagedAgentsRetryStatusExhausted`
+
+          This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+        - `interface BetaManagedAgentsRetryStatusTerminal`
+
+          The session encountered a terminal error and will transition to `terminated` state.
+
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the error occurred.
 
     format: date-time
 
 ### Beta Managed Agents Session Event
 
-- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
+- `type BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
 
   Union type for all event types in a session.
 
-  - `BetaManagedAgentsUserMessageEvent`
+  - `interface BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
 
@@ -8833,7 +9629,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Array of content blocks comprising the user message.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
@@ -8845,7 +9641,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           minLength: 1
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
@@ -8853,9 +9649,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
-          - `BetaManagedAgentsBase64ImageSource`
+          - `interface BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
 
@@ -8873,7 +9669,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsURLImageSource`
+          - `interface BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
 
@@ -8885,7 +9681,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsFileImageSource`
+          - `interface BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
 
@@ -8897,7 +9693,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -8905,9 +9701,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
-          - `BetaManagedAgentsBase64DocumentSource`
+          - `interface BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
 
@@ -8925,7 +9721,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsPlainTextDocumentSource`
+          - `interface BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
 
@@ -8941,7 +9737,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               MIME type of the text content. Must be "text/plain".
 
-          - `BetaManagedAgentsURLDocumentSource`
+          - `interface BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
 
@@ -8953,7 +9749,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsFileDocumentSource`
+          - `interface BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
 
@@ -8973,7 +9769,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           The title of the document.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -8981,11 +9777,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
-  - `BetaManagedAgentsUserInterruptEvent`
+  - `interface BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
 
@@ -8997,7 +9793,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -9005,7 +9801,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `BetaManagedAgentsUserToolConfirmationEvent`
+  - `interface BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
 
@@ -9017,7 +9813,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `result: "allow" | "deny"`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `"allow"`
 
@@ -9035,15 +9831,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsUserCustomToolResultEvent`
+  - `interface BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
 
@@ -9061,19 +9857,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -9081,7 +9877,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: boolean`
 
@@ -9117,15 +9913,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsAgentCustomToolUseEvent`
+  - `interface BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
@@ -9145,15 +9941,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMessageEvent`
+  - `interface BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
 
@@ -9167,21 +9963,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Array of text blocks comprising the agent response.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
-  - `BetaManagedAgentsAgentThinkingEvent`
+  - `interface BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
 
@@ -9193,11 +9989,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
-  - `BetaManagedAgentsAgentMCPToolUseEvent`
+  - `interface BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
 
@@ -9221,13 +10017,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `"allow"`
 
@@ -9237,21 +10033,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
         The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
         - `type: "always_allow"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
         The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
         - `type: "always_ask"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAuto`
+      - `interface BetaManagedAgentsAgentToolEvaluationAuto`
 
         The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -9259,15 +10055,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
             The server judged the invocation safe to execute without client approval.
 
             - `type: "allow"`
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
             The server reached no judgement; the invocation is held for client approval.
 
@@ -9279,7 +10075,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               maxLength: 64
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
             The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -9293,9 +10089,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMCPToolResultEvent`
+  - `interface BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
 
@@ -9311,7 +10107,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -9319,19 +10115,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -9339,7 +10135,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentToolUseEvent`
+  - `interface BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
 
@@ -9359,29 +10155,23 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
+      The evaluated permission policy for this tool invocation.
 
     - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentToolResultEvent`
+  - `interface BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
 
@@ -9393,7 +10183,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -9405,19 +10195,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -9425,7 +10215,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
 
@@ -9439,19 +10229,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -9461,7 +10251,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -9469,7 +10259,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `BetaManagedAgentsAgentThreadMessageSentEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
 
@@ -9483,25 +10273,25 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -9513,7 +10303,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `BetaManagedAgentsAgentThreadContextCompactedEvent`
+  - `interface BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
 
@@ -9525,11 +10315,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionErrorEvent`
+  - `interface BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
 
@@ -9539,11 +10329,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `BetaManagedAgentsUnknownError`
+      - `interface BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
 
@@ -9555,27 +10343,27 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
             - `type: "retrying"`
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
             - `type: "exhausted"`
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
             - `type: "terminal"`
 
-      - `BetaManagedAgentsModelOverloadedError`
+      - `interface BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
 
@@ -9587,21 +10375,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRateLimitedError`
+      - `interface BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
 
@@ -9613,21 +10401,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRequestFailedError`
+      - `interface BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
 
@@ -9639,21 +10427,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPConnectionFailedError`
+      - `interface BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
 
@@ -9669,21 +10457,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPAuthenticationFailedError`
+      - `interface BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
 
@@ -9699,21 +10487,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsBillingError`
+      - `interface BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
 
@@ -9725,21 +10513,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsCredentialHostUnreachableError`
+      - `interface BetaManagedAgentsCredentialHostUnreachableError`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
 
@@ -9755,17 +10543,17 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
@@ -9773,13 +10561,163 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           ID of the vault containing the affected credential.
 
+      - `interface BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: "repository_authentication_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: "repository_forbidden_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: "repository_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: "repository_checkout_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: "repository_clone_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
 
@@ -9791,11 +10729,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
 
@@ -9807,11 +10745,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
 
@@ -9823,21 +10761,43 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the session stopped. `null` when there is nothing more to report.
 
-      - `BetaManagedAgentsSessionEndTurn`
+      - `type: "refusal"`
+
+      - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `"cyber"`
+
+        - `"bio"`
+
+        - `"frontier_llm"`
+
+        - `"reasoning_extraction"`
+
+        - `"general_harms"`
+
+      - `explanation: string | null`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
         - `type: "end_turn"`
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
@@ -9847,19 +10807,25 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `type: "budget_reached"`
 
-  - `BetaManagedAgentsSessionStatusTerminatedEvent`
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: "refusal"`
+
+  - `interface BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
 
@@ -9871,11 +10837,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadCreatedEvent`
+  - `interface BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
 
@@ -9891,7 +10857,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -9899,7 +10865,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public `sthr_` ID of the newly created thread.
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
 
@@ -9921,11 +10887,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
 
@@ -9955,7 +10921,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -9965,7 +10931,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `cache_creation_input_tokens: number`
 
@@ -9993,13 +10959,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `speed?: "standard" | "fast" | null`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `"standard"`
 
         - `"fast"`
 
-  - `BetaManagedAgentsSpanModelRequestStartEvent`
+  - `interface BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
 
@@ -10011,11 +10977,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanModelRequestEndEvent`
+  - `interface BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
 
@@ -10035,15 +11001,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `model_usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
 
@@ -10065,11 +11031,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
-  - `BetaManagedAgentsUserDefineOutcomeEvent`
+  - `interface BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -10095,15 +11061,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-      - `BetaManagedAgentsFileRubric`
+      - `interface BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
 
@@ -10113,7 +11079,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           ID of the rubric file.
 
-      - `BetaManagedAgentsTextRubric`
+      - `interface BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
 
@@ -10123,7 +11089,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-  - `BetaManagedAgentsSessionDeletedEvent`
+  - `interface BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
 
@@ -10135,11 +11101,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -10155,7 +11121,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -10163,7 +11129,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public sthr_ ID of the thread that started running.
 
-  - `BetaManagedAgentsSessionThreadStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -10179,7 +11145,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -10187,27 +11153,33 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
 
-      - `BetaManagedAgentsSessionEndTurn`
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+  - `interface BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -10223,7 +11195,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -10231,7 +11203,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `interface BetaManagedAgentsUserToolResultEvent`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -10249,19 +11221,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -10271,15 +11243,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -10295,7 +11267,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -10303,7 +11275,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `interface BetaManagedAgentsSessionUpdatedEvent`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
 
@@ -10315,13 +11287,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `agent?: BetaManagedAgentsSessionAgent | null`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `type: "agent"`
 
@@ -10347,95 +11319,101 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-fable-5-1" | "claude-sonnet-5" | "claude-fable-5" | 11 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-fable-5-1"`
+            Efficient model for coding and agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-opus-5-5"`
 
-            - `"claude-sonnet-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              High-performance model for coding and agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-sonnet-5"`
 
-            - `"claude-opus-5"`
+            Efficient model for coding and agents
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-fable-5"`
 
-            - `"claude-opus-4-8"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-5"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `"claude-opus-4-6"`
 
-            - `"claude-haiku-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Fastest model with near-frontier intelligence
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-opus-4-5-20251101"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-sonnet-4-5-20250929"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `(string & {})`
 
         - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
-          - `BetaManagedAgentsEffortLow`
+          - `interface BetaManagedAgentsEffortLow`
 
             Low effort. Favors latency over reasoning depth.
 
             - `type: "low"`
 
-          - `BetaManagedAgentsEffortMedium`
+          - `interface BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: "medium"`
 
-          - `BetaManagedAgentsEffortHigh`
+          - `interface BetaManagedAgentsEffortHigh`
 
             High effort. Favors reasoning depth.
 
             - `type: "high"`
 
-          - `BetaManagedAgentsEffortXhigh`
+          - `interface BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: "xhigh"`
 
-          - `BetaManagedAgentsEffortMax`
+          - `interface BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
@@ -10447,7 +11425,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `speed?: "standard" | "fast"`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `"standard"`
 
@@ -10455,7 +11433,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `type: "coordinator"`
 
@@ -10463,7 +11441,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           Full `agent` definitions the coordinator may spawn as session threads.
 
-          - `BetaManagedAgentsSessionThreadAgent`
+          - `interface BetaManagedAgentsSessionThreadAgent`
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
@@ -10489,7 +11467,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-              - `BetaManagedAgentsAnthropicSkill`
+              - `interface BetaManagedAgentsAnthropicSkill`
 
                 A resolved Anthropic-managed skill.
 
@@ -10499,7 +11477,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                 - `version: string`
 
-              - `BetaManagedAgentsCustomSkill`
+              - `interface BetaManagedAgentsCustomSkill`
 
                 A resolved user-created custom skill.
 
@@ -10513,13 +11491,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-              - `BetaManagedAgentsAgentToolset20260401`
+              - `interface BetaManagedAgentsAgentToolset20260401`
 
                 - `type: "agent_toolset_20260401"`
 
                 - `configs: Array<BetaManagedAgentsAgentToolConfig>`
 
-                  - `BetaManagedAgentsBashToolConfig`
+                  - `interface BetaManagedAgentsBashToolConfig`
 
                     Configuration for the bash tool.
 
@@ -10533,25 +11511,25 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
                         - `type: "always_allow"`
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
                         - `type: "always_ask"`
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                         - `type: "auto"`
 
-                  - `BetaManagedAgentsEditToolConfig`
+                  - `interface BetaManagedAgentsEditToolConfig`
 
                     Configuration for the edit tool.
 
@@ -10565,19 +11543,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsReadToolConfig`
+                  - `interface BetaManagedAgentsReadToolConfig`
 
                     Configuration for the read tool.
 
@@ -10591,19 +11569,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWriteToolConfig`
+                  - `interface BetaManagedAgentsWriteToolConfig`
 
                     Configuration for the write tool.
 
@@ -10617,19 +11595,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGlobToolConfig`
+                  - `interface BetaManagedAgentsGlobToolConfig`
 
                     Configuration for the glob tool.
 
@@ -10643,19 +11621,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGrepToolConfig`
+                  - `interface BetaManagedAgentsGrepToolConfig`
 
                     Configuration for the grep tool.
 
@@ -10669,19 +11647,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWebFetchToolConfig`
+                  - `interface BetaManagedAgentsWebFetchToolConfig`
 
                     Configuration for the web_fetch tool.
 
@@ -10695,15 +11673,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -10715,7 +11693,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       format: int32
 
-                  - `BetaManagedAgentsWebSearchToolConfig`
+                  - `interface BetaManagedAgentsWebSearchToolConfig`
 
                     Configuration for the web_search tool.
 
@@ -10729,15 +11707,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -10785,19 +11763,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-              - `BetaManagedAgentsMCPToolset`
+              - `interface BetaManagedAgentsMCPToolset`
 
                 - `type: "mcp_toolset"`
 
@@ -10811,15 +11789,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -10833,21 +11811,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `mcp_server_name: string`
 
-              - `BetaManagedAgentsCustomTool`
+              - `interface BetaManagedAgentsCustomTool`
 
                 A custom tool as returned in API responses.
 
@@ -10871,7 +11849,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               format: int32
 
-          - `BetaManagedAgentsAdvisor`
+          - `interface BetaManagedAgentsAdvisor`
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -10885,11 +11863,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-        - `BetaManagedAgentsAnthropicSkill`
+        - `interface BetaManagedAgentsAnthropicSkill`
 
           A resolved Anthropic-managed skill.
 
-        - `BetaManagedAgentsCustomSkill`
+        - `interface BetaManagedAgentsCustomSkill`
 
           A resolved user-created custom skill.
 
@@ -10897,11 +11875,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-        - `BetaManagedAgentsAgentToolset20260401`
+        - `interface BetaManagedAgentsAgentToolset20260401`
 
-        - `BetaManagedAgentsMCPToolset`
+        - `interface BetaManagedAgentsMCPToolset`
 
-        - `BetaManagedAgentsCustomTool`
+        - `interface BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
 
@@ -10911,13 +11889,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `type: "limit"`
 
       - `max_list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `amount: string`
 
@@ -10935,7 +11913,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `interface BetaManagedAgentsSystemMessageEvent`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
@@ -10959,11 +11937,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `interface BetaManagedAgentsSessionUsageEvent`
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
@@ -10975,13 +11953,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `active_seconds?: number`
 
@@ -10991,7 +11969,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens?: number`
 
@@ -11019,7 +11997,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `list_cost?: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `output_tokens?: number`
 
@@ -11029,7 +12007,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `server_tool_use?: BetaManagedAgentsServerToolUsage`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `web_fetch_requests?: number`
 
@@ -11045,11 +12023,119 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
+
+### Beta Managed Agents Session Event Type
+
+- `type BetaManagedAgentsSessionEventType = "user.message" | "user.interrupt" | "user.tool_confirmation" | 31 more`
+
+  The `type` of a session event.
+
+  - `"user.message"`
+
+  - `"user.interrupt"`
+
+  - `"user.tool_confirmation"`
+
+  - `"user.custom_tool_result"`
+
+  - `"agent.custom_tool_use"`
+
+  - `"agent.message"`
+
+  - `"agent.thinking"`
+
+  - `"agent.mcp_tool_use"`
+
+  - `"agent.mcp_tool_result"`
+
+  - `"agent.tool_use"`
+
+  - `"agent.tool_result"`
+
+  - `"agent.thread_message_received"`
+
+  - `"agent.thread_message_sent"`
+
+  - `"agent.thread_context_compacted"`
+
+  - `"session.error"`
+
+  - `"session.status_rescheduled"`
+
+  - `"session.status_running"`
+
+  - `"session.status_idle"`
+
+  - `"session.status_terminated"`
+
+  - `"session.thread_created"`
+
+  - `"span.outcome_evaluation_start"`
+
+  - `"span.outcome_evaluation_end"`
+
+  - `"span.model_request_start"`
+
+  - `"span.model_request_end"`
+
+  - `"span.outcome_evaluation_ongoing"`
+
+  - `"user.define_outcome"`
+
+  - `"session.thread_status_running"`
+
+  - `"session.thread_status_idle"`
+
+  - `"session.thread_status_terminated"`
+
+  - `"user.tool_result"`
+
+  - `"session.thread_status_rescheduled"`
+
+  - `"session.updated"`
+
+  - `"system.message"`
+
+  - `"session.usage"`
+
+### Beta Managed Agents Session Refusal
+
+- `interface BetaManagedAgentsSessionRefusal`
+
+  The turn ended because the model's response was refused, for example by a safety classifier.
+
+  - `type: "refusal"`
+
+### Beta Managed Agents Session Refusal Stop Details
+
+- `interface BetaManagedAgentsSessionRefusalStopDetails`
+
+  Structured information about a refusal.
+
+  - `type: "refusal"`
+
+  - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+    The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+    - `"cyber"`
+
+    - `"bio"`
+
+    - `"frontier_llm"`
+
+    - `"reasoning_extraction"`
+
+    - `"general_harms"`
+
+  - `explanation: string | null`
+
+    Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
 
 ### Beta Managed Agents Session Requires Action
 
-- `BetaManagedAgentsSessionRequiresAction`
+- `interface BetaManagedAgentsSessionRequiresAction`
 
   The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
@@ -11061,7 +12147,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Session Retries Exhausted
 
-- `BetaManagedAgentsSessionRetriesExhausted`
+- `interface BetaManagedAgentsSessionRetriesExhausted`
 
   The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
@@ -11069,7 +12155,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Session Status Idle Event
 
-- `BetaManagedAgentsSessionStatusIdleEvent`
+- `interface BetaManagedAgentsSessionStatusIdleEvent`
 
   Indicates the agent has paused and is awaiting user input.
 
@@ -11081,21 +12167,43 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp of status change.
 
     format: date-time
 
-  - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+  - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-    The agent completed its turn naturally and is ready for the next user message.
+    Structured information about why the session stopped. `null` when there is nothing more to report.
 
-    - `BetaManagedAgentsSessionEndTurn`
+    - `type: "refusal"`
+
+    - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+      The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+      - `"cyber"`
+
+      - `"bio"`
+
+      - `"frontier_llm"`
+
+      - `"reasoning_extraction"`
+
+      - `"general_harms"`
+
+    - `explanation: string | null`
+
+      Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+  - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+    - `interface BetaManagedAgentsSessionEndTurn`
 
       The agent completed its turn naturally and is ready for the next user message.
 
       - `type: "end_turn"`
 
-    - `BetaManagedAgentsSessionRequiresAction`
+    - `interface BetaManagedAgentsSessionRequiresAction`
 
       The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
@@ -11105,21 +12213,27 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
-    - `BetaManagedAgentsSessionRetriesExhausted`
+    - `interface BetaManagedAgentsSessionRetriesExhausted`
 
       The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `type: "retries_exhausted"`
 
-    - `BetaManagedAgentsSessionBudgetReached`
+    - `interface BetaManagedAgentsSessionBudgetReached`
 
       The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
       - `type: "budget_reached"`
 
+    - `interface BetaManagedAgentsSessionRefusal`
+
+      The turn ended because the model's response was refused, for example by a safety classifier.
+
+      - `type: "refusal"`
+
 ### Beta Managed Agents Session Status Rescheduled Event
 
-- `BetaManagedAgentsSessionStatusRescheduledEvent`
+- `interface BetaManagedAgentsSessionStatusRescheduledEvent`
 
   Indicates the session is recovering from an error state and is rescheduled for execution.
 
@@ -11131,13 +12245,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp of status change.
 
     format: date-time
 
 ### Beta Managed Agents Session Status Running Event
 
-- `BetaManagedAgentsSessionStatusRunningEvent`
+- `interface BetaManagedAgentsSessionStatusRunningEvent`
 
   Indicates the session is actively running and the agent is working.
 
@@ -11149,13 +12263,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp of status change.
 
     format: date-time
 
 ### Beta Managed Agents Session Status Terminated Event
 
-- `BetaManagedAgentsSessionStatusTerminatedEvent`
+- `interface BetaManagedAgentsSessionStatusTerminatedEvent`
 
   Indicates the session has terminated, either due to an error or completion.
 
@@ -11167,13 +12281,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp of status change.
 
     format: date-time
 
 ### Beta Managed Agents Session Thread Created Event
 
-- `BetaManagedAgentsSessionThreadCreatedEvent`
+- `interface BetaManagedAgentsSessionThreadCreatedEvent`
 
   Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
 
@@ -11189,7 +12303,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the thread was created.
 
     format: date-time
 
@@ -11199,7 +12313,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Session Thread Status Idle Event
 
-- `BetaManagedAgentsSessionThreadStatusIdleEvent`
+- `interface BetaManagedAgentsSessionThreadStatusIdleEvent`
 
   A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -11215,7 +12329,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp of the status transition.
 
     format: date-time
 
@@ -11223,17 +12337,39 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     Public sthr_ ID of the thread that went idle.
 
-  - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+  - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-    The agent completed its turn naturally and is ready for the next user message.
+    Structured information about why the thread stopped. `null` when there is nothing more to report.
 
-    - `BetaManagedAgentsSessionEndTurn`
+    - `type: "refusal"`
+
+    - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+      The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+      - `"cyber"`
+
+      - `"bio"`
+
+      - `"frontier_llm"`
+
+      - `"reasoning_extraction"`
+
+      - `"general_harms"`
+
+    - `explanation: string | null`
+
+      Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+  - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+    - `interface BetaManagedAgentsSessionEndTurn`
 
       The agent completed its turn naturally and is ready for the next user message.
 
       - `type: "end_turn"`
 
-    - `BetaManagedAgentsSessionRequiresAction`
+    - `interface BetaManagedAgentsSessionRequiresAction`
 
       The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
@@ -11243,21 +12379,27 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
-    - `BetaManagedAgentsSessionRetriesExhausted`
+    - `interface BetaManagedAgentsSessionRetriesExhausted`
 
       The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `type: "retries_exhausted"`
 
-    - `BetaManagedAgentsSessionBudgetReached`
+    - `interface BetaManagedAgentsSessionBudgetReached`
 
       The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
       - `type: "budget_reached"`
 
+    - `interface BetaManagedAgentsSessionRefusal`
+
+      The turn ended because the model's response was refused, for example by a safety classifier.
+
+      - `type: "refusal"`
+
 ### Beta Managed Agents Session Thread Status Rescheduled Event
 
-- `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+- `interface BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
   A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -11273,7 +12415,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp of the status transition.
 
     format: date-time
 
@@ -11283,7 +12425,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Session Thread Status Running Event
 
-- `BetaManagedAgentsSessionThreadStatusRunningEvent`
+- `interface BetaManagedAgentsSessionThreadStatusRunningEvent`
 
   A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -11299,7 +12441,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp of the status transition.
 
     format: date-time
 
@@ -11309,7 +12451,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Session Thread Status Terminated Event
 
-- `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+- `interface BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
   A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -11325,7 +12467,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp of the status transition.
 
     format: date-time
 
@@ -11335,7 +12477,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Session Usage Snapshot
 
-- `BetaManagedAgentsSessionUsageSnapshot`
+- `interface BetaManagedAgentsSessionUsageSnapshot`
 
   Point-in-time snapshot of a session's cumulative usage.
 
@@ -11347,7 +12489,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
-    Prompt-cache creation token usage broken down by cache lifetime.
+    Tokens used to create prompt cache entries, broken down by cache TTL.
 
     - `ephemeral_1h_input_tokens?: number`
 
@@ -11375,7 +12517,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `list_cost?: BetaMonetaryAmount`
 
-    A monetary amount in a specific currency.
+    Cumulative list cost of the session across all turns, priced at public list rates.
 
     - `amount: string`
 
@@ -11393,7 +12535,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `server_tool_use?: BetaManagedAgentsServerToolUsage`
 
-    Cumulative count of server-executed tool invocations, broken down by tool.
+    Cumulative server-executed tool usage across all turns.
 
     - `web_fetch_requests?: number`
 
@@ -11409,7 +12551,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Span Model Request End Event
 
-- `BetaManagedAgentsSpanModelRequestEndEvent`
+- `interface BetaManagedAgentsSpanModelRequestEndEvent`
 
   Emitted when a model request completes.
 
@@ -11429,7 +12571,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `model_usage: BetaManagedAgentsSpanModelUsage`
 
-    Token usage for a single model request.
+    Token usage for this model request.
 
     - `cache_creation_input_tokens: number`
 
@@ -11457,7 +12599,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `speed?: "standard" | "fast" | null`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
       - `"standard"`
 
@@ -11465,13 +12607,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the model request completed.
 
     format: date-time
 
 ### Beta Managed Agents Span Model Request Start Event
 
-- `BetaManagedAgentsSpanModelRequestStartEvent`
+- `interface BetaManagedAgentsSpanModelRequestStartEvent`
 
   Emitted when a model request is initiated by the agent.
 
@@ -11483,13 +12625,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the model request started.
 
     format: date-time
 
 ### Beta Managed Agents Span Model Usage
 
-- `BetaManagedAgentsSpanModelUsage`
+- `interface BetaManagedAgentsSpanModelUsage`
 
   Token usage for a single model request.
 
@@ -11519,7 +12661,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `speed?: "standard" | "fast" | null`
 
-    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+    Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
     - `"standard"`
 
@@ -11527,7 +12669,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Span Outcome Evaluation End Event
 
-- `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+- `interface BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
   Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
 
@@ -11557,7 +12699,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when outcome evaluation ended.
 
     format: date-time
 
@@ -11567,7 +12709,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `usage: BetaManagedAgentsSpanModelUsage`
 
-    Token usage for a single model request.
+    Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
     - `cache_creation_input_tokens: number`
 
@@ -11595,7 +12737,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `speed?: "standard" | "fast" | null`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
       - `"standard"`
 
@@ -11603,7 +12745,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Span Outcome Evaluation Ongoing Event
 
-- `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+- `interface BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
   Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
 
@@ -11625,13 +12767,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this heartbeat was emitted.
 
     format: date-time
 
 ### Beta Managed Agents Span Outcome Evaluation Start Event
 
-- `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+- `interface BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
   Emitted when an outcome evaluation cycle begins.
 
@@ -11653,17 +12795,17 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when outcome evaluation started.
 
     format: date-time
 
 ### Beta Managed Agents Stream Session Events
 
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
+- `type BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
 
   Server-sent event in the session stream.
 
-  - `BetaManagedAgentsUserMessageEvent`
+  - `interface BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
 
@@ -11677,7 +12819,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Array of content blocks comprising the user message.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
@@ -11689,7 +12831,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           minLength: 1
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
@@ -11697,9 +12839,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-          Union type for image source variants.
+          The source of the image data.
 
-          - `BetaManagedAgentsBase64ImageSource`
+          - `interface BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
 
@@ -11717,7 +12859,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsURLImageSource`
+          - `interface BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
 
@@ -11729,7 +12871,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsFileImageSource`
+          - `interface BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
 
@@ -11741,7 +12883,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -11749,9 +12891,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-          Union type for document source variants.
+          The source of the document data.
 
-          - `BetaManagedAgentsBase64DocumentSource`
+          - `interface BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
 
@@ -11769,7 +12911,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsPlainTextDocumentSource`
+          - `interface BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
 
@@ -11785,7 +12927,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               MIME type of the text content. Must be "text/plain".
 
-          - `BetaManagedAgentsURLDocumentSource`
+          - `interface BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
 
@@ -11797,7 +12939,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               minLength: 1
 
-          - `BetaManagedAgentsFileDocumentSource`
+          - `interface BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
 
@@ -11817,7 +12959,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           The title of the document.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -11825,11 +12967,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
-  - `BetaManagedAgentsUserInterruptEvent`
+  - `interface BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
 
@@ -11841,7 +12983,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -11849,7 +12991,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `BetaManagedAgentsUserToolConfirmationEvent`
+  - `interface BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
 
@@ -11861,7 +13003,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `result: "allow" | "deny"`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `"allow"`
 
@@ -11879,15 +13021,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsUserCustomToolResultEvent`
+  - `interface BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
 
@@ -11905,19 +13047,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -11925,7 +13067,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `citations: BetaManagedAgentsSearchResultCitations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `enabled: boolean`
 
@@ -11961,15 +13103,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsAgentCustomToolUseEvent`
+  - `interface BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
@@ -11989,15 +13131,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMessageEvent`
+  - `interface BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
 
@@ -12011,21 +13153,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Array of text blocks comprising the agent response.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
-  - `BetaManagedAgentsAgentThinkingEvent`
+  - `interface BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
 
@@ -12037,11 +13179,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
-  - `BetaManagedAgentsAgentMCPToolUseEvent`
+  - `interface BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
 
@@ -12065,13 +13207,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `"allow"`
 
@@ -12081,21 +13223,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
         The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
         - `type: "always_allow"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
         The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
         - `type: "always_ask"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAuto`
+      - `interface BetaManagedAgentsAgentToolEvaluationAuto`
 
         The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -12103,15 +13245,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
             The server judged the invocation safe to execute without client approval.
 
             - `type: "allow"`
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
             The server reached no judgement; the invocation is held for client approval.
 
@@ -12123,7 +13265,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               maxLength: 64
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
             The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -12137,9 +13279,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMCPToolResultEvent`
+  - `interface BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
 
@@ -12155,7 +13297,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -12163,19 +13305,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -12183,7 +13325,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentToolUseEvent`
+  - `interface BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
 
@@ -12203,29 +13345,23 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
+      The evaluated permission policy for this tool invocation.
 
     - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentToolResultEvent`
+  - `interface BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
 
@@ -12237,7 +13373,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -12249,19 +13385,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -12269,7 +13405,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
 
@@ -12283,19 +13419,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -12305,7 +13441,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -12313,7 +13449,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `BetaManagedAgentsAgentThreadMessageSentEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
 
@@ -12327,25 +13463,25 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -12357,7 +13493,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `BetaManagedAgentsAgentThreadContextCompactedEvent`
+  - `interface BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
 
@@ -12369,11 +13505,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionErrorEvent`
+  - `interface BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
 
@@ -12383,11 +13519,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 10 more`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `BetaManagedAgentsUnknownError`
+      - `interface BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
 
@@ -12399,27 +13533,27 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
             - `type: "retrying"`
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
             - `type: "exhausted"`
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
             - `type: "terminal"`
 
-      - `BetaManagedAgentsModelOverloadedError`
+      - `interface BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
 
@@ -12431,21 +13565,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRateLimitedError`
+      - `interface BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
 
@@ -12457,21 +13591,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRequestFailedError`
+      - `interface BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
 
@@ -12483,21 +13617,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPConnectionFailedError`
+      - `interface BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
 
@@ -12513,21 +13647,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPAuthenticationFailedError`
+      - `interface BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
 
@@ -12543,21 +13677,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsBillingError`
+      - `interface BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
 
@@ -12569,21 +13703,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsCredentialHostUnreachableError`
+      - `interface BetaManagedAgentsCredentialHostUnreachableError`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
 
@@ -12599,17 +13733,17 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
@@ -12617,13 +13751,163 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           ID of the vault containing the affected credential.
 
+      - `interface BetaManagedAgentsRepositoryAuthenticationError`
+
+        The repository host rejected the credentials, or required credentials and received none.
+
+        - `type: "repository_authentication_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryForbiddenError`
+
+        The repository host refused access to the repository.
+
+        - `type: "repository_forbidden_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryNotFoundError`
+
+        The repository host reported the repository as not found.
+
+        - `type: "repository_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCheckoutError`
+
+        The requested branch or commit does not exist in the repository.
+
+        - `type: "repository_checkout_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+      - `interface BetaManagedAgentsRepositoryCloneError`
+
+        The repository could not be cloned.
+
+        - `type: "repository_clone_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `repository_url: string | null`
+
+          URL of the repository that could not be cloned. Null when it could not be identified.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next. Always `retrying`: the session keeps running without the repository.
+
+          - `interface BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `interface BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `interface BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
 
@@ -12635,11 +13919,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
 
@@ -12651,11 +13935,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
 
@@ -12667,21 +13951,43 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the session stopped. `null` when there is nothing more to report.
 
-      - `BetaManagedAgentsSessionEndTurn`
+      - `type: "refusal"`
+
+      - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
+
+        The policy category that triggered the refusal, or `null` when there is no named category. New values can be added over time.
+
+        - `"cyber"`
+
+        - `"bio"`
+
+        - `"frontier_llm"`
+
+        - `"reasoning_extraction"`
+
+        - `"general_harms"`
+
+      - `explanation: string | null`
+
+        Human-readable explanation of the refusal, or `null` when none is available. The wording can change, so do not parse it.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
         - `type: "end_turn"`
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
@@ -12691,19 +13997,25 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `type: "budget_reached"`
 
-  - `BetaManagedAgentsSessionStatusTerminatedEvent`
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+        - `type: "refusal"`
+
+  - `interface BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
 
@@ -12715,11 +14027,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadCreatedEvent`
+  - `interface BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
 
@@ -12735,7 +14047,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -12743,7 +14055,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public `sthr_` ID of the newly created thread.
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
 
@@ -12765,11 +14077,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
 
@@ -12799,7 +14111,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -12809,7 +14121,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `cache_creation_input_tokens: number`
 
@@ -12837,13 +14149,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `speed?: "standard" | "fast" | null`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `"standard"`
 
         - `"fast"`
 
-  - `BetaManagedAgentsSpanModelRequestStartEvent`
+  - `interface BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
 
@@ -12855,11 +14167,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanModelRequestEndEvent`
+  - `interface BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
 
@@ -12879,15 +14191,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `model_usage: BetaManagedAgentsSpanModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
 
@@ -12909,11 +14221,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
-  - `BetaManagedAgentsUserDefineOutcomeEvent`
+  - `interface BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -12939,15 +14251,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-      - `BetaManagedAgentsFileRubric`
+      - `interface BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
 
@@ -12957,7 +14269,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           ID of the rubric file.
 
-      - `BetaManagedAgentsTextRubric`
+      - `interface BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
 
@@ -12967,7 +14279,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-  - `BetaManagedAgentsSessionDeletedEvent`
+  - `interface BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
 
@@ -12979,11 +14291,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -12999,7 +14311,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -13007,7 +14319,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public sthr_ ID of the thread that started running.
 
-  - `BetaManagedAgentsSessionThreadStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -13023,7 +14335,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -13031,27 +14343,33 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public sthr_ ID of the thread that went idle.
 
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
+    - `stop_details: BetaManagedAgentsSessionRefusalStopDetails | null`
 
-      The agent completed its turn naturally and is ready for the next user message.
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
 
-      - `BetaManagedAgentsSessionEndTurn`
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | 2 more`
+
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+      - `interface BetaManagedAgentsSessionRefusal`
+
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+  - `interface BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -13067,7 +14385,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -13075,7 +14393,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `interface BetaManagedAgentsUserToolResultEvent`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -13093,19 +14411,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -13115,15 +14433,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -13139,7 +14457,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -13147,7 +14465,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `interface BetaManagedAgentsSessionUpdatedEvent`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
 
@@ -13159,13 +14477,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `agent?: BetaManagedAgentsSessionAgent | null`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `type: "agent"`
 
@@ -13191,95 +14509,101 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-fable-5-1" | "claude-sonnet-5" | "claude-fable-5" | 11 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-fable-5-1"`
+            Efficient model for coding and agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-opus-5-5"`
 
-            - `"claude-sonnet-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              High-performance model for coding and agents
+          - `"claude-fable-5-1"`
 
-            - `"claude-fable-5"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-sonnet-5"`
 
-            - `"claude-opus-5"`
+            Efficient model for coding and agents
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-fable-5"`
 
-            - `"claude-opus-4-8"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-5"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-7"`
 
-            - `"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `"claude-opus-4-6"`
 
-            - `"claude-haiku-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              Fastest model with near-frontier intelligence
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-opus-4-5-20251101"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5"`
 
-            - `"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-sonnet-4-5-20250929"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
 
           - `(string & {})`
 
         - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
-          - `BetaManagedAgentsEffortLow`
+          - `interface BetaManagedAgentsEffortLow`
 
             Low effort. Favors latency over reasoning depth.
 
             - `type: "low"`
 
-          - `BetaManagedAgentsEffortMedium`
+          - `interface BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: "medium"`
 
-          - `BetaManagedAgentsEffortHigh`
+          - `interface BetaManagedAgentsEffortHigh`
 
             High effort. Favors reasoning depth.
 
             - `type: "high"`
 
-          - `BetaManagedAgentsEffortXhigh`
+          - `interface BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: "xhigh"`
 
-          - `BetaManagedAgentsEffortMax`
+          - `interface BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
@@ -13291,7 +14615,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         - `speed?: "standard" | "fast"`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `"standard"`
 
@@ -13299,7 +14623,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `type: "coordinator"`
 
@@ -13307,7 +14631,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           Full `agent` definitions the coordinator may spawn as session threads.
 
-          - `BetaManagedAgentsSessionThreadAgent`
+          - `interface BetaManagedAgentsSessionThreadAgent`
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
@@ -13333,7 +14657,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-              - `BetaManagedAgentsAnthropicSkill`
+              - `interface BetaManagedAgentsAnthropicSkill`
 
                 A resolved Anthropic-managed skill.
 
@@ -13343,7 +14667,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                 - `version: string`
 
-              - `BetaManagedAgentsCustomSkill`
+              - `interface BetaManagedAgentsCustomSkill`
 
                 A resolved user-created custom skill.
 
@@ -13357,13 +14681,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-              - `BetaManagedAgentsAgentToolset20260401`
+              - `interface BetaManagedAgentsAgentToolset20260401`
 
                 - `type: "agent_toolset_20260401"`
 
                 - `configs: Array<BetaManagedAgentsAgentToolConfig>`
 
-                  - `BetaManagedAgentsBashToolConfig`
+                  - `interface BetaManagedAgentsBashToolConfig`
 
                     Configuration for the bash tool.
 
@@ -13377,25 +14701,25 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
                         - `type: "always_allow"`
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
                         - `type: "always_ask"`
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                         - `type: "auto"`
 
-                  - `BetaManagedAgentsEditToolConfig`
+                  - `interface BetaManagedAgentsEditToolConfig`
 
                     Configuration for the edit tool.
 
@@ -13409,19 +14733,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsReadToolConfig`
+                  - `interface BetaManagedAgentsReadToolConfig`
 
                     Configuration for the read tool.
 
@@ -13435,19 +14759,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWriteToolConfig`
+                  - `interface BetaManagedAgentsWriteToolConfig`
 
                     Configuration for the write tool.
 
@@ -13461,19 +14785,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGlobToolConfig`
+                  - `interface BetaManagedAgentsGlobToolConfig`
 
                     Configuration for the glob tool.
 
@@ -13487,19 +14811,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGrepToolConfig`
+                  - `interface BetaManagedAgentsGrepToolConfig`
 
                     Configuration for the grep tool.
 
@@ -13513,19 +14837,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWebFetchToolConfig`
+                  - `interface BetaManagedAgentsWebFetchToolConfig`
 
                     Configuration for the web_fetch tool.
 
@@ -13539,15 +14863,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -13559,7 +14883,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       format: int32
 
-                  - `BetaManagedAgentsWebSearchToolConfig`
+                  - `interface BetaManagedAgentsWebSearchToolConfig`
 
                     Configuration for the web_search tool.
 
@@ -13573,15 +14897,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -13629,19 +14953,19 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-              - `BetaManagedAgentsMCPToolset`
+              - `interface BetaManagedAgentsMCPToolset`
 
                 - `type: "mcp_toolset"`
 
@@ -13655,15 +14979,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -13677,21 +15001,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `mcp_server_name: string`
 
-              - `BetaManagedAgentsCustomTool`
+              - `interface BetaManagedAgentsCustomTool`
 
                 A custom tool as returned in API responses.
 
@@ -13715,7 +15039,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
               format: int32
 
-          - `BetaManagedAgentsAdvisor`
+          - `interface BetaManagedAgentsAdvisor`
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -13729,11 +15053,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-        - `BetaManagedAgentsAnthropicSkill`
+        - `interface BetaManagedAgentsAnthropicSkill`
 
           A resolved Anthropic-managed skill.
 
-        - `BetaManagedAgentsCustomSkill`
+        - `interface BetaManagedAgentsCustomSkill`
 
           A resolved user-created custom skill.
 
@@ -13741,11 +15065,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-        - `BetaManagedAgentsAgentToolset20260401`
+        - `interface BetaManagedAgentsAgentToolset20260401`
 
-        - `BetaManagedAgentsMCPToolset`
+        - `interface BetaManagedAgentsMCPToolset`
 
-        - `BetaManagedAgentsCustomTool`
+        - `interface BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
 
@@ -13755,13 +15079,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `type: "limit"`
 
       - `max_list_cost: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `amount: string`
 
@@ -13779,7 +15103,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsStartEvent`
+  - `interface BetaManagedAgentsStartEvent`
 
     Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
 
@@ -13789,7 +15113,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
-      - `BetaManagedAgentsAgentMessagePreview`
+      - `interface BetaManagedAgentsAgentMessagePreview`
 
         - `type: "agent.message"`
 
@@ -13797,7 +15121,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
 
-      - `BetaManagedAgentsAgentThinkingPreview`
+      - `interface BetaManagedAgentsAgentThinkingPreview`
 
         - `type: "agent.thinking"`
 
@@ -13805,7 +15129,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
           The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
 
-  - `BetaManagedAgentsDeltaEvent`
+  - `interface BetaManagedAgentsDeltaEvent`
 
     An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
 
@@ -13819,19 +15143,17 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `content: BetaManagedAgentsTextBlock`
 
-        Regular text content.
+        A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
 
       - `index?: number`
 
         Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
 
-        format: uint32
-
     - `event_id: string`
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `interface BetaManagedAgentsSystemMessageEvent`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
@@ -13855,11 +15177,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at?: string | null`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `interface BetaManagedAgentsSessionUsageEvent`
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
@@ -13871,13 +15193,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `processed_at: string`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `active_seconds?: number`
 
@@ -13887,7 +15209,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens?: number`
 
@@ -13915,7 +15237,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `list_cost?: BetaMonetaryAmount`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `output_tokens?: number`
 
@@ -13925,7 +15247,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `server_tool_use?: BetaManagedAgentsServerToolUsage`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `web_fetch_requests?: number`
 
@@ -13941,11 +15263,11 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 ### Beta Managed Agents System Message Event Params
 
-- `BetaManagedAgentsSystemMessageEventParams`
+- `interface BetaManagedAgentsSystemMessageEventParams`
 
   Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
@@ -13965,7 +15287,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Text Block
 
-- `BetaManagedAgentsTextBlock`
+- `interface BetaManagedAgentsTextBlock`
 
   Regular text content.
 
@@ -13979,7 +15301,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Text Rubric
 
-- `BetaManagedAgentsTextRubric`
+- `interface BetaManagedAgentsTextRubric`
 
   Rubric content provided inline as text.
 
@@ -13991,7 +15313,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Text Rubric Params
 
-- `BetaManagedAgentsTextRubricParams`
+- `interface BetaManagedAgentsTextRubricParams`
 
   Rubric content provided inline as text.
 
@@ -14005,7 +15327,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents Unknown Error
 
-- `BetaManagedAgentsUnknownError`
+- `interface BetaManagedAgentsUnknownError`
 
   An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
 
@@ -14017,21 +15339,21 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
-    What the client should do next in response to this error.
+    What the client should do next.
 
-    - `BetaManagedAgentsRetryStatusRetrying`
+    - `interface BetaManagedAgentsRetryStatusRetrying`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
       - `type: "retrying"`
 
-    - `BetaManagedAgentsRetryStatusExhausted`
+    - `interface BetaManagedAgentsRetryStatusExhausted`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
       - `type: "exhausted"`
 
-    - `BetaManagedAgentsRetryStatusTerminal`
+    - `interface BetaManagedAgentsRetryStatusTerminal`
 
       The session encountered a terminal error and will transition to `terminated` state.
 
@@ -14039,7 +15361,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents URL Document Source
 
-- `BetaManagedAgentsURLDocumentSource`
+- `interface BetaManagedAgentsURLDocumentSource`
 
   Document referenced by URL.
 
@@ -14053,7 +15375,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents URL Image Source
 
-- `BetaManagedAgentsURLImageSource`
+- `interface BetaManagedAgentsURLImageSource`
 
   Image referenced by URL.
 
@@ -14067,7 +15389,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents User Custom Tool Result Event
 
-- `BetaManagedAgentsUserCustomToolResultEvent`
+- `interface BetaManagedAgentsUserCustomToolResultEvent`
 
   Event sent by the client providing the result of a custom tool execution.
 
@@ -14085,7 +15407,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     The result content returned by the tool.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -14097,7 +15419,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsImageBlock`
+    - `interface BetaManagedAgentsImageBlock`
 
       Image content specified directly as base64 data or as a reference via a URL.
 
@@ -14105,9 +15427,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
-        - `BetaManagedAgentsBase64ImageSource`
+        - `interface BetaManagedAgentsBase64ImageSource`
 
           Base64-encoded image data.
 
@@ -14125,7 +15447,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsURLImageSource`
+        - `interface BetaManagedAgentsURLImageSource`
 
           Image referenced by URL.
 
@@ -14137,7 +15459,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileImageSource`
+        - `interface BetaManagedAgentsFileImageSource`
 
           Image referenced by file ID.
 
@@ -14149,7 +15471,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-    - `BetaManagedAgentsDocumentBlock`
+    - `interface BetaManagedAgentsDocumentBlock`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -14157,9 +15479,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
-        - `BetaManagedAgentsBase64DocumentSource`
+        - `interface BetaManagedAgentsBase64DocumentSource`
 
           Base64-encoded document data.
 
@@ -14177,7 +15499,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsPlainTextDocumentSource`
+        - `interface BetaManagedAgentsPlainTextDocumentSource`
 
           Plain text document content.
 
@@ -14193,7 +15515,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             MIME type of the text content. Must be "text/plain".
 
-        - `BetaManagedAgentsURLDocumentSource`
+        - `interface BetaManagedAgentsURLDocumentSource`
 
           Document referenced by URL.
 
@@ -14205,7 +15527,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileDocumentSource`
+        - `interface BetaManagedAgentsFileDocumentSource`
 
           Document referenced by file ID.
 
@@ -14225,7 +15547,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The title of the document.
 
-    - `BetaManagedAgentsSearchResultBlock`
+    - `interface BetaManagedAgentsSearchResultBlock`
 
       A block containing a web search result.
 
@@ -14233,7 +15555,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `citations: BetaManagedAgentsSearchResultCitations`
 
-        Citation settings for a search result.
+        Citation settings for this search result.
 
         - `enabled: boolean`
 
@@ -14269,17 +15591,17 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at?: string | null`
 
-    A timestamp in RFC 3339 format
+    Timestamp when this result was processed.
 
     format: date-time
 
   - `session_thread_id?: string | null`
 
-    Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+    Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
 ### Beta Managed Agents User Custom Tool Result Event Params
 
-- `BetaManagedAgentsUserCustomToolResultEventParams`
+- `interface BetaManagedAgentsUserCustomToolResultEventParams`
 
   Parameters for providing the result of a custom tool execution.
 
@@ -14295,7 +15617,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     The result content returned by the tool.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -14307,7 +15629,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsImageBlock`
+    - `interface BetaManagedAgentsImageBlock`
 
       Image content specified directly as base64 data or as a reference via a URL.
 
@@ -14315,9 +15637,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
-        - `BetaManagedAgentsBase64ImageSource`
+        - `interface BetaManagedAgentsBase64ImageSource`
 
           Base64-encoded image data.
 
@@ -14335,7 +15657,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsURLImageSource`
+        - `interface BetaManagedAgentsURLImageSource`
 
           Image referenced by URL.
 
@@ -14347,7 +15669,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileImageSource`
+        - `interface BetaManagedAgentsFileImageSource`
 
           Image referenced by file ID.
 
@@ -14359,7 +15681,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-    - `BetaManagedAgentsDocumentBlock`
+    - `interface BetaManagedAgentsDocumentBlock`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -14367,9 +15689,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
-        - `BetaManagedAgentsBase64DocumentSource`
+        - `interface BetaManagedAgentsBase64DocumentSource`
 
           Base64-encoded document data.
 
@@ -14387,7 +15709,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsPlainTextDocumentSource`
+        - `interface BetaManagedAgentsPlainTextDocumentSource`
 
           Plain text document content.
 
@@ -14403,7 +15725,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             MIME type of the text content. Must be "text/plain".
 
-        - `BetaManagedAgentsURLDocumentSource`
+        - `interface BetaManagedAgentsURLDocumentSource`
 
           Document referenced by URL.
 
@@ -14415,7 +15737,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileDocumentSource`
+        - `interface BetaManagedAgentsFileDocumentSource`
 
           Document referenced by file ID.
 
@@ -14435,7 +15757,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The title of the document.
 
-    - `BetaManagedAgentsSearchResultBlock`
+    - `interface BetaManagedAgentsSearchResultBlock`
 
       A block containing a web search result.
 
@@ -14443,7 +15765,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `citations: BetaManagedAgentsSearchResultCitations`
 
-        Citation settings for a search result.
+        Citation settings for this search result.
 
         - `enabled: boolean`
 
@@ -14479,7 +15801,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents User Define Outcome Event
 
-- `BetaManagedAgentsUserDefineOutcomeEvent`
+- `interface BetaManagedAgentsUserDefineOutcomeEvent`
 
   Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -14505,15 +15827,15 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at: string`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the outcome was accepted.
 
     format: date-time
 
   - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
-    Rubric for grading the quality of an outcome.
+    How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-    - `BetaManagedAgentsFileRubric`
+    - `interface BetaManagedAgentsFileRubric`
 
       Rubric referenced by a file uploaded via the Files API.
 
@@ -14523,7 +15845,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         ID of the rubric file.
 
-    - `BetaManagedAgentsTextRubric`
+    - `interface BetaManagedAgentsTextRubric`
 
       Rubric content provided inline as text.
 
@@ -14535,7 +15857,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents User Define Outcome Event Params
 
-- `BetaManagedAgentsUserDefineOutcomeEventParams`
+- `interface BetaManagedAgentsUserDefineOutcomeEventParams`
 
   Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
 
@@ -14547,9 +15869,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
 
-    Rubric for grading the quality of an outcome.
+    How to grade the outcome. Text or file reference.
 
-    - `BetaManagedAgentsFileRubricParams`
+    - `interface BetaManagedAgentsFileRubricParams`
 
       Rubric referenced by a file uploaded via the Files API.
 
@@ -14559,7 +15881,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         ID of the rubric file.
 
-    - `BetaManagedAgentsTextRubricParams`
+    - `interface BetaManagedAgentsTextRubricParams`
 
       Rubric content provided inline as text.
 
@@ -14579,7 +15901,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents User Interrupt Event
 
-- `BetaManagedAgentsUserInterruptEvent`
+- `interface BetaManagedAgentsUserInterruptEvent`
 
   An interrupt event that pauses agent execution and returns control to the user.
 
@@ -14591,7 +15913,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at?: string | null`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the interrupt was processed.
 
     format: date-time
 
@@ -14601,7 +15923,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents User Interrupt Event Params
 
-- `BetaManagedAgentsUserInterruptEventParams`
+- `interface BetaManagedAgentsUserInterruptEventParams`
 
   Parameters for sending an interrupt to pause the agent.
 
@@ -14613,7 +15935,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents User Message Event
 
-- `BetaManagedAgentsUserMessageEvent`
+- `interface BetaManagedAgentsUserMessageEvent`
 
   A user message event in the session conversation.
 
@@ -14627,7 +15949,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     Array of content blocks comprising the user message.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -14639,7 +15961,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsImageBlock`
+    - `interface BetaManagedAgentsImageBlock`
 
       Image content specified directly as base64 data or as a reference via a URL.
 
@@ -14647,9 +15969,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
-        - `BetaManagedAgentsBase64ImageSource`
+        - `interface BetaManagedAgentsBase64ImageSource`
 
           Base64-encoded image data.
 
@@ -14667,7 +15989,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsURLImageSource`
+        - `interface BetaManagedAgentsURLImageSource`
 
           Image referenced by URL.
 
@@ -14679,7 +16001,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileImageSource`
+        - `interface BetaManagedAgentsFileImageSource`
 
           Image referenced by file ID.
 
@@ -14691,7 +16013,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-    - `BetaManagedAgentsDocumentBlock`
+    - `interface BetaManagedAgentsDocumentBlock`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -14699,9 +16021,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
-        - `BetaManagedAgentsBase64DocumentSource`
+        - `interface BetaManagedAgentsBase64DocumentSource`
 
           Base64-encoded document data.
 
@@ -14719,7 +16041,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsPlainTextDocumentSource`
+        - `interface BetaManagedAgentsPlainTextDocumentSource`
 
           Plain text document content.
 
@@ -14735,7 +16057,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             MIME type of the text content. Must be "text/plain".
 
-        - `BetaManagedAgentsURLDocumentSource`
+        - `interface BetaManagedAgentsURLDocumentSource`
 
           Document referenced by URL.
 
@@ -14747,7 +16069,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileDocumentSource`
+        - `interface BetaManagedAgentsFileDocumentSource`
 
           Document referenced by file ID.
 
@@ -14767,7 +16089,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The title of the document.
 
-    - `BetaManagedAgentsRedactedBlock`
+    - `interface BetaManagedAgentsRedactedBlock`
 
       Placeholder for content withheld by Anthropic model policy.
 
@@ -14775,13 +16097,13 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at?: string | null`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the agent finished processing this message.
 
     format: date-time
 
 ### Beta Managed Agents User Message Event Params
 
-- `BetaManagedAgentsUserMessageEventParams`
+- `interface BetaManagedAgentsUserMessageEventParams`
 
   Parameters for sending a user message to the session.
 
@@ -14791,7 +16113,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     Array of content blocks for the user message.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -14803,7 +16125,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsImageBlock`
+    - `interface BetaManagedAgentsImageBlock`
 
       Image content specified directly as base64 data or as a reference via a URL.
 
@@ -14811,9 +16133,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
-        - `BetaManagedAgentsBase64ImageSource`
+        - `interface BetaManagedAgentsBase64ImageSource`
 
           Base64-encoded image data.
 
@@ -14831,7 +16153,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsURLImageSource`
+        - `interface BetaManagedAgentsURLImageSource`
 
           Image referenced by URL.
 
@@ -14843,7 +16165,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileImageSource`
+        - `interface BetaManagedAgentsFileImageSource`
 
           Image referenced by file ID.
 
@@ -14855,7 +16177,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-    - `BetaManagedAgentsDocumentBlock`
+    - `interface BetaManagedAgentsDocumentBlock`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -14863,9 +16185,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
-        - `BetaManagedAgentsBase64DocumentSource`
+        - `interface BetaManagedAgentsBase64DocumentSource`
 
           Base64-encoded document data.
 
@@ -14883,7 +16205,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsPlainTextDocumentSource`
+        - `interface BetaManagedAgentsPlainTextDocumentSource`
 
           Plain text document content.
 
@@ -14899,7 +16221,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             MIME type of the text content. Must be "text/plain".
 
-        - `BetaManagedAgentsURLDocumentSource`
+        - `interface BetaManagedAgentsURLDocumentSource`
 
           Document referenced by URL.
 
@@ -14911,7 +16233,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileDocumentSource`
+        - `interface BetaManagedAgentsFileDocumentSource`
 
           Document referenced by file ID.
 
@@ -14931,7 +16253,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The title of the document.
 
-    - `BetaManagedAgentsRedactedBlock`
+    - `interface BetaManagedAgentsRedactedBlock`
 
       Placeholder for content withheld by Anthropic model policy.
 
@@ -14939,7 +16261,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents User Tool Confirmation Event
 
-- `BetaManagedAgentsUserToolConfirmationEvent`
+- `interface BetaManagedAgentsUserToolConfirmationEvent`
 
   A tool confirmation event that approves or denies a pending tool execution.
 
@@ -14951,7 +16273,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `result: "allow" | "deny"`
 
-    UserToolConfirmationResult enum
+    The confirmation result: 'allow' or 'deny'.
 
     - `"allow"`
 
@@ -14969,17 +16291,17 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `processed_at?: string | null`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the confirmation was processed.
 
     format: date-time
 
   - `session_thread_id?: string | null`
 
-    When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+    Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
 ### Beta Managed Agents User Tool Confirmation Event Params
 
-- `BetaManagedAgentsUserToolConfirmationEventParams`
+- `interface BetaManagedAgentsUserToolConfirmationEventParams`
 
   Parameters for confirming or denying a tool execution request.
 
@@ -14987,7 +16309,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
   - `result: "allow" | "deny"`
 
-    UserToolConfirmationResult enum
+    The confirmation result: 'allow' or 'deny'.
 
     - `"allow"`
 
@@ -15007,7 +16329,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
 ### Beta Managed Agents User Tool Result Event Params
 
-- `BetaManagedAgentsUserToolResultEventParams`
+- `interface BetaManagedAgentsUserToolResultEventParams`
 
   Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -15023,7 +16345,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
     The result content returned by the tool.
 
-    - `BetaManagedAgentsTextBlock`
+    - `interface BetaManagedAgentsTextBlock`
 
       Regular text content.
 
@@ -15035,7 +16357,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         minLength: 1
 
-    - `BetaManagedAgentsImageBlock`
+    - `interface BetaManagedAgentsImageBlock`
 
       Image content specified directly as base64 data or as a reference via a URL.
 
@@ -15043,9 +16365,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
-        Union type for image source variants.
+        The source of the image data.
 
-        - `BetaManagedAgentsBase64ImageSource`
+        - `interface BetaManagedAgentsBase64ImageSource`
 
           Base64-encoded image data.
 
@@ -15063,7 +16385,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsURLImageSource`
+        - `interface BetaManagedAgentsURLImageSource`
 
           Image referenced by URL.
 
@@ -15075,7 +16397,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileImageSource`
+        - `interface BetaManagedAgentsFileImageSource`
 
           Image referenced by file ID.
 
@@ -15087,7 +16409,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-    - `BetaManagedAgentsDocumentBlock`
+    - `interface BetaManagedAgentsDocumentBlock`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -15095,9 +16417,9 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
-        Union type for document source variants.
+        The source of the document data.
 
-        - `BetaManagedAgentsBase64DocumentSource`
+        - `interface BetaManagedAgentsBase64DocumentSource`
 
           Base64-encoded document data.
 
@@ -15115,7 +16437,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsPlainTextDocumentSource`
+        - `interface BetaManagedAgentsPlainTextDocumentSource`
 
           Plain text document content.
 
@@ -15131,7 +16453,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             MIME type of the text content. Must be "text/plain".
 
-        - `BetaManagedAgentsURLDocumentSource`
+        - `interface BetaManagedAgentsURLDocumentSource`
 
           Document referenced by URL.
 
@@ -15143,7 +16465,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
             minLength: 1
 
-        - `BetaManagedAgentsFileDocumentSource`
+        - `interface BetaManagedAgentsFileDocumentSource`
 
           Document referenced by file ID.
 
@@ -15163,7 +16485,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
         The title of the document.
 
-    - `BetaManagedAgentsSearchResultBlock`
+    - `interface BetaManagedAgentsSearchResultBlock`
 
       A block containing a web search result.
 
@@ -15171,7 +16493,7 @@ console.log(betaManagedAgentsStreamSessionEvents);
 
       - `citations: BetaManagedAgentsSearchResultCitations`
 
-        Citation settings for a search result.
+        Citation settings for this search result.
 
         - `enabled: boolean`
 

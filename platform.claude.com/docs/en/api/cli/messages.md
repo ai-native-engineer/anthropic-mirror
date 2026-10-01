@@ -84,7 +84,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+- `--model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -97,6 +97,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 - `--container: optional ContainerParams or string`
 
   Body param: Container identifier for reuse across requests.
+
+- `--diagnostics: optional object`
+
+  Body param: Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
 - `--inference-geo: optional string`
 
@@ -130,7 +134,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
-- `--thinking: optional ThinkingConfigEnabled or ThinkingConfigDisabled or ThinkingConfigAdaptive`
+- `--thinking: optional ThinkingConfigEnabled or ThinkingConfigDisabled or ThinkingConfigBetweenTools or ThinkingConfigAdaptive`
 
   Body param: Configuration for enabling Claude's extended thinking.
 
@@ -218,7 +222,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `--temperature: optional number`
 
-  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Body param: Amount of randomness injected into the response.
 
@@ -226,7 +230,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
-  maximum: 1, minimum: 0
+  minimum: 0, maximum: 1
 
 - `--top-k: optional number`
 
@@ -250,7 +254,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   Recommended for advanced use cases only.
 
-  maximum: 1, minimum: 0
+  minimum: 0, maximum: 1
 
 ### Returns
 
@@ -270,7 +274,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `container: object`
 
-    Information about the container used in the request (for the code execution tool)
+    Information about the container used in this request.
+
+    This will be non-null if a container tool (e.g. code execution) was used.
 
     - `id: string`
 
@@ -298,13 +304,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Skill ID
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
       - `version: string`
 
         The resolved version: a skill version ID for custom skills.
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
   - `content: array of ContentBlock`
 
@@ -465,8 +471,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `text: string`
 
-        minLength: 0
-
     - `thinking_block: object`
 
       - `type: "thinking"`
@@ -505,8 +509,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `direct_caller: object`
 
           Tool invocation directly from the model.
@@ -541,7 +543,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         For a toolset member tool_use, the toolset family.
 
-        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
     - `server_tool_use_block: object`
 
@@ -552,8 +554,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -588,8 +588,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `type: "web_search_tool_result"`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -642,8 +640,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `type: "web_fetch_tool_result"`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -738,8 +734,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `type: "code_execution_tool_result"`
 
       - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `code_execution_tool_result_error: object`
 
@@ -935,7 +929,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `tool_name: string`
 
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
       - `tool_use_id: string`
 
@@ -949,15 +943,71 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `file_id: string`
 
-  - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+  - `diagnostics: object`
+
+    Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+    - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+      - `cache_miss_model_changed: object`
+
+        - `type: "model_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_system_changed: object`
+
+        - `type: "system_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_tools_changed: object`
+
+        - `type: "tools_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_messages_changed: object`
+
+        - `type: "messages_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_previous_message_not_found: object`
+
+        - `type: "previous_message_not_found"`
+
+      - `cache_miss_unavailable: object`
+
+        - `type: "unavailable"`
+
+  - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `"claude-sonnet-5-5"`
+
+      Efficient model for coding and agents
+
     - `"claude-fable-5-1"`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `"claude-opus-5-5"`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `"claude-mythos-5-1"`
 
@@ -965,7 +1015,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `"claude-sonnet-5"`
 
-      High-performance model for coding and agents
+      Efficient model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -986,10 +1036,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `"claude-opus-4-7"`
 
       Powerful intelligence for long-running agents and coding
-
-    - `"claude-mythos-preview"`
-
-      New class of intelligence, strongest in coding and cybersecurity
 
     - `"claude-opus-4-6"`
 
@@ -1023,6 +1069,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       High-performance model for agents and coding
 
+    - `"claude-mythos-preview"`
+
+      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      New class of intelligence, strongest in coding and cybersecurity
+
   - `role: "assistant"`
 
     Conversational role of the generated message.
@@ -1031,13 +1083,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `stop_details: object`
 
-    Structured information about a refusal.
+    Structured information about why model output stopped.
+
+    This is `null` when the `stop_reason` has no additional detail to report.
 
     - `type: "refusal"`
 
     - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
-      The policy category that triggered a refusal.
+      The policy category that triggered the refusal.
+
+      `null` when the refusal doesn't map to a named category.
 
       - `"cyber"`
 
@@ -1227,7 +1283,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `container: object`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
       - `content: array of ContentBlock`
 
@@ -1258,7 +1316,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         [{"type": "text", "text": "B)"}]
         ```
 
-      - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+      - `diagnostics: object`
+
+        Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+      - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
         The model that will complete your prompt.
 
@@ -1272,7 +1334,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `stop_details: object`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
       - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 4 more`
 
@@ -1316,7 +1380,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `container: object`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
         - `id: string`
 
@@ -1334,13 +1400,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `stop_details: object`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
         - `type: "refusal"`
 
         - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the refusal.
+
+          `null` when the refusal doesn't map to a named category.
 
         - `explanation: string`
 
@@ -1448,8 +1518,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `content_block: TextBlock or ThinkingBlock or RedactedThinkingBlock or 9 more`
 
-      Response model for a file uploaded to the container.
-
       - `text_block: object`
 
         - `type: "text"`
@@ -1461,8 +1529,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `text: string`
-
-          minLength: 0
 
       - `thinking_block: object`
 
@@ -1502,8 +1568,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
         - `input: map[unknown]`
 
         - `name: string`
@@ -1514,7 +1578,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           For a toolset member tool_use, the toolset family.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `server_tool_use_block: object`
 
@@ -1526,8 +1590,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
         - `input: map[unknown]`
 
         - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
@@ -1537,8 +1599,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `type: "web_search_tool_result"`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-          Tool invocation directly from the model.
 
         - `content: WebSearchToolResultError or array of WebSearchResultBlock`
 
@@ -1552,8 +1612,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
         - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
 
         - `tool_use_id: string`
@@ -1565,8 +1623,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `type: "code_execution_tool_result"`
 
         - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
         - `tool_use_id: string`
 
@@ -1821,6 +1877,12 @@ ant messages create \
       "type": "text"
     }
   ],
+  "diagnostics": {
+    "cache_miss_reason": {
+      "cache_missed_input_tokens": 0,
+      "type": "model_changed"
+    }
+  },
   "model": "claude-opus-5",
   "role": "assistant",
   "stop_details": {
@@ -1918,7 +1980,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+- `--model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -1938,7 +2000,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
-- `--thinking: optional ThinkingConfigEnabled or ThinkingConfigDisabled or ThinkingConfigAdaptive`
+- `--thinking: optional ThinkingConfigEnabled or ThinkingConfigDisabled or ThinkingConfigBetweenTools or ThinkingConfigAdaptive`
 
   Body param: Configuration for enabling Claude's extended thinking.
 
@@ -2682,7 +2744,7 @@ ant messages count-tokens \
 
       The caller-assigned identifier for this tab, unique within the inventory.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `title: string`
 
@@ -2725,7 +2787,7 @@ ant messages count-tokens \
 
     Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-    maxItems: 200, minItems: 1
+    minItems: 1, maxItems: 200
 
     - `browser_state_change_tab_opened: object`
 
@@ -2743,7 +2805,7 @@ ant messages count-tokens \
 
         The `tab_id` of the opened tab, present in `tabs`.
 
-        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `browser_state_change_download_started: object`
 
@@ -2755,7 +2817,7 @@ ant messages count-tokens \
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
       - `url: string`
 
@@ -2776,7 +2838,7 @@ ant messages count-tokens \
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
       - `url: string`
 
@@ -2788,7 +2850,7 @@ ant messages count-tokens \
 
         Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
       - `size_bytes: optional number`
 
@@ -2806,7 +2868,7 @@ ant messages count-tokens \
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
       - `url: string`
 
@@ -2818,19 +2880,11 @@ ant messages count-tokens \
 
         The failure or cancellation detail, when known.
 
-        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
 ### Browser State Change
 
 - `browser_state_change: BrowserStateChangeTabOpened or BrowserStateChangeDownloadStarted or BrowserStateChangeDownloadCompleted or BrowserStateChangeDownloadFailed`
-
-  A tab this call's execution opened that remains open at its end —
-  the creation delta of the `tabs` inventory, not an event log.
-
-  Carries only the `tab_id`; the tab's `title` and `url` live on its
-  `tabs` entry, which must include the same `tab_id`. A tab opened
-  during a failed call gets no deferred `tab_opened`; it simply appears
-  in the next result's `tabs` inventory.
 
   - `browser_state_change_tab_opened: object`
 
@@ -2848,7 +2902,7 @@ ant messages count-tokens \
 
       The `tab_id` of the opened tab, present in `tabs`.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `browser_state_change_download_started: object`
 
@@ -2860,7 +2914,7 @@ ant messages count-tokens \
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `url: string`
 
@@ -2881,7 +2935,7 @@ ant messages count-tokens \
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `url: string`
 
@@ -2893,7 +2947,7 @@ ant messages count-tokens \
 
       Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `size_bytes: optional number`
 
@@ -2911,7 +2965,7 @@ ant messages count-tokens \
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `url: string`
 
@@ -2923,7 +2977,7 @@ ant messages count-tokens \
 
       The failure or cancellation detail, when known.
 
-      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
 ### Browser State Change Download Completed
 
@@ -2940,7 +2994,7 @@ ant messages count-tokens \
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `url: string`
 
@@ -2952,7 +3006,7 @@ ant messages count-tokens \
 
     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `size_bytes: optional number`
 
@@ -2972,7 +3026,7 @@ ant messages count-tokens \
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `url: string`
 
@@ -2984,7 +3038,7 @@ ant messages count-tokens \
 
     The failure or cancellation detail, when known.
 
-    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
 ### Browser State Change Download Started
 
@@ -2998,7 +3052,7 @@ ant messages count-tokens \
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `url: string`
 
@@ -3024,7 +3078,7 @@ ant messages count-tokens \
 
     The `tab_id` of the opened tab, present in `tabs`.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
 ### Browser State Tab Entry
 
@@ -3043,7 +3097,7 @@ ant messages count-tokens \
 
     The caller-assigned identifier for this tab, unique within the inventory.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `title: string`
 
@@ -3109,12 +3163,7 @@ ant messages count-tokens \
 
   - `configs: optional object`
 
-    Per-member configuration for `browser_toolset_20260801`: one
-    optional field per member tool, keyed by the member name — the same
-    name the member's `tool_use` blocks carry. Every member is an
-    accepted key, and a member's defaults apply wherever its key is
-    absent. Unknown keys are rejected: the field set is this toolset
-    version's complete member set.
+    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
     - `type: optional object`
 
@@ -3964,6 +4013,102 @@ ant messages count-tokens \
 
     minimum: 0
 
+### Cache Miss Messages Changed
+
+- `cache_miss_messages_changed: object`
+
+  - `type: "messages_changed"`
+
+  - `cache_missed_input_tokens: number`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Model Changed
+
+- `cache_miss_model_changed: object`
+
+  - `type: "model_changed"`
+
+  - `cache_missed_input_tokens: number`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Previous Message Not Found
+
+- `cache_miss_previous_message_not_found: object`
+
+  - `type: "previous_message_not_found"`
+
+### Cache Miss Reason
+
+- `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+  - `cache_miss_model_changed: object`
+
+    - `type: "model_changed"`
+
+    - `cache_missed_input_tokens: number`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `cache_miss_system_changed: object`
+
+    - `type: "system_changed"`
+
+    - `cache_missed_input_tokens: number`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `cache_miss_tools_changed: object`
+
+    - `type: "tools_changed"`
+
+    - `cache_missed_input_tokens: number`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `cache_miss_messages_changed: object`
+
+    - `type: "messages_changed"`
+
+    - `cache_missed_input_tokens: number`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `cache_miss_previous_message_not_found: object`
+
+    - `type: "previous_message_not_found"`
+
+  - `cache_miss_unavailable: object`
+
+    - `type: "unavailable"`
+
+### Cache Miss System Changed
+
+- `cache_miss_system_changed: object`
+
+  - `type: "system_changed"`
+
+  - `cache_missed_input_tokens: number`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Tools Changed
+
+- `cache_miss_tools_changed: object`
+
+  - `type: "tools_changed"`
+
+  - `cache_missed_input_tokens: number`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Unavailable
+
+- `cache_miss_unavailable: object`
+
+  - `type: "unavailable"`
+
 ### Citation Char Location
 
 - `citation_char_location: object`
@@ -4000,7 +4145,7 @@ ant messages count-tokens \
 
   - `document_title: string`
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `end_char_index: number`
 
@@ -4058,7 +4203,7 @@ ant messages count-tokens \
 
   - `document_title: string`
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `end_block_index: number`
 
@@ -4108,7 +4253,7 @@ ant messages count-tokens \
 
   - `document_title: string`
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `end_page_number: number`
 
@@ -4164,7 +4309,7 @@ ant messages count-tokens \
 
   - `title: string`
 
-    maxLength: 512, minLength: 1
+    minLength: 1, maxLength: 512
 
   - `url: string`
 
@@ -4628,8 +4773,6 @@ ant messages count-tokens \
 
   - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
-    Code execution result with encrypted stdout for PFC + web_search results.
-
     - `code_execution_tool_result_error: object`
 
       - `type: "code_execution_tool_result_error"`
@@ -4686,8 +4829,6 @@ ant messages count-tokens \
 
 - `code_execution_tool_result_block_content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
-  Code execution result with encrypted stdout for PFC + web_search results.
-
   - `code_execution_tool_result_error: object`
 
     - `type: "code_execution_tool_result_error"`
@@ -4743,8 +4884,6 @@ ant messages count-tokens \
   - `type: "code_execution_tool_result"`
 
   - `content: CodeExecutionToolResultErrorParam or CodeExecutionResultBlockParam or EncryptedCodeExecutionResultBlockParam`
-
-    Code execution result with encrypted stdout for PFC + web_search results.
 
     - `code_execution_tool_result_error_param: object`
 
@@ -4822,8 +4961,6 @@ ant messages count-tokens \
 ### Code Execution Tool Result Block Param Content
 
 - `code_execution_tool_result_block_param_content: CodeExecutionToolResultErrorParam or CodeExecutionResultBlockParam or EncryptedCodeExecutionResultBlockParam`
-
-  Code execution result with encrypted stdout for PFC + web_search results.
 
   - `code_execution_tool_result_error_param: object`
 
@@ -5137,12 +5274,7 @@ ant messages count-tokens \
 
   - `configs: optional object`
 
-    Per-member configuration for `computer_toolset_20260801`: one
-    optional field per member tool, keyed by the member name — the same
-    name the member's `tool_use` blocks carry. Every member is an
-    accepted key, and a member's defaults apply wherever its key is
-    absent. Unknown keys are rejected: the field set is this toolset
-    version's complete member set.
+    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
     - `type: optional object`
 
@@ -5651,13 +5783,13 @@ ant messages count-tokens \
 
       Skill ID
 
-      maxLength: 64, minLength: 1
+      minLength: 1, maxLength: 64
 
     - `version: string`
 
       The resolved version: a skill version ID for custom skills.
 
-      maxLength: 64, minLength: 1
+      minLength: 1, maxLength: 64
 
 ### Container Params
 
@@ -5687,13 +5819,13 @@ ant messages count-tokens \
 
       Skill ID
 
-      maxLength: 64, minLength: 1
+      minLength: 1, maxLength: 64
 
     - `version: optional string`
 
       Skill version or 'latest' for most recent version
 
-      maxLength: 64, minLength: 1
+      minLength: 1, maxLength: 64
 
 ### Container Skill
 
@@ -5713,13 +5845,13 @@ ant messages count-tokens \
 
     Skill ID
 
-    maxLength: 64, minLength: 1
+    minLength: 1, maxLength: 64
 
   - `version: string`
 
     The resolved version: a skill version ID for custom skills.
 
-    maxLength: 64, minLength: 1
+    minLength: 1, maxLength: 64
 
 ### Container Upload Block
 
@@ -5766,8 +5898,6 @@ ant messages count-tokens \
 ### Content Block
 
 - `content_block: TextBlock or ThinkingBlock or RedactedThinkingBlock or 9 more`
-
-  Response model for a file uploaded to the container.
 
   - `text_block: object`
 
@@ -5899,8 +6029,6 @@ ant messages count-tokens \
 
     - `text: string`
 
-      minLength: 0
-
   - `thinking_block: object`
 
     - `type: "thinking"`
@@ -5939,8 +6067,6 @@ ant messages count-tokens \
 
     - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-      Tool invocation directly from the model.
-
       - `direct_caller: object`
 
         Tool invocation directly from the model.
@@ -5975,7 +6101,7 @@ ant messages count-tokens \
 
       For a toolset member tool_use, the toolset family.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
   - `server_tool_use_block: object`
 
@@ -5986,8 +6112,6 @@ ant messages count-tokens \
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
     - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-      Tool invocation directly from the model.
 
       - `direct_caller: object`
 
@@ -6022,8 +6146,6 @@ ant messages count-tokens \
     - `type: "web_search_tool_result"`
 
     - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-      Tool invocation directly from the model.
 
       - `direct_caller: object`
 
@@ -6076,8 +6198,6 @@ ant messages count-tokens \
     - `type: "web_fetch_tool_result"`
 
     - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-      Tool invocation directly from the model.
 
       - `direct_caller: object`
 
@@ -6172,8 +6292,6 @@ ant messages count-tokens \
     - `type: "code_execution_tool_result"`
 
     - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `code_execution_tool_result_error: object`
 
@@ -6369,7 +6487,7 @@ ant messages count-tokens \
 
           - `tool_name: string`
 
-            maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+            minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
     - `tool_use_id: string`
 
@@ -6386,8 +6504,6 @@ ant messages count-tokens \
 ### Content Block Param
 
 - `content_block_param: TextBlockParam or ImageBlockParam or DocumentBlockParam or 13 more`
-
-  Regular text content.
 
   - `text_block_param: object`
 
@@ -6432,7 +6548,7 @@ ant messages count-tokens \
 
         - `document_title: string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `end_char_index: number`
 
@@ -6452,7 +6568,7 @@ ant messages count-tokens \
 
         - `document_title: string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `end_page_number: number`
 
@@ -6476,7 +6592,7 @@ ant messages count-tokens \
 
         - `document_title: string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `end_block_index: number`
 
@@ -6500,7 +6616,7 @@ ant messages count-tokens \
 
         - `title: string`
 
-          maxLength: 512, minLength: 1
+          minLength: 1, maxLength: 512
 
         - `url: string`
 
@@ -6706,7 +6822,7 @@ ant messages count-tokens \
 
     - `title: optional string`
 
-      maxLength: 500, minLength: 1
+      minLength: 1, maxLength: 500
 
   - `search_result_block_param: object`
 
@@ -6785,7 +6901,7 @@ ant messages count-tokens \
 
     - `name: string`
 
-      maxLength: 200, minLength: 1
+      minLength: 1, maxLength: 200
 
     - `cache_control: optional object`
 
@@ -6805,8 +6921,6 @@ ant messages count-tokens \
         Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-      Tool invocation directly from the model.
 
       - `direct_caller: object`
 
@@ -6836,7 +6950,7 @@ ant messages count-tokens \
 
       For a toolset member tool_use, the toolset family this member belongs to.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
   - `tool_result_block_param: object`
 
@@ -6927,7 +7041,7 @@ ant messages count-tokens \
 
         - `title: optional string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
       - `tool_reference_block_param: object`
 
@@ -6937,7 +7051,7 @@ ant messages count-tokens \
 
         - `tool_name: string`
 
-          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+          minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
         - `cache_control: optional object`
 
@@ -6978,7 +7092,7 @@ ant messages count-tokens \
 
             The caller-assigned identifier for this tab, unique within the inventory.
 
-            maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+            minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `title: string`
 
@@ -7017,7 +7131,7 @@ ant messages count-tokens \
 
           Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-          maxItems: 200, minItems: 1
+          minItems: 1, maxItems: 200
 
           - `browser_state_change_tab_opened: object`
 
@@ -7035,7 +7149,7 @@ ant messages count-tokens \
 
               The `tab_id` of the opened tab, present in `tabs`.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `browser_state_change_download_started: object`
 
@@ -7047,7 +7161,7 @@ ant messages count-tokens \
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `url: string`
 
@@ -7068,7 +7182,7 @@ ant messages count-tokens \
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `url: string`
 
@@ -7080,7 +7194,7 @@ ant messages count-tokens \
 
               Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-              pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `size_bytes: optional number`
 
@@ -7098,7 +7212,7 @@ ant messages count-tokens \
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `url: string`
 
@@ -7110,7 +7224,7 @@ ant messages count-tokens \
 
               The failure or cancellation detail, when known.
 
-              pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `is_error: optional boolean`
 
@@ -7118,7 +7232,7 @@ ant messages count-tokens \
 
       For a toolset member tool_result, the toolset family of the paired tool_use.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
   - `server_tool_use_block_param: object`
 
@@ -7164,8 +7278,6 @@ ant messages count-tokens \
         Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-      Tool invocation directly from the model.
 
       - `direct_caller: object`
 
@@ -7236,8 +7348,6 @@ ant messages count-tokens \
 
     - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-      Tool invocation directly from the model.
-
       - `direct_caller: object`
 
         Tool invocation directly from the model.
@@ -7302,7 +7412,7 @@ ant messages count-tokens \
 
           - `title: optional string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
         - `url: string`
 
@@ -7335,8 +7445,6 @@ ant messages count-tokens \
 
     - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-      Tool invocation directly from the model.
-
       - `direct_caller: object`
 
         Tool invocation directly from the model.
@@ -7352,8 +7460,6 @@ ant messages count-tokens \
     - `type: "code_execution_tool_result"`
 
     - `content: CodeExecutionToolResultErrorParam or CodeExecutionResultBlockParam or EncryptedCodeExecutionResultBlockParam`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `code_execution_tool_result_error_param: object`
 
@@ -7600,7 +7706,7 @@ ant messages count-tokens \
 
           - `tool_name: string`
 
-            maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+            minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `cache_control: optional object`
 
@@ -7708,7 +7814,7 @@ ant messages count-tokens \
 
             - `document_title: string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_char_index: number`
 
@@ -7728,7 +7834,7 @@ ant messages count-tokens \
 
             - `document_title: string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_page_number: number`
 
@@ -7752,7 +7858,7 @@ ant messages count-tokens \
 
             - `document_title: string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_block_index: number`
 
@@ -7776,7 +7882,7 @@ ant messages count-tokens \
 
             - `title: string`
 
-              maxLength: 512, minLength: 1
+              minLength: 1, maxLength: 512
 
             - `url: string`
 
@@ -7928,7 +8034,7 @@ ant messages count-tokens \
 
         - `document_title: string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `end_char_index: number`
 
@@ -7948,7 +8054,7 @@ ant messages count-tokens \
 
         - `document_title: string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `end_page_number: number`
 
@@ -7972,7 +8078,7 @@ ant messages count-tokens \
 
         - `document_title: string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `end_block_index: number`
 
@@ -7996,7 +8102,7 @@ ant messages count-tokens \
 
         - `title: string`
 
-          maxLength: 512, minLength: 1
+          minLength: 1, maxLength: 512
 
         - `url: string`
 
@@ -8100,6 +8206,70 @@ ant messages count-tokens \
         - `"downsize"`
 
         - `"error"`
+
+### Diagnostics
+
+- `diagnostics: object`
+
+  Request-level diagnostics: why the prompt cache could not fully reuse
+  the prefix of the request named by `diagnostics.previous_message_id`.
+
+  - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+    Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+    - `cache_miss_model_changed: object`
+
+      - `type: "model_changed"`
+
+      - `cache_missed_input_tokens: number`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `cache_miss_system_changed: object`
+
+      - `type: "system_changed"`
+
+      - `cache_missed_input_tokens: number`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `cache_miss_tools_changed: object`
+
+      - `type: "tools_changed"`
+
+      - `cache_missed_input_tokens: number`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `cache_miss_messages_changed: object`
+
+      - `type: "messages_changed"`
+
+      - `cache_missed_input_tokens: number`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `cache_miss_previous_message_not_found: object`
+
+      - `type: "previous_message_not_found"`
+
+    - `cache_miss_unavailable: object`
+
+      - `type: "unavailable"`
+
+### Diagnostics Param
+
+- `diagnostics_param: object`
+
+  Request-level diagnostics. Currently carries the previous response
+  id for prompt-cache divergence reporting.
+
+  - `previous_message_id: optional string`
+
+    The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+    maxLength: 256
 
 ### Direct Caller
 
@@ -8224,7 +8394,7 @@ ant messages count-tokens \
 
                 - `document_title: string`
 
-                  maxLength: 500, minLength: 1
+                  minLength: 1, maxLength: 500
 
                 - `end_char_index: number`
 
@@ -8244,7 +8414,7 @@ ant messages count-tokens \
 
                 - `document_title: string`
 
-                  maxLength: 500, minLength: 1
+                  minLength: 1, maxLength: 500
 
                 - `end_page_number: number`
 
@@ -8268,7 +8438,7 @@ ant messages count-tokens \
 
                 - `document_title: string`
 
-                  maxLength: 500, minLength: 1
+                  minLength: 1, maxLength: 500
 
                 - `end_block_index: number`
 
@@ -8292,7 +8462,7 @@ ant messages count-tokens \
 
                 - `title: string`
 
-                  maxLength: 512, minLength: 1
+                  minLength: 1, maxLength: 512
 
                 - `url: string`
 
@@ -8436,7 +8606,7 @@ ant messages count-tokens \
 
   - `title: optional string`
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
 ### Encrypted Code Execution Result Block
 
@@ -8668,7 +8838,9 @@ ant messages count-tokens \
 
   - `container: object`
 
-    Information about the container used in the request (for the code execution tool)
+    Information about the container used in this request.
+
+    This will be non-null if a container tool (e.g. code execution) was used.
 
     - `id: string`
 
@@ -8696,13 +8868,13 @@ ant messages count-tokens \
 
         Skill ID
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
       - `version: string`
 
         The resolved version: a skill version ID for custom skills.
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
   - `content: array of ContentBlock`
 
@@ -8863,8 +9035,6 @@ ant messages count-tokens \
 
       - `text: string`
 
-        minLength: 0
-
     - `thinking_block: object`
 
       - `type: "thinking"`
@@ -8903,8 +9073,6 @@ ant messages count-tokens \
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `direct_caller: object`
 
           Tool invocation directly from the model.
@@ -8939,7 +9107,7 @@ ant messages count-tokens \
 
         For a toolset member tool_use, the toolset family.
 
-        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
     - `server_tool_use_block: object`
 
@@ -8950,8 +9118,6 @@ ant messages count-tokens \
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -8986,8 +9152,6 @@ ant messages count-tokens \
       - `type: "web_search_tool_result"`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -9040,8 +9204,6 @@ ant messages count-tokens \
       - `type: "web_fetch_tool_result"`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -9136,8 +9298,6 @@ ant messages count-tokens \
       - `type: "code_execution_tool_result"`
 
       - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `code_execution_tool_result_error: object`
 
@@ -9333,7 +9493,7 @@ ant messages count-tokens \
 
             - `tool_name: string`
 
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
       - `tool_use_id: string`
 
@@ -9347,15 +9507,71 @@ ant messages count-tokens \
 
       - `file_id: string`
 
-  - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+  - `diagnostics: object`
+
+    Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+    - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+      - `cache_miss_model_changed: object`
+
+        - `type: "model_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_system_changed: object`
+
+        - `type: "system_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_tools_changed: object`
+
+        - `type: "tools_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_messages_changed: object`
+
+        - `type: "messages_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_previous_message_not_found: object`
+
+        - `type: "previous_message_not_found"`
+
+      - `cache_miss_unavailable: object`
+
+        - `type: "unavailable"`
+
+  - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `"claude-sonnet-5-5"`
+
+      Efficient model for coding and agents
+
     - `"claude-fable-5-1"`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `"claude-opus-5-5"`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `"claude-mythos-5-1"`
 
@@ -9363,7 +9579,7 @@ ant messages count-tokens \
 
     - `"claude-sonnet-5"`
 
-      High-performance model for coding and agents
+      Efficient model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -9384,10 +9600,6 @@ ant messages count-tokens \
     - `"claude-opus-4-7"`
 
       Powerful intelligence for long-running agents and coding
-
-    - `"claude-mythos-preview"`
-
-      New class of intelligence, strongest in coding and cybersecurity
 
     - `"claude-opus-4-6"`
 
@@ -9421,6 +9633,12 @@ ant messages count-tokens \
 
       High-performance model for agents and coding
 
+    - `"claude-mythos-preview"`
+
+      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      New class of intelligence, strongest in coding and cybersecurity
+
   - `role: "assistant"`
 
     Conversational role of the generated message.
@@ -9429,13 +9647,17 @@ ant messages count-tokens \
 
   - `stop_details: object`
 
-    Structured information about a refusal.
+    Structured information about why model output stopped.
+
+    This is `null` when the `stop_reason` has no additional detail to report.
 
     - `type: "refusal"`
 
     - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
-      The policy category that triggered a refusal.
+      The policy category that triggered the refusal.
+
+      `null` when the refusal doesn't map to a named category.
 
       - `"cyber"`
 
@@ -9607,8 +9829,6 @@ ant messages count-tokens \
 
 - `message_count_tokens_tool: Tool or ToolBash20250124 or CodeExecutionTool20250522 or 18 more`
 
-  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
   - `tool: object`
 
     - `type: optional "custom"`
@@ -9631,7 +9851,7 @@ ant messages count-tokens \
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -9943,12 +10163,7 @@ ant messages count-tokens \
 
     - `configs: optional object`
 
-      Per-member configuration for `browser_toolset_20260801`: one
-      optional field per member tool, keyed by the member name — the same
-      name the member's `tool_use` blocks carry. Every member is an
-      accepted key, and a member's defaults apply wherever its key is
-      absent. Unknown keys are rejected: the field set is this toolset
-      version's complete member set.
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
       - `type: optional object`
 
@@ -10401,12 +10616,7 @@ ant messages count-tokens \
 
     - `configs: optional object`
 
-      Per-member configuration for `computer_toolset_20260801`: one
-      optional field per member tool, keyed by the member name — the same
-      name the member's `tool_use` blocks carry. Every member is an
-      accepted key, and a member's defaults apply wherever its key is
-      absent. Unknown keys are rejected: the field set is this toolset
-      version's complete member set.
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
       - `type: optional object`
 
@@ -10812,7 +11022,7 @@ ant messages count-tokens \
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
@@ -10828,25 +11038,25 @@ ant messages count-tokens \
 
         The city of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `country: optional string`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-        maxLength: 2, minLength: 2
+        minLength: 2, maxLength: 2
 
       - `region: optional string`
 
         The region of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `timezone: optional string`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
   - `web_fetch_tool_20250910: object`
 
@@ -10907,17 +11117,103 @@ ant messages count-tokens \
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: optional number`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+          - `type: "all"`
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+          - `type: "none"`
+
+        - `web_fetch_url_source_only: object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+          - `type: "only"`
+
+          - `tools: array of WebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+        - `web_fetch_url_source_except: object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+          - `type: "except"`
+
+          - `tools: array of WebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+        - `web_fetch_url_source_only: object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+        - `web_fetch_url_source_except: object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
 
   - `web_search_tool_20260209: object`
 
@@ -10972,7 +11268,7 @@ ant messages count-tokens \
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
@@ -10988,25 +11284,25 @@ ant messages count-tokens \
 
         The city of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `country: optional string`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-        maxLength: 2, minLength: 2
+        minLength: 2, maxLength: 2
 
       - `region: optional string`
 
         The region of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `timezone: optional string`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
   - `web_fetch_tool_20260209: object`
 
@@ -11067,17 +11363,33 @@ ant messages count-tokens \
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: optional number`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
   - `web_fetch_tool_20260309: object`
 
@@ -11140,17 +11452,33 @@ ant messages count-tokens \
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: optional number`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
     - `use_cache: optional boolean`
 
@@ -11209,7 +11537,7 @@ ant messages count-tokens \
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `response_inclusion: optional "full" or "excluded"`
 
@@ -11233,25 +11561,25 @@ ant messages count-tokens \
 
         The city of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `country: optional string`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-        maxLength: 2, minLength: 2
+        minLength: 2, maxLength: 2
 
       - `region: optional string`
 
         The region of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `timezone: optional string`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
   - `web_fetch_tool_20260318: object`
 
@@ -11312,13 +11640,13 @@ ant messages count-tokens \
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: optional number`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `response_inclusion: optional "full" or "excluded"`
 
@@ -11331,6 +11659,22 @@ ant messages count-tokens \
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
     - `use_cache: optional boolean`
 
@@ -11466,13 +11810,13 @@ ant messages count-tokens \
 
         Skill ID
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
       - `version: optional string`
 
         Skill version or 'latest' for most recent version
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
   - `union_member_1: string`
 
@@ -11589,7 +11933,7 @@ ant messages count-tokens \
 
           - `document_title: string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
           - `end_char_index: number`
 
@@ -11609,7 +11953,7 @@ ant messages count-tokens \
 
           - `document_title: string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
           - `end_page_number: number`
 
@@ -11633,7 +11977,7 @@ ant messages count-tokens \
 
           - `document_title: string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
           - `end_block_index: number`
 
@@ -11657,7 +12001,7 @@ ant messages count-tokens \
 
           - `title: string`
 
-            maxLength: 512, minLength: 1
+            minLength: 1, maxLength: 512
 
           - `url: string`
 
@@ -11863,7 +12207,7 @@ ant messages count-tokens \
 
       - `title: optional string`
 
-        maxLength: 500, minLength: 1
+        minLength: 1, maxLength: 500
 
     - `search_result_block_param: object`
 
@@ -11942,7 +12286,7 @@ ant messages count-tokens \
 
       - `name: string`
 
-        maxLength: 200, minLength: 1
+        minLength: 1, maxLength: 200
 
       - `cache_control: optional object`
 
@@ -11962,8 +12306,6 @@ ant messages count-tokens \
           Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -11993,7 +12335,7 @@ ant messages count-tokens \
 
         For a toolset member tool_use, the toolset family this member belongs to.
 
-        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
     - `tool_result_block_param: object`
 
@@ -12084,7 +12426,7 @@ ant messages count-tokens \
 
           - `title: optional string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
         - `tool_reference_block_param: object`
 
@@ -12094,7 +12436,7 @@ ant messages count-tokens \
 
           - `tool_name: string`
 
-            maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+            minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `cache_control: optional object`
 
@@ -12135,7 +12477,7 @@ ant messages count-tokens \
 
               The caller-assigned identifier for this tab, unique within the inventory.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `title: string`
 
@@ -12174,7 +12516,7 @@ ant messages count-tokens \
 
             Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-            maxItems: 200, minItems: 1
+            minItems: 1, maxItems: 200
 
             - `browser_state_change_tab_opened: object`
 
@@ -12192,7 +12534,7 @@ ant messages count-tokens \
 
                 The `tab_id` of the opened tab, present in `tabs`.
 
-                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `browser_state_change_download_started: object`
 
@@ -12204,7 +12546,7 @@ ant messages count-tokens \
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `url: string`
 
@@ -12225,7 +12567,7 @@ ant messages count-tokens \
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `url: string`
 
@@ -12237,7 +12579,7 @@ ant messages count-tokens \
 
                 Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `size_bytes: optional number`
 
@@ -12255,7 +12597,7 @@ ant messages count-tokens \
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `url: string`
 
@@ -12267,7 +12609,7 @@ ant messages count-tokens \
 
                 The failure or cancellation detail, when known.
 
-                pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
       - `is_error: optional boolean`
 
@@ -12275,7 +12617,7 @@ ant messages count-tokens \
 
         For a toolset member tool_result, the toolset family of the paired tool_use.
 
-        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
     - `server_tool_use_block_param: object`
 
@@ -12321,8 +12663,6 @@ ant messages count-tokens \
           Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -12393,8 +12733,6 @@ ant messages count-tokens \
 
       - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `direct_caller: object`
 
           Tool invocation directly from the model.
@@ -12459,7 +12797,7 @@ ant messages count-tokens \
 
             - `title: optional string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
           - `url: string`
 
@@ -12492,8 +12830,6 @@ ant messages count-tokens \
 
       - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `direct_caller: object`
 
           Tool invocation directly from the model.
@@ -12509,8 +12845,6 @@ ant messages count-tokens \
       - `type: "code_execution_tool_result"`
 
       - `content: CodeExecutionToolResultErrorParam or CodeExecutionResultBlockParam or EncryptedCodeExecutionResultBlockParam`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `code_execution_tool_result_error_param: object`
 
@@ -12757,7 +13091,7 @@ ant messages count-tokens \
 
             - `tool_name: string`
 
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `cache_control: optional object`
 
@@ -12844,7 +13178,9 @@ ant messages count-tokens \
 
   - `effort: optional "low" or "medium" or "high" or 2 more`
 
-    All possible effort levels.
+    How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+    Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
     - `"low"`
 
@@ -13219,8 +13555,6 @@ ant messages count-tokens \
 
   - `content_block: TextBlock or ThinkingBlock or RedactedThinkingBlock or 9 more`
 
-    Response model for a file uploaded to the container.
-
     - `text_block: object`
 
       - `type: "text"`
@@ -13351,8 +13685,6 @@ ant messages count-tokens \
 
       - `text: string`
 
-        minLength: 0
-
     - `thinking_block: object`
 
       - `type: "thinking"`
@@ -13391,8 +13723,6 @@ ant messages count-tokens \
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `direct_caller: object`
 
           Tool invocation directly from the model.
@@ -13427,7 +13757,7 @@ ant messages count-tokens \
 
         For a toolset member tool_use, the toolset family.
 
-        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
     - `server_tool_use_block: object`
 
@@ -13438,8 +13768,6 @@ ant messages count-tokens \
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -13474,8 +13802,6 @@ ant messages count-tokens \
       - `type: "web_search_tool_result"`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -13528,8 +13854,6 @@ ant messages count-tokens \
       - `type: "web_fetch_tool_result"`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `direct_caller: object`
 
@@ -13624,8 +13948,6 @@ ant messages count-tokens \
       - `type: "code_execution_tool_result"`
 
       - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `code_execution_tool_result_error: object`
 
@@ -13821,7 +14143,7 @@ ant messages count-tokens \
 
             - `tool_name: string`
 
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
       - `tool_use_id: string`
 
@@ -13855,7 +14177,9 @@ ant messages count-tokens \
 
     - `container: object`
 
-      Information about the container used in the request (for the code execution tool)
+      Information about the container used in this request.
+
+      This will be non-null if a container tool (e.g. code execution) was used.
 
       - `id: string`
 
@@ -13883,23 +14207,27 @@ ant messages count-tokens \
 
           Skill ID
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
         - `version: string`
 
           The resolved version: a skill version ID for custom skills.
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
     - `stop_details: object`
 
-      Structured information about a refusal.
+      Structured information about why model output stopped.
+
+      This is `null` when the `stop_reason` has no additional detail to report.
 
       - `type: "refusal"`
 
       - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
-        The policy category that triggered a refusal.
+        The policy category that triggered the refusal.
+
+        `null` when the refusal doesn't map to a named category.
 
         - `"cyber"`
 
@@ -14039,7 +14367,9 @@ ant messages count-tokens \
 
     - `container: object`
 
-      Information about the container used in the request (for the code execution tool)
+      Information about the container used in this request.
+
+      This will be non-null if a container tool (e.g. code execution) was used.
 
       - `id: string`
 
@@ -14067,13 +14397,13 @@ ant messages count-tokens \
 
           Skill ID
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
         - `version: string`
 
           The resolved version: a skill version ID for custom skills.
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
     - `content: array of ContentBlock`
 
@@ -14234,8 +14564,6 @@ ant messages count-tokens \
 
         - `text: string`
 
-          minLength: 0
-
       - `thinking_block: object`
 
         - `type: "thinking"`
@@ -14274,8 +14602,6 @@ ant messages count-tokens \
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
           - `direct_caller: object`
 
             Tool invocation directly from the model.
@@ -14310,7 +14636,7 @@ ant messages count-tokens \
 
           For a toolset member tool_use, the toolset family.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `server_tool_use_block: object`
 
@@ -14321,8 +14647,6 @@ ant messages count-tokens \
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-          Tool invocation directly from the model.
 
           - `direct_caller: object`
 
@@ -14357,8 +14681,6 @@ ant messages count-tokens \
         - `type: "web_search_tool_result"`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-          Tool invocation directly from the model.
 
           - `direct_caller: object`
 
@@ -14411,8 +14733,6 @@ ant messages count-tokens \
         - `type: "web_fetch_tool_result"`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-          Tool invocation directly from the model.
 
           - `direct_caller: object`
 
@@ -14507,8 +14827,6 @@ ant messages count-tokens \
         - `type: "code_execution_tool_result"`
 
         - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `code_execution_tool_result_error: object`
 
@@ -14704,7 +15022,7 @@ ant messages count-tokens \
 
               - `tool_name: string`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
         - `tool_use_id: string`
 
@@ -14718,15 +15036,71 @@ ant messages count-tokens \
 
         - `file_id: string`
 
-    - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+    - `diagnostics: object`
+
+      Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+      - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+        Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+        - `cache_miss_model_changed: object`
+
+          - `type: "model_changed"`
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `cache_miss_system_changed: object`
+
+          - `type: "system_changed"`
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `cache_miss_tools_changed: object`
+
+          - `type: "tools_changed"`
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `cache_miss_messages_changed: object`
+
+          - `type: "messages_changed"`
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `cache_miss_previous_message_not_found: object`
+
+          - `type: "previous_message_not_found"`
+
+        - `cache_miss_unavailable: object`
+
+          - `type: "unavailable"`
+
+    - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
+
       - `"claude-fable-5-1"`
 
         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-opus-5-5"`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
       - `"claude-mythos-5-1"`
 
@@ -14734,7 +15108,7 @@ ant messages count-tokens \
 
       - `"claude-sonnet-5"`
 
-        High-performance model for coding and agents
+        Efficient model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -14755,10 +15129,6 @@ ant messages count-tokens \
       - `"claude-opus-4-7"`
 
         Powerful intelligence for long-running agents and coding
-
-      - `"claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
 
       - `"claude-opus-4-6"`
 
@@ -14792,6 +15162,12 @@ ant messages count-tokens \
 
         High-performance model for agents and coding
 
+      - `"claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
     - `role: "assistant"`
 
       Conversational role of the generated message.
@@ -14800,13 +15176,17 @@ ant messages count-tokens \
 
     - `stop_details: object`
 
-      Structured information about a refusal.
+      Structured information about why model output stopped.
+
+      This is `null` when the `stop_reason` has no additional detail to report.
 
       - `type: "refusal"`
 
       - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
-        The policy category that triggered a refusal.
+        The policy category that triggered the refusal.
+
+        `null` when the refusal doesn't map to a named category.
 
         - `"cyber"`
 
@@ -15004,7 +15384,9 @@ ant messages count-tokens \
 
       - `container: object`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
         - `id: string`
 
@@ -15032,13 +15414,13 @@ ant messages count-tokens \
 
             Skill ID
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
           - `version: string`
 
             The resolved version: a skill version ID for custom skills.
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
       - `content: array of ContentBlock`
 
@@ -15199,8 +15581,6 @@ ant messages count-tokens \
 
           - `text: string`
 
-            minLength: 0
-
         - `thinking_block: object`
 
           - `type: "thinking"`
@@ -15239,8 +15619,6 @@ ant messages count-tokens \
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             - `direct_caller: object`
 
               Tool invocation directly from the model.
@@ -15275,7 +15653,7 @@ ant messages count-tokens \
 
             For a toolset member tool_use, the toolset family.
 
-            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+            minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
         - `server_tool_use_block: object`
 
@@ -15286,8 +15664,6 @@ ant messages count-tokens \
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-            Tool invocation directly from the model.
 
             - `direct_caller: object`
 
@@ -15322,8 +15698,6 @@ ant messages count-tokens \
           - `type: "web_search_tool_result"`
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-            Tool invocation directly from the model.
 
             - `direct_caller: object`
 
@@ -15376,8 +15750,6 @@ ant messages count-tokens \
           - `type: "web_fetch_tool_result"`
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-            Tool invocation directly from the model.
 
             - `direct_caller: object`
 
@@ -15472,8 +15844,6 @@ ant messages count-tokens \
           - `type: "code_execution_tool_result"`
 
           - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `code_execution_tool_result_error: object`
 
@@ -15669,7 +16039,7 @@ ant messages count-tokens \
 
                 - `tool_name: string`
 
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                  minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `tool_use_id: string`
 
@@ -15683,15 +16053,71 @@ ant messages count-tokens \
 
           - `file_id: string`
 
-      - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+      - `diagnostics: object`
+
+        Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+        - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+          Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+          - `cache_miss_model_changed: object`
+
+            - `type: "model_changed"`
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `cache_miss_system_changed: object`
+
+            - `type: "system_changed"`
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `cache_miss_tools_changed: object`
+
+            - `type: "tools_changed"`
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `cache_miss_messages_changed: object`
+
+            - `type: "messages_changed"`
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `cache_miss_previous_message_not_found: object`
+
+            - `type: "previous_message_not_found"`
+
+          - `cache_miss_unavailable: object`
+
+            - `type: "unavailable"`
+
+      - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
+
         - `"claude-fable-5-1"`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-mythos-5-1"`
 
@@ -15699,7 +16125,7 @@ ant messages count-tokens \
 
         - `"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -15720,10 +16146,6 @@ ant messages count-tokens \
         - `"claude-opus-4-7"`
 
           Powerful intelligence for long-running agents and coding
-
-        - `"claude-mythos-preview"`
-
-          New class of intelligence, strongest in coding and cybersecurity
 
         - `"claude-opus-4-6"`
 
@@ -15757,6 +16179,12 @@ ant messages count-tokens \
 
           High-performance model for agents and coding
 
+        - `"claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
+
       - `role: "assistant"`
 
         Conversational role of the generated message.
@@ -15765,13 +16193,17 @@ ant messages count-tokens \
 
       - `stop_details: object`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
         - `type: "refusal"`
 
         - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the refusal.
+
+          `null` when the refusal doesn't map to a named category.
 
           - `"cyber"`
 
@@ -15947,7 +16379,9 @@ ant messages count-tokens \
 
       - `container: object`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
         - `id: string`
 
@@ -15965,13 +16399,17 @@ ant messages count-tokens \
 
       - `stop_details: object`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
         - `type: "refusal"`
 
         - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the refusal.
+
+          `null` when the refusal doesn't map to a named category.
 
         - `explanation: string`
 
@@ -16079,8 +16517,6 @@ ant messages count-tokens \
 
     - `content_block: TextBlock or ThinkingBlock or RedactedThinkingBlock or 9 more`
 
-      Response model for a file uploaded to the container.
-
       - `text_block: object`
 
         - `type: "text"`
@@ -16092,8 +16528,6 @@ ant messages count-tokens \
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `text: string`
-
-          minLength: 0
 
       - `thinking_block: object`
 
@@ -16133,8 +16567,6 @@ ant messages count-tokens \
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
         - `input: map[unknown]`
 
         - `name: string`
@@ -16145,7 +16577,7 @@ ant messages count-tokens \
 
           For a toolset member tool_use, the toolset family.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `server_tool_use_block: object`
 
@@ -16157,8 +16589,6 @@ ant messages count-tokens \
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
         - `input: map[unknown]`
 
         - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
@@ -16168,8 +16598,6 @@ ant messages count-tokens \
         - `type: "web_search_tool_result"`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-          Tool invocation directly from the model.
 
         - `content: WebSearchToolResultError or array of WebSearchResultBlock`
 
@@ -16183,8 +16611,6 @@ ant messages count-tokens \
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
         - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
 
         - `tool_use_id: string`
@@ -16196,8 +16622,6 @@ ant messages count-tokens \
         - `type: "code_execution_tool_result"`
 
         - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
         - `tool_use_id: string`
 
@@ -16443,7 +16867,9 @@ ant messages count-tokens \
 
   - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
-    The policy category that triggered a refusal.
+    The policy category that triggered the refusal.
+
+    `null` when the refusal doesn't map to a named category.
 
     - `"cyber"`
 
@@ -16520,7 +16946,7 @@ ant messages count-tokens \
 
         - `document_title: string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `end_char_index: number`
 
@@ -16540,7 +16966,7 @@ ant messages count-tokens \
 
         - `document_title: string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `end_page_number: number`
 
@@ -16564,7 +16990,7 @@ ant messages count-tokens \
 
         - `document_title: string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `end_block_index: number`
 
@@ -16588,7 +17014,7 @@ ant messages count-tokens \
 
         - `title: string`
 
-          maxLength: 512, minLength: 1
+          minLength: 1, maxLength: 512
 
         - `url: string`
 
@@ -16703,8 +17129,6 @@ ant messages count-tokens \
 
   - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-    Tool invocation directly from the model.
-
     - `direct_caller: object`
 
       Tool invocation directly from the model.
@@ -16798,8 +17222,6 @@ ant messages count-tokens \
 
   - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-    Tool invocation directly from the model.
-
     - `direct_caller: object`
 
       Tool invocation directly from the model.
@@ -16852,13 +17274,13 @@ ant messages count-tokens \
 
     Skill ID
 
-    maxLength: 64, minLength: 1
+    minLength: 1, maxLength: 64
 
   - `version: optional string`
 
     Skill version or 'latest' for most recent version
 
-    maxLength: 64, minLength: 1
+    minLength: 1, maxLength: 64
 
 ### Stop Reason
 
@@ -17010,8 +17432,6 @@ ant messages count-tokens \
 
   - `text: string`
 
-    minLength: 0
-
 ### Text Block Param
 
 - `text_block_param: object`
@@ -17057,7 +17477,7 @@ ant messages count-tokens \
 
       - `document_title: string`
 
-        maxLength: 500, minLength: 1
+        minLength: 1, maxLength: 500
 
       - `end_char_index: number`
 
@@ -17077,7 +17497,7 @@ ant messages count-tokens \
 
       - `document_title: string`
 
-        maxLength: 500, minLength: 1
+        minLength: 1, maxLength: 500
 
       - `end_page_number: number`
 
@@ -17101,7 +17521,7 @@ ant messages count-tokens \
 
       - `document_title: string`
 
-        maxLength: 500, minLength: 1
+        minLength: 1, maxLength: 500
 
       - `end_block_index: number`
 
@@ -17125,7 +17545,7 @@ ant messages count-tokens \
 
       - `title: string`
 
-        maxLength: 512, minLength: 1
+        minLength: 1, maxLength: 512
 
       - `url: string`
 
@@ -17303,7 +17723,7 @@ ant messages count-tokens \
 
     - `document_title: string`
 
-      maxLength: 500, minLength: 1
+      minLength: 1, maxLength: 500
 
     - `end_char_index: number`
 
@@ -17323,7 +17743,7 @@ ant messages count-tokens \
 
     - `document_title: string`
 
-      maxLength: 500, minLength: 1
+      minLength: 1, maxLength: 500
 
     - `end_page_number: number`
 
@@ -17347,7 +17767,7 @@ ant messages count-tokens \
 
     - `document_title: string`
 
-      maxLength: 500, minLength: 1
+      minLength: 1, maxLength: 500
 
     - `end_block_index: number`
 
@@ -17371,7 +17791,7 @@ ant messages count-tokens \
 
     - `title: string`
 
-      maxLength: 512, minLength: 1
+      minLength: 1, maxLength: 512
 
     - `url: string`
 
@@ -17774,6 +18194,12 @@ ant messages count-tokens \
 
     - `"omitted"`
 
+### Thinking Config Between Tools
+
+- `thinking_config_between_tools: object`
+
+  - `type: "between_tools"`
+
 ### Thinking Config Disabled
 
 - `thinking_config_disabled: object`
@@ -17806,7 +18232,7 @@ ant messages count-tokens \
 
 ### Thinking Config Param
 
-- `thinking_config_param: ThinkingConfigEnabled or ThinkingConfigDisabled or ThinkingConfigAdaptive`
+- `thinking_config_param: ThinkingConfigEnabled or ThinkingConfigDisabled or ThinkingConfigBetweenTools or ThinkingConfigAdaptive`
 
   Configuration for enabling Claude's extended thinking.
 
@@ -17839,6 +18265,10 @@ ant messages count-tokens \
   - `thinking_config_disabled: object`
 
     - `type: "disabled"`
+
+  - `thinking_config_between_tools: object`
+
+    - `type: "between_tools"`
 
   - `thinking_config_adaptive: object`
 
@@ -17886,7 +18316,7 @@ ant messages count-tokens \
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+    minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -18106,7 +18536,7 @@ ant messages count-tokens \
 
   - `tool_name: string`
 
-    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
 ### Tool Reference Block Param
 
@@ -18118,7 +18548,7 @@ ant messages count-tokens \
 
   - `tool_name: string`
 
-    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
   - `cache_control: optional object`
 
@@ -18213,7 +18643,7 @@ ant messages count-tokens \
 
           - `document_title: string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
           - `end_char_index: number`
 
@@ -18233,7 +18663,7 @@ ant messages count-tokens \
 
           - `document_title: string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
           - `end_page_number: number`
 
@@ -18257,7 +18687,7 @@ ant messages count-tokens \
 
           - `document_title: string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
           - `end_block_index: number`
 
@@ -18281,7 +18711,7 @@ ant messages count-tokens \
 
           - `title: string`
 
-            maxLength: 512, minLength: 1
+            minLength: 1, maxLength: 512
 
           - `url: string`
 
@@ -18530,7 +18960,7 @@ ant messages count-tokens \
 
       - `title: optional string`
 
-        maxLength: 500, minLength: 1
+        minLength: 1, maxLength: 500
 
     - `tool_reference_block_param: object`
 
@@ -18540,7 +18970,7 @@ ant messages count-tokens \
 
       - `tool_name: string`
 
-        maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+        minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
       - `cache_control: optional object`
 
@@ -18581,7 +19011,7 @@ ant messages count-tokens \
 
           The caller-assigned identifier for this tab, unique within the inventory.
 
-          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
         - `title: string`
 
@@ -18620,7 +19050,7 @@ ant messages count-tokens \
 
         Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-        maxItems: 200, minItems: 1
+        minItems: 1, maxItems: 200
 
         - `browser_state_change_tab_opened: object`
 
@@ -18638,7 +19068,7 @@ ant messages count-tokens \
 
             The `tab_id` of the opened tab, present in `tabs`.
 
-            maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+            minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
         - `browser_state_change_download_started: object`
 
@@ -18650,7 +19080,7 @@ ant messages count-tokens \
 
             The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-            maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+            minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `url: string`
 
@@ -18671,7 +19101,7 @@ ant messages count-tokens \
 
             The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-            maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+            minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `url: string`
 
@@ -18683,7 +19113,7 @@ ant messages count-tokens \
 
             Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-            pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+            maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `size_bytes: optional number`
 
@@ -18701,7 +19131,7 @@ ant messages count-tokens \
 
             The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-            maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+            minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `url: string`
 
@@ -18713,7 +19143,7 @@ ant messages count-tokens \
 
             The failure or cancellation detail, when known.
 
-            pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+            maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `is_error: optional boolean`
 
@@ -18721,7 +19151,7 @@ ant messages count-tokens \
 
     For a toolset member tool_result, the toolset family of the paired tool_use.
 
-    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
 ### Tool Search Tool Bm25 20251119
 
@@ -18867,7 +19297,7 @@ ant messages count-tokens \
 
         - `tool_name: string`
 
-          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+          minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
   - `tool_use_id: string`
 
@@ -18907,7 +19337,7 @@ ant messages count-tokens \
 
         - `tool_name: string`
 
-          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+          minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
         - `cache_control: optional object`
 
@@ -19011,7 +19441,7 @@ ant messages count-tokens \
 
     - `tool_name: string`
 
-      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
 ### Tool Search Tool Search Result Block Param
 
@@ -19025,7 +19455,7 @@ ant messages count-tokens \
 
     - `tool_name: string`
 
-      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
     - `cache_control: optional object`
 
@@ -19217,8 +19647,6 @@ ant messages count-tokens \
 
 - `tool_union: Tool or ToolBash20250124 or CodeExecutionTool20250522 or 18 more`
 
-  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
   - `tool: object`
 
     - `type: optional "custom"`
@@ -19241,7 +19669,7 @@ ant messages count-tokens \
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -19553,12 +19981,7 @@ ant messages count-tokens \
 
     - `configs: optional object`
 
-      Per-member configuration for `browser_toolset_20260801`: one
-      optional field per member tool, keyed by the member name — the same
-      name the member's `tool_use` blocks carry. Every member is an
-      accepted key, and a member's defaults apply wherever its key is
-      absent. Unknown keys are rejected: the field set is this toolset
-      version's complete member set.
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
       - `type: optional object`
 
@@ -20011,12 +20434,7 @@ ant messages count-tokens \
 
     - `configs: optional object`
 
-      Per-member configuration for `computer_toolset_20260801`: one
-      optional field per member tool, keyed by the member name — the same
-      name the member's `tool_use` blocks carry. Every member is an
-      accepted key, and a member's defaults apply wherever its key is
-      absent. Unknown keys are rejected: the field set is this toolset
-      version's complete member set.
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
       - `type: optional object`
 
@@ -20422,7 +20840,7 @@ ant messages count-tokens \
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
@@ -20438,25 +20856,25 @@ ant messages count-tokens \
 
         The city of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `country: optional string`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-        maxLength: 2, minLength: 2
+        minLength: 2, maxLength: 2
 
       - `region: optional string`
 
         The region of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `timezone: optional string`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
   - `web_fetch_tool_20250910: object`
 
@@ -20517,17 +20935,103 @@ ant messages count-tokens \
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: optional number`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+          - `type: "all"`
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+          - `type: "none"`
+
+        - `web_fetch_url_source_only: object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+          - `type: "only"`
+
+          - `tools: array of WebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+        - `web_fetch_url_source_except: object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+          - `type: "except"`
+
+          - `tools: array of WebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+        - `web_fetch_url_source_only: object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+        - `web_fetch_url_source_except: object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
 
   - `web_search_tool_20260209: object`
 
@@ -20582,7 +21086,7 @@ ant messages count-tokens \
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
@@ -20598,25 +21102,25 @@ ant messages count-tokens \
 
         The city of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `country: optional string`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-        maxLength: 2, minLength: 2
+        minLength: 2, maxLength: 2
 
       - `region: optional string`
 
         The region of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `timezone: optional string`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
   - `web_fetch_tool_20260209: object`
 
@@ -20677,17 +21181,33 @@ ant messages count-tokens \
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: optional number`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
   - `web_fetch_tool_20260309: object`
 
@@ -20750,17 +21270,33 @@ ant messages count-tokens \
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: optional number`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
     - `use_cache: optional boolean`
 
@@ -20819,7 +21355,7 @@ ant messages count-tokens \
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `response_inclusion: optional "full" or "excluded"`
 
@@ -20843,25 +21379,25 @@ ant messages count-tokens \
 
         The city of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `country: optional string`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-        maxLength: 2, minLength: 2
+        minLength: 2, maxLength: 2
 
       - `region: optional string`
 
         The region of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `timezone: optional string`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
   - `web_fetch_tool_20260318: object`
 
@@ -20922,13 +21458,13 @@ ant messages count-tokens \
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `max_uses: optional number`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `response_inclusion: optional "full" or "excluded"`
 
@@ -20941,6 +21477,22 @@ ant messages count-tokens \
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
     - `use_cache: optional boolean`
 
@@ -21056,8 +21608,6 @@ ant messages count-tokens \
 
   - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-    Tool invocation directly from the model.
-
     - `direct_caller: object`
 
       Tool invocation directly from the model.
@@ -21092,7 +21642,7 @@ ant messages count-tokens \
 
     For a toolset member tool_use, the toolset family.
 
-    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
 ### Tool Use Block Param
 
@@ -21108,7 +21658,7 @@ ant messages count-tokens \
 
   - `name: string`
 
-    maxLength: 200, minLength: 1
+    minLength: 1, maxLength: 200
 
   - `cache_control: optional object`
 
@@ -21132,8 +21682,6 @@ ant messages count-tokens \
       - `"1h"`
 
   - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-    Tool invocation directly from the model.
 
     - `direct_caller: object`
 
@@ -21163,7 +21711,7 @@ ant messages count-tokens \
 
     For a toolset member tool_use, the toolset family this member belongs to.
 
-    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
 ### URL Image Source
 
@@ -21287,25 +21835,25 @@ ant messages count-tokens \
 
     The city of the user.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `country: optional string`
 
     The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-    maxLength: 2, minLength: 2
+    minLength: 2, maxLength: 2
 
   - `region: optional string`
 
     The region of the user.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `timezone: optional string`
 
     The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
 ### Web Fetch Block
 
@@ -21438,7 +21986,7 @@ ant messages count-tokens \
 
                   - `document_title: string`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `end_char_index: number`
 
@@ -21458,7 +22006,7 @@ ant messages count-tokens \
 
                   - `document_title: string`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `end_page_number: number`
 
@@ -21482,7 +22030,7 @@ ant messages count-tokens \
 
                   - `document_title: string`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `end_block_index: number`
 
@@ -21506,7 +22054,7 @@ ant messages count-tokens \
 
                   - `title: string`
 
-                    maxLength: 512, minLength: 1
+                    minLength: 1, maxLength: 512
 
                   - `url: string`
 
@@ -21650,7 +22198,7 @@ ant messages count-tokens \
 
     - `title: optional string`
 
-      maxLength: 500, minLength: 1
+      minLength: 1, maxLength: 500
 
   - `url: string`
 
@@ -21725,17 +22273,103 @@ ant messages count-tokens \
 
     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `max_uses: optional number`
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `strict: optional boolean`
 
     When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: optional object`
+
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: "all"`
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: "none"`
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: "only"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: "except"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+    - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
 
 ### Web Fetch Tool 20260209
 
@@ -21802,17 +22436,103 @@ ant messages count-tokens \
 
     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `max_uses: optional number`
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `strict: optional boolean`
 
     When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: optional object`
+
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: "all"`
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: "none"`
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: "only"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: "except"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+    - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
 
 ### Web Fetch Tool 20260309
 
@@ -21881,17 +22601,103 @@ ant messages count-tokens \
 
     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `max_uses: optional number`
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `strict: optional boolean`
 
     When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: optional object`
+
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: "all"`
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: "none"`
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: "only"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: "except"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+    - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
 
   - `use_cache: optional boolean`
 
@@ -21962,13 +22768,13 @@ ant messages count-tokens \
 
     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `max_uses: optional number`
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `response_inclusion: optional "full" or "excluded"`
 
@@ -21982,6 +22788,92 @@ ant messages count-tokens \
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `url_sources: optional object`
+
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: "all"`
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: "none"`
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: "only"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: "except"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+    - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
   - `use_cache: optional boolean`
 
     Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
@@ -21993,8 +22885,6 @@ ant messages count-tokens \
   - `type: "web_fetch_tool_result"`
 
   - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-    Tool invocation directly from the model.
 
     - `direct_caller: object`
 
@@ -22213,7 +23103,7 @@ ant messages count-tokens \
 
                       - `document_title: string`
 
-                        maxLength: 500, minLength: 1
+                        minLength: 1, maxLength: 500
 
                       - `end_char_index: number`
 
@@ -22233,7 +23123,7 @@ ant messages count-tokens \
 
                       - `document_title: string`
 
-                        maxLength: 500, minLength: 1
+                        minLength: 1, maxLength: 500
 
                       - `end_page_number: number`
 
@@ -22257,7 +23147,7 @@ ant messages count-tokens \
 
                       - `document_title: string`
 
-                        maxLength: 500, minLength: 1
+                        minLength: 1, maxLength: 500
 
                       - `end_block_index: number`
 
@@ -22281,7 +23171,7 @@ ant messages count-tokens \
 
                       - `title: string`
 
-                        maxLength: 512, minLength: 1
+                        minLength: 1, maxLength: 512
 
                       - `url: string`
 
@@ -22425,7 +23315,7 @@ ant messages count-tokens \
 
         - `title: optional string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
       - `url: string`
 
@@ -22457,8 +23347,6 @@ ant messages count-tokens \
       Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-    Tool invocation directly from the model.
 
     - `direct_caller: object`
 
@@ -22564,6 +23452,158 @@ ant messages count-tokens \
 
   - `"content_too_large"`
 
+### Web Fetch URL Source All
+
+- `web_fetch_url_source_all: object`
+
+  The `url_sources` variant under which a source contributes in
+  full: every result of the tool filter's source, or all user input.
+
+  - `type: "all"`
+
+### Web Fetch URL Source Except
+
+- `web_fetch_url_source_except: object`
+
+  The tool filter variant under which every result but the named
+  tools' contributes.
+
+  - `type: "except"`
+
+  - `tools: array of WebFetchURLSourceToolReference`
+
+    - `type: "tool_reference"`
+
+    - `name: string`
+
+### Web Fetch URL Source None
+
+- `web_fetch_url_source_none: object`
+
+  The `url_sources` variant under which a source contributes nothing:
+  no result of the tool filter's source, or no user input.
+
+  - `type: "none"`
+
+### Web Fetch URL Source Only
+
+- `web_fetch_url_source_only: object`
+
+  The tool filter variant under which only the named tools' results
+  contribute.
+
+  - `type: "only"`
+
+  - `tools: array of WebFetchURLSourceToolReference`
+
+    - `type: "tool_reference"`
+
+    - `name: string`
+
+### Web Fetch URL Source Tool Reference
+
+- `web_fetch_url_source_tool_reference: object`
+
+  One entry of a tool filter's `tools`: it must name a tool declared
+  in this request's `tools[]`.
+
+  - `type: "tool_reference"`
+
+  - `name: string`
+
+### Web Fetch URL Sources
+
+- `web_fetch_url_sources: object`
+
+  Which sources contribute to the set of URLs web fetch may fetch.
+
+  Each key is a tagged variant: `user_input` is `all` or `none`; the
+  two tool filters are `all`, `none`, `only` (only the named tools'
+  results) or `except` (every result but the named tools'). A named tool
+  must be declared in this request's `tools[]`.
+
+  - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+    Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+    - `web_fetch_url_source_all: object`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+      - `type: "all"`
+
+    - `web_fetch_url_source_none: object`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
+      - `type: "none"`
+
+    - `web_fetch_url_source_only: object`
+
+      The tool filter variant under which only the named tools' results
+      contribute.
+
+      - `type: "only"`
+
+      - `tools: array of WebFetchURLSourceToolReference`
+
+        - `type: "tool_reference"`
+
+        - `name: string`
+
+    - `web_fetch_url_source_except: object`
+
+      The tool filter variant under which every result but the named
+      tools' contributes.
+
+      - `type: "except"`
+
+      - `tools: array of WebFetchURLSourceToolReference`
+
+        - `type: "tool_reference"`
+
+        - `name: string`
+
+  - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+    Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+    - `web_fetch_url_source_all: object`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+    - `web_fetch_url_source_none: object`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
+    - `web_fetch_url_source_only: object`
+
+      The tool filter variant under which only the named tools' results
+      contribute.
+
+    - `web_fetch_url_source_except: object`
+
+      The tool filter variant under which every result but the named
+      tools' contributes.
+
+  - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+    Whether URLs in user messages are fetchable: "all" or "none".
+
+    - `web_fetch_url_source_all: object`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+    - `web_fetch_url_source_none: object`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
 ### Web Search Result Block
 
 - `web_search_result_block: object`
@@ -22651,7 +23691,7 @@ ant messages count-tokens \
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `strict: optional boolean`
 
@@ -22667,25 +23707,25 @@ ant messages count-tokens \
 
       The city of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `country: optional string`
 
       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-      maxLength: 2, minLength: 2
+      minLength: 2, maxLength: 2
 
     - `region: optional string`
 
       The region of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `timezone: optional string`
 
       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
 ### Web Search Tool 20260209
 
@@ -22746,7 +23786,7 @@ ant messages count-tokens \
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `strict: optional boolean`
 
@@ -22762,25 +23802,25 @@ ant messages count-tokens \
 
       The city of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `country: optional string`
 
       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-      maxLength: 2, minLength: 2
+      minLength: 2, maxLength: 2
 
     - `region: optional string`
 
       The region of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `timezone: optional string`
 
       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
 ### Web Search Tool 20260318
 
@@ -22841,7 +23881,7 @@ ant messages count-tokens \
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `response_inclusion: optional "full" or "excluded"`
 
@@ -22865,25 +23905,25 @@ ant messages count-tokens \
 
       The city of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `country: optional string`
 
       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-      maxLength: 2, minLength: 2
+      minLength: 2, maxLength: 2
 
     - `region: optional string`
 
       The region of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `timezone: optional string`
 
       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
 ### Web Search Tool Request Error
 
@@ -22912,8 +23952,6 @@ ant messages count-tokens \
   - `type: "web_search_tool_result"`
 
   - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-    Tool invocation directly from the model.
 
     - `direct_caller: object`
 
@@ -23074,8 +24112,6 @@ ant messages count-tokens \
 
   - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-    Tool invocation directly from the model.
-
     - `direct_caller: object`
 
       Tool invocation directly from the model.
@@ -23190,7 +24226,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Body param: List of requests for prompt completion. Each is an individual request to create a Message.
 
-  maxItems: 100000, minItems: 1
+  minItems: 1, maxItems: 100000
 
 - `--user-profile-id: optional string`
 
@@ -23508,7 +24544,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  maximum: 1000, minimum: 1
+  minimum: 1, maximum: 1000
 
 - `--workspace-id: optional string`
 
@@ -23935,7 +24971,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `container: object`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `id: string`
 
@@ -23963,13 +25001,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `version: string`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `content: array of ContentBlock`
 
@@ -24130,8 +25168,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `text: string`
 
-              minLength: 0
-
           - `thinking_block: object`
 
             - `type: "thinking"`
@@ -24170,8 +25206,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `direct_caller: object`
 
                 Tool invocation directly from the model.
@@ -24206,7 +25240,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
           - `server_tool_use_block: object`
 
@@ -24217,8 +25251,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `direct_caller: object`
 
@@ -24253,8 +25285,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: "web_search_tool_result"`
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `direct_caller: object`
 
@@ -24307,8 +25337,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: "web_fetch_tool_result"`
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `direct_caller: object`
 
@@ -24403,8 +25431,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: "code_execution_tool_result"`
 
             - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `code_execution_tool_result_error: object`
 
@@ -24600,7 +25626,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `tool_name: string`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `tool_use_id: string`
 
@@ -24614,15 +25640,71 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `file_id: string`
 
-        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+        - `diagnostics: object`
+
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+          - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `cache_miss_model_changed: object`
+
+              - `type: "model_changed"`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `cache_miss_system_changed: object`
+
+              - `type: "system_changed"`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `cache_miss_tools_changed: object`
+
+              - `type: "tools_changed"`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `cache_miss_messages_changed: object`
+
+              - `type: "messages_changed"`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `cache_miss_previous_message_not_found: object`
+
+              - `type: "previous_message_not_found"`
+
+            - `cache_miss_unavailable: object`
+
+              - `type: "unavailable"`
+
+        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
+
           - `"claude-fable-5-1"`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-mythos-5-1"`
 
@@ -24630,7 +25712,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `"claude-sonnet-5"`
 
-            High-performance model for coding and agents
+            Efficient model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -24651,10 +25733,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `"claude-opus-4-7"`
 
             Powerful intelligence for long-running agents and coding
-
-          - `"claude-mythos-preview"`
-
-            New class of intelligence, strongest in coding and cybersecurity
 
           - `"claude-opus-4-6"`
 
@@ -24688,6 +25766,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             High-performance model for agents and coding
 
+          - `"claude-mythos-preview"`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
+
         - `role: "assistant"`
 
           Conversational role of the generated message.
@@ -24696,13 +25780,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `stop_details: object`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `type: "refusal"`
 
           - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
 
             - `"cyber"`
 

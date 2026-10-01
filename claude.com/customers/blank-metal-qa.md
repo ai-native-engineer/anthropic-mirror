@@ -4,35 +4,21 @@ Q&A | Claude Cowork
 
 # How Blank Metal, a lean professional services firm, runs on Claude Cowork
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42a0bb96aaece6fd281bf8_logo_blankmetal-light-mode%20(1).svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42a0c1147ca2064059ee3c_logo_blankmetal-dark-mode%20(1).svg)
+![Blank Metal logo](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-[Claude Cowork](https://claude.com/product/cowork)
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Cowork](https://claude.com/product/cowork)[Claude Code](https://claude.com/product/claude-code)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Location:
-
-North America
+:   North America
 
 +700 people trained
 
@@ -44,35 +30,11 @@ runs through Claude Code
 
 Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Read more
-
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/product/cowork)
 
 [Blank Metal](https://www.blankmetal.ai/) is an AI-native engineering firm that helps enterprises take AI from pilot to production. Founded in 2025, the team of 30 runs its own operations on Claude before deploying anything for a client. We spoke with Elli Rader, Chief Revenue Officer, about how the team uses Claude Cowork and Claude Code to handle business development, scheduling, and the day-to-day work of getting a company off the ground.
 
@@ -86,11 +48,9 @@ For a small company, Claude is a structural advantage. Work that used to take da
 
 **Rader:** We just simply wouldn't have been able to handle the volume of leads. Clients would have been very frustrated at not getting a fast response, and they would have gone elsewhere. As a new company, it's vital that we build strong relationships with the people coming to us to grow our business and theirs, so we can't afford to slip in BD operations. Claude has been an absolute lifesaver.
 
-"Repetitive tasks that used to require someone's full attention can run in the background, which frees people up for higher-leverage work."
+> "Repetitive tasks that used to require someone's full attention can run in the background, which frees people up for higher-leverage work."
 
-Elli Rader
-
-Chief Revenue Officer, Blank Metal
+Elli RaderChief Revenue Officer, Blank Metal
 
 ## Was there a specific moment when you realized Cowork was going to change how you work?
 
@@ -114,43 +74,21 @@ Proposal and SOW generation is another one. What used to be a multi-hour draftin
 
 ## You've trained more than 700 people in Claude Code and Cowork. How have you been able to scale it?
 
-**Rader:** We're up to about 710 as of June 1. A big part of how we've scaled that is Lectern, a real-time live training companion we built internally to run Claude Code and Cowork sessions. The presenter controls a shared session, and participants can either follow along in real time or navigate the material at their own pace. Most people run it side by side with their terminal so they can implement immediately rather than just watching a demo. You're not just learning about Claude, you're building with it at the same time.So it's Claude all the way through: Claude is training people on Claude so they can build with Claude.
+**Rader:** We're up to about 710 as of June 1. A big part of how we've scaled that is Lectern, a real-time live training companion we built internally to run Claude Code and Cowork sessions. The presenter controls a shared session, and participants can either follow along in real time or navigate the material at their own pace. Most people run it side by side with their terminal so they can implement immediately rather than just watching a demo. You're not just learning about Claude, you're building with it at the same time. So it's Claude all the way through: Claude is training people on Claude so they can build with Claude.
 
 A good amount of our team has a lot of background in edtech. We've built tools and products that have taught millions of people, and our lead AI engineers used to be teachers.
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
+[Read more](https://claude.com/product/claude-code)
 
-[Read more](https://claude.com/product/claude-code)Read more
+> "I realized how much Claude could actually do without me needing to loop in engineering every time I had an idea. That unlocked my creativity."
 
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-"I realized how much Claude could actually do without me needing to loop in engineering every time I had an idea. That unlocked my creativity."
-
-Elli Rader
-
-Chief Revenue Officer, Blank Metal
+Elli RaderChief Revenue Officer, Blank Metal
 
 ## How do you keep up with Claude updates as a small team?
 
@@ -162,52 +100,12 @@ We pay particular attention to what comes off the shelf from Claude, and dig dee
 
 **Rader:** Start with the [Cowork training](https://anthropic.skilljar.com/introduction-to-claude-cowork). Give teams the opportunity and support to build their own things and it will unlock a ton of their creativity that ultimately will drive better use cases.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-[Next](#)Next
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-Video caption
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
-
-Caylent turns months of migration work into days with Claude Agent SDK
-
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
-
-Quantium scales Claude across Australia's largest enterprises
-
-Customer story
-
-[Customer story](https://claude.com/customers/quantium-qa)Customer story
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)

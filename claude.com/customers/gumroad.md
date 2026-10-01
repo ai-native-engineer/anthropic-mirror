@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Gumroad’s customer support team ships code with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Gumroad logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1ea5c17b4bc78f4ac7b93_cs-logo-gumroad-light-theme.svg)![Gumroad logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1ea64e8c67c9e202a27bf_cs-logo-gumroad-dark-theme.svg)
+![Gumroad logo](https://assets.claude.com/9bd818cfcda62436a65878ddc1221787e82871df.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 300% increase
 
@@ -37,42 +27,6 @@ in new features shipped to production
 4x faster
 
 feature deployment with AI assistance
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Gumroad, an e-commerce platform for digital creators, uses Claude to empower every team member to have a meaningful impact on its product. With Claude, Gumroad has seen improved customer support, faster feature shipping, and the creation of a "just fix it" culture across the company.
 
@@ -117,7 +71,7 @@ The following feature developments were led by the customer support team's new c
 
 Kaushik adds, "Claude has effectively promoted us customer supporters at Gumroad. Just months ago, we primarily answered creators' questions after they reached out. Now, not only do we resolve queries faster but also actively improve the platform by shipping features and squashing bugs."
 
-![Gumroad mockup](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04e8b14ab33f5e92bd5_590b7bac14ce7e44c29116497b755e4656e07636-1920x1080.jpeg)
+![Gumroad mockup](https://assets.claude.com/48f244ea049038bf8411b0e7c1ac94d5f4f9d22f.jpg)
 
 ## Driving impressive business results and user benefits
 
@@ -133,52 +87,12 @@ Lavingia outlined prospects for Gumroad. He explained, "We're exploring ways AI 
 
 More generally, Lavingia envisions a future where AI empowers rather than replaces human creativity. "I don't think artists, writers, and engineers will be 'unemployed' by AI. Instead, they'll be promoted to directors, editors, and product managers. This is an exciting future for humans who enjoy being creative and thoughtful—like everyone we hire at Gumroad."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

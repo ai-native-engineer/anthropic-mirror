@@ -2,6 +2,8 @@
 
 # Does Anthropic Act as a Data Processor or Controller?
 
+Table of contents
+
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see* *[here](https://privacy.claude.com/en/collections/10663362-consumers).*
 
 When a commercial customer creates a Claude for Work account (Team or Enterprise plan), under our [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms) the customer is the "Controller" of the data submitted by its Users. This means:
@@ -21,8 +23,12 @@ For more details on our data practices, please see the:
 * [Anthropic Trust Center](http://trust.anthropic.com)
 * [Anthropic Privacy Policy](https://www.anthropic.com/legal/privacy)
 
+---
+
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
 * [Who owns and manages the data of my team?](https://privacy.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
-* [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
+* [How does Anthropic protect the personal data of Claude users?](https://privacy.claude.com/en/articles/10458704-how-does-anthropic-protect-the-personal-data-of-claude-users)
 * [Who owns and manages the data of my Claude for Education account?](https://privacy.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
+
+Table of contents

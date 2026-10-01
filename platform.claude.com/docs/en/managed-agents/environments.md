@@ -4,21 +4,23 @@
 title: Cloud environment setup
 url: https://platform.claude.com/docs/en/managed-agents/environments
 description: Customize cloud sandboxes for your sessions.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
 
 Environments define the sandbox configuration where your agent runs. You create an environment once, then reference its ID each time you start a session. Multiple sessions can share the same environment, but each session gets its own isolated sandbox (a fresh Linux container).
 
 This page covers `type: cloud` environments. To run sandboxes on your own infrastructure, see [Self-hosted sandboxes](https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes).
 
-<Note>
-  Managed Agents API requests require the `managed-agents-2026-04-01` beta header, except memory store endpoints, which use `agent-memory-2026-07-22` instead. The SDK sets the correct beta header automatically. See [Beta headers](https://platform.claude.com/docs/en/api/beta-headers#endpoint-specific-headers).
-</Note>
-
 ## Create an environment
 
 <CodeGroup defaultLanguage="CLI">
   ```bash cURL
-  environment=$(curl -fsS https://api.anthropic.com/v1/environments \
+  curl -fsS https://api.anthropic.com/v1/environments \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01" \
@@ -32,19 +34,16 @@ This page covers `type: cloud` environments. To run sandboxes on your own infras
     }
   }
   EOF
-  )
-  environment_id=$(jq -r '.id' <<< "$environment")
-
-  echo "Environment ID: $environment_id"
   ```
 
-  <MultiFileExample language="cli" label="CLI">
+  <CodeGroupItem>
     ```bash CLI
     ant apply environment.yaml
     ```
 
     <File filename="environment.yaml">
       ```yaml
+      # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
       name: python-dev
       config:
         type: cloud
@@ -52,7 +51,9 @@ This page covers `type: cloud` environments. To run sandboxes on your own infras
           type: unrestricted
       ```
     </File>
-  </MultiFileExample>
+
+    [`ant apply`](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply) creates the environment from `environment.yaml`, prints its ID, and records it in `claude-lock.json`. Commit `claude-lock.json` so the next `ant apply` updates this environment instead of trying to create it again.
+  </CodeGroupItem>
 
   ```python Python
   environment = client.beta.environments.create(
@@ -146,20 +147,19 @@ Use a unique, descriptive `name` so you can tell environments apart.
 
 Pass the environment ID as a string when [creating a session](https://platform.claude.com/docs/en/managed-agents/sessions).
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
-  session=$(curl -fsS https://api.anthropic.com/v1/sessions \
+  curl -fsS https://api.anthropic.com/v1/sessions \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01" \
     -H "content-type: application/json" \
     --data @- <<EOF
   {
-    "agent": "$agent_id",
-    "environment_id": "$environment_id"
+    "agent": "$AGENT_ID",
+    "environment_id": "$ENVIRONMENT_ID"
   }
   EOF
-  )
   ```
 
   ```bash CLI
@@ -230,7 +230,7 @@ The `packages` field pre-installs packages into the sandbox before the agent sta
 
 <CodeGroup defaultLanguage="CLI">
   ```bash cURL
-  environment=$(curl -fsS https://api.anthropic.com/v1/environments \
+  curl -fsS https://api.anthropic.com/v1/environments \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01" \
@@ -248,16 +248,16 @@ The `packages` field pre-installs packages into the sandbox before the agent sta
     }
   }
   EOF
-  )
   ```
 
-  <MultiFileExample language="cli" label="CLI">
+  <CodeGroupItem>
     ```bash CLI
     ant apply environment.yaml
     ```
 
     <File filename="environment.yaml">
       ```yaml
+      # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
       name: data-analysis
       config:
         type: cloud
@@ -272,7 +272,7 @@ The `packages` field pre-installs packages into the sandbox before the agent sta
           type: unrestricted
       ```
     </File>
-  </MultiFileExample>
+  </CodeGroupItem>
 
   ```python Python
   environment = client.beta.environments.create(
@@ -429,13 +429,14 @@ The following example creates an environment with `limited` networking:
     }'
   ```
 
-  <MultiFileExample language="cli" label="CLI">
+  <CodeGroupItem>
     ```bash CLI
     ant apply environment.yaml
     ```
 
     <File filename="environment.yaml">
       ```yaml
+      # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
       name: api-access
       config:
         type: cloud
@@ -447,7 +448,7 @@ The following example creates an environment with `limited` networking:
           allow_package_managers: true
       ```
     </File>
-  </MultiFileExample>
+  </CodeGroupItem>
 
   ```python Python
   environment = client.beta.environments.create(
@@ -573,7 +574,28 @@ When using `limited` networking:
 
 * `allowed_hosts` specifies domains the sandbox can reach. Specify bare hostnames or wildcard patterns (such as `*.example.com`). Do not include a URL scheme, port, or path.
 * `allow_mcp_servers` allows outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
-* `allow_package_managers` allows outbound access to public package registries (such as PyPI and npm) beyond those listed in the `allowed_hosts` array. Defaults to `false`. Set it to `true` whenever the environment specifies `packages`; otherwise the request is rejected with a 400 error, even if the registry hosts are listed in `allowed_hosts`.
+* `allow_package_managers` allows outbound access to a set of public package registries and code hosts beyond those listed in the `allowed_hosts` array. See [Package manager hosts](https://platform.claude.com/docs/en/managed-agents/environments#package-manager-hosts) for the list. Defaults to `false`. Set it to `true` whenever the environment specifies `packages`; otherwise the request is rejected with a 400 error, even if the registry hosts are listed in `allowed_hosts`.
+
+#### Package manager hosts
+
+When `allow_package_managers` is `true`, the sandbox can reach the following hosts in addition to those in `allowed_hosts`. Anthropic maintains this list and can change it.
+
+| Ecosystem    | Hosts                                                                                                                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Code hosting | `github.com`, `api.github.com`, `codeload.github.com`, `raw.githubusercontent.com`, `objects.githubusercontent.com`, `release-assets.githubusercontent.com`, `gitlab.com`, `bitbucket.org` |
+| Node.js      | `registry.npmjs.org`, `registry.yarnpkg.com`, `nodejs.org`                                                                                                                                 |
+| Python       | `pypi.org`, `files.pythonhosted.org`                                                                                                                                                       |
+| Rust         | `crates.io`, `index.crates.io`, `static.crates.io`, `static.rust-lang.org`                                                                                                                 |
+| Go           | `proxy.golang.org`, `sum.golang.org`                                                                                                                                                       |
+| Java         | `repo1.maven.org`, `repo.maven.apache.org`, `services.gradle.org`, `plugins.gradle.org`, `plugins-artifacts.gradle.org`                                                                    |
+| Ruby         | `rubygems.org`, `index.rubygems.org`                                                                                                                                                       |
+| PHP          | `packagist.org`, `repo.packagist.org`                                                                                                                                                      |
+| Ubuntu (apt) | `archive.ubuntu.com`, `security.ubuntu.com`, `ppa.launchpad.net`                                                                                                                           |
+| Containers   | `registry-1.docker.io`, `auth.docker.io`, `production.cloudflare.docker.com`, `download.docker.com`, `ghcr.io`                                                                             |
+
+<Warning>
+  Network access is granted per host, not per operation. The sandbox can send any request to an allowed host, including uploads such as `git push` and package publishing, with any credential the command supplies. If the agent processes untrusted input (repository files, fetched web content, or third-party tool output), a successful prompt injection could use an allowed host to copy files out of the sandbox. To reduce this risk, set the `bash` tool's [permission policy](https://platform.claude.com/docs/en/managed-agents/permission-policies) to `always_ask` or `auto`. If the environment does not specify `packages`, you can instead leave `allow_package_managers` set to `false` and list only the hosts your agent needs in `allowed_hosts`.
+</Warning>
 
 ## Environment lifecycle
 
@@ -583,28 +605,28 @@ When using `limited` networking:
 
 ## Manage environments
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   # List environments
-  environments=$(curl -fsS https://api.anthropic.com/v1/environments \
+  curl -fsS https://api.anthropic.com/v1/environments \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: managed-agents-2026-04-01")
+    -H "anthropic-beta: managed-agents-2026-04-01"
 
   # Retrieve a specific environment
-  env=$(curl -fsS "https://api.anthropic.com/v1/environments/$environment_id" \
+  curl -fsS "https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: managed-agents-2026-04-01")
+    -H "anthropic-beta: managed-agents-2026-04-01"
 
   # Archive an environment (read-only, existing sessions continue)
-  curl -fsS -X POST "https://api.anthropic.com/v1/environments/$environment_id/archive" \
+  curl -fsS -X POST "https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01"
 
   # Delete an environment (only if no sessions reference it)
-  curl -fsS -X DELETE "https://api.anthropic.com/v1/environments/$environment_id" \
+  curl -fsS -X DELETE "https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01"

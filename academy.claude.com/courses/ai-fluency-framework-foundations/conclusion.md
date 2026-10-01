@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/conclusion -->
 
-Lesson 13 of 14 · AI Fluency: Framework & FoundationsConclusion
+Lesson 13 of 14 · AI Fluency: Framework and foundationsConclusion
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # Conclusion
 
@@ -74,7 +74,7 @@ We encourage you to share what you've learned with others (and us!), seek out di
 
 [Previous lessonA closer look at Diligence](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-diligence)[Next lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-framework-foundations/certificate-of-completion)
 
-Lesson 13 of 14 · AI Fluency: Framework & FoundationsConclusion
+Lesson 13 of 14 · AI Fluency: Framework and foundationsConclusion
 
 Introduction to AI Fluency
 

@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Warp rebuilds the terminal for AI coding with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692481a076d768db9276c4d9_warp-black.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692481a493eb0f6f4ca5b90a_warp-white.svg)
+![Warp logo](https://assets.claude.com/399915ee2f0b3513a52ff63e61b1da17ed7eb078.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 800K monthly developers
 
@@ -51,32 +41,6 @@ run inside Warp's terminal to date, including 400K+ each week
 
 ## The challenge
 
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
 ## A 40-year-old developer tool meets agentic coding
 
 When Warp launched in 2021, the terminal hadn't seen meaningful investment in three or four decades. The team started by trying to improve the fundamental UI of the terminal, and added AI capability as language models became readily available: natural-language-to-shell-command translation, a chat assistant panel, then "agent mode," one of the first command-line agents with direct terminal access for running commands and reading files.
@@ -85,29 +49,15 @@ As agentic coding accelerated, teams trying to deploy autonomous coding agents i
 
 “Warp's mission has always been to help developers use great tools to ship great software, and that mission hasn't changed,” said Olivia Johnston, Senior Product Marketer at Warp. “What's changed is what supporting developers actually looks like today.”
 
+Claude Code
+
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+
+[Read more](https://claude.com/product/claude-code)
+
 ## The solution
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## A Claude-powered agent harness, then a cloud platform around it
 
@@ -125,21 +75,15 @@ Warp allows users to choose their preferred models and coding agents for tasks. 
 
 "We want to provide the best place to build with agents, and for a lot of our customers that means giving them the flexibility to choose their favorite coding agent," Johnston said. "They've invested in tooling and want help building automations, but they want to keep using what they already have."
 
-"With Sonnet 4, the thing we built began working in a way it never had before."
+Choosing the right Claude model
 
-Zach Bai
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Head of Product Engineering, Warp
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "With Sonnet 4, the thing we built began working in a way it never had before."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Zach BaiHead of Product Engineering, Warp
 
 ## The outcome
 
@@ -151,42 +95,16 @@ Warp is also picking up an audience no one expected. "People who didn’t know w
 
 Warp's next focus is expanding on its support for teams using multiple agent harnesses with cross-agent memory. The team plans to add a persistent memory layer to the cloud platform so agents don't start every task from scratch. "We want it to be multi-harness," Gupta said. "Whether you're using Claude Code, our own harness, or another agent platform, your memories carry forward."
 
-"Whether you're using Claude Code, our own harness, or another agent platform, your memories carry forward."
+> "Whether you're using Claude Code, our own harness, or another agent platform, your memories carry forward."
 
-Suraj Gupta
+Suraj GuptaEngineering Lead for Agent Quality, Warp
 
-Engineering Lead for Agent Quality, Warp
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

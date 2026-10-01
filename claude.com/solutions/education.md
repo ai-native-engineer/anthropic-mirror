@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/solutions/education -->
 
+Explore here
+
 Claude Team plan for scientists
 
 [Next](#)Next

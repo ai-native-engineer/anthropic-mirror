@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/notifications-walkthrough -->
 
-Lesson 4 of 11 · Model Context Protocol: Advanced TopicsNotifications walkthrough
+Lesson 4 of 11 · Model Context Protocol: Advanced topicsNotifications walkthrough
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # Notifications walkthrough
 
@@ -12,7 +12,7 @@ Lesson 415 min
 
 [Previous lessonLog and progress notifications](https://academy.claude.com/courses/model-context-protocol-advanced-topics/log-and-progress-notifications)[Next lessonRoots](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots)
 
-Lesson 4 of 11 · Model Context Protocol: Advanced TopicsNotifications walkthrough
+Lesson 4 of 11 · Model Context Protocol: Advanced topicsNotifications walkthrough
 
 Core MCP features
 

@@ -27,7 +27,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Body param: List of requests for prompt completion. Each is an individual request to create a Message.
 
-    maxItems: 100000, minItems: 1
+    minItems: 1, maxItems: 100000
 
     - `custom_id: string`
 
@@ -35,7 +35,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       Must be unique for each request within the Message Batch.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,64}$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]{1,64}$
 
     - `params: Params`
 
@@ -112,7 +112,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Array<ContentBlockParam>`
 
-            - `TextBlockParam`
+            - `interface TextBlockParam`
 
               - `type: "text"`
 
@@ -143,7 +143,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `citations?: Array<TextCitationParam> | null`
 
-                - `CitationCharLocationParam`
+                - `interface CitationCharLocationParam`
 
                   - `type: "char_location"`
 
@@ -155,7 +155,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `document_title: string | null`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `end_char_index: number`
 
@@ -163,7 +163,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                - `CitationPageLocationParam`
+                - `interface CitationPageLocationParam`
 
                   - `type: "page_location"`
 
@@ -175,7 +175,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `document_title: string | null`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `end_page_number: number`
 
@@ -183,7 +183,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 1
 
-                - `CitationContentBlockLocationParam`
+                - `interface CitationContentBlockLocationParam`
 
                   - `type: "content_block_location"`
 
@@ -199,7 +199,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `document_title: string | null`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `end_block_index: number`
 
@@ -213,7 +213,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                - `CitationWebSearchResultLocationParam`
+                - `interface CitationWebSearchResultLocationParam`
 
                   - `type: "web_search_result_location"`
 
@@ -223,13 +223,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `title: string | null`
 
-                    maxLength: 512, minLength: 1
+                    minLength: 1, maxLength: 512
 
                   - `url: string`
 
                     minLength: 1
 
-                - `CitationSearchResultLocationParam`
+                - `interface CitationSearchResultLocationParam`
 
                   - `type: "search_result_location"`
 
@@ -263,13 +263,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `title: string | null`
 
-            - `ImageBlockParam`
+            - `interface ImageBlockParam`
 
               - `type: "image"`
 
               - `source: Base64ImageSource | URLImageSource | FileImageSource`
 
-                - `Base64ImageSource`
+                - `interface Base64ImageSource`
 
                   - `type: "base64"`
 
@@ -287,13 +287,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `"image/webp"`
 
-                - `URLImageSource`
+                - `interface URLImageSource`
 
                   - `type: "url"`
 
                   - `url: string`
 
-                - `FileImageSource`
+                - `interface FileImageSource`
 
                   - `type: "file"`
 
@@ -315,13 +315,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"error"`
 
-            - `DocumentBlockParam`
+            - `interface DocumentBlockParam`
 
               - `type: "document"`
 
               - `source: Base64PDFSource | PlainTextSource | ContentBlockSource | 2 more`
 
-                - `Base64PDFSource`
+                - `interface Base64PDFSource`
 
                   - `type: "base64"`
 
@@ -331,7 +331,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `media_type: "application/pdf"`
 
-                - `PlainTextSource`
+                - `interface PlainTextSource`
 
                   - `type: "text"`
 
@@ -339,7 +339,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `media_type: "text/plain"`
 
-                - `ContentBlockSource`
+                - `interface ContentBlockSource`
 
                   - `type: "content"`
 
@@ -349,17 +349,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `Array<ContentBlockSourceContent>`
 
-                      - `TextBlockParam`
+                      - `interface TextBlockParam`
 
-                      - `ImageBlockParam`
+                      - `interface ImageBlockParam`
 
-                - `URLPDFSource`
+                - `interface URLPDFSource`
 
                   - `type: "url"`
 
                   - `url: string`
 
-                - `FileDocumentSource`
+                - `interface FileDocumentSource`
 
                   - `type: "file"`
 
@@ -379,9 +379,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `title?: string | null`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
-            - `SearchResultBlockParam`
+            - `interface SearchResultBlockParam`
 
               - `type: "search_result"`
 
@@ -409,7 +409,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `citations?: CitationsConfigParam`
 
-            - `ThinkingBlockParam`
+            - `interface ThinkingBlockParam`
 
               - `type: "thinking"`
 
@@ -423,7 +423,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `thinking` text of this block as returned by the API.
 
-            - `RedactedThinkingBlockParam`
+            - `interface RedactedThinkingBlockParam`
 
               - `type: "redacted_thinking"`
 
@@ -431,7 +431,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-            - `ToolUseBlockParam`
+            - `interface ToolUseBlockParam`
 
               - `type: "tool_use"`
 
@@ -443,7 +443,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `name: string`
 
-                maxLength: 200, minLength: 1
+                minLength: 1, maxLength: 200
 
               - `cache_control?: CacheControlEphemeral | null`
 
@@ -451,15 +451,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `caller?: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-                Tool invocation directly from the model.
-
-                - `DirectCaller`
+                - `interface DirectCaller`
 
                   Tool invocation directly from the model.
 
                   - `type: "direct"`
 
-                - `ServerToolCaller`
+                - `interface ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
@@ -469,7 +467,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                - `ServerToolCaller20260120`
+                - `interface ServerToolCaller20260120`
 
                   - `type: "code_execution_20260120"`
 
@@ -481,9 +479,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_use, the toolset family this member belongs to.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-            - `ToolResultBlockParam`
+            - `interface ToolResultBlockParam`
 
               - `type: "tool_result"`
 
@@ -501,15 +499,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Array<TextBlockParam | ImageBlockParam | SearchResultBlockParam | 3 more>`
 
-                  - `TextBlockParam`
+                  - `interface TextBlockParam`
 
-                  - `ImageBlockParam`
+                  - `interface ImageBlockParam`
 
-                  - `SearchResultBlockParam`
+                  - `interface SearchResultBlockParam`
 
-                  - `DocumentBlockParam`
+                  - `interface DocumentBlockParam`
 
-                  - `ToolReferenceBlockParam`
+                  - `interface ToolReferenceBlockParam`
 
                     Tool reference block that can be included in tool_result content.
 
@@ -517,13 +515,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `tool_name: string`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `cache_control?: CacheControlEphemeral | null`
 
                       Create a cache control breakpoint at this content block.
 
-                  - `BrowserStateBlockParam`
+                  - `interface BrowserStateBlockParam`
 
                     The caller's browser state after a browser toolset member call —
                     the full inventory of open tabs, which tab is active, and any side
@@ -545,7 +543,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this tab, unique within the inventory.
 
-                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `title: string`
 
@@ -571,9 +569,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                      maxItems: 200, minItems: 1
+                      minItems: 1, maxItems: 200
 
-                      - `BrowserStateChangeTabOpened`
+                      - `interface BrowserStateChangeTabOpened`
 
                         A tab this call's execution opened that remains open at its end —
                         the creation delta of the `tabs` inventory, not an event log.
@@ -589,9 +587,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The `tab_id` of the opened tab, present in `tabs`.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `BrowserStateChangeDownloadStarted`
+                      - `interface BrowserStateChangeDownloadStarted`
 
                         A file download that started during this call.
 
@@ -601,7 +599,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `url: string`
 
@@ -609,7 +607,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `BrowserStateChangeDownloadCompleted`
+                      - `interface BrowserStateChangeDownloadCompleted`
 
                         A file download that finished during this call, reported with the
                         same `download_id` as its `download_started` — or without a prior
@@ -622,7 +620,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `url: string`
 
@@ -634,7 +632,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `size_bytes?: number | null`
 
@@ -642,7 +640,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           minimum: 0
 
-                      - `BrowserStateChangeDownloadFailed`
+                      - `interface BrowserStateChangeDownloadFailed`
 
                         A file download that failed — or was cancelled — during this call.
 
@@ -652,7 +650,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `url: string`
 
@@ -664,7 +662,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The failure or cancellation detail, when known.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `is_error?: boolean`
 
@@ -672,9 +670,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_result, the toolset family of the paired tool_use.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-            - `ServerToolUseBlockParam`
+            - `interface ServerToolUseBlockParam`
 
               - `type: "server_tool_use"`
 
@@ -706,19 +704,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `caller?: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-                Tool invocation directly from the model.
-
-                - `DirectCaller`
+                - `interface DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `ServerToolCaller`
+                - `interface ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `ServerToolCaller20260120`
+                - `interface ServerToolCaller20260120`
 
-            - `WebSearchToolResultBlockParam`
+            - `interface WebSearchToolResultBlockParam`
 
               - `type: "web_search_tool_result"`
 
@@ -736,7 +732,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `page_age?: string | null`
 
-                - `WebSearchToolRequestError`
+                - `interface WebSearchToolRequestError`
 
                   - `type: "web_search_tool_result_error"`
 
@@ -764,25 +760,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `caller?: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-                Tool invocation directly from the model.
-
-                - `DirectCaller`
+                - `interface DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `ServerToolCaller`
+                - `interface ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `ServerToolCaller20260120`
+                - `interface ServerToolCaller20260120`
 
-            - `WebFetchToolResultBlockParam`
+            - `interface WebFetchToolResultBlockParam`
 
               - `type: "web_fetch_tool_result"`
 
               - `content: WebFetchToolResultErrorBlockParam | WebFetchBlockParam`
 
-                - `WebFetchToolResultErrorBlockParam`
+                - `interface WebFetchToolResultErrorBlockParam`
 
                   - `type: "web_fetch_tool_result_error"`
 
@@ -808,7 +802,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `"content_too_large"`
 
-                - `WebFetchBlockParam`
+                - `interface WebFetchBlockParam`
 
                   - `type: "web_fetch_result"`
 
@@ -832,27 +826,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `caller?: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-                Tool invocation directly from the model.
-
-                - `DirectCaller`
+                - `interface DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `ServerToolCaller`
+                - `interface ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `ServerToolCaller20260120`
+                - `interface ServerToolCaller20260120`
 
-            - `CodeExecutionToolResultBlockParam`
+            - `interface CodeExecutionToolResultBlockParam`
 
               - `type: "code_execution_tool_result"`
 
               - `content: CodeExecutionToolResultBlockParamContent`
 
-                Code execution result with encrypted stdout for PFC + web_search results.
-
-                - `CodeExecutionToolResultErrorParam`
+                - `interface CodeExecutionToolResultErrorParam`
 
                   - `type: "code_execution_tool_result_error"`
 
@@ -866,7 +856,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `"execution_time_exceeded"`
 
-                - `CodeExecutionResultBlockParam`
+                - `interface CodeExecutionResultBlockParam`
 
                   - `type: "code_execution_result"`
 
@@ -882,7 +872,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `stdout: string`
 
-                - `EncryptedCodeExecutionResultBlockParam`
+                - `interface EncryptedCodeExecutionResultBlockParam`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -908,13 +898,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `BashCodeExecutionToolResultBlockParam`
+            - `interface BashCodeExecutionToolResultBlockParam`
 
               - `type: "bash_code_execution_tool_result"`
 
               - `content: BashCodeExecutionToolResultErrorParam | BashCodeExecutionResultBlockParam`
 
-                - `BashCodeExecutionToolResultErrorParam`
+                - `interface BashCodeExecutionToolResultErrorParam`
 
                   - `type: "bash_code_execution_tool_result_error"`
 
@@ -930,7 +920,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `"output_file_too_large"`
 
-                - `BashCodeExecutionResultBlockParam`
+                - `interface BashCodeExecutionResultBlockParam`
 
                   - `type: "bash_code_execution_result"`
 
@@ -954,13 +944,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `TextEditorCodeExecutionToolResultBlockParam`
+            - `interface TextEditorCodeExecutionToolResultBlockParam`
 
               - `type: "text_editor_code_execution_tool_result"`
 
               - `content: TextEditorCodeExecutionToolResultErrorParam | TextEditorCodeExecutionViewResultBlockParam | TextEditorCodeExecutionCreateResultBlockParam | TextEditorCodeExecutionStrReplaceResultBlockParam`
 
-                - `TextEditorCodeExecutionToolResultErrorParam`
+                - `interface TextEditorCodeExecutionToolResultErrorParam`
 
                   - `type: "text_editor_code_execution_tool_result_error"`
 
@@ -978,7 +968,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `error_message?: string | null`
 
-                - `TextEditorCodeExecutionViewResultBlockParam`
+                - `interface TextEditorCodeExecutionViewResultBlockParam`
 
                   - `type: "text_editor_code_execution_view_result"`
 
@@ -998,13 +988,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `total_lines?: number | null`
 
-                - `TextEditorCodeExecutionCreateResultBlockParam`
+                - `interface TextEditorCodeExecutionCreateResultBlockParam`
 
                   - `type: "text_editor_code_execution_create_result"`
 
                   - `is_file_update: boolean`
 
-                - `TextEditorCodeExecutionStrReplaceResultBlockParam`
+                - `interface TextEditorCodeExecutionStrReplaceResultBlockParam`
 
                   - `type: "text_editor_code_execution_str_replace_result"`
 
@@ -1026,13 +1016,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `ToolSearchToolResultBlockParam`
+            - `interface ToolSearchToolResultBlockParam`
 
               - `type: "tool_search_tool_result"`
 
               - `content: ToolSearchToolResultErrorParam | ToolSearchToolSearchResultBlockParam`
 
-                - `ToolSearchToolResultErrorParam`
+                - `interface ToolSearchToolResultErrorParam`
 
                   - `type: "tool_search_tool_result_error"`
 
@@ -1048,7 +1038,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `error_message?: string | null`
 
-                - `ToolSearchToolSearchResultBlockParam`
+                - `interface ToolSearchToolSearchResultBlockParam`
 
                   - `type: "tool_search_tool_search_result"`
 
@@ -1058,7 +1048,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `tool_name: string`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `cache_control?: CacheControlEphemeral | null`
 
@@ -1072,7 +1062,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `ContainerUploadBlockParam`
+            - `interface ContainerUploadBlockParam`
 
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
@@ -1099,75 +1089,83 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `"claude-fable-5-1" | "claude-mythos-5-1" | "claude-sonnet-5" | 14 more`
+        - `"claude-sonnet-5-5"`
 
-          - `"claude-fable-5-1"`
+          Efficient model for coding and agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `"claude-fable-5-1"`
 
-          - `"claude-mythos-5-1"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            Our most capable model for cybersecurity and biology research, available through trusted access programs
+        - `"claude-opus-5-5"`
 
-          - `"claude-sonnet-5"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            High-performance model for coding and agents
+        - `"claude-mythos-5-1"`
 
-          - `"claude-fable-5"`
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `"claude-sonnet-5"`
 
-          - `"claude-mythos-5"`
+          Efficient model for coding and agents
 
-            Most capable model for cybersecurity and biology research
+        - `"claude-fable-5"`
 
-          - `"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-mythos-5"`
 
-          - `"claude-opus-4-8"`
+          Most capable model for cybersecurity and biology research
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-5"`
 
-          - `"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-8"`
 
-          - `"claude-mythos-preview"`
+          Powerful intelligence for long-running agents and coding
 
-            New class of intelligence, strongest in coding and cybersecurity
+        - `"claude-opus-4-7"`
 
-          - `"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-6"`
 
-          - `"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `"claude-sonnet-4-6"`
 
-          - `"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `"claude-haiku-4-5"`
 
-          - `"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `"claude-haiku-4-5-20251001"`
 
-          - `"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-5"`
 
-          - `"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-5-20251101"`
 
-          - `"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `"claude-sonnet-4-5"`
 
-          - `"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+        - `"claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
         - `(string & {})`
 
@@ -1179,7 +1177,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Container identifier for reuse across requests.
 
-        - `ContainerParams`
+        - `interface ContainerParams`
 
           Container parameters with skills to be loaded.
 
@@ -1205,15 +1203,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `version?: string`
 
               Skill version or 'latest' for most recent version
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `string`
+
+      - `diagnostics?: DiagnosticsParam | null`
+
+        Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
+
+        - `previous_message_id?: string | null`
+
+          The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+          maxLength: 256
 
       - `inference_geo?: string | null`
 
@@ -1237,7 +1245,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `effort?: "low" | "medium" | "high" | 2 more | null`
 
-          All possible effort levels.
+          How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+          Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
           - `"low"`
 
@@ -1279,9 +1289,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `stream?: boolean`
 
-        Whether to incrementally stream the response using server-sent events.
+        Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
 
-        See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
+        In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
 
       - `system?: string | Array<TextBlockParam>`
 
@@ -1313,7 +1323,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-        - `ThinkingConfigEnabled`
+        - `interface ThinkingConfigEnabled`
 
           - `type: "enabled"`
 
@@ -1335,11 +1345,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `"omitted"`
 
-        - `ThinkingConfigDisabled`
+        - `interface ThinkingConfigDisabled`
 
           - `type: "disabled"`
 
-        - `ThinkingConfigAdaptive`
+        - `interface ThinkingConfigBetweenTools`
+
+          - `type: "between_tools"`
+
+        - `interface ThinkingConfigAdaptive`
 
           - `type: "adaptive"`
 
@@ -1355,7 +1369,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-        - `ToolChoiceAuto`
+        - `interface ToolChoiceAuto`
 
           The model will automatically decide whether to use tools.
 
@@ -1367,7 +1381,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output at most one tool use.
 
-        - `ToolChoiceAny`
+        - `interface ToolChoiceAny`
 
           The model will use any available tools.
 
@@ -1379,7 +1393,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-        - `ToolChoiceTool`
+        - `interface ToolChoiceTool`
 
           The model will use the specified tool with `tool_choice.name`.
 
@@ -1395,7 +1409,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-        - `ToolChoiceNone`
+        - `interface ToolChoiceNone`
 
           The model will not be allowed to use tools.
 
@@ -1465,7 +1479,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-        - `Tool`
+        - `interface Tool`
 
           - `type?: "custom" | null`
 
@@ -1487,7 +1501,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-            maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+            minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
 
@@ -1523,7 +1537,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `ToolBash20250124`
+        - `interface ToolBash20250124`
 
           - `type: "bash_20250124"`
 
@@ -1557,7 +1571,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `CodeExecutionTool20250522`
+        - `interface CodeExecutionTool20250522`
 
           - `type: "code_execution_20250522"`
 
@@ -1589,7 +1603,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `CodeExecutionTool20250825`
+        - `interface CodeExecutionTool20250825`
 
           - `type: "code_execution_20250825"`
 
@@ -1621,7 +1635,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `CodeExecutionTool20260120`
+        - `interface CodeExecutionTool20260120`
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -1655,7 +1669,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `CodeExecutionTool20260521`
+        - `interface CodeExecutionTool20260521`
 
           Code execution tool with REPL state persistence.
 
@@ -1689,7 +1703,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `BrowserToolset20260801`
+        - `interface BrowserToolset20260801`
 
           The browser toolset: a single `tools[]` entry (carrying no
           `name`) that declares the browser tool family. The model is served
@@ -1704,12 +1718,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `configs?: BrowserToolsetConfigs | null`
 
-            Per-member configuration for `browser_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `type?: BrowserTypeConfig | null`
 
@@ -2083,7 +2092,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `MemoryTool20250818`
+        - `interface MemoryTool20250818`
 
           - `type: "memory_20250818"`
 
@@ -2117,7 +2126,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `ComputerToolset20260801`
+        - `interface ComputerToolset20260801`
 
           The computer toolset: a single `tools[]` entry (carrying no
           `name`) that declares the computer tool family. The model is
@@ -2136,12 +2145,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `configs?: ComputerToolsetConfigs | null`
 
-            Per-member configuration for `computer_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `type?: ComputerTypeConfig | null`
 
@@ -2347,7 +2351,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `ToolTextEditor20250124`
+        - `interface ToolTextEditor20250124`
 
           - `type: "text_editor_20250124"`
 
@@ -2381,7 +2385,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `ToolTextEditor20250429`
+        - `interface ToolTextEditor20250429`
 
           - `type: "text_editor_20250429"`
 
@@ -2415,7 +2419,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `ToolTextEditor20250728`
+        - `interface ToolTextEditor20250728`
 
           - `type: "text_editor_20250728"`
 
@@ -2455,7 +2459,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `WebSearchTool20250305`
+        - `interface WebSearchTool20250305`
 
           - `type: "web_search_20250305"`
 
@@ -2495,7 +2499,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `strict?: boolean`
 
@@ -2511,27 +2515,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The city of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
               The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-              maxLength: 2, minLength: 2
+              minLength: 2, maxLength: 2
 
             - `region?: string | null`
 
               The region of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `timezone?: string | null`
 
               The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
-        - `WebFetchTool20250910`
+        - `interface WebFetchTool20250910`
 
           - `type: "web_fetch_20250910"`
 
@@ -2575,19 +2579,105 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `max_uses?: number | null`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `strict?: boolean`
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `WebSearchTool20260209`
+          - `url_sources?: WebFetchURLSources | null`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+            - `client_tool_results?: WebFetchURLSourceAll | WebFetchURLSourceNone | WebFetchURLSourceOnly | WebFetchURLSourceExcept`
+
+              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+              - `interface WebFetchURLSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+                - `type: "all"`
+
+              - `interface WebFetchURLSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+                - `type: "none"`
+
+              - `interface WebFetchURLSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+                - `type: "only"`
+
+                - `tools: Array<WebFetchURLSourceToolReference>`
+
+                  - `type: "tool_reference"`
+
+                  - `name: string`
+
+              - `interface WebFetchURLSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+                - `type: "except"`
+
+                - `tools: Array<WebFetchURLSourceToolReference>`
+
+                  - `type: "tool_reference"`
+
+                  - `name: string`
+
+            - `server_tool_results?: WebFetchURLSourceAll | WebFetchURLSourceNone | WebFetchURLSourceOnly | WebFetchURLSourceExcept`
+
+              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+              - `interface WebFetchURLSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `interface WebFetchURLSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+              - `interface WebFetchURLSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+              - `interface WebFetchURLSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+            - `user_input?: WebFetchURLSourceAll | WebFetchURLSourceNone`
+
+              Whether URLs in user messages are fetchable: "all" or "none".
+
+              - `interface WebFetchURLSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `interface WebFetchURLSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+        - `interface WebSearchTool20260209`
 
           - `type: "web_search_20260209"`
 
@@ -2627,7 +2717,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `strict?: boolean`
 
@@ -2637,7 +2727,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-        - `WebFetchTool20260209`
+        - `interface WebFetchTool20260209`
 
           - `type: "web_fetch_20260209"`
 
@@ -2681,19 +2771,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `max_uses?: number | null`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `strict?: boolean`
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `WebFetchTool20260309`
+          - `url_sources?: WebFetchURLSources | null`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+        - `interface WebFetchTool20260309`
 
           Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -2739,23 +2833,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `max_uses?: number | null`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `strict?: boolean`
 
             When true, guarantees schema validation on tool names and inputs
 
+          - `url_sources?: WebFetchURLSources | null`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
           - `use_cache?: boolean`
 
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-        - `WebSearchTool20260318`
+        - `interface WebSearchTool20260318`
 
           - `type: "web_search_20260318"`
 
@@ -2795,7 +2893,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `response_inclusion?: "full" | "excluded"`
 
@@ -2813,7 +2911,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-        - `WebFetchTool20260318`
+        - `interface WebFetchTool20260318`
 
           - `type: "web_fetch_20260318"`
 
@@ -2857,13 +2955,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `max_uses?: number | null`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `response_inclusion?: "full" | "excluded"`
 
@@ -2877,11 +2975,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
+          - `url_sources?: WebFetchURLSources | null`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
           - `use_cache?: boolean`
 
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-        - `ToolSearchToolBm25_20251119`
+        - `interface ToolSearchToolBm25_20251119`
 
           - `type: "tool_search_tool_bm25_20251119" | "tool_search_tool_bm25"`
 
@@ -2917,7 +3019,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `ToolSearchToolRegex20251119`
+        - `interface ToolSearchToolRegex20251119`
 
           - `type: "tool_search_tool_regex_20251119" | "tool_search_tool_regex"`
 
@@ -2955,7 +3057,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `temperature?: number`
 
-        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
         Amount of randomness injected into the response.
 
@@ -2963,7 +3065,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
       - `top_k?: number`
 
@@ -2987,7 +3089,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Recommended for advanced use cases only.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
   - `user_profile_id?: string`
 
@@ -3001,7 +3103,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 ### Returns
 
-- `MessageBatch`
+- `interface MessageBatch`
 
   - `type: "message_batch"`
 
@@ -3183,7 +3285,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 ### Returns
 
-- `MessageBatch`
+- `interface MessageBatch`
 
   - `type: "message_batch"`
 
@@ -3356,7 +3458,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `workspace_id?: string`
 
@@ -3366,7 +3468,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 ### Returns
 
-- `MessageBatch`
+- `interface MessageBatch`
 
   - `type: "message_batch"`
 
@@ -3547,7 +3649,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 ### Returns
 
-- `MessageBatch`
+- `interface MessageBatch`
 
   - `type: "message_batch"`
 
@@ -3720,7 +3822,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 ### Returns
 
-- `DeletedMessageBatch`
+- `interface DeletedMessageBatch`
 
   - `type: "message_batch_deleted"`
 
@@ -3785,7 +3887,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 ### Returns
 
-- `MessageBatchIndividualResponse`
+- `interface MessageBatchIndividualResponse`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
 
@@ -3801,7 +3903,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
 
-    - `MessageBatchSucceededResult`
+    - `interface MessageBatchSucceededResult`
 
       - `type: "succeeded"`
 
@@ -3825,7 +3927,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `container: Container | null`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `id: string`
 
@@ -3853,13 +3957,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `version: string`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `content: Array<ContentBlock>`
 
@@ -3890,7 +3994,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           [{"type": "text", "text": "B)"}]
           ```
 
-          - `TextBlock`
+          - `interface TextBlock`
 
             - `type: "text"`
 
@@ -3902,7 +4006,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-              - `CitationCharLocation`
+              - `interface CitationCharLocation`
 
                 - `type: "char_location"`
 
@@ -3924,7 +4028,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-              - `CitationPageLocation`
+              - `interface CitationPageLocation`
 
                 - `type: "page_location"`
 
@@ -3946,7 +4050,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-              - `CitationContentBlockLocation`
+              - `interface CitationContentBlockLocation`
 
                 - `type: "content_block_location"`
 
@@ -3978,7 +4082,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-              - `CitationsWebSearchResultLocation`
+              - `interface CitationsWebSearchResultLocation`
 
                 - `type: "web_search_result_location"`
 
@@ -3994,7 +4098,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `url: string`
 
-              - `CitationsSearchResultLocation`
+              - `interface CitationsSearchResultLocation`
 
                 - `type: "search_result_location"`
 
@@ -4032,9 +4136,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `text: string`
 
-              minLength: 0
-
-          - `ThinkingBlock`
+          - `interface ThinkingBlock`
 
             - `type: "thinking"`
 
@@ -4052,7 +4154,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-          - `RedactedThinkingBlock`
+          - `interface RedactedThinkingBlock`
 
             - `type: "redacted_thinking"`
 
@@ -4066,7 +4168,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-          - `ToolUseBlock`
+          - `interface ToolUseBlock`
 
             - `type: "tool_use"`
 
@@ -4078,17 +4180,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
-              - `DirectCaller`
+              - `interface DirectCaller`
 
                 Tool invocation directly from the model.
 
                 - `type: "direct"`
 
-              - `ServerToolCaller`
+              - `interface ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
@@ -4098,7 +4198,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `ServerToolCaller20260120`
+              - `interface ServerToolCaller20260120`
 
                 - `type: "code_execution_20260120"`
 
@@ -4116,9 +4216,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-          - `ServerToolUseBlock`
+          - `interface ServerToolUseBlock`
 
             - `type: "server_tool_use"`
 
@@ -4130,19 +4230,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
-              - `DirectCaller`
+              - `interface DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `ServerToolCaller`
+              - `interface ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `ServerToolCaller20260120`
+              - `interface ServerToolCaller20260120`
 
             - `input: Record<string, unknown>`
 
@@ -4162,7 +4260,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `"tool_search_tool_bm25"`
 
-          - `WebSearchToolResultBlock`
+          - `interface WebSearchToolResultBlock`
 
             - `type: "web_search_tool_result"`
 
@@ -4170,23 +4268,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
-              - `DirectCaller`
+              - `interface DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `ServerToolCaller`
+              - `interface ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `ServerToolCaller20260120`
+              - `interface ServerToolCaller20260120`
 
             - `content: WebSearchToolResultBlockContent`
 
-              - `WebSearchToolResultError`
+              - `interface WebSearchToolResultError`
 
                 - `type: "web_search_tool_result_error"`
 
@@ -4224,7 +4320,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `WebFetchToolResultBlock`
+          - `interface WebFetchToolResultBlock`
 
             - `type: "web_fetch_tool_result"`
 
@@ -4232,23 +4328,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
-              - `DirectCaller`
+              - `interface DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `ServerToolCaller`
+              - `interface ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `ServerToolCaller20260120`
+              - `interface ServerToolCaller20260120`
 
             - `content: WebFetchToolResultErrorBlock | WebFetchBlock`
 
-              - `WebFetchToolResultErrorBlock`
+              - `interface WebFetchToolResultErrorBlock`
 
                 - `type: "web_fetch_tool_result_error"`
 
@@ -4276,7 +4370,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"content_too_large"`
 
-              - `WebFetchBlock`
+              - `interface WebFetchBlock`
 
                 - `type: "web_fetch_result"`
 
@@ -4298,7 +4392,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `source: Base64PDFSource | PlainTextSource`
 
-                    - `Base64PDFSource`
+                    - `interface Base64PDFSource`
 
                       - `type: "base64"`
 
@@ -4308,7 +4402,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       - `media_type: "application/pdf"`
 
-                    - `PlainTextSource`
+                    - `interface PlainTextSource`
 
                       - `type: "text"`
 
@@ -4332,7 +4426,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `CodeExecutionToolResultBlock`
+          - `interface CodeExecutionToolResultBlock`
 
             - `type: "code_execution_tool_result"`
 
@@ -4340,9 +4434,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `content: CodeExecutionToolResultBlockContent`
 
-              Code execution result with encrypted stdout for PFC + web_search results.
-
-              - `CodeExecutionToolResultError`
+              - `interface CodeExecutionToolResultError`
 
                 - `type: "code_execution_tool_result_error"`
 
@@ -4358,7 +4450,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"execution_time_exceeded"`
 
-              - `CodeExecutionResultBlock`
+              - `interface CodeExecutionResultBlock`
 
                 - `type: "code_execution_result"`
 
@@ -4378,7 +4470,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: string`
 
-              - `EncryptedCodeExecutionResultBlock`
+              - `interface EncryptedCodeExecutionResultBlock`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -4404,7 +4496,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `BashCodeExecutionToolResultBlock`
+          - `interface BashCodeExecutionToolResultBlock`
 
             - `type: "bash_code_execution_tool_result"`
 
@@ -4412,7 +4504,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `content: BashCodeExecutionToolResultError | BashCodeExecutionResultBlock`
 
-              - `BashCodeExecutionToolResultError`
+              - `interface BashCodeExecutionToolResultError`
 
                 - `type: "bash_code_execution_tool_result_error"`
 
@@ -4430,7 +4522,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"output_file_too_large"`
 
-              - `BashCodeExecutionResultBlock`
+              - `interface BashCodeExecutionResultBlock`
 
                 - `type: "bash_code_execution_result"`
 
@@ -4454,7 +4546,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `TextEditorCodeExecutionToolResultBlock`
+          - `interface TextEditorCodeExecutionToolResultBlock`
 
             - `type: "text_editor_code_execution_tool_result"`
 
@@ -4462,7 +4554,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `content: TextEditorCodeExecutionToolResultError | TextEditorCodeExecutionViewResultBlock | TextEditorCodeExecutionCreateResultBlock | TextEditorCodeExecutionStrReplaceResultBlock`
 
-              - `TextEditorCodeExecutionToolResultError`
+              - `interface TextEditorCodeExecutionToolResultError`
 
                 - `type: "text_editor_code_execution_tool_result_error"`
 
@@ -4482,7 +4574,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: string | null`
 
-              - `TextEditorCodeExecutionViewResultBlock`
+              - `interface TextEditorCodeExecutionViewResultBlock`
 
                 - `type: "text_editor_code_execution_view_result"`
 
@@ -4504,7 +4596,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `total_lines: number | null`
 
-              - `TextEditorCodeExecutionCreateResultBlock`
+              - `interface TextEditorCodeExecutionCreateResultBlock`
 
                 - `type: "text_editor_code_execution_create_result"`
 
@@ -4512,7 +4604,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `is_file_update: boolean`
 
-              - `TextEditorCodeExecutionStrReplaceResultBlock`
+              - `interface TextEditorCodeExecutionStrReplaceResultBlock`
 
                 - `type: "text_editor_code_execution_str_replace_result"`
 
@@ -4532,7 +4624,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `ToolSearchToolResultBlock`
+          - `interface ToolSearchToolResultBlock`
 
             - `type: "tool_search_tool_result"`
 
@@ -4540,7 +4632,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `content: ToolSearchToolResultError | ToolSearchToolSearchResultBlock`
 
-              - `ToolSearchToolResultError`
+              - `interface ToolSearchToolResultError`
 
                 - `type: "tool_search_tool_result_error"`
 
@@ -4558,7 +4650,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: string | null`
 
-              - `ToolSearchToolSearchResultBlock`
+              - `interface ToolSearchToolSearchResultBlock`
 
                 - `type: "tool_search_tool_search_result"`
 
@@ -4572,13 +4664,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `tool_name: string`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `ContainerUploadBlock`
+          - `interface ContainerUploadBlock`
 
             Response model for a file uploaded to the container.
 
@@ -4588,81 +4680,149 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `file_id: string`
 
+        - `diagnostics: Diagnostics | null`
+
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+          - `cache_miss_reason: CacheMissReason | null`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `interface CacheMissModelChanged`
+
+              - `type: "model_changed"`
+
+                default: model_changed
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `interface CacheMissSystemChanged`
+
+              - `type: "system_changed"`
+
+                default: system_changed
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `interface CacheMissToolsChanged`
+
+              - `type: "tools_changed"`
+
+                default: tools_changed
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `interface CacheMissMessagesChanged`
+
+              - `type: "messages_changed"`
+
+                default: messages_changed
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `interface CacheMissPreviousMessageNotFound`
+
+              - `type: "previous_message_not_found"`
+
+                default: previous_message_not_found
+
+            - `interface CacheMissUnavailable`
+
+              - `type: "unavailable"`
+
+                default: unavailable
+
         - `model: Model`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-fable-5-1" | "claude-mythos-5-1" | "claude-sonnet-5" | 14 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-fable-5-1"`
+            Efficient model for coding and agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-fable-5-1"`
 
-            - `"claude-mythos-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Our most capable model for cybersecurity and biology research, available through trusted access programs
+          - `"claude-opus-5-5"`
 
-            - `"claude-sonnet-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              High-performance model for coding and agents
+          - `"claude-mythos-5-1"`
 
-            - `"claude-fable-5"`
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-sonnet-5"`
 
-            - `"claude-mythos-5"`
+            Efficient model for coding and agents
 
-              Most capable model for cybersecurity and biology research
+          - `"claude-fable-5"`
 
-            - `"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-mythos-5"`
 
-            - `"claude-opus-4-8"`
+            Most capable model for cybersecurity and biology research
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-5"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-mythos-preview"`
+            Powerful intelligence for long-running agents and coding
 
-              New class of intelligence, strongest in coding and cybersecurity
+          - `"claude-opus-4-7"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-6"`
 
-            - `"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5"`
 
-            - `"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5"`
 
-            - `"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+          - `"claude-mythos-preview"`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
 
           - `(string & {})`
 
@@ -4676,7 +4836,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `stop_details: RefusalStopDetails | null`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `type: "refusal"`
 
@@ -4684,13 +4846,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
 
-            - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-            - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-            - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-            - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-            - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+            `null` when the refusal doesn't map to a named category.
 
             - `"cyber"`
 
@@ -4858,7 +5016,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `"batch"`
 
-    - `MessageBatchErroredResult`
+    - `interface MessageBatchErroredResult`
 
       - `type: "errored"`
 
@@ -4872,7 +5030,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `error: ErrorObject`
 
-          - `InvalidRequestError`
+          - `interface InvalidRequestError`
 
             - `type: "invalid_request_error"`
 
@@ -4882,7 +5040,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               default: Invalid request
 
-          - `AuthenticationError`
+          - `interface AuthenticationError`
 
             - `type: "authentication_error"`
 
@@ -4892,7 +5050,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               default: Authentication error
 
-          - `BillingError`
+          - `interface BillingError`
 
             - `type: "billing_error"`
 
@@ -4902,7 +5060,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               default: Billing error
 
-          - `PermissionError`
+          - `interface PermissionError`
 
             - `type: "permission_error"`
 
@@ -4912,7 +5070,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               default: Permission denied
 
-          - `NotFoundError`
+          - `interface NotFoundError`
 
             - `type: "not_found_error"`
 
@@ -4922,7 +5080,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               default: Not found
 
-          - `RateLimitError`
+          - `interface RateLimitError`
 
             - `type: "rate_limit_error"`
 
@@ -4932,7 +5090,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               default: Rate limited
 
-          - `GatewayTimeoutError`
+          - `interface GatewayTimeoutError`
 
             - `type: "timeout_error"`
 
@@ -4942,7 +5100,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               default: Request timeout
 
-          - `APIErrorObject`
+          - `interface APIErrorObject`
 
             - `type: "api_error"`
 
@@ -4952,7 +5110,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               default: Internal server error
 
-          - `OverloadedError`
+          - `interface OverloadedError`
 
             - `type: "overloaded_error"`
 
@@ -4964,13 +5122,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `request_id: string | null`
 
-    - `MessageBatchCanceledResult`
+    - `interface MessageBatchCanceledResult`
 
       - `type: "canceled"`
 
         default: canceled
 
-    - `MessageBatchExpiredResult`
+    - `interface MessageBatchExpiredResult`
 
       - `type: "expired"`
 
@@ -4996,7 +5154,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
 ### Deleted Message Batch
 
-- `DeletedMessageBatch`
+- `interface DeletedMessageBatch`
 
   - `type: "message_batch_deleted"`
 
@@ -5012,7 +5170,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
 ### Message Batch
 
-- `MessageBatch`
+- `interface MessageBatch`
 
   - `type: "message_batch"`
 
@@ -5122,7 +5280,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
 ### Message Batch Canceled Result
 
-- `MessageBatchCanceledResult`
+- `interface MessageBatchCanceledResult`
 
   - `type: "canceled"`
 
@@ -5130,7 +5288,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
 ### Message Batch Errored Result
 
-- `MessageBatchErroredResult`
+- `interface MessageBatchErroredResult`
 
   - `type: "errored"`
 
@@ -5144,7 +5302,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
     - `error: ErrorObject`
 
-      - `InvalidRequestError`
+      - `interface InvalidRequestError`
 
         - `type: "invalid_request_error"`
 
@@ -5154,7 +5312,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           default: Invalid request
 
-      - `AuthenticationError`
+      - `interface AuthenticationError`
 
         - `type: "authentication_error"`
 
@@ -5164,7 +5322,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           default: Authentication error
 
-      - `BillingError`
+      - `interface BillingError`
 
         - `type: "billing_error"`
 
@@ -5174,7 +5332,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           default: Billing error
 
-      - `PermissionError`
+      - `interface PermissionError`
 
         - `type: "permission_error"`
 
@@ -5184,7 +5342,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           default: Permission denied
 
-      - `NotFoundError`
+      - `interface NotFoundError`
 
         - `type: "not_found_error"`
 
@@ -5194,7 +5352,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           default: Not found
 
-      - `RateLimitError`
+      - `interface RateLimitError`
 
         - `type: "rate_limit_error"`
 
@@ -5204,7 +5362,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           default: Rate limited
 
-      - `GatewayTimeoutError`
+      - `interface GatewayTimeoutError`
 
         - `type: "timeout_error"`
 
@@ -5214,7 +5372,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           default: Request timeout
 
-      - `APIErrorObject`
+      - `interface APIErrorObject`
 
         - `type: "api_error"`
 
@@ -5224,7 +5382,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           default: Internal server error
 
-      - `OverloadedError`
+      - `interface OverloadedError`
 
         - `type: "overloaded_error"`
 
@@ -5238,7 +5396,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
 ### Message Batch Expired Result
 
-- `MessageBatchExpiredResult`
+- `interface MessageBatchExpiredResult`
 
   - `type: "expired"`
 
@@ -5246,7 +5404,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
 ### Message Batch Individual Response
 
-- `MessageBatchIndividualResponse`
+- `interface MessageBatchIndividualResponse`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
 
@@ -5262,7 +5420,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
 
-    - `MessageBatchSucceededResult`
+    - `interface MessageBatchSucceededResult`
 
       - `type: "succeeded"`
 
@@ -5286,7 +5444,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `container: Container | null`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `id: string`
 
@@ -5314,13 +5474,13 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `version: string`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `content: Array<ContentBlock>`
 
@@ -5351,7 +5511,7 @@ console.log(messageBatchIndividualResponse.custom_id);
           [{"type": "text", "text": "B)"}]
           ```
 
-          - `TextBlock`
+          - `interface TextBlock`
 
             - `type: "text"`
 
@@ -5363,7 +5523,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-              - `CitationCharLocation`
+              - `interface CitationCharLocation`
 
                 - `type: "char_location"`
 
@@ -5385,7 +5545,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   minimum: 0
 
-              - `CitationPageLocation`
+              - `interface CitationPageLocation`
 
                 - `type: "page_location"`
 
@@ -5407,7 +5567,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   minimum: 1
 
-              - `CitationContentBlockLocation`
+              - `interface CitationContentBlockLocation`
 
                 - `type: "content_block_location"`
 
@@ -5439,7 +5599,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   minimum: 0
 
-              - `CitationsWebSearchResultLocation`
+              - `interface CitationsWebSearchResultLocation`
 
                 - `type: "web_search_result_location"`
 
@@ -5455,7 +5615,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `url: string`
 
-              - `CitationsSearchResultLocation`
+              - `interface CitationsSearchResultLocation`
 
                 - `type: "search_result_location"`
 
@@ -5493,9 +5653,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `text: string`
 
-              minLength: 0
-
-          - `ThinkingBlock`
+          - `interface ThinkingBlock`
 
             - `type: "thinking"`
 
@@ -5513,7 +5671,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               The text of Claude's thinking process for this block.
 
-          - `RedactedThinkingBlock`
+          - `interface RedactedThinkingBlock`
 
             - `type: "redacted_thinking"`
 
@@ -5527,7 +5685,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-          - `ToolUseBlock`
+          - `interface ToolUseBlock`
 
             - `type: "tool_use"`
 
@@ -5539,17 +5697,15 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
-              - `DirectCaller`
+              - `interface DirectCaller`
 
                 Tool invocation directly from the model.
 
                 - `type: "direct"`
 
-              - `ServerToolCaller`
+              - `interface ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
@@ -5559,7 +5715,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `ServerToolCaller20260120`
+              - `interface ServerToolCaller20260120`
 
                 - `type: "code_execution_20260120"`
 
@@ -5577,9 +5733,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-          - `ServerToolUseBlock`
+          - `interface ServerToolUseBlock`
 
             - `type: "server_tool_use"`
 
@@ -5591,19 +5747,17 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
-              - `DirectCaller`
+              - `interface DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `ServerToolCaller`
+              - `interface ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `ServerToolCaller20260120`
+              - `interface ServerToolCaller20260120`
 
             - `input: Record<string, unknown>`
 
@@ -5623,7 +5777,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `"tool_search_tool_bm25"`
 
-          - `WebSearchToolResultBlock`
+          - `interface WebSearchToolResultBlock`
 
             - `type: "web_search_tool_result"`
 
@@ -5631,23 +5785,21 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
-              - `DirectCaller`
+              - `interface DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `ServerToolCaller`
+              - `interface ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `ServerToolCaller20260120`
+              - `interface ServerToolCaller20260120`
 
             - `content: WebSearchToolResultBlockContent`
 
-              - `WebSearchToolResultError`
+              - `interface WebSearchToolResultError`
 
                 - `type: "web_search_tool_result_error"`
 
@@ -5685,7 +5837,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `WebFetchToolResultBlock`
+          - `interface WebFetchToolResultBlock`
 
             - `type: "web_fetch_tool_result"`
 
@@ -5693,23 +5845,21 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
-              - `DirectCaller`
+              - `interface DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `ServerToolCaller`
+              - `interface ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `ServerToolCaller20260120`
+              - `interface ServerToolCaller20260120`
 
             - `content: WebFetchToolResultErrorBlock | WebFetchBlock`
 
-              - `WebFetchToolResultErrorBlock`
+              - `interface WebFetchToolResultErrorBlock`
 
                 - `type: "web_fetch_tool_result_error"`
 
@@ -5737,7 +5887,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   - `"content_too_large"`
 
-              - `WebFetchBlock`
+              - `interface WebFetchBlock`
 
                 - `type: "web_fetch_result"`
 
@@ -5759,7 +5909,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   - `source: Base64PDFSource | PlainTextSource`
 
-                    - `Base64PDFSource`
+                    - `interface Base64PDFSource`
 
                       - `type: "base64"`
 
@@ -5769,7 +5919,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                       - `media_type: "application/pdf"`
 
-                    - `PlainTextSource`
+                    - `interface PlainTextSource`
 
                       - `type: "text"`
 
@@ -5793,7 +5943,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `CodeExecutionToolResultBlock`
+          - `interface CodeExecutionToolResultBlock`
 
             - `type: "code_execution_tool_result"`
 
@@ -5801,9 +5951,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `content: CodeExecutionToolResultBlockContent`
 
-              Code execution result with encrypted stdout for PFC + web_search results.
-
-              - `CodeExecutionToolResultError`
+              - `interface CodeExecutionToolResultError`
 
                 - `type: "code_execution_tool_result_error"`
 
@@ -5819,7 +5967,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   - `"execution_time_exceeded"`
 
-              - `CodeExecutionResultBlock`
+              - `interface CodeExecutionResultBlock`
 
                 - `type: "code_execution_result"`
 
@@ -5839,7 +5987,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `stdout: string`
 
-              - `EncryptedCodeExecutionResultBlock`
+              - `interface EncryptedCodeExecutionResultBlock`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -5865,7 +6013,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `BashCodeExecutionToolResultBlock`
+          - `interface BashCodeExecutionToolResultBlock`
 
             - `type: "bash_code_execution_tool_result"`
 
@@ -5873,7 +6021,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `content: BashCodeExecutionToolResultError | BashCodeExecutionResultBlock`
 
-              - `BashCodeExecutionToolResultError`
+              - `interface BashCodeExecutionToolResultError`
 
                 - `type: "bash_code_execution_tool_result_error"`
 
@@ -5891,7 +6039,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   - `"output_file_too_large"`
 
-              - `BashCodeExecutionResultBlock`
+              - `interface BashCodeExecutionResultBlock`
 
                 - `type: "bash_code_execution_result"`
 
@@ -5915,7 +6063,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `TextEditorCodeExecutionToolResultBlock`
+          - `interface TextEditorCodeExecutionToolResultBlock`
 
             - `type: "text_editor_code_execution_tool_result"`
 
@@ -5923,7 +6071,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `content: TextEditorCodeExecutionToolResultError | TextEditorCodeExecutionViewResultBlock | TextEditorCodeExecutionCreateResultBlock | TextEditorCodeExecutionStrReplaceResultBlock`
 
-              - `TextEditorCodeExecutionToolResultError`
+              - `interface TextEditorCodeExecutionToolResultError`
 
                 - `type: "text_editor_code_execution_tool_result_error"`
 
@@ -5943,7 +6091,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `error_message: string | null`
 
-              - `TextEditorCodeExecutionViewResultBlock`
+              - `interface TextEditorCodeExecutionViewResultBlock`
 
                 - `type: "text_editor_code_execution_view_result"`
 
@@ -5965,7 +6113,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `total_lines: number | null`
 
-              - `TextEditorCodeExecutionCreateResultBlock`
+              - `interface TextEditorCodeExecutionCreateResultBlock`
 
                 - `type: "text_editor_code_execution_create_result"`
 
@@ -5973,7 +6121,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `is_file_update: boolean`
 
-              - `TextEditorCodeExecutionStrReplaceResultBlock`
+              - `interface TextEditorCodeExecutionStrReplaceResultBlock`
 
                 - `type: "text_editor_code_execution_str_replace_result"`
 
@@ -5993,7 +6141,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `ToolSearchToolResultBlock`
+          - `interface ToolSearchToolResultBlock`
 
             - `type: "tool_search_tool_result"`
 
@@ -6001,7 +6149,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `content: ToolSearchToolResultError | ToolSearchToolSearchResultBlock`
 
-              - `ToolSearchToolResultError`
+              - `interface ToolSearchToolResultError`
 
                 - `type: "tool_search_tool_result_error"`
 
@@ -6019,7 +6167,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `error_message: string | null`
 
-              - `ToolSearchToolSearchResultBlock`
+              - `interface ToolSearchToolSearchResultBlock`
 
                 - `type: "tool_search_tool_search_result"`
 
@@ -6033,13 +6181,13 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   - `tool_name: string`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `ContainerUploadBlock`
+          - `interface ContainerUploadBlock`
 
             Response model for a file uploaded to the container.
 
@@ -6049,81 +6197,149 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `file_id: string`
 
+        - `diagnostics: Diagnostics | null`
+
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+          - `cache_miss_reason: CacheMissReason | null`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `interface CacheMissModelChanged`
+
+              - `type: "model_changed"`
+
+                default: model_changed
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `interface CacheMissSystemChanged`
+
+              - `type: "system_changed"`
+
+                default: system_changed
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `interface CacheMissToolsChanged`
+
+              - `type: "tools_changed"`
+
+                default: tools_changed
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `interface CacheMissMessagesChanged`
+
+              - `type: "messages_changed"`
+
+                default: messages_changed
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `interface CacheMissPreviousMessageNotFound`
+
+              - `type: "previous_message_not_found"`
+
+                default: previous_message_not_found
+
+            - `interface CacheMissUnavailable`
+
+              - `type: "unavailable"`
+
+                default: unavailable
+
         - `model: Model`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-fable-5-1" | "claude-mythos-5-1" | "claude-sonnet-5" | 14 more`
+          - `"claude-sonnet-5-5"`
 
-            - `"claude-fable-5-1"`
+            Efficient model for coding and agents
 
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `"claude-fable-5-1"`
 
-            - `"claude-mythos-5-1"`
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-              Our most capable model for cybersecurity and biology research, available through trusted access programs
+          - `"claude-opus-5-5"`
 
-            - `"claude-sonnet-5"`
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
-              High-performance model for coding and agents
+          - `"claude-mythos-5-1"`
 
-            - `"claude-fable-5"`
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-              Next generation of intelligence for the hardest knowledge work and coding problems
+          - `"claude-sonnet-5"`
 
-            - `"claude-mythos-5"`
+            Efficient model for coding and agents
 
-              Most capable model for cybersecurity and biology research
+          - `"claude-fable-5"`
 
-            - `"claude-opus-5"`
+            Next generation of intelligence for the hardest knowledge work and coding problems
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-mythos-5"`
 
-            - `"claude-opus-4-8"`
+            Most capable model for cybersecurity and biology research
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-5"`
 
-            - `"claude-opus-4-7"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-8"`
 
-            - `"claude-mythos-preview"`
+            Powerful intelligence for long-running agents and coding
 
-              New class of intelligence, strongest in coding and cybersecurity
+          - `"claude-opus-4-7"`
 
-            - `"claude-opus-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-6"`
 
-            - `"claude-sonnet-4-6"`
+            Powerful intelligence for long-running agents and coding
 
-              Best combination of speed and intelligence
+          - `"claude-sonnet-4-6"`
 
-            - `"claude-haiku-4-5"`
+            Best combination of speed and intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5"`
 
-            - `"claude-haiku-4-5-20251001"`
+            Fastest model with near-frontier intelligence
 
-              Fastest model with near-frontier intelligence
+          - `"claude-haiku-4-5-20251001"`
 
-            - `"claude-opus-4-5"`
+            Fastest model with near-frontier intelligence
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5"`
 
-            - `"claude-opus-4-5-20251101"`
+            Powerful intelligence for long-running agents and coding
 
-              Powerful intelligence for long-running agents and coding
+          - `"claude-opus-4-5-20251101"`
 
-            - `"claude-sonnet-4-5"`
+            Powerful intelligence for long-running agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5"`
 
-            - `"claude-sonnet-4-5-20250929"`
+            High-performance model for agents and coding
 
-              High-performance model for agents and coding
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+          - `"claude-mythos-preview"`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
 
           - `(string & {})`
 
@@ -6137,7 +6353,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `stop_details: RefusalStopDetails | null`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `type: "refusal"`
 
@@ -6145,13 +6363,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
 
-            - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-            - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-            - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-            - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-            - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+            `null` when the refusal doesn't map to a named category.
 
             - `"cyber"`
 
@@ -6319,7 +6533,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `"batch"`
 
-    - `MessageBatchErroredResult`
+    - `interface MessageBatchErroredResult`
 
       - `type: "errored"`
 
@@ -6333,7 +6547,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `error: ErrorObject`
 
-          - `InvalidRequestError`
+          - `interface InvalidRequestError`
 
             - `type: "invalid_request_error"`
 
@@ -6343,7 +6557,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               default: Invalid request
 
-          - `AuthenticationError`
+          - `interface AuthenticationError`
 
             - `type: "authentication_error"`
 
@@ -6353,7 +6567,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               default: Authentication error
 
-          - `BillingError`
+          - `interface BillingError`
 
             - `type: "billing_error"`
 
@@ -6363,7 +6577,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               default: Billing error
 
-          - `PermissionError`
+          - `interface PermissionError`
 
             - `type: "permission_error"`
 
@@ -6373,7 +6587,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               default: Permission denied
 
-          - `NotFoundError`
+          - `interface NotFoundError`
 
             - `type: "not_found_error"`
 
@@ -6383,7 +6597,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               default: Not found
 
-          - `RateLimitError`
+          - `interface RateLimitError`
 
             - `type: "rate_limit_error"`
 
@@ -6393,7 +6607,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               default: Rate limited
 
-          - `GatewayTimeoutError`
+          - `interface GatewayTimeoutError`
 
             - `type: "timeout_error"`
 
@@ -6403,7 +6617,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               default: Request timeout
 
-          - `APIErrorObject`
+          - `interface APIErrorObject`
 
             - `type: "api_error"`
 
@@ -6413,7 +6627,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               default: Internal server error
 
-          - `OverloadedError`
+          - `interface OverloadedError`
 
             - `type: "overloaded_error"`
 
@@ -6425,13 +6639,13 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `request_id: string | null`
 
-    - `MessageBatchCanceledResult`
+    - `interface MessageBatchCanceledResult`
 
       - `type: "canceled"`
 
         default: canceled
 
-    - `MessageBatchExpiredResult`
+    - `interface MessageBatchExpiredResult`
 
       - `type: "expired"`
 
@@ -6439,7 +6653,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
 ### Message Batch Request Counts
 
-- `MessageBatchRequestCounts`
+- `interface MessageBatchRequestCounts`
 
   - `canceled: number`
 
@@ -6481,13 +6695,13 @@ console.log(messageBatchIndividualResponse.custom_id);
 
 ### Message Batch Result
 
-- `MessageBatchResult = MessageBatchSucceededResult | MessageBatchErroredResult | MessageBatchCanceledResult | MessageBatchExpiredResult`
+- `type MessageBatchResult = MessageBatchSucceededResult | MessageBatchErroredResult | MessageBatchCanceledResult | MessageBatchExpiredResult`
 
   Processing result for this request.
 
   Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
 
-  - `MessageBatchSucceededResult`
+  - `interface MessageBatchSucceededResult`
 
     - `type: "succeeded"`
 
@@ -6511,7 +6725,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
       - `container: Container | null`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
         - `id: string`
 
@@ -6539,13 +6755,13 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             Skill ID
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
           - `version: string`
 
             The resolved version: a skill version ID for custom skills.
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
       - `content: Array<ContentBlock>`
 
@@ -6576,7 +6792,7 @@ console.log(messageBatchIndividualResponse.custom_id);
         [{"type": "text", "text": "B)"}]
         ```
 
-        - `TextBlock`
+        - `interface TextBlock`
 
           - `type: "text"`
 
@@ -6588,7 +6804,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-            - `CitationCharLocation`
+            - `interface CitationCharLocation`
 
               - `type: "char_location"`
 
@@ -6610,7 +6826,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 minimum: 0
 
-            - `CitationPageLocation`
+            - `interface CitationPageLocation`
 
               - `type: "page_location"`
 
@@ -6632,7 +6848,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 minimum: 1
 
-            - `CitationContentBlockLocation`
+            - `interface CitationContentBlockLocation`
 
               - `type: "content_block_location"`
 
@@ -6664,7 +6880,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 minimum: 0
 
-            - `CitationsWebSearchResultLocation`
+            - `interface CitationsWebSearchResultLocation`
 
               - `type: "web_search_result_location"`
 
@@ -6680,7 +6896,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `url: string`
 
-            - `CitationsSearchResultLocation`
+            - `interface CitationsSearchResultLocation`
 
               - `type: "search_result_location"`
 
@@ -6718,9 +6934,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `text: string`
 
-            minLength: 0
-
-        - `ThinkingBlock`
+        - `interface ThinkingBlock`
 
           - `type: "thinking"`
 
@@ -6738,7 +6952,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             The text of Claude's thinking process for this block.
 
-        - `RedactedThinkingBlock`
+        - `interface RedactedThinkingBlock`
 
           - `type: "redacted_thinking"`
 
@@ -6752,7 +6966,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-        - `ToolUseBlock`
+        - `interface ToolUseBlock`
 
           - `type: "tool_use"`
 
@@ -6764,17 +6978,15 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             default: {"type":"direct"}
 
-            - `DirectCaller`
+            - `interface DirectCaller`
 
               Tool invocation directly from the model.
 
               - `type: "direct"`
 
-            - `ServerToolCaller`
+            - `interface ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
@@ -6784,7 +6996,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `ServerToolCaller20260120`
+            - `interface ServerToolCaller20260120`
 
               - `type: "code_execution_20260120"`
 
@@ -6802,9 +7014,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             For a toolset member tool_use, the toolset family.
 
-            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+            minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-        - `ServerToolUseBlock`
+        - `interface ServerToolUseBlock`
 
           - `type: "server_tool_use"`
 
@@ -6816,19 +7028,17 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             default: {"type":"direct"}
 
-            - `DirectCaller`
+            - `interface DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `ServerToolCaller`
+            - `interface ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `ServerToolCaller20260120`
+            - `interface ServerToolCaller20260120`
 
           - `input: Record<string, unknown>`
 
@@ -6848,7 +7058,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `"tool_search_tool_bm25"`
 
-        - `WebSearchToolResultBlock`
+        - `interface WebSearchToolResultBlock`
 
           - `type: "web_search_tool_result"`
 
@@ -6856,23 +7066,21 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             default: {"type":"direct"}
 
-            - `DirectCaller`
+            - `interface DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `ServerToolCaller`
+            - `interface ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `ServerToolCaller20260120`
+            - `interface ServerToolCaller20260120`
 
           - `content: WebSearchToolResultBlockContent`
 
-            - `WebSearchToolResultError`
+            - `interface WebSearchToolResultError`
 
               - `type: "web_search_tool_result_error"`
 
@@ -6910,7 +7118,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `WebFetchToolResultBlock`
+        - `interface WebFetchToolResultBlock`
 
           - `type: "web_fetch_tool_result"`
 
@@ -6918,23 +7126,21 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             default: {"type":"direct"}
 
-            - `DirectCaller`
+            - `interface DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `ServerToolCaller`
+            - `interface ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `ServerToolCaller20260120`
+            - `interface ServerToolCaller20260120`
 
           - `content: WebFetchToolResultErrorBlock | WebFetchBlock`
 
-            - `WebFetchToolResultErrorBlock`
+            - `interface WebFetchToolResultErrorBlock`
 
               - `type: "web_fetch_tool_result_error"`
 
@@ -6962,7 +7168,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `"content_too_large"`
 
-            - `WebFetchBlock`
+            - `interface WebFetchBlock`
 
               - `type: "web_fetch_result"`
 
@@ -6984,7 +7190,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `source: Base64PDFSource | PlainTextSource`
 
-                  - `Base64PDFSource`
+                  - `interface Base64PDFSource`
 
                     - `type: "base64"`
 
@@ -6994,7 +7200,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                     - `media_type: "application/pdf"`
 
-                  - `PlainTextSource`
+                  - `interface PlainTextSource`
 
                     - `type: "text"`
 
@@ -7018,7 +7224,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `CodeExecutionToolResultBlock`
+        - `interface CodeExecutionToolResultBlock`
 
           - `type: "code_execution_tool_result"`
 
@@ -7026,9 +7232,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `content: CodeExecutionToolResultBlockContent`
 
-            Code execution result with encrypted stdout for PFC + web_search results.
-
-            - `CodeExecutionToolResultError`
+            - `interface CodeExecutionToolResultError`
 
               - `type: "code_execution_tool_result_error"`
 
@@ -7044,7 +7248,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `"execution_time_exceeded"`
 
-            - `CodeExecutionResultBlock`
+            - `interface CodeExecutionResultBlock`
 
               - `type: "code_execution_result"`
 
@@ -7064,7 +7268,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `stdout: string`
 
-            - `EncryptedCodeExecutionResultBlock`
+            - `interface EncryptedCodeExecutionResultBlock`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -7090,7 +7294,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `BashCodeExecutionToolResultBlock`
+        - `interface BashCodeExecutionToolResultBlock`
 
           - `type: "bash_code_execution_tool_result"`
 
@@ -7098,7 +7302,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `content: BashCodeExecutionToolResultError | BashCodeExecutionResultBlock`
 
-            - `BashCodeExecutionToolResultError`
+            - `interface BashCodeExecutionToolResultError`
 
               - `type: "bash_code_execution_tool_result_error"`
 
@@ -7116,7 +7320,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `"output_file_too_large"`
 
-            - `BashCodeExecutionResultBlock`
+            - `interface BashCodeExecutionResultBlock`
 
               - `type: "bash_code_execution_result"`
 
@@ -7140,7 +7344,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `TextEditorCodeExecutionToolResultBlock`
+        - `interface TextEditorCodeExecutionToolResultBlock`
 
           - `type: "text_editor_code_execution_tool_result"`
 
@@ -7148,7 +7352,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `content: TextEditorCodeExecutionToolResultError | TextEditorCodeExecutionViewResultBlock | TextEditorCodeExecutionCreateResultBlock | TextEditorCodeExecutionStrReplaceResultBlock`
 
-            - `TextEditorCodeExecutionToolResultError`
+            - `interface TextEditorCodeExecutionToolResultError`
 
               - `type: "text_editor_code_execution_tool_result_error"`
 
@@ -7168,7 +7372,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `error_message: string | null`
 
-            - `TextEditorCodeExecutionViewResultBlock`
+            - `interface TextEditorCodeExecutionViewResultBlock`
 
               - `type: "text_editor_code_execution_view_result"`
 
@@ -7190,7 +7394,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `total_lines: number | null`
 
-            - `TextEditorCodeExecutionCreateResultBlock`
+            - `interface TextEditorCodeExecutionCreateResultBlock`
 
               - `type: "text_editor_code_execution_create_result"`
 
@@ -7198,7 +7402,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `is_file_update: boolean`
 
-            - `TextEditorCodeExecutionStrReplaceResultBlock`
+            - `interface TextEditorCodeExecutionStrReplaceResultBlock`
 
               - `type: "text_editor_code_execution_str_replace_result"`
 
@@ -7218,7 +7422,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `ToolSearchToolResultBlock`
+        - `interface ToolSearchToolResultBlock`
 
           - `type: "tool_search_tool_result"`
 
@@ -7226,7 +7430,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `content: ToolSearchToolResultError | ToolSearchToolSearchResultBlock`
 
-            - `ToolSearchToolResultError`
+            - `interface ToolSearchToolResultError`
 
               - `type: "tool_search_tool_result_error"`
 
@@ -7244,7 +7448,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `error_message: string | null`
 
-            - `ToolSearchToolSearchResultBlock`
+            - `interface ToolSearchToolSearchResultBlock`
 
               - `type: "tool_search_tool_search_result"`
 
@@ -7258,13 +7462,13 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                 - `tool_name: string`
 
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                  minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `tool_use_id: string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `ContainerUploadBlock`
+        - `interface ContainerUploadBlock`
 
           Response model for a file uploaded to the container.
 
@@ -7274,81 +7478,149 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `file_id: string`
 
+      - `diagnostics: Diagnostics | null`
+
+        Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+        - `cache_miss_reason: CacheMissReason | null`
+
+          Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+          - `interface CacheMissModelChanged`
+
+            - `type: "model_changed"`
+
+              default: model_changed
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `interface CacheMissSystemChanged`
+
+            - `type: "system_changed"`
+
+              default: system_changed
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `interface CacheMissToolsChanged`
+
+            - `type: "tools_changed"`
+
+              default: tools_changed
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `interface CacheMissMessagesChanged`
+
+            - `type: "messages_changed"`
+
+              default: messages_changed
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `interface CacheMissPreviousMessageNotFound`
+
+            - `type: "previous_message_not_found"`
+
+              default: previous_message_not_found
+
+          - `interface CacheMissUnavailable`
+
+            - `type: "unavailable"`
+
+              default: unavailable
+
       - `model: Model`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `"claude-fable-5-1" | "claude-mythos-5-1" | "claude-sonnet-5" | 14 more`
+        - `"claude-sonnet-5-5"`
 
-          - `"claude-fable-5-1"`
+          Efficient model for coding and agents
 
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `"claude-fable-5-1"`
 
-          - `"claude-mythos-5-1"`
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-            Our most capable model for cybersecurity and biology research, available through trusted access programs
+        - `"claude-opus-5-5"`
 
-          - `"claude-sonnet-5"`
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
-            High-performance model for coding and agents
+        - `"claude-mythos-5-1"`
 
-          - `"claude-fable-5"`
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-            Next generation of intelligence for the hardest knowledge work and coding problems
+        - `"claude-sonnet-5"`
 
-          - `"claude-mythos-5"`
+          Efficient model for coding and agents
 
-            Most capable model for cybersecurity and biology research
+        - `"claude-fable-5"`
 
-          - `"claude-opus-5"`
+          Next generation of intelligence for the hardest knowledge work and coding problems
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-mythos-5"`
 
-          - `"claude-opus-4-8"`
+          Most capable model for cybersecurity and biology research
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-5"`
 
-          - `"claude-opus-4-7"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-8"`
 
-          - `"claude-mythos-preview"`
+          Powerful intelligence for long-running agents and coding
 
-            New class of intelligence, strongest in coding and cybersecurity
+        - `"claude-opus-4-7"`
 
-          - `"claude-opus-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-6"`
 
-          - `"claude-sonnet-4-6"`
+          Powerful intelligence for long-running agents and coding
 
-            Best combination of speed and intelligence
+        - `"claude-sonnet-4-6"`
 
-          - `"claude-haiku-4-5"`
+          Best combination of speed and intelligence
 
-            Fastest model with near-frontier intelligence
+        - `"claude-haiku-4-5"`
 
-          - `"claude-haiku-4-5-20251001"`
+          Fastest model with near-frontier intelligence
 
-            Fastest model with near-frontier intelligence
+        - `"claude-haiku-4-5-20251001"`
 
-          - `"claude-opus-4-5"`
+          Fastest model with near-frontier intelligence
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-5"`
 
-          - `"claude-opus-4-5-20251101"`
+          Powerful intelligence for long-running agents and coding
 
-            Powerful intelligence for long-running agents and coding
+        - `"claude-opus-4-5-20251101"`
 
-          - `"claude-sonnet-4-5"`
+          Powerful intelligence for long-running agents and coding
 
-            High-performance model for agents and coding
+        - `"claude-sonnet-4-5"`
 
-          - `"claude-sonnet-4-5-20250929"`
+          High-performance model for agents and coding
 
-            High-performance model for agents and coding
+        - `"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+        - `"claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
         - `(string & {})`
 
@@ -7362,7 +7634,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
       - `stop_details: RefusalStopDetails | null`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
         - `type: "refusal"`
 
@@ -7370,13 +7644,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the refusal.
 
-          - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-          - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-          - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-          - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-          - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+          `null` when the refusal doesn't map to a named category.
 
           - `"cyber"`
 
@@ -7544,7 +7814,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `"batch"`
 
-  - `MessageBatchErroredResult`
+  - `interface MessageBatchErroredResult`
 
     - `type: "errored"`
 
@@ -7558,7 +7828,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
       - `error: ErrorObject`
 
-        - `InvalidRequestError`
+        - `interface InvalidRequestError`
 
           - `type: "invalid_request_error"`
 
@@ -7568,7 +7838,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             default: Invalid request
 
-        - `AuthenticationError`
+        - `interface AuthenticationError`
 
           - `type: "authentication_error"`
 
@@ -7578,7 +7848,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             default: Authentication error
 
-        - `BillingError`
+        - `interface BillingError`
 
           - `type: "billing_error"`
 
@@ -7588,7 +7858,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             default: Billing error
 
-        - `PermissionError`
+        - `interface PermissionError`
 
           - `type: "permission_error"`
 
@@ -7598,7 +7868,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             default: Permission denied
 
-        - `NotFoundError`
+        - `interface NotFoundError`
 
           - `type: "not_found_error"`
 
@@ -7608,7 +7878,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             default: Not found
 
-        - `RateLimitError`
+        - `interface RateLimitError`
 
           - `type: "rate_limit_error"`
 
@@ -7618,7 +7888,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             default: Rate limited
 
-        - `GatewayTimeoutError`
+        - `interface GatewayTimeoutError`
 
           - `type: "timeout_error"`
 
@@ -7628,7 +7898,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             default: Request timeout
 
-        - `APIErrorObject`
+        - `interface APIErrorObject`
 
           - `type: "api_error"`
 
@@ -7638,7 +7908,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             default: Internal server error
 
-        - `OverloadedError`
+        - `interface OverloadedError`
 
           - `type: "overloaded_error"`
 
@@ -7650,13 +7920,13 @@ console.log(messageBatchIndividualResponse.custom_id);
 
       - `request_id: string | null`
 
-  - `MessageBatchCanceledResult`
+  - `interface MessageBatchCanceledResult`
 
     - `type: "canceled"`
 
       default: canceled
 
-  - `MessageBatchExpiredResult`
+  - `interface MessageBatchExpiredResult`
 
     - `type: "expired"`
 
@@ -7664,7 +7934,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
 ### Message Batch Succeeded Result
 
-- `MessageBatchSucceededResult`
+- `interface MessageBatchSucceededResult`
 
   - `type: "succeeded"`
 
@@ -7688,7 +7958,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
     - `container: Container | null`
 
-      Information about the container used in the request (for the code execution tool)
+      Information about the container used in this request.
+
+      This will be non-null if a container tool (e.g. code execution) was used.
 
       - `id: string`
 
@@ -7716,13 +7988,13 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           Skill ID
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
         - `version: string`
 
           The resolved version: a skill version ID for custom skills.
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
     - `content: Array<ContentBlock>`
 
@@ -7753,7 +8025,7 @@ console.log(messageBatchIndividualResponse.custom_id);
       [{"type": "text", "text": "B)"}]
       ```
 
-      - `TextBlock`
+      - `interface TextBlock`
 
         - `type: "text"`
 
@@ -7765,7 +8037,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-          - `CitationCharLocation`
+          - `interface CitationCharLocation`
 
             - `type: "char_location"`
 
@@ -7787,7 +8059,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               minimum: 0
 
-          - `CitationPageLocation`
+          - `interface CitationPageLocation`
 
             - `type: "page_location"`
 
@@ -7809,7 +8081,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               minimum: 1
 
-          - `CitationContentBlockLocation`
+          - `interface CitationContentBlockLocation`
 
             - `type: "content_block_location"`
 
@@ -7841,7 +8113,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               minimum: 0
 
-          - `CitationsWebSearchResultLocation`
+          - `interface CitationsWebSearchResultLocation`
 
             - `type: "web_search_result_location"`
 
@@ -7857,7 +8129,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `url: string`
 
-          - `CitationsSearchResultLocation`
+          - `interface CitationsSearchResultLocation`
 
             - `type: "search_result_location"`
 
@@ -7895,9 +8167,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `text: string`
 
-          minLength: 0
-
-      - `ThinkingBlock`
+      - `interface ThinkingBlock`
 
         - `type: "thinking"`
 
@@ -7915,7 +8185,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           The text of Claude's thinking process for this block.
 
-      - `RedactedThinkingBlock`
+      - `interface RedactedThinkingBlock`
 
         - `type: "redacted_thinking"`
 
@@ -7929,7 +8199,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `ToolUseBlock`
+      - `interface ToolUseBlock`
 
         - `type: "tool_use"`
 
@@ -7941,17 +8211,15 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
           default: {"type":"direct"}
 
-          - `DirectCaller`
+          - `interface DirectCaller`
 
             Tool invocation directly from the model.
 
             - `type: "direct"`
 
-          - `ServerToolCaller`
+          - `interface ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
@@ -7961,7 +8229,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `ServerToolCaller20260120`
+          - `interface ServerToolCaller20260120`
 
             - `type: "code_execution_20260120"`
 
@@ -7979,9 +8247,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           For a toolset member tool_use, the toolset family.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
-      - `ServerToolUseBlock`
+      - `interface ServerToolUseBlock`
 
         - `type: "server_tool_use"`
 
@@ -7993,19 +8261,17 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
           default: {"type":"direct"}
 
-          - `DirectCaller`
+          - `interface DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `ServerToolCaller`
+          - `interface ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `ServerToolCaller20260120`
+          - `interface ServerToolCaller20260120`
 
         - `input: Record<string, unknown>`
 
@@ -8025,7 +8291,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           - `"tool_search_tool_bm25"`
 
-      - `WebSearchToolResultBlock`
+      - `interface WebSearchToolResultBlock`
 
         - `type: "web_search_tool_result"`
 
@@ -8033,23 +8299,21 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
           default: {"type":"direct"}
 
-          - `DirectCaller`
+          - `interface DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `ServerToolCaller`
+          - `interface ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `ServerToolCaller20260120`
+          - `interface ServerToolCaller20260120`
 
         - `content: WebSearchToolResultBlockContent`
 
-          - `WebSearchToolResultError`
+          - `interface WebSearchToolResultError`
 
             - `type: "web_search_tool_result_error"`
 
@@ -8087,7 +8351,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `WebFetchToolResultBlock`
+      - `interface WebFetchToolResultBlock`
 
         - `type: "web_fetch_tool_result"`
 
@@ -8095,23 +8359,21 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
           default: {"type":"direct"}
 
-          - `DirectCaller`
+          - `interface DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `ServerToolCaller`
+          - `interface ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `ServerToolCaller20260120`
+          - `interface ServerToolCaller20260120`
 
         - `content: WebFetchToolResultErrorBlock | WebFetchBlock`
 
-          - `WebFetchToolResultErrorBlock`
+          - `interface WebFetchToolResultErrorBlock`
 
             - `type: "web_fetch_tool_result_error"`
 
@@ -8139,7 +8401,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `"content_too_large"`
 
-          - `WebFetchBlock`
+          - `interface WebFetchBlock`
 
             - `type: "web_fetch_result"`
 
@@ -8161,7 +8423,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `source: Base64PDFSource | PlainTextSource`
 
-                - `Base64PDFSource`
+                - `interface Base64PDFSource`
 
                   - `type: "base64"`
 
@@ -8171,7 +8433,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
                   - `media_type: "application/pdf"`
 
-                - `PlainTextSource`
+                - `interface PlainTextSource`
 
                   - `type: "text"`
 
@@ -8195,7 +8457,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `CodeExecutionToolResultBlock`
+      - `interface CodeExecutionToolResultBlock`
 
         - `type: "code_execution_tool_result"`
 
@@ -8203,9 +8465,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `content: CodeExecutionToolResultBlockContent`
 
-          Code execution result with encrypted stdout for PFC + web_search results.
-
-          - `CodeExecutionToolResultError`
+          - `interface CodeExecutionToolResultError`
 
             - `type: "code_execution_tool_result_error"`
 
@@ -8221,7 +8481,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `"execution_time_exceeded"`
 
-          - `CodeExecutionResultBlock`
+          - `interface CodeExecutionResultBlock`
 
             - `type: "code_execution_result"`
 
@@ -8241,7 +8501,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `stdout: string`
 
-          - `EncryptedCodeExecutionResultBlock`
+          - `interface EncryptedCodeExecutionResultBlock`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -8267,7 +8527,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `BashCodeExecutionToolResultBlock`
+      - `interface BashCodeExecutionToolResultBlock`
 
         - `type: "bash_code_execution_tool_result"`
 
@@ -8275,7 +8535,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `content: BashCodeExecutionToolResultError | BashCodeExecutionResultBlock`
 
-          - `BashCodeExecutionToolResultError`
+          - `interface BashCodeExecutionToolResultError`
 
             - `type: "bash_code_execution_tool_result_error"`
 
@@ -8293,7 +8553,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `"output_file_too_large"`
 
-          - `BashCodeExecutionResultBlock`
+          - `interface BashCodeExecutionResultBlock`
 
             - `type: "bash_code_execution_result"`
 
@@ -8317,7 +8577,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `TextEditorCodeExecutionToolResultBlock`
+      - `interface TextEditorCodeExecutionToolResultBlock`
 
         - `type: "text_editor_code_execution_tool_result"`
 
@@ -8325,7 +8585,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `content: TextEditorCodeExecutionToolResultError | TextEditorCodeExecutionViewResultBlock | TextEditorCodeExecutionCreateResultBlock | TextEditorCodeExecutionStrReplaceResultBlock`
 
-          - `TextEditorCodeExecutionToolResultError`
+          - `interface TextEditorCodeExecutionToolResultError`
 
             - `type: "text_editor_code_execution_tool_result_error"`
 
@@ -8345,7 +8605,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `error_message: string | null`
 
-          - `TextEditorCodeExecutionViewResultBlock`
+          - `interface TextEditorCodeExecutionViewResultBlock`
 
             - `type: "text_editor_code_execution_view_result"`
 
@@ -8367,7 +8627,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `total_lines: number | null`
 
-          - `TextEditorCodeExecutionCreateResultBlock`
+          - `interface TextEditorCodeExecutionCreateResultBlock`
 
             - `type: "text_editor_code_execution_create_result"`
 
@@ -8375,7 +8635,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `is_file_update: boolean`
 
-          - `TextEditorCodeExecutionStrReplaceResultBlock`
+          - `interface TextEditorCodeExecutionStrReplaceResultBlock`
 
             - `type: "text_editor_code_execution_str_replace_result"`
 
@@ -8395,7 +8655,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `ToolSearchToolResultBlock`
+      - `interface ToolSearchToolResultBlock`
 
         - `type: "tool_search_tool_result"`
 
@@ -8403,7 +8663,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `content: ToolSearchToolResultError | ToolSearchToolSearchResultBlock`
 
-          - `ToolSearchToolResultError`
+          - `interface ToolSearchToolResultError`
 
             - `type: "tool_search_tool_result_error"`
 
@@ -8421,7 +8681,7 @@ console.log(messageBatchIndividualResponse.custom_id);
 
             - `error_message: string | null`
 
-          - `ToolSearchToolSearchResultBlock`
+          - `interface ToolSearchToolSearchResultBlock`
 
             - `type: "tool_search_tool_search_result"`
 
@@ -8435,13 +8695,13 @@ console.log(messageBatchIndividualResponse.custom_id);
 
               - `tool_name: string`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
         - `tool_use_id: string`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `ContainerUploadBlock`
+      - `interface ContainerUploadBlock`
 
         Response model for a file uploaded to the container.
 
@@ -8451,81 +8711,149 @@ console.log(messageBatchIndividualResponse.custom_id);
 
         - `file_id: string`
 
+    - `diagnostics: Diagnostics | null`
+
+      Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+      - `cache_miss_reason: CacheMissReason | null`
+
+        Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+        - `interface CacheMissModelChanged`
+
+          - `type: "model_changed"`
+
+            default: model_changed
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `interface CacheMissSystemChanged`
+
+          - `type: "system_changed"`
+
+            default: system_changed
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `interface CacheMissToolsChanged`
+
+          - `type: "tools_changed"`
+
+            default: tools_changed
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `interface CacheMissMessagesChanged`
+
+          - `type: "messages_changed"`
+
+            default: messages_changed
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `interface CacheMissPreviousMessageNotFound`
+
+          - `type: "previous_message_not_found"`
+
+            default: previous_message_not_found
+
+        - `interface CacheMissUnavailable`
+
+          - `type: "unavailable"`
+
+            default: unavailable
+
     - `model: Model`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `"claude-fable-5-1" | "claude-mythos-5-1" | "claude-sonnet-5" | 14 more`
+      - `"claude-sonnet-5-5"`
 
-        - `"claude-fable-5-1"`
+        Efficient model for coding and agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `"claude-fable-5-1"`
 
-        - `"claude-mythos-5-1"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          Our most capable model for cybersecurity and biology research, available through trusted access programs
+      - `"claude-opus-5-5"`
 
-        - `"claude-sonnet-5"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          High-performance model for coding and agents
+      - `"claude-mythos-5-1"`
 
-        - `"claude-fable-5"`
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `"claude-sonnet-5"`
 
-        - `"claude-mythos-5"`
+        Efficient model for coding and agents
 
-          Most capable model for cybersecurity and biology research
+      - `"claude-fable-5"`
 
-        - `"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-mythos-5"`
 
-        - `"claude-opus-4-8"`
+        Most capable model for cybersecurity and biology research
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-5"`
 
-        - `"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-8"`
 
-        - `"claude-mythos-preview"`
+        Powerful intelligence for long-running agents and coding
 
-          New class of intelligence, strongest in coding and cybersecurity
+      - `"claude-opus-4-7"`
 
-        - `"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-6"`
 
-        - `"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `"claude-sonnet-4-6"`
 
-        - `"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5"`
 
-        - `"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `"claude-haiku-4-5-20251001"`
 
-        - `"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5"`
 
-        - `"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `"claude-opus-4-5-20251101"`
 
-        - `"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5"`
 
-        - `"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
+
+      - `"claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
       - `(string & {})`
 
@@ -8539,7 +8867,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
     - `stop_details: RefusalStopDetails | null`
 
-      Structured information about a refusal.
+      Structured information about why model output stopped.
+
+      This is `null` when the `stop_reason` has no additional detail to report.
 
       - `type: "refusal"`
 
@@ -8547,13 +8877,9 @@ console.log(messageBatchIndividualResponse.custom_id);
 
       - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
-        The policy category that triggered a refusal.
+        The policy category that triggered the refusal.
 
-        - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-        - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-        - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-        - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-        - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+        `null` when the refusal doesn't map to a named category.
 
         - `"cyber"`
 

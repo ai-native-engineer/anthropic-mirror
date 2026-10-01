@@ -10,6 +10,211 @@
 
 Configuration keys by Claude Desktop release. Each section lists keys added in that release, with the MDM key name (for plist/registry deployment) and the equivalent JSON shape (for local-file or bootstrap remote configuration).
 
+v2.16120.0
+
+2026-09-29
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`deniedPluginMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#deniedpluginmcpservers) | `object[]` | Blocked plugin MCP servers |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "mcp": {
+    "deniedPluginServers": [
+      {
+        "serverUrl": "<string>"
+      }
+    ]
+  }
+}
+```
+
+**Changed:**
+
+* `userPluginMarketplacesEnabled`: when set to `false`, plugin marketplaces your organization did not provision are now hidden in every tab, installs and updates from them are refused, and the sessions the app starts load plugins only from your organization’s marketplaces, the organization plugins directory, the app’s own uploads and the user’s own skills folder; nothing is deleted, and removing the key or setting it to `true` restores them. Earlier releases only blocked adding marketplaces, so on devices where the key is already `false`, plugins from marketplaces users added before stop loading once the app updates.
+
+v2.9939.4
+
+2026-09-27
+
+No configuration changes in this release.
+
+v2.9939.2
+
+2026-09-24
+
+**Changed:**
+
+* `autoModeEnabled` no longer defaults to `false`. Left unset, the Code tab offers Auto mode and new Code tab sessions start in it where the model supports it; `true` does the same and also offers it in Cowork (Cowork sessions still start by asking before each action); `false` removes it from both tabs. Earlier releases treat an unset key as `false`, so Auto mode stays off on devices that have not updated.
+* `inferenceIdpOidc` and `inferenceGatewayOidc`: `resource` accepts, besides a web address, an identifier with a scheme of its own that is not a web address, such as an AD FS relying-party identifier (`urn:…`), which is sent to the identity provider exactly as written; a value with no scheme is still sent as `https://<value>`. Earlier releases accept only a web address here and ignore the whole sign-in object, not just `resource`, when it carries such an identifier, so deploy one only once every device has updated.
+
+v2.7032.0
+
+2026-09-22
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`inferenceIdpAuthFlow`](https://claude.com/docs/third-party/claude-desktop/configuration#inferenceidpauthflow) | `enum` | Identity provider sign-in flow |
+| [`inferenceIdpOidc`](https://claude.com/docs/third-party/claude-desktop/configuration#inferenceidpoidc) | `object` | Identity provider (OIDC) |
+| [`mcpScheduledTaskApprovalLifetimeDays`](https://claude.com/docs/third-party/claude-desktop/configuration#mcpscheduledtaskapprovallifetimedays) | `integer` | Scheduled-task tool approval lifetime |
+| [`keepAwakeEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#keepawakeenabled) | `boolean` | Allow keep awake |
+
+**Set in the Claude admin console only:**
+
+* [`disableLocalConfigCache`](https://claude.com/docs/third-party/claude-desktop/configuration#disablelocalconfigcache) — Keep only your organization ID and restrictions on disk
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "inference": {
+    "credential": {
+      "authFlow": "<browser|broker>",
+      "oidc": {
+        "clientId": "<string>",
+        "issuer": "<string>",
+        "authorizationUrl": "<string>",
+        "tokenUrl": "<string>",
+        "bearerTokenType": "<id_token|access_token>",
+        "scopes": "<string>",
+        "appendOfflineAccess": "<boolean>",
+        "resource": "<string>",
+        "redirectPort": "<integer>",
+        "redirectHost": "<127.0.0.1|localhost>",
+        "additionalRedirectReferrerHosts": "<string>"
+      }
+    }
+  },
+  "mcp": {
+    "scheduledTaskApprovalLifetimeDays": "<integer>"
+  },
+  "workspace": {
+    "keepAwakeEnabled": "<boolean>"
+  }
+}
+```
+
+**Changed:**
+
+* `inferenceCredentialKind` accepts `external-idp` for the gateway and Bedrock providers: users sign in through your organization’s OpenID Connect identity provider (`inferenceIdpOidc`, `inferenceIdpAuthFlow`) and the token is sent as the Bearer credential, on Bedrock to a token-validating proxy at `inferenceBedrockBaseUrl`, which that kind requires.
+
+**Deprecated** (no end date has been set; the original spellings keep working):
+
+* `inferenceCredentialKind: "interactive"` together with `inferenceGatewayOidc` (gateway): use `"external-idp"` instead once every desktop in the fleet is on 2.7032.0 or later; 2.7032.0 and later read the original spelling as `"external-idp"`.
+* `inferenceGatewayOidc`: use `inferenceIdpOidc` with `inferenceCredentialKind: "external-idp"` instead, once every desktop in the fleet is on 2.7032.0 or later.
+* `inferenceGatewayOidcAuthFlow`: use `inferenceIdpAuthFlow` together with `inferenceIdpOidc` instead, once every desktop in the fleet is on 2.7032.0 or later.
+
+v2.2553.13
+
+2026-09-21
+
+No configuration changes in this release.
+
+v2.2553.1
+
+2026-09-18
+
+No configuration changes in this release.
+
+v2.2553.0
+
+2026-09-17
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`inferenceCredentialHelperWindows`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencecredentialhelperwindows) | `string` | Helper script (Windows) |
+| [`allowedPluginMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#allowedpluginmcpservers) | `object[]` | Allowed plugin MCP servers |
+| [`builtinBrowserEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#builtinbrowserenabled) | `boolean` | Allow the built-in browser |
+| [`builtinBrowserDefaultDomainPolicy`](https://claude.com/docs/third-party/claude-desktop/configuration#builtinbrowserdefaultdomainpolicy) | `enum` | Default site policy in the built-in browser |
+| [`builtinBrowserAllowedDomains`](https://claude.com/docs/third-party/claude-desktop/configuration#builtinbrowseralloweddomains) | `string[]` | Allowed sites in the built-in browser |
+| [`builtinBrowserBlockedDomains`](https://claude.com/docs/third-party/claude-desktop/configuration#builtinbrowserblockeddomains) | `string[]` | Blocked sites in the built-in browser |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "inference": {
+    "credential": {
+      "commandWindows": "<string>"
+    }
+  },
+  "mcp": {
+    "allowedPluginServers": [
+      {
+        "serverUrl": "<string>"
+      }
+    ]
+  },
+  "builtinBrowser": {
+    "enabled": "<boolean>",
+    "defaultDomainPolicy": "<allow|block>",
+    "allowedDomains": ["<string>"],
+    "blockedDomains": ["<string>"]
+  }
+}
+```
+
+**Changed:**
+
+* `inferenceFoundryResource` now requires the user’s consent when delivered by a bootstrap URL the user configured themselves (`consentRequired`), as `inferenceFoundryBaseUrl` and the other providers’ endpoint settings already do; declining quits the app, and because the resource name is required each such Foundry install prompts once after updating. A bootstrap URL set by device management, or covered by `trustBootstrapDelivery: true`, never prompts, and values delivered by MDM are unchanged. Earlier releases apply a served value without asking.
+
+v2.110.0
+
+2026-09-15
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`inferenceCredentialHelperArgs`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencecredentialhelperargs) | `string[]` | Helper script arguments |
+| [`inferenceFoundryBaseUrl`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencefoundrybaseurl) | `string` | Azure AI Foundry base URL |
+| [`defaultModelEffort`](https://claude.com/docs/third-party/claude-desktop/configuration#defaultmodeleffort) | `enum` | Default model effort |
+| [`alwaysStartWithDefaultModel`](https://claude.com/docs/third-party/claude-desktop/configuration#alwaysstartwithdefaultmodel) | `boolean` | Always start with the default model |
+| [`modelCatalogEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogenabled) | `boolean` | Model catalog metadata |
+| [`modelCatalogUrl`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogurl) | `string` | Model catalog URL |
+| [`scheduledTasksEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#scheduledtasksenabled) | `boolean` | Allow scheduled tasks |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "inference": {
+    "credential": {
+      "args": ["<string>"]
+    },
+    "baseUrl": "<string>"
+  },
+  "models": {
+    "defaultEffort": "<low|medium|high|xhigh|max>",
+    "alwaysStartWithDefault": "<boolean>",
+    "catalogEnabled": "<boolean>",
+    "catalogUrl": "<string>"
+  },
+  "workspace": {
+    "scheduledTasksEnabled": "<boolean>"
+  }
+}
+```
+
+**Changed:**
+
+* `bootstrapOidc`, `inferenceGatewayOidc`, and `inferenceVertexWorkforceOidc` accept a new `redirectHost` value, `127.0.0.1` (the default) or `localhost`, which sets the host named in the browser sign-in’s redirect URI (`http://<host>:<port>/callback`) for identity providers that only accept `localhost`; register exactly the URI you use. Earlier releases ignore the value and keep using `http://127.0.0.1:<port>/callback`, so a `localhost`-only registration still fails sign-in on them until they update.
+* An `inferenceModels` entry accepts a new `maxEffort` value (`low`, `medium`, `high`, `xhigh`, or `max`): effort levels above it are hidden for that model in Chat, Cowork, and Code and never requested, and Code sessions are held to it; an unrecognized value caps that model at `low`. Earlier releases ignore the value and keep offering every effort level, so the cap holds only on devices running this release or later.
+* A `managedMcpServers` entry accepts a new `transport` value, `policy-only`: the entry sets `toolPolicy` for an MCP server that an installed plugin provides, matched by `name`, without the app connecting to or launching anything, and takes precedence over `orgPluginSettings` for that server in Chat, Cowork, and Code. Earlier releases drop a `policy-only` entry (it appears under Configuration parse errors in the diagnostic report) and apply `orgPluginSettings` to that server instead; if every entry in the list is `policy-only` they cannot read `managedMcpServers` at all and, until they update, leave MCP servers that users added themselves or that a project’s `.mcp.json` declares out of Code sessions. Keep the same permissions in `orgPluginSettings` while earlier releases are in use, and do not deploy a list made only of `policy-only` entries until every device has updated.
+
+v1.52386.6
+
+2026-09-13
+
+No configuration changes in this release.
+
+v1.52386.3
+
+2026-09-11
+
+No configuration changes in this release.
+
 v1.52386.0
 
 2026-09-10

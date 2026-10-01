@@ -1,48 +1,24 @@
 <!-- source: https://claude.com/customers/garvan-institute-qa -->
 
-Claude Science beta
-
-[Next](#)Next
-
-Introducing the Claude Science app, your research partner for rigorous science.
-
-Learn more
-
-[Learn more](https://claude.com/product/claude-science)Learn more
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
-
 Q&A | Claude
 
 # How the Garvan Institute is changing the way it does science with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a20a3b05a2e775b9030f21e_logo_garvan-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a20a3b4d95709c4930c47bc_logo_garvan-dark-mode.png)
+![Garvan logo](https://assets.claude.com/8ca2525dca9dc96d03f312c99c0f14ed467f4fa9.png)
 
 Industry:
-
-Beneficial Deployments
-
-Life sciences
+:   Beneficial DeploymentsLife sciences
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 20+ software engineers and data scientists
 
@@ -54,35 +30,11 @@ across research, operations, and administration
 
 Life sciences
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51e_68f2c5953b717d86cfadf9a3_og-life-science.jpeg)
+![Life sciences](https://assets.claude.com/ccdf26b0f90168b1c63679a9900fe73b88e731c6.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate science, from discovery through translation. Move faster with Claude while maintaining the accuracy your work demands.
 
-Read more
-
-[Read more](https://claude.com/solutions/life-sciences)Read more
-
-Life sciences
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Accelerate science, from discovery through translation. Move faster with Claude while maintaining the accuracy your work demands.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Life sciences
-
-Accelerate science, from discovery through translation. Move faster with Claude while maintaining the accuracy your work demands.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/solutions/life-sciences)
 
 The [Garvan Institute of Medical Research](https://www.garvan.org.au/) is one of Australia's leading biomedical research institutes, with deep expertise in genomics, immunology, and cancer. In March 2026, [Anthropic announced](https://www.anthropic.com/news/australia-MOU) a collaboration with Garvan, providing a significant investment in Claude credits to support the institute's genomics research. The institute has adopted Claude across its research and operations, and two of its senior researchers are recipients of support through Anthropic's AI for Science program: Professor Joseph Powell and Professor Daniel MacArthur (jointly based at Garvan and the Murdoch Children’s Research Institute). We spoke with Garvan's Chief Scientific Officer Professor Sarah Kummerfeld, along with Powell and MacArthur, about upcoming research breakthroughs in drug discovery and rare disease diagnosis, and how adopting Claude across the institute is changing the way their teams approach science and discovery.
 
@@ -96,11 +48,9 @@ We have enormous data resources where we've generated genomic information on ind
 
 **Powell:** We're using Claude to accelerate the way we can take those findings, identify and inform experiments, and design new treatments for the targets we've discovered. It's a dramatic speed-up in the time it takes to go from a genetic signal to a potential therapy. The acceleration we've had through the intersection of genomics and AI has gotten us to the point where I am confident that by the time that my son—who's currently in primary school—is an adult, we will have effective treatments available for the vast majority of diseases that affect society today.
 
-"We're using Claude to accelerate the way we can take those findings and design new treatments. It's a dramatic speed-up in the time it takes to go from a genetic signal to a potential therapy."
+> "We're using Claude to accelerate the way we can take those findings and design new treatments. It's a dramatic speed-up in the time it takes to go from a genetic signal to a potential therapy."
 
-Joseph Powell
-
-Professor, Garvan Institute
+Joseph PowellProfessor, Garvan Institute
 
 ## Daniel, your work focuses on getting a diagnosis to families affected by rare genetic conditions. How big is the gap right now?
 
@@ -138,37 +88,15 @@ We've been using machine learning in this space for a long time. Twenty-five yea
 
 Advancing Claude in healthcare and the life sciences
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6961abe753199c35cdc7f2a2_HCLS%20Launch%20-%20Blog%20-%20Social%20Image%20-%201200%20x%20628%20A.png)
+![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png?w=2400&q=75&fm=webp&fit=max)
 
 Transform healthcare from insight to action
 
-Read more
+[Read more](https://www.anthropic.com/news/healthcare-life-sciences)
 
-[Read more](https://www.anthropic.com/news/healthcare-life-sciences)Read more
+> "Claude Code has completely transformed the way that I work as a scientist and as a leader."
 
-Advancing Claude in healthcare and the life sciences
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Transform healthcare from insight to action
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Advancing Claude in healthcare and the life sciences
-
-Transform healthcare from insight to action
-
-"Claude Code has completely transformed the way that I work as a scientist and as a leader."
-
-Daniel MacArthur
-
-Professor, Garvan Institute
+Daniel MacArthurProfessor, Garvan Institute
 
 ### There's a common concern that AI will shrink research teams. What are you seeing?
 
@@ -184,52 +112,12 @@ For organizations, it’s easy to express excitement and support for AI, but the
 
 It’s worth noting that this isn’t easy, and may require substantial changes to things like IT governance. But I expect we will see a massive difference over the next couple of years in the output from research organizations that successfully empower their teams to use agentic tools.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Next](#)Next
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-Video caption
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)

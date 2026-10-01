@@ -8,10 +8,10 @@ But we believe safety is a shared responsibility. Our features are not failsafe,
 * For external-facing products, disclose to your users that they are interacting with an AI system.
 * For sensitive information and decision making, have a qualified professional review content prior to dissemination to consumers.
 
-We encourage you to send us feedback or specific proposals to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#8bfef8eef9f8eaedeefff2cbeae5ffe3f9e4fbe2e8a5e8e4e6). For existing commercial partners, we’d recommend [joining our Discord server](https://discord.com/invite/6PPFFzqPDZ) and exchanging ideas with fellow developers as well.
+We encourage you to send us feedback or specific proposals to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#384d4b5d4a4b595e5d4c417859564c504a5748515b165b5755). For existing commercial partners, we’d recommend [joining our Discord server](https://discord.com/invite/6PPFFzqPDZ) and exchanging ideas with fellow developers as well.
 
 * [Report, block, and remove content from Claude](https://support.claude.com/en/articles/7996906-report-block-and-remove-content-from-claude)
 * [Our Approach to User Safety](https://support.claude.com/en/articles/8106465-our-approach-to-user-safety)
-* [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
 * [Report, block, and remove content from Claude](https://support.claude.com/en/articles/10684638-report-block-and-remove-content-from-claude)
 * [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
+* [Using Claude for Legal Work: Privilege, Confidentiality, and How to Think About Configuration](https://support.claude.com/en/articles/15707726-using-claude-for-legal-work-privilege-confidentiality-and-how-to-think-about-configuration)

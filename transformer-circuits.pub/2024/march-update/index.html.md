@@ -15,6 +15,8 @@ Updates
 
 * [Research By Other Groups](#external-research)
 
+---
+
 ## [Using Features For Easy Circuit Identification](#feature-heads)
 
 Joshua Batson, Brian Chen, Andy Jones
@@ -57,6 +59,8 @@ We then looked for attention heads who produced a large direct logit effect from
 
 We hope this exercise demonstrates the utility of using SAEs to kickstart circuit analysis.
 
+---
+
 ## [Update on Dictionary Learning Improvements](#dl-update)
 
 Adly Templeton, Tom Conerly, Jonathan Marcus, and Tom Henighan
@@ -68,6 +72,8 @@ In previous updates, we’ve mentioned a number of interventions which we found 
 * Pruning features which have a decoder norm < 0.99. Other changes have led to much fewer features which are dead or have decoder norm < 0.99, such that this is no longer a meaningful improvement. (From [February](https://transformer-circuits.pub/2024/feb-update/index.html#dict-learning-loss) update)
 
 While these were improvements to the training process we used at the time, other changes have superseded them. We intend to publish these changes in a future update once we’ve vetted them further.
+
+---
 
 ## [Research By Other Groups](#external-research)
 

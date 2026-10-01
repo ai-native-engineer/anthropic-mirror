@@ -4,48 +4,35 @@
 
 In 45 minutes you'll stand up Claude Code in Amazon Bedrock, teach it your team's conventions with CLAUDE.md, and turn your everyday workflows into reusable agent skills. You'll leave with a working, team-tuned agentic dev environment on Bedrock.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-13:30 – 14:15
+:   13:30 – 14:15
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Antonio Rodriguez
 
-Antonio Rodriguez
+    Principal Solutions Architect,
 
-Principal Solutions Architect,
-
-AWS
+    AWS
 
 ## Watch recording
 
-[Play video](#)Play video
+![AI with Claude on AWS: From code to orchestration](https://assets.claude.com/a5afb5ed837b6fdc1478097ffea1b195d40484ba.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d358229b0390cf34a728_ai-with-claude-on-aws.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+AI with Claude on AWS: From code to orchestration | Session | Code w/ Claude 2026

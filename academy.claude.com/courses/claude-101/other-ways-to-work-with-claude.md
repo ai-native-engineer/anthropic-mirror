@@ -12,7 +12,7 @@ Lesson 1215 min
 
 In this lessonBy the end, you’ll be able to
 
-* Understand when to use additional Claude products including Claude Code, Claude Tag, Claude Design, Claude for Microsoft 365, and Claude in Chrome
+* Understand when to use Claude Code, Claude Tag, Claude Design, Claude for Microsoft 365, and Claude in Chrome
 
 As we mentioned at the start of this course, Claude is an intelligence. [Claude.ai(opens in new tab)](https://Claude.ai) is just one way of working with it.
 
@@ -57,14 +57,23 @@ just tag Claude in any thread.
 
 ## Claude Design[](#claude-design)
 
-Claude Design is a dedicated space for turning ideas into working interfaces. Describe what you want in plain language — or start from a sketch or screenshot — and Claude builds an interactive prototype you can refine through conversation and hand off to your team.
+Claude Design turns ideas into working interfaces. Describe what you want in plain language — or start from a sketch or screenshot — and Claude builds an interactive prototype as an artifact you can edit directly, share with your team, or hand to Claude Code to build. It works inside any conversation with Claude and in the Artifacts tab, and it's also available as a dedicated space at claude.ai/design.
 
 **When to use Claude Design:**
 
 * You want to go from a written brief, sketch, or reference screenshot to a working UI prototype without writing code
 * You're exploring design directions and want to generate and compare several variations quickly
-* You need to iterate on layout, copy, or interactions by describing the change you want rather than editing markup
+* You need to iterate on layout, copy, or interactions without editing markup — on the canvas, with a comment, or by asking (the "Creating with artifacts" lesson covers the mechanics)
 * You want a prototype that uses your team's design system, so what you hand off matches what engineering will build
+
+Availability
+
+Claude Design inside your conversations is in beta and available on paid
+plans (Pro, Max, Team, and Enterprise). On Pro and Max it's on by default.
+On Team it's on by default, and an admin can turn it off. On Enterprise an
+admin turns it on in Organization settings > Artifacts. The standalone
+claude.ai/design space has its own separate settings. The "Creating with
+artifacts" lesson covers how it fits alongside Claude Slides and Claude Docs.
 
 ## Claude for Excel[](#claude-for-excel)
 
@@ -138,13 +147,14 @@ directly within your browser.
 
 Important note
 
-Claude in Chrome is generally available. It's on by default on the Pro, Max,
-and Team plans, and on the Enterprise plan it's off by default until an org
-admin turns it on. It isn't available on the Free plan. Anthropic recommends
-using it for low-risk tasks on trusted websites. The extension asks for
-permission before taking high-risk actions like purchasing or sharing
-personal data, and certain categories of websites (financial services, adult
-content) are blocked by default.
+Claude in Chrome is generally available on all paid plans (Pro, Max, Team,
+and Enterprise); it isn't available on the Free plan. On Team and Enterprise
+plans, admins can turn it on or off for the whole organization and limit
+which sites it can access. Anthropic recommends using it for low-risk tasks
+on trusted websites. The extension asks for permission before taking
+high-risk actions like purchasing or sharing personal data, and certain
+categories of websites (financial services, adult content) are blocked by
+default.
 
 ---
 
@@ -158,7 +168,7 @@ Each of these tools extends Claude's capabilities into the specific environments
 | Claude Code | Software development, codebase navigation, git workflows | Terminal/command line, IDE, or your browser |
 | Claude Cowork | Complex, multi-step tasks: research briefs, document creation, file organization, data analysis | Desktop (plus web and mobile, in beta, on eligible plans) |
 | Claude Tag | Team collaboration, meeting prep, quick answers in context | Slack workspace |
-| Claude Design | UI prototypes, design exploration, design-system-aware mockups | Web |
+| Claude Design | UI prototypes, design exploration, design-system-aware mockups | Any conversation with Claude (paid plans), plus claude.ai/design |
 | Claude for Microsoft 365 | Editing in place and carrying context across documents | Excel, PowerPoint, Word, and Outlook sidebars |
 | Claude in Chrome | Web research, email management, browser automation | Chrome browser sidebar |
 

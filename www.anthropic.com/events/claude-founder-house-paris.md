@@ -94,8 +94,6 @@ Watch sessions
 
 Add to calendar
 
-![]()
-
 ## Claude Founder House Paris
 
 Add to calendar
@@ -256,7 +254,7 @@ Director, Station F
 
 ## Agenda
 
-* Jul 22
+* 22 Jul
 
 Day 1Day 2Day 3Day 3
 

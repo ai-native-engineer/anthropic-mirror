@@ -12,7 +12,7 @@
 
 아래에서 `PY=~/.local/share/uv/tools/crawl4ai/bin/python`, `S=.agents/skills/anthropic-mirror/scripts`로 둔다.
 
-1. `$PY $S/login-academy.py` (사람, 헤드풀): 로그인(academy는 이메일+비밀번호, 인스턴스마다 다를 수 있음) -> 루트 재확인 -> 쿠키 저장.
+1. `$PY $S/login-academy.py` (사람, 헤드풀) 또는 `agents-env run --local SKILLJAR_EMAIL SKILLJAR_PASSWORD -- $PY $S/login-academy.py --auto` (이메일·비밀번호 폼 인스턴스): 로그인 -> 루트 재확인 -> 쿠키 저장.
 2. `$PY $S/academy-video.py <out_dir> [course-slug ...]` (AI): 모든 레슨을 렌더해 본문 hash와 모든 영상 ID를 검사 -> 달라진 본문과 새 clip만 저장·전사. 본문·자막이 없어도 catalog lesson ID마다 source stub을 남긴다.
 3. `academy-extract.py`는 영상 검사가 필요 없는 부분 본문 점검용이다. 기본 전체 갱신에서는 같은 레슨을 두 번 읽지 않도록 실행하지 않는다.
 4. 출력은 `<out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md`로 저장한다(A 트랙과 같은 `<도메인>/<경로>` 트리).
@@ -22,7 +22,7 @@
 
 코스는 세 종류다 — 순수 텍스트(claude-code-in-action·introduction-to-subagents), 순수 영상(api·bedrock·vertex·mcp 계열), **하이브리드**(텍스트 래퍼 + youtube 영상: ai-fluency 계열·claude-101·introduction-to-claude-cowork·introduction-to-agent-skills·ai-capabilities-and-limitations·teaching-ai-fluency·claude-code-101·platform-101·builders 등). 하이브리드가 다수다.
 
-- **코스를 텍스트/영상으로 미리 분류해 academy-video를 일부 코스만 돌리는 짓 금지.** 과거 이 분류표가 하이브리드를 "텍스트 코스"로 묶어 ~10개 코스·63개+ 레슨의 youtube 자막이 통째로 빠졌다.
+- **코스를 텍스트/영상으로 미리 분류해 academy-video를 일부 코스만 돌리지 않는다.** 하이브리드 코스가 "텍스트 코스"로 묶이면 그 코스들의 youtube 자막이 통째로 빠진다.
 - 기본 워크플로는 **academy-video를 모든 코스에 돌린다.** 한 번의 렌더 순회에서 본문과 영상 ID를 함께 검사하며, 영상 없는 레슨과 기존 영상 ID는 no-op이다.
 - 기본 실행은 모든 코스와 레슨을 검사한다. 중복 판단은 source URL이나 파일 존재가 아니라 정제된 본문 내용과 영상 ID로 한다. 기존 레슨에 새 클립이 붙으면 새 영상 ID만 전사한다.
 - 코스 목록은 카탈로그(`/`) HTML의 단일 세그먼트 링크로 자동 수집된다. 미등록 코스는 레슨이 잠겨 0개로 나오니(`0 lessons listed`), 사용자가 등록 후 그 코스만 다시 추출한다.
@@ -30,7 +30,12 @@
 ## 함정
 
 - **crwl profiles의 CDP 버그**: `crwl profiles create`가 `ECONNREFUSED ::1:9222`로 실패한다. macOS `/etc/hosts`의 `::1 localhost` + crawl4ai가 `http://localhost:9222`를 IPv6로 해석하는데 Chrome은 IPv4에만 바인드하기 때문. -> login-academy.py가 playwright persistent context로 직접 로그인해 우회.
-- **쿠키 만료가 빠르다**: 만료되면 코스 페이지가 비로그인 미리보기를 반환하고 lesson ID가 `02`·`03` 같은 순번으로 나온다(실제는 287722 같은 6자리). academy-extract.py가 6자리+만 필터하고 로그인 여부(`auth/logout` 존재)를 먼저 확인한다. 비로그인이면 login-academy.py 재실행.
+- **쿠키 만료가 빠르다**: 만료되면 코스 페이지가 비로그인 미리보기를 반환하고 lesson ID가 `02`·`03` 같은 순번으로 나온다(실제는 287722 같은 6자리). 스크립트는 5자리 이상 ID만 쓰고, 로그인 여부는 `/accounts/`가 로그인 페이지로 이동하는지로 판정한다(`sj_sessionid`와 `auth/logout` 문자열은 비로그인에도 있다).
+- **인증 실패는 fail-closed다**: 세션이 없거나 만료되면 레슨을 쓰지 않고 exit 3으로 멈춘다. 경고 후 exit 0으로 끝나면 호출자가 갱신 완료로 오판하고, 만료 세션으로 받은 코스 랜딩이 레슨 본문으로 저장된다. 종료 코드 전체는 `crawl-notes.md`의 Academy 인증 실패 조건을 따른다.
+- **본문 없는 레슨은 상태를 명시한다**: 퀴즈·과제처럼 렌더해도 텍스트가 없는 레슨은 제목만 남기지 않고 `_(본문 없는 레슨: 퀴즈·과제처럼 추출할 텍스트가 없음)_`을 쓴다. 제목만 있는 기존 stub은 다음 인증 실행에서 이 마커로 바뀐다.
+- **세션 복구**: `anthropic.skilljar.com`처럼 이메일·비밀번호 폼인 인스턴스는 repo 로컬 `.env`(gitignored)의 `SKILLJAR_EMAIL`·`SKILLJAR_PASSWORD`로 자동 재로그인한다. `refresh.sh`는 두 키가 있으면 `agents-env run --local`로 주입하고, `academy-video.py`는 시작 시 비로그인이거나 수집 중 만료되면 `login-academy.py --auto`(헤드리스, Remember me)를 한 번 실행해 같은 코스를 다시 돈다. 그래도 실패하면 exit 3이다. 세션은 로그인 후 약 1시간 안에 끊길 수 있어 사람 로그인과 수집 사이 간격을 두면 중간에 멈춘다. 파트너 포털처럼 SSO만 있는 인스턴스와 키가 없는 환경은 사람이 `$PY $S/login-academy.py`(partner는 `SKILLJAR_BASE=https://anthropic-partners.skilljar.com` 추가)를 사용자 터미널에서 실행하고 `--check-auth`가 0인지 확인한다. `!` 실행은 stdin이 없어 Enter 대기가 바로 끝나므로 Terminal 창에서 연다.
+- **개편된 레슨은 예시를 iframe으로 넣는다**: `academy.claude.com/embed/...` iframe 안의 인터랙티브 예시는 본문 frame에 없다. `rendered_body`가 그 frame 본문을 `<!-- embed: URL -->` 아래에 덧붙인다. 탭으로 넘기는 예시는 펼쳐진 첫 화면만 잡힌다.
+- **본문 안 채팅 버튼 메뉴는 버린다**: `.lp__chat-combo`("Open in Claude", "Copy notes")는 레슨 본문 컨테이너 안에 있어 지우지 않으면 모든 레슨 머리에 붙는다. `verify-publish.py`가 남은 메뉴를 문제로 잡는다.
 - **브라우저 크롤이 느리다**: skilljar 레슨 페이지가 1MB라 브라우저는 페이지당 12-18초. `text_mode=True`로 3초까지 줄지만, httpx 병렬(브라우저 없음)이 더 빠르고 안정적이다.
 - **본문 셀렉터는 가장 긴 후보를 고른다(첫 매칭 금지)**: 영상 코스 레슨은 `.course-text-content`가 "Video" 5자뿐이고 실제 본문은 `article`/`#lesson-main-content`에 있다(claude-code-101 article 2562자). `or` 체인으로 첫 매칭만 쓰면 본문을 통째로 놓친다 -> `.course-text-content`/`.clp__main-content`/`#lesson-main-content`/`article` 중 **가장 긴 것**을 본문으로 쓴다.
 - **영상 코스는 placeholder가 거짓 캡처된다**: 영상 레슨 본문 컨테이너에 `This video is still being processed`(약 218자) placeholder가 들어 50자 필터를 통과한다. academy-extract.py가 이 마커로 스킵하므로 captured에 안 잡힌다 -- captured 숫자만으로 텍스트 코스를 판단하지 말 것.
@@ -38,14 +43,14 @@
 
 ## 영상 코스 전사 (academy-video.py)
 
-영상 코스는 **본문 + 자막을 한 파일에** 둔다(claude-code-101/platform/builders는 영상 + `article` 본문 = 자막보다 깨끗한 글). 워크플로: (1) academy-extract로 텍스트 본문 추출 -> (2) academy-video가 마커 + 전사를 붙인다(멱등: 마커가 이미 있으면 skip) -> (3) render-video-refs가 발행 형태(썸네일 + 접이식 `<details>` 자막)로 렌더. 본문이 없는 순수 영상 코스(MCP, bedrock/vertex/api)는 자막만 쓴다. 플레이어가 코스마다 다르다:
+영상 코스는 **본문 + 자막을 한 파일에** 둔다(claude-code-101/platform/builders는 영상 + `article` 본문 = 자막보다 깨끗한 글). 워크플로: (1) academy-video가 렌더한 본문을 쓰고 마커 + 전사를 붙인다(멱등: 마커가 이미 있으면 skip, 본문은 파일의 마커 앞부분과 비교해 달라질 때만 교체) -> (2) render-video-refs가 발행 형태(썸네일 + 접이식 `<details>` 자막)로 렌더. 본문이 없는 순수 영상 코스(MCP, bedrock/vertex/api)는 자막만 쓴다. 플레이어가 코스마다 다르다:
 
 - **목차 레슨 ID는 httpx SSR로 잡는다** -- 일부 코스(ai-fluency-for-builders)는 playwright 렌더가 목차 링크를 비운다. 영상 ID/자막은 레슨별 playwright로.
 - **youtube 코스/하이브리드**: 레슨별 youtube ID는 playwright로 렌더 후 "보이는 iframe"(width/height>50)에서 잡는다(httpx raw엔 코스 전체 embed가 섞임, `EAP_VIDEO_ID`는 공통 기본값이라 무시). **iframe 렌더가 1800ms보다 늦는 레슨이 있어** goto 직후 `wait_for_selector("iframe[src*=youtube], .jw-video, video", 7s)`로 플레이어 등장을 기다린 뒤 잡는다(고정 대기만 쓰면 하이브리드 레슨이 간헐 누락). 진짜 텍스트 레슨은 타임아웃 후 통과. 자막은 **youtube-digest의 `extract_transcript.sh`(크롬 쿠키로 429 회피 + 수동자막 우선 en-orig>en>ko)로 받는다 -- raw yt-dlp 직접 호출 금지**(youtube 자막 추출의 정본).
 - **JWPlayer 코스**(MCP 등): youtube iframe이 없고 `<video src="blob:">`로 재생. 재생 트리거 후 `jwplayer().getPlaylistItem().tracks`의 English captions `.srt`(수동 제작, 고품질)를 다운로드한다(cdn.jwplayer.com, urllib이 301 follow).
 - **JWPlayer captions 없음**(partner webinar 등): tracks에 English captions가 없고 thumbnails만 있으면 media ID(`manifests/<ID>.m3u8` 또는 `botr_<ID>_`)를 잡아 `yt-dlp -x`로 오디오를 받고 `apple-stt -l en-US`로 전사한다. 마커는 `<!-- jwplayer: <ID> -->`. yt-dlp/apple-stt가 PATH에 없으면 스킵하고 pending 주석만 남긴다.
 - 실행: `$PY $S/academy-video.py <out_dir> [course-slug ...]` -> `<out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md`(slug 생략 시 전체 코스, academy-extract와 같은 트리, `<!-- youtube: ID -->` 또는 `<!-- jwplayer-srt: URL -->` 주석).
-- **코스마다 자식 프로세스로 돌고, 무진행이면 강제 종료한다.** Playwright driver가 응답을 멈추면 `goto` 밖의 `await`(`wait_for_selector`, `evaluate`, `click`)까지 같이 멈춰 파이프라인 전체가 선다 -- 2026-08-17·08-21·08-22 갱신에서 재발했고 `goto`에만 붙인 `asyncio.wait_for`로는 못 막는다. 부모는 코스 목록만 만들고 코스당 자식(`ACADEMY_ONE_SHOT=1`)을 새 세션으로 띄운다. 자식은 레슨·전사마다 `ACADEMY_HEARTBEAT` 파일을 갱신하고, 부모는 그 mtime이 `ACADEMY_STALL_SECONDS`(기본 2100)를 넘기면 `killpg`로 프로세스 그룹(node driver·chromium 포함)을 정리한다. 임계값 2100s는 heartbeat 없이 정상적으로 가장 오래 걸리는 구간(`fetch_jw_stt`의 apple-stt 1800s)보다 길게 잡은 값이다. 코스당 1회 재시도하고, 끝내 멈춘 코스는 `[!] 무진행으로 건너뛴 코스:`로 알린 뒤 삭제 없이 다음 실행으로 넘긴다(종료코드 0 유지 -- 코스 하나 때문에 이후 YouTube/PDF/검증 단계를 버리지 않는다).
+- **코스마다 자식 프로세스로 돌고, 무진행이면 강제 종료한다.** Playwright driver가 응답을 멈추면 `goto` 밖의 `await`(`wait_for_selector`, `evaluate`, `click`)까지 같이 멈춰 파이프라인 전체가 선다. `goto`에만 붙인 `asyncio.wait_for`로는 막지 못한다. 부모는 코스 목록만 만들고 코스당 자식(`ACADEMY_ONE_SHOT=1`)을 새 세션으로 띄운다. 자식은 레슨·전사마다 `ACADEMY_HEARTBEAT` 파일을 갱신하고, 부모는 그 mtime이 `ACADEMY_STALL_SECONDS`(기본 2100)를 넘기면 `killpg`로 프로세스 그룹(node driver·chromium 포함)을 정리한다. 임계값 2100s는 heartbeat 없이 정상적으로 가장 오래 걸리는 구간(`fetch_jw_stt`의 apple-stt 1800s)보다 길게 잡은 값이다. 코스당 1회 재시도하고, 끝내 멈춘 코스는 삭제 없이 status 파일에 `refresh_pending`으로 남긴 뒤 나머지 코스를 계속하고 exit 5로 끝난다. `refresh.sh`는 이 실패를 마지막까지 미뤄 YouTube/PDF/검증 단계는 실행하되 전체를 non-zero로 끝낸다. 자식이 exit 3(세션 만료)을 내면 이후 코스도 모두 랜딩으로 튕기므로 재시도 없이 즉시 멈춘다.
 - **전사는 flowing 문장** -- `cap_to_text`가 자막 큐(3~6 단어)를 줄바꿈 없이 공백으로 합쳐 OpenAI academy처럼 읽히는 문단을 만든다(33자 하드랩 금지). 자동자막(en) 원본의 ASR 오인식(예: "context"->"contacts")은 그대로 남는다 -- 미러 충실성을 위해 의미 재작성은 하지 않는다(수동자막이 있으면 extract_transcript.sh가 우선 사용).
 - **발행 형태는 render-video-refs.py 단일 표준이다 — 추출 스크립트는 [마커 + 전사]만 남기고 썸네일·`<details>`를 직접 만들지 않는다.** 커스텀 포맷(예: `### [영상] 제목`, 펼친 전사, 직접 박은 `<details>`)을 쓰면 렌더러가 못 잡아 스타일이 어긋난다. 마커 + 펼친 전사만 두면 후처리 `~/.agents/skills/shared/crawl/scripts/render-video-refs.py`가 마커 아래에 [영상 임베드 + 접이식 `<details><summary>자막: 제목</summary>`]를 통일 생성한다(멱등: 이미 `<summary>자막`이면 skip, 옛 `## 자막 (영상 전사)`·펼친 포맷도 마이그레이션). 지원 마커:
   - `<!-- youtube: <11자ID> -->` -> YouTube 썸네일(`img.youtube.com/vi/ID/hqdefault.jpg`) + watch 링크

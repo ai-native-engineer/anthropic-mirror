@@ -46,7 +46,7 @@ Salesforce
 
 Read call notes logged to the opportunity so the themes tie back to accounts.
 
-Custom connector
+[Connect](https://claude.ai/desktop/directory/salesforce-headless-360)
 
 ![](images/a3bfc5814bd6a3e2.svg)
 
@@ -156,7 +156,7 @@ Sales plugin
 
 Your tools
 
-Gong![](images/a3bfc5814bd6a3e2.svg)Google Drive
+![](images/764fa5af07f936df.svg)SalesforceGong![](images/a3bfc5814bd6a3e2.svg)Google Drive
 
 Your workspace
 

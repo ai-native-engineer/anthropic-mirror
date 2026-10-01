@@ -4,63 +4,15 @@ Case study | Claude Code
 
 # How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9368f2bd228e7080695d_logo_shopify-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da936caa7913237c0589f4_logo_shopify-dark.svg)
+![Shopify logo](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
 Introducing Claude Code
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Introducing Claude Code](https://assets.claude.com/56575a2d86ba511e0095b0cb9a92cafe7079c820.jpg?w=2400&q=75&fm=webp&fit=max)
 
 See Claude Code in action—from concept to commit in one seamless workflow.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Introducing Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-[Next](#)Next
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-Introducing Claude Code
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Shopify](https://www.shopify.com/) powers commerce for millions of businesses worldwide, from first-time entrepreneurs to enterprise brands. The platform makes it simple for anyone to start, run, and grow a business through online stores, brick-and-mortar locations, and everything in between.
 
@@ -106,64 +58,22 @@ For millions of merchants worldwide, Sidekick represents more than technological
 
 ## How Shopify uses Claude Code reflexively
 
-While Sidekick transforms the merchant experience, Claude Code is a key driver shaping  how Shopify employees build and deploy internal tools. The entire organization has [embraced reflexive AI usage](https://x.com/tobi/status/1909251946235437514?lang=en), with engineers and non-engineers alike creating sophisticated applications in minutes rather than days.
+While Sidekick transforms the merchant experience, Claude Code is a key driver shaping how Shopify employees build and deploy internal tools. The entire organization has [embraced reflexive AI usage](https://x.com/tobi/status/1909251946235437514?lang=en), with engineers and non-engineers alike creating sophisticated applications in minutes rather than days.
 
 "Claude Code has transformed how we build internal tools at Shopify," McNamara explained. "It's pretty heavily used across the company because it integrates directly with our platform for standing up tools. The speed is just crazy—I can build things so much faster now." This integration has helped democratize tool creation across the company—employees who aren't front-end developers can now build professional interfaces and workflows that previously required specialized expertise.
 
 As McNamara adds, observed, "Everyone is way more efficient just from using these models—not just in terms of coding but also content creation, email writing, and countless other use cases."
 
-"Claude Code has transformed how we build internal tools at Shopify."
+> "Claude Code has transformed how we build internal tools at Shopify."
 
-Andrew McNamara
+Andrew McNamaraDirector of Applied AI, Shopify
 
-Director of Applied AI, Shopify
+[![Reversia](https://assets.claude.com/86b324fdb04166c3b115b1cf48071e52e83d08cf.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-[Next](#)Next
+### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![L'Oreal](https://assets.claude.com/206c93e387b69b9a7fe23c7b2d3d33d66bc0fc60.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
-
-Reversia translates e-commerce stores across 110+ languages with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/reversia)Customer story
-
-[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten-qa)Customer story
-
-[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
-
-Rakuten accelerates development with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten)Customer story
-
-[L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)L'Oréal advances conversational analytics with Claude
-
-L'Oréal advances conversational analytics with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/loreal)Customer story
+### L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)

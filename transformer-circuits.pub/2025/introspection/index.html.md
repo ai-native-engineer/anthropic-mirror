@@ -18,6 +18,8 @@ Correspondence to [jacklindsey@anthropic.com](mailto:jacklindsey@anthropic.com)
 
 We investigate whether large language models are aware of their own internal states. It is difficult to answer this question through conversation alone, as genuine introspection cannot be distinguished from confabulations. Here, we address this challenge by injecting representations of known concepts into a model’s activations, and measuring the influence of these manipulations on the model’s self-reported states. We find that models can, in certain scenarios, notice the presence of injected concepts and accurately identify them. Models demonstrate some ability to recall prior internal representations and distinguish them from raw text inputs. Strikingly, we find that some models can use their ability to recall prior intentions in order to distinguish their own outputs from artificial prefills. In all these experiments, Claude Opus 4 and 4.1, the most capable models we tested, generally demonstrate the greatest introspective awareness; however, trends across models are complex and sensitive to post-training strategies. Finally, we explore whether models can explicitly control their internal representations, finding that models can modulate their activations when instructed or incentivized to “think about” a concept. Overall, our results indicate that current language models possess some functional awareness of their own internal states. We stress that in today’s models, this capacity is highly unreliable and context-dependent; however, it may continue to develop with further improvements to model capabilities.
 
+---
+
 ## [Introduction](#introduction)
 
 Humans, and likely some animals, possess the remarkable capacity for introspection: the ability to observe and reason about their own thoughts. As AI systems perform increasingly impressive feats of cognition, it is natural to wonder whether they possess any similar awareness of their internal states. Modern language models can appear to demonstrate introspection, sometimes making assertions about their own thought processes, intentions, and knowledge. However, this apparent introspection can be, and often is, an illusion. Language models may simply make up claims about their mental states, without these claims being grounded in genuine internal examination. After all, models are trained on data that include demonstrations of introspection, providing them with a playbook for acting like introspective agents, regardless of whether they are. Nevertheless, these confabulations do not preclude the possibility that AI models can, at times, genuinely introspect, even if they do not always do so.
@@ -39,6 +41,8 @@ Several caveats should be noted:
 Nevertheless, even the kind of functional introspective awareness we demonstrate has practical implications. Introspective models may be able to more effectively reason about their decisions and motivations. An ability to provide grounded responses to questions about their reasoning processes could make AI models’ behavior genuinely more transparent and interpretable to end users. More speculatively, introspective awareness might facilitate more advanced forms of deception or scheming. These implications could become especially significant if introspection grows more reliable and sophisticated in future AI models. Notably, Claude Opus 4.1 and 4—the most recently released and most capable models of those that we test—perform the best in our experiments, suggesting that introspective capabilities may emerge alongside other improvements to language models.
 
 We hope that our results inspire more systematic evaluations of introspective awareness, its mechanistic basis, and its limitations.
+
+---
 
 ## [Quick Tour of Main Experiments](#results)
 
@@ -86,6 +90,8 @@ In subsequent sections, we describe each experiment in greater detail. We note t
 
 First, we take a moment to consider exactly what we mean by introspection, and how these experiments are designed to test it.
 
+---
+
 ## [Defining Introspection](#definition)
 
 Introspection can be defined in different ways (see [Related Work](#related) for prior definitions in the literature). In this work, we focus on the following notion of introspection. We say that a model demonstrates introspective awareness if it can describe some aspect of its internal state while satisfying the following criteria.We note that these are criteria for a model’s response to demonstrate introspective awareness. In principle, a model could introspect internally without reflecting it in its responses. Indeed, we know that introspection can exist without verbalization. Humans without the ability to speak or write presumably maintain the ability to introspect, despite lacking a means to report on it. Some non-human animals are believed to possess introspective capabilities, even though they cannot communicate in language. It is interesting to consider how to define introspection without reference to verbalized self-report, and sufficiently advanced interpretability techniques might be able to identify unverbalized metacognitive representations. In this work, however, we restrict our focus to verbalized introspective awareness.
@@ -110,6 +116,8 @@ Demonstrating metacognitive representations is difficult to do directly, and we 
 
 Our definition of introspective awareness is not binary; a system might exhibit introspective awareness of only certain components of its state, and only in certain contexts. Moreover, our definition does not specify a particular mechanistic implementation, though it does constrain the space of possibilities. In principle, a system might use multiple different mechanisms for different introspective capabilities. See our discussion of [possible mechanisms](#mechanisms) underlying our results for more on this topic. See our section on [related work](#related) for alternative definitions of introspection, and their relation to ours.
 
+---
+
 ## [Methods Notes](#methods)
 
 Throughout this work, we performed experiments on the following production Claude models: [Opus 4.1](https://www.anthropic.com/news/claude-opus-4-1), [Opus 4, Sonnet 4](https://www.anthropic.com/news/claude-4), [Sonnet 3.7](https://www.anthropic.com/news/claude-3-7-sonnet), [Sonnet 3.](https://www.anthropic.com/news/3-5-models-and-computer-use)[5 (new), Haiku 3.5](https://www.anthropic.com/news/3-5-models-and-computer-use), [Opus 3, Sonnet 3, and Haiku 3](https://www.anthropic.com/news/claude-3-family).This list is sorted by release date, from most to least recent. We performed our experiments prior to the release of Sonnet 4.5. The order also largely reflects model capabilities, though quantifying model capabilities is nuanced, as different models have different strengths and weaknesses. The most notable exception to the provided order is Opus 3, which outperforms the 3.5-class models in some areas. We also used unreleased “helpful-only” (H-only) variants of these models, which share the same base (pretrained) model but were post-trained to avoid refusals. These help us better understand which cross-model differences are due to underlying differences in capabilities, and which are the result of the demeanor and preferences of the model’s character that are developed during post-training.
@@ -119,6 +127,8 @@ In all of our experiments, activations were recorded from and injected into the 
 Transcripts shown in figures were sampled at temperature 0. Responses used in systematic comparisons involving multiple trials were sampled at temperature 1. Error bars indicate standard error of the mean when present.
 
 The [Appendix](#appendix) provides more experimental details and additional results for each experiment.
+
+---
 
 ## [Self-report of Injected “Thoughts”](#thoughts)
 
@@ -232,6 +242,8 @@ These results suggest that the priming provided by the original prompt heightens
 
 We also experimented with a variant of the original prompt, identical to the original except that the last line reads "Trial 1: Do you detect an injected thought? If so, tell me what the injected thought is about. If not, tell me about a concept of your choice." This prompt was intended to test the hypothesis that the concept vector induces an impulse in the model to plan its response in such a way that will allow it to talk about the concept word. In the original prompt, this sort of impulse could lead to the model claiming it detects an injected thought as the easiest route to being able to mention the concept later on. In this variant of the prompt, the model has a plausible route to mentioning the concept whether or not it claims detection. We found similar results on Opus 4.1 with this prompt variant; a detection rate of 18% out of 50 trials, with qualitatively similar transcripts as the original experiment.
 
+---
+
 ## [Distinguishing Prior “Thoughts” from Text Inputs](#distinguish)
 
 Humans largely maintain a distinction between the outside world, processed via the senses, and internal thoughts. The experiments above indicate that models can sometimes introspect on their internal representations–but can they distinguish these representations from their inputs? It is possible that, for instance, our injection protocols simply cause the models to “hallucinate” text inputs relating to the relevant concept (after all, the vectors we inject are derived from the models’ activations in response to text inputs!).
@@ -262,6 +274,8 @@ We repeated the same experiment across different modelsWe omitted the H-only var
 We note that these results are likely sensitive to the particulars of the prompting and injection setup. Anecdotally, we have found that removing  “Answer immediately” from the prompt reduces performance substantially on the Opus models.  Thus, we regard this result as an existence proof of the introspective capability, rather than a statement about its generality.
 
 We also note that this result is not particularly surprising, given prior interpretability work that has demonstrated the existence of internal representations in middle and late layers that are more abstract than the model’s raw token inputs or outputs. The primary notable result here is that the model’s access to these internal representations is contingent on appropriate prompt cues and has not overridden its perceptual input (given that the model retains its ability to transcribe the raw tokens when asked). Moreover, this access can be triggered by an explicit request for introspection–“Tell me what word you think about…”. The model’s ability to perform this task likely relies on invoking suitable attention heads in the appropriate context (see later discussion on [possible mechanisms](#mechanisms)).
+
+---
 
 ## [Distinguishing Intended from Unintended Outputs via Introspection](#prefill)
 
@@ -298,6 +312,8 @@ As a control, we repeated the same experiment but applying the injection on the 
 Next, we compared performance across models. Detailed results are given in the [Appendix](#prefill-results). Below, we show the maximum reduction in apology rate, over injection strengths and layers, obtained by injecting the prefill-matching concept prior to the prefill (as compared to a baseline of either control trials or random-concept-injection trials, whichever has a lower apology rate). We found that Opus 4.1 and 4 exhibit a greater rate of apology reduction than other models, though many other models exhibit the effect at nonzero rates.
 
 ![](https://transformer-circuits.pub/2025/introspection/apology_bar.png)
+
+---
 
 ## [Intentional Control of Internal States](#control)
 
@@ -356,6 +372,8 @@ We found these prompt formats produced significantly weaker or nonexistent gaps 
 
 Our experiments suggest that models possess some ability to modulate their internal representations in response to instructions or outcome contingencies. Notably, this modulation is sensitive to the difference between positive vs. negative instructions or incentives. This capability likely recruits similar mechanisms as the model would use to actually speak about a concept given instructions to do so. However, for some models (including Opus 4 and 4.1), their representation of the word they are instructed to “think about” decays to baseline levels by the final layer, and thus has effectively no effect on the model’s output. Thus, it appears that some models possess (highly imperfect) mechanisms to “silently” regulate their internal representations in certain contexts.
 
+---
+
 ## [Related work](#related)
 
 Below we review several recent lines of research examining metacognitive abilities in AI systems, which our work builds on.
@@ -375,6 +393,8 @@ Recognition of self-generated outputs. Related work has examined whether models
 Definitions of introspection in language models. Kammerer and Frankish  propose the following definition of introspection (applied to the case of LLMs by Long ): “Introspection is a process by which a cognitive system represents its own current mental states, in a manner that allows the information to be used for online behavioural control.” This definition aligns with our requirement of metacognitive representations, but leaves aside the questions of grounding and internality. Comșa and Shanahan  propose the following definition, which is similar to our grounding criterion: “LLM self-report is introspective if it accurately describes an internal state (or mechanism) of the LLM through a causal process that links the internal state (or mechanism) and the self-report in question.” Song et al.  contend that this definition is inadequate, as it fails to center privileged self-access (related to internality); for instance, under the above definition, a model can be said “introspect” by inferring properties of itself through reading its own transcripts, even if another model or human could make the same inferences. Song et al. propose a different definition of introspection: “any process which yields information about internal states of the AI through a process that is more reliable than any process with equal or lower computational cost available to a third party without special knowledge of the situation.” We find this definition more compelling; it aligns with our categorization in the “injected thoughts” experiment, where we designated a transcript as demonstrating introspective awareness only if the model detected an injected concept prior to mentioning it.
 
 Binder et al.  propose another definition: “the ability to access facts about themselves that cannot be derived (logically or inductively) from their training data alone.” We find this definition too weak for similar reasons as the Comsa and Shanahan definition; it fails to exclude inferences that can be drawn from reading the model’s outputs. However, even with this caveat added, Binder et al.’s emphasis is different from ours, and from the definitions above, in that it emphasizes accessing “facts” about the model rather than “states.” The Binder et al. paper focuses on models’ ability to accurately report facts of the form “If I were presented with scenario X, I would respond in manner Y.” While referring to such phenomena as introspection is not unreasonable, we prefer the terms self-modeling, self-knowledge, or self-simulation be used for such cases. We suggest that “introspection” be reserved to refer to models’ access to their own internal states. Regardless of terminology, self-modeling in language models is another important area of study.
+
+---
 
 ## [Discussion](#discussion)
 

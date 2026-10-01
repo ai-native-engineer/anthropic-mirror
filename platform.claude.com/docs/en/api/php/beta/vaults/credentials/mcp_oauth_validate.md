@@ -17,7 +17,11 @@ Validate Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to validate.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -25,9 +29,13 @@ Validate Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `ManagedAgentsCredentialValidation`
+- `class ManagedAgentsCredentialValidation`
 
   - `Type type`
 
@@ -41,19 +49,19 @@ Validate Credential
 
   - `?ManagedAgentsMCPProbe mcpProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
   - `?ManagedAgentsRefreshObject refresh`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
   - `ManagedAgentsCredentialValidationStatus status`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
   - `\Datetime validatedAt`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
   - `string vaultID`
 

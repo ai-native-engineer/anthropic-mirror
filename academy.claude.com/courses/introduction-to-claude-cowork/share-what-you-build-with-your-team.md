@@ -28,7 +28,7 @@ Inside a larger company, the recommended way to share a plugin is through your o
 In practice, distribution is a hand-off. You bring the plugin to whoever owns the marketplace for your org — that might be a team lead, an enablement or operations owner, or IT — and they publish it. When they do, they choose how it lands for everyone else:
 
 * Available — it appears in the company Directory and people can install it if they want it.
-* Installed by default — it's already there when people open Cowork; they can turn it off.
+* Installed by default — it's already installed for everyone; they can turn it off.
 * Required — it's installed and stays on; useful for things like compliance checks that everyone needs to run the same way.
 
 From your teammates' seat, the plugin simply shows up in their Directory labeled as coming from your company, alongside the public Anthropic ones. They can use it and turn it off (unless it's required), but they can't edit it — updates flow from whoever maintains it.

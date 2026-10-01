@@ -53,7 +53,7 @@ For your safety, Claude cannot access sensitive, high-risk sites such as:
 
 Claude asks for permission before accessing financial sites.
 
-It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#2e5b5d4b5c5d4f484b5a576e4f405a465c415e474d004d4143).
+It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#f184829483829097948588b1909f8599839e819892df929e9c).
 
 ---
 
@@ -125,8 +125,8 @@ These controls add an extra layer of protection beyond Claude's default safeguar
 
 For admin documentation, see **[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-for-chrome-admin-controls)**.
 
+* [Get started with Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)
 * [Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting)
 * [Claude in Chrome permissions guide](https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400-use-the-built-in-browser-in-claude-cowork)

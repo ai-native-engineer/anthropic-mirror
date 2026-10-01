@@ -1,34 +1,26 @@
 <!-- source: https://claude.com/customers/grab -->
 
+[Skip to main content](#main-content)
+
 Case study | Claude Platform
 
 # Grab scales personalized merchant support across Southeast Asia with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Grab logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c33a06e3921c5cfd2a6976_cs-logo-grab-light-theme.svg)![Grab logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c33a08a2fb97639de07f10_cs-logo-grab-dark-theme.svg)
+![Grab logo](https://assets.claude.com/5feddc4c315485f4b844e6fa904f57f8dd2778eb.svg)
 
 Industry:
-
-Ecommerce
+:   Ecommerce
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 5.7pp increase
 
@@ -37,42 +29,6 @@ in merchant issue resolution rate
 25% reduction
 
 in negative merchant sentiment
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Grab, Southeast Asia's leading super-app, uses Claude to democratize business consulting for millions of merchant partners. With their Merchant AI Assistant, Grab gives businesses and everyday entrepreneurs access to the kind of expert guidance traditionally available only to large enterprises.
 
@@ -112,7 +68,7 @@ The AI Assistant functions like a dedicated business consultant available around
 
 This approach transforms the Assistant from a simple help desk into a true business advisor that understands each merchant's unique context and goals.
 
-![Grab product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04e8e0e3ef8b304a12a_450dd184dbb318b963a5dd3199235cf70ed1f159-1920x1080.jpeg)
+![Grab product screen](https://assets.claude.com/9f03cacb979aca061eb205a9daa407473bdada9b.jpg)
 
 ## Driving business growth across the region
 
@@ -128,52 +84,12 @@ Grab sees Claude as the long-term foundation for their merchant support ecosyste
 
 The company's mission extends beyond technology to economic empowerment, ensuring that small and medium-sized businesses across the region as well as everyday entrepreneurs have access to the same quality recommendations and insights that drive success in the digital economy.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Reversia](https://assets.claude.com/86b324fdb04166c3b115b1cf48071e52e83d08cf.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-[Next](#)Next
+### Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-Video caption
+### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
-
-Reversia translates e-commerce stores across 110+ languages with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/reversia)Customer story
-
-[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten-qa)Customer story
-
-[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
-
-Rakuten accelerates development with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten)Customer story
-
-[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-Customer story
-
-[Customer story](https://claude.com/customers/shopify)Customer story
+### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)

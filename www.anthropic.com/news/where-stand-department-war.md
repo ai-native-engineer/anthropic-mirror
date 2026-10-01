@@ -23,3 +23,5 @@ I also want to apologize directly for a post internal to the company that was le
 Our most important priority right now is making sure that our warfighters and national security experts are not deprived of important tools in the middle of major combat operations. Anthropic will provide our models to the Department of War and national security community, at nominal cost and with continuing support from our engineers, for as long as is necessary to make that transition, and for as long as we are permitted to do so.
 
 Anthropic has much more in common with the Department of War than we have differences. We both are committed to advancing US national security and defending the American people, and agree on the urgency of applying AI across the government. All our future decisions will flow from that shared premise.
+
+Where things stand with the Department of War \ Anthropic

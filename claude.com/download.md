@@ -1,8 +1,24 @@
 <!-- source: https://claude.com/download -->
 
+Explore here
+
+Latest news
+
+[Next](#)Next
+
+## Claude Cowork is now just Claude
+
+Rolling out to Pro and Max, with more plans to follow.
+
+Read what changed
+
+[Read what changed](https://claude.com/blog/cowork-is-now-claude)Read what changed
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aaad76b8d9af5b763e8efd1_cowork-tn.webp)
+
 # Download Claude
 
-Chat, Claude Cowork, and Claude Code, all in one place.
+Think, hand off tasks, and code, all in one place.
 
 Download for macOS
 
@@ -94,27 +110,9 @@ Learn more
 
 Bring Claude to your workflow.
 
-## Claude Cowork surfaces
+## Claude extensions
 
 Put Claude to work across your apps.
-
-Desktop
-
-Download
-
-[Download](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)Download
-
-Desktop
-
-Download
-
-[Download](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect)Download
-
-Desktop
-
-Download
-
-[Download](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect)Download
 
 Chrome
 
@@ -145,6 +143,12 @@ Word
 Install
 
 [Install](https://marketplace.microsoft.com/en-us/product/office/WA200010453?tab=Overview)Install
+
+Outlook beta
+
+Install
+
+[Install](https://marketplace.microsoft.com/en-us/product/WA200010724)Install
 
 ## Claude Code environments
 

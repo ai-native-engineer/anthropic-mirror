@@ -4,44 +4,32 @@
 
 System design of agentic research assistant built unconventionally: one component outputs plan in custom Turing-incomplete programming language, another interprets it, quiver of models executes concrete tasks. Architectural choices as concrete instantiations of company values.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-14:05 – 14:35
+:   14:05 – 14:35
 
 Speaker(s)
+:   James Brady
 
-James Brady
+    Head of Engineering,
 
-Head of Engineering,
-
-Elicit
+    Elicit
 
 ## Watch recording
 
-[Play video](#)Play video
+![Making agentic workflows trustworthy and verifiable with a custom DSL](https://i.ytimg.com/vi/qOjleN2-50c/maxresdefault.jpg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Making agentic workflows trustworthy and verifiable with a custom DSL | Session | Code w/ Claude 2026

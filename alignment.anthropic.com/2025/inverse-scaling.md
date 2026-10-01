@@ -31,6 +31,8 @@ We identify five distinct failure modes when models reason for longer:
 Research done as part of the [Anthropic Fellows
 Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
 
+---
+
 ### Setup
 
 Our evaluation tasks span four categories: Simple counting tasks with distractors, regression tasks with

@@ -4,33 +4,21 @@ Case study | Claude
 
 # Pacific Community Ventures scales worker feedback 10x with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d5437e0a6d096150a027f_logo_pcv-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d543b4dfd5746c3b7d611_logo_pcv-dark-mode.png)
+![Pacific Community Ventures logo](https://assets.claude.com/0acfed68612bcd41423a77fe911e509dfd8000af.png)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
+:   [Claude Platform](https://claude.com/platform/api)[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
 
 Location:
-
-North America
+:   North America
 
 ~300 workers reached
 
@@ -52,65 +40,21 @@ the team can now run with Claude
 
 ## The challenge
 
-Q&A
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e870bee41ef41a01c8d99_og_Q%26A-PCV.jpg)
-
-A conversation with Pacific Community Ventures on building AI for fair lending
-
-Read more
-
-[Read more](https://claude.com/customers/pacific-community-ventures-qa)Read more
-
-Q&A
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-A conversation with Pacific Community Ventures on building AI for fair lending
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A
-
-A conversation with Pacific Community Ventures on building AI for fair lending
-
 ## Lending fairly at scale
 
 PCV's research only works if it reflects what people actually experience, and its lending only works if it reaches the people the rest of finance won't. Both halves of the work share a problem: the tools built to do them at scale tend to lose the individual person. "We could send standard surveys out at scale, but you don't get into the real nuance," said Sachi Shenoy, Chief Data Officer at Pacific Community Ventures. "You don't lift people's voices and their stories in that format."
 
 On the research side, PCV faced a tradeoff. A multiple-choice survey could reach hundreds of clients at once but reduced their answers to checkboxes, while the one-on-one conversations that captured real depth reached only a handful. On the lending side, the question is who gets a fair hearing. The entrepreneurs PCV serves often apply with sparse financials, no credit score, and no banking history, the exact profile a conventional risk model is built to screen out. Underwriters have always made those calls through hours of conversation. The question was whether AI could speed that up without importing the biases community lenders exist to correct.
 
+Q&A
+
+![Q&A](https://assets.claude.com/9e48e857ba4ef0deaa6477ea10f98bc620c63a95.jpg?w=2400&q=75&fm=webp&fit=max)
+
+A conversation with Pacific Community Ventures on building AI for fair lending
+
+[Read more](https://claude.com/customers/pacific-community-ventures-qa)
+
 ## The solution
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-Read more
-
-[Read more](https://claude.com/solutions/nonprofits)Read more
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
 ## A voice survey that captures what people mean
 
@@ -136,21 +80,17 @@ The work is early. PCV has set aside two months for testing, with a rollout targ
 
 "What we're hoping is that this helps us speed up the decisions to get to yes, and allows our underwriting team to spend more time building trust and outreach in our communities and getting more maybe’s to yes," Gupta added. "That helps us deploy affordable capital into the communities faster, scaling efficiencies at an important time for our economy. As a nonprofit responsible small business lender, it is a rare competitive advantage our field needs to compete with much larger venture backed fintechs who offer higher rates."
 
-"When we compared across providers for the level of nuance and the accuracy of the coding, Claude always won out."
+Nonprofits
 
-Sachi Shenoy
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Chief Data Officer, Pacific Community Ventures
+Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/solutions/nonprofits)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "When we compared across providers for the level of nuance and the accuracy of the coding, Claude always won out."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Sachi ShenoyChief Data Officer, Pacific Community Ventures
 
 ## The outcome
 
@@ -166,42 +106,16 @@ That single survey reflects a broader shift. Across its qualitative research, th
 
 "Being able to share that feedback back with business owners has been game-changing for them," Shenoy said. The worker surveys show what the approach can do at scale. The underwriting work is where PCV hopes to feel it next.
 
-"An effort like that would have been nearly impossible for a relatively small team. Now we're surfacing the same depth of information from 300 people in a much shorter amount of time."
+> "An effort like that would have been nearly impossible for a relatively small team. Now we're surfacing the same depth of information from 300 people in a much shorter amount of time."
 
-Sachi Shenoy
+Sachi ShenoyChief Data Officer, Pacific Community Ventures
 
-Chief Data Officer, Pacific Community Ventures
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-## Related stories
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Mercy Corps on what AI makes possible in humanitarian work
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

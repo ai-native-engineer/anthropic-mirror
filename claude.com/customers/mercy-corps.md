@@ -4,33 +4,21 @@ Case study | Claude for Nonprofits
 
 # Mercy Corps accelerates global humanitarian response to community feedback with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e04954c57899e16ee740_logo_mercycorps-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e053a5775e0a59000aec_logo_mercycorps-dark-mode.svg)
+![Mercy Corps logo](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude for Nonprofits](https://claude.com/solutions/nonprofits)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Location:
-
-North America
+:   North America
 
 From a week to an hour
 
@@ -52,32 +40,6 @@ across tracked tasks in the 13-team pilot midline survey
 
 ## The challenge
 
-Q&A: Mercy Corps
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a722a4824750fb44632cfda_og_Q%26A-Mercy%20Corp.jpg)
-
-Read the Q&A with AI Solutions and Delivery Manager Nayid Orozco on AI's biggest shift in humanitarian work.
-
-Read more
-
-[Read more](https://claude.com/customers/mercy-corps-qa)Read more
-
-Q&A: Mercy Corps
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Read the Q&A with AI Solutions and Delivery Manager Nayid Orozco on AI's biggest shift in humanitarian work.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A: Mercy Corps
-
-Read the Q&A with AI Solutions and Delivery Manager Nayid Orozco on AI's biggest shift in humanitarian work.
-
 ## When a serious report waits in a queue
 
 Community feedback mechanisms are a baseline expectation across humanitarian work, part of the sector's accountability to the people it serves. CARM is Mercy Corps' answer. It gives participants in Mercy Corps programs and the people living around them a way to tell the organization what is working, what is not, and when something has gone wrong. That includes questions about assistance to safeguarding concerns and complaints about staff conduct. Reports arrive through hotlines, forms, help desks, and in-person conversations, very often in one of dozens of local languages, from Burmese and Ukrainian to Spanish and French. Before Claude, someone had to transcribe each report, translate it, read it, decide which theme it fell under, grade its severity against the organization's guidance, and route it for action.
@@ -86,33 +48,15 @@ Most reports are ordinary program feedback. Some are not. "The whole point of ac
 
 The strain showed up in three places: volume, language, and consistency. Teams had more feedback than they could process quickly, local dialects were hard to translate and respond to, and two people could grade the same case differently. The cost was staff time and delay. "Speed and correct severity grading are the difference between a mechanism that protects people and one that just collects forms," Orozco said.
 
+Q&A: Mercy Corps
+
+![Q&A: Mercy Corps ](https://assets.claude.com/a15693f14e23e900d2b8384289817c1350c8af76.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Read the Q&A with AI Solutions and Delivery Manager Nayid Orozco on AI's biggest shift in humanitarian work.
+
+[Read more](https://claude.com/customers/mercy-corps-qa)
+
 ## The solution
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-Read more
-
-[Read more](https://claude.com/solutions/nonprofits)Read more
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
 ## Criteria that could disqualify a model
 
@@ -134,21 +78,17 @@ In the current test flow, a report comes in, often in a local language. Direct i
 
 "The rollout is less about the technology and more about people," he noted. "It means training focal points on how to prompt and, just as importantly, how to sanity check what comes back." The team is expanding only as the testing gives it confidence.
 
-"The work that Claude has enabled just wouldn't have been possible before."
+Nonprofits
 
-Emily Joy,
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Director, Mercy Corps' corporate partnerships
+Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/solutions/nonprofits)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "The work that Claude has enabled just wouldn't have been possible before."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Emily Joy, Director, Mercy Corps' corporate partnerships
 
 ## The outcome
 
@@ -164,42 +104,16 @@ In Mercy Corps' pilot midline survey of 42 users across 13 teams, 98% reported f
 
 Next comes moving CARM from testing into a real rollout, taking the shared project to feedback staff in more countries. "Underneath all of it, we are building an AI adoption and governance framework so that expansion stays deliberate and responsible rather than ad hoc," Orozco said. Moving the heavier production work onto the Claude API is, in his words, what makes that scale "realistic rather than theoretical."
 
-"When the loudest complaint is fear of losing the tool, that tells you something about how embedded it had become."
+> "When the loudest complaint is fear of losing the tool, that tells you something about how embedded it had become."
 
-Nayid Orozco,
+Nayid Orozco, AI Solutions and Delivery Manager, Mercy Corps
 
-AI Solutions and Delivery Manager, Mercy Corps
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-## Related stories
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Mercy Corps on what AI makes possible in humanitarian work
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)[![National Domestic Workers Alliance](https://assets.claude.com/8cdd9e0611e1a8258e4b24391c64186909732176.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
-
-[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Customer story
-
-[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story
+### Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)

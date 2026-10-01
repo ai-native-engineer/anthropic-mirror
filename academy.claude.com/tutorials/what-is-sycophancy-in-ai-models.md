@@ -38,4 +38,4 @@ If you suspect you're getting sycophantic responses, there's a few things you ca
 
 But this is an ongoing challenge for the entire field of AI development. As these systems become more sophisticated and more integrated into our lives, building models that are genuinely helpful, not just agreeable, becomes increasingly important. You can learn more about AI Fluency in Anthropic Academy, and my team and I will continue to share our research on this topic on Anthropic's blog.
 
-*Learn more: [AI Fluency(opens in new tab)](https://academy.claude.com/collections/ai-fluency)*
+*Learn more: [How AI works(opens in new tab)](https://academy.claude.com/collections/how-ai-works)*

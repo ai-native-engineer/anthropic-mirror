@@ -23,7 +23,7 @@ Course roadmap
    Meet ClaudeWhat is Claude, how do you talk to it, and how do you get great results?
 2. 2
 
-   Organizing your workHow do Projects, Artifacts, and Skills give Claude structure and reusable knowledge?
+   Organizing your work and knowledgeHow do Projects and Skills give Claude structure and reusable knowledge, and where do the artifacts you create with Claude live?
 3. 3
 
    Expanding Claude's reachHow do Connectors, Enterprise Search, and Research bring your tools and the web into the conversation?
@@ -64,7 +64,7 @@ Claude is the intelligence—the AI assistant you're learning to work with throu
 * **[Claude.ai(opens in new tab)](https://Claude.ai)** (and the associated mobile and desktop apps) are the primary way most people interact with Claude. Here, you can ask questions, brainstorm ideas, create and edit documents, and a lot more. Claude.ai is ideal for conversations, writing assistance, research, analysis, and creating files. This is our focus in this course.
 * **[Claude Code(opens in new tab)](https://claude.com/product/claude-code)** is an agentic coding tool that is designed for developers but can be used for all kinds of file manipulation on your desktop. Claude Code can directly edit files, run commands, and create commits.
 * **[Claude Tag(opens in new tab)](https://claude.com/claude-and-slack)** brings Claude directly into Slack. You can chat with Claude in the AI assistant header from any channel or conversation, or by tagging Claude in threads. When you connect Slack to Claude, Claude searches your workspace's channels, direct messages, and shared files to find the context you need for better responses and research.
-* **[Claude Design(opens in new tab)](https://claude.ai/design)** is a dedicated space for turning ideas into working interfaces. Describe what you want — or start from a sketch or screenshot — and Claude builds an interactive prototype you can refine and hand off to your team.
+* **[Claude Design(opens in new tab)](https://claude.ai/design)** turns ideas into working interfaces. Describe what you want — or start from a sketch or screenshot — and Claude builds an interactive prototype you can refine and hand off to your team. It works inside any conversation with Claude on paid plans, and as a dedicated space at claude.ai/design.
 * **[Claude for Microsoft 365(opens in new tab)](https://support.claude.com/en/articles/13892150-work-across-excel-powerpoint-and-word)** brings Claude into Excel, PowerPoint, Word, and Outlook as a sidebar, so you can analyze, draft, and edit inside the document you already have open — and carry context from one app to the next.
 
 This course will focus primarily on [Claude.ai(opens in new tab)](https://Claude.ai), but you can also check out [Claude Code in Action(opens in new tab)](https://academy.claude.com/courses/claude-code-in-action) for more information on using Claude in development workflows.

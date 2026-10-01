@@ -1,4 +1,4 @@
-<!-- source: https://alignment.anthropic.com/2025/selective-gradient-masking -->
+<!-- source: https://alignment.anthropic.com/2025/selective-gradient-masking/ -->
 
 # Beyond Data Filtering: Knowledge Localization for Capability Removal in LLMs
 
@@ -29,6 +29,8 @@ retraining to restore dangerous capabilities compared to other unlearning method
 
 Research done as part of the [Anthropic Fellows
 Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
+
+---
 
 Large language models are becoming increasingly capable, but with these capabilities come dual-use risks.
 Models trained on broad internet data can acquire knowledge about dangerous topics like CBRN weapons

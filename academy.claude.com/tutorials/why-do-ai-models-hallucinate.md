@@ -38,4 +38,4 @@ If you have an answer you're unsure about, start a new chat and ask the AI to fi
 
 Reducing hallucinations is an important goal to make AIs more trustworthy and useful to everyone. We'll continue to share our progress in this area on our blog. You can learn about other tools and frameworks for working with AI in the Anthropic Academy.
 
-*Learn more: [AI Fluency(opens in new tab)](https://academy.claude.com/collections/ai-fluency)*
+*Learn more: [How AI works(opens in new tab)](https://academy.claude.com/collections/how-ai-works)*

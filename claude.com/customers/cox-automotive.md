@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # Cox Automotive transforms car sales with Claude in Amazon Bedrock
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Cox Automotive logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c3004c1d5c687d63c6e22b_cs-logo-cox-automotive-light-theme.svg)![Cox Automotive logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c3004fbac733e6dd20dc2d_cs-logo-cox-automotive-dark-theme.svg)
+![Cox Automotive logo](https://assets.claude.com/33c8d42c0a5d3eb2e332417409ff0a543906cb73.svg)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 2x increase
 
@@ -41,42 +30,6 @@ in consumer lead responses and test drives
 80% positive
 
 feedback from sellers using AI listings
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Cox Automotive, the world's largest automotive services and technology provider, is leveraging [Claude in Amazon Bedrock](https://aws.amazon.com/bedrock/claude/) to generate high-quality, tailored content across its portfolio of software solutions, helping dealers and consumers save time on marketing, vehicle merchandising, and routine communications.
 
@@ -118,52 +71,12 @@ In all these cases, Cox Automotive's systems present the AI-generated content to
 
 Cox Automotive sees AI as key to transforming the automotive industry through differentiated customer experiences and more streamlined operations. They invest heavily in maintaining a high-quality data foundation, generating actionable intelligence across automotive domains, and fostering a data-driven culture of testing and learning. Their methodical approach to AI innovation guides their strategy. Flusberg said, "Driving value for our customers and for consumers is our North Star. We seek ways to improve processes using data and AI, and then we prove it out through rapid prototyping." This focused experimentation allows Cox Automotive to move from successful pilots to broader implementations that benefit their entire ecosystem. By combining their automotive expertise, vast connected data resources, and Claude's cutting-edge capabilities deployed in Amazon Bedrock, Cox Automotive is well positioned to continue leading an AI-driven transformation across the automotive industry.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-[Next](#)Next
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-Video caption
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
-
-Caylent turns months of migration work into days with Claude Agent SDK
-
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)

@@ -15,3 +15,5 @@ Irina brings more than three decades of experience in scaling technology busines
 Our India team will work closely with policymakers and academic institutions, strengthen developer engagement, and build partnerships with enterprises and organizations using AI to address local challenges.
 
 India ranks as the second-largest market globally for Claude.ai. Anthropic's fourth [Economic Index](https://www.anthropic.com/economic-index) showed that Indian users have a striking focus on technical applications, with nearly half of all Claude.ai usage concentrated in computer and mathematical tasks.
+
+Irina Ghose named Managing Director of India \ Anthropic

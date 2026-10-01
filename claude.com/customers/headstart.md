@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Headstart accelerates software development by up to 100x with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Headstart logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1ea3b4eb6e447a7a1d2ce_cs-logo-headstart-light-theme.svg)![Headstart logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1ea42c19b2e1011d0527d_cs-logo-headstart-dark-theme.svg)
+![Headstart logo](https://assets.claude.com/53e15d1d9eef482a1311881966316fe93a5250fc.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 10-100x faster
 
@@ -37,42 +27,6 @@ software development
 90-97%
 
 of client code written by Claude
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Headstart, an AI-native software development company, uses Claude to deliver enterprise software projects in weeks instead of months, revolutionizing development timelines for clients while maintaining high security standards.
 
@@ -90,7 +44,7 @@ When Nicole Hedley founded Headstart in December 2022, she saw an opportunity to
 
 Headstart uses multiple AI models but defaults to Claude for most coding tasks. After the release of Claude 3.5 Sonnet, they went all-in on Claude, attracted by its superior performance and user experience. "When Sonnet 3.5 launched, I once again defaulted to it," explains Hedley. She particularly values Claude's intuitive interface, noting "I much prefer Anthropic's UX. I think it's great." The ability to work with individual files, easily copy-paste, and Claude's responsiveness make it her go-to tool. Despite having access to AI-integrated code editors, Hedley consistently chooses Claude's native interface: "I find it so much easier and faster to use through the Claude UX than through a code editor."
 
-![Headstart product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05beadfa65c7959f2ca_c33d6b4c10e8803e0e96720015ca7ec0ea1fbd4c-1920x966.jpeg)
+![Headstart product screenshot](https://assets.claude.com/13a94bf4f68ae810bedc295fc38a57f4644d4670.jpg)
 
 For Headstart's enterprise clients in industries like healthcare and financial services, data privacy is paramount. The team leverages Claude's projects feature to work with entire codebases while maintaining the security their clients require. This combination of powerful features and trust has made Claude indispensable to their workflow.
 
@@ -100,7 +54,7 @@ Claude enables Headstart to revolutionize their development process in unprecede
 
 This automation extends to rapid application development. Hedley can build entire applications in a fraction of the traditional time. She notes, "I built an entire iPhone app for a client on Friday just using screenshots. It's absolutely mind blowing to me."
 
-![Headstart produt screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05beadfa65c7959f2c6_532ba2dd7f6dc7479b55782d035e967e8ecae2a8-1920x1034.jpeg)
+![Headstart produt screenshot](https://assets.claude.com/9bc1ded05cc2cc02a8034cc73b0d4aebadd9c2ef.jpg)
 
 Claude's extensive context window has also transformed their approach to handling large codebases. When the 200K context window was released, Hedley notes they "ripped out the entire RAG and just put it in the context window instead and it went from 60 percent accuracy to 98. It was quicker, cheaper, better, everything." This combination of automation, speed, and accuracy has fundamentally changed how Headstart approaches software development.
 
@@ -120,52 +74,12 @@ For Headstart, the goal is to remain "AI-native" as they grow, using tools like 
 
 — Nicole Hedley, Headstart Co-founder
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

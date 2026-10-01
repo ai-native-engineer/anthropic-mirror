@@ -2,7 +2,7 @@
 
 [Courses](https://academy.claude.com/courses)
 
-# The AI-Native SDLC Playbook
+# The AI-native SDLC playbook
 
 A technical guide for how to transform your software development lifecycle (SDLC) with AI. Organizations have started using AI to write code at a speed unthinkable one year ago, yet the processes around the code haven't changed at the same pace.
 
@@ -12,7 +12,7 @@ A technical guide for how to transform your software development lifecycle (SDLC
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-nhb0ms08.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-h7rjkd88.png)
 
-14 lessonsThe AI-Native SDLC Playbook
+14 lessonsThe AI-native SDLC playbook
 
 What you’ll learnBy the end of this course, you’ll be able to
 

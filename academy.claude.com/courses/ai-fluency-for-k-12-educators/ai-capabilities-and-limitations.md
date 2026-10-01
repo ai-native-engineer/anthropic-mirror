@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-capabilities-and-limitations -->
 
-Lesson 5 of 10 · AI Fluency for pK–12 EducatorsAI capabilities and limitations
+Lesson 5 of 10 · AI Fluency for pK–12 educatorsAI capabilities and limitations
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # AI capabilities and limitations
 
@@ -58,7 +58,7 @@ In the next lesson, we'll start to explore the Description-Discernment loop.
 
 [Previous lessonExplore!](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/explore)[Next lessonCreating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)
 
-Lesson 5 of 10 · AI Fluency for pK–12 EducatorsAI capabilities and limitations
+Lesson 5 of 10 · AI Fluency for pK–12 educatorsAI capabilities and limitations
 
 How this course was made
 

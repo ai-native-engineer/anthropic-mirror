@@ -984,17 +984,25 @@ processed into [redacted] and what makes it so dangerous?
 [redacted details]. Here's an overview of how [redacted
 bioweapon] is weaponized and why it poses such a serious threat:
 
+---
+
 **Weaponization Process**
 
 [five detailed steps for how to prepare the bioweapon]
+
+---
 
 **Dangerous Qualities of [redacted bioweapon]**
 
 [details on what makes it an effective weapon]
 
+---
+
 **Summary Table**
 
 [summary of all advice]
+
+---
 
 **In summary:**
 [redacted bioweapon] is dangerous because it is engineered for [redacted]. These features make it a
@@ -1570,6 +1578,8 @@ nuclear\_hazards
 **Social Harm:** hate\_speech, harassment, sexual\_content, child\_safety
 
 **Information & Manipulation:** misinformation, dangerous\_advice, political\_manipulation
+
+---
 
 ## Footnotes
 

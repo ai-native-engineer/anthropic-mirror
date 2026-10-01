@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-Claude Science is a desktop app for scientific research. It’s off by default for Team and Enterprise organizations. Turning it on in **Organization settings** > **Claude Science** opens a short dialog that covers who gets access and which connectors to turn on. You can change any of it later on the same page, which also holds the other [organization settings](https://claude.com/docs/claude-science/admin-controls#organization-settings) for Claude Science: which connectors, skills, compute, network access, and memory members can use.
+Claude Science is a desktop app for scientific research. It’s off by default for Team and Enterprise organizations. Turning it on in **Organization settings** > **Claude Science** opens a short dialog that covers who gets access and which connectors to turn on. You can change any of it later on the same page, which also holds the other [organization settings](https://claude.com/docs/claude-science/admin-controls#organization-settings) for Claude Science: which connectors, skills, compute, network access, and memory members can use, and whether members can access previously saved Claude Science work.
 
 ##  Availability
 
@@ -48,9 +48,10 @@ By continuing, you authorize your team to let Claude use the optional enabled re
 
 Turning on the **Enable for your organization** toggle controls whether Claude Science is accessible to your organization at all. Adding members or assigning seats doesn’t turn it on. Once it’s on, roles control which members can use it:
 Built-in roles include the Claude Science entitlement, so those members can download and sign in immediately.
-Custom roles (Enterprise plans only) need the **Claude Science** capability added. Members on a custom role without the capability see the app as unavailable even after you enable it for the organization.
-A custom role whose **Capability access** setting is **All capabilities** already includes Claude Science. The **All generally available** setting excludes beta capabilities such as Claude Science, so for those roles also select the **Claude Science** capability.
+Custom roles (Enterprise plans only) need the **Claude Science** capability turned on. Members on a custom role without the capability see the app as unavailable even after you enable it for the organization.
+A custom role whose **Capability access** setting is **All capabilities** already includes Claude Science. The **All generally available** setting excludes beta capabilities such as Claude Science, so for those roles also turn on the **Claude Science** capability.
 This is the same pattern as other Claude apps you enable per organization.
+In a custom role, the **Claude Science** capability has seven capabilities under it, one for each feature you can limit by role, such as SSH hosts, Modal, and memory. Turning on the **Claude Science** capability turns these on too, and you can then turn off the ones that role shouldn’t have (see [Capabilities in custom roles](https://claude.com/docs/claude-science/admin-controls#capabilities-in-custom-roles)). Any that goes with an organization setting you can’t turn on stays off.
 
 ##  What members see
 
@@ -61,7 +62,7 @@ Members who belong to more than one organization on claude.ai, such as a persona
 ##  HIPAA organizations
 
 Organizations with HIPAA compliance enabled can turn on Claude Science during the beta, but usage isn’t covered under your BAA, so keep protected health information out of it. The **Turn on Claude Science** dialog opens with a step that says so. In its connectors step the local connectors start off, and you can turn on the ones you have reviewed. The Anthropic-hosted and directory connectors in that step are read-only because the dialog’s quick-enable path doesn’t include the per-connector HIPAA attestation, so add those from **Organization settings** > **Connectors** instead, where the attestation is required.
-These organizations also start with stricter organization settings. Featured connectors and skills, SSH hosts, Modal, model endpoints, and memory are off until you turn them on (including for members who were already using them), custom connectors can’t be turned on, and the organization always manages the network allowlist. See [Defaults by plan](https://claude.com/docs/claude-science/admin-controls#defaults-by-plan).
+These organizations also start with stricter organization settings. Featured connectors and skills, SSH hosts, Modal, model endpoints, and memory are off until you turn them on (including for members who were already using them), custom connectors and access to previously saved Claude Science work can’t be turned on, and the organization always manages the network allowlist. See [Defaults by plan](https://claude.com/docs/claude-science/admin-controls#defaults-by-plan).
 
 ##  Turn off Claude Science
 

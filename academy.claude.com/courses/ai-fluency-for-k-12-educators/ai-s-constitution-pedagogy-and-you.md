@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you -->
 
-Lesson 8 of 10 · AI Fluency for pK–12 EducatorsAI's constitution, pedagogy, and you
+Lesson 8 of 10 · AI Fluency for pK–12 educatorsAI's constitution, pedagogy, and you
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # AI's constitution, pedagogy, and you
 
@@ -68,7 +68,7 @@ In the next lesson, you'll put everything together in a complete end-to-end 4D w
 
 [Previous lessonEthics & responsible AI use](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use)[Next lessonTying it all together](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together)
 
-Lesson 8 of 10 · AI Fluency for pK–12 EducatorsAI's constitution, pedagogy, and you
+Lesson 8 of 10 · AI Fluency for pK–12 educatorsAI's constitution, pedagogy, and you
 
 How this course was made
 

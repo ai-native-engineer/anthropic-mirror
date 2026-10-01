@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223e0a787df988a824b_39db33950eb113e504a5b9fc56db490a64673e96-1000x1000.svg)
 
 # Millennium and Anthropic are building a digital risk analyst with Claude
@@ -80,53 +82,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
 
-Sep 10, 2026
+Aug 26, 2026
 
-### What 1,000 small business owners taught us about AI
-
-Enterprise AI
-
-[What 1,000 small business owners taught us about AI](#)What 1,000 small business owners taught us about AI
-
-[What 1,000 small business owners taught us about AI](https://claude.com/blog/what-1-000-small-business-owners-taught-us-about-ai)What 1,000 small business owners taught us about AI
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Sep 8, 2026
-
-### Reducing cost and improving performance with Claude Platform
+### How Warp builds self-improving agents on Claude
 
 Agents
 
-[Reducing cost and improving performance with Claude Platform](#)Reducing cost and improving performance with Claude Platform
+[How Warp builds self-improving agents on Claude](#)How Warp builds self-improving agents on Claude
 
-[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
+[How Warp builds self-improving agents on Claude](https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude)How Warp builds self-improving agents on Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
 
-Jun 24, 2026
+Jul 20, 2026
 
-### Building effective human-agent teams
+### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
 Enterprise AI
 
-[Building effective human-agent teams](#)Building effective human-agent teams
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-[Building effective human-agent teams](https://claude.com/blog/building-effective-human-agent-teams)Building effective human-agent teams
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
 
-Sep 2, 2026
+Sep 30, 2026
 
-### Building commerce agents with Claude
+### How Anthropic's sales team rebuilt inbound with Claude Managed Agents
 
-Product announcements
+Enterprise AI
 
-[Building commerce agents with Claude](#)Building commerce agents with Claude
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](#)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
 
-[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+May 21, 2026
+
+### Claude now works with more security and compliance tools
+
+Enterprise AI
+
+[Claude now works with more security and compliance tools](#)Claude now works with more security and compliance tools
+
+[Claude now works with more security and compliance tools](https://claude.com/blog/compliance-api-security-partners)Claude now works with more security and compliance tools
 
 ## Transform how your organization operates with Claude
 

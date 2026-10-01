@@ -19,7 +19,7 @@ Create a memory
 
 - `--memory-store-id: string`
 
-  Path param: Path parameter memory_store_id
+  Path param: The ID of the memory store to create the memory in (`memstore_...`).
 
 - `--content: string`
 
@@ -33,7 +33,7 @@ Create a memory
 
 - `--view: optional "basic" or "full"`
 
-  Query param: Query parameter for view
+  Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -69,7 +69,7 @@ Create a memory
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
     format: date-time
 
@@ -79,7 +79,7 @@ Create a memory
 
   - `memory_version_id: string`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: string`
 
@@ -87,7 +87,7 @@ Create a memory
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -134,7 +134,7 @@ List memories
 
 - `--memory-store-id: string`
 
-  Path param: Path parameter memory_store_id
+  Path param: The ID of the memory store to list memories from (`memstore_...`).
 
 - `--depth: optional number`
 
@@ -174,7 +174,7 @@ List memories
 
 - `BetaManagedAgentsListMemoriesResult: object`
 
-  Response payload for [List memories](/docs/en/api/beta/memory_stores/memories/list).
+  Response payload for [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list).
 
   - `data: optional array of BetaManagedAgentsMemoryListItem`
 
@@ -202,7 +202,7 @@ List memories
 
       - `created_at: string`
 
-        A timestamp in RFC 3339 format
+        When this memory was created, in RFC 3339 format.
 
         format: date-time
 
@@ -212,7 +212,7 @@ List memories
 
       - `memory_version_id: string`
 
-        ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+        ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
       - `path: string`
 
@@ -220,7 +220,7 @@ List memories
 
       - `updated_at: string`
 
-        A timestamp in RFC 3339 format
+        When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
         format: date-time
 
@@ -230,7 +230,7 @@ List memories
 
     - `beta_managed_agents_memory_prefix: object`
 
-      A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+      A rolled-up directory marker returned by [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
       - `type: "memory_prefix"`
 
@@ -284,15 +284,15 @@ Retrieve a memory
 
 - `--memory-store-id: string`
 
-  Path param: Path parameter memory_store_id
+  Path param: The ID of the memory store that holds the memory (`memstore_...`).
 
 - `--memory-id: string`
 
-  Path param: Path parameter memory_id
+  Path param: The ID of the memory to retrieve (`mem_...`).
 
 - `--view: optional "basic" or "full"`
 
-  Query param: Query parameter for view
+  Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -328,7 +328,7 @@ Retrieve a memory
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
     format: date-time
 
@@ -338,7 +338,7 @@ Retrieve a memory
 
   - `memory_version_id: string`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: string`
 
@@ -346,7 +346,7 @@ Retrieve a memory
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -392,15 +392,15 @@ Update a memory
 
 - `--memory-store-id: string`
 
-  Path param: Path parameter memory_store_id
+  Path param: The ID of the memory store that holds the memory (`memstore_...`).
 
 - `--memory-id: string`
 
-  Path param: Path parameter memory_id
+  Path param: The ID of the memory to update (`mem_...`).
 
 - `--view: optional "basic" or "full"`
 
-  Query param: Query parameter for view
+  Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `--content: optional string`
 
@@ -414,7 +414,7 @@ Update a memory
 
 - `--precondition: optional object`
 
-  Body param: Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+  Body param: Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -450,7 +450,7 @@ Update a memory
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
     format: date-time
 
@@ -460,7 +460,7 @@ Update a memory
 
   - `memory_version_id: string`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: string`
 
@@ -468,7 +468,7 @@ Update a memory
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -514,15 +514,17 @@ Delete a memory
 
 - `--memory-store-id: string`
 
-  Path param: Path parameter memory_store_id
+  Path param: The ID of the memory store that holds the memory (`memstore_...`).
 
 - `--memory-id: string`
 
-  Path param: Path parameter memory_id
+  Path param: The ID of the memory to delete (`mem_...`).
 
 - `--expected-content-sha256: optional string`
 
-  Query param: Query parameter for expected_content_sha256
+  Query param: Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
+
+  If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -538,7 +540,7 @@ Delete a memory
 
 - `beta_managed_agents_deleted_memory: object`
 
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
+  Tombstone returned by [Delete a memory](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 
   - `type: "memory_deleted"`
 
@@ -590,7 +592,7 @@ ant beta:memory-stores:memories delete \
 
 - `beta_managed_agents_deleted_memory: object`
 
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
+  Tombstone returned by [Delete a memory](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 
   - `type: "memory_deleted"`
 
@@ -658,19 +660,39 @@ ant beta:memory-stores:memories delete \
 
   - `beta_managed_agents_memory_precondition_failed_error: object`
 
+    The error returned with HTTP status 409 when a request's precondition doesn't hold for the memory's current state, such as `precondition` on an update or `expected_content_sha256` on a delete.
+
+    The error doesn't include the memory's current state. Retrieve the memory to see its current content and `content_sha256` before you retry.
+
+    See the [memory guide](https://platform.claude.com/docs/en/managed-agents/memory#safe-content-edits-optimistic-concurrency) to learn more about safe content edits with content hash preconditions.
+
     - `type: "memory_precondition_failed_error"`
 
     - `message: optional string`
 
+      A human-readable explanation of why the precondition failed.
+
   - `beta_managed_agents_memory_path_conflict_error: object`
+
+    The error returned with HTTP status 409 when a create or rename targets a path that another memory uses, or a path that overlaps another memory's path.
+
+    Two paths overlap when one is an ancestor of the other, such as `/notes` and `/notes/todo.md`. To free the path, rename or delete the memory that `conflicting_memory_id` references, then retry. To change that memory instead of creating a new one, update it.
 
     - `type: "memory_path_conflict_error"`
 
     - `conflicting_memory_id: optional string`
 
+      The ID of the memory that blocked the write (`mem_...`), or an empty string if that memory can't be identified.
+
+      Retry the request when it is empty.
+
     - `conflicting_path: optional string`
 
+      The path that blocked the write: the requested path, or the path of a memory that is an ancestor or descendant of it.
+
     - `message: optional string`
+
+      A human-readable explanation of the conflict. To handle the error in code, use `conflicting_path` and `conflicting_memory_id` instead.
 
   - `beta_managed_agents_conflict_error: object`
 
@@ -702,7 +724,7 @@ ant beta:memory-stores:memories delete \
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
     format: date-time
 
@@ -712,7 +734,7 @@ ant beta:memory-stores:memories delete \
 
   - `memory_version_id: string`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: string`
 
@@ -720,7 +742,7 @@ ant beta:memory-stores:memories delete \
 
   - `updated_at: string`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -732,7 +754,7 @@ ant beta:memory-stores:memories delete \
 
 - `beta_managed_agents_memory_list_item: BetaManagedAgentsMemory or BetaManagedAgentsMemoryPrefix`
 
-  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+  One item in a [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
 
   - `beta_managed_agents_memory: object`
 
@@ -756,7 +778,7 @@ ant beta:memory-stores:memories delete \
 
     - `created_at: string`
 
-      A timestamp in RFC 3339 format
+      When this memory was created, in RFC 3339 format.
 
       format: date-time
 
@@ -766,7 +788,7 @@ ant beta:memory-stores:memories delete \
 
     - `memory_version_id: string`
 
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `path: string`
 
@@ -774,7 +796,7 @@ ant beta:memory-stores:memories delete \
 
     - `updated_at: string`
 
-      A timestamp in RFC 3339 format
+      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
       format: date-time
 
@@ -784,7 +806,7 @@ ant beta:memory-stores:memories delete \
 
   - `beta_managed_agents_memory_prefix: object`
 
-    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+    A rolled-up directory marker returned by [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
     - `type: "memory_prefix"`
 
@@ -796,27 +818,47 @@ ant beta:memory-stores:memories delete \
 
 - `beta_managed_agents_memory_path_conflict_error: object`
 
+  The error returned with HTTP status 409 when a create or rename targets a path that another memory uses, or a path that overlaps another memory's path.
+
+  Two paths overlap when one is an ancestor of the other, such as `/notes` and `/notes/todo.md`. To free the path, rename or delete the memory that `conflicting_memory_id` references, then retry. To change that memory instead of creating a new one, update it.
+
   - `type: "memory_path_conflict_error"`
 
   - `conflicting_memory_id: optional string`
 
+    The ID of the memory that blocked the write (`mem_...`), or an empty string if that memory can't be identified.
+
+    Retry the request when it is empty.
+
   - `conflicting_path: optional string`
 
+    The path that blocked the write: the requested path, or the path of a memory that is an ancestor or descendant of it.
+
   - `message: optional string`
+
+    A human-readable explanation of the conflict. To handle the error in code, use `conflicting_path` and `conflicting_memory_id` instead.
 
 ### Beta Managed Agents Memory Precondition Failed Error
 
 - `beta_managed_agents_memory_precondition_failed_error: object`
 
+  The error returned with HTTP status 409 when a request's precondition doesn't hold for the memory's current state, such as `precondition` on an update or `expected_content_sha256` on a delete.
+
+  The error doesn't include the memory's current state. Retrieve the memory to see its current content and `content_sha256` before you retry.
+
+  See the [memory guide](https://platform.claude.com/docs/en/managed-agents/memory#safe-content-edits-optimistic-concurrency) to learn more about safe content edits with content hash preconditions.
+
   - `type: "memory_precondition_failed_error"`
 
   - `message: optional string`
+
+    A human-readable explanation of why the precondition failed.
 
 ### Beta Managed Agents Memory Prefix
 
 - `beta_managed_agents_memory_prefix: object`
 
-  A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+  A rolled-up directory marker returned by [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
   - `type: "memory_prefix"`
 
@@ -832,13 +874,17 @@ ant beta:memory-stores:memories delete \
 
   - `"basic"`
 
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
   - `"full"`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
 ### Beta Managed Agents Precondition
 
 - `beta_managed_agents_precondition: object`
 
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+  Optional condition that must hold for an update to apply. When omitted, the update is unconditional. Asserts the current state of the memory being updated. When an update changes `path`, the precondition still refers to the memory's current content, not the destination path. Currently the only supported variant is `content_sha256`.
 
   - `type: "content_sha256"`
 

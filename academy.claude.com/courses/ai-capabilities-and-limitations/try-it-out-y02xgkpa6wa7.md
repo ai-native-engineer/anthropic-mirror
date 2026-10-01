@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-y02xgkpa6wa7 -->
 
-Lesson 11 of 13 · AI Capabilities and LimitationsTry It Out: Steerability
+Lesson 11 of 13 · AI capabilities and limitationsTry It Out: Steerability
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Try It Out: Steerability
 
@@ -12,7 +12,7 @@ Lesson 115 min
 
 [Previous lessonSteerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability)[Next lessonWhen Properties Collide](https://academy.claude.com/courses/ai-capabilities-and-limitations/when-properties-collide)
 
-Lesson 11 of 13 · AI Capabilities and LimitationsTry It Out: Steerability
+Lesson 11 of 13 · AI capabilities and limitationsTry It Out: Steerability
 
 Getting started
 

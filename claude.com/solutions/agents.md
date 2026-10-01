@@ -26,7 +26,7 @@ Contact sales
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8066e04cba3dd0a8dde_augment%20code_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a80a8b51472408dce9b3_augment%20code_dark.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8ba3466f0c993603d7b_6ab2c6e8c7f95095d8c9bba5_startups-wordmark-augment-code-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603d8d_6ab2c6e8bcffe96ca440c809_startups-wordmark-augment-code-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a868318d2e33400f4646_Bito_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a86c2ddf19006fe1a9bc_Bito_dark.svg)
 
@@ -167,11 +167,11 @@ Sualeh Asif, Director of ML
 
 Josh Boyer, Distinguished Engineer
 
-![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
+![GitHub (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![GitHub (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
 
-“We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review.”
+“Developers want agents that can take on real software work and finish it. In our testing across GitHub Copilot CLI and VS Code, Claude Opus 5.5 used among the fewest tokens and steps we measured. In VS Code, it solved more terminal tasks than Opus 5 in less than half the steps. More than making individual tasks more efficient, it’s making developers’ bigger projects more achievable.”
 
-Walden Yan, Co-founder and CPO
+Mario Rodriguez, Chief Product Officer
 
 ## AI agent resources
 

@@ -1,5 +1,27 @@
 <!-- source: https://claude.com/office-hours -->
 
+Five and a half nines; most PRs start as a prompt
+
+### Featuring
+
+Patrick Collison
+
+Chief Executive Officer
+
+[Play video](#)Play video
+
+[](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/stripe-supercut-cc.webm)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adfff1546febae66f812_Stripe_dark.svg)![Stripe](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adfff1546febae66f812_Stripe_dark.svg)
+
+About 36% of Stripe's pull requests now start as a prompt, with Claude Code doing the work in an isolated dev box. Patrick Collison explains how Stripe keeps five and a half nines of reliability, how one engineer merged 600 AI-written pull requests in six months with a single revert, and why he expects AI to raise the quality of Stripe's code.
+
+“Stripe operates with five and a half nines of reliability. At the same time, we want to be developing and launching new products and features extremely quickly.”
+
+Patrick Collison
+
+Chief Executive Officer
+
 ### Featuring
 
 Rahul Sengottuvelu
@@ -20,7 +42,7 @@ Ramp runs agents across its entire engineering lifecycle: writing code, reviewin
 
 [](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/ramp-supercut-cc.webm)
 
-**“We’ve tried to build for what comes three to six months down the line, because when you're building for what's available today, it might already be too late by the time you ship.”**
+**“We’ve tried to build for what comes three to six months down the line, because when you’re building for what's available today, it might already be too late by the time you ship.”**
 
 Rahul Sengottuvelu
 
@@ -38,11 +60,11 @@ Chief Architect and VP of Engineering
 
 [](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/spotify-supercut-cc.webm)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)![Spotify](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
 
 At Spotify, employees can describe an idea and have Claude build a working prototype in an hour or two. VP of Engineering Niklas Gustavsson walked us through it.
 
-“I found myself not using an IDE anymore. The way that I was working had completely changed. A change that I had not seen in the 30 years that I've been doing this type of work.”
+“I found myself not using an IDE anymore. The way that I was working had completely changed. A change that I had not seen in the 30 years that I’ve been doing this type of work.”
 
 Niklas Gustavsson
 
@@ -56,7 +78,7 @@ Co-founder and CTO
 
 ## Building the case for leaders who ship
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)
+![Doordash](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)
 
 DoorDash runs Claude Code across their entire company and recently gave every one of their 4,000 employees access to Cowork. Boris Cherny, who created Claude Code at Anthropic, sat down with DoorDash co-founder Andy Fang to talk about how he’s delivering customer value faster by raising AI fluency across the company.
 

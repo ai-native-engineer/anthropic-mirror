@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport -->
 
-Lesson 8 of 11 · Model Context Protocol: Advanced TopicsThe STDIO transport
+Lesson 8 of 11 · Model Context Protocol: Advanced topicsThe STDIO transport
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # The STDIO transport
 
@@ -72,7 +72,7 @@ For development and testing, stdio transport is perfect. For production deployme
 
 [Previous lessonJSON message types](https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types)[Next lessonThe StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport)
 
-Lesson 8 of 11 · Model Context Protocol: Advanced TopicsThe STDIO transport
+Lesson 8 of 11 · Model Context Protocol: Advanced topicsThe STDIO transport
 
 Core MCP features
 

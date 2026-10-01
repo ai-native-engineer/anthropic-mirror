@@ -213,6 +213,7 @@ The following permissions support write tools and are included in the updated co
 * `ChatMessage.Send`:Send a Teams chat message on the user's behalf
 * `ChannelMessage.Send`**:** Post or reply in a Teams channel
 * `Chat.Create`: Start a new chat on the user’s behalf
+* `People.Read`: Find people in the organization to start a chat with
 
 **User directory**
 

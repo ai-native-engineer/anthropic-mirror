@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
 # How Datadog built a “universal machine tool” for Claude Code
@@ -194,53 +196,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
 
-Sep 10, 2026
+Jul 20, 2026
 
-### What 1,000 small business owners taught us about AI
-
-Enterprise AI
-
-[What 1,000 small business owners taught us about AI](#)What 1,000 small business owners taught us about AI
-
-[What 1,000 small business owners taught us about AI](https://claude.com/blog/what-1-000-small-business-owners-taught-us-about-ai)What 1,000 small business owners taught us about AI
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Jun 24, 2026
-
-### Building effective human-agent teams
+### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
 Enterprise AI
 
-[Building effective human-agent teams](#)Building effective human-agent teams
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-[Building effective human-agent teams](https://claude.com/blog/building-effective-human-agent-teams)Building effective human-agent teams
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
 
-Aug 28, 2026
+Sep 30, 2026
 
-### How Anthropic employees use Claude Tag
+### How Anthropic's sales team rebuilt inbound with Claude Managed Agents
 
 Enterprise AI
 
-[How Anthropic employees use Claude Tag](#)How Anthropic employees use Claude Tag
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](#)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
 
-[How Anthropic employees use Claude Tag](https://claude.com/blog/how-anthropic-employees-use-claude-tag)How Anthropic employees use Claude Tag
+[How Anthropic's sales team rebuilt inbound with Claude Managed Agents](https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+May 21, 2026
+
+### Claude now works with more security and compliance tools
+
+Enterprise AI
+
+[Claude now works with more security and compliance tools](#)Claude now works with more security and compliance tools
+
+[Claude now works with more security and compliance tools](https://claude.com/blog/compliance-api-security-partners)Claude now works with more security and compliance tools
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-Aug 20, 2026
+Aug 21, 2026
 
-### The Claude Code guide for startups
+### The AI-native SDLC playbook
 
-Claude Code
+Enterprise AI
 
-[The Claude Code guide for startups](#)The Claude Code guide for startups
+[The AI-native SDLC playbook](#)The AI-native SDLC playbook
 
-[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
 
 ## Transform how your organization operates with Claude
 

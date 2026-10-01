@@ -104,7 +104,6 @@ United States
 Products: All Products except Claude for Government
 
 1-10 of 20 results
-1-10 of 20 results
 Show
 10
 results per page

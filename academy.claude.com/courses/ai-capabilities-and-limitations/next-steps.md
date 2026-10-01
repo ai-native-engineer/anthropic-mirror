@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/next-steps -->
 
-Lesson 13 of 13 · AI Capabilities and LimitationsNext Steps
+Lesson 13 of 13 · AI capabilities and limitationsNext Steps
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Next Steps
 
@@ -54,7 +54,7 @@ If you haven't yet taken the AI Fluency Framework & Foundations course, that's t
 
 [Previous lessonWhen Properties Collide](https://academy.claude.com/courses/ai-capabilities-and-limitations/when-properties-collide)[Next lessonCourse Quiz](https://academy.claude.com/courses/ai-capabilities-and-limitations/course-quiz)
 
-Lesson 13 of 13 · AI Capabilities and LimitationsNext Steps
+Lesson 13 of 13 · AI capabilities and limitationsNext Steps
 
 Getting started
 

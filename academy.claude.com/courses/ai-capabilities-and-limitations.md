@@ -2,7 +2,7 @@
 
 [Courses](https://academy.claude.com/courses)
 
-# AI Capabilities and Limitations
+# AI capabilities and limitations
 
 Build an accurate mental model of what large language models can and cannot do: next-token prediction, knowledge, working memory, steerability, and context limits.
 
@@ -12,7 +12,7 @@ Build an accurate mental model of what large language models can and cannot do: 
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-mroir6wr.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dzjj3djt.png)
 
-13 lessons · 1 quizAI Capabilities and Limitations
+13 lessons · 1 quizAI capabilities and limitations
 
 What you’ll learnBy the end of this course, you’ll be able to
 

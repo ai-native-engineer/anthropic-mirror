@@ -23,7 +23,7 @@ Every Claude Science install makes these connections, which travel through the m
 | `api.anthropic.com` | Always | The Claude API for every request Claude makes, plus account and usage information |
 | `o1158394.ingest.us.sentry.io` | When telemetry is on (the default) | Crash and error reporting (the error type and where it happened in Claude Science’s own code, never error messages, conversation content, or research data); blocking it degrades diagnostics only |
 | `*.mcp.claude.com` | When members use the Anthropic-hosted connectors | PubMed, ClinicalTrials.gov, ChEMBL, and bioRxiv connectors |
-| `storage.googleapis.com` | When automatic updates are on | Update manifests and installers |
+| `storage.googleapis.com` | During installation on Linux, and for updates | Update manifests and installers |
 | `downloads.claude.ai` | On Windows, at first launch and when an update changes it | The app window engine, the component that displays the app window |
 | `api.github.com`, `codeload.github.com` | When members import skills from a GitHub repository | Fetching the skill repository’s contents |
 
@@ -44,7 +44,7 @@ When Claude searches the scientific literature or retrieves full text, the app i
 
 ##  Analysis sandbox domains
 
-When Claude runs code, its network access passes through a local filtering proxy that allows only the domains on the sandbox’s built-in allowlist, grouped by purpose below. By default, each member manages the list on their own computer. Members can turn off any group except package management, during onboarding or under **Settings** > **Network**, and add allowed domains of their own in Settings. An administrator can also use the per-device configuration file, whose `[sandbox.network]` keys add allowed or denied domains, or disable sandbox networking entirely.
+When Claude runs code, its network access passes through a local filtering proxy that allows only the domains on the sandbox’s built-in allowlist, grouped by purpose below. By default, each member manages the list on their own computer. Members can turn off any group except package management, during onboarding or under **Settings > Network**, and add allowed domains of their own in Settings, one at a time or by pasting a list. An administrator can also use the per-device configuration file, whose `[sandbox.network]` keys add allowed or denied domains, or disable sandbox networking entirely.
 An organization can instead manage the list for every member from **Organization settings** > **Claude Science**, with one switch per domain and custom domains of its own. Members then see their **Network** settings read-only, and the domains a member or a configuration file added are set aside while the organization manages the list. See [Network allowlist](https://claude.com/docs/claude-science/admin-controls#network-allowlist) for what the organization’s list covers and how changes reach members.
 
 ###  Package management domains
@@ -72,8 +72,8 @@ These groups are on by default. Members can turn them off during onboarding or a
 | NCBI and NIH | `*.ncbi.nlm.nih.gov`, `*.nih.gov`, `cactus.nci.nih.gov` |
 | Genomics and biology | `rest.ensembl.org`, `grch37.rest.ensembl.org`, `*.ensembl.org`, `reactome.org`, `*.reactome.org`, `rest.kegg.jp`, `*.kegg.jp`, `cellguide.cellxgene.cziscience.com`, `gnomad.broadinstitute.org`, `gtexportal.org`, `jaspar.elixir.no`, `www.encodeproject.org`, `mygene.info`, `rfam.org`, `www.cbioportal.org`, `sparql.rhea-db.org`, `bindingdb.org`, `www.bindingdb.org`, `r12.finngen.fi`, `pheweb.jp`, `api.genome.ucsc.edu`, `unibind.uio.no` |
 | Proteomics | `rest.uniprot.org`, `*.uniprot.org`, `string-db.org`, `*.string-db.org`, `*.ebi.ac.uk`, `search.foldseek.com`, `rcsb.org`, `*.rcsb.org`, `*.proteinatlas.org` |
-| Literature and citations | `api.semanticscholar.org`, `api.biorxiv.org`, `www.biorxiv.org`, `api.crossref.org`, `doi.org`, `api.openalex.org`, `arxiv.org`, `*.arxiv.org` |
-| Clinical and pharma | `api.fda.gov`, `clinicaltrials.gov`, `*.clinicaltrials.gov`, `api.clinpgx.org`, `api.platform.opentargets.org`, `cancer.sanger.ac.uk`, `actionability.clinicalgenome.org`, `search.clinicalgenome.org`, `erepo.genome.network`, `civicdb.org`, `api.grants.gov`, `www.antibodyregistry.org`, `cartblanche22.docking.org`, `files.docking.org` |
+| Literature and citations | `api.semanticscholar.org`, `api.biorxiv.org`, `www.biorxiv.org`, `api.crossref.org`, `doi.org`, `api.openalex.org`, `arxiv.org`, `*.arxiv.org`, `api.grants.gov` |
+| Clinical and pharma | `api.fda.gov`, `clinicaltrials.gov`, `*.clinicaltrials.gov`, `api.clinpgx.org`, `api.platform.opentargets.org`, `cancer.sanger.ac.uk`, `actionability.clinicalgenome.org`, `search.clinicalgenome.org`, `erepo.genome.network`, `civicdb.org`, `www.antibodyregistry.org`, `cartblanche22.docking.org`, `files.docking.org` |
 
 ###  Optional compute integrations
 

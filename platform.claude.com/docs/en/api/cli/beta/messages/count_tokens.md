@@ -70,7 +70,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+- `--model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -79,6 +79,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 - `--cache-control: optional object`
 
   Body param: Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+- `--compaction: optional object`
+
+  Body param: Compaction configuration.
+
+  When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
 - `--context-management: optional object`
 
@@ -104,7 +110,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `--speed: optional "standard" or "fast"`
 
-  Body param: Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+  Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
 - `--system: optional string or array of BetaTextBlockParam`
 
@@ -112,7 +118,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
-- `--thinking: optional BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigAdaptive`
+- `--thinking: optional BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigBetweenTools or BetaThinkingConfigAdaptive`
 
   Body param: Configuration for enabling Claude's extended thinking.
 

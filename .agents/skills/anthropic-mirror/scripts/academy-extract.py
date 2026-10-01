@@ -16,7 +16,7 @@ skilljar 레슨 페이지는 1MB로 무거워 브라우저 크롤이 페이지�
 
 실행: <crawl4ai python> academy-extract.py <out_dir> [course-slug ...]
   코스 슬러그 생략 시 카탈로그(/)에서 자동 수집.
-  모든 레슨을 검사하고 실제 본문이 달라진 파일만 갱신.
+  모든 레슨을 검사하고 실제 본문이 달라진 파일만 갱신. 비로그인이면 exit 3.
   출력: <out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md (레슨별, A 트랙과 같은 도메인 트리)
 """
 
@@ -59,6 +59,14 @@ def extract(html):
             continue
         for t in el.select("script, style, nav, footer"):
             t.decompose()
+        for img in el.find_all("img"):
+            # 빈 src는 해석되지 않는 ![]()가 된다. 대체 텍스트가 있으면 미수집 상태로 남긴다.
+            if not (img.get("src") or "").strip():
+                alt = " ".join((img.get("alt") or "").split())
+                if alt:
+                    img.replace_with(f"[미수집 이미지: {alt}]")
+                else:
+                    img.decompose()
         txt = md(str(el), heading_style="ATX").strip()
         if len(txt) > len(best):
             best = txt
@@ -95,8 +103,9 @@ async def main():
         # 비로그인으로 진행하면 전 레슨이 코스 랜딩으로 튕겨 소개글이 본문으로 저장된다.
         _, _, acct = await get(f"{BASE}/accounts/")
         if "/accounts/login" in acct or not acct:
-            print("[!] 비로그인 상태 - login-academy.py로 로그인하세요.")
-            return
+            # fail-closed: 경고 후 성공 종료하면 호출자가 갱신 완료로 오판한다(academy-video.py와 같은 종료 코드).
+            print("[!] 비로그인 상태 - login-academy.py로 로그인하세요. 레슨을 저장하지 않고 멈춥니다.")
+            raise SystemExit(3)
         if not courses:
             skip = {
                 "auth",

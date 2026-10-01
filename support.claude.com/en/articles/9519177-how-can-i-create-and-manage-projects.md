@@ -37,7 +37,7 @@ You'll find the project knowledge base on the right side of your project's main 
 
 ## Share projects
 
-If you are a member of a Team or Enterprise plan organization, you can share projects with other members of your organization.
+If you're on a Team or Enterprise plan, you can share projects with other users in your organization, unless your admin has turned off project sharing. See **[If you can't share projects](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing#h_d5a68ef397)** for what to expect.
 
 ### To share a project
 
@@ -84,21 +84,15 @@ Starring a project allows for quick access from your projects and chats list, vi
 
 You can move a standalone chat into a project by clicking on the dropdown arrow next to the chat name, then “Add to project”:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1789086600&signature=01d20abc3edd00bfb72d04d478e771acb28ef73594fa59a3d7475b410824ecac&req=dScvEsh3nYNbUfMW1HO4zQABaWhsQqYTBSXNVFXQ%2FVGm3i0tT%2FP%2F9GlFFH00%0ApWRpwntk3ETlmEGMirQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1789086600&signature=01d20abc3edd00bfb72d04d478e771acb28ef73594fa59a3d7475b410824ecac&req=dScvEsh3nYNbUfMW1HO4zQABaWhsQqYTBSXNVFXQ%2FVGm3i0tT%2FP%2F9GlFFH00%0ApWRpwntk3ETlmEGMirQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1790942400&signature=2c1b56748cea15244e48aab7a826a94e14afb0a0d97cfa09a77f180e487a37f1&req=dScvEsh3nYNbUfMW3nq%2BgXuLDiqr6zw1XvsvfZakkxGoBQ5BshsUrfZUPXcn%0ALldsluJXHHDrUKJ9fmYumHrxdmk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1790942400&signature=2c1b56748cea15244e48aab7a826a94e14afb0a0d97cfa09a77f180e487a37f1&req=dScvEsh3nYNbUfMW3nq%2BgXuLDiqr6zw1XvsvfZakkxGoBQ5BshsUrfZUPXcn%0ALldsluJXHHDrUKJ9fmYumHrxdmk%3D%0A)
 
 Browse or search for the correct project in the **Move chat** modal that appears, then click on it to move the chat.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1789086600&signature=cf87d8c04a75f05305103699641992c9de97b48bb60ad567aab7836dc97f19a4&req=dScvEsh3nYhaWPMW1HO4zSMECimwww8HgYbpTjViBxCQd2UZ7LGAuNjSPvx1%0AFezIRlmL3kNccg5Y9Xw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1789086600&signature=cf87d8c04a75f05305103699641992c9de97b48bb60ad567aab7836dc97f19a4&req=dScvEsh3nYhaWPMW1HO4zSMECimwww8HgYbpTjViBxCQd2UZ7LGAuNjSPvx1%0AFezIRlmL3kNccg5Y9Xw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1790942400&signature=4d7e2a1b6cf43cbf3aecc8c4d046a2c56f8e10ebb72a7f375ddd4c61768db191&req=dScvEsh3nYhaWPMW3nq%2BgaHJV1YEk4QY9y%2BLKq4iewoG8UDs74S%2Btff9aheA%0A61VuWAcPFFThKHgPM7HONJ2n%2FnQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1790942400&signature=4d7e2a1b6cf43cbf3aecc8c4d046a2c56f8e10ebb72a7f375ddd4c61768db191&req=dScvEsh3nYhaWPMW3nq%2BgaHJV1YEk4QY9y%2BLKq4iewoG8UDs74S%2Btff9aheA%0A61VuWAcPFFThKHgPM7HONJ2n%2FnQ%3D%0A)
 
 You can also remove chats from projects, or move them between projects, using the same dropdown menu within the chat:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1789086600&signature=b72f9bce59a37e86862a61887858c120a0475a30f3d24b9b6b7512e0d66b76e0&req=dScvEsh2mIdXW%2FMW1HO4zb6DuP4sBkMMS2r1%2FGRlqOS%2FXy19E5ol4ZAsAbLf%0Algj%2BOb3UP7y1j9B0afs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1789086600&signature=b72f9bce59a37e86862a61887858c120a0475a30f3d24b9b6b7512e0d66b76e0&req=dScvEsh2mIdXW%2FMW1HO4zb6DuP4sBkMMS2r1%2FGRlqOS%2FXy19E5ol4ZAsAbLf%0Algj%2BOb3UP7y1j9B0afs%3D%0A)
-
-You can move chats into projects in bulk from **[Your chat history page](https://claude.ai/recents)**:
-
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185685/bb960063204592db277a4ba62d8d/ebbf5c69-da79-4e56-9d87-f2a97a22fe67?expires=1789086600&signature=b28f96d53be4794882e9aa03856104757f32aedadd626343d6bb1fcb7e99030d&req=dScvEsh2mIdXXPMW1HO4zbParUVJ4fyluQSB0Ebsw9e1tVTnV6aiuj1H%2Flnl%0AhNUTesdQj203eUGMWo4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185685/bb960063204592db277a4ba62d8d/ebbf5c69-da79-4e56-9d87-f2a97a22fe67?expires=1789086600&signature=b28f96d53be4794882e9aa03856104757f32aedadd626343d6bb1fcb7e99030d&req=dScvEsh2mIdXXPMW1HO4zbParUVJ4fyluQSB0Ebsw9e1tVTnV6aiuj1H%2Flnl%0AhNUTesdQj203eUGMWo4%3D%0A)
-
-Select the chats you want to move, then click the icon next to the number of selected chats to move them into your project.
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1790942400&signature=d6a932431e31c09c7affa843ef1e6e1a11f9cf0545a209f2ccf02fa7066767cf&req=dScvEsh2mIdXW%2FMW3nq%2BgcRackgj7VWrCI5gXkUx%2BGGb9C77zPcRsyzABUKv%0AMW4gcfH%2BMBdhhmnEyJDcLR%2B7b%2F4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1790942400&signature=d6a932431e31c09c7affa843ef1e6e1a11f9cf0545a209f2ccf02fa7066767cf&req=dScvEsh2mIdXW%2FMW3nq%2BgcRackgj7VWrCI5gXkUx%2BGGb9C77zPcRsyzABUKv%0AMW4gcfH%2BMBdhhmnEyJDcLR%2B7b%2F4%3D%0A)
 
 ---
 
@@ -107,6 +101,8 @@ Select the chats you want to move, then click the icon next to the number of sel
 Memory is on by default for Free, Pro, and Max plans on the web, Claude Desktop, and Claude Mobile. On Team and Enterprise plans, memory is available when an owner has enabled it.
 
 For Team and Enterprise plans using Claude’s memory, the ability to move chats into and out of projects allows you to manage what’s included in Claude’s memory. Each project has its own memory, kept separate from your non-project chats. For example, if you accidentally start an unrelated chat in a project and need to remove it from the project-specific memory summary, you can click “Remove from project” so it will be included in Claude’s non-project memory instead.
+
+You can also turn memory off for a single chat, inside or outside a project, by turning off "Memory" in the "+" menu before you send your first message. A project chat started this way doesn't use or add to the project's memory.
 
 Refer to our article on chat search and memory for more information: **[What is Claude’s memory?](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context#h_82126ebcc9)**
 

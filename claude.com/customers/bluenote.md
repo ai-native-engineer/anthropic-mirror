@@ -1,46 +1,24 @@
 <!-- source: https://claude.com/customers/bluenote -->
 
-Claude Science beta
-
-[Next](#)Next
-
-Introducing the Claude Science app, your research partner for rigorous science.
-
-Learn more
-
-[Learn more](https://claude.com/product/claude-science)Learn more
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
-
 Case study | Claude Platform
 
 # Bluenote powers intelligent agents for life sciences with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Bluenote logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c31a5d29a9394a446a5f9d_cs-logo-bluenote-light-theme.svg)![Bluenote logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c31a5f9f5d859406b27e21_cs-logo-bluenote-dark-theme.svg)
+![Bluenote logo](https://assets.claude.com/58a9ffa47335cc369fa221caa8e3fb679882c6dc.svg)
 
 Industry:
-
-Life sciences
+:   Life sciences
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 10x faster analysis
 
@@ -49,42 +27,6 @@ for scientists parsing complex protocols
 50-75% acceleration
 
 in regulatory document production
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Bluenote uses Claude to build AI agents that power critical operations for life sciences organizations—from regulatory workflows and technical documentation to manufacturing and supply chain operations—enabling researchers to focus on science instead of paperwork.
 
@@ -146,52 +88,12 @@ The future promises agents that not only process documents and execute operation
 
 For patients waiting for life-saving treatments, this collaboration represents hope. Every hour saved from administrative tasks is an hour that scientists can dedicate to innovation. In this vision of the future, AI augments human expertise, creating a world where medical breakthroughs happen faster and reach those who need them most.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Garvan](https://assets.claude.com/8ca2525dca9dc96d03f312c99c0f14ed467f4fa9.png)
 
-[Next](#)Next
+### How the Garvan Institute is changing the way it does science with Claude](https://claude.com/customers/garvan-institute-qa)[![Novo Nordisk](https://assets.claude.com/c704b3e5698e39df44f1812135eb46e27f59cc3d.svg)
 
-Video caption
+### Novo Nordisk accelerates clinical documentation and drug development with Claude](https://claude.com/customers/novo-nordisk)[![Biomni](https://assets.claude.com/4feeeeb8c449fddac5e11284e6640a066e059c4f.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[How the Garvan Institute is changing the way it does science with Claude](https://claude.com/customers/garvan-institute-qa)How the Garvan Institute is changing the way it does science with Claude
-
-How the Garvan Institute is changing the way it does science with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/garvan-institute-qa)Customer story
-
-[Novo Nordisk accelerates clinical documentation and drug development with Claude](https://claude.com/customers/novo-nordisk)Novo Nordisk accelerates clinical documentation and drug development with Claude
-
-Novo Nordisk accelerates clinical documentation and drug development with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/novo-nordisk)Customer story
-
-[Biomni accelerates biomedical discoveries by 100x with Claude](https://claude.com/customers/biomni)Biomni accelerates biomedical discoveries by 100x with Claude
-
-Biomni accelerates biomedical discoveries by 100x with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/biomni)Customer story
+### Biomni accelerates biomedical discoveries by 100x with Claude](https://claude.com/customers/biomni)

@@ -4,35 +4,21 @@ Case study | Claude Platform
 
 # Juno helps people with chronic illness find patterns in their symptoms with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a30dd3770a64a8d0590bd78_logo_juno2-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a30dd3ac6c210dba5fe16c6_logo_juno2-dark-mode.svg)
+![Juno logo](https://assets.claude.com/cf56733d93f87bf0edc268e0afd5ff3fb80b1514.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Cowork](https://claude.com/product/cowork)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)[Claude Cowork](https://claude.com/product/cowork)
 
 Location:
-
-North America
+:   North America
 
 10% increase in next-day retention
 
@@ -54,32 +40,6 @@ after launching in October 2025
 
 ## The challenge
 
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-Read more
-
-[Read more](https://claude.com/healthcare)Read more
-
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Healthcare
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
 ## Building for a community many tools overlook
 
 The apps built for people with chronic illness can often be thin and fragmented, aimed at what many treat as a niche. "A lot of people treat this as a minority community, when in fact one in three adults live with a chronic condition," said Marshall Gould, co-founder and CEO of Juno.
@@ -88,33 +48,15 @@ People with chronic illness often manage several symptoms a day, many of them co
 
 Gould and his co-founder both live with chronic conditions, and while earning a master's in genomic medicine at Oxford, Gould researched how people with chronic illness use social media. "When people think about chronic illness, they think about someone looking obviously ill," he said. "The reality is many people with a chronic condition look fine on the outside, but it's just a mask for trying to live a normal life.”
 
+Claude for Healthcare
+
+![Claude for Healthcare](https://assets.claude.com/3cc055deed02884f4a1b81019a962925687fccc3.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
+
+[Read more](https://claude.com/healthcare)
+
 ## The solution
-
-Cowork
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Read more
-
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
 ## Reading symptoms in how people talk
 
@@ -136,33 +78,17 @@ The founders lean on Claude Code and Claude Cowork to move fast. "Being a team o
 
 Mobile testing is the hardest part for a two-person team, with a long list of devices and screen sizes to cover. Juno connects Claude Code through the Model Context Protocol (MCP) to mobile simulators that run in the cloud around the clock. When a bug appears, Claude Code reproduces it across devices, applies a fix, runs CI/CD checks with a Claude Code review, and confirms the fix before it ships.
 
-"We want to take the average time to diagnosis from 7.6 years down to just a couple of months, if not days."
+Cowork
 
-Marshall Gould
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Co-founder and CEO, Juno
+Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Claude Code
+[Read more](https://claude.com/product/cowork)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+> "We want to take the average time to diagnosis from 7.6 years down to just a couple of months, if not days."
 
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+Marshall Gould Co-founder and CEO, Juno
 
 ## The outcome
 
@@ -174,42 +100,24 @@ On the first conversation, moving from Claude Sonnet to Claude Opus lifted conve
 
 The larger goal is diagnosis. "The one thing every person with a chronic illness has in common is that they were once undiagnosed," Gould said. By Juno's own figures, getting that diagnosis in the U.S. is often slow and expensive, on the order of $30,000 per patient. For rare conditions, the path is longest: studies have found it takes an average of 7.6 years in the U.S. to reach a correct diagnosis, through visits to as many as eight physicians and two to three misdiagnoses along the way. By structuring a long medical history, lab results, and daily conversation into something a doctor can read in a page, Juno wants to compress that. "We want to take the average time to diagnosis from 7.6 years down to just a couple of months," Gould said, "if not days."
 
-"Our aim isn't to be the nicest chatbot in the world. It's to create something more actionable."
+Claude Code
 
-Marshall Gould
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Co-founder and CEO, Juno
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-## Related stories
+[Read more](https://claude.com/product/claude-code)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+> "Our aim isn't to be the nicest chatbot in the world. It's to create something more actionable."
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+Marshall Gould Co-founder and CEO, Juno
 
-Customer story
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Customer story](https://claude.com/customers/atlassian)Customer story
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Rocket Money on building agents that fix their own code
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

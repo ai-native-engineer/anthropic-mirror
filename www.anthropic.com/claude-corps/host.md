@@ -28,7 +28,7 @@ Our goals are twofold: to equip host organizations with valuable tools and syste
 
 ### How big is the program?
 
-Cohort 1 places approximately 100 fellows at host organizations across the United States starting in October 2026. The full program places 1,000 fellows across three cohorts, with the remaining 900 fellows starting in cohorts that begin in January 2027 and August 2027.
+Cohort 1 places approximately 100 fellows at host organizations across the United States starting in October 2026. The full program places 1,000 fellows across three cohorts, with the remaining 900 fellows starting in cohorts that begin in February 2027 and August 2027.
 
 ## Program overview
 
@@ -71,7 +71,7 @@ Cohort 1 places approximately 100 fellows at host organizations across the Unite
 ### How do we apply, and by when?
 
 * **One application.** [Apply here](https://form.typeform.com/to/X0apETWF). The application takes about 30 minutes to complete. You’ll provide details about your organization, sponsor, and supervisor, and answer a few short questions about why you want to participate and what you’d want a fellow to work on. [Download the full application as a PDF](https://www-cdn.anthropic.com/files/4zrzovbb/website/9cd661ef6fd3ceeaba4ad289f897443792444615.pdf) to coordinate internally first if you’d like.
-* **Deadlines.** Applications are rolling across all three cohort start dates (October 2026, January 2027, and August 2027). To be considered for Cohort 1 (fellows start October 19, 2026), apply by 11:59 pm PT on Friday, July 17, 2026.
+* **Deadlines.** Applications are rolling across all three cohort start dates (October 2026, February 2027, and August 2027). To be considered for Cohort 1 (fellows start October 19, 2026), apply by 11:59 pm PT on Friday, July 17, 2026.
 * **Want to learn more first?** [Watch our information host organization webinar here](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization).
 
 ## The fellows
@@ -149,7 +149,7 @@ We’ll notify host organizations in late August if they have been selected as a
 
 ### If an organization is not selected for Cohort 1, can they apply for Cohort 2?
 
-Yes. If we can’t place a host organization in Cohort 1, we’ll automatically consider that application for Cohort 2, which starts in January 2027. Host organizations will be informed and will not need to reapply.
+Yes. If we can’t place a host organization in Cohort 1, we’ll automatically consider that application for Cohort 2, which starts in February 2027. Host organizations will be informed and will not need to reapply.
 
 ### How are fellows matched to host organizations? Do hosts interview them?
 

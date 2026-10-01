@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/hooks-as-approval-gates -->
 
-Lesson 11 of 14 · The AI-Native SDLC PlaybookHooks as approval gates
+Lesson 11 of 14 · The AI-native SDLC playbookHooks as approval gates
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Hooks as approval gates
 
@@ -134,7 +134,7 @@ For the hooks themselves:
 
 [Previous lessonAI in the PR review loop](https://academy.claude.com/courses/ai-native-sdlc-playbook/ai-in-the-pr-review-loop)[Next lessonCI/CD integration and deployment](https://academy.claude.com/courses/ai-native-sdlc-playbook/ci-cd-integration-and-deployment)
 
-Lesson 11 of 14 · The AI-Native SDLC PlaybookHooks as approval gates
+Lesson 11 of 14 · The AI-native SDLC playbookHooks as approval gates
 
 Introduction
 

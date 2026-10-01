@@ -43,14 +43,6 @@ Access US National Provider Identifier (NPI) Registry
 
 [Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
-
-### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
-
-Access ICD-10-CM and ICD-10-PCS code sets
-
-[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
 ### [AllTrails](https://claude.com/connectors/alltrails)
@@ -58,6 +50,14 @@ Access ICD-10-CM and ICD-10-PCS code sets
 Find your next hike
 
 [Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
+
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
+
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
+
+Access ICD-10-CM and ICD-10-PCS code sets
+
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 

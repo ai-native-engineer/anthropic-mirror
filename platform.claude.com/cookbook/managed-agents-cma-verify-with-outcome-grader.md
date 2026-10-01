@@ -57,6 +57,10 @@ writer = client.beta.agents.create(
 
 name="Research Analyst",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-verify-with-outcome-grader"},
+
 model=MODEL,
 
 system="""You are a research analyst. You write one-page business briefs.

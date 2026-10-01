@@ -44,6 +44,10 @@ name=name,
 
 description=description,
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-coordinate-specialist-team"},
+
 model=MODEL,
 
 system=system,
@@ -301,6 +305,10 @@ mount("/mnt/user-data/pricing\_rules.md", PRICING)
 coordinator = client.beta.agents.create(
 
 name="Proposal Writer",
+
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/cma-coordinate-specialist-team"},
 
 model=MODEL,
 

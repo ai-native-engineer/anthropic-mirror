@@ -20,7 +20,7 @@ compliance activities that can be filtered by various criteria.
 
 ## Query parameters
 
-- `activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 490 more`
+- `activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 513 more`
 
   Filter activities by type. See the response `data` schema for the additional fields each type returns. Cannot be combined with `exclude_activity_types[]`.
 
@@ -91,6 +91,14 @@ compliance activities that can be filtered by various criteria.
   - `"ccr_agent_deleted"`
 
     A Claude Code agent was deleted.
+
+  - `"ccr_agent_proxy_anthropic_oidc_token_exchanged"`
+
+    The Claude Code agent proxy exchanged a minted identity token for short-lived credentials in the organization's own cloud. Recorded for exchange targets only (such as "aws" and "gcp"; the "direct" target has no exchange step). One event is recorded per exchange call; a request served from the proxy's exchanged-credential cache does not exchange again and is not recorded here. Per-request detail for traffic the credentials were injected into is available in the agent proxy network events.
+
+  - `"ccr_agent_proxy_anthropic_oidc_token_minted"`
+
+    The Claude Code agent proxy minted a short-lived identity token for an anthropic_oidc credential. One event is recorded per fresh token issuance; a request served from the proxy's short-lived token cache does not mint a new token and is not recorded here. Per-request detail for traffic the credential was injected into is available in the agent proxy network events.
 
   - `"ccr_agent_proxy_credential_created"`
 
@@ -188,6 +196,14 @@ compliance activities that can be filtered by various criteria.
 
     A Claude Code agent's configuration was updated. Also emitted with updated_fields ["is_virtual"] alone when an auto-provisioned agent is promoted to a configured one, whether by an update request targeting it or by binding an agent proxy profile to it.
 
+  - `"ccr_channel_manager_added"`
+
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
+
+  - `"ccr_channel_manager_removed"`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
+
   - `"ccr_role_channel_assignment_deleted"`
 
     CcrRoleChannelAssignmentDeleted is emitted when an org owner/admin removes an RBAC role's channel assignment row (the role reverts to granting zero channels).
@@ -232,9 +248,29 @@ compliance activities that can be filtered by various criteria.
 
     A user duplicated an artifact they could view into a new artifact that they own. The actor is the user who created the copy; the source artifact is not modified.
 
+  - `"claude_artifact_external_sharing_permission_updated"`
+
+    An organization admin allowed one artifact to be shared outside the organization by link while the organization-wide external sharing setting was off, or revoked that permission.
+
+  - `"claude_artifact_invite_accepted"`
+
+    Someone outside the organization signed in with a verified account for the invited address and accepted an invitation to an artifact, and can now open it; recorded in the artifact owner's organization. The person who accepted is identified by `invitee_email` and `invitee_user_id`.
+
+  - `"claude_artifact_invite_created"`
+
+    A member invited (or re-invited) an email address outside the organization to an artifact; recorded in the artifact owner's organization with the inviting member as the actor.
+
+  - `"claude_artifact_invite_revoked"`
+
+    A member withdrew an invitation to an artifact for someone outside the organization, removing any access that invitation had granted; recorded in the artifact owner's organization with that member as the actor.
+
+  - `"claude_artifact_invite_role_updated"`
+
+    A member changed the access level of an email invitation to an artifact for someone outside the organization, whether the invitation was still pending or had been accepted; recorded in the artifact owner's organization with that member as the actor.
+
   - `"claude_artifact_published"`
 
-    A new version of an artifact was published — for an artifact created in a chat this is the action that made it publicly viewable; for an artifact created outside a chat it is recorded on every save, including saves of private artifacts, and changes to who can access the artifact are recorded separately as claude_artifact_sharing_updated.
+    A new version of an artifact was published — for an artifact created in a chat this is the action that made it publicly viewable; for an artifact created outside a chat it is recorded when the artifact is saved, including saves of private artifacts, except that automatic saves made while a person keeps editing may be recorded periodically for that person rather than once per save; changes to who can access the artifact are recorded separately as claude_artifact_sharing_updated.
 
   - `"claude_artifact_sharing_updated"`
 
@@ -376,6 +412,10 @@ compliance activities that can be filtered by various criteria.
 
     A recurring scan schedule was set or replaced for a Claude Code Security project.
 
+  - `"claude_code_security_vulnerability_deleted"`
+
+    A Claude Code Security vulnerability finding was permanently deleted.
+
   - `"claude_code_security_vulnerability_fix_session_created"`
 
     A Claude Code remediation session was created for a Claude Code Security vulnerability finding.
@@ -492,6 +532,10 @@ compliance activities that can be filtered by various criteria.
 
     Organization settings were updated.
 
+  - `"claude_plugin_archive_accessed"`
+
+    A version archive of a member-owned plugin, containing that member's own files, was downloaded.
+
   - `"claude_plugin_created"`
 
     Plugin was created.
@@ -503,6 +547,10 @@ compliance activities that can be filtered by various criteria.
   - `"claude_plugin_disabled"`
 
     User disabled a plugin for their account.
+
+  - `"claude_plugin_downloaded"`
+
+    The archive of the plugin version a member was served was downloaded to install or update the plugin in one of the member's Claude apps (Claude in the browser, the Claude desktop app, Claude Code, or a cloud session).
 
   - `"claude_plugin_enabled"`
 
@@ -800,9 +848,29 @@ compliance activities that can be filtered by various criteria.
 
     Webhook signature validation failed.
 
+  - `"github_app_installation_linked"`
+
+    An installation of the Claude GitHub App (a GitHub organization or user account where the App is installed) was linked to the organization, letting the organization's Claude Code features act on that GitHub account's repositories.
+
+  - `"github_app_installation_unlinked"`
+
+    An installation of the Claude GitHub App was unlinked from the organization, so the organization's Claude Code features can no longer act on that GitHub account's repositories through it.
+
   - `"github_token_import"`
 
     A user attempted to import a personal GitHub access token for use with Claude Code. The `result` field indicates the outcome of the import (imported, rejected, or failed).
+
+  - `"gitlab_configuration_created"`
+
+    An organization admin created a self-managed GitLab configuration for syncing plugin marketplaces.
+
+  - `"gitlab_configuration_deleted"`
+
+    An organization admin deleted a self-managed GitLab configuration.
+
+  - `"gitlab_configuration_updated"`
+
+    An organization admin updated a self-managed GitLab configuration. Previous/new field pairs are recorded only for settings that changed in the update; secret credentials are never recorded, only whether they were replaced.
 
   - `"group_created"`
 
@@ -870,7 +938,7 @@ compliance activities that can be filtered by various criteria.
 
   - `"inference_hooks_request_denied"`
 
-    Inference hooks inspection denied a request. The request was blocked and no model response was produced.
+    Inference hooks inspection denied a request. The request was blocked.
 
   - `"inference_hooks_request_failed_open"`
 
@@ -958,7 +1026,7 @@ compliance activities that can be filtered by various criteria.
 
   - `"mcp_server_managed_auth_token_exchanged"`
 
-    A user attempted to obtain an access token for an MCP server via enterprise managed authorization. This event reports the outcomes of attempted token exchanges. Repeated failures with the same cause may be reported once until the cause changes, and requests denied by organization policy before a token exchange is attempted are not reported, with the exception of the "connector_scope_not_granted" failures described under error_type.
+    A user attempted to obtain an access token for an MCP server via enterprise managed authorization. This event reports the outcomes of attempted token exchanges. Repeated failures with the same cause may be reported once until the cause changes, and requests refused before a token exchange is attempted are not reported, except the "connector_scope_not_granted" and "identity_assertion_refused" failures described under error_type.
 
   - `"mcp_server_managed_auth_updated"`
 
@@ -1039,6 +1107,14 @@ compliance activities that can be filtered by various criteria.
   - `"org_cowork_auto_mode_enabled"`
 
     The "Auto" permission mode in Cowork was enabled for the organization, allowing members to let Claude approve its own actions after a safety check.
+
+  - `"org_cowork_browser_pane_disabled"`
+
+    The in-app browser in Cowork was disabled for the organization, so Claude can no longer open or use websites in a browser pane during members' Cowork sessions.
+
+  - `"org_cowork_browser_pane_enabled"`
+
+    The in-app browser in Cowork was enabled for the organization, letting Claude open and use websites in a browser pane during members' Cowork sessions.
 
   - `"org_cowork_disabled"`
 
@@ -1516,6 +1592,10 @@ compliance activities that can be filtered by various criteria.
 
     An OIDC federation issuer was archived.
 
+  - `"platform_federation_issuer_created"`
+
+    An OIDC federation issuer was created, registering an external identity provider that federation rules can trust for workload authentication.
+
   - `"platform_federation_issuer_updated"`
 
     An OIDC federation issuer was updated.
@@ -1523,6 +1603,10 @@ compliance activities that can be filtered by various criteria.
   - `"platform_federation_rule_archived"`
 
     An OIDC federation rule was archived.
+
+  - `"platform_federation_rule_created"`
+
+    An OIDC federation rule was created, allowing tokens from a federation issuer to authenticate as a service account or user. Rules may additionally match on token claims or a condition expression, which are not included in this event.
 
   - `"platform_federation_rule_updated"`
 
@@ -1592,6 +1676,10 @@ compliance activities that can be filtered by various criteria.
 
     An OAuth app was updated.
 
+  - `"platform_organization_created"`
+
+    An owner of the organization created a Claude Console organization under the same parent organization.
+
   - `"platform_plugin_directory_submission_created"`
 
     A plugin directory submission was created on the API platform. A plugin directory submission is a request to list a plugin in the public plugin directory.
@@ -1607,6 +1695,10 @@ compliance activities that can be filtered by various criteria.
   - `"platform_service_account_archived"`
 
     A service account was archived.
+
+  - `"platform_service_account_created"`
+
+    A service account was created.
 
   - `"platform_service_account_updated"`
 
@@ -2051,7 +2143,7 @@ compliance activities that can be filtered by various criteria.
 
     format: date-time
 
-- `exclude_activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 490 more`
+- `exclude_activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 513 more`
 
   Exclude activities of these types. Cannot be combined with `activity_types[]`.
 
@@ -2122,6 +2214,14 @@ compliance activities that can be filtered by various criteria.
   - `"ccr_agent_deleted"`
 
     A Claude Code agent was deleted.
+
+  - `"ccr_agent_proxy_anthropic_oidc_token_exchanged"`
+
+    The Claude Code agent proxy exchanged a minted identity token for short-lived credentials in the organization's own cloud. Recorded for exchange targets only (such as "aws" and "gcp"; the "direct" target has no exchange step). One event is recorded per exchange call; a request served from the proxy's exchanged-credential cache does not exchange again and is not recorded here. Per-request detail for traffic the credentials were injected into is available in the agent proxy network events.
+
+  - `"ccr_agent_proxy_anthropic_oidc_token_minted"`
+
+    The Claude Code agent proxy minted a short-lived identity token for an anthropic_oidc credential. One event is recorded per fresh token issuance; a request served from the proxy's short-lived token cache does not mint a new token and is not recorded here. Per-request detail for traffic the credential was injected into is available in the agent proxy network events.
 
   - `"ccr_agent_proxy_credential_created"`
 
@@ -2219,6 +2319,14 @@ compliance activities that can be filtered by various criteria.
 
     A Claude Code agent's configuration was updated. Also emitted with updated_fields ["is_virtual"] alone when an auto-provisioned agent is promoted to a configured one, whether by an update request targeting it or by binding an agent proxy profile to it.
 
+  - `"ccr_channel_manager_added"`
+
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
+
+  - `"ccr_channel_manager_removed"`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
+
   - `"ccr_role_channel_assignment_deleted"`
 
     CcrRoleChannelAssignmentDeleted is emitted when an org owner/admin removes an RBAC role's channel assignment row (the role reverts to granting zero channels).
@@ -2263,9 +2371,29 @@ compliance activities that can be filtered by various criteria.
 
     A user duplicated an artifact they could view into a new artifact that they own. The actor is the user who created the copy; the source artifact is not modified.
 
+  - `"claude_artifact_external_sharing_permission_updated"`
+
+    An organization admin allowed one artifact to be shared outside the organization by link while the organization-wide external sharing setting was off, or revoked that permission.
+
+  - `"claude_artifact_invite_accepted"`
+
+    Someone outside the organization signed in with a verified account for the invited address and accepted an invitation to an artifact, and can now open it; recorded in the artifact owner's organization. The person who accepted is identified by `invitee_email` and `invitee_user_id`.
+
+  - `"claude_artifact_invite_created"`
+
+    A member invited (or re-invited) an email address outside the organization to an artifact; recorded in the artifact owner's organization with the inviting member as the actor.
+
+  - `"claude_artifact_invite_revoked"`
+
+    A member withdrew an invitation to an artifact for someone outside the organization, removing any access that invitation had granted; recorded in the artifact owner's organization with that member as the actor.
+
+  - `"claude_artifact_invite_role_updated"`
+
+    A member changed the access level of an email invitation to an artifact for someone outside the organization, whether the invitation was still pending or had been accepted; recorded in the artifact owner's organization with that member as the actor.
+
   - `"claude_artifact_published"`
 
-    A new version of an artifact was published — for an artifact created in a chat this is the action that made it publicly viewable; for an artifact created outside a chat it is recorded on every save, including saves of private artifacts, and changes to who can access the artifact are recorded separately as claude_artifact_sharing_updated.
+    A new version of an artifact was published — for an artifact created in a chat this is the action that made it publicly viewable; for an artifact created outside a chat it is recorded when the artifact is saved, including saves of private artifacts, except that automatic saves made while a person keeps editing may be recorded periodically for that person rather than once per save; changes to who can access the artifact are recorded separately as claude_artifact_sharing_updated.
 
   - `"claude_artifact_sharing_updated"`
 
@@ -2407,6 +2535,10 @@ compliance activities that can be filtered by various criteria.
 
     A recurring scan schedule was set or replaced for a Claude Code Security project.
 
+  - `"claude_code_security_vulnerability_deleted"`
+
+    A Claude Code Security vulnerability finding was permanently deleted.
+
   - `"claude_code_security_vulnerability_fix_session_created"`
 
     A Claude Code remediation session was created for a Claude Code Security vulnerability finding.
@@ -2523,6 +2655,10 @@ compliance activities that can be filtered by various criteria.
 
     Organization settings were updated.
 
+  - `"claude_plugin_archive_accessed"`
+
+    A version archive of a member-owned plugin, containing that member's own files, was downloaded.
+
   - `"claude_plugin_created"`
 
     Plugin was created.
@@ -2534,6 +2670,10 @@ compliance activities that can be filtered by various criteria.
   - `"claude_plugin_disabled"`
 
     User disabled a plugin for their account.
+
+  - `"claude_plugin_downloaded"`
+
+    The archive of the plugin version a member was served was downloaded to install or update the plugin in one of the member's Claude apps (Claude in the browser, the Claude desktop app, Claude Code, or a cloud session).
 
   - `"claude_plugin_enabled"`
 
@@ -2831,9 +2971,29 @@ compliance activities that can be filtered by various criteria.
 
     Webhook signature validation failed.
 
+  - `"github_app_installation_linked"`
+
+    An installation of the Claude GitHub App (a GitHub organization or user account where the App is installed) was linked to the organization, letting the organization's Claude Code features act on that GitHub account's repositories.
+
+  - `"github_app_installation_unlinked"`
+
+    An installation of the Claude GitHub App was unlinked from the organization, so the organization's Claude Code features can no longer act on that GitHub account's repositories through it.
+
   - `"github_token_import"`
 
     A user attempted to import a personal GitHub access token for use with Claude Code. The `result` field indicates the outcome of the import (imported, rejected, or failed).
+
+  - `"gitlab_configuration_created"`
+
+    An organization admin created a self-managed GitLab configuration for syncing plugin marketplaces.
+
+  - `"gitlab_configuration_deleted"`
+
+    An organization admin deleted a self-managed GitLab configuration.
+
+  - `"gitlab_configuration_updated"`
+
+    An organization admin updated a self-managed GitLab configuration. Previous/new field pairs are recorded only for settings that changed in the update; secret credentials are never recorded, only whether they were replaced.
 
   - `"group_created"`
 
@@ -2901,7 +3061,7 @@ compliance activities that can be filtered by various criteria.
 
   - `"inference_hooks_request_denied"`
 
-    Inference hooks inspection denied a request. The request was blocked and no model response was produced.
+    Inference hooks inspection denied a request. The request was blocked.
 
   - `"inference_hooks_request_failed_open"`
 
@@ -2989,7 +3149,7 @@ compliance activities that can be filtered by various criteria.
 
   - `"mcp_server_managed_auth_token_exchanged"`
 
-    A user attempted to obtain an access token for an MCP server via enterprise managed authorization. This event reports the outcomes of attempted token exchanges. Repeated failures with the same cause may be reported once until the cause changes, and requests denied by organization policy before a token exchange is attempted are not reported, with the exception of the "connector_scope_not_granted" failures described under error_type.
+    A user attempted to obtain an access token for an MCP server via enterprise managed authorization. This event reports the outcomes of attempted token exchanges. Repeated failures with the same cause may be reported once until the cause changes, and requests refused before a token exchange is attempted are not reported, except the "connector_scope_not_granted" and "identity_assertion_refused" failures described under error_type.
 
   - `"mcp_server_managed_auth_updated"`
 
@@ -3070,6 +3230,14 @@ compliance activities that can be filtered by various criteria.
   - `"org_cowork_auto_mode_enabled"`
 
     The "Auto" permission mode in Cowork was enabled for the organization, allowing members to let Claude approve its own actions after a safety check.
+
+  - `"org_cowork_browser_pane_disabled"`
+
+    The in-app browser in Cowork was disabled for the organization, so Claude can no longer open or use websites in a browser pane during members' Cowork sessions.
+
+  - `"org_cowork_browser_pane_enabled"`
+
+    The in-app browser in Cowork was enabled for the organization, letting Claude open and use websites in a browser pane during members' Cowork sessions.
 
   - `"org_cowork_disabled"`
 
@@ -3547,6 +3715,10 @@ compliance activities that can be filtered by various criteria.
 
     An OIDC federation issuer was archived.
 
+  - `"platform_federation_issuer_created"`
+
+    An OIDC federation issuer was created, registering an external identity provider that federation rules can trust for workload authentication.
+
   - `"platform_federation_issuer_updated"`
 
     An OIDC federation issuer was updated.
@@ -3554,6 +3726,10 @@ compliance activities that can be filtered by various criteria.
   - `"platform_federation_rule_archived"`
 
     An OIDC federation rule was archived.
+
+  - `"platform_federation_rule_created"`
+
+    An OIDC federation rule was created, allowing tokens from a federation issuer to authenticate as a service account or user. Rules may additionally match on token claims or a condition expression, which are not included in this event.
 
   - `"platform_federation_rule_updated"`
 
@@ -3623,6 +3799,10 @@ compliance activities that can be filtered by various criteria.
 
     An OAuth app was updated.
 
+  - `"platform_organization_created"`
+
+    An owner of the organization created a Claude Console organization under the same parent organization.
+
   - `"platform_plugin_directory_submission_created"`
 
     A plugin directory submission was created on the API platform. A plugin directory submission is a request to list a plugin in the public plugin directory.
@@ -3638,6 +3818,10 @@ compliance activities that can be filtered by various criteria.
   - `"platform_service_account_archived"`
 
     A service account was archived.
+
+  - `"platform_service_account_created"`
+
+    A service account was created.
 
   - `"platform_service_account_updated"`
 
@@ -4048,7 +4232,7 @@ compliance activities that can be filtered by various criteria.
 
   Maximum results (default: 100, max: 5000)
 
-  default: 100, maximum: 5000, minimum: 1
+  default: 100, minimum: 1, maximum: 5000
 
 - `order: optional "asc" or "desc"`
 
@@ -4070,17 +4254,11 @@ compliance activities that can be filtered by various criteria.
 
 ## Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 ## Returns
 
-- `data: optional array of object or object or object or 490 more`
+- `data: optional array of AbuseDecisionReceived or AccountDeleted or AdminAPIKeyCreated or 513 more`
 
   List of activity records. Each element's `type` field identifies which activity it is and which additional fields are present.
 
@@ -4092,10 +4270,7 @@ compliance activities that can be filtered by various criteria.
 
       default: abuse_decision_received
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -4229,9 +4404,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -4341,10 +4514,7 @@ compliance activities that can be filtered by various criteria.
 
       default: account_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -4478,9 +4648,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -4578,10 +4746,7 @@ compliance activities that can be filtered by various criteria.
 
       default: admin_api_key_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -4715,9 +4880,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -4823,10 +4986,7 @@ compliance activities that can be filtered by various criteria.
 
       default: admin_api_key_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -4960,9 +5120,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -5064,10 +5222,7 @@ compliance activities that can be filtered by various criteria.
 
       default: admin_api_key_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -5201,9 +5356,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -5327,10 +5480,7 @@ compliance activities that can be filtered by various criteria.
 
       default: admin_connector_request_resolved
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -5464,9 +5614,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -5576,10 +5724,7 @@ compliance activities that can be filtered by various criteria.
 
       default: admin_request_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -5713,9 +5858,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -5815,10 +5958,7 @@ compliance activities that can be filtered by various criteria.
 
       default: admin_setup_checklist_step_delegated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -5952,9 +6092,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -6064,10 +6202,7 @@ compliance activities that can be filtered by various criteria.
 
       default: admin_setup_checklist_step_delegation_cancelled
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -6201,9 +6336,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -6305,10 +6438,7 @@ compliance activities that can be filtered by various criteria.
 
       default: age_verified
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -6442,9 +6572,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -6542,10 +6670,7 @@ compliance activities that can be filtered by various criteria.
 
       default: anonymous_mobile_login_attempted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -6679,9 +6804,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -6779,10 +6902,7 @@ compliance activities that can be filtered by various criteria.
 
       default: api_key_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -6916,9 +7036,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -7028,10 +7146,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_artifact_access_failed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -7165,9 +7280,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -7277,10 +7390,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_artifact_commented
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -7414,9 +7524,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -7492,7 +7600,7 @@ compliance activities that can be filtered by various criteria.
 
       The artifact's identifier.
 
-    - `comment_action: "activate_thread" or "create_thread" or "deactivate_thread" or 9 more`
+    - `comment_action: "activate_thread" or "create_thread" or "deactivate_thread" or 10 more`
 
       The action recorded: for example a new comment thread, a reply to an existing thread, a thread resolved, reopened, or deleted, a thread's Claude activation granted or revoked, a comment's text rewritten by its author, an existing comment sent to Claude or withdrawn from Claude, or a thread resolved by a Claude session.
 
@@ -7505,6 +7613,8 @@ compliance activities that can be filtered by various criteria.
       - `"delete_thread"`
 
       - `"edit_comment"`
+
+      - `"move_thread"`
 
       - `"reopen"`
 
@@ -7523,6 +7633,10 @@ compliance activities that can be filtered by various criteria.
     - `id: optional string`
 
       Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `actor_outside_organization: optional boolean or null`
+
+      True when the person who acted belongs to a different organization than the artifact's owner organization, such as someone invited by email who accepted commenter or editor access. Absent on older events; treat absence as false.
 
     - `claude_artifact_comment_id: optional string or null`
 
@@ -7558,10 +7672,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_artifact_comments_viewed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -7695,9 +7806,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -7803,10 +7912,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_artifact_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -7940,9 +8046,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -8044,10 +8148,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_published_artifact_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -8181,9 +8282,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -8279,16 +8378,13 @@ compliance activities that can be filtered by various criteria.
 
   - `ClaudeArtifactPublished object`
 
-    A new version of an artifact was published — for an artifact created in a chat this is the action that made it publicly viewable; for an artifact created outside a chat it is recorded on every save, including saves of private artifacts, and changes to who can access the artifact are recorded separately as claude_artifact_sharing_updated.
+    A new version of an artifact was published — for an artifact created in a chat this is the action that made it publicly viewable; for an artifact created outside a chat it is recorded when the artifact is saved, including saves of private artifacts, except that automatic saves made while a person keeps editing may be recorded periodically for that person rather than once per save; changes to who can access the artifact are recorded separately as claude_artifact_sharing_updated.
 
     - `type: optional "claude_artifact_published"`
 
       default: claude_artifact_published
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -8422,9 +8518,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -8504,13 +8598,13 @@ compliance activities that can be filtered by various criteria.
 
       The published artifact's identifier.
 
-    - `title: string`
-
-      Title of the published artifact
-
     - `id: optional string`
 
       Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `actor_outside_organization: optional boolean or null`
+
+      True when the person who published belongs to a different organization than the artifact's owner organization, such as someone invited by email who accepted editor access. Absent on older events; treat absence as false.
 
     - `claude_artifact_version_id: optional string or null`
 
@@ -8524,7 +8618,7 @@ compliance activities that can be filtered by various criteria.
 
     - `description: optional string or null`
 
-      Optional gallery-card description supplied at publish time. Same provenance as title (caller-authored, reader-visible).
+      No longer populated: the gallery-card description supplied at publish time is intentionally omitted from this feed.
 
     - `is_redeploy: optional boolean or null`
 
@@ -8538,6 +8632,12 @@ compliance activities that can be filtered by various criteria.
 
       Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
 
+    - `title: string`
+
+      **Deprecated**
+
+      No longer populated. For Code Artifacts (`claude_published_artifact_id` starts with `cart_`), find that artifact in List Code Artifacts: the title is the `name` of its `versions` entry whose `id` equals `claude_artifact_version_id`, while that version is still retained (a `name` equal to the version id means the title is no longer kept). For other artifacts, look up `claude_artifact_version_id` with Get artifact metadata. That id is absent when the publish isn't linked to an artifact version, and neither lookup works once the artifact is deleted.
+
   - `ClaudeArtifactSharingUpdated object`
 
     An artifact's sharing settings were updated.
@@ -8546,10 +8646,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_artifact_sharing_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -8683,9 +8780,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -8757,11 +8852,11 @@ compliance activities that can be filtered by various criteria.
 
         - `user_agent: optional string or null`
 
-    - `audience: array of object or object or object`
+    - `audience: array of Organization or Users or AnyoneWithLink`
 
       The artifact's sharing audience after the change. If empty, the artifact is visible only to its owner.
 
-      - `ArtifactSharingAudienceOrganization object`
+      - `Organization object`
 
         Sharing audience: visible to the owning organization.
 
@@ -8769,7 +8864,7 @@ compliance activities that can be filtered by various criteria.
 
           default: organization
 
-      - `ArtifactSharingAudienceUsers object`
+      - `Users object`
 
         Sharing audience: visible to an explicit allowlist of users.
 
@@ -8777,10 +8872,9 @@ compliance activities that can be filtered by various criteria.
 
           default: users
 
-      - `ArtifactSharingAudienceAnyoneWithLink object`
+      - `AnyoneWithLink object`
 
-        Sharing audience: anyone with the link, including anonymous viewers
-        (an artifact shared to the open internet).
+        Sharing audience: anyone with the link, including anonymous viewers (an artifact shared to the open internet).
 
         - `type: optional "anyone_with_link"`
 
@@ -8852,10 +8946,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_artifact_viewed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -8989,9 +9080,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -9097,10 +9186,7 @@ compliance activities that can be filtered by various criteria.
 
       default: audit_log_export_accessed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -9234,9 +9320,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -9334,10 +9418,7 @@ compliance activities that can be filtered by various criteria.
 
       default: audit_log_export_started
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -9471,9 +9552,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -9579,10 +9658,7 @@ compliance activities that can be filtered by various criteria.
 
       default: billing_emails_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -9716,9 +9792,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -9828,10 +9902,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -9965,9 +10036,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -10097,10 +10166,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -10234,9 +10300,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -10342,18 +10406,15 @@ compliance activities that can be filtered by various criteria.
 
       Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
 
-  - `CcrAgentProxyCredentialCreated object`
+  - `CcrAgentProxyAnthropicOidcTokenExchanged object`
 
-    A Claude Code agent proxy credential was created. Credentials hold the secrets the agent proxy injects into requests Claude Code sessions send to approved external services; each credential belongs to an agent proxy profile. Audit events carry only credential names and settings, never the secret material itself.
+    The Claude Code agent proxy exchanged a minted identity token for short-lived credentials in the organization's own cloud. Recorded for exchange targets only (such as "aws" and "gcp"; the "direct" target has no exchange step). One event is recorded per exchange call; a request served from the proxy's exchanged-credential cache does not exchange again and is not recorded here. Per-request detail for traffic the credentials were injected into is available in the agent proxy network events.
 
-    - `type: optional "ccr_agent_proxy_credential_created"`
+    - `type: optional "ccr_agent_proxy_anthropic_oidc_token_exchanged"`
 
-      default: ccr_agent_proxy_credential_created
+      default: ccr_agent_proxy_anthropic_oidc_token_exchanged
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -10487,9 +10548,607 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
-          Asserting party: the AWS account the organization is bound to.
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The Claude Code agent that owns the session, e.g. "cagt_01HX...". Empty when the session is not owned by an agent.
+
+    - `credential_id: string`
+
+      The credential row the exchange ran for, e.g. "apc_01HX...".
+
+    - `profile_id: string`
+
+      The agent proxy profile the credential belongs to, e.g. "capp_01HX...".
+
+    - `role_arn: string`
+
+      The IAM role the token was exchanged for ("aws" target), e.g. "arn:aws:iam::123456789012:role/example-role". Empty for other targets.
+
+    - `role_session_name: string`
+
+      The role session name the temporary credentials were issued under ("aws" target), matching the session name recorded in the organization's own AWS CloudTrail log. Empty for other targets.
+
+    - `service_account: string`
+
+      The Google Cloud service account the federated token was exchanged into ("gcp" target), e.g. "example@example-project.iam.gserviceaccount.com". Empty when the federated token was used directly, and for other targets.
+
+    - `session_id: string`
+
+      The Claude Code session whose request triggered the exchange, e.g. "cse_01HX..." or "session_01HX..." (the session's ID is carried in whichever tagged form the session's credential presented).
+
+    - `target: string`
+
+      The credential's configured target, e.g. "aws" or "gcp".
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `credentials_expire_at: optional string or null`
+
+      When the exchanged cloud credentials expire. Unset when the cloud provider did not return a lifetime; such credentials were used for the single triggering request and not cached.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `slack_threads: optional array of object`
+
+      The Slack threads in the session's provenance, when the session originated from Slack. At most 64 entries are included.
+
+      - `channel_id: string`
+
+        The Slack channel ID, e.g. "C0123ABCDE".
+
+      - `enterprise_id: string`
+
+        The Slack Enterprise Grid organization ID, e.g. "E0123ABCDE". Empty for workspaces that are not part of an Enterprise Grid.
+
+      - `team_id: string`
+
+        The Slack workspace (team) ID, e.g. "T0123ABCDE".
+
+      - `thread_ts: string`
+
+        The Slack thread timestamp within the channel, e.g. "1714000000.123456". Empty for a session bound to a whole channel rather than to one thread.
+
+  - `CcrAgentProxyAnthropicOidcTokenMinted object`
+
+    The Claude Code agent proxy minted a short-lived identity token for an anthropic_oidc credential. One event is recorded per fresh token issuance; a request served from the proxy's short-lived token cache does not mint a new token and is not recorded here. Per-request detail for traffic the credential was injected into is available in the agent proxy network events.
+
+    - `type: optional "ccr_agent_proxy_anthropic_oidc_token_minted"`
+
+      default: ccr_agent_proxy_anthropic_oidc_token_minted
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The Claude Code agent that owns the session, e.g. "cagt_01HX...". Empty when the session is not owned by an agent.
+
+    - `audience: string`
+
+      The minted token's audience: the fixed token-exchange audience for the "aws" target, the credential row's Google workload identity pool provider URL for the "gcp" target, or the row's configured audience for the "direct" target.
+
+    - `credential_id: string`
+
+      The credential row the token was minted for, e.g. "apc_01HX...".
+
+    - `issuance_path: "broker_report" or "direct" or "proxy_record" or "unspecified"`
+
+      Which record of the issuance this event is. Unspecified on events published before this field existed.
+
+      - `"broker_report"`
+
+      - `"direct"`
+
+      - `"proxy_record"`
+
+      - `"unspecified"`
+
+    - `mint_jti: string`
+
+      The identifier of the mint attempt, a bare UUID. One mint through the Claude Tag mint broker produces two minted events that carry the same value, the broker's own report and the agent proxy's record. A reader counts issuances from the broker's reports by distinct report_id. Each non-empty value belongs to at most one issued token. Empty on events for mints that did not travel through the broker.
+
+    - `profile_id: string`
+
+      The agent proxy profile the credential belongs to, e.g. "capp_01HX...".
+
+    - `report_id: string`
+
+      The identity of the mint broker's report itself, a bare UUID. The broker mints it once per report and delivery retries repeat it, so several events carrying one report_id are duplicates of one report and collapse to one issuance. Present on broker_report events only.
+
+    - `session_id: string`
+
+      The Claude Code session whose request triggered the mint, e.g. "cse_01HX..." or "session_01HX..." (the session's ID is carried in whichever tagged form the session's credential presented).
+
+    - `target: string`
+
+      The credential's configured target, e.g. "aws", "gcp", or "direct".
+
+    - `test_mint: string`
+
+      Set when the token was minted by the gateway verification test that runs while an admin registers a custom-gateway audience: "wrong_subject" for the probe token the gateway must reject, "right_subject" for the control token it must accept. Empty for tokens minted for live sessions.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `slack_threads: optional array of object`
+
+      The Slack threads in the session's provenance, when the session originated from Slack. At most 64 entries are included.
+
+      - `channel_id: string`
+
+        The Slack channel ID, e.g. "C0123ABCDE".
+
+      - `enterprise_id: string`
+
+        The Slack Enterprise Grid organization ID, e.g. "E0123ABCDE". Empty for workspaces that are not part of an Enterprise Grid.
+
+      - `team_id: string`
+
+        The Slack workspace (team) ID, e.g. "T0123ABCDE".
+
+      - `thread_ts: string`
+
+        The Slack thread timestamp within the channel, e.g. "1714000000.123456". Empty for a session bound to a whole channel rather than to one thread.
+
+    - `token_expires_at: optional string or null`
+
+      When the minted token expires.
+
+      format: date-time
+
+    - `token_jti: optional string or null`
+
+      The issued token's unique identifier (its `jti` claim), for matching this event to the token a gateway or cloud provider received; not the same value as mint_jti. Set only when issuance_path is `proxy_record` or `direct`, for live sessions, and only when the identifier could be read.
+
+  - `CcrAgentProxyCredentialCreated object`
+
+    A Claude Code agent proxy credential was created. Credentials hold the secrets the agent proxy injects into requests Claude Code sessions send to approved external services; each credential belongs to an agent proxy profile. Audit events carry only credential names and settings, never the secret material itself.
+
+    - `type: optional "ccr_agent_proxy_credential_created"`
+
+      default: ccr_agent_proxy_credential_created
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -10587,7 +11246,7 @@ compliance activities that can be filtered by various criteria.
 
     - `authorization_basis: optional object or null`
 
-      CcrAgentProxyCredentialAuthorizationBasis records how the actor was authorized to perform a Claude Code agent proxy credential operation. Populated only when the operation was authorized against a specific actor's permissions; absent on system-initiated operations (for example, an automatic token rotation) and on operations authorized by a provisioning link rather than the actor's own permissions.
+      How the actor was authorized to create this credential. Absent on system-initiated operations and on credentials created via a provisioning link.
 
       - `slack_channel_id: string`
 
@@ -10607,11 +11266,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -10639,10 +11302,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_credential_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -10776,9 +11436,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -10864,7 +11522,7 @@ compliance activities that can be filtered by various criteria.
 
     - `authorization_basis: optional object or null`
 
-      CcrAgentProxyCredentialAuthorizationBasis records how the actor was authorized to perform a Claude Code agent proxy credential operation. Populated only when the operation was authorized against a specific actor's permissions; absent on system-initiated operations (for example, an automatic token rotation) and on operations authorized by a provisioning link rather than the actor's own permissions.
+      How the actor was authorized to delete this credential.
 
       - `slack_channel_id: string`
 
@@ -10884,11 +11542,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -10912,10 +11574,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_credential_rotated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -11049,9 +11708,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -11157,7 +11814,7 @@ compliance activities that can be filtered by various criteria.
 
     - `authorization_basis: optional object or null`
 
-      CcrAgentProxyCredentialAuthorizationBasis records how the actor was authorized to perform a Claude Code agent proxy credential operation. Populated only when the operation was authorized against a specific actor's permissions; absent on system-initiated operations (for example, an automatic token rotation) and on operations authorized by a provisioning link rather than the actor's own permissions.
+      How the actor was authorized to rotate this credential. Absent on automatic rotations initiated by the system rather than by a user.
 
       - `slack_channel_id: string`
 
@@ -11177,11 +11834,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -11205,10 +11866,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_credential_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -11342,9 +12000,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -11438,7 +12094,7 @@ compliance activities that can be filtered by various criteria.
 
     - `authorization_basis: optional object or null`
 
-      CcrAgentProxyCredentialAuthorizationBasis records how the actor was authorized to perform a Claude Code agent proxy credential operation. Populated only when the operation was authorized against a specific actor's permissions; absent on system-initiated operations (for example, an automatic token rotation) and on operations authorized by a provisioning link rather than the actor's own permissions.
+      How the actor was authorized to update this credential.
 
       - `slack_channel_id: string`
 
@@ -11458,11 +12114,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -11494,10 +12154,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_destination_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -11631,9 +12288,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -11747,10 +12402,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_network_events_listed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -11884,9 +12536,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -11994,10 +12644,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_profile_bound
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -12131,9 +12778,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -12243,10 +12888,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_profile_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -12380,9 +13022,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -12524,10 +13164,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_profile_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -12661,9 +13298,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -12789,10 +13424,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_profile_unbound
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -12926,9 +13558,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -13038,10 +13668,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_profile_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -13175,9 +13802,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -13327,10 +13952,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_provisioning_credential_rejected
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -13464,9 +14086,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -13584,10 +14204,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_provisioning_link_enabled
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -13721,9 +14338,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -13837,10 +14452,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_provisioning_link_generated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -13974,9 +14586,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -14082,10 +14692,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_provisioning_link_revoked
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -14219,9 +14826,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -14327,10 +14932,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_provisioning_link_submitted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -14464,9 +15066,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -14596,10 +15196,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -14733,9 +15330,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -14927,10 +15522,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_proxy_rule_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -15064,9 +15656,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -15192,10 +15782,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -15329,9 +15916,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -15527,10 +16112,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_slack_access_scope_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -15664,9 +16246,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -15780,10 +16360,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_slack_access_scope_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -15917,9 +16494,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -16029,10 +16604,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_slack_binding_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -16166,9 +16738,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -16278,10 +16848,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_slack_binding_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -16415,9 +16982,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -16527,10 +17092,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_agent_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -16664,9 +17226,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -16784,18 +17344,15 @@ compliance activities that can be filtered by various criteria.
 
       Names of the configuration fields included in the update, e.g. "display_name", "system_prompt_addendum", "guest_policy". Includes "is_virtual" when this update was the first administrator action on an auto-provisioned agent — a durable state change even when no other field was supplied.
 
-  - `CcrRoleChannelAssignmentDeleted object`
+  - `CcrChannelManagerAdded object`
 
-    CcrRoleChannelAssignmentDeleted is emitted when an org owner/admin removes an RBAC role's channel assignment row (the role reverts to granting zero channels).
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
 
-    - `type: optional "ccr_role_channel_assignment_deleted"`
+    - `type: optional "ccr_channel_manager_added"`
 
-      default: ccr_role_channel_assignment_deleted
+      default: ccr_channel_manager_added
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -16929,9 +17486,503 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
-          Asserting party: the AWS account the organization is bound to.
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The channel's Claude agent (cagt_...) the assignment is recorded against.
+
+    - `slack_channel_id: string`
+
+      The Slack channel the member may now manage, e.g. "C01ABC...".
+
+    - `slack_team_id: string`
+
+      The Slack workspace containing the channel, e.g. "T01ABC...".
+
+    - `user_id: string`
+
+      Tagged ID of the member who was assigned.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `CcrChannelManagerRemoved object`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
+
+    - `type: optional "ccr_channel_manager_removed"`
+
+      default: ccr_channel_manager_removed
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The channel's Claude agent (cagt_...) the assignment was recorded against.
+
+    - `slack_channel_id: string`
+
+      The Slack channel the member managed, e.g. "C01ABC...".
+
+    - `slack_team_id: string`
+
+      The Slack workspace containing the channel, e.g. "T01ABC...".
+
+    - `user_id: string`
+
+      Tagged ID of the member whose assignment was removed.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `CcrRoleChannelAssignmentDeleted object`
+
+    CcrRoleChannelAssignmentDeleted is emitted when an org owner/admin removes an RBAC role's channel assignment row (the role reverts to granting zero channels).
+
+    - `type: optional "ccr_role_channel_assignment_deleted"`
+
+      default: ccr_role_channel_assignment_deleted
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -17037,10 +18088,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_role_channel_assignment_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -17174,9 +18222,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -17290,10 +18336,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_session_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -17427,9 +18470,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -17535,10 +18576,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_session_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -17672,9 +18710,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -17776,10 +18812,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_session_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -17913,9 +18946,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -18021,10 +19052,7 @@ compliance activities that can be filtered by various criteria.
 
       default: ccr_slack_channel_joined
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -18158,9 +19186,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -18266,10 +19292,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_settings_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -18403,9 +19426,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -18511,10 +19532,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_snapshot_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -18648,9 +19666,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -18752,10 +19768,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_snapshot_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -18889,9 +19902,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -18993,10 +20004,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_snapshot_viewed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -19130,9 +20138,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -19234,10 +20240,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_artifact_duplicated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -19371,9 +20374,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -19475,18 +20476,25 @@ compliance activities that can be filtered by various criteria.
 
       The version of the source artifact that was copied into the new artifact.
 
-  - `ClaudeChatAccessFailed object`
+  - `ClaudeArtifactExternalSharingPermissionUpdated object`
 
-    A user was denied access to a Claude.ai chat conversation.
+    An organization admin allowed one artifact to be shared outside the organization by link while the organization-wide external sharing setting was off, or revoked that permission.
 
-    - `type: optional "claude_chat_access_failed"`
+    - `type: optional "claude_artifact_external_sharing_permission_updated"`
 
-      default: claude_chat_access_failed
+      default: claude_artifact_external_sharing_permission_updated
 
-    - `actor: object or object or object or 8 more`
+    - `action: "allowed" or "revoked" or "unspecified"`
 
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+      Whether the permission was allowed or revoked.
+
+      - `"allowed"`
+
+      - `"revoked"`
+
+      - `"unspecified"`
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -19620,9 +20628,1251 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
-          Asserting party: the AWS account the organization is bound to.
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `claude_artifact_id: string`
+
+      Tagged ID of the artifact.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `ClaudeArtifactInviteAccepted object`
+
+    Someone outside the organization signed in with a verified account for the invited address and accepted an invitation to an artifact, and can now open it; recorded in the artifact owner's organization. The person who accepted is identified by `invitee_email` and `invitee_user_id`.
+
+    - `type: optional "claude_artifact_invite_accepted"`
+
+      default: claude_artifact_invite_accepted
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `claude_artifact_id: string`
+
+      Tagged ID of the artifact the invitation is for.
+
+    - `claude_artifact_invite_id: string`
+
+      Tagged ID of the invitation that was accepted.
+
+    - `invitee_email: string`
+
+      Email address the invitation was sent to.
+
+    - `invitee_user_id: string`
+
+      Tagged user ID of the account outside the organization that accepted the invitation.
+
+    - `role: string`
+
+      The access level the invitation grants, for example `reader`.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `ClaudeArtifactInviteCreated object`
+
+    A member invited (or re-invited) an email address outside the organization to an artifact; recorded in the artifact owner's organization with the inviting member as the actor.
+
+    - `type: optional "claude_artifact_invite_created"`
+
+      default: claude_artifact_invite_created
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `claude_artifact_id: string`
+
+      Tagged ID of the artifact the invitation is for.
+
+    - `claude_artifact_invite_id: string`
+
+      Tagged ID of the invitation; the same ID appears on the accepted, role-updated and revoked activities for this invitation, including a later re-invitation of the same address.
+
+    - `invitee_email: string`
+
+      Email address the invitation was sent to.
+
+    - `role: string`
+
+      The access level the invitation grants, for example `reader`.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `ClaudeArtifactInviteRevoked object`
+
+    A member withdrew an invitation to an artifact for someone outside the organization, removing any access that invitation had granted; recorded in the artifact owner's organization with that member as the actor.
+
+    - `type: optional "claude_artifact_invite_revoked"`
+
+      default: claude_artifact_invite_revoked
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `claude_artifact_id: string`
+
+      Tagged ID of the artifact the invitation was for.
+
+    - `claude_artifact_invite_id: string`
+
+      Tagged ID of the invitation that was withdrawn.
+
+    - `invitee_email: string`
+
+      Email address the invitation was sent to.
+
+    - `role: string`
+
+      The access level the invitation granted, for example `reader`.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `invitee_user_id: optional string or null`
+
+      Tagged user ID of the account outside the organization that had accepted the invitation; absent when it was withdrawn before anyone accepted.
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `ClaudeArtifactInviteRoleUpdated object`
+
+    A member changed the access level of an email invitation to an artifact for someone outside the organization, whether the invitation was still pending or had been accepted; recorded in the artifact owner's organization with that member as the actor.
+
+    - `type: optional "claude_artifact_invite_role_updated"`
+
+      default: claude_artifact_invite_role_updated
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `claude_artifact_id: string`
+
+      Tagged ID of the artifact the invitation is for.
+
+    - `claude_artifact_invite_id: string`
+
+      Tagged ID of the invitation whose access level was changed.
+
+    - `invitee_email: string`
+
+      Email address the invitation was sent to.
+
+    - `role: string`
+
+      The access level the invitation grants after the change, for example `reader`.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `invitee_user_id: optional string or null`
+
+      Tagged user ID of the account outside the organization that had accepted the invitation; absent while the invitation is pending.
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `previous_role: optional string or null`
+
+      The access level the invitation granted before the change, for example `commenter`.
+
+  - `ClaudeChatAccessFailed object`
+
+    A user was denied access to a Claude.ai chat conversation.
+
+    - `type: optional "claude_chat_access_failed"`
+
+      default: claude_chat_access_failed
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -19724,10 +21974,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -19861,9 +22108,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -19969,10 +22214,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -20106,9 +22348,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -20214,10 +22454,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_deletion_failed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -20351,9 +22588,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -20455,10 +22690,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_sync_source_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -20592,9 +22824,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -20704,10 +22934,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_sync_source_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -20841,9 +23068,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -20949,10 +23174,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_sync_source_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -21086,9 +23308,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -21202,10 +23422,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -21339,9 +23556,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -21447,10 +23662,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_chat_viewed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -21584,9 +23796,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -21692,10 +23902,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_credential_revoked
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -21829,9 +24036,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -21969,10 +24174,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_review_config_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -22106,9 +24308,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -22254,10 +24454,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_review_repository_added
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -22391,9 +24588,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -22507,10 +24702,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_review_repository_removed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -22644,9 +24836,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -22756,10 +24946,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_review_repository_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -22893,9 +25080,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -23013,10 +25198,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_runner_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -23150,9 +25332,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -23258,10 +25438,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_runner_pool_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -23395,9 +25572,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -23503,10 +25678,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_runner_pool_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -23640,9 +25812,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -23748,10 +25918,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_runner_pool_secret_minted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -23885,9 +26052,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -24015,10 +26180,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -24152,9 +26314,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -24264,10 +26424,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_runner_pool_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -24401,9 +26558,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -24513,10 +26668,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_security_center_config_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -24650,9 +26802,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -24758,10 +26908,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_security_scan_cancelled
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -24895,9 +27042,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -25001,10 +27146,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_security_scan_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -25138,9 +27280,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -25258,10 +27398,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -25395,9 +27532,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -25537,10 +27672,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -25674,9 +27806,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -25802,10 +27932,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -25939,9 +28066,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -26077,10 +28202,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -26214,9 +28336,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -26318,10 +28438,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_security_scan_schedule_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -26455,9 +28572,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -26559,10 +28674,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_security_scan_schedule_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -26696,9 +28808,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -26794,18 +28904,15 @@ compliance activities that can be filtered by various criteria.
 
       Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
 
-  - `ClaudeCodeSecurityVulnerabilityFixSessionCreated object`
+  - `ClaudeCodeSecurityVulnerabilityDeleted object`
 
-    A Claude Code remediation session was created for a Claude Code Security vulnerability finding.
+    A Claude Code Security vulnerability finding was permanently deleted.
 
-    - `type: optional "claude_code_security_vulnerability_fix_session_created"`
+    - `type: optional "claude_code_security_vulnerability_deleted"`
 
-      default: claude_code_security_vulnerability_fix_session_created
+      default: claude_code_security_vulnerability_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -26939,9 +29046,247 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
-          Asserting party: the AWS account the organization is bound to.
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `scan_id: string`
+
+      Tagged ID of the scan the finding belonged to
+
+    - `vulnerability_id: number`
+
+      Numeric ID of the deleted finding, as shown in the product
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `ClaudeCodeSecurityVulnerabilityFixSessionCreated object`
+
+    A Claude Code remediation session was created for a Claude Code Security vulnerability finding.
+
+    - `type: optional "claude_code_security_vulnerability_fix_session_created"`
+
+      default: claude_code_security_vulnerability_fix_session_created
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -27075,10 +29420,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -27212,9 +29554,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -27320,10 +29660,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_security_webhook_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -27457,9 +29794,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -27567,10 +29902,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_security_webhook_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -27704,9 +30036,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -27812,10 +30142,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_security_webhook_secret_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -27949,9 +30276,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -28057,10 +30382,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_security_webhook_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -28194,9 +30516,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -28312,10 +30632,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -28449,9 +30766,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -28561,10 +30876,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_team_memory_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -28698,9 +31010,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -28846,10 +31156,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"updated"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -28983,9 +31290,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -29103,10 +31408,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_user_marketplaces_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -29240,9 +31542,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -29368,10 +31668,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_user_memory_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -29505,9 +31802,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -29637,10 +31932,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_user_plugins_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -29774,9 +32066,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -29902,10 +32192,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_code_user_settings_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -30039,9 +32326,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -30177,10 +32462,7 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -30314,9 +32596,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -30414,10 +32694,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_file_access_failed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -30551,9 +32828,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -30669,10 +32944,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_file_exported
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -30806,9 +33078,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -30888,10 +33158,6 @@ compliance activities that can be filtered by various criteria.
 
       - `"unspecified"`
 
-    - `filename: string`
-
-      Name of the exported file.
-
     - `id: optional string`
 
       Unique identifier for the activity e.g. 'activity_abcd1234'
@@ -30918,6 +33184,12 @@ compliance activities that can be filtered by various criteria.
 
       Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
 
+    - `filename: string`
+
+      **Deprecated**
+
+      No longer populated. Where `claude_file_id` is present, resolve the name via the Compliance API files endpoint; sandbox and desktop exports carry no file id.
+
   - `ClaudeFileViewed object`
 
     A user viewed a file in Claude.ai.
@@ -30926,10 +33198,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_file_viewed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -31063,9 +33332,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -31173,18 +33440,15 @@ compliance activities that can be filtered by various criteria.
 
       Deprecated — DO NOT USE. Always empty; the file's display name is intentionally omitted.
 
-  - `ClaudeProjectSyncSourceCreated object`
+  - `ClaudePluginArchiveAccessed object`
 
-    A sync source was connected to a Claude project's knowledge base.
+    A version archive of a member-owned plugin, containing that member's own files, was downloaded.
 
-    - `type: optional "claude_project_sync_source_created"`
+    - `type: optional "claude_plugin_archive_accessed"`
 
-      default: claude_project_sync_source_created
+      default: claude_plugin_archive_accessed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -31318,9 +33582,499 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
-          Asserting party: the AWS account the organization is bound to.
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `marketplace_id: string`
+
+      The member's personal marketplace the plugin belongs to.
+
+    - `owner_user_id: string`
+
+      The member who owns the plugin.
+
+    - `plugin_id: string`
+
+      The plugin whose archive was downloaded.
+
+    - `plugin_version_id: string`
+
+      The version whose archive was downloaded.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `ClaudePluginDownloaded object`
+
+    The archive of the plugin version a member was served was downloaded to install or update the plugin in one of the member's Claude apps (Claude in the browser, the Claude desktop app, Claude Code, or a cloud session).
+
+    - `type: optional "claude_plugin_downloaded"`
+
+      default: claude_plugin_downloaded
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `marketplace_id: string`
+
+      The marketplace the plugin belongs to.
+
+    - `plugin_id: string`
+
+      The plugin that was downloaded.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `plugin_version_id: optional string or null`
+
+      The version whose archive was downloaded; unset for a plugin that predates version records.
+
+  - `ClaudeProjectSyncSourceCreated object`
+
+    A sync source was connected to a Claude project's knowledge base.
+
+    - `type: optional "claude_project_sync_source_created"`
+
+      default: claude_project_sync_source_created
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -31434,10 +34188,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_project_sync_source_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -31571,9 +34322,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -31683,10 +34432,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_project_sync_source_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -31820,9 +34566,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -31940,10 +34684,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_user_seat_tier_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -32077,9 +34818,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -32193,10 +34932,7 @@ compliance activities that can be filtered by various criteria.
 
       default: cli_plugin_exec_policy_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -32330,9 +35066,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -32458,10 +35192,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_command_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -32595,9 +35326,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -32699,10 +35428,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_command_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -32836,9 +35562,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -32940,10 +35664,7 @@ compliance activities that can be filtered by various criteria.
 
       default: claude_command_replaced
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -33077,9 +35798,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -33181,10 +35900,7 @@ compliance activities that can be filtered by various criteria.
 
       default: compliance_api_accessed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -33318,9 +36034,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -33448,10 +36162,7 @@ compliance activities that can be filtered by various criteria.
 
       default: cowork_session_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -33585,9 +36296,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -33693,10 +36402,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_artifact_published
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -33830,9 +36536,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -33942,10 +36646,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_created
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -34079,9 +36780,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -34195,10 +36894,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -34332,9 +37028,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -34436,10 +37130,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_member_added
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -34573,9 +37264,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -34693,10 +37382,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_member_removed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -34830,9 +37516,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -34946,10 +37630,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_member_role_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -35083,9 +37764,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -35207,10 +37886,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_published
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -35344,9 +38020,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -35452,10 +38126,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_sharing_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -35589,9 +38260,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -35713,10 +38382,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_unpublished
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -35850,9 +38516,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -35958,10 +38622,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_updated
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -36095,9 +38756,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -36207,10 +38866,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_version_restored
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -36344,9 +39000,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -36456,10 +39110,7 @@ compliance activities that can be filtered by various criteria.
 
       default: design_project_viewed
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -36593,9 +39244,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -36709,10 +39358,7 @@ compliance activities that can be filtered by various criteria.
 
       default: desktop_extension_allowlisted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -36846,9 +39492,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -36928,6 +39572,18 @@ compliance activities that can be filtered by various criteria.
 
       Unique identifier for the activity e.g. 'activity_abcd1234'
 
+    - `attestations: optional array of object`
+
+      Legal attestations given with this change, such as "safe_for_phi"; empty when the request carried none.
+
+      - `type: string`
+
+        Attestation type, such as "safe_for_phi" (may be used with protected health information).
+
+      - `content_hash: string`
+
+        Digest of the legal text that was accepted, identifying its version, as the actor's client reported it (not verified against a known document).
+
     - `created_at: optional string`
 
       When this activity occurred.
@@ -36950,10 +39606,7 @@ compliance activities that can be filtered by various criteria.
 
       default: desktop_extension_blocklisted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -37087,9 +39740,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -37191,10 +39842,7 @@ compliance activities that can be filtered by various criteria.
 
       default: desktop_extension_deleted
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -37328,9 +39976,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -37436,10 +40082,7 @@ compliance activities that can be filtered by various criteria.
 
       default: desktop_extension_removed_from_allowlist
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -37573,9 +40216,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -37677,10 +40318,7 @@ compliance activities that can be filtered by various criteria.
 
       default: desktop_extension_unblocked
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -37814,9 +40452,7 @@ compliance activities that can be filtered by various criteria.
 
           default: federated_actor
 
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
 
           - `FederatedActorAwsProvider object`
 
@@ -37918,10 +40554,7 @@ compliance activities that can be filtered by various criteria.
 
       default: desktop_extension_uploaded
 
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
 
       - `APIActor object`
 
@@ -37960,3265 +40593,3 @@ compliance activities that can be filtered by various criteria.
         - `ip_address: string`
 
         - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `extension_id: string`
-
-      DXT extension ID
-
-    - `version: string`
-
-      Version string from the manifest
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `DesktopExtensionVersionUploaded object`
-
-    A new version of an existing org-owned desktop extension was uploaded.
-
-    - `type: optional "desktop_extension_version_uploaded"`
-
-      default: desktop_extension_version_uploaded
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `extension_id: string`
-
-      DXT extension ID
-
-    - `version: string`
-
-      Version string from the manifest
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `InferenceHooksConfigDeleted object`
-
-    Inference hooks configuration was removed for the organization.
-
-    - `type: optional "inference_hooks_config_deleted"`
-
-      default: inference_hooks_config_deleted
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `InferenceHooksConfigUpdated object`
-
-    Inference hooks configuration was created or updated for the organization.
-
-    - `type: optional "inference_hooks_config_updated"`
-
-      default: inference_hooks_config_updated
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `enabled: boolean`
-
-      Whether Inference hooks enforcement is enabled after this change.
-
-    - `enforcement_mode: string`
-
-      Whether Inference hooks inspects both prompts and responses (prompt_and_response) or prompts only (prompt_only).
-
-    - `fail_mode: string`
-
-      Whether requests are allowed (fail_open) or blocked (fail_closed) when the Inference hooks endpoint cannot be reached.
-
-    - `final_verdict_timeout_ms: number`
-
-      Milliseconds inference waits for the Inference hooks verdict on the response.
-
-    - `prompt_verdict_timeout_ms: number`
-
-      Milliseconds inference waits for the Inference hooks verdict on the prompt.
-
-    - `webhook_url: string`
-
-      The endpoint that inspected prompts and responses are sent to.
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `deny_message: optional string or null`
-
-      Administrator-written text shown to users at the end of the error message when a request is blocked by the organization's Inference hooks policy, as configured after this change. Null when the built-in default message is in effect; an empty string when the administrator configured an empty message, in which case no text is appended.
-
-    - `deny_message_enabled: optional boolean or null`
-
-      Whether the organization has the appended deny message turned on, as configured after this change. When on, the administrator-written message (or the built-in default, when none is configured) is appended to the error users see when a request is blocked by the organization's Inference hooks policy; no text is appended when the administrator-written message is empty, or when this is off.
-
-    - `extra_header_names: optional array of string or null`
-
-      Names of the custom HTTP headers attached to every Inference hooks request after this change, or null when this update did not change headers. Header values are write-only and are not recorded.
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-    - `reset_circuit_breaker: optional boolean or null`
-
-      Whether this update carried an explicit request to clear the circuit breaker. A tripped breaker otherwise survives configuration updates; it also clears whenever an update enables enforcement.
-
-    - `rollout_percentage: optional number or null`
-
-      Percentage of requests (0-100) inspected by Inference hooks after this change, or null when this update did not change it. 0 disables inspection; 100 inspects every request.
-
-    - `shadow_mode: optional boolean or null`
-
-      Whether the organization's Inference hooks run in shadow mode after this change, or null when this update did not change it. In shadow mode, prompts are still sent to the organization's endpoint and verdicts are recorded, but requests are never blocked.
-
-  - `InferenceHooksSigningSecretGenerated object`
-
-    A request signing secret was generated for the organization's Inference hooks configuration.
-
-    - `type: optional "inference_hooks_signing_secret_generated"`
-
-      default: inference_hooks_signing_secret_generated
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `rotated: boolean`
-
-      Whether this generation replaced an existing signing secret (true) or created the organization's first one (false). Replacing a secret invalidates the previous one immediately.
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `DomainClaimInitiated object`
-
-    Domain capture claim initiated over personal accounts on verified domains.
-
-    - `type: optional "domain_claim_initiated"`
-
-      default: domain_claim_initiated
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `EndUserInviteRequested object`
-
-    Non-admin member submitted an invite request for a new org member.
-
-    - `type: optional "end_user_invite_requested"`
-
-      default: end_user_invite_requested
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `invitee_email: string`
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `ExtraUsageBillingEnabled object`
-
-    Usage credit billing was enabled for an organization.
-
-    - `type: optional "extra_usage_billing_enabled"`
-
-      default: extra_usage_billing_enabled
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `ExtraUsageCreditGranted object`
-
-    A promotional usage credit grant was claimed.
-
-    - `type: optional "extra_usage_credit_granted"`
-
-      default: extra_usage_credit_granted
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `ExtraUsageSpendLimitCreated object`
-
-    Usage credit spend limit was created.
-
-    - `type: optional "extra_usage_spend_limit_created"`
-
-      default: extra_usage_spend_limit_created
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `amount: optional number or null`
-
-      The monthly credit limit amount in minor units (e.g. cents).
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `is_enabled: optional boolean or null`
-
-      Whether the spend limit is enabled.
-
-    - `limit_type: optional string or null`
-
-      The type of spend limit created (e.g. organization, seat_tier, member, service, group).
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-    - `spend_limit_id: optional string or null`
-
-      Tagged ID of the spend limit.
-
-    - `user_id: optional string or null`
-
-      **Deprecated**
-
-      Deprecated. Tagged ID of the admin who performed the action — not the target member. Use `spend_limit_id` to look up the target member.
-
-  - `ExtraUsageSpendLimitDeleted object`
-
-    Usage credit spend limit was deleted.
-
-    - `type: optional "extra_usage_spend_limit_deleted"`
-
-      default: extra_usage_spend_limit_deleted
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-    - `spend_limit_id: optional string or null`
-
-      Tagged ID of the spend limit.
-
-    - `user_id: optional string or null`
-
-      **Deprecated**
-
-      Deprecated. Tagged ID of the admin who performed the action — not the target member. Use `spend_limit_id` to look up the target member.
-
-  - `ExtraUsageSpendLimitIncreaseRequestApproved object`
-
-    A usage credit spend limit increase request was approved.
-
-    - `type: optional "extra_usage_spend_limit_increase_request_approved"`
-
-      default: extra_usage_spend_limit_increase_request_approved
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `amount: optional number or null`
-
-      The approved spend limit amount in minor units (e.g. cents).
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-    - `requester_user_id: optional string or null`
-
-      Tagged ID of the member who requested the increase, e.g. "user_01HX...".
-
-    - `spend_limit_id: optional string or null`
-
-      Tagged ID of the member's spend limit that the approval created or updated.
-
-    - `spend_limit_increase_request_id: optional string or null`
-
-      Tagged ID of the spend limit increase request that was approved.
-
-  - `ExtraUsageSpendLimitIncreaseRequestDenied object`
-
-    A usage credit spend limit increase request was denied.
-
-    - `type: optional "extra_usage_spend_limit_increase_request_denied"`
-
-      default: extra_usage_spend_limit_increase_request_denied
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-    - `requester_user_id: optional string or null`
-
-      Tagged ID of the member who requested the increase, e.g. "user_01HX...".
-
-    - `spend_limit_increase_request_id: optional string or null`
-
-      Tagged ID of the spend limit increase request that was denied.
-
-  - `ExtraUsageSpendLimitUpdated object`
-
-    Usage credit spend limit was updated.
-
-    - `type: optional "extra_usage_spend_limit_updated"`
-
-      default: extra_usage_spend_limit_updated
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`

@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit -->
 
-Lesson 4 of 9 · AI Fluency for BuildersDelegation & the builder's toolkit
+Lesson 4 of 9 · AI Fluency for buildersDelegation & the builder's toolkit
 
-3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+3. /[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
-[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
 # Delegation & the builder's toolkit
 
@@ -74,7 +74,7 @@ In the next lesson, we move from delegation to description. You’ve decided wha
 
 [Previous lessonAI capabilities & limitations](https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations)[Next lessonDescription & building great things](https://academy.claude.com/courses/ai-fluency-for-builders/description-building-great-things)
 
-Lesson 4 of 9 · AI Fluency for BuildersDelegation & the builder's toolkit
+Lesson 4 of 9 · AI Fluency for buildersDelegation & the builder's toolkit
 
 Introduction and AI Fluency framework
 

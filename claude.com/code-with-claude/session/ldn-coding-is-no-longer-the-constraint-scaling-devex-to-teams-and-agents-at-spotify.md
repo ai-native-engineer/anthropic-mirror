@@ -4,44 +4,32 @@
 
 At Spotify, 96% of engineers now code with AI and PR frequency is up 60% — so the constraint has moved from writing code to orchestrating it. Niklas Gustavsson, Chief Architect & VP of Engineering, shares how Spotify built Honk, a background coding agent running on the Agent SDK, plugged it into their Fleetshift migration platform and Backstage software catalog, and learned that the same standardization that makes teams effective makes agents effective too. Walk away with Spotify's bets on developer experience for agents — and why firmer guardrails are accelerators, not constraints.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-11:15 – 11:45
+:   11:15 – 11:45
 
 Speaker(s)
+:   Niklas Gustavsson
 
-Niklas Gustavsson
+    Chief Architect and VP of Engineering,
 
-Chief Architect and VP of Engineering,
-
-Spotify
+    Spotify
 
 ## Watch recording
 
-[Play video](#)Play video
+![Coding is no longer the constraint: Scaling devex to teams and agents at Spotify](https://assets.claude.com/2812c560b8695cc89aab4cba9594b465f354fb11.jpg?w=2400&q=75&fm=webp&fit=max)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3caaf97b942e920df43_coding-is-no-longer-the-constraint.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Coding is no longer the constraint: Scaling devex to teams and agents at Spotify | Session | Code w/ Claude 2026

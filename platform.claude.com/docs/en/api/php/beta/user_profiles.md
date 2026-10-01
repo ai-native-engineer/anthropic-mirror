@@ -9,7 +9,7 @@ url: https://platform.claude.com/docs/en/api/php/beta/user_profiles
 
 ## Create User Profile
 
-`$client->beta->userProfiles->create(?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas): BetaUserProfile`
+`$client->beta->userProfiles->create(?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfile`
 
 **POST** `/v1/user_profiles`
 
@@ -19,7 +19,7 @@ Create User Profile
 
 - `accessType?:optional AccessType`
 
-  How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+  How the platform uses the API for this entity. `application` (default): the profile represents an individual end-user of the platform's product. `passthrough`: the profile identifies a company the platform resells Claude access to.
 
 - `externalID?:optional string`
 
@@ -31,7 +31,7 @@ Create User Profile
 
 - `externalUserOnboardedAt?:optional \Datetime`
 
-  A timestamp in RFC 3339 format
+  When the entity this profile represents opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future. Optional. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
 - `metadata?:optional array<string,string>`
 
@@ -45,9 +45,15 @@ Create User Profile
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -59,7 +65,7 @@ Create User Profile
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -71,11 +77,11 @@ Create User Profile
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -83,11 +89,11 @@ Create User Profile
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -118,6 +124,7 @@ $betaUserProfile = $client->beta->userProfiles->create(
   metadata: [],
   name: 'x',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfile);
@@ -155,7 +162,7 @@ var_dump($betaUserProfile);
 
 ## List User Profiles
 
-`$client->beta->userProfiles->list(?int limit, ?Order order, ?OrderBy orderBy, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaUserProfile>`
+`$client->beta->userProfiles->list(?int limit, ?Order order, ?OrderBy orderBy, ?string page, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<BetaUserProfile>`
 
 **GET** `/v1/user_profiles`
 
@@ -165,27 +172,35 @@ List User Profiles
 
 - `limit?:optional int`
 
-  Query parameter for limit
+  The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
 - `order?:optional Order`
 
-  Query parameter for order
+  The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
 - `orderBy?:optional OrderBy`
 
-  Query parameter for order_by
+  The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
 - `page?:optional string`
 
-  Query parameter for page
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
 
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -197,7 +212,7 @@ List User Profiles
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -209,11 +224,11 @@ List User Profiles
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -221,11 +236,11 @@ List User Profiles
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -246,6 +261,7 @@ $page = $client->beta->userProfiles->list(
   orderBy: 'created_at',
   page: 'page',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -288,7 +304,7 @@ var_dump($page);
 
 ## Get User Profile
 
-`$client->beta->userProfiles->retrieve(string userProfileID, ?list<AnthropicBeta> betas): BetaUserProfile`
+`$client->beta->userProfiles->retrieve(string userProfileID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfile`
 
 **GET** `/v1/user_profiles/{user_profile_id}`
 
@@ -298,13 +314,21 @@ Get User Profile
 
 - `userProfileID: string`
 
+  The ID of the user profile to get (`uprof_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -316,7 +340,7 @@ Get User Profile
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -328,11 +352,11 @@ Get User Profile
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -340,11 +364,11 @@ Get User Profile
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -362,6 +386,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaUserProfile = $client->beta->userProfiles->retrieve(
   'uprof_011CZkZCu8hGbp5mYRQgUmz9',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfile);
@@ -399,7 +424,7 @@ var_dump($betaUserProfile);
 
 ## Update User Profile
 
-`$client->beta->userProfiles->update(string userProfileID, ?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas): BetaUserProfile`
+`$client->beta->userProfiles->update(string userProfileID, ?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfile`
 
 **POST** `/v1/user_profiles/{user_profile_id}`
 
@@ -409,9 +434,11 @@ Update User Profile
 
 - `userProfileID: string`
 
+  The ID of the user profile to update (`uprof_...`).
+
 - `accessType?:optional AccessType`
 
-  How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+  If present, replaces the stored access type. Omit to leave unchanged.
 
 - `externalID?:optional string`
 
@@ -423,7 +450,7 @@ Update User Profile
 
 - `externalUserOnboardedAt?:optional \Datetime`
 
-  A timestamp in RFC 3339 format
+  If present, replaces the stored account creation time. Omit to leave unchanged; once set, the value cannot be cleared and `null` is rejected. Must be a complete RFC 3339 timestamp no more than 1 minute in the future. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
 - `metadata?:optional array<string,string>`
 
@@ -437,9 +464,15 @@ Update User Profile
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -451,7 +484,7 @@ Update User Profile
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -463,11 +496,11 @@ Update User Profile
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -475,11 +508,11 @@ Update User Profile
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -511,6 +544,7 @@ $betaUserProfile = $client->beta->userProfiles->update(
   metadata: ['foo' => 'string'],
   name: 'x',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfile);
@@ -548,7 +582,7 @@ var_dump($betaUserProfile);
 
 ## Create Enrollment URL
 
-`$client->beta->userProfiles->createEnrollmentURL(string userProfileID, ?list<AnthropicBeta> betas): BetaUserProfileEnrollmentURL`
+`$client->beta->userProfiles->createEnrollmentURL(string userProfileID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfileEnrollmentURL`
 
 **POST** `/v1/user_profiles/{user_profile_id}/enrollment_url`
 
@@ -558,13 +592,21 @@ Create Enrollment URL
 
 - `userProfileID: string`
 
+  The ID of the user profile to create an enrollment URL for (`uprof_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaUserProfileEnrollmentURL`
+- `class BetaUserProfileEnrollmentURL`
 
   - `Type type`
 
@@ -572,7 +614,7 @@ Create Enrollment URL
 
   - `\Datetime expiresAt`
 
-    A timestamp in RFC 3339 format
+    When this enrollment URL expires, in RFC 3339 format.
 
   - `string url`
 
@@ -593,6 +635,7 @@ $betaUserProfileEnrollmentURL = $client
   ->createEnrollmentURL(
   'uprof_011CZkZCu8hGbp5mYRQgUmz9',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfileEnrollmentURL);
@@ -612,7 +655,7 @@ var_dump($betaUserProfileEnrollmentURL);
 
 ### Beta User Profile
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -624,7 +667,7 @@ var_dump($betaUserProfileEnrollmentURL);
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
   - `array<string,string> metadata`
 
@@ -636,11 +679,11 @@ var_dump($betaUserProfileEnrollmentURL);
 
   - `\Datetime updatedAt`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
   - `?AccessType accessType`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
   - `?string externalID`
 
@@ -648,11 +691,11 @@ var_dump($betaUserProfileEnrollmentURL);
 
   - `?BetaUserProfileExternalUserDetails externalUserDetails`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
   - `?\Datetime externalUserOnboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
   - `?string name`
 
@@ -660,7 +703,7 @@ var_dump($betaUserProfileEnrollmentURL);
 
 ### Beta User Profile Enrollment URL
 
-- `BetaUserProfileEnrollmentURL`
+- `class BetaUserProfileEnrollmentURL`
 
   - `Type type`
 
@@ -668,7 +711,7 @@ var_dump($betaUserProfileEnrollmentURL);
 
   - `\Datetime expiresAt`
 
-    A timestamp in RFC 3339 format
+    When this enrollment URL expires, in RFC 3339 format.
 
   - `string url`
 
@@ -676,11 +719,11 @@ var_dump($betaUserProfileEnrollmentURL);
 
 ### Beta User Profile External User Details
 
-- `BetaUserProfileExternalUserDetails`
+- `class BetaUserProfileExternalUserDetails`
 
   - `?AccountStatus accountStatus`
 
-    The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
   - `?string country`
 
@@ -692,7 +735,7 @@ var_dump($betaUserProfileEnrollmentURL);
 
   - `?EntityType entityType`
 
-    What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
   - `?string nameHash`
 
@@ -700,7 +743,7 @@ var_dump($betaUserProfileEnrollmentURL);
 
   - `?\Datetime onboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
   - `?string referenceID`
 
@@ -708,11 +751,11 @@ var_dump($betaUserProfileEnrollmentURL);
 
 ### Beta User Profile External User Details Params
 
-- `BetaUserProfileExternalUserDetailsParams`
+- `class BetaUserProfileExternalUserDetailsParams`
 
   - `?AccountStatus accountStatus`
 
-    The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+    The status of the entity's account on the platform: `active`, `suspended` or `blocked`.
 
   - `?string country`
 
@@ -724,7 +767,7 @@ var_dump($betaUserProfileEnrollmentURL);
 
   - `?EntityType entityType`
 
-    What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+    What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`.
 
   - `?string nameHash`
 
@@ -732,7 +775,7 @@ var_dump($betaUserProfileEnrollmentURL);
 
   - `?\Datetime onboardedAt`
 
-    A timestamp in RFC 3339 format
+    When the entity opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future.
 
   - `?string referenceID`
 
@@ -740,7 +783,7 @@ var_dump($betaUserProfileEnrollmentURL);
 
 ### Beta User Profile Trust Grant
 
-- `BetaUserProfileTrustGrant`
+- `class BetaUserProfileTrustGrant`
 
   - `Status status`
 

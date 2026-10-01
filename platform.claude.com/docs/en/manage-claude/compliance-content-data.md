@@ -26,7 +26,7 @@ Endpoints on this page paginate two ways; see [Paginate results](https://platfor
 
 Use [List chats](https://platform.claude.com/docs/en/api/compliance/apps/chats/list) to page through chat metadata, then [Get chat messages](https://platform.claude.com/docs/en/api/compliance/apps/chats/messages/list) to fetch the full message content of one chat.
 
-The chat list endpoint defaults to organization-wide scope: leave off `user_ids[]` to include every chat under your parent organization. Add `order_by=updated_at` to sort by last update time. This combination is the recommended way to export chats and keep an export current, because one paginated loop picks up new chats, modified chats, and chats deleted in claude.ai for every user without enumerating users first. The following request lists chats updated since a given date.
+The chat list endpoint defaults to organization-wide scope: leave off `user_ids[]` to include every chat under your parent organization. Add `order_by=updated_at` to sort by last update time. This combination is the recommended way to export chats and keep an export current, because one paginated loop picks up new chats, chats with new messages, and chats deleted in claude.ai for every user without enumerating users first. The following request lists chats updated since a given date.
 
 ```bash cURL
 curl --fail-with-body -sS -G \
@@ -48,7 +48,7 @@ curl --fail-with-body -sS -G \
       "updated_at": "2026-04-10T09:10:11Z",
       "deleted_at": null,
       "href": "https://claude.ai/chat/abcdef01-2345-6789-abcd-ef0123456789",
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "organization_uuid": "91012d09-e48b-438e-a489-1bebfd8fa6f9",
       "project_id": "claude_proj_01KGp4eZNug9ri4kE35RSppq",
       "user": {
@@ -65,7 +65,7 @@ curl --fail-with-body -sS -G \
 
 Results sort ascending by the `order_by` field, oldest first, with ties broken by `id`. Pagination uses the standard `first_id`/`last_id`/`has_more` cursor fields described in [Paginate results](https://platform.claude.com/docs/en/manage-claude/compliance-activity-feed#paginate-results). To walk forward toward newer chats, pass the response's `last_id` back as `after_id` on the next request.
 
-That forward walk is also how you keep an export current across runs: persist the final page's `last_id` and resume from it as `after_id` on the next run. Because the list is ordered by `updated_at`, a chat that changes after your saved cursor reappears ahead of it, so each incremental run returns both brand-new chats and older chats that have since been modified or deleted in claude.ai. Process results idempotently, keyed by chat `id`, to handle those reappearances. A chat that comes back with `deleted_at` populated has no content left to fetch, so treat it as deleted rather than updated.
+That forward walk is also how you keep an export current across runs: persist the final page's `last_id` and resume from it as `after_id` on the next run. Because the list is ordered by `updated_at`, a chat reappears ahead of your saved cursor when it receives a new message, is moved into or out of a project, or is deleted in claude.ai. Each incremental run therefore returns both brand-new chats and older chats that have since changed in one of those ways. Other edits, such as a rename, are not guaranteed to make a chat reappear. Process results idempotently, keyed by chat `id`, to handle those reappearances. A chat that comes back with `deleted_at` populated has no content left to fetch, so treat it as deleted rather than updated.
 
 A few constraints apply to these organization-wide queries. Cursors are opaque and bound to the sort key, so an `after_id` issued under one `order_by` value is rejected with a 400 error under the other. Time-filter bounds must match the sort key too: pair `updated_at.*` bounds with `order_by=updated_at`, and `created_at.*` bounds with the default `order_by=created_at`. Backward pagination with `before_id` is not supported, and the `project_ids[]` filter is not available. See [List chats](https://platform.claude.com/docs/en/api/compliance/apps/chats/list) for the full filter reference.
 
@@ -102,7 +102,7 @@ The messages endpoint returns the chat's metadata plus a `chat_messages` array s
   "updated_at": "2026-04-10T09:10:11Z",
   "deleted_at": null,
   "href": "https://claude.ai/chat/abcdef01-2345-6789-abcd-ef0123456789",
-  "model": "claude-opus-5",
+  "model": "claude-opus-5-5",
   "organization_uuid": "91012d09-e48b-438e-a489-1bebfd8fa6f9",
   "project_id": "claude_proj_01KGp4eZNug9ri4kE35RSppq",
   "user": {
@@ -197,15 +197,16 @@ The response carries these headers:
 ```bash cURL
 file_id="claude_file_01UaT9wBcDfGhJkLmNpQrSv7"
 
-curl --fail-with-body -sS -OJ \
+curl --fail-with-body -sS \
+  "https://api.anthropic.com/v1/compliance/apps/chats/files/$file_id/content" \
   --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
   --header "anthropic-version: 2023-06-01" \
-  "https://api.anthropic.com/v1/compliance/apps/chats/files/$file_id/content"
+  --output "dashboard_mockup_v1.pdf"
 ```
 
-The `-OJ` flags tell curl to save the response under the file name from `Content-Disposition`, which is the original file name the user uploaded.
+In curl, the `--remote-header-name` (`-J`) option, which normally saves a download under the `Content-Disposition` file name, does not read the `filename*` form, so name the saved file yourself with `--output`. In a script, take the name from the file's `filename` field in the chat messages or [Get file metadata](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve) response, or decode `filename*`. Either way, it is the name the user gave the upload, so treat it as untrusted before using it as an output path: keep only the base name, allow only characters that are safe on your filesystem, and refuse names that begin with `-` or `.`.
 
-The artifact content endpoint returns the text body of one artifact version. Pass the `version_id` from one of the entries in an assistant message's `artifacts` array, not the artifact's stable `id`. Each new version of an artifact has its own `version_id`, and the Compliance API serves the exact bytes of that version.
+Unlike the file content endpoint, the artifact content endpoint returns a JSON object. Pass the `version_id` from one of the entries in an assistant message's `artifacts` array, not the artifact's stable `id`; each new version of an artifact has its own `version_id`. The response's `content` field holds exactly that version's text, and its `title` and `artifact_type` fields describe the artifact. [Get artifact metadata](https://platform.claude.com/docs/en/api/compliance/apps/artifacts/retrieve) computes `size_bytes` and `md5` over the UTF-8 encoding of that text, so compare them with the `content` value rather than the whole response body.
 
 ## Retrieve projects and attachments
 
@@ -308,7 +309,7 @@ A project cannot be deleted while any chats remain attached to it. The API retur
 ```json
 {
   "error": {
-    "type": "conflict_error",
+    "type": "invalid_request_error",
     "message": "The \"claude_proj_01KGp4eZNug9ri4kE35RSppq\" project cannot be deleted as it has chats attached to it. Delete or detach all chats, and try deleting the project again."
   }
 }

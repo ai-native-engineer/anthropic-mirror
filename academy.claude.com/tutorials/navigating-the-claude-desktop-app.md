@@ -4,122 +4,173 @@
 
 [Tutorials](https://academy.claude.com/tutorials)
 
-# Navigating the Claude desktop app: Chat, Claude Cowork, Claude Code
+# Navigating the Claude desktop app
 
-The Claude desktop app gives you three ways to work with Claude: Chat, Claude Cowork, and Claude Code — from quick questions to complex research to building software.
+Learn what changes when you use Claude in the desktop app, and what it can do across your computer and tools.
 
-10 minClaude.ai
+6 minClaude.ai
 
 [Open Claude](https://claude.ai/new)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-b9qlnr3z.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mpd67del.png)
 
-The [Claude desktop app(opens in new tab)](https://claude.com/download) gives you three ways to work with Claude: Chat, Cowork, and Code.
+The [Claude desktop app(opens in new tab)](https://claude.com/download) puts Claude on your computer. That lets Claude open from any app with a shortcut, work in more of your apps and websites, and directly read, edit, or save files in your folders to carry a task further from start to finish.
 
-Chat is the same Claude you know from claude.ai, plus quick entry, screenshots, dictation, and connectors that come from running natively on your computer. [Cowork(opens in new tab)](https://claude.com/product/cowork) gives Claude the reach and the room to do more. This broader scope allows it to conduct more thorough research and analysis, and produce more complex documents and deliverables. Code is for building software, from writing and testing code to deploying it.
+Working in code? See the [Claude Code desktop docs(opens in new tab)](https://code.claude.com/docs/en/desktop).
 
-Cowork and Code run on the same engine. Both are [Claude Code(opens in new tab)](https://claude.com/product/claude-code) underneath: capable of independent work, able to spin up subagents and sustain long tasks. This allows Claude to work through larger tasks on its own, like research and writing or building software.
+In this guide
 
-Each mode is designed around the work it serves, showing you what matters and giving you control where you need it.
+1. [1. Claude is one shortcut awayYou want Claude without switching windows](#1-claude-is-one-shortcut-away)
+2. [2. Claude can work in your files, apps, and websitesThe work is in your files, an app on your computer, or a website](#2-claude-can-work-in-your-files-apps-and-websites)
+3. [3. Claude can keep going while you're awayA task takes a while and needs your computer](#3-claude-can-keep-going-while-youre-away)
+4. [Get startedSet up Claude on a real piece of your work](#get-started)
 
-## Chat[](#chat)
+*Conversations, projects, memory, skills, uploads, voice, and your connectors (email, calendar, Slack, Drive) work the same on the web, your phone, and the desktop app.*
 
-![](https://academy.claude.com/assets/media/6fcef3fffebbdcc24dfe51c43e57196dcec0402c986c32bb803a2bd6a6fcdffc.png)
+## 1. Claude is one shortcut away[](#1-claude-is-one-shortcut-away)
 
-*Chat excels when you need to ask questions, brainstorm, draft, or work through problems back and forth.*
+In the [Claude desktop app(opens in new tab)](https://claude.com/download), quick entry is a small Claude window that opens on top of whatever app you're in and stays in front as you switch apps. Reach it a few ways:
 
-If you've used [claude.ai,(opens in new tab)](http://claude.ai/) this works the same way, with a few things that come from running natively on your computer:
+* **Type:** Double-tap Option on a Mac, or use the shortcut you set in [Settings(opens in new tab)](https://claude.ai/desktop/settings/desktop) on Windows or Linux (beta), then type your question.
+* **Speak (Mac):** Press Caps Lock, talk, then press it again (turn it on in Settings).
+* **Menu bar or system tray:** Click the Claude icon in the menu bar (Mac) or system tray (Windows). Turn it on or off with the **Menu bar** or **System tray** setting in [Settings(opens in new tab)](https://claude.ai/desktop/settings/desktop).
 
-* **Quick entry.** Double-tap the Option key on Mac to pull up Claude over whatever you're working on. It responds in a compact window that stays on top as you switch between apps. You never have to leave what you're doing to ask a question.
-* **Screenshots and window sharing.** Capture a screenshot or share a window so Claude sees exactly what you're looking at. Faster than describing what's on your screen, and more precise. (Mac)
-* **Dictation.** Talk through a problem instead of typing. Useful when you're thinking out loud, away from your keyboard, or working through something where speaking is faster than writing. (Mac)
-* **Desktop connectors.** Connect local tools and services through [connectors(opens in new tab)](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors) so Claude can work with other tools on your machine.
+On a Mac you can also show your screen. Hover over a window to send a screenshot of it, or drag to capture part of the screen (the first time, choose **Turn on screenshots**). To attach a file, drag it onto the app icon or open it with Claude.
 
-***Try it out when:***
+Voice, dictation, and uploads work on the web, your phone, and the desktop app (dictation isn't available on Linux yet); the desktop app lets you reach these features in Claude quickly, from whatever app you're in.
 
-* **You're staring at an unfamiliar dashboard.** Double-tap Option, drag your cursor over the window to screenshot it, and ask "what do these metrics mean?" Claude answers in the overlay while the dashboard stays in view.
-* **You're in between meetings** and want to think through how to structure a presentation. Open quick entry, switch to voice, and talk it through. Claude drafts an outline from what you said.
-* **You've been jotting down ideas for a product launch** across Apple Notes for weeks. You add the Notes connector from Settings and ask Claude: "Pull together everything in my notes about the Osprey launch, figure out where I left things half-finished, and check my other connected tools for anything that fills in the gaps." Claude reads your notes on your machine, pieces together what you have, and follows up where you trailed off.
+Things to ask:
 
-## Cowork[](#cowork)
+* *What do these numbers mean, and which one should I keep an eye on?*
+* *Summarize what's on my screen right now.*
+* *Help me word a reply to this message.*
 
-![](https://academy.claude.com/assets/media/782ff424a16217adc2bf15d89f81250e2d2c9c4f112ddad39a28942c6ae43386.png)
+Good to know
 
-[*Claude Cowork*(opens in new tab)](https://claude.com/product/cowork) *is built for work that takes real effort: pulling information from many sources, making sense of it, and producing something finished.*
+* Screenshots from quick entry and speaking with Caps Lock are Mac-only. On Windows and Linux, a keyboard shortcut brings up Claude.
+* The Linux app is in beta.
 
-Claude can multitask, tackling different parts of a project at a time, so it has the scope to draw from more sources and the stamina to see things through. Thorough research briefs, cross-source financial analysis, end-to-end contract review, polished slide decks from material spread across sources.
+See [Use quick entry on Mac(opens in new tab)](https://support.claude.com/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac) and [Claude for Linux (beta)(opens in new tab)](https://code.claude.com/docs/en/desktop-linux).
 
-Before starting, Claude often asks a short set of questions to pin down what you need: scope, format, constraints. It builds a plan you can review in the sidebar. As it works, you see the task come together: sources it's drawing from, files taking shape, progress through the plan. You can run multiple tasks at once, each in its own conversation, and switch between them from the sidebar.
+## 2. Claude can work in your files, apps, and websites[](#2-claude-can-work-in-your-files-apps-and-websites)
 
-* **Folder access.** Give Claude a folder on your computer and it reads what's there, figures out what's relevant, and saves finished work back to the same place. You can also upload files, paste content into the conversation, or connect tools that pull in what Claude needs.
-* **Scheduled tasks.** Claude can handle recurring work on a schedule: a daily briefing that pulls from your Slack and calendar, a weekly roundup of what shipped, a morning inbox triage that sorts what needs your attention. You define the task and when it should run, and Claude handles it automatically each time the app is open. If your computer or the app was closed when a task was due, it catches up when you're back. [Learn more(opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-cowork).
-* **Browser use.** Connect [Claude in Chrome(opens in new tab)](https://claude.com/chrome) and Claude can navigate websites, interact with pages, and pull what it finds directly into the task it's working on. This is how Cowork does things like check competitor pricing across ten sites or gather data from pages that don't have an API. See [use cases(opens in new tab)](https://academy.claude.com/all?kind=use-case&product=chrome) and a [step-by-step tutorial(opens in new tab)](https://academy.claude.com/tutorials/simplify-your-browsing-experience-with-claude-for-chrome).
-* **Plugins.** [Plugins(opens in new tab)](https://claude.com/blog/cowork-plugins) give Claude capabilities it doesn't have on its own: pulling live financial data, searching your company's internal knowledge base, or working within a specific compliance framework. Browse and add them from the Cowork interface to fit the task.
-* **Protected environment.** Cowork runs in a contained space on your computer. Claude can read, create, and edit files within the folders you share, but can't access anything outside them.
+On the desktop app, Claude can work directly in the files, apps, and websites where your work already is. Instead of carrying material to Claude and results away, you let Claude handle the whole task in place. You choose what Claude can use, and Claude works only with what you share: folders, apps, websites, or your screen.
 
-***Try it out when:***
+### Folders[](#folders)
 
-* **You want to query all your tools like you would a database.** Ask "what did we decide about pricing last quarter?" and Cowork finds the answer across meeting notes, slide decks, email, and Slack threads.
-* **You're researching a new market,** scoping competitors, evaluating tools. For any research that might span multiple tabs with hard to extract information, Cowork visits the sites, reads the reports, pulls the pricing, and delivers a structured brief with sources, without you opening a single browser tab.
-* **You need to parse through large documents** where the details matter: contracts, financial reports, meeting transcripts. Cowork reads every page, cross-references across the full set, and pulls out the patterns that only emerge from reading all of them. Review fifty like you'd review five.
-* **You keep doing the same work every morning** — checking messages, pulling together a status update, prepping for the day's meetings. Set it up once as a [scheduled task(opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-cowork) and Claude handles it on repeat, so you start the day with answers instead of admin.
+On the web you might upload or drag in files. On the desktop app, Claude can go directly to your folders to read and edit what it needs and save finished work back to them.
 
-See [more examples(opens in new tab)](https://academy.claude.com/all?kind=use-case&product=cowork) with step-by-step walkthroughs.
+To give access:
 
-Cowork is generally available on the Pro, Max, Team, and Enterprise plans, where it's on by default. It isn't available on the Free plan.
+1. Under the message box, add a folder.
+2. Allow Claude to edit the files in it.
 
-## Code[](#code)
+With that permission, Claude reads what it needs from the folder and saves finished work back to it.
 
-![](https://academy.claude.com/assets/media/40fbc77a34b0790f53acda7cc3b7ed0476ac386e6ca57f6131800573f424fb32.png)
+Once Claude can see a folder, you can ask Claude to:
 
-[*Code*(opens in new tab)](https://code.claude.com/docs/en/desktop) *puts a full development environment inside the desktop app, powered by* [*Claude Code*(opens in new tab)](https://claude.com/product/claude-code).
+* *Pull the numbers from a folder of PDF invoices into one spreadsheet.*
+* *Sort a cluttered Downloads folder into clearly named subfolders.*
+* *Each month, add the new invoices to that same spreadsheet, building a running record.*
 
-Claude works directly in your codebase: reading what's there, writing and modifying code, running commands. Visual diffs show what changed, a built-in terminal shows commands as they run, and git tracks every version so you can always roll back.
+A task like that can later [run on a schedule(opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-cowork).
 
-Where Cowork runs in a contained workspace limited to the folders you share, Code runs directly in your project with full access to your file system, terminal, and development tools.
+### Apps[](#apps)
 
-You choose where work happens:
+[Connectors(opens in new tab)](https://claude.ai/directory) are available wherever you use Claude and connect tools like your email, docs, and CRM. In addition to those, the desktop app lets you add extensions like Apple Notes or Messages on a Mac. Add them from [Extensions in the desktop app(opens in new tab)](https://claude.ai/desktop/settings/desktop/extensions). See the [extensions guide(opens in new tab)](https://support.claude.com/en/collections/17879657-desktop-extensions).
 
-**Local**: You select a folder on your computer and Claude works directly with those files. Because it runs on your machine, Claude can read your project, access local tools, and run a development server you can preview in your browser.
+Things to ask:
 
-**Remote**: You connect a GitHub repository and Claude works in a cloud environment. Sessions continue even if you close the app, so you can start a big refactor and check back later. Good for larger codebases or when you want to keep development off your local machine.
+* *Turn the action items from this thread into a new Apple note.*
+* *Text Sam that I'm running ten minutes late.*
+* *Pull my notes on the Rivera account into a summary I can send.*
 
-Three interaction modes let you control how much Claude does on its own:
+### Websites[](#websites)
 
-* **Ask**: Claude proposes every change and waits for your approval. You review a visual diff and accept or reject before anything is modified.
-* **Code**: Claude applies file changes automatically but checks before running terminal commands.
-* **Plan**: Claude outlines its full approach before touching anything. A dedicated plan viewer lets you review and revisit the strategy as work progresses.
+The built-in browser is a browser panel inside the desktop app, next to your task. Claude can open sites, read pages, click, type, and fill forms in it, and you watch each step as it happens. It has its own tabs and history, separate from your own browser, so your Chrome stays free for you while Claude works in its own window.
 
-You can run multiple sessions across projects and filter them by status (Active or Archived) and environment (Local or Cloud) from the sidebar.
+1. In Settings, set the built-in browser as your preferred browser.
+2. Ask Claude to use a website.
+3. The first time Claude acts on that site, you choose to allow it once, allow it always for that site, or deny it.
 
-The Code tab is rolling out to Pro, Max, Team, and Enterprise users. For sessions, permissions, hooks, skills, and other configuration, see the [Claude Code desktop documentation(opens in new tab)](https://code.claude.com/docs/en/desktop).
+Things to ask:
 
-## Comparing the three modes on Desktop[](#comparing-the-three-modes-on-desktop)
+* *Find the opening hours and phone number on this restaurant's site.*
+* *Fill out this online form using the details in my folder.*
+* *Check whether this part is in stock on the supplier's site.*
 
-## Practice choosing the mode[](#practice-choosing-the-mode)
+A task in Claude, on the web or the desktop app, can also work in your own Chrome through the [Claude in Chrome(opens in new tab)](https://claude.com/chrome) browser extension. The same extension opens Claude in Chrome next to the page you're on.
 
-Pull up three real tasks: the last three things you asked Claude for, or three things you want help with this week. For each one, decide which mode you would use and note what about the task drove the choice.
+Some pages carry hidden text meant to mislead an AI, and safety checks reduce that risk without removing it. Start with sites you trust, and handle anything sensitive yourself, like bank accounts or health records. See [Use Claude in Chrome safely(opens in new tab)](https://support.claude.com/en/articles/12902428-using-claude-for-chrome-safely) and [Use the built-in browser(opens in new tab)](https://support.claude.com/en/articles/16607400).
 
-Then pressure-test your calls in Chat:
+### Your screen, through computer use (beta)[](#your-screen-through-computer-use-beta)
 
-Here are three tasks I plan to bring to the Claude desktop app: [your three tasks]. For each one, tell me whether Chat, Cowork, or Code fits best and what about the task makes it the right fit. If a choice is close, tell me what detail about the task would settle it.
+For work that isn't in your files, connected tools, or on the web, computer use lets Claude work in other apps and programs by using your screen, mouse, and keyboard. Claude usually tries a connector first, then the built-in browser, and turns to computer use when neither fits, because clicking through one step at a time is the slowest of the three.
 
-Open in Claude
+Computer use suits installed software with no connector, like an accounting program, a design tool, or an internal company app, and work that moves between apps, such as taking figures from one program into another.
 
-Where Claude's call differs from yours, question both before accepting either. Two checks settle most disagreements:
+Once it's turned on in Settings, Claude uses computer use on its own when a task needs it, or when you ask for it directly. While it works, Claude is moving the cursor and typing.
 
-* **Count the sources.** A task that lives in one question or one document sits comfortably in Chat. A task that pulls from several files, tools, or sites and ends in a finished deliverable points to Cowork. A task that ends in working software points to Code.
-* **Watch for the mid-task signal.** If you start in Chat and find yourself pasting in a third file or re-explaining the same context, the task has outgrown the conversation. Move it to Cowork rather than pushing through.
+Things to ask:
 
-The habit worth keeping: before you type the first prompt, name what the task needs, then start in the mode built for it. A quick exchange belongs in Chat, sustained work across many sources belongs in Cowork, and anything that ends in running code belongs in Code.
+* *Enter the receipts in this folder into my accounting app.*
+* *Copy the figures from this spreadsheet into our internal ordering system.*
+* *Resize these images in my photo editor and export them to this folder.*
+
+By default, Claude asks before using an app, and you can stop Claude at any time. Claude can see what's on your screen while it works, so close anything sensitive first. See [Let Claude use your computer(opens in new tab)](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork).
+
+### Record a skill[](#record-a-skill)
+
+[Skills(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills) are saved instructions that let Claude repeat a workflow the way you do it, whenever that work comes up. Some workflows are easier to show than to write down, so you can record one instead.
+
+1. Start it from the plus menu in the message box.
+2. Do the task once, saying what you're doing as you go.
+3. Choose **Done**, and Claude turns the recording into a skill.
+
+The skill is then available in Claude. While recording, don't type passwords or secrets, or show sensitive information or private conversations.
+
+Things to record:
+
+* *Pull each store's weekly sales from its dashboard into our shared sheet.*
+* *Copy new leads from the form into the CRM the way I do it.*
+* *File each week's reports into the right folders by client.*
+
+Good to know
+
+Working in your folders, the built-in browser, computer use, and Record a skill need a paid plan:
+
+* Folders come with every paid plan.
+* The built-in browser is on Pro, Max, and Team, and on Enterprise where your admin allows it.
+* Computer use is in beta on Mac and Windows, for Pro and Max.
+* Record a skill is on Pro, Max, and Team, on Mac.
+
+On Team and Enterprise plans, your admin can limit which extensions are allowed. See [Install Claude Desktop(opens in new tab)](https://support.claude.com/en/articles/10065433-install-claude-desktop).
+
+### All of it together[](#all-of-it-together)
+
+The desktop app lets a single task draw on your local files, your [connectors(opens in new tab)](https://support.claude.com/en/collections/15399129-connectors), and the web together. Uploading and connectors already work everywhere; here they combine with Claude's ability to view, edit, and save files directly on your computer.
+
+Try prompts like:
+
+* *Read my resume in my Downloads folder and my project files in Google Drive, then look through job sites for roles that fit and shortlist the best ones.*
+* *Compare the invoices in my Vendors folder against the bills in Gmail, then check each vendor's website for current pricing.*
+* *Read the deck in my Pitch folder, check my calendar for the client meeting, and look up their latest news on their website.*
+
+## 3. Claude can keep going while you're away[](#3-claude-can-keep-going-while-youre-away)
+
+Start a big task and step away. It keeps going after you close the window, and you can check on it or answer its questions from the web or the mobile app.
+
+When the task is working in a folder, an app, or the browser on your computer, that computer is part of the task, so keep it on and awake with the desktop app open. **Keep computer awake** in Settings stops it from idle-sleeping while the app is open. The display can still turn off, and closing the laptop lid still puts it to sleep.
+
+Working in code?
+
+If you write software, everything on this page applies to code work too, and the desktop app adds Claude Code, a visual coding workbench. See the [Claude Code desktop guide(opens in new tab)](https://code.claude.com/docs/en/desktop) to get started.
 
 ## Get started[](#get-started)
 
-* [Download Claude for Mac or Windows(opens in new tab)](https://claude.com/download)
+[Download the desktop app(opens in new tab)](https://claude.com/download) for Mac, Windows, or Linux (beta).
 
-* [Chat](#chat)
-* [Cowork](#cowork)
-* [Code](#code)
-* [Comparing the three modes on Desktop](#comparing-the-three-modes-on-desktop)
-* [Practice choosing the mode](#practice-choosing-the-mode)
+* [1. Claude is one shortcut away](#1-claude-is-one-shortcut-away)
+* [2. Claude can work in your files, apps, and websites](#2-claude-can-work-in-your-files-apps-and-websites)
+* [3. Claude can keep going while you're away](#3-claude-can-keep-going-while-youre-away)
 * [Get started](#get-started)

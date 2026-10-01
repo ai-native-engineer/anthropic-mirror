@@ -2,7 +2,9 @@
 
 # What Cookies Does Anthropic Use?
 
-April 7, 2026
+Updated over a week ago
+
+Table of contents
 
 The following tables provide brief descriptions of the cookies used on Anthropic websites.
 
@@ -22,7 +24,7 @@ Necessary cookies are used to provide basic functionality of our Services and ca
 | lastActiveOrg | Preferences | .anthropic.com, claude.ai, | First | 1 year |
 | \_\_ssid | Security | .anthropic.com, .claude.ai | First | 13 months |
 | anthropic-device-id | Security | claude.ai,  .console.anthropic.com | First | 10 months |
-| anthropic-consent-preferences | Security | .anthropic.com, .claude.ai | First | 1 year |
+| anthropic-consent-preferences | Security | .anthropic.com, .claude.ai, claude.dev | First | 1 year |
 | console-sidebar-expanded | Preferences | .anthropic.com, .claude.ai | First | 1 year |
 | user-sidebar-visible-on-load | Preferences | .claude.ai | First | 1 year |
 | \_\_stripe\_mid | Security | .anthropic.com, .claude.ai | Stripe  ([more info](https://stripe.com/cookie-settings)) | 1 year |
@@ -81,12 +83,15 @@ You can control how and when your personal data is shared or used in the followi
 1. Clicking on "Privacy Choices" in the footer of our main website ([anthropic.com](http://anthropic.com/))
 2. Clicking on "Your privacy choices" in the Learn More overflow menu on [claude.ai](http://claude.ai/):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1789086600&signature=76d2e3e573f0c79e5d61e78e8e9f30b6819bd956ab2b10c47b1f98ca1d55ab6f&req=dSgmEc13mYJdUPMW1HO4zXrC3CDxh7ZyokxDdhQCTHpnWuw7rXSnX3N5R1IL%0AJPb8%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1789086600&signature=76d2e3e573f0c79e5d61e78e8e9f30b6819bd956ab2b10c47b1f98ca1d55ab6f&req=dSgmEc13mYJdUPMW1HO4zXrC3CDxh7ZyokxDdhQCTHpnWuw7rXSnX3N5R1IL%0AJPb8%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790856900&signature=1f3e1c61df23d085814f962fca49ea534f2c1f6619f8cd785063cbe33a2027de&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn5irZ9okxDdhQCTHpY%2BuKNNXBLVmwdRM4K%0AtuF8%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1790856900&signature=1f3e1c61df23d085814f962fca49ea534f2c1f6619f8cd785063cbe33a2027de&req=dSgmEc13mYJdUPMW1HO4zXrC3Sn5irZ9okxDdhQCTHpY%2BuKNNXBLVmwdRM4K%0AtuF8%0A)
 3. Enabling global privacy controls in your browser
 
 ​
 
+---
+
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [Does Anthropic crawl data from the web, and how can site owners block the crawler?](https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
 * [What Cookies Does Anthropic Use?](https://privacy.claude.com/en/articles/9020432-what-cookies-does-anthropic-use)
-* [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)
+
+Table of contents

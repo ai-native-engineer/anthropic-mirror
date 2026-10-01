@@ -67,7 +67,7 @@ List Agents
 
     - `archived_at: string`
 
-      A timestamp in RFC 3339 format
+      When the agent was archived. Null if not archived.
 
       format: date-time
 
@@ -93,11 +93,19 @@ List Agents
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+      - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5-5"`
+
+          Efficient model for coding and agents
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-fable-5-1"`
 
@@ -105,7 +113,7 @@ List Agents
 
         - `"claude-sonnet-5"`
 
-          High-performance model for coding and agents
+          Efficient model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -157,7 +165,7 @@ List Agents
 
       - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `beta_managed_agents_effort_low: object`
 
@@ -195,7 +203,7 @@ List Agents
 
       - `speed: optional "standard" or "fast"`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `"standard"`
 
@@ -203,7 +211,7 @@ List Agents
 
     - `multiagent: object`
 
-      Resolved coordinator topology with a concrete agent roster.
+      Multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `type: "coordinator"`
 

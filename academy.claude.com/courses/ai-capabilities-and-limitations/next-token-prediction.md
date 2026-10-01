@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction -->
 
-Lesson 4 of 13 · AI Capabilities and LimitationsNext Token Prediction
+Lesson 4 of 13 · AI capabilities and limitationsNext Token Prediction
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Next Token Prediction
 
@@ -65,7 +65,7 @@ Next Token Prediction explains how the AI generates. Next we look at what it's g
 
 [Previous lessonHow AI Gets Its Character](https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character)[Next lessonTry It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)
 
-Lesson 4 of 13 · AI Capabilities and LimitationsNext Token Prediction
+Lesson 4 of 13 · AI capabilities and limitationsNext Token Prediction
 
 Getting started
 

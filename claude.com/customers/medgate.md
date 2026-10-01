@@ -4,31 +4,21 @@ Case study | Claude Code
 
 # Medgate accelerates healthcare innovation with Claude Code
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977fe750b0b246036d8f847_logo_medgate-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977fe7a8320977d30ea0414_logo_medgate-dark-mode.png)
+![Medgate logo](https://assets.claude.com/de5e8ee8526e42d4f977d1d715cccfdc4df0280c.png)
 
 Industry:
-
-Healthcare
+:   Healthcare
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-Europe
+:   Europe
 
 90% faster bug resolution
 
@@ -40,63 +30,17 @@ Smarter, more consistent PR reviews catch issues before they reach patients
 
 Advancing Claude in healthcare and the life sciences
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6961abe753199c35cdc7f2a2_HCLS%20Launch%20-%20Blog%20-%20Social%20Image%20-%201200%20x%20628%20A.png)
+![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png?w=2400&q=75&fm=webp&fit=max)
 
 Transform healthcare from insight to action
 
-Read more
-
-[Read more](https://www.anthropic.com/news/healthcare-life-sciences)Read more
-
-Advancing Claude in healthcare and the life sciences
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Transform healthcare from insight to action
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Advancing Claude in healthcare and the life sciences
-
-Transform healthcare from insight to action
+[Read more](https://www.anthropic.com/news/healthcare-life-sciences)
 
 Introducing Claude Code
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Introducing Claude Code](https://assets.claude.com/56575a2d86ba511e0095b0cb9a92cafe7079c820.jpg?w=2400&q=75&fm=webp&fit=max)
 
 See Claude Code in action—from concept to commit in one seamless workflow.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Introducing Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-[Next](#)Next
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b862e6ee6520aee5bc0741_vid-placeholder.avif)
-
-Introducing Claude Code
-
-See Claude Code in action—from concept to commit in one seamless workflow.
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Medgate](https://www.medgate.ch), one of Europe's largest telemedicine providers, connects 2.5 million patients to doctors remotely across Switzerland and Germany—handling approximately 3,000 consultations daily during peak winter periods. The company operates critical healthcare infrastructure that requires both agility and absolute dependability. Working with [OWT](https://www.owt.swiss/en/)—a Swisscom company and Switzerland's leading technology consultancy—Medgate deployed Claude Code in a three-month pilot with four teams and approximately 15 engineers, and has since decided to roll it out across the organization.
 
@@ -147,70 +91,16 @@ Following the pilot's success, Medgate has decided to roll out Claude Code and O
 
 ‍
 
-"Claude Code's ability to understand complex healthcare domain logic while maintaining code quality standards was exceptional."
+> "Claude Code's ability to understand complex healthcare domain logic while maintaining code quality standards was exceptional."
 
-Marc Lecoultre
+Marc LecoultreChief Technology Officer, OWT
 
-Chief Technology Officer, OWT
+[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-Claude for Healthcare
+### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
+### League cuts product development cycle times in half with Claude](https://claude.com/customers/league)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Zingage](https://assets.claude.com/7a6b9b092d1ec61d938402cc6744e4d94ed2564a.svg)
 
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Healthcare
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)How League went all in on Claude in a regulated industry
-
-How League went all in on Claude in a regulated industry
-
-Customer story
-
-[Customer story](https://claude.com/customers/league-qa)Customer story
-
-[League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
-
-League cuts product development cycle times in half with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/league)Customer story
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
-
-How Zingage automates care coordination for 400+ home care agencies with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/zingage)Customer story
+### How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)

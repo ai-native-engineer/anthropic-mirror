@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/ai-in-the-pr-review-loop -->
 
-Lesson 10 of 14 · The AI-Native SDLC PlaybookAI in the PR review loop
+Lesson 10 of 14 · The AI-native SDLC playbookAI in the PR review loop
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # AI in the PR review loop
 
@@ -65,7 +65,7 @@ Separation of duties is preserved, because the agent that wrote the code has no 
 
 [Previous lessonContinuous evals in CI](https://academy.claude.com/courses/ai-native-sdlc-playbook/continuous-evals-in-ci)[Next lessonHooks as approval gates](https://academy.claude.com/courses/ai-native-sdlc-playbook/hooks-as-approval-gates)
 
-Lesson 10 of 14 · The AI-Native SDLC PlaybookAI in the PR review loop
+Lesson 10 of 14 · The AI-native SDLC playbookAI in the PR review loop
 
 Introduction
 

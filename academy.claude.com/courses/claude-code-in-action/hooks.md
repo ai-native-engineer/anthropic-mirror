@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/hooks -->
 
-Lesson 5 of 9 · Claude Code in ActionHooks
+Lesson 5 of 9 · Claude Code in actionHooks
 
-3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+3. /[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
-[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
 # Hooks
 
@@ -100,7 +100,7 @@ Hooks turn a rule Claude usually follows into one it always follows. Reach past 
 
 [Previous lessonPermission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)[Next lessonRoutines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)
 
-Lesson 5 of 9 · Claude Code in ActionHooks
+Lesson 5 of 9 · Claude Code in actionHooks
 
 Steer the work
 

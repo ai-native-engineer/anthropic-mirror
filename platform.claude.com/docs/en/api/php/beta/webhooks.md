@@ -7,54 +7,11 @@ url: https://platform.claude.com/docs/en/api/php/beta/webhooks
 
 # Webhooks
 
-## Unwrap
-
-`$client->beta->webhooks->unwrap(): void`
-
-Verifies the webhook signature from the `webhook-id`, `webhook-timestamp` and `webhook-signature`
-headers using your webhook signing key, then parses the payload into an event. Fails if the
-signature is missing or invalid.
-
-### Example
-
-```php
-<?php
-
-require_once dirname(__DIR__) . '/vendor/autoload.php';
-
-$client = new Client(apiKey: 'my-anthropic-api-key');
-
-$result = $client->beta->webhooks->unwrap();
-
-var_dump($result);
-```
-
-## Parse Unverified
-
-`$client->beta->webhooks->parseUnverified(): void`
-
-Parses a webhook payload into an event without verifying its signature. Prefer `unwrap()` unless
-you have already verified the signature yourself.
-
-### Example
-
-```php
-<?php
-
-require_once dirname(__DIR__) . '/vendor/autoload.php';
-
-$client = new Client(apiKey: 'my-anthropic-api-key');
-
-$result = $client->beta->webhooks->parseUnverified();
-
-var_dump($result);
-```
-
 ## Domain types
 
 ### Beta Webhook Agent Archived Event Data
 
-- `BetaWebhookAgentArchivedEventData`
+- `class BetaWebhookAgentArchivedEventData`
 
   - `"agent.archived" type`
 
@@ -68,7 +25,7 @@ var_dump($result);
 
 ### Beta Webhook Agent Created Event Data
 
-- `BetaWebhookAgentCreatedEventData`
+- `class BetaWebhookAgentCreatedEventData`
 
   - `"agent.created" type`
 
@@ -82,7 +39,7 @@ var_dump($result);
 
 ### Beta Webhook Agent Deleted Event Data
 
-- `BetaWebhookAgentDeletedEventData`
+- `class BetaWebhookAgentDeletedEventData`
 
   - `"agent.deleted" type`
 
@@ -96,7 +53,7 @@ var_dump($result);
 
 ### Beta Webhook Agent Updated Event Data
 
-- `BetaWebhookAgentUpdatedEventData`
+- `class BetaWebhookAgentUpdatedEventData`
 
   - `"agent.updated" type`
 
@@ -110,7 +67,7 @@ var_dump($result);
 
 ### Beta Webhook Deployment Archived Event Data
 
-- `BetaWebhookDeploymentArchivedEventData`
+- `class BetaWebhookDeploymentArchivedEventData`
 
   - `"deployment.archived" type`
 
@@ -124,7 +81,7 @@ var_dump($result);
 
 ### Beta Webhook Deployment Created Event Data
 
-- `BetaWebhookDeploymentCreatedEventData`
+- `class BetaWebhookDeploymentCreatedEventData`
 
   - `"deployment.created" type`
 
@@ -138,7 +95,7 @@ var_dump($result);
 
 ### Beta Webhook Deployment Deleted Event Data
 
-- `BetaWebhookDeploymentDeletedEventData`
+- `class BetaWebhookDeploymentDeletedEventData`
 
   - `"deployment.deleted" type`
 
@@ -152,7 +109,7 @@ var_dump($result);
 
 ### Beta Webhook Deployment Paused Event Data
 
-- `BetaWebhookDeploymentPausedEventData`
+- `class BetaWebhookDeploymentPausedEventData`
 
   - `"deployment.paused" type`
 
@@ -166,7 +123,7 @@ var_dump($result);
 
 ### Beta Webhook Deployment Run Failed Event Data
 
-- `BetaWebhookDeploymentRunFailedEventData`
+- `class BetaWebhookDeploymentRunFailedEventData`
 
   - `"deployment_run.failed" type`
 
@@ -180,7 +137,7 @@ var_dump($result);
 
 ### Beta Webhook Deployment Run Started Event Data
 
-- `BetaWebhookDeploymentRunStartedEventData`
+- `class BetaWebhookDeploymentRunStartedEventData`
 
   - `"deployment_run.started" type`
 
@@ -194,7 +151,7 @@ var_dump($result);
 
 ### Beta Webhook Deployment Run Succeeded Event Data
 
-- `BetaWebhookDeploymentRunSucceededEventData`
+- `class BetaWebhookDeploymentRunSucceededEventData`
 
   - `"deployment_run.succeeded" type`
 
@@ -208,7 +165,7 @@ var_dump($result);
 
 ### Beta Webhook Deployment Unpaused Event Data
 
-- `BetaWebhookDeploymentUnpausedEventData`
+- `class BetaWebhookDeploymentUnpausedEventData`
 
   - `"deployment.unpaused" type`
 
@@ -222,7 +179,7 @@ var_dump($result);
 
 ### Beta Webhook Deployment Updated Event Data
 
-- `BetaWebhookDeploymentUpdatedEventData`
+- `class BetaWebhookDeploymentUpdatedEventData`
 
   - `"deployment.updated" type`
 
@@ -236,7 +193,7 @@ var_dump($result);
 
 ### Beta Webhook Environment Archived Event Data
 
-- `BetaWebhookEnvironmentArchivedEventData`
+- `class BetaWebhookEnvironmentArchivedEventData`
 
   - `"environment.archived" type`
 
@@ -250,7 +207,7 @@ var_dump($result);
 
 ### Beta Webhook Environment Created Event Data
 
-- `BetaWebhookEnvironmentCreatedEventData`
+- `class BetaWebhookEnvironmentCreatedEventData`
 
   - `"environment.created" type`
 
@@ -264,7 +221,7 @@ var_dump($result);
 
 ### Beta Webhook Environment Deleted Event Data
 
-- `BetaWebhookEnvironmentDeletedEventData`
+- `class BetaWebhookEnvironmentDeletedEventData`
 
   - `"environment.deleted" type`
 
@@ -278,7 +235,7 @@ var_dump($result);
 
 ### Beta Webhook Environment Updated Event Data
 
-- `BetaWebhookEnvironmentUpdatedEventData`
+- `class BetaWebhookEnvironmentUpdatedEventData`
 
   - `"environment.updated" type`
 
@@ -292,7 +249,7 @@ var_dump($result);
 
 ### Beta Webhook Event
 
-- `BetaWebhookEvent`
+- `class BetaWebhookEvent`
 
   - `"event" type`
 
@@ -310,9 +267,9 @@ var_dump($result);
 
 ### Beta Webhook Event Data
 
-- `BetaWebhookEventData`
+- `class BetaWebhookEventData`
 
-  - `BetaWebhookSessionCreatedEventData`
+  - `class BetaWebhookSessionCreatedEventData`
 
     - `"session.created" type`
 
@@ -324,7 +281,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionPendingEventData`
+  - `class BetaWebhookSessionPendingEventData`
 
     - `"session.pending" type`
 
@@ -336,7 +293,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionRunningEventData`
+  - `class BetaWebhookSessionRunningEventData`
 
     - `"session.running" type`
 
@@ -348,7 +305,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionIdledEventData`
+  - `class BetaWebhookSessionIdledEventData`
 
     - `"session.idled" type`
 
@@ -360,7 +317,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionRequiresActionEventData`
+  - `class BetaWebhookSessionRequiresActionEventData`
 
     - `"session.requires_action" type`
 
@@ -372,7 +329,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionArchivedEventData`
+  - `class BetaWebhookSessionArchivedEventData`
 
     - `"session.archived" type`
 
@@ -384,7 +341,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionDeletedEventData`
+  - `class BetaWebhookSessionDeletedEventData`
 
     - `"session.deleted" type`
 
@@ -396,7 +353,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionStatusRescheduledEventData`
+  - `class BetaWebhookSessionStatusRescheduledEventData`
 
     - `"session.status_rescheduled" type`
 
@@ -408,7 +365,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionStatusRunStartedEventData`
+  - `class BetaWebhookSessionStatusRunStartedEventData`
 
     - `"session.status_run_started" type`
 
@@ -420,7 +377,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionStatusIdledEventData`
+  - `class BetaWebhookSessionStatusIdledEventData`
 
     - `"session.status_idled" type`
 
@@ -432,7 +389,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionStatusTerminatedEventData`
+  - `class BetaWebhookSessionStatusTerminatedEventData`
 
     - `"session.status_terminated" type`
 
@@ -444,7 +401,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionThreadCreatedEventData`
+  - `class BetaWebhookSessionThreadCreatedEventData`
 
     - `"session.thread_created" type`
 
@@ -460,7 +417,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionThreadIdledEventData`
+  - `class BetaWebhookSessionThreadIdledEventData`
 
     - `"session.thread_idled" type`
 
@@ -476,7 +433,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionThreadTerminatedEventData`
+  - `class BetaWebhookSessionThreadTerminatedEventData`
 
     - `"session.thread_terminated" type`
 
@@ -492,7 +449,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+  - `class BetaWebhookSessionOutcomeEvaluationEndedEventData`
 
     - `"session.outcome_evaluation_ended" type`
 
@@ -504,7 +461,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookVaultCreatedEventData`
+  - `class BetaWebhookVaultCreatedEventData`
 
     - `"vault.created" type`
 
@@ -516,7 +473,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookVaultArchivedEventData`
+  - `class BetaWebhookVaultArchivedEventData`
 
     - `"vault.archived" type`
 
@@ -528,7 +485,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookVaultDeletedEventData`
+  - `class BetaWebhookVaultDeletedEventData`
 
     - `"vault.deleted" type`
 
@@ -540,7 +497,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookVaultCredentialCreatedEventData`
+  - `class BetaWebhookVaultCredentialCreatedEventData`
 
     - `"vault_credential.created" type`
 
@@ -556,7 +513,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookVaultCredentialArchivedEventData`
+  - `class BetaWebhookVaultCredentialArchivedEventData`
 
     - `"vault_credential.archived" type`
 
@@ -572,7 +529,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookVaultCredentialDeletedEventData`
+  - `class BetaWebhookVaultCredentialDeletedEventData`
 
     - `"vault_credential.deleted" type`
 
@@ -588,7 +545,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookVaultCredentialRefreshFailedEventData`
+  - `class BetaWebhookVaultCredentialRefreshFailedEventData`
 
     - `"vault_credential.refresh_failed" type`
 
@@ -604,7 +561,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionUpdatedEventData`
+  - `class BetaWebhookSessionUpdatedEventData`
 
     - `"session.updated" type`
 
@@ -616,7 +573,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookAgentCreatedEventData`
+  - `class BetaWebhookAgentCreatedEventData`
 
     - `"agent.created" type`
 
@@ -628,7 +585,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookAgentArchivedEventData`
+  - `class BetaWebhookAgentArchivedEventData`
 
     - `"agent.archived" type`
 
@@ -640,7 +597,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookAgentDeletedEventData`
+  - `class BetaWebhookAgentDeletedEventData`
 
     - `"agent.deleted" type`
 
@@ -652,7 +609,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookDeploymentPausedEventData`
+  - `class BetaWebhookDeploymentPausedEventData`
 
     - `"deployment.paused" type`
 
@@ -664,7 +621,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookDeploymentRunFailedEventData`
+  - `class BetaWebhookDeploymentRunFailedEventData`
 
     - `"deployment_run.failed" type`
 
@@ -676,7 +633,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookDeploymentCreatedEventData`
+  - `class BetaWebhookDeploymentCreatedEventData`
 
     - `"deployment.created" type`
 
@@ -688,7 +645,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookDeploymentUpdatedEventData`
+  - `class BetaWebhookDeploymentUpdatedEventData`
 
     - `"deployment.updated" type`
 
@@ -700,7 +657,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookDeploymentUnpausedEventData`
+  - `class BetaWebhookDeploymentUnpausedEventData`
 
     - `"deployment.unpaused" type`
 
@@ -712,7 +669,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookAgentUpdatedEventData`
+  - `class BetaWebhookAgentUpdatedEventData`
 
     - `"agent.updated" type`
 
@@ -724,7 +681,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookDeploymentArchivedEventData`
+  - `class BetaWebhookDeploymentArchivedEventData`
 
     - `"deployment.archived" type`
 
@@ -736,7 +693,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookDeploymentRunStartedEventData`
+  - `class BetaWebhookDeploymentRunStartedEventData`
 
     - `"deployment_run.started" type`
 
@@ -748,7 +705,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookDeploymentDeletedEventData`
+  - `class BetaWebhookDeploymentDeletedEventData`
 
     - `"deployment.deleted" type`
 
@@ -760,7 +717,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookDeploymentRunSucceededEventData`
+  - `class BetaWebhookDeploymentRunSucceededEventData`
 
     - `"deployment_run.succeeded" type`
 
@@ -772,7 +729,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookEnvironmentCreatedEventData`
+  - `class BetaWebhookEnvironmentCreatedEventData`
 
     - `"environment.created" type`
 
@@ -784,7 +741,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookEnvironmentUpdatedEventData`
+  - `class BetaWebhookEnvironmentUpdatedEventData`
 
     - `"environment.updated" type`
 
@@ -796,7 +753,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookEnvironmentArchivedEventData`
+  - `class BetaWebhookEnvironmentArchivedEventData`
 
     - `"environment.archived" type`
 
@@ -808,7 +765,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookEnvironmentDeletedEventData`
+  - `class BetaWebhookEnvironmentDeletedEventData`
 
     - `"environment.deleted" type`
 
@@ -820,7 +777,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookMemoryStoreCreatedEventData`
+  - `class BetaWebhookMemoryStoreCreatedEventData`
 
     - `"memory_store.created" type`
 
@@ -832,7 +789,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookMemoryStoreArchivedEventData`
+  - `class BetaWebhookMemoryStoreArchivedEventData`
 
     - `"memory_store.archived" type`
 
@@ -844,7 +801,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookMemoryStoreDeletedEventData`
+  - `class BetaWebhookMemoryStoreDeletedEventData`
 
     - `"memory_store.deleted" type`
 
@@ -856,7 +813,7 @@ var_dump($result);
 
     - `string workspaceID`
 
-  - `BetaWebhookSessionBudgetReachedEventData`
+  - `class BetaWebhookSessionBudgetReachedEventData`
 
     - `"session.budget_reached" type`
 
@@ -870,7 +827,7 @@ var_dump($result);
 
 ### Beta Webhook Memory Store Archived Event Data
 
-- `BetaWebhookMemoryStoreArchivedEventData`
+- `class BetaWebhookMemoryStoreArchivedEventData`
 
   - `"memory_store.archived" type`
 
@@ -884,7 +841,7 @@ var_dump($result);
 
 ### Beta Webhook Memory Store Created Event Data
 
-- `BetaWebhookMemoryStoreCreatedEventData`
+- `class BetaWebhookMemoryStoreCreatedEventData`
 
   - `"memory_store.created" type`
 
@@ -898,7 +855,7 @@ var_dump($result);
 
 ### Beta Webhook Memory Store Deleted Event Data
 
-- `BetaWebhookMemoryStoreDeletedEventData`
+- `class BetaWebhookMemoryStoreDeletedEventData`
 
   - `"memory_store.deleted" type`
 
@@ -912,7 +869,7 @@ var_dump($result);
 
 ### Beta Webhook Session Archived Event Data
 
-- `BetaWebhookSessionArchivedEventData`
+- `class BetaWebhookSessionArchivedEventData`
 
   - `"session.archived" type`
 
@@ -926,7 +883,7 @@ var_dump($result);
 
 ### Beta Webhook Session Budget Reached Event Data
 
-- `BetaWebhookSessionBudgetReachedEventData`
+- `class BetaWebhookSessionBudgetReachedEventData`
 
   - `"session.budget_reached" type`
 
@@ -940,7 +897,7 @@ var_dump($result);
 
 ### Beta Webhook Session Created Event Data
 
-- `BetaWebhookSessionCreatedEventData`
+- `class BetaWebhookSessionCreatedEventData`
 
   - `"session.created" type`
 
@@ -954,7 +911,7 @@ var_dump($result);
 
 ### Beta Webhook Session Deleted Event Data
 
-- `BetaWebhookSessionDeletedEventData`
+- `class BetaWebhookSessionDeletedEventData`
 
   - `"session.deleted" type`
 
@@ -968,7 +925,7 @@ var_dump($result);
 
 ### Beta Webhook Session Idled Event Data
 
-- `BetaWebhookSessionIdledEventData`
+- `class BetaWebhookSessionIdledEventData`
 
   - `"session.idled" type`
 
@@ -982,7 +939,7 @@ var_dump($result);
 
 ### Beta Webhook Session Outcome Evaluation Ended Event Data
 
-- `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+- `class BetaWebhookSessionOutcomeEvaluationEndedEventData`
 
   - `"session.outcome_evaluation_ended" type`
 
@@ -996,7 +953,7 @@ var_dump($result);
 
 ### Beta Webhook Session Pending Event Data
 
-- `BetaWebhookSessionPendingEventData`
+- `class BetaWebhookSessionPendingEventData`
 
   - `"session.pending" type`
 
@@ -1010,7 +967,7 @@ var_dump($result);
 
 ### Beta Webhook Session Requires Action Event Data
 
-- `BetaWebhookSessionRequiresActionEventData`
+- `class BetaWebhookSessionRequiresActionEventData`
 
   - `"session.requires_action" type`
 
@@ -1024,7 +981,7 @@ var_dump($result);
 
 ### Beta Webhook Session Running Event Data
 
-- `BetaWebhookSessionRunningEventData`
+- `class BetaWebhookSessionRunningEventData`
 
   - `"session.running" type`
 
@@ -1038,7 +995,7 @@ var_dump($result);
 
 ### Beta Webhook Session Status Idled Event Data
 
-- `BetaWebhookSessionStatusIdledEventData`
+- `class BetaWebhookSessionStatusIdledEventData`
 
   - `"session.status_idled" type`
 
@@ -1052,7 +1009,7 @@ var_dump($result);
 
 ### Beta Webhook Session Status Rescheduled Event Data
 
-- `BetaWebhookSessionStatusRescheduledEventData`
+- `class BetaWebhookSessionStatusRescheduledEventData`
 
   - `"session.status_rescheduled" type`
 
@@ -1066,7 +1023,7 @@ var_dump($result);
 
 ### Beta Webhook Session Status Run Started Event Data
 
-- `BetaWebhookSessionStatusRunStartedEventData`
+- `class BetaWebhookSessionStatusRunStartedEventData`
 
   - `"session.status_run_started" type`
 
@@ -1080,7 +1037,7 @@ var_dump($result);
 
 ### Beta Webhook Session Status Terminated Event Data
 
-- `BetaWebhookSessionStatusTerminatedEventData`
+- `class BetaWebhookSessionStatusTerminatedEventData`
 
   - `"session.status_terminated" type`
 
@@ -1094,7 +1051,7 @@ var_dump($result);
 
 ### Beta Webhook Session Thread Created Event Data
 
-- `BetaWebhookSessionThreadCreatedEventData`
+- `class BetaWebhookSessionThreadCreatedEventData`
 
   - `"session.thread_created" type`
 
@@ -1112,7 +1069,7 @@ var_dump($result);
 
 ### Beta Webhook Session Thread Idled Event Data
 
-- `BetaWebhookSessionThreadIdledEventData`
+- `class BetaWebhookSessionThreadIdledEventData`
 
   - `"session.thread_idled" type`
 
@@ -1130,7 +1087,7 @@ var_dump($result);
 
 ### Beta Webhook Session Thread Terminated Event Data
 
-- `BetaWebhookSessionThreadTerminatedEventData`
+- `class BetaWebhookSessionThreadTerminatedEventData`
 
   - `"session.thread_terminated" type`
 
@@ -1148,7 +1105,7 @@ var_dump($result);
 
 ### Beta Webhook Session Updated Event Data
 
-- `BetaWebhookSessionUpdatedEventData`
+- `class BetaWebhookSessionUpdatedEventData`
 
   - `"session.updated" type`
 
@@ -1162,7 +1119,7 @@ var_dump($result);
 
 ### Beta Webhook Vault Archived Event Data
 
-- `BetaWebhookVaultArchivedEventData`
+- `class BetaWebhookVaultArchivedEventData`
 
   - `"vault.archived" type`
 
@@ -1176,7 +1133,7 @@ var_dump($result);
 
 ### Beta Webhook Vault Created Event Data
 
-- `BetaWebhookVaultCreatedEventData`
+- `class BetaWebhookVaultCreatedEventData`
 
   - `"vault.created" type`
 
@@ -1190,7 +1147,7 @@ var_dump($result);
 
 ### Beta Webhook Vault Credential Archived Event Data
 
-- `BetaWebhookVaultCredentialArchivedEventData`
+- `class BetaWebhookVaultCredentialArchivedEventData`
 
   - `"vault_credential.archived" type`
 
@@ -1208,7 +1165,7 @@ var_dump($result);
 
 ### Beta Webhook Vault Credential Created Event Data
 
-- `BetaWebhookVaultCredentialCreatedEventData`
+- `class BetaWebhookVaultCredentialCreatedEventData`
 
   - `"vault_credential.created" type`
 
@@ -1226,7 +1183,7 @@ var_dump($result);
 
 ### Beta Webhook Vault Credential Deleted Event Data
 
-- `BetaWebhookVaultCredentialDeletedEventData`
+- `class BetaWebhookVaultCredentialDeletedEventData`
 
   - `"vault_credential.deleted" type`
 
@@ -1244,7 +1201,7 @@ var_dump($result);
 
 ### Beta Webhook Vault Credential Refresh Failed Event Data
 
-- `BetaWebhookVaultCredentialRefreshFailedEventData`
+- `class BetaWebhookVaultCredentialRefreshFailedEventData`
 
   - `"vault_credential.refresh_failed" type`
 
@@ -1262,7 +1219,7 @@ var_dump($result);
 
 ### Beta Webhook Vault Deleted Event Data
 
-- `BetaWebhookVaultDeletedEventData`
+- `class BetaWebhookVaultDeletedEventData`
 
   - `"vault.deleted" type`
 

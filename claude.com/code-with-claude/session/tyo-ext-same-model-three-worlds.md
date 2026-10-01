@@ -4,51 +4,46 @@
 
 Claude is identical in Tokyo, Mumbai, and Melbourne, but what gets built with it looks completely different. Three builders who anchor their local Claude communities compare ground truth from their scenes: who's actually building, what's taking off in each region, what's still missing, and what should get built next. A bilingual conversation in Japanese and English, moderated by Anthropic's Head of Community.
 
-Details
+## Details
 
 City
-
-Tokyo, JP
+:   Tokyo, JP
 
 Date
-
-11 June 2026
+:   11 June 2026
 
 Time
-
-13:15 – 13:45
+:   13:15 – 13:45
 
 Speaker(s)
+:   Jason Bigman
 
-Jason Bigman
+    Head of Community,
 
-Head of Community,
+    Anthropic
 
-Anthropic
+    Rye Smith
 
-Rye Smith
+    Managing Director,
 
-Managing Director,
+    Spruik Co.
 
-Spruik Co.
+    Sumeet Doshi
 
-Sumeet Doshi
+    AI Tech Architect & Founder,
 
-AI Tech Architect & Founder,
+    HaemoLink
 
-HaemoLink
+    Yuta Hayashi
 
-Yuta Hayashi
+    CEO,
 
-CEO,
-
-Determinant, Inc.
+    Determinant, Inc.
 
 Language
+:   English
 
-English
-
-Agenda
+## Agenda
 
 Demos and office hours run all day. Drop by for a demo between sessions. Sign up in advance for office hours. All times in Japan Standard Time (JST).
 
@@ -56,7 +51,12 @@ Demos and office hours run all day. Drop by for a demo between sessions. Sign up
 
 Stages
 
-08:00 – 09:00
+* All stages
+* Founder stage
+* Builder stage
+* Workshops
+
+08:30 – 09:30
 
 Check-in and breakfast
 
@@ -66,11 +66,7 @@ Check-in and breakfast
 
 ·
 
-(
-
-Founder stage
-
-)
+(Founder stage)
 
 ·
 
@@ -82,24 +78,6 @@ morning sessions
 
 10:00 – 10:30
 
-[What happens when domain experts can finally build](https://claude.com/code-with-claude/session/tyo-ext-domain-experts-can-finally-build)
-
-·
-
-(
-
-Builder stage
-
-)
-
-Builder stage
-
-·
-
-Jason Tangen
-
-University of Queensland
-
 [Building AI-native across industries with NTT, Mizuho and Mercari](https://claude.com/code-with-claude/session/tyo-ext-ai-native-across-industries)
 
 ·
@@ -109,8 +87,6 @@ University of Queensland
 Founder stage
 
 )
-
-Founder stage
 
 ·
 
@@ -126,6 +102,22 @@ Tatsuto Fujii
 
 Mizuho Financial Group, Inc.
 
+[What happens when domain experts can finally build](https://claude.com/code-with-claude/session/tyo-ext-domain-experts-can-finally-build)
+
+·
+
+(
+
+Builder stage
+
+)
+
+·
+
+Jason Tangen
+
+University of Queensland
+
 10:00 – 10:45
 
 [How we Claude Code](https://claude.com/code-with-claude/session/tyo-ext-how-we-claude-code)
@@ -137,8 +129,6 @@ Mizuho Financial Group, Inc.
 Workshop
 
 )
-
-Workshop
 
 ·
 
@@ -158,8 +148,6 @@ Founder stage
 
 )
 
-Founder stage
-
 ·
 
 Wonjin Hur
@@ -175,8 +163,6 @@ Myrealtrip
 Builder stage
 
 )
-
-Builder stage
 
 ·
 
@@ -196,8 +182,6 @@ Workshop
 
 )
 
-Workshop
-
 ·
 
 Koki Yoshida
@@ -215,8 +199,6 @@ Anthropic
 Founder stage
 
 )
-
-Founder stage
 
 ·
 
@@ -236,8 +218,6 @@ Builder stage
 
 )
 
-Builder stage
-
 ·
 
 Yuta Hayashi
@@ -255,8 +235,6 @@ Determinant, Inc.
 Workshop
 
 )
-
-Workshop
 
 ·
 
@@ -282,8 +260,6 @@ Workshop
 
 )
 
-Workshop
-
 ·
 
 Jonah Dueck
@@ -304,8 +280,6 @@ Founder stage
 
 )
 
-Founder stage
-
 ·
 
 Hitoshi Tsuyuki
@@ -325,8 +299,6 @@ Tsukumo Labs Inc.
 Builder stage
 
 )
-
-Builder stage
 
 ·
 
@@ -360,8 +332,6 @@ Founder stage
 
 )
 
-Founder stage
-
 ·
 
 Kenta Yamamoto
@@ -377,8 +347,6 @@ primeNumber Inc.
 Builder stage
 
 )
-
-Builder stage
 
 ·
 
@@ -398,8 +366,6 @@ Workshop
 
 )
 
-Workshop
-
 ·
 
 Karan Sampath
@@ -418,8 +384,6 @@ Founder stage
 
 )
 
-Founder stage
-
 ·
 
 Rye Smith
@@ -435,8 +399,6 @@ Spruik Co.
 Builder stage
 
 )
-
-Builder stage
 
 ·
 
@@ -456,8 +418,6 @@ Workshop
 
 )
 
-Workshop
-
 ·
 
 Liam Plambeck
@@ -476,8 +436,6 @@ Founder stage
 
 )
 
-Founder stage
-
 ·
 
 Jarred Sumner
@@ -490,16 +448,10 @@ Evening
 
 Closing reception
 
-Anthropic's developer conference
+## Anthropic's developer conference, recorded
 
-Join us for a day of hands-on workshops, live demos of new capabilities and conversations with the teams behind Claude. Watch live from anywhere.
+Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 Tokyo and ready to replay.
 
-Attend virtually
+[Browse recordings](https://claude.com/code-with-claude/tokyo)
 
-[Learn more](https://claude.com/code-with-claude/register-livestream)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Same model, three different worlds: Japan, India, Australia | Session | Code w/ Claude 2026

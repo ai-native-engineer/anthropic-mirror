@@ -2,6 +2,8 @@
 
 [Skip to main content](#main-content)
 
+More[Privacy policy (opens in new tab)](https://cloudglue.dev/privacy)
+
 Analyze, search, and extract structured data from video collections using Cloudglue's video understanding platform.
 
 ## Tools

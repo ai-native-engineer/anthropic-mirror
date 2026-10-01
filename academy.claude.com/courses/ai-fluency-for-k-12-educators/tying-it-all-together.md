@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/tying-it-all-together -->
 
-Lesson 9 of 10 · AI Fluency for pK–12 EducatorsTying it all together
+Lesson 9 of 10 · AI Fluency for pK–12 educatorsTying it all together
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # Tying it all together
 
@@ -78,7 +78,7 @@ In the next lesson, we'll close out the course with a final build exercise and r
 
 [Previous lessonAI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)[Next lessonClosure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)
 
-Lesson 9 of 10 · AI Fluency for pK–12 EducatorsTying it all together
+Lesson 9 of 10 · AI Fluency for pK–12 educatorsTying it all together
 
 How this course was made
 

@@ -15,6 +15,11 @@ Lists chat metadata with filtering capabilities for targeted
 compliance review. Results are sorted chronologically (time ascending)
 by the `order_by` key, with ties broken by id.
 
+Incremental polling with `order_by=updated_at` returns a chat again
+after it receives a new message, is moved into or out of a project, or
+is deleted in claude.ai. A chat is not guaranteed to be returned again
+after other edits, such as a rename.
+
 **Deprecation notice:** Combining `user_ids[]` with any `updated_at.*`
 filter is deprecated and will be rejected with HTTP 400 after
 2026-09-22. For incremental polling by update time, omit `user_ids[]`
@@ -64,7 +69,7 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
   Maximum results (default: 100, max: 1000)
 
-  default: 100, maximum: 1000, minimum: 1
+  default: 100, minimum: 1, maximum: 1000
 
 - `order_by: optional "created_at" or "updated_at"`
 
@@ -118,12 +123,6 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
 ### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 ### Returns
@@ -170,27 +169,13 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
   - `updated_at: string`
 
-    Last update timestamp
+    Last update timestamp. Updated when the chat receives a new message, is moved into or out of a project, or is deleted in claude.ai. Other edits, such as renaming the chat, are not guaranteed to change it.
 
     format: date-time
 
   - `user: object or null`
 
-    The user who created the chat.
-
-    Null when the API key is restricted to one organization and the creator
-    is no longer a member of it (for example, after they were removed from
-    it).
-
-    A key for the whole parent organization returns the creator's `id`
-    and current `email_address` for every chat; on the list endpoint, pass
-    `organization_ids[]` to keep the results to one organization. For the
-    email address the creator had when the chat was created, query
-    `GET /v1/compliance/activities` with `activity_types[]=claude_chat_created`
-    and a `created_at` window around the chat's `created_at`, find the event
-    whose `claude_chat_id` matches this chat's `id`, and read
-    `actor.email_address`. These events exist only for chats created after
-    compliance logging was enabled for the organization.
+    The user who created the chat. Null when the API key is restricted to one organization and the creator is no longer a member of it.
 
     - `id: string`
 
@@ -222,6 +207,7 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -267,12 +253,6 @@ files. This is a destructive operation that cannot be undone.
 
 ### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 ### Returns
@@ -292,6 +272,7 @@ files. This is a destructive operation that cannot be undone.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -350,27 +331,13 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID \
 
   - `updated_at: string`
 
-    Last update timestamp
+    Last update timestamp. Updated when the chat receives a new message, is moved into or out of a project, or is deleted in claude.ai. Other edits, such as renaming the chat, are not guaranteed to change it.
 
     format: date-time
 
   - `user: object or null`
 
-    The user who created the chat.
-
-    Null when the API key is restricted to one organization and the creator
-    is no longer a member of it (for example, after they were removed from
-    it).
-
-    A key for the whole parent organization returns the creator's `id`
-    and current `email_address` for every chat; on the list endpoint, pass
-    `organization_ids[]` to keep the results to one organization. For the
-    email address the creator had when the chat was created, query
-    `GET /v1/compliance/activities` with `activity_types[]=claude_chat_created`
-    and a `created_at` window around the chat's `created_at`, find the event
-    whose `claude_chat_id` matches this chat's `id`, and read
-    `actor.email_address`. These events exist only for chats created after
-    compliance logging was enabled for the organization.
+    The user who created the chat. Null when the API key is restricted to one organization and the creator is no longer a member of it.
 
     - `id: string`
 
@@ -456,7 +423,7 @@ Retrieves message history and file metadata for a specific chat.
 
   Maximum results (max: 1000). When omitted, the full result set is returned in one response.
 
-  maximum: 1000, minimum: 1
+  minimum: 1, maximum: 1000
 
 - `order: optional "asc" or "desc"`
 
@@ -508,12 +475,6 @@ Retrieves message history and file metadata for a specific chat.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -550,7 +511,7 @@ Retrieves message history and file metadata for a specific chat.
 
       Artifact version ID e.g. 'claude_artifact_version_abc123'
 
-  - `content: array of object or object or object`
+  - `content: array of Text or ToolUse or ToolResult`
 
     Content blocks within the message
 
@@ -696,11 +657,11 @@ Retrieves message history and file metadata for a specific chat.
 
   - `generated_files: array of object or null`
 
-    Downloadable files the assistant created via tool use (e.g. PDF, spreadsheet, slide deck). Distinct from `files`, which are uploads attached to the message. Download via `GET /v1/compliance/apps/chats/generated-files/{claude_gen_file_id}/content`.
+    Downloadable files the assistant created via tool use (e.g. PDF, spreadsheet, slide deck). Distinct from `files`, which are uploads attached to the message. Download an entry whose id starts with `claude_gen_file_` via `GET /v1/compliance/apps/chats/generated-files/{claude_gen_file_id}/content`, and one whose id starts with `claude_file_` via `GET /v1/compliance/apps/chats/files/{claude_file_id}/content`.
 
     - `id: string`
 
-      Opaque generated-file id, e.g. 'claude_gen_file_abc123'. Treat as an opaque string; the encoding may change without notice.
+      Id of the file: either a generated-file id, e.g. 'claude_gen_file_abc123', or a file id, e.g. 'claude_file_abc123'; the prefix tells them apart. Download the first from the generated-files content endpoint and the second from the files content endpoint. Treat everything after the prefix as an opaque string; the encoding may change without notice.
 
     - `filename: string`
 
@@ -712,7 +673,7 @@ Retrieves message history and file metadata for a specific chat.
 
     - `mime_type: string or null`
 
-      MIME type reported by the tool that produced the file
+      MIME type of the file, when known
 
     - `size_bytes: number or null`
 
@@ -774,27 +735,13 @@ Retrieves message history and file metadata for a specific chat.
 
 - `updated_at: string`
 
-  Last update timestamp
+  Last update timestamp. Updated when the chat receives a new message, is moved into or out of a project, or is deleted in claude.ai. Other edits, such as renaming the chat, are not guaranteed to change it.
 
   format: date-time
 
 - `user: object or null`
 
-  The user who created the chat.
-
-  Null when the API key is restricted to one organization and the creator
-  is no longer a member of it (for example, after they were removed from
-  it).
-
-  A key for the whole parent organization returns the creator's `id`
-  and current `email_address` for every chat; on the list endpoint, pass
-  `organization_ids[]` to keep the results to one organization. For the
-  email address the creator had when the chat was created, query
-  `GET /v1/compliance/activities` with `activity_types[]=claude_chat_created`
-  and a `created_at` window around the chat's `created_at`, find the event
-  whose `claude_chat_id` matches this chat's `id`, and read
-  `actor.email_address`. These events exist only for chats created after
-  compliance logging was enabled for the organization.
+  The user who created the chat. Null when the API key is restricted to one organization and the creator is no longer a member of it.
 
   - `id: string`
 
@@ -814,6 +761,7 @@ Retrieves message history and file metadata for a specific chat.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID/messages \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -900,12 +848,6 @@ download the bytes.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -948,6 +890,7 @@ download the bytes.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -985,12 +928,6 @@ operation that cannot be undone.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -1010,6 +947,7 @@ operation that cannot be undone.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1036,18 +974,13 @@ Downloads the binary content of a file referenced in chat messages.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID/content \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1068,12 +1001,6 @@ Use the sibling `/content` endpoint to download the bytes.
   The generated-file id (e.g., 'claude_gen_file_abc123') as returned in `chat_messages[].generated_files[].id` from GET /apps/chats/{claude_chat_id}/messages.
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -1113,6 +1040,7 @@ Use the sibling `/content` endpoint to download the bytes.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/generated-files/$CLAUDE_GEN_FILE_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -1144,17 +1072,12 @@ Downloads the binary content of a file the assistant created via tool use.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/generated-files/$CLAUDE_GEN_FILE_ID/content \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```

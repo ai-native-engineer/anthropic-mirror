@@ -33,7 +33,7 @@ You use **prompts** to communicate with Claude. The best approach is to speak to
 
 Type your prompt into the chat interface and click the submit button to start a conversation with Claude. You can click the "+" button in the lower left or type "/" to view additional options and commands:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1789086600&signature=841521a798ffa703f882efb6c2fe8e39865d18c3a01ee1a26ee0db2c2c314ccb&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SbKvIGH9crMELaMZPzayAmkc6QsKimnnb0h%0AVVuL2tbul3yIcXn9fG8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1789086600&signature=841521a798ffa703f882efb6c2fe8e39865d18c3a01ee1a26ee0db2c2c314ccb&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SbKvIGH9crMELaMZPzayAmkc6QsKimnnb0h%0AVVuL2tbul3yIcXn9fG8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1790856900&signature=ca7665f5d0081c574faf3bacab70715cfde2a3c013988cbc101c3d32fd454e05&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7C%2FCsYGI9crMELaMZPyq27mZapUZnSS6wKS1%0ANB09qOK9GOJLh5wq64Q%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1790856900&signature=ca7665f5d0081c574faf3bacab70715cfde2a3c013988cbc101c3d32fd454e05&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7C%2FCsYGI9crMELaMZPyq27mZapUZnSS6wKS1%0ANB09qOK9GOJLh5wq64Q%3D%0A)
 
 ---
 
@@ -59,7 +59,7 @@ For more information about usage and length limits, refer to **[How do usage and
 
 ### How do I increase my usage limits?
 
-We also have several paid subscriptions that offer additional usage. For more information, view our guide on **[Choosing a Claude plan](https://support.claude.com/en/articles/11049762-choosing-a-claude-plan)**.
+We also have several paid subscriptions that offer additional usage. For more information, refer to our **[Plans & Pricing page](https://claude.com/pricing)**.
 
 ### Can I import my conversation history from another AI provider?
 
@@ -83,7 +83,7 @@ Once you've started using Claude, you can:
 * **[Customize your appearance settings](https://support.claude.com/en/articles/8887527-customizing-your-appearance-settings)**
 * **[Explore Claude’s personalization features](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)**
 * Learn more about designing effective prompts in our **[prompt engineering documentation](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)**.
-* For additional features and more usage, consider **[upgrading to a paid plan](https://support.claude.com/en/articles/11049762-choosing-a-claude-plan)**.
+* For additional features and more usage, consider **[upgrading to a paid plan](https://claude.com/pricing)**.
 
 * [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
 * [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)

@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Intercom provides customer service tech that delivers up to 86% resolution rates with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Intercom logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab502bc6f647706fcb9f_Intercom_light.svg)![Intercom logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab481a800b9e0c386290_Intercom_dark.svg)
+![Intercom logo](https://assets.claude.com/d60d14e07300066206a9765859021f49663f2d38.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Europe
+:   Europe
 
 86% resolution
 
@@ -37,42 +27,6 @@ rate with human-quality support responses
 51% average
 
 resolution rate out of the box
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Intercom is a leading customer service platform that uses Claude to help its over 25,000 customers automatically resolve millions of customer support queries with human-quality responses. Powered by Claude, Intercom's AI agent Fin provides instant, accurate answers for customers 24/7, delivers personalized, conversational support, and enables human agents to focus on more complex queries.
 
@@ -115,7 +69,7 @@ Through testing and refinement, Intercom integrated Claude into their Fin AI age
 * **Actions**: Rather than just providing information, Fin can take concrete actions on behalf of customers - from processing refunds to managing account changes. "This capability to handle complex workflows autonomously will take us from 50% average resolution rates to potentially 80 or 90%," said Tabacof.
 * **Insights**: Fin provides visibility across the entire support operation through AI-generated analytics. This helps businesses ensure consistently high-quality support while identifying areas for improvement.
 
-![Intercom product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0503c4672b0f83f738a_8da374dc4ad747b0c918e668c3fdc3dd1b38ff45-1920x969.png)
+![Intercom product screen](https://assets.claude.com/44efa3688d08738aa303302c0815e75e9e802e12.png)
 
 ## Customer success: How companies like Synthesia, Fundrise, and Lightspeed measure the business value of Claude
 
@@ -129,7 +83,7 @@ Large enterprises like **Lightspeed** demonstrate Fin's ability to scale while m
 
 The impact extends beyond just automation metrics. By handling routine inquiries, Fin enables support teams to focus on more strategic work. "We're seeing people deploy Fin and switch roles. The customer service team does things they couldn't do before and move up the value chain," said Reid. At Fundrise, this meant their Investor Relations team could focus on complex investment strategy questions rather than routine password resets or account statement queries.
 
-![Intercom product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0503c4672b0f83f738d_6235faa6f8dcd974dc25821a319fbc9c74013260-1920x987.png)
+![Intercom product screen](https://assets.claude.com/fb7be17e4a8d9f75b2ac507ec1c3b9210a8826ff.png)
 
 ## Leading the future of human-AI collaboration in customer support
 
@@ -139,58 +93,16 @@ The transformation goes far beyond automation metrics. Intercom has already seen
 
 Looking ahead, Intercom envisions support teams becoming strategic operators who enhance AI systems while focusing on the most complex customer needs. "We build product at the very boundary of what's possible," said Reid.
 
-With Claude, we're not just automating customer service—we're elevating it to truly human quality. This lets support teams think more strategically ab
+> With Claude, we're not just automating customer service—we're elevating it to truly human quality. This lets support teams think more strategically ab
 
-Fergal Reid
+Fergal ReidVP of AI, Intercom
 
-VP of AI, Intercom
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

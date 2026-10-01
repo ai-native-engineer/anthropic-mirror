@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ethics-responsible-use -->
 
-Lesson 7 of 10 · AI Fluency for pK–12 EducatorsEthics & responsible AI use
+Lesson 7 of 10 · AI Fluency for pK–12 educatorsEthics & responsible AI use
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # Ethics & responsible AI use
 
@@ -36,11 +36,11 @@ DelegationDecide what's worth handing to AI in the first place.
 
 DiligenceVerify, attribute, and own the final product.
 
-Decide what's right to hand off.Decide upfront: the right task, tool, and data to bring to AI—and what stays with you.
+Decide what's right to hand off. Decide upfront: the right task, tool, and data to bring to AI—and what stays with you.
 
 Hand offOuter loopValidate
 
-Own what comes back.Verify against what you know, be transparent about AI's role, and stand behind the result.
+Own what comes back. Verify against what you know, be transparent about AI's role, and stand behind the result.
 
 Quick check
 
@@ -93,7 +93,7 @@ In the next lesson, we'll explore how different AI models differ and you'll buil
 
 [Previous lessonCreating high quality AI outputs](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/creating-high-quality-ai-outputs-in-your-teaching-practice)[Next lessonAI's constitution, pedagogy, and you](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/ai-s-constitution-pedagogy-and-you)
 
-Lesson 7 of 10 · AI Fluency for pK–12 EducatorsEthics & responsible AI use
+Lesson 7 of 10 · AI Fluency for pK–12 educatorsEthics & responsible AI use
 
 How this course was made
 

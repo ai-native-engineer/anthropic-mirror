@@ -9,49 +9,75 @@ url: https://platform.claude.com/docs/en/api/beta/dreams/list
 
 **GET** `/v1/dreams`
 
-List Dreams
+List the dreams in the workspace, newest first.
+
+Archived dreams are left out unless `include_archived` is `true`.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#list-dreams) for how to page through dreams.
 
 ## Query parameters
 
 - `"created_at[gt]": optional string`
 
-  Return dreams with `created_at` strictly after this timestamp (exclusive lower bound, RFC 3339). Unset applies no lower bound.
+  Return only dreams created after this time (exclusive), in RFC 3339.
 
   format: date-time
 
 - `"created_at[lt]": optional string`
 
-  Return dreams with `created_at` strictly before this timestamp (exclusive upper bound, RFC 3339). Unset applies no upper bound.
+  Return only dreams created before this time (exclusive), in RFC 3339.
 
   format: date-time
 
 - `include_archived: optional boolean`
 
-  Query parameter for include_archived
+  Whether to include archived dreams. Defaults to `false`.
 
 - `limit: optional number`
 
-  Query parameter for limit
+  The maximum number of dreams to return, from 1 to 100. Defaults to 20.
 
   format: int32
 
 - `page: optional string`
 
-  Query parameter for page
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
 
 - `statuses: optional array of BetaDreamStatus`
 
-  Filter by lifecycle status. Repeat the parameter to match any of multiple statuses. Empty applies no status filter.
+  Return only dreams that have one of these statuses.
+
+  Repeat the parameter to give more than one status. Leave it out to return dreams of every status.
 
   - `"pending"`
 
+    The dream is waiting to start and hasn't read its inputs yet.
+
+    `outputs` is empty and every `usage` count is zero.
+
   - `"running"`
+
+    The dream is reading its inputs and writing its result.
+
+    `usage` updates while the dream has this status.
 
   - `"completed"`
 
+    The dream finished and its output memory store holds the complete result.
+
   - `"failed"`
 
+    The dream stopped with an error, which `error` describes.
+
+    If `outputs` references a memory store, that memory store keeps what the dream wrote before it stopped.
+
   - `"canceled"`
+
+    A cancel request stopped the dream before it reached `completed` or `failed`.
+
+    If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
 
 ## Headers
 
@@ -61,169 +87,209 @@ List Dreams
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
+  - `"message-batches-2024-09-24"`
 
-    - `"message-batches-2024-09-24"`
+  - `"prompt-caching-2024-07-31"`
 
-    - `"prompt-caching-2024-07-31"`
+  - `"computer-use-2024-10-22"`
 
-    - `"computer-use-2024-10-22"`
+  - `"computer-use-2025-01-24"`
 
-    - `"computer-use-2025-01-24"`
+  - `"pdfs-2024-09-25"`
 
-    - `"pdfs-2024-09-25"`
+  - `"token-counting-2024-11-01"`
 
-    - `"token-counting-2024-11-01"`
+  - `"token-efficient-tools-2025-02-19"`
 
-    - `"token-efficient-tools-2025-02-19"`
+  - `"output-128k-2025-02-19"`
 
-    - `"output-128k-2025-02-19"`
+  - `"files-api-2025-04-14"`
 
-    - `"files-api-2025-04-14"`
+  - `"mcp-client-2025-04-04"`
 
-    - `"mcp-client-2025-04-04"`
+  - `"mcp-client-2025-11-20"`
 
-    - `"mcp-client-2025-11-20"`
+  - `"dev-full-thinking-2025-05-14"`
 
-    - `"dev-full-thinking-2025-05-14"`
+  - `"interleaved-thinking-2025-05-14"`
 
-    - `"interleaved-thinking-2025-05-14"`
+  - `"code-execution-2025-05-22"`
 
-    - `"code-execution-2025-05-22"`
+  - `"extended-cache-ttl-2025-04-11"`
 
-    - `"extended-cache-ttl-2025-04-11"`
+  - `"context-1m-2025-08-07"`
 
-    - `"context-1m-2025-08-07"`
+  - `"context-management-2025-06-27"`
 
-    - `"context-management-2025-06-27"`
+  - `"model-context-window-exceeded-2025-08-26"`
 
-    - `"model-context-window-exceeded-2025-08-26"`
+  - `"skills-2025-10-02"`
 
-    - `"skills-2025-10-02"`
+  - `"fast-mode-2026-02-01"`
 
-    - `"fast-mode-2026-02-01"`
+  - `"output-300k-2026-03-24"`
 
-    - `"output-300k-2026-03-24"`
+  - `"user-profiles-2026-03-24"`
 
-    - `"user-profiles-2026-03-24"`
+  - `"user-profiles-2026-08-18"`
 
-    - `"user-profiles-2026-08-18"`
+  - `"user-profiles-2026-09-04"`
 
-    - `"user-profiles-2026-09-04"`
+  - `"advisor-tool-2026-03-01"`
 
-    - `"advisor-tool-2026-03-01"`
+  - `"managed-agents-2026-04-01"`
 
-    - `"managed-agents-2026-04-01"`
+  - `"cache-diagnosis-2026-04-07"`
 
-    - `"cache-diagnosis-2026-04-07"`
+  - `"dreaming-2026-04-21"`
 
-    - `"dreaming-2026-04-21"`
+  - `"thinking-token-count-2026-05-13"`
 
-    - `"thinking-token-count-2026-05-13"`
+  - `"server-side-fallback-2026-06-01"`
 
-    - `"server-side-fallback-2026-06-01"`
+  - `"server-side-fallback-2026-07-01"`
 
-    - `"server-side-fallback-2026-07-01"`
+  - `"fallback-credit-2026-06-01"`
 
-    - `"fallback-credit-2026-06-01"`
+  - `"fallback-credit-2026-07-01"`
 
-    - `"fallback-credit-2026-07-01"`
+  - `"agent-memory-2026-07-22"`
 
-    - `"agent-memory-2026-07-22"`
+  - `"mid-conversation-tool-changes-2026-07-01"`
 
-    - `"mid-conversation-tool-changes-2026-07-01"`
+  - `"compact-2026-01-12"`
 
-    - `"compact-2026-01-12"`
+  - `"computer-use-2025-11-24"`
 
-    - `"computer-use-2025-11-24"`
+  - `"mcp-tunnels-2026-06-22"`
 
-    - `"mcp-tunnels-2026-06-22"`
+  - `"structured-outputs-2025-11-13"`
 
-    - `"structured-outputs-2025-11-13"`
+  - `"task-budgets-2026-03-13"`
 
-    - `"task-budgets-2026-03-13"`
+  - `"thinking-display-updates-2026-08-18"`
 
-    - `"thinking-display-updates-2026-08-18"`
+  - `"ce-user-management-2026-07-13"`
 
-    - `"ce-user-management-2026-07-13"`
+  - `"mid-conversation-output-config-2026-07-01"`
 
-    - `"mid-conversation-output-config-2026-07-01"`
+  - `"thinking-binding-controls-2026-08-01"`
 
-    - `"thinking-binding-controls-2026-08-01"`
+  - `"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `"mid-conversation-system-clear-at-2026-08-21"`
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
 
 - `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ## Returns
 
 - `data: array of BetaDream`
 
+  The dreams on this page, newest first.
+
   - `type: "dream"`
 
   - `id: string`
 
+    The unique ID of the dream (`drm_...`).
+
   - `archived_at: string or null`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
     format: date-time
 
   - `created_at: string`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
     format: date-time
 
   - `ended_at: string or null`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
     format: date-time
 
   - `error: BetaDreamError or null`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
     - `type: string`
 
+      A code for why the dream failed, such as `timeout` or `internal_error`.
+
+      The [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#errors) lists common error codes and when they occur.
+
     - `message: string`
+
+      A human-readable explanation of why the dream failed.
 
   - `inputs: array of BetaDreamInput`
 
+    The sources that the dream reads, from the request that created it.
+
     - `BetaDreamMemoryStoreInput object`
 
-      An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
+      The memory store that a dream reads, given as an entry in `inputs`.
+
+      With `output_behavior` set to `update_existing`, the dream writes its result into this memory store. Otherwise the dream doesn't change it.
 
       - `type: "memory_store"`
 
       - `memory_store_id: string`
 
+        The ID of the memory store for the dream to read (`memstore_...`).
+
+        The memory store must be in the same workspace as the dream and must not be archived.
+
         minLength: 1
 
     - `BetaDreamSessionsInput object`
 
-      Input session transcripts the dream reads.
+      The sessions that a dream reads, given as an entry in `inputs`.
 
       - `type: "sessions"`
 
       - `session_ids: array of string`
 
+        The IDs of the sessions whose transcripts the dream reads (`sesn_...`).
+
+        Give 1 to 100 IDs, with no duplicates. Each session must be in the same workspace as the dream. Responses list the IDs in sorted order.
+
+        The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists all the limits on a dream.
+
   - `instructions: string or null`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `model: BetaDreamModelConfig`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
     - `id: string`
 
-      Model identifier, e.g. "claude-opus-5". 1-256 characters.
+      The ID of the model that runs the dream, as given in the request that created it.
 
       minLength: 1, maxLength: 256
 
     - `speed: optional "standard" or "fast"`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      How fast the model generates output for the dream. Always `standard`.
 
       - `"standard"`
 
@@ -231,75 +297,123 @@ List Dreams
 
   - `output_behavior: BetaOutputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
     - `BetaOutputBehaviorCreateNew object`
 
-      The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
+      Write the result to a new memory store that starts as a copy of the input memory store. This is the default.
+
+      The new memory store is in the same workspace as the dream. The dream doesn't change the input memory store.
 
       - `type: "create_new"`
 
     - `BetaOutputBehaviorUpdateExisting object`
 
-      The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
+      Write the result into the input memory store instead of a new memory store.
+
+      The credential must be allowed to write memory stores, or the request returns a 403 error. While another `update_existing` dream on the same memory store hasn't fully stopped, the request returns a 409 error.
 
       - `type: "update_existing"`
 
       - `memory_store_id: string`
 
+        The ID of the memory store for the dream to write its result to (`memstore_...`). It must be the memory store in the `memory_store` entry of `inputs`.
+
         minLength: 1
 
   - `outputs: array of BetaDreamOutput`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
 
     - `type: "memory_store"`
 
     - `memory_store_id: string`
 
+      The ID of the memory store that the dream writes its result to (`memstore_...`).
+
+      With `output_behavior` set to `create_new`, this is a new memory store. With `update_existing`, it is the input memory store.
+
   - `session_id: string or null`
+
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
 
   - `status: BetaDreamStatus`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
     - `"pending"`
 
+      The dream is waiting to start and hasn't read its inputs yet.
+
+      `outputs` is empty and every `usage` count is zero.
+
     - `"running"`
+
+      The dream is reading its inputs and writing its result.
+
+      `usage` updates while the dream has this status.
 
     - `"completed"`
 
+      The dream finished and its output memory store holds the complete result.
+
     - `"failed"`
+
+      The dream stopped with an error, which `error` describes.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote before it stopped.
 
     - `"canceled"`
 
+      A cancel request stopped the dream before it reached `completed` or `failed`.
+
+      If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
+
   - `usage: BetaDreamUsage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
     - `cache_creation_input_tokens: number`
 
-      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+      The dream's input tokens that were written to the prompt cache, for both the 5-minute and 1-hour cache durations.
 
       format: int32
 
     - `cache_read_input_tokens: number`
 
-      Total tokens read from prompt cache.
+      The dream's input tokens that were read from the prompt cache.
 
       format: int32
 
     - `input_tokens: number`
 
-      Total uncached input tokens consumed across every pipeline stage.
+      The dream's input tokens that weren't read from or written to the prompt cache.
 
       format: int32
 
     - `output_tokens: number`
 
-      Total output tokens generated across every pipeline stage.
+      The tokens that the model generated for the dream.
 
       format: int32
 
 - `next_page: string or null`
+
+  The cursor for the next page, or `null` if this is the last page.
+
+  Pass it as `page` to get the next page.
 
 ## Example
 

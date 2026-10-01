@@ -4,38 +4,28 @@
 
 A cardiologist built pre-visit and post-visit clinical workflow tools using Claude as both coding partner and embedded AI. Full loop from clinical frustration to shipped software — plus EHR integration, HIPAA, and why engineers matter more, not less.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 7, 2026
+:   May 7, 2026
 
 Time
-
-10:45AM – 11:15AM
+:   10:45AM – 11:15AM
 
 Speaker(s)
+:   Michal Nedoszytko
 
-Michal Nedoszytko
+    Founder (MD, PhD),
 
-Founder (MD, PhD),
+    postvisit.ai
 
-postvisit.ai
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+postvisit.ai - How a practicing cardiologist built a working patient followup platform in 7 days | Session | Code w/ Claude 2026

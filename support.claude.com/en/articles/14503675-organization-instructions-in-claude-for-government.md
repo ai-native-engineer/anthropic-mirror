@@ -1,5 +1,7 @@
 <!-- source: https://support.claude.com/en/articles/14503675-organization-instructions-in-claude-for-government -->
 
+**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved or you want to get started, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation.
+
 Organization instructions allow administrators to define custom instructions that Claude follows in every conversation for all users in the organization. Use this to set compliance guidance, communication standards, formatting requirements, or domain-specific context.
 
 ## How organization and user instructions interact
@@ -60,10 +62,10 @@ To remove instructions entirely, clear the text area and click "Save."
 
 **Response formatting** — "Prefer concise responses under 300 words. Use bullet points for lists with three or more items."
 
-**Referral guidance** — "When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#84ecf6c4e1fce5e9f4e8e1aae7ebe9) rather than providing specific policy advice."
+**Referral guidance** — "When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#650d1725001d04081509004b060a08) rather than providing specific policy advice."
 
 * [Understanding Claude's personalization features](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)
 * [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Classification banner in Claude for Government](https://support.claude.com/en/articles/14503804-classification-banner-in-claude-for-government)
 * [Set organization instructions](https://support.claude.com/en/articles/14546867-set-organization-instructions)
-* [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)
+* [Set up Salesforce in Claude for your organization](https://support.claude.com/en/articles/16952184-set-up-salesforce-in-claude-for-your-organization)

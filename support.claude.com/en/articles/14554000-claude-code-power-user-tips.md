@@ -93,7 +93,7 @@ Claude Code team’s reasoning: *“It’s the best coding model I’ve ever use
 
 ### Effort level
 
-Run /effort to choose your effort level. The available levels are **low** (fewer tokens, faster), **medium**, **high** (more tokens, more intelligence), **xhigh**, **max**, and **auto** (Claude chooses per request). The default is **high** on Team, Enterprise, and direct API access, and **medium** on other plans. The Claude Code team uses high for everything. For complex coding and agentic work, switch to xhigh for deeper reasoning than high without the full token cost of max. Switch to max for hard debugging or architecture decisions where you want Claude to reason for as long as it needs. Max burns through usage limits faster, so activate it per session.
+Run /effort to choose your effort level. The available levels are **low** (fewer tokens, faster), **medium**, **high** (more tokens, more intelligence), **xhigh**, **max**, and **auto** (Claude chooses per request). For complex coding and agentic work, switch to xhigh for deeper reasoning than high without the full token cost of max. Switch to max for hard debugging or architecture decisions where you want Claude to reason for as long as it needs. Max burns through usage limits faster, so activate it per session.
 
 ---
 
@@ -453,7 +453,7 @@ In Claude Code on web and desktop, add a **setup script** that runs before each 
 Claude Code ships frequently. Verify version-specific details against **[code.claude.com/docs](https://code.claude.com/docs)** before distributing internally.
 
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
-* [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
 * [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

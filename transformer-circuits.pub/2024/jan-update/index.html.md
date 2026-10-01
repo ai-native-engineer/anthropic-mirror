@@ -23,6 +23,8 @@ Updates
 * [New Comment On Previous Papers](#new-comments)
 * [Research By Other Groups](#external-research)
 
+---
+
 ## [Interpretability Team Priorities](#team-update)
 
 Chris Olah, Shan Carter, Adam Jermyn, Joshua Batson, Tom Henighan
@@ -32,6 +34,8 @@ As our team has grown, we have gotten more bandwidth to focus on a wider range o
 * Dictionary Learning Scaling and Science
 * Attacking Attention Superposition in Real Models with Dictionary Learning
 * Understanding Circuits Based on Above
+
+---
 
 ## [Further investigation of attention superposition](#attn-superposition)
 
@@ -53,6 +57,8 @@ Results: The main thing we're interested in is the geometry of how the true att
 ![](images/e71c3c58f4debefa.png)
 
 A factor that we found important in generating superposition is ensuring that the OV circuit is sparse: when the OV circuit is dense we tend not to see signs of superposition.
+
+---
 
 ## [Can dictionary learning uncover sparse features in an MNIST model?](#mnist-sparse)
 
@@ -79,6 +85,8 @@ Another possibility could have been more composable features describing parts of
 We have some uncertainties about how to interpret these results. On the one hand, we saw clear signs of interpretable features in networks trained on MNIST. On the other hand, there was no clear sign that they were "true features", rather than just being clusters of similar data points. For example, one thing we'd hoped to find was an “elbow” in the reconstruction error as a function of sparsity or number of features, but we didn't find this. Moreover, in order to achieve low reconstruction error we either needed enormous numbers of features (comparable to the dataset size) or needed to allow many different features to be active on each example. The most compelling evidence for them being "real" was that the features had logit weights corresponding to the correct classes if you multiplied their direction vectors from the output weights (as mentioned above).
 
 This pattern of finding interpretable features but not finding clear evidence that they're the "true features" or that we've "found all of them" continues in our new work. In some ways, this seems more expected in light of our findings about [feature splitting](https://transformer-circuits.pub/2023/monosemantic-features/index.html#phenomenology-feature-splitting). But an important open question remains whether we can find evidence for a "strong superposition hypothesis", or whether features are just a pragmatically useful abstraction.
+
+---
 
 ## [Features in an 8-layer Model](#dict-learning)
 
@@ -107,6 +115,8 @@ Our confidence in these descriptions is moderate, though lower than for the feat
 | 5 | Newline before another newline in historical contexts.  Single-token “show” in the context of evidence.  Single-token “comma” between an “if” clause and the “then” result (i.e. “if X, then Y” or “if X, do Y”, etc.).  Progressive political messages.  Body language/embodied emotions. | Single-token “.” in sentences expressing hatred.  Single-token “?” in simple social reasoning questions (questions of trust, confidence, identity, relevance, etc.). |
 | 6 | Descriptions of physical spaces.  Sayings, quotes, and slogans.  Sex/love/feelings in close relationships.  “Of” after a group of two or three people (e.g. “two of them”, “three of them”).  Body language/embodied emotions.  Nonverbal communication. | Strong negative emotions.  Violence detector.  Descriptions of interpersonal conflicts. |
 | 7 | LaTeX math mode.  Hebrew.  Swedish.  Repeated letters.  Email spam.  Base62. | Single-token “,” in emotionally charged settings, predicting words indicating emotional state. |
+
+---
 
 ## [Multilingual Features in Large Models](#dict-learning-scaling)
 
@@ -143,6 +153,8 @@ Finally, we found some features which are not obviously multilingual but do seem
 * Calm down, lighten up, cool off,  shut up, slow down, etc.
 * Pointers to supporting evidence or causation (e.g. “as a basis for comparison”, “criteria for”, “the sole basis for”, “probable contributor to”, etc.)
 
+---
+
 ## [Ghost Grads: An improvement on resampling](#dict-learning-resampling)
 
 Adam Jermyn, Adly Templeton
@@ -172,6 +184,8 @@ Empirically we find that this procedure produces autoencoders with very few (oft
 ![](images/52faa85176310607.png)
 
 Ghost Grads roughly doubles the compute requirements of the autoencoder, so it would be reasonable to ask if that cost is worth the benefit. Empirically, however, we find that the fraction of neurons that die increases with the size of the autoencoder, and very large autoencoders can easily have more than 50% of neurons dead, even with neuron resampling. So just on pure compute grounds, this means it is often advantageous to run a smaller autoencoder with Ghost Grads than to use a larger autoencoder with traditional neuron resampling.
+
+---
 
 ## [Counterexamples in Superposition](#sparse-polysemantic)
 
@@ -204,6 +218,8 @@ To eliminate the superposition described above (at the cost of severely limiting
 
 This is possible because the output layer has a softmax of a linear transformation. For example, a model could represent mutually exclusive, binary (on-or-off) features A, B, C in one neuron x by having x = 1 represent A, x = 2 represent B, and x = 3 represent C, and then recover the feature in the output by computing \mathrm{softmax}(x, 3x-3, 5x-8), or even \mathrm{softmax}(100x, 300x-300, 500x-800) for higher confidence. We think this type of representation is even harder to work with and reason about than superposition of linear representations, so we expect techniques that encourage models to use it to be counterproductive as well.
 
+---
+
 ## [Predicting Future Activations](#predict-future)
 
 Adly Templeton, Joshua Batson, Adam Jermyn, Chris Olah
@@ -219,6 +235,8 @@ We’ve been experimenting with three variations on this theme:
 The first two variations do produce interpretable features, though we cannot yet confidently say whether these features are better or worse than our baseline sparse autoencoder. However, they have a major benefit in making circuit analysis much easier, as the input weights of the sparse model compose directly with residual stream elements (and therefore outputs of earlier layers) and the output weights of the autoencoder compose directly with the residual stream elements (and therefore inputs to later layers), with the nonlinearity sandwiched in between. This allows for an extension of the linear analysis in [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html) to include circuits supporting MLP features as well as output logits and attention heads.
 
 We’re currently in the very early stages of exploring the attention variation.
+
+---
 
 ## [Random Open Problems](#open-problems)
 
@@ -242,6 +260,8 @@ With that in mind, we have listed two kinds of open problems below: ones oriente
 3. Construct a small attention-only language model on a task that requires more working memory than will naively fit in the residual stream. Mechanistically analyze how this model makes use of the residual stream.
 4. Construct a toy language model which exhibits cross-layer superposition.
 
+---
+
 ## [New Comment Digest](#new-comments)
 
 Transformer Circuits periodically publishes comments on our papers, both from external parties and by the authors. Some of these comments were submitted before publication, from reviewers of early draft manuscripts. But others are submitted significantly after the fact, and might not be seen. To that end, we've included a digest of recently added comments:
@@ -249,6 +269,8 @@ Transformer Circuits periodically publishes comments on our papers, both from ex
 Towards Monosemanticity: Decomposing Language Models With Dictionary Learning
 
 * [Replication & Tutorial](https://transformer-circuits.pub/2023/monosemantic-features/index.html#comment-nanda) (Neel Nanda)
+
+---
 
 ## [Research By Other Groups](#external-research)
 

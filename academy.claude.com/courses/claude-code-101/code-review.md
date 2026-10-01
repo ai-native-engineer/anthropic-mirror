@@ -18,7 +18,7 @@ A diff is the before-and-after of a change: the lines removed and the lines adde
 
 `/diff`
 
-Read moreNothing shows up in /diff?
+Read more Nothing shows up in /diff?
 
 `/diff` and `/code-review` read git's record of what changed, so your project needs to be in a git repository. Git is the version-control tool most projects already use, and the Commit step in the Explore → Plan → Code → Commit lesson relies on it. This course doesn't teach git itself. If your project isn't in git yet, ask Claude to set it up and make a first commit before your next task. From that point on, every change shows up in both commands. For the change in front of you right now, ask for a review in plain words (below). On a different version control system, `/diff` and `/code-review` won't see your changes, but the rest still applies: read the change in your own tool, ask Claude in plain words to review the files Claude touched, and `/rewind` still works because Claude tracks its own edits.
 
@@ -44,7 +44,7 @@ Review the changes you just made. Report problems; don't fix anything yet.
 
 Copy prompt
 
-Read moreWant a lighter or a deeper review?
+Read more Want a lighter or a deeper review?
 
 Add an effort level to the command. `/code-review low` reports only the findings it's most confident about, so you see fewer false alarms. `/code-review high` casts a wider net and may include findings it's less sure of. The level you type is remembered for later reviews until you type a different one.
 
@@ -76,7 +76,7 @@ If a fix eventually grows into a large change of its own, run the review again.
 
 A simple, one-line change often needs a quick glance at the diff and nothing else. You should use a human review and a Claude review when a change is bigger than you could hold in your head, when it touches something sensitive or does something destructive, and before you hand the work to a teammate.
 
-Read moreIs this the same as Claude Code Review?
+Read more Is this the same as Claude Code Review?
 
 No. [Claude Code Review(opens in new tab)](https://code.claude.com/docs/en/code-review) is a separate product for teams: an admin turns it on for a GitHub repository, and it posts its findings on pull requests. Nothing in this lesson needs it.
 

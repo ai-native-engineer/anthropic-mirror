@@ -17,7 +17,7 @@ List Credentials
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault to list credentials for.
 
 - `--include-archived: optional boolean`
 
@@ -61,13 +61,13 @@ List Credentials
 
     - `archived_at: string`
 
-      A timestamp in RFC 3339 format
+      When the credential was archived. Null if not archived.
 
       format: date-time
 
     - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-      Authentication details for a credential.
+      Authentication configuration for this credential.
 
       - `beta_managed_agents_mcp_oauth_auth_response: object`
 
@@ -87,7 +87,7 @@ List Credentials
 
         - `refresh: optional object`
 
-          OAuth refresh token configuration returned in credential responses.
+          Refresh token configuration, if the credential supports token refresh.
 
           - `client_id: string`
 
@@ -98,8 +98,6 @@ List Credentials
             Token endpoint URL used to refresh the access token.
 
           - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-            Token endpoint requires no client authentication.
 
             - `beta_managed_agents_token_endpoint_auth_none_response: object`
 

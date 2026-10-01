@@ -174,6 +174,8 @@ to help subject matter experts review usage patterns and refine threat models.
 
 We are actively hiring, so if you’re interested in this type of work, [please consider applying](https://boards.greenhouse.io/anthropic/jobs/4459012008)!
 
+---
+
 ### Acknowledgements
 
 Theodore Sumers led the research and wrote the post. Raj Agarwal and Jasmine Deng developed the

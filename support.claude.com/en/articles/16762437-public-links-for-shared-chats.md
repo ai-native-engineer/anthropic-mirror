@@ -47,7 +47,7 @@ No. Turning it off disables the link on claude.ai. It can't remove copies, scree
 No. On Team and Enterprise plans, shared chats are only visible to signed-in members of the same organization.
 
 * [Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)
-* [Publish and share artifacts](https://support.claude.com/en/articles/9547008-publish-and-share-artifacts)
+* [Share artifacts](https://support.claude.com/en/articles/9547008-share-artifacts)
 * [Share and unshare chats](https://support.claude.com/en/articles/10593882-share-and-unshare-chats)
 * [Join an organization via invite link](https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link)
 * [Share a chat with specific people](https://support.claude.com/en/articles/16762496-share-a-chat-with-specific-people)

@@ -4,33 +4,21 @@ Case study | Claude Code
 
 # OpusClip builds its GTM engine with Claude Code
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f399e4015a988872d186a4_logo_opusclip-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f399ec86ef441a0c6fc845_logo_opusclip-dark-mode.svg)
+![OpusClip logo](https://assets.claude.com/c23542927a1c61c11318829d7b32c6afc89207a9.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Platform](https://claude.com/platform/api)
+:   [Claude Code](https://claude.com/product/claude-code)[Claude Platform](https://claude.com/platform/api)
 
 Location:
-
-North America
+:   North America
 
 100% automated sales call review coverage
 
@@ -52,32 +40,6 @@ surfaced from a single customer insight
 
 ## The challenge
 
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
 ## Sellers stretched thin, context scattered everywhere
 
 OpusClip's B2B team was growing fast and running into familiar pain. Franz-Josef Schrepf, Head of Enterprise Revenue and Partnerships, managed six sales and customer success reps but had visibility into only a fraction of their work. "I could sit in on maybe two or three calls per week," Schrepf said. "The rest was invisible unless someone wrote up call notes, which were unreliable and often missed the most important details."
@@ -86,33 +48,15 @@ With so few calls observed, the vast majority of rep performance went unreviewed
 
 By September 2025, Schrepf had spec'd out a GTM software stack to address these gaps: revenue intelligence, sales engagement, data enrichment, signal providers, CRM middleware. Combined, the tools would have cost six figures and taken months to roll out, with significant overlap between vendors. In October, Schrepf started experimenting with Claude Code.
 
+Claude Code
+
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
+
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+
+[Read more](https://claude.com/product/claude-code)
+
 ## The solution
-
-Introducing Agent Skills
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6902681b6935a6f61e64165c_og_introducing-agent-skills.jpg)
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-Read more
-
-[Read more](https://claude.com/blog/skills)Read more
-
-Introducing Agent Skills
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Agent Skills
-
-Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
 ## Selecting Claude Code for GTM engineering
 
@@ -136,21 +80,17 @@ The team also used Claude Code to build an ROI calculator for live sales calls. 
 
 Every workflow follows the same methodology. Each new use case starts with unstructured data: screenshots, CSVs, text files dragged into Claude Code. Once the output is validated, the process is turned into a Claude Code skill and uploaded to a shared GitHub repo. The skill includes the instructions, so it teaches the process as it runs it. When someone runs /renewal-analysis, Claude Code shows a checklist: upload the contract PDF, admin dashboard screenshot, user export CSV. Minutes later, the team has a structured renewal brief with a health scorecard, risk assessment, pricing options, and call prep scripts. No separate training doc needed.
 
-"Claude Code behaved like a teammate who'd read the repo, not a stranger pasting snippets."
+Introducing Agent Skills
 
-Blake Umlauf
+![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg?w=2400&q=75&fm=webp&fit=max)
 
-GTM Engineer, OpusClip
+Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/blog/skills)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Claude Code behaved like a teammate who'd read the repo, not a stranger pasting snippets."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Blake UmlaufGTM Engineer, OpusClip
 
 ## The outcome
 
@@ -164,42 +104,16 @@ The shift extended across the team. Umlauf went from BDR to GTM Engineer and is 
 
 OpusClip's next step is moving from on-demand workflows to proactive ones: agents that flag risks and surface insights continuously, rather than waiting for a slash command or a scheduled report. The team is actively building toward three use cases: an agent that triages inbound campaign replies by classifying intent and drafting responses in each AE’s voice; a pre-call research agent that listens for new calendar events and drops a brief into the meeting 12 hours before it happens; and a CSM account-health watcher that monitors usage, support, and CRM data continuously and surfaces churn risk or expansion opportunity before either side has asked. "We've already validated the workflows," Schrepf said. "Now we want them running continuously."
 
-“Claude will feed back the top 10 decisions I need to make this week. Suddenly the dots between sales, product, marketing, and CS connected themselves."
+> “Claude will feed back the top 10 decisions I need to make this week. Suddenly the dots between sales, product, marketing, and CS connected themselves."
 
-Franz-Josef Schrepf
+Franz-Josef SchrepfHead of Enterprise Revenue and Partnerships, OpusClip
 
-Head of Enterprise Revenue and Partnerships, OpusClip
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

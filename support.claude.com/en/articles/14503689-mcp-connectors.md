@@ -1,5 +1,7 @@
 <!-- source: https://support.claude.com/en/articles/14503689-mcp-connectors -->
 
+**Important:** All organizations will move to the updated Claude for Government (Desktop) offering by October 4, 2026. If your agency has already moved or you want to get started, see the **[Claude for Government administrator guide](https://claude.com/docs/government)** for current documentation.
+
 MCP connectors let Claude connect to your organization’s tools, data sources, and services. Claude can search your documents, read your email, or call external APIs on your behalf, all without leaving the chat.
 
 For general questions about connectors in Claude, see **[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)**.
@@ -87,6 +89,6 @@ It depends on the connector: admins should review all connector permissions befo
 
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 * [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
-* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
 * [MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)
+* [Authorize MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization)

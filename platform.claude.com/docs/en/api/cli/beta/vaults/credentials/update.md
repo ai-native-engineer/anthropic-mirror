@@ -17,15 +17,15 @@ Update Credential
 
 - `--vault-id: string`
 
-  Path param: Path parameter vault_id
+  Path param: Identifier of the vault containing the credential.
 
 - `--credential-id: string`
 
-  Path param: Path parameter credential_id
+  Path param: Unique identifier of the credential to update.
 
 - `--auth: optional BetaManagedAgentsMCPOAuthUpdateParams or BetaManagedAgentsStaticBearerUpdateParams or BetaManagedAgentsEnvironmentVariableUpdateParams`
 
-  Body param: Updated authentication details for a credential.
+  Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
 - `--display-name: optional string`
 
@@ -61,13 +61,13 @@ Update Credential
 
   - `archived_at: string`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `beta_managed_agents_mcp_oauth_auth_response: object`
 
@@ -87,7 +87,7 @@ Update Credential
 
       - `refresh: optional object`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -98,8 +98,6 @@ Update Credential
           Token endpoint URL used to refresh the access token.
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
 
           - `beta_managed_agents_token_endpoint_auth_none_response: object`
 

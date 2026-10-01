@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-creative-work/description-and-discernment -->
 
-Lesson 5 of 8 · AI Fluency for Creative WorkDescription and Discernment
+Lesson 5 of 8 · AI Fluency for creative workDescription and Discernment
 
-3. /[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+3. /[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
-[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
 # Description and Discernment
 
@@ -47,7 +47,7 @@ You now have a described practice and explicit standards. The next lesson points
 
 [Previous lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-creative-work/the-4d-framework)[Next lessonDelegation and Diligence](https://academy.claude.com/courses/ai-fluency-for-creative-work/delegation-and-diligence)
 
-Lesson 5 of 8 · AI Fluency for Creative WorkDescription and Discernment
+Lesson 5 of 8 · AI Fluency for creative workDescription and Discernment
 
 Introduction
 

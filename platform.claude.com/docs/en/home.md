@@ -166,7 +166,7 @@ with Claude"
         </HomeJourneyStep>
 
         <HomeJourneyStep title="Operate">
-          <HomeJourneyLink icon="settings" href="https://platform.claude.com/docs/en/build-with-claude/workspaces">
+          <HomeJourneyLink icon="settings" href="https://platform.claude.com/docs/en/manage-claude/workspaces">
             Workspaces and admin
           </HomeJourneyLink>
 
@@ -174,7 +174,7 @@ with Claude"
             API key management
           </HomeJourneyLink>
 
-          <HomeJourneyLink icon="chart" href="https://platform.claude.com/docs/en/build-with-claude/usage-cost-api">
+          <HomeJourneyLink icon="chart" href="https://platform.claude.com/docs/en/manage-claude/usage-cost-api">
             Usage monitoring
           </HomeJourneyLink>
 
@@ -224,7 +224,7 @@ with Claude"
         </HomeJourneyStep>
 
         <HomeJourneyStep title="Operate">
-          <HomeJourneyLink icon="settings" href="https://platform.claude.com/docs/en/build-with-claude/workspaces">
+          <HomeJourneyLink icon="settings" href="https://platform.claude.com/docs/en/manage-claude/workspaces">
             Workspaces and admin
           </HomeJourneyLink>
 
@@ -232,7 +232,7 @@ with Claude"
             API key management
           </HomeJourneyLink>
 
-          <HomeJourneyLink icon="chart" href="https://platform.claude.com/docs/en/build-with-claude/usage-cost-api">
+          <HomeJourneyLink icon="chart" href="https://platform.claude.com/docs/en/manage-claude/usage-cost-api">
             Usage monitoring
           </HomeJourneyLink>
         </HomeJourneyStep>
@@ -244,8 +244,8 @@ with Claude"
     <HomeSectionHeader label="Models" title="The Claude model family" description="Choose the right model for your use case." />
 
     * [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) (`claude-fable-5-1`) — New — *For demanding reasoning and long-horizon agentic work* — Most capable · Research · Multi-day tasks
-    * [Claude Opus 5](https://platform.claude.com/docs/en/models/opus-5/overview) (`claude-opus-5`) — *For complex agentic coding and enterprise work* — Complex projects · Agents · Coding
-    * [Claude Sonnet 5](https://platform.claude.com/docs/en/models/sonnet-5/overview) (`claude-sonnet-5`) — *The best combination of speed and intelligence* — Everyday tasks · Writing · Cost-efficient
+    * [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview) (`claude-opus-5-5`) — New — *For long-running agentic coding and knowledge work* — Complex projects · Agents · Coding
+    * [Claude Sonnet 5.5](https://platform.claude.com/docs/en/models/sonnet-5-5/overview) (`claude-sonnet-5-5`) — New — *The best combination of speed and intelligence* — Everyday tasks · Writing · Cost-efficient
     * [Claude Haiku 4.5](https://platform.claude.com/docs/en/models/haiku-4-5/overview) (`claude-haiku-4-5`) — *The fastest model with near-frontier intelligence* — Fastest · Lowest cost · High volume
   </HomeSection>
 

@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://github.com/rapid7/rapid7-bulk-export-mcp)
+More[Support (opens in new tab)](https://github.com/rapid7/rapid7-bulk-export-mcp)[Privacy policy (opens in new tab)](https://www.rapid7.com/privacy-policy/)
 
 Connects to the Rapid7 Bulk Export API to fetch vulnerability and asset data, loads it into a local DuckDB database, and exposes SQL query tools for AI-powered security analysis. Supports export reuse, EPSS-based prioritization, and cross-cloud vulnerability tracking.
 

@@ -160,6 +160,10 @@ agent = client.beta.agents.create(
 
 name="cookbook-sre-responder",
 
+# Tells Anthropic which cookbook this agent came from. Safe to remove.
+
+metadata={"anthropic\_cookbook": "claude-cookbooks/sre-incident-responder"},
+
 model=MODEL,
 
 system=SRE\_SYSTEM\_PROMPT,

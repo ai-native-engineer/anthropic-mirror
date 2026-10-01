@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/php/beta/sessions/events/list
 
 # List Events
 
-`$client->beta->sessions->events->list(string sessionID, ?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?int limit, ?Order order, ?string page, ?list<string> types, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<ManagedAgentsSessionEvent>`
+`$client->beta->sessions->events->list(string sessionID, ?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?int limit, ?Order order, ?string page, ?list<ManagedAgentsSessionEventType> types, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<ManagedAgentsSessionEvent>`
 
 **GET** `/v1/sessions/{session_id}/events`
 
@@ -35,8 +35,6 @@ List Events
 
 - `limit?:optional int`
 
-  Query parameter for limit
-
 - `order?:optional Order`
 
   Sort direction for results, ordered by the event's `processed_at`. Defaults to `asc` (chronological).
@@ -45,7 +43,7 @@ List Events
 
   Opaque pagination cursor from a previous response's `next_page`.
 
-- `types?:optional list<string>`
+- `types?:optional list<ManagedAgentsSessionEventType>`
 
   Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
 
@@ -55,11 +53,15 @@ List Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `ManagedAgentsSessionEvent`
+- `class ManagedAgentsSessionEvent`
 
-  - `ManagedAgentsUserMessageEvent`
+  - `class ManagedAgentsUserMessageEvent`
 
     - `Type type`
 
@@ -73,9 +75,9 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
-  - `ManagedAgentsUserInterruptEvent`
+  - `class ManagedAgentsUserInterruptEvent`
 
     - `Type type`
 
@@ -85,13 +87,13 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
     - `?string sessionThreadID`
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `ManagedAgentsUserToolConfirmationEvent`
+  - `class ManagedAgentsUserToolConfirmationEvent`
 
     - `Type type`
 
@@ -101,7 +103,7 @@ List Events
 
     - `Result result`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
     - `string toolUseID`
 
@@ -113,13 +115,13 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
     - `?string sessionThreadID`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsUserCustomToolResultEvent`
+  - `class ManagedAgentsUserCustomToolResultEvent`
 
     - `Type type`
 
@@ -141,13 +143,13 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsAgentCustomToolUseEvent`
+  - `class ManagedAgentsAgentCustomToolUseEvent`
 
     - `Type type`
 
@@ -165,13 +167,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMessageEvent`
+  - `class ManagedAgentsAgentMessageEvent`
 
     - `Type type`
 
@@ -185,9 +187,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
-  - `ManagedAgentsAgentThinkingEvent`
+  - `class ManagedAgentsAgentThinkingEvent`
 
     - `Type type`
 
@@ -197,9 +199,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
-  - `ManagedAgentsAgentMCPToolUseEvent`
+  - `class ManagedAgentsAgentMCPToolUseEvent`
 
     - `Type type`
 
@@ -221,21 +223,21 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMCPToolResultEvent`
+  - `class ManagedAgentsAgentMCPToolResultEvent`
 
     - `Type type`
 
@@ -249,7 +251,7 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `?list<Content> content`
 
@@ -259,7 +261,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentToolUseEvent`
+  - `class ManagedAgentsAgentToolUseEvent`
 
     - `Type type`
 
@@ -277,21 +279,21 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `?ManagedAgentsAgentToolEvaluation evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentToolResultEvent`
+  - `class ManagedAgentsAgentToolResultEvent`
 
     - `Type type`
 
@@ -301,7 +303,7 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
     - `string toolUseID`
 
@@ -315,7 +317,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentThreadMessageReceivedEvent`
+  - `class ManagedAgentsAgentThreadMessageReceivedEvent`
 
     - `Type type`
 
@@ -333,13 +335,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
     - `?string fromAgentName`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `ManagedAgentsAgentThreadMessageSentEvent`
+  - `class ManagedAgentsAgentThreadMessageSentEvent`
 
     - `Type type`
 
@@ -353,7 +355,7 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
     - `string toSessionThreadID`
 
@@ -363,7 +365,7 @@ List Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `ManagedAgentsAgentThreadContextCompactedEvent`
+  - `class ManagedAgentsAgentThreadContextCompactedEvent`
 
     - `Type type`
 
@@ -373,9 +375,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
-  - `ManagedAgentsSessionErrorEvent`
+  - `class ManagedAgentsSessionErrorEvent`
 
     - `Type type`
 
@@ -385,13 +387,11 @@ List Events
 
     - `Error error`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
-  - `ManagedAgentsSessionStatusRescheduledEvent`
+  - `class ManagedAgentsSessionStatusRescheduledEvent`
 
     - `Type type`
 
@@ -401,21 +401,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionStatusRunningEvent`
-
-    - `Type type`
-
-    - `string id`
-
-      Unique identifier for this event.
-
-    - `\Datetime processedAt`
-
-      A timestamp in RFC 3339 format
-
-  - `ManagedAgentsSessionStatusIdleEvent`
+  - `class ManagedAgentsSessionStatusRunningEvent`
 
     - `Type type`
 
@@ -425,13 +413,27 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
+
+  - `class ManagedAgentsSessionStatusIdleEvent`
+
+    - `Type type`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `\Datetime processedAt`
+
+      Timestamp of status change.
+
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the session stopped. `null` when there is nothing more to report.
 
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionStatusTerminatedEvent`
+  - `class ManagedAgentsSessionStatusTerminatedEvent`
 
     - `Type type`
 
@@ -441,9 +443,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
-  - `ManagedAgentsSessionThreadCreatedEvent`
+  - `class ManagedAgentsSessionThreadCreatedEvent`
 
     - `Type type`
 
@@ -457,13 +459,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
     - `string sessionThreadID`
 
       Public `sthr_` ID of the newly created thread.
 
-  - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     - `Type type`
 
@@ -481,9 +483,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
-  - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     - `Type type`
 
@@ -509,7 +511,7 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
     - `string result`
 
@@ -517,9 +519,9 @@ List Events
 
     - `ManagedAgentsSpanModelUsage usage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
-  - `ManagedAgentsSpanModelRequestStartEvent`
+  - `class ManagedAgentsSpanModelRequestStartEvent`
 
     - `Type type`
 
@@ -529,9 +531,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
-  - `ManagedAgentsSpanModelRequestEndEvent`
+  - `class ManagedAgentsSpanModelRequestEndEvent`
 
     - `Type type`
 
@@ -549,13 +551,13 @@ List Events
 
     - `ManagedAgentsSpanModelUsage modelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
-  - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     - `Type type`
 
@@ -573,9 +575,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
-  - `ManagedAgentsUserDefineOutcomeEvent`
+  - `class ManagedAgentsUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -597,13 +599,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
     - `Rubric rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
-  - `ManagedAgentsSessionDeletedEvent`
+  - `class ManagedAgentsSessionDeletedEvent`
 
     - `Type type`
 
@@ -613,9 +615,9 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
-  - `ManagedAgentsSessionThreadStatusRunningEvent`
+  - `class ManagedAgentsSessionThreadStatusRunningEvent`
 
     - `Type type`
 
@@ -629,13 +631,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that started running.
 
-  - `ManagedAgentsSessionThreadStatusIdleEvent`
+  - `class ManagedAgentsSessionThreadStatusIdleEvent`
 
     - `Type type`
 
@@ -649,17 +651,19 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that went idle.
 
+    - `?ManagedAgentsSessionRefusalStopDetails stopDetails`
+
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
+
     - `StopReason stopReason`
 
-      The agent completed its turn naturally and is ready for the next user message.
-
-  - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `class ManagedAgentsSessionThreadStatusTerminatedEvent`
 
     - `Type type`
 
@@ -673,13 +677,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `class BetaManagedAgentsUserToolResultEvent`
 
     - `Type type`
 
@@ -701,13 +705,13 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `class ManagedAgentsSessionThreadStatusRescheduledEvent`
 
     - `Type type`
 
@@ -721,13 +725,13 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
     - `string sessionThreadID`
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `class BetaManagedAgentsSessionUpdatedEvent`
 
     - `Type type`
 
@@ -737,15 +741,15 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
     - `?BetaManagedAgentsSessionAgent agent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
     - `?array<string,string> metadata`
 
@@ -755,7 +759,7 @@ List Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `class BetaManagedAgentsSystemMessageEvent`
 
     - `Type type`
 
@@ -769,9 +773,9 @@ List Events
 
     - `?\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `class BetaManagedAgentsSessionUsageEvent`
 
     - `Type type`
 
@@ -781,15 +785,15 @@ List Events
 
     - `\Datetime processedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
     - `ManagedAgentsSessionUsageSnapshot usage`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
     - `?BetaManagedAgentsBudgetLimit budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 ## Example
 
@@ -809,7 +813,7 @@ $page = $client->beta->sessions->events->list(
   limit: 0,
   order: 'asc',
   page: 'page',
-  types: ['string'],
+  types: [ManagedAgentsSessionEventType::USER_MESSAGE],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );

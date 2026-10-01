@@ -4,65 +4,33 @@ Q&A | Claude Platform
 
 # Building an autonomous AI engineer: A Q&A with Cognition
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0ca101c2f6cd237e4dba12_problem-solvers-800kb.jpg)
+![Video thumbnail](https://assets.claude.com/9d1bb7a3e975709514ee3337201df52330edf814.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 3.5x increase in merged PRs
 
 per week after adopting Claude Sonnet 3.6
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0cb8c1f8c5c525e8c554b3_problem-solvers-padded-200kb.jpg)
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
 
-Read more
+[Read more](https://claude.com/problem-solvers)
 
-[Read more](https://claude.com/problem-solvers)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0c9be29f26b99ef8719a4d_Image2_cleaned.png)
+![](https://assets.claude.com/79e69363abf8229785d0b20187dfcfece31aead8.png)
 
 "There’s so much more for us to do together than separate, and that’s what we’re excited about." —Scott Wu
 
@@ -84,7 +52,7 @@ Real-world success for us looks like this: a well-scoped ticket comes in, the ag
 
 **Scott:** The whole idea is getting you to a point where you as a human can operate in terms of higher level decisions and trade-offs and not have to think about every single little detail in the code. Devin will send you a screen video recording of ‘You told me to fix a bug, I fixed it, here's the PR, but by the way, I actually went through and clicked through myself to make sure it works now.’ And here's like a video of that working.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0c9c170d8bc33cdd66d95b_Image3_cleaned.png)
+![](https://assets.claude.com/72ab209a0f97734d7de623d31aaa08aa2636b359.png)
 
 "The far-out vision is Devin not just being an IC engineer, but giving it much higher-level goals." —Walden Yan
 
@@ -96,11 +64,9 @@ Two is having intelligent usage of the tools available to it. With Devin, we giv
 
 The third is more subjective. You want to be able to give the agent a two-line description of what you *think* needs to happen and have it expand from there and already know what you mean about the other details. It’s a little different from the binary of ‘Did it do the task or not?’ We've often found that Claude models perform particularly well at that.
 
-"Claude models have been ahead of the curve at being able to follow through and consistently work on a longer-running task."
+> "Claude models have been ahead of the curve at being able to follow through and consistently work on a longer-running task."
 
-Scott Wu
-
-CEO, Cognition
+Scott WuCEO, Cognition
 
 ## When you get access to a new model, what does the evaluation process look like?
 
@@ -124,7 +90,7 @@ And there's so much depth in software engineering as a whole. VM sandboxing alon
 
 So much of software engineering is actually maintenance and fixing bugs, not building new software. If you can free up their time by having Devin automatically start responding to bugs, that would be massively helpful. We are seeing the new Claude models getting quite good at using third-party MCPs to look at logs and incidents.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0c9c3e0069932f2ca68d85_Image1_cleaned.png)
+![](https://assets.claude.com/68cf96b0ecc009bcfd6842920b5777fab4a4c3b8.png)
 
 "Claude models have been ahead of the curve at being able to follow through and consistently work on a longer-running task." —Scott Wu
 
@@ -144,84 +110,20 @@ That's exciting because it means way more people will get the chance to build so
 
 Choosing the right Claude model
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-Read more
+> "The far-out vision is Devin not just being an IC engineer, but giving it much higher-level goals."
 
-[Read more](#)Read more
+Walden YanCo-founder and CPO, Cognition
 
-Choosing the right Claude model
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-"The far-out vision is Devin not just being an IC engineer, but giving it much higher-level goals."
-
-Walden Yan
-
-Co-founder and CPO, Cognition
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

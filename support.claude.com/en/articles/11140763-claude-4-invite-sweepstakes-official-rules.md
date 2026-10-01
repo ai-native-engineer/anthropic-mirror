@@ -14,5 +14,5 @@ By entering the Claude 4 Invite Sweepstakes, you accept and agree to these Offic
 * [Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
-* [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
+* [Using Claude for Legal Work: Privilege, Confidentiality, and How to Think About Configuration](https://support.claude.com/en/articles/15707726-using-claude-for-legal-work-privilege-confidentiality-and-how-to-think-about-configuration)

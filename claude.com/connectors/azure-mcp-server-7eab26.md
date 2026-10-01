@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://learn.microsoft.com/azure/developer/azure-mcp-server)[Support (opens in new tab)](https://learn.microsoft.com/azure/developer/azure-mcp-server/get-started)
+More[Documentation (opens in new tab)](https://learn.microsoft.com/azure/developer/azure-mcp-server)[Support (opens in new tab)](https://learn.microsoft.com/azure/developer/azure-mcp-server/get-started)[Privacy policy (opens in new tab)](https://www.microsoft.com/privacy/privacystatement)
 
 All Azure MCP tools in a single server. The Azure MCP Server implements the [MCP specification](https://modelcontextprotocol.io) to create a seamless connection between AI agents and Azure services.
 

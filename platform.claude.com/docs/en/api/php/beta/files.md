@@ -31,9 +31,13 @@ Upload File
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -149,9 +153,13 @@ List Files
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -258,6 +266,10 @@ Download File
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `mixed`
@@ -300,9 +312,13 @@ Get File Metadata
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -401,9 +417,13 @@ Delete File
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaDeletedFile`
+- `class BetaDeletedFile`
 
   - `?Type type`
 
@@ -446,7 +466,7 @@ var_dump($betaDeletedFile);
 
 ### Beta Deleted File
 
-- `BetaDeletedFile`
+- `class BetaDeletedFile`
 
   - `?Type type`
 
@@ -460,7 +480,7 @@ var_dump($betaDeletedFile);
 
 ### Beta File Metadata
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -504,7 +524,7 @@ var_dump($betaDeletedFile);
 
 ### Beta File Scope
 
-- `BetaFileScope`
+- `class BetaFileScope`
 
   - `"session" type`
 

@@ -19,7 +19,8 @@ Research is the classic subagent use case. Consider investigating how authentica
 A research subagent can read dozens of files, trace through function calls, and explore different code paths. All that exploration stays in the subagent's context. Your main thread receives a clean summary like:
 
 ```
-JWT validation happens in middleware/auth.js line 42, called from the Express router in route/api.js
+JWT validation happens in middleware/auth.js line 42,
+called from the Express router in route/api.js
 ```
 
 The subagent did the heavy lifting. Your main thread gets exactly what it needs to move forward.
@@ -72,7 +73,6 @@ Avoid subagents for:
 * "Expert" personas that don't add real capability
 * Multi-step pipelines where each step depends on the last
 * Running tests where you need full output for debugging
-
 <!-- youtube: n5LoKZ8Oa-A -->
 
 [![Using Subagents Effectively](https://img.youtube.com/vi/n5LoKZ8Oa-A/hqdefault.jpg)](https://www.youtube.com/watch?v=n5LoKZ8Oa-A)

@@ -21,73 +21,75 @@ Create Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
-  - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more | String`
+  - `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+    - `:"claude-sonnet-5-5"`
 
-      The model that will power your agent.
+      Efficient model for coding and agents
 
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+    - `:"claude-opus-5-5"`
 
-      - `:"claude-fable-5-1"`
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
-        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+    - `:"claude-fable-5-1"`
 
-      - `:"claude-sonnet-5"`
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-        High-performance model for coding and agents
+    - `:"claude-sonnet-5"`
 
-      - `:"claude-fable-5"`
+      Efficient model for coding and agents
 
-        Next generation of intelligence for the hardest knowledge work and coding problems
+    - `:"claude-fable-5"`
 
-      - `:"claude-opus-5"`
+      Next generation of intelligence for the hardest knowledge work and coding problems
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-5"`
 
-      - `:"claude-opus-4-8"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-8"`
 
-      - `:"claude-opus-4-7"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-7"`
 
-      - `:"claude-opus-4-6"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-6"`
 
-      - `:"claude-sonnet-4-6"`
+      Powerful intelligence for long-running agents and coding
 
-        Best combination of speed and intelligence
+    - `:"claude-sonnet-4-6"`
 
-      - `:"claude-haiku-4-5"`
+      Best combination of speed and intelligence
 
-        Fastest model with near-frontier intelligence
+    - `:"claude-haiku-4-5"`
 
-      - `:"claude-haiku-4-5-20251001"`
+      Fastest model with near-frontier intelligence
 
-        Fastest model with near-frontier intelligence
+    - `:"claude-haiku-4-5-20251001"`
 
-      - `:"claude-opus-4-5"`
+      Fastest model with near-frontier intelligence
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-5"`
 
-      - `:"claude-opus-4-5-20251101"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-5-20251101"`
 
-      - `:"claude-sonnet-4-5"`
+      Powerful intelligence for long-running agents and coding
 
-        High-performance model for agents and coding
+    - `:"claude-sonnet-4-5"`
 
-      - `:"claude-sonnet-4-5-20250929"`
+      High-performance model for agents and coding
 
-        High-performance model for agents and coding
+    - `:"claude-sonnet-4-5-20250929"`
+
+      High-performance model for agents and coding
 
     - `String = String`
 
@@ -111,13 +113,23 @@ Create Agent
 
         - `:low`
 
+          Low effort. Favors latency over reasoning depth.
+
         - `:medium`
+
+          Medium effort. Balances latency and reasoning depth.
 
         - `:high`
 
+          High effort. Favors reasoning depth.
+
         - `:xhigh`
 
+          Extra-high effort. Not all models accept this level.
+
         - `:max`
+
+          Maximum effort. Favors reasoning depth over latency.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -155,7 +167,7 @@ Create Agent
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. Defaults to `standard`.
 
       - `:standard`
 
@@ -197,7 +209,7 @@ Create Agent
 
 - `multiagent: BetaManagedAgentsMultiagentParams`
 
-  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+  Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
 
   - `type: :coordinator`
 
@@ -319,7 +331,7 @@ Create Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -355,7 +367,7 @@ Create Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -385,7 +397,7 @@ Create Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -415,7 +427,7 @@ Create Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -445,7 +457,7 @@ Create Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -475,7 +487,7 @@ Create Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -519,7 +531,7 @@ Create Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -557,7 +569,7 @@ Create Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -603,7 +615,7 @@ Create Agent
 
     - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
-      Default configuration for all tools in a toolset.
+      Default configuration applied to all tools in this set.
 
       - `enabled: bool`
 
@@ -611,7 +623,7 @@ Create Agent
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -653,7 +665,7 @@ Create Agent
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Overrides the `default_config` setting.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -669,7 +681,7 @@ Create Agent
 
     - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
-      Default configuration for all tools from an MCP server.
+      Default configuration for all tools from this server.
 
       - `enabled: bool`
 
@@ -677,7 +689,7 @@ Create Agent
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Default permission policy for tools from this server.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -705,7 +717,7 @@ Create Agent
 
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-      JSON Schema for custom tool input parameters.
+      JSON Schema defining the expected input parameters for the tool.
 
       - `type: :object`
 
@@ -725,99 +737,109 @@ Create Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -831,7 +853,7 @@ Create Agent
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -863,73 +885,75 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -967,7 +991,7 @@ Create Agent
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -975,7 +999,7 @@ Create Agent
 
   - `multiagent: BetaManagedAgentsMultiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: :coordinator`
 
@@ -1533,99 +1557,109 @@ List Agents
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -1639,7 +1673,7 @@ List Agents
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -1671,73 +1705,75 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -1775,7 +1811,7 @@ List Agents
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -1783,7 +1819,7 @@ List Agents
 
   - `multiagent: BetaManagedAgentsMultiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: :coordinator`
 
@@ -2313,6 +2349,8 @@ Get Agent
 
 - `agent_id: String`
 
+  Unique identifier of the agent to retrieve.
+
 - `version: Integer`
 
   Agent version. Omit for the most recent version. Must be at least 1 if specified.
@@ -2325,99 +2363,109 @@ Get Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -2431,7 +2479,7 @@ Get Agent
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -2463,73 +2511,75 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -2567,7 +2617,7 @@ Get Agent
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -2575,7 +2625,7 @@ Get Agent
 
   - `multiagent: BetaManagedAgentsMultiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: :coordinator`
 
@@ -3100,6 +3150,8 @@ Update Agent
 
 - `agent_id: String`
 
+  Unique identifier of the agent to update.
+
 - `description: String`
 
   Description. Omit to preserve; send empty string or null to clear.
@@ -3132,73 +3184,75 @@ Update Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
-  - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more | String`
+  - `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+    - `:"claude-sonnet-5-5"`
 
-      The model that will power your agent.
+      Efficient model for coding and agents
 
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+    - `:"claude-opus-5-5"`
 
-      - `:"claude-fable-5-1"`
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
-        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+    - `:"claude-fable-5-1"`
 
-      - `:"claude-sonnet-5"`
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-        High-performance model for coding and agents
+    - `:"claude-sonnet-5"`
 
-      - `:"claude-fable-5"`
+      Efficient model for coding and agents
 
-        Next generation of intelligence for the hardest knowledge work and coding problems
+    - `:"claude-fable-5"`
 
-      - `:"claude-opus-5"`
+      Next generation of intelligence for the hardest knowledge work and coding problems
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-5"`
 
-      - `:"claude-opus-4-8"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-8"`
 
-      - `:"claude-opus-4-7"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-7"`
 
-      - `:"claude-opus-4-6"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-6"`
 
-      - `:"claude-sonnet-4-6"`
+      Powerful intelligence for long-running agents and coding
 
-        Best combination of speed and intelligence
+    - `:"claude-sonnet-4-6"`
 
-      - `:"claude-haiku-4-5"`
+      Best combination of speed and intelligence
 
-        Fastest model with near-frontier intelligence
+    - `:"claude-haiku-4-5"`
 
-      - `:"claude-haiku-4-5-20251001"`
+      Fastest model with near-frontier intelligence
 
-        Fastest model with near-frontier intelligence
+    - `:"claude-haiku-4-5-20251001"`
 
-      - `:"claude-opus-4-5"`
+      Fastest model with near-frontier intelligence
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-5"`
 
-      - `:"claude-opus-4-5-20251101"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-5-20251101"`
 
-      - `:"claude-sonnet-4-5"`
+      Powerful intelligence for long-running agents and coding
 
-        High-performance model for agents and coding
+    - `:"claude-sonnet-4-5"`
 
-      - `:"claude-sonnet-4-5-20250929"`
+      High-performance model for agents and coding
 
-        High-performance model for agents and coding
+    - `:"claude-sonnet-4-5-20250929"`
+
+      High-performance model for agents and coding
 
     - `String = String`
 
@@ -3222,13 +3276,23 @@ Update Agent
 
         - `:low`
 
+          Low effort. Favors latency over reasoning depth.
+
         - `:medium`
+
+          Medium effort. Balances latency and reasoning depth.
 
         - `:high`
 
+          High effort. Favors reasoning depth.
+
         - `:xhigh`
 
+          Extra-high effort. Not all models accept this level.
+
         - `:max`
+
+          Maximum effort. Favors reasoning depth over latency.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -3266,7 +3330,7 @@ Update Agent
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. Defaults to `standard`.
 
       - `:standard`
 
@@ -3274,7 +3338,7 @@ Update Agent
 
 - `multiagent: BetaManagedAgentsMultiagentParams`
 
-  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+  Multiagent orchestration configuration. Full replacement. Omit to preserve; send null to clear.
 
   - `type: :coordinator`
 
@@ -3402,7 +3466,7 @@ Update Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3438,7 +3502,7 @@ Update Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3468,7 +3532,7 @@ Update Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3498,7 +3562,7 @@ Update Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3528,7 +3592,7 @@ Update Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3558,7 +3622,7 @@ Update Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3602,7 +3666,7 @@ Update Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3640,7 +3704,7 @@ Update Agent
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3686,7 +3750,7 @@ Update Agent
 
     - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
-      Default configuration for all tools in a toolset.
+      Default configuration applied to all tools in this set.
 
       - `enabled: bool`
 
@@ -3694,7 +3758,7 @@ Update Agent
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3736,7 +3800,7 @@ Update Agent
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Overrides the `default_config` setting.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3752,7 +3816,7 @@ Update Agent
 
     - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
-      Default configuration for all tools from an MCP server.
+      Default configuration for all tools from this server.
 
       - `enabled: bool`
 
@@ -3760,7 +3824,7 @@ Update Agent
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Default permission policy for tools from this server.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3788,7 +3852,7 @@ Update Agent
 
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-      JSON Schema for custom tool input parameters.
+      JSON Schema defining the expected input parameters for the tool.
 
       - `type: :object`
 
@@ -3814,99 +3878,109 @@ Update Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -3920,7 +3994,7 @@ Update Agent
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -3952,73 +4026,75 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -4056,7 +4132,7 @@ Update Agent
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -4064,7 +4140,7 @@ Update Agent
 
   - `multiagent: BetaManagedAgentsMultiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: :coordinator`
 
@@ -4589,105 +4665,117 @@ Archive Agent
 
 - `agent_id: String`
 
+  Unique identifier of the agent to archive.
+
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -4701,7 +4789,7 @@ Archive Agent
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -4733,73 +4821,75 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -4837,7 +4927,7 @@ Archive Agent
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -4845,7 +4935,7 @@ Archive Agent
 
   - `multiagent: BetaManagedAgentsMultiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: :coordinator`
 
@@ -5384,7 +5474,7 @@ puts(beta_managed_agents_agent)
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -5416,73 +5506,75 @@ puts(beta_managed_agents_agent)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -5520,7 +5612,7 @@ puts(beta_managed_agents_agent)
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -5528,7 +5620,7 @@ puts(beta_managed_agents_agent)
 
   - `multiagent: BetaManagedAgentsMultiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: :coordinator`
 
@@ -5968,7 +6060,7 @@ puts(beta_managed_agents_agent)
 
 ### Beta Managed Agents Agent Tool Config
 
-- `BetaManagedAgentsAgentToolConfig = BetaManagedAgentsBashToolConfig | BetaManagedAgentsEditToolConfig | BetaManagedAgentsReadToolConfig | 5 more`
+- `type BetaManagedAgentsAgentToolConfig = BetaManagedAgentsBashToolConfig | BetaManagedAgentsEditToolConfig | BetaManagedAgentsReadToolConfig | 5 more`
 
   Configuration for a specific agent tool.
 
@@ -6230,7 +6322,7 @@ puts(beta_managed_agents_agent)
 
 ### Beta Managed Agents Agent Tool Config Params
 
-- `BetaManagedAgentsAgentToolConfigParams = BetaManagedAgentsBashToolConfigParams | BetaManagedAgentsEditToolConfigParams | BetaManagedAgentsReadToolConfigParams | 5 more`
+- `type BetaManagedAgentsAgentToolConfigParams = BetaManagedAgentsBashToolConfigParams | BetaManagedAgentsEditToolConfigParams | BetaManagedAgentsReadToolConfigParams | 5 more`
 
   Configuration override for a specific tool within a toolset.
 
@@ -6250,7 +6342,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6286,7 +6378,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6316,7 +6408,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6346,7 +6438,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6376,7 +6468,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6406,7 +6498,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6450,7 +6542,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6488,7 +6580,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6574,7 +6666,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6993,7 +7085,7 @@ puts(beta_managed_agents_agent)
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7029,7 +7121,7 @@ puts(beta_managed_agents_agent)
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7059,7 +7151,7 @@ puts(beta_managed_agents_agent)
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7089,7 +7181,7 @@ puts(beta_managed_agents_agent)
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7119,7 +7211,7 @@ puts(beta_managed_agents_agent)
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7149,7 +7241,7 @@ puts(beta_managed_agents_agent)
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7193,7 +7285,7 @@ puts(beta_managed_agents_agent)
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7231,7 +7323,7 @@ puts(beta_managed_agents_agent)
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7277,7 +7369,7 @@ puts(beta_managed_agents_agent)
 
   - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
-    Default configuration for all tools in a toolset.
+    Default configuration applied to all tools in this set.
 
     - `enabled: bool`
 
@@ -7285,7 +7377,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7442,7 +7534,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7544,7 +7636,7 @@ puts(beta_managed_agents_agent)
 
   - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-    JSON Schema for custom tool input parameters.
+    JSON Schema defining the expected input parameters for the tool.
 
     - `type: :object`
 
@@ -7610,7 +7702,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7722,7 +7814,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7794,7 +7886,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7876,7 +7968,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Overrides the `default_config` setting.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7996,7 +8088,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Default permission policy for tools from this server.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8046,7 +8138,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Overrides the `default_config` setting.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8068,7 +8160,7 @@ puts(beta_managed_agents_agent)
 
   - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
-    Default configuration for all tools from an MCP server.
+    Default configuration for all tools from this server.
 
     - `enabled: bool`
 
@@ -8076,7 +8168,7 @@ puts(beta_managed_agents_agent)
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-      Permission policy for tool execution.
+      Default permission policy for tools from this server.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8092,17 +8184,97 @@ puts(beta_managed_agents_agent)
 
 ### Beta Managed Agents Model
 
-- `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more | String`
+- `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
 
   The model that will power your agent.
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+  - `:"claude-sonnet-5-5"`
+
+    Efficient model for coding and agents
+
+  - `:"claude-opus-5-5"`
+
+    Powerful intelligence for coding, knowledge work, and long-running agents
+
+  - `:"claude-fable-5-1"`
+
+    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+  - `:"claude-sonnet-5"`
+
+    Efficient model for coding and agents
+
+  - `:"claude-fable-5"`
+
+    Next generation of intelligence for the hardest knowledge work and coding problems
+
+  - `:"claude-opus-5"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `:"claude-opus-4-8"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `:"claude-opus-4-7"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `:"claude-opus-4-6"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `:"claude-sonnet-4-6"`
+
+    Best combination of speed and intelligence
+
+  - `:"claude-haiku-4-5"`
+
+    Fastest model with near-frontier intelligence
+
+  - `:"claude-haiku-4-5-20251001"`
+
+    Fastest model with near-frontier intelligence
+
+  - `:"claude-opus-4-5"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `:"claude-opus-4-5-20251101"`
+
+    Powerful intelligence for long-running agents and coding
+
+  - `:"claude-sonnet-4-5"`
+
+    High-performance model for agents and coding
+
+  - `:"claude-sonnet-4-5-20250929"`
+
+    High-performance model for agents and coding
+
+  - `String = String`
+
+### Beta Managed Agents Model Config
+
+- `class BetaManagedAgentsModelConfig`
+
+  Model identifier and configuration.
+
+  - `id: BetaManagedAgentsModel`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `:"claude-sonnet-5-5"`
+
+      Efficient model for coding and agents
+
+    - `:"claude-opus-5-5"`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `:"claude-fable-5-1"`
 
@@ -8110,7 +8282,7 @@ puts(beta_managed_agents_agent)
 
     - `:"claude-sonnet-5"`
 
-      High-performance model for coding and agents
+      Efficient model for coding and agents
 
     - `:"claude-fable-5"`
 
@@ -8160,87 +8332,11 @@ puts(beta_managed_agents_agent)
 
       High-performance model for agents and coding
 
-  - `String = String`
-
-### Beta Managed Agents Model Config
-
-- `class BetaManagedAgentsModelConfig`
-
-  Model identifier and configuration.
-
-  - `id: BetaManagedAgentsModel`
-
-    The model that will power your agent.
-
-    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-    - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
-
-      The model that will power your agent.
-
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-      - `:"claude-fable-5-1"`
-
-        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-      - `:"claude-sonnet-5"`
-
-        High-performance model for coding and agents
-
-      - `:"claude-fable-5"`
-
-        Next generation of intelligence for the hardest knowledge work and coding problems
-
-      - `:"claude-opus-5"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `:"claude-opus-4-8"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `:"claude-opus-4-7"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `:"claude-opus-4-6"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `:"claude-sonnet-4-6"`
-
-        Best combination of speed and intelligence
-
-      - `:"claude-haiku-4-5"`
-
-        Fastest model with near-frontier intelligence
-
-      - `:"claude-haiku-4-5-20251001"`
-
-        Fastest model with near-frontier intelligence
-
-      - `:"claude-opus-4-5"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `:"claude-opus-4-5-20251101"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `:"claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `:"claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
     - `String = String`
 
   - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-    How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+    How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
     - `class BetaManagedAgentsEffortLow`
 
@@ -8278,7 +8374,7 @@ puts(beta_managed_agents_agent)
 
   - `speed: :standard | :fast`
 
-    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
     - `:standard`
 
@@ -8296,67 +8392,69 @@ puts(beta_managed_agents_agent)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+    - `:"claude-sonnet-5-5"`
 
-      The model that will power your agent.
+      Efficient model for coding and agents
 
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+    - `:"claude-opus-5-5"`
 
-      - `:"claude-fable-5-1"`
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
-        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+    - `:"claude-fable-5-1"`
 
-      - `:"claude-sonnet-5"`
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-        High-performance model for coding and agents
+    - `:"claude-sonnet-5"`
 
-      - `:"claude-fable-5"`
+      Efficient model for coding and agents
 
-        Next generation of intelligence for the hardest knowledge work and coding problems
+    - `:"claude-fable-5"`
 
-      - `:"claude-opus-5"`
+      Next generation of intelligence for the hardest knowledge work and coding problems
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-5"`
 
-      - `:"claude-opus-4-8"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-8"`
 
-      - `:"claude-opus-4-7"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-7"`
 
-      - `:"claude-opus-4-6"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-6"`
 
-      - `:"claude-sonnet-4-6"`
+      Powerful intelligence for long-running agents and coding
 
-        Best combination of speed and intelligence
+    - `:"claude-sonnet-4-6"`
 
-      - `:"claude-haiku-4-5"`
+      Best combination of speed and intelligence
 
-        Fastest model with near-frontier intelligence
+    - `:"claude-haiku-4-5"`
 
-      - `:"claude-haiku-4-5-20251001"`
+      Fastest model with near-frontier intelligence
 
-        Fastest model with near-frontier intelligence
+    - `:"claude-haiku-4-5-20251001"`
 
-      - `:"claude-opus-4-5"`
+      Fastest model with near-frontier intelligence
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-5"`
 
-      - `:"claude-opus-4-5-20251101"`
+      Powerful intelligence for long-running agents and coding
 
-        Powerful intelligence for long-running agents and coding
+    - `:"claude-opus-4-5-20251101"`
 
-      - `:"claude-sonnet-4-5"`
+      Powerful intelligence for long-running agents and coding
 
-        High-performance model for agents and coding
+    - `:"claude-sonnet-4-5"`
 
-      - `:"claude-sonnet-4-5-20250929"`
+      High-performance model for agents and coding
 
-        High-performance model for agents and coding
+    - `:"claude-sonnet-4-5-20250929"`
+
+      High-performance model for agents and coding
 
     - `String = String`
 
@@ -8370,13 +8468,23 @@ puts(beta_managed_agents_agent)
 
       - `:low`
 
+        Low effort. Favors latency over reasoning depth.
+
       - `:medium`
+
+        Medium effort. Balances latency and reasoning depth.
 
       - `:high`
 
+        High effort. Favors reasoning depth.
+
       - `:xhigh`
 
+        Extra-high effort. Not all models accept this level.
+
       - `:max`
+
+        Maximum effort. Favors reasoning depth over latency.
 
     - `class BetaManagedAgentsEffortLow`
 
@@ -8414,7 +8522,7 @@ puts(beta_managed_agents_agent)
 
   - `speed: :standard | :fast`
 
-    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+    Inference speed mode. Defaults to `standard`.
 
     - `:standard`
 
@@ -8564,7 +8672,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8614,73 +8722,75 @@ puts(beta_managed_agents_agent)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -8718,7 +8828,7 @@ puts(beta_managed_agents_agent)
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -9112,7 +9222,7 @@ puts(beta_managed_agents_agent)
 
 ### Beta Managed Agents Skill Params
 
-- `BetaManagedAgentsSkillParams = BetaManagedAgentsAnthropicSkillParams | BetaManagedAgentsCustomSkillParams`
+- `type BetaManagedAgentsSkillParams = BetaManagedAgentsAnthropicSkillParams | BetaManagedAgentsCustomSkillParams`
 
   Skill to load in the session container.
 
@@ -9278,7 +9388,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -9392,7 +9502,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -9494,7 +9604,7 @@ puts(beta_managed_agents_agent)
 
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -9528,6 +9638,8 @@ List Agent Versions
 
 - `agent_id: String`
 
+  Agent ID to list versions for.
+
 - `limit: Integer`
 
   Maximum results per page. Default 20, maximum 100.
@@ -9544,99 +9656,109 @@ List Agent Versions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `:"message-batches-2024-09-24"`
 
-    - `:"message-batches-2024-09-24"`
+  - `:"prompt-caching-2024-07-31"`
 
-    - `:"prompt-caching-2024-07-31"`
+  - `:"computer-use-2024-10-22"`
 
-    - `:"computer-use-2024-10-22"`
+  - `:"computer-use-2025-01-24"`
 
-    - `:"computer-use-2025-01-24"`
+  - `:"pdfs-2024-09-25"`
 
-    - `:"pdfs-2024-09-25"`
+  - `:"token-counting-2024-11-01"`
 
-    - `:"token-counting-2024-11-01"`
+  - `:"token-efficient-tools-2025-02-19"`
 
-    - `:"token-efficient-tools-2025-02-19"`
+  - `:"output-128k-2025-02-19"`
 
-    - `:"output-128k-2025-02-19"`
+  - `:"files-api-2025-04-14"`
 
-    - `:"files-api-2025-04-14"`
+  - `:"mcp-client-2025-04-04"`
 
-    - `:"mcp-client-2025-04-04"`
+  - `:"mcp-client-2025-11-20"`
 
-    - `:"mcp-client-2025-11-20"`
+  - `:"dev-full-thinking-2025-05-14"`
 
-    - `:"dev-full-thinking-2025-05-14"`
+  - `:"interleaved-thinking-2025-05-14"`
 
-    - `:"interleaved-thinking-2025-05-14"`
+  - `:"code-execution-2025-05-22"`
 
-    - `:"code-execution-2025-05-22"`
+  - `:"extended-cache-ttl-2025-04-11"`
 
-    - `:"extended-cache-ttl-2025-04-11"`
+  - `:"context-1m-2025-08-07"`
 
-    - `:"context-1m-2025-08-07"`
+  - `:"context-management-2025-06-27"`
 
-    - `:"context-management-2025-06-27"`
+  - `:"model-context-window-exceeded-2025-08-26"`
 
-    - `:"model-context-window-exceeded-2025-08-26"`
+  - `:"skills-2025-10-02"`
 
-    - `:"skills-2025-10-02"`
+  - `:"fast-mode-2026-02-01"`
 
-    - `:"fast-mode-2026-02-01"`
+  - `:"output-300k-2026-03-24"`
 
-    - `:"output-300k-2026-03-24"`
+  - `:"user-profiles-2026-03-24"`
 
-    - `:"user-profiles-2026-03-24"`
+  - `:"user-profiles-2026-08-18"`
 
-    - `:"user-profiles-2026-08-18"`
+  - `:"user-profiles-2026-09-04"`
 
-    - `:"user-profiles-2026-09-04"`
+  - `:"advisor-tool-2026-03-01"`
 
-    - `:"advisor-tool-2026-03-01"`
+  - `:"managed-agents-2026-04-01"`
 
-    - `:"managed-agents-2026-04-01"`
+  - `:"cache-diagnosis-2026-04-07"`
 
-    - `:"cache-diagnosis-2026-04-07"`
+  - `:"dreaming-2026-04-21"`
 
-    - `:"dreaming-2026-04-21"`
+  - `:"thinking-token-count-2026-05-13"`
 
-    - `:"thinking-token-count-2026-05-13"`
+  - `:"server-side-fallback-2026-06-01"`
 
-    - `:"server-side-fallback-2026-06-01"`
+  - `:"server-side-fallback-2026-07-01"`
 
-    - `:"server-side-fallback-2026-07-01"`
+  - `:"fallback-credit-2026-06-01"`
 
-    - `:"fallback-credit-2026-06-01"`
+  - `:"fallback-credit-2026-07-01"`
 
-    - `:"fallback-credit-2026-07-01"`
+  - `:"agent-memory-2026-07-22"`
 
-    - `:"agent-memory-2026-07-22"`
+  - `:"mid-conversation-tool-changes-2026-07-01"`
 
-    - `:"mid-conversation-tool-changes-2026-07-01"`
+  - `:"compact-2026-01-12"`
 
-    - `:"compact-2026-01-12"`
+  - `:"computer-use-2025-11-24"`
 
-    - `:"computer-use-2025-11-24"`
+  - `:"mcp-tunnels-2026-06-22"`
 
-    - `:"mcp-tunnels-2026-06-22"`
+  - `:"structured-outputs-2025-11-13"`
 
-    - `:"structured-outputs-2025-11-13"`
+  - `:"task-budgets-2026-03-13"`
 
-    - `:"task-budgets-2026-03-13"`
+  - `:"thinking-display-updates-2026-08-18"`
 
-    - `:"thinking-display-updates-2026-08-18"`
+  - `:"ce-user-management-2026-07-13"`
 
-    - `:"ce-user-management-2026-07-13"`
+  - `:"mid-conversation-output-config-2026-07-01"`
 
-    - `:"mid-conversation-output-config-2026-07-01"`
+  - `:"thinking-binding-controls-2026-08-01"`
 
-    - `:"thinking-binding-controls-2026-08-01"`
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
 
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
 
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 #### Returns
 
@@ -9650,7 +9772,7 @@ List Agent Versions
 
   - `archived_at: Time`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -9682,73 +9804,75 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+      - `:"claude-sonnet-5-5"`
 
-        The model that will power your agent.
+        Efficient model for coding and agents
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `:"claude-opus-5-5"`
 
-        - `:"claude-fable-5-1"`
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `:"claude-fable-5-1"`
 
-        - `:"claude-sonnet-5"`
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
-          High-performance model for coding and agents
+      - `:"claude-sonnet-5"`
 
-        - `:"claude-fable-5"`
+        Efficient model for coding and agents
 
-          Next generation of intelligence for the hardest knowledge work and coding problems
+      - `:"claude-fable-5"`
 
-        - `:"claude-opus-5"`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-5"`
 
-        - `:"claude-opus-4-8"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-8"`
 
-        - `:"claude-opus-4-7"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-7"`
 
-        - `:"claude-opus-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-6"`
 
-        - `:"claude-sonnet-4-6"`
+        Powerful intelligence for long-running agents and coding
 
-          Best combination of speed and intelligence
+      - `:"claude-sonnet-4-6"`
 
-        - `:"claude-haiku-4-5"`
+        Best combination of speed and intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5"`
 
-        - `:"claude-haiku-4-5-20251001"`
+        Fastest model with near-frontier intelligence
 
-          Fastest model with near-frontier intelligence
+      - `:"claude-haiku-4-5-20251001"`
 
-        - `:"claude-opus-4-5"`
+        Fastest model with near-frontier intelligence
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5"`
 
-        - `:"claude-opus-4-5-20251101"`
+        Powerful intelligence for long-running agents and coding
 
-          Powerful intelligence for long-running agents and coding
+      - `:"claude-opus-4-5-20251101"`
 
-        - `:"claude-sonnet-4-5"`
+        Powerful intelligence for long-running agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5"`
 
-        - `:"claude-sonnet-4-5-20250929"`
+        High-performance model for agents and coding
 
-          High-performance model for agents and coding
+      - `:"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
 
       - `String = String`
 
     - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -9786,7 +9910,7 @@ List Agent Versions
 
     - `speed: :standard | :fast`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -9794,7 +9918,7 @@ List Agent Versions
 
   - `multiagent: BetaManagedAgentsMultiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: :coordinator`
 

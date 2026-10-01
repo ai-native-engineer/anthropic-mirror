@@ -11,22 +11,36 @@
 MCP tunnels are in research preview and are available to organizations on the Claude Enterprise plan by request. To request access, [submit the MCP tunnels interest form](https://claude.com/form/mcp-tunnels) or contact your Anthropic account team.
 
 This page covers the full setup of an MCP tunnel for a claude.ai Enterprise organization, from creating the API key that provisioning uses to members calling a tunneled MCP server from Claude. You need the Owner or Primary Owner role in claude.ai, and someone who can deploy containers to a Kubernetes cluster or a Docker host inside your network. Read [MCP tunnels](https://claude.com/docs/connectors/mcp-tunnels/overview) first if the tunnel stack, the tunnel domain, and routes are unfamiliar.
-The deployment steps on this page are reference deployments. You are responsible for adapting them to your organization’s security requirements. For the full set of proxy options, certificate requirements, and hardening guidance, see the [MCP tunnels reference](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/reference) and [MCP tunnels security](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/security) pages in the Claude Platform docs. Those pages describe the Claude Console flow, which authenticates the setup component differently. For a claude.ai organization, follow the authentication steps on this page.
 
 ##  Create a Tunnels API key
 
 The setup component that runs alongside the tunnel stack needs a short-lived credential to create the tunnel, register its certificate authority (CA) certificate with Anthropic, and fetch the tunnel token. In claude.ai that credential is a Tunnels API key.
 
-1. In claude.ai, go to **Organization settings > Tunnels**. This page appears once Anthropic has enabled MCP tunnels for your organization.
-2. Open **Tunnels API** and create a key.
-3. Copy the key somewhere safe for the next section. You pass it to the setup component once.
+1
+
+Open Organization settings > Tunnels
+
+In claude.ai, go to **Organization settings > Tunnels**. This page appears once Anthropic has enabled MCP tunnels for your organization.
+
+2
+
+Create a key
+
+Open **Tunnels API** and create a key.
+
+3
+
+Copy the key
+
+Copy the key somewhere safe for the next section. You pass it to the setup component once.
 
 The tunnel stack does not use the key at runtime. Revoke the key as soon as setup completes, and create a fresh one later when you rotate the tunnel token.
 
 ##  Deploy the tunnel stack
 
+The deployment steps on this page are reference deployments. You are responsible for adapting them to your organization’s security requirements. For the full set of proxy options, certificate requirements, and hardening guidance, see the [MCP tunnels reference](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/reference) and [MCP tunnels security](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/security) pages in the Claude Platform docs. Those pages describe the Claude Console flow, which authenticates the setup component differently. For a claude.ai organization, follow the authentication steps on this page.
 Choose Helm if you run Kubernetes. The chart provisions the tunnel, stores the credentials in a Secret, and renews the server certificate automatically. Choose Docker Compose for a single host or a VM, where you run the setup component and certificate renewal yourself.
-Both paths need at least one route. A route maps a subdomain of your tunnel domain to the internal URL of an MCP server, in the form `scheme://host:port` with no path. The examples use `docs` pointing at `http://docs-mcp.example.corp:8080`. Replace them with your own servers.
+Both the Helm and Docker Compose paths need at least one route. A route maps a subdomain of your tunnel domain to the internal URL of an MCP server, in the form `scheme://host:port` with no path. The examples use `docs` pointing at `http://docs-mcp.example.corp:8080`. Replace them with your own servers.
 
 * Helm
 * Docker Compose
@@ -286,17 +300,53 @@ The containers take a few seconds to start, so rerun the commands if they come b
 
 Each route becomes a custom connector for your organization. The connector URL is the route’s tunnel hostname plus the path your MCP server serves. Many servers serve at `/mcp`, and the proxy forwards the path unchanged.
 
-1. In claude.ai, go to **Organization settings > Connectors**.
-2. Select **Add**, then **Custom**. If Claude asks for the connector type, choose **Web**.
-3. Enter the server URL, for example `https://docs.abc123.tunnel.anthropic.com/mcp`.
-4. Configure authentication for the server. If its OAuth authorization server is also inside your network, turn on **Tunnel OAuth configuration** and follow [Authenticate to MCP servers behind a tunnel](https://claude.com/docs/connectors/mcp-tunnels/oauth).
-5. Select **Add**.
+1
 
-Members then find the connector in their own connector settings and select **Connect** to sign in, as described in [Third party connectors with remote MCP](https://claude.com/docs/connectors/custom/remote-mcp#adding-custom-connectors). To confirm the tunnel end to end, connect the server yourself and ask Claude to use one of its tools while you watch the proxy logs for the request.
+Open organization connectors
+
+In claude.ai, go to **Organization settings > Connectors**.
+
+2
+
+Add a custom connector
+
+Select **Add**, then **Custom**. If Claude asks for the connector type, choose **Web**.
+
+3
+
+Enter the tunnel URL
+
+Enter the server URL, for example `https://docs.abc123.tunnel.anthropic.com/mcp`.
+
+4
+
+Configure authentication
+
+Configure authentication for the server. If its OAuth authorization server is also inside your network, turn on **Tunnel OAuth configuration** and follow [Authenticate to MCP servers behind a tunnel](https://claude.com/docs/connectors/mcp-tunnels/oauth).
+
+5
+
+Add the connector
+
+Select **Add**.
+
+Members then find the connector in their own connector settings and select **Connect** to sign in, as described in [Add a connector by URL](https://claude.com/docs/connectors/custom/add-unlisted#add-a-connector-by-url). To confirm the tunnel end to end, connect the server yourself and ask Claude to use one of its tools while you watch the proxy logs for the request.
 
 ###  Add more servers later
 
-Add a route for the new server, apply the change, and register the new hostname as another custom connector. No certificate or cloudflared changes are needed, because the server certificate covers every subdomain of your tunnel domain.
+Adding another MCP server later takes a new route and a new connector. No certificate or cloudflared changes are needed, because the server certificate covers every subdomain of your tunnel domain.
+
+1
+
+Add a route
+
+Add a route for the new server.
+
+2
+
+Apply the change
+
+Apply the change:
 
 Helm
 
@@ -316,16 +366,44 @@ helm upgrade mcp-tunnel \
 docker compose restart mcp-proxy
 ```
 
+3
+
+Register the connector
+
+Register the new hostname as another custom connector.
+
 ##  Rotate credentials
 
-Three credentials are involved, and each rotates differently.
-**Tunnels API key.** Used only while the setup component runs. Revoke it after every use and create a new one in **Organization settings > Tunnels > Tunnels API** when you next need to run setup.
-**Tunnel token.** Authenticates cloudflared’s outbound connection. Rotate it on your regular schedule and immediately if you suspect exposure. Rotation does not sever connections that are already established, so you can rotate, restart cloudflared with the new value, and let the old connections drain.
+An MCP tunnel involves three credentials: the Tunnels API key, the tunnel token, and the server certificate. Each rotates differently.
+
+###  Replace the Tunnels API key
+
+The Tunnels API key is used only while the setup component runs. Revoke it after every use and create a new one in **Organization settings > Tunnels > Tunnels API** when you next need to run setup.
+
+###  Rotate the tunnel token
+
+The tunnel token authenticates cloudflared’s outbound connection. Rotate it on your regular schedule and immediately if you suspect exposure. Rotation does not sever connections that are already established, so you can rotate, restart cloudflared with the new value, and let the old connections drain.
 
 * Helm
 * Docker Compose
 
-Increment `tunnel.tokenVersion` in `values.yaml`, create a fresh Tunnels API key, and upgrade. The setup component re-runs, rotates the token, and updates the Secret.
+1
+
+Increment the token version
+
+Increment `tunnel.tokenVersion` in `values.yaml`.
+
+2
+
+Create a Tunnels API key
+
+Create a fresh Tunnels API key.
+
+3
+
+Upgrade
+
+Upgrade. The setup component re-runs, rotates the token, and updates the Secret.
 
 ```
 read -rs API_TOKEN && export API_TOKEN
@@ -341,7 +419,23 @@ helm upgrade mcp-tunnel \
 
 Revoke the API key once the upgrade completes.
 
-Edit `docker-compose.yaml` and increment the `--token-version` value in the `setup` service (for example from `1` to `2`), so the new value persists for future runs. Then create a fresh Tunnels API key and re-run setup.
+1
+
+Increment the token version
+
+Edit `docker-compose.yaml` and increment the `--token-version` value in the `setup` service (for example from `1` to `2`), so the new value persists for future runs.
+
+2
+
+Create a Tunnels API key
+
+Create a fresh Tunnels API key.
+
+3
+
+Re-run setup
+
+Re-run setup, then restart cloudflared with the new token:
 
 ```
 read -rs API_TOKEN && export API_TOKEN
@@ -353,7 +447,9 @@ docker compose up -d cloudflared
 
 Revoke the API key and run `unset API_TOKEN` once rotation completes. For a multi-host deployment, setup writes the new token only to the `data/` directory on the host where it ran, so copy the updated `data/` directory (at minimum `data/tunnel-token`) to every other host that runs a replica. Then repeat the last two commands on each of those hosts so every replica restarts with the new token.
 
-**Server certificate.** The certificate the proxy presents is valid for 90 days, and you are responsible for renewing it before it expires. Renewal is local. It signs a new certificate with the CA already stored in your deployment, makes no API calls, and needs no API key. The proxy reloads the certificate file automatically, so no restart is required.
+###  Renew the server certificate
+
+The server certificate the proxy presents is valid for 90 days, and you are responsible for renewing it before it expires. Renewal is local. It signs a new certificate with the CA already stored in your deployment, makes no API calls, and needs no API key. The proxy reloads the certificate file automatically, so no restart is required.
 
 * Helm
 * Docker Compose
@@ -444,3 +540,9 @@ sudo rm -rf data
 ```
 
 If you archived the tunnel because of a suspected compromise, also notify your Anthropic account team, rotate any OAuth tokens or secrets your MCP servers issued, and review the proxy, cloudflared, and MCP server logs for the affected period before you provision a replacement tunnel.
+
+##  Next steps
+
+* [Authenticate to MCP servers behind a tunnel](https://claude.com/docs/connectors/mcp-tunnels/oauth): make OAuth sign-in work when your authorization server is inside your network
+* [Troubleshoot MCP tunnels](https://claude.com/docs/connectors/mcp-tunnels/troubleshooting): diagnose connection, certificate, routing, and sign-in failures
+* [MCP tunnels reference](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/reference): proxy configuration fields, certificate requirements, and the setup component

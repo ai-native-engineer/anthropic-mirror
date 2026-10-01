@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/closing-the-loop-on-metrics -->
 
-Lesson 13 of 14 · The AI-Native SDLC PlaybookClosing the loop on metrics
+Lesson 13 of 14 · The AI-native SDLC playbookClosing the loop on metrics
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Closing the loop on metrics
 
@@ -78,7 +78,7 @@ Incidents are not the only work Claude Tag picks up. Tagged on a ticket over MCP
 
 [Previous lessonCI/CD integration and deployment](https://academy.claude.com/courses/ai-native-sdlc-playbook/ci-cd-integration-and-deployment)[Next lessonClosing thoughts and resources](https://academy.claude.com/courses/ai-native-sdlc-playbook/closing-thoughts-and-resources)
 
-Lesson 13 of 14 · The AI-Native SDLC PlaybookClosing the loop on metrics
+Lesson 13 of 14 · The AI-native SDLC playbookClosing the loop on metrics
 
 Introduction
 

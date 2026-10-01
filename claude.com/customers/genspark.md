@@ -4,33 +4,21 @@ Case study | Claude Platform
 
 # Genspark's Super Agent orchestrates 150+ tools with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0dec892e3f9b9f56aa8533_YouTube%20Thumbnail_Genspark_200kb.jpg)
+![Video thumbnail](https://assets.claude.com/363f972d0a4d291a65f4ea65358d9a0a9a8df32d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 $250M ARR since pivoting to the Super Agent
 
@@ -51,27 +39,7 @@ inside a single agent
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0cb8c1f8c5c525e8c554b3_problem-solvers-padded-200kb.jpg)
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-Read more
-
-[Read more](https://claude.com/problem-solvers)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0df18b235a765db81e0646_Genspark%20Still%201_resized.jpg)
+![](https://assets.claude.com/6fe2411aee6587d0dc3532f08a30bcc7ec0e3271.jpg)
 
 "Claude knew when to stop and knew which tools to call. When some tool returned an error message, it would know what alternative way to try." —Kay Zhu
 
@@ -83,33 +51,13 @@ The team kept expanding the runtime—first to parallel queries, then to backgro
 
 The architecture underneath, though, was a directed graph of predefined workflow nodes, and that design was hitting a ceiling. "It was too rigid," Zhu said. "It often broke on edge cases." Search satisfaction in the field has hovered around 80% for a decade, Zhu noted, no matter how much better the underlying systems get. Users adapt: as the system handles more, they ask harder questions, and the satisfaction rate stays flat. Genspark was seeing the same pattern. Simple questions ran through too many steps. Hard questions hit walls the workflow didn't know how to route around. The system that had taken Genspark to millions of users could no longer go where users wanted to go.
 
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
+
+The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
+
+[Read more](https://claude.com/problem-solvers)
+
 ## The solution
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
 ## An agent loop that finally worked
 
@@ -123,25 +71,21 @@ The Super Agent that launched in early 2025 is model-agnostic by design, with di
 
 That shift, from architecture as constraint to architecture as adaptive runtime, changes what a startup competes on. "Nobody really has a moat anymore," Zhu said. "The moat is execution speed." That belief shapes how Genspark operates internally. Roughly 50 engineers produce all of the company's code through AI tools. Some have built what they call a "lights-out factory" where issue creation, pull request composition, code review, merging, and testing all run automatically. Zhu personally writes code in Claude Code's plan mode. "It's like talking to a very experienced software engineer, someone who's super intelligent and knows the codebase really well," he said.
 
-"Claude knew when to stop and knew which tools to call. When some tool returned an error message, it would know what alternative way to try."
+Claude Code
 
-Kay Zhu
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
-Co-founder and CTO, Genspark
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/product/claude-code)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Claude knew when to stop and knew which tools to call. When some tool returned an error message, it would know what alternative way to try."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Kay ZhuCo-founder and CTO, Genspark
 
 ## The outcome
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0df1b64b5c0b70e7882e6c_Genspark%20Still%202_resized.jpg)
+![](https://assets.claude.com/6c8cf5cf12067719cc0355bff5404ea785da125c.jpg)
 
 "We want to bring the Claude Code experience that software engineers have to all white-collar workers." —Kay Zhu
 
@@ -155,42 +99,16 @@ Where Zhu sees model capability heading in 2026 shapes what Genspark is building
 
 Genspark spells out the bet on a billboard along US-101 in San Francisco: a three-day work week. The premise is that AI can handle the busywork, aligning slide bullets, building pivot tables, formatting documents, so people can spend their time on what they actually value. "We want to bring the Claude Code experience that software engineers have to all white-collar workers," Zhu said. "The model is so intelligent right now. The distribution is super uneven. Some people experience the latest capability and their lives change totally. A lot of people haven't experienced that yet. We want to accelerate that transition."
 
-"It's like talking to a very experienced software engineer, someone who's super intelligent and knows the codebase really well."
+> "It's like talking to a very experienced software engineer, someone who's super intelligent and knows the codebase really well."
 
-Kay Zhu
+Kay ZhuCo-founder and CTO, Genspark
 
-Co-founder and CTO, Genspark
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

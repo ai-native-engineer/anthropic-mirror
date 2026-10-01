@@ -65,7 +65,8 @@ If your personal skill is being ignored, an enterprise or higher-priority skill 
 
 For example, if there's an enterprise "code-review" skill and you also have a personal "code-review" skill, the enterprise one wins every time. Your options:
 
-1. Rename your skill to something more distinct (this is usually the easier path) 2. Talk to your admin about the enterprise skill
+1. Rename your skill to something more distinct (this is usually the easier path)
+2. Talk to your admin about the enterprise skill
 
 ## Plugin Skills Not Appearing
 
@@ -102,7 +103,6 @@ Congratulations on completing Introduction to Agent Skills! You've learned how t
 #### Feedback
 
 We'd love to hear how you're using skills in your work, plus any feedback about this course. Share your feedback [here](https://forms.gle/RvHPBwQt9ZmcDc1P9).
-
 <!-- youtube: YBa1cwaG7is -->
 
 [![Troubleshooting Skills](https://img.youtube.com/vi/YBa1cwaG7is/hqdefault.jpg)](https://www.youtube.com/watch?v=YBa1cwaG7is)

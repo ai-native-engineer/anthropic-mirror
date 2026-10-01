@@ -16,6 +16,8 @@ August 21, 2026
 
 † Correspondence to [joshb@anthropic.com](mailto:joshb@anthropic.com)
 
+---
+
 ## [Introduction](#intro)
 
 An ambitious hope for mechanistic interpretability is to read a neural network the way we read a computer program, providing a context-independent (or global) description of its computation .  The most natural global components of a network are its weights; they describe the direct effect of each unit on another in every context in which they appear.
@@ -34,6 +36,8 @@ Our 1L model can complete words like ACETYLCHOLINE"uh-SEE-tul-KOH-leen", the neu
 
 Expanding upon this result, we then present three major findings.  First, helpful and harmful weights are scattered across the entire range of virtual weight magnitudes.  Thus, naive attempts to read functional circuitry from raw weights can miss the ones that implement important circuits while highlighting confusing connections that never matter on real data.  Second, ineffective virtual weights are abundant and can be easily removed: pruning the least effective 70% only worsens the model's loss by 0.01 nats, and pruning 85% costs 0.1.  The most effective weights are overwhelmingly helpful, and they exceed the effectiveness of any harmful ones by an order of magnitude.  Third, the number of helpful virtual weights in this basis still appears large.   As a crude benchmark, our virtual weight model contains more helpful weights than parameters in the original transformer, even when constrained to the most effective and helpful.  The remaining weights may still be more interpretable than the original model, but we suspect that a similar model within a better basis may still provide further sparsity and interpretability.
 
+---
+
 ## [A motivating example](#example)
 
 We can decompose the prediction to complete ACETYLCHOLINE into the separate paths that feed the output and read off what each contributes.  When we do so, it's unclear which weights implement circuits for the model that are functional (improving the predictions in some contexts, if not this one), and which act as noise which is merely tolerated.
@@ -48,6 +52,8 @@ What interests us most about these combining paths is that several of these conf
 
 In the following sections, we'll show how quantifying each weight's effectiveness and helpfulness helps answer these questions.  Ineffective or harmful weights are not valid lessons that the model has learned; they are interference weights that the model carries alongside its actual circuits.
 
+---
+
 ## [The virtual weight model](#virtual-weight-model)
 
 The decomposition above was useful for demonstration, but the attention and MLP paths are too complex as units to permit an interpretable description because they are context-dependent transformations.  We might consider breaking them up into their components, but MLP neurons tend to be polysemantic .Some evidence suggests that token interactions through attention are interpretable , though some evidence is based on models without an MLP.  We instead rewrite the model from its global interactions using more monosemantic components , fitting a transcoder  to the MLP's inputs and outputs and retaining the native decomposition of the attention layer into heads.  After we expand the resulting decomposition of the model into virtual weights, we can compare our quantitative measurements with qualitative interpretability for each weight.
@@ -59,6 +65,8 @@ Rewriting paths as virtual weights
 These weight families describe the interactions of the basis units between the more complex nonlinearities — five of the families constitute linear maps into logits or features and the QK family is the one bilinear map, producing the attention pattern that conditions the two OV families.  Because our transformer has no normalization, each path is a fixed product of matrices .  The VW model exactly reproduces the forward pass of the original transformer with an error term for the transcoder and appropriate composition of these matrices.
 
 Materializing all six families inflates the parameter count from 2.9M to roughly 331M, about 100×, since each pair of endpoints now carries its own explicit weight rather than sharing the residual stream.  Implementing the equivalent forward pass also requires some additional details to manage the input encoding and separated OV paths, and we describe these details in the [Appendix](#app-virtual-weight-model).
+
+---
 
 ## [Effectiveness and helpfulness](#effectiveness-helpfulness)
 
@@ -77,6 +85,8 @@ Effectiveness says how much a weight moves the predictions, not whether it made 
 Recovering the sign of a weight's helpfulness with statistical significance takes a lot of data, because a single weight typically helps on some tokens and hurts on others ([Appendix](#app-single-helpfulness)).  Helpfulness can be computed cheaply for weight families that target the logits ([Appendix](#app-helpfulness-logits)), but for the rest it is expensive.  We compute the average helpfulness for the subsets of weights in our worked examples over the entire training set and attach 95% (Gaussian) confidence intervals to each one.  We ran similar measurements for a random sample of the whole population over 1B tokens.Several figures describe the distributions of effectiveness and helpfulness in the [Appendix](#app-mean-helpfulness) for reference.
 
 The expected residual attribution (ERA) and target-weighted (TWERA) measurements in our previous work  can be considered proxies of effectiveness, under the assumption that large effects in the model internals propagate to the function outputs.  We don't encourage readers to read much into our change from ERA or TWERA to Fisher effectiveness.  The change is an improvementIt reduces false-negative effects by seeing which attributions reach the output distribution, and false positives by using a second-order estimate that helps account for saturated gradients , and we also use a [counterfactual variant](#app-fisher-math-features) for some weights that helps handle inhibition., but these metrics are quite similar ([Appendix](#app-fisher-ea)), we tried several related variants, and we do not think that further sharpening of this metric is high-leverage compared to, say, finding better bases.  Later, we'll suggest that the helpful weights are tens of percent of the VW model, and that pruning by Fisher effectiveness reaches a similar density before the loss suffers.  Since helpfulness is the most direct per-weight measure and Fisher already prunes to a similar density, a sharper metric has little room to improve.
+
+---
 
 ## [Effectiveness surfaces helpful weights but does not isolate them](#examples)
 
@@ -132,6 +142,8 @@ More generally, we've seen that effectiveness highlights the most helpful weight
 
 We can arrange our understanding of each transcoder feature above into a simple circuit diagram, giving an intuitive sense for the relative merits of sorting by virtual weights, effectiveness, and helpfulness.  We also collected the features we've described here and 18 others in [a separate page](https://transformer-circuits.pub/2026/interference_effectiveness_helpfulness/feature_vis/index.html) to give a loose sense for how well filtering works.
 
+---
+
 ## [The effectiveness tail is helpful](#aggregate)
 
 The examples above gave an impression of how effectiveness and helpfulness relate in a single node of the VW model at a time.  How does the model allocate effectiveness between helpful and harmful directions as a whole?
@@ -143,6 +155,8 @@ The most effective weights are helpful
 This display sorts the sample into three regimes for each weight family.  The ineffective weights unsurprisingly have near-zero helpfulness.  Where effectiveness is moderate, helpful and harmful weights are mixed, and effectiveness alone does not separate them.  Only helpful weights remain in the highest effectiveness regime.  The most effective helpful weight out-measures any harmful weight by an order of magnitude or more within each weight family.  This gap is much larger and more consistent than within the same plot for virtual weights ([Appendix](#app-vw-helpfulness)).
 
 The data gives a clear understanding of the model's priorities.  Its most effective contributions to the output are overwhelmingly the helpful ones, and the weights that actively hurt the loss are confined to a lower range of effectiveness.  This is intuitive; a model trained to minimize loss has every reason to get its most consequential weights pointing in a good direction, and relatively little reason to police weights whose effects barely reach the output.
+
+---
 
 ## [The model is still dense in this basis](#pruning)
 
@@ -162,6 +176,8 @@ Across the sample, roughly half (47.6%) of all weights have positive mean helpfu
 
 Not allowing ourselves to remove any helpful weight is much stricter than many applications of circuit pruning today .  If we instead try to preserve 90% of the sum of sampled positive helpfulness values (a kind of "helpfulness mass"), we estimate that we'd only need 2.43% density ([Appendix](#app-helpfulness-mass)), but this fraction quickly climbs to a similar regime (13.6%) when accounting for 99% of the helpfulness mass.  It is difficult to say which level of helpfulness mass is a better guide, particularly when we also expect nonlinear effects from removing multiple weights together.  We note that keeping 2% of the virtual weights would roughly double the number of parameters in the filtered, expanded VW model relative to the original transformer; if it were the case that all of the resulting weights were quite interpretable, we would be closer to an "upstairs" lift than previously observed.  Computing helpfulness for all weights is expensive, even in a tiny model like this, but the theoretical possibility remains intriguing.
 
+---
+
 ## [Discussion](#discussion)
 
 We identified interference weights via two properties: whether a virtual weight does anything to the model's outputs, and whether it lowers or raises the loss on the training data.  We used these measurements to make the theoretical implications of superposition concrete within a trained transformer model, demonstrated how identifying and filtering out interference weights helps to interpret model components, bounded the extent to which they affect the model's predictions, and measured our progress towards extracting a sparse interpretable model.
@@ -178,6 +194,8 @@ Avoiding interference weights was the original reason to study per-prompt attrib
 
 Interference weights are one of the stranger implications of trained models approximating high-dimensional circuits through low-dimensional bottlenecks; despite significant optimization pressure, large, confident connections can actively harm the model's performance.  Concretely identifying these weights helps us see these circuits (and their required compromises) in action, showing that these superposed circuits play a significant role in model computation.
 
+---
+
 ## [Related work](#related-work)
 
 Superposition  has deep roots in the distributed-representations and compressed-sensing literatures (see the [related work](https://transformer-circuits.pub/2022/toy_model/index.html#related) section of [Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html)).  Toy Models of Superposition  provided the first concrete demonstration that this superposition occurs in trained networks.  The observation that the weights between features are themselves forced into superposition was named weight superposition in a Transformer Circuits update .  [A Toy Model of Interference Weights](https://transformer-circuits.pub/2025/interference-weights/index.html)  demonstrated the basic phenomenon in the same toy model and developed initial strategies for detecting interference weights.
@@ -191,6 +209,8 @@ A complementary line of work incentivizes weight sparsity during training rather
 The units of an interpretable weight description need not be the original matrices of a given model parametrization.  Attribution-based Parameter Decomposition  represents a trained network's parameters as a sum of components in parameter space, incentivized to be faithful (the components sum to the original parameters), minimal (few components are active on any given input), and simple (each spans as few matrices and ranks as possible).  Stochastic Parameter Decomposition  frames this program as linear parameter decomposition and learns rank-one subcomponents whose causal importance is estimated by stochastic ablation, making the approach more scalable and robust; follow-up work extends it to small transformers including GPT-2 , and Local Loss Landscape Decomposition  instead learns sparsely active parameter-space subnetworks that reconstruct per-sample loss gradients.  These methods search over learned decompositions of the parameters to discover functional components.  Both approaches share the premise that the architectural units are not the natural units of computation under superposition , and both must separate weight that carries computation from weight that does not.  We take the decomposition as given by the architecture and ask which of those fixed weights are functional and which are interference.
 
 A related line of work, developed under the headings of singular learning theory and developmental interpretability, likewise relates parameters to their effect on the loss, but through the geometry of the loss landscape rather than through individual virtual weights.  The local learning coefficient (LLC) of Lau et al.  measures the degeneracy of the population loss around a trained parameter and is explicitly motivated by the observation that neural-network loss landscapes are singular, so that Hessian- and Fisher-information-based measures degenerate and counting flat directions is provably insufficient.  Refined variants localize this quantity to model components such as attention heads or to data subdistributions , and changes in the LLC over training have been used to detect stagewise development and phase transitions , including in the toy model setting from which our analysis descends .  Our Fisher-effectiveness metric shares the motivating question of which structures are functional, but is deliberately narrower: it is a per-virtual-weight, Fisher-information quantity evaluated at a single final checkpoint, and therefore sits inside the local-quadratic picture that the LLC is designed to correct.  We do not claim that effectiveness or helpfulness recover the singular geometry that singular learning theory targets.
+
+---
 
 ## [Appendix](#appendix)
 

@@ -14,6 +14,8 @@ We built TASTE (The AI Safety Taste Evaluation) — a benchmark measuring how we
 
 This work was done as part of the [Anthropic Fellows Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
 
+---
+
 ## Background
 
 While [some aspects of AI safety research are relatively straightforward to measure](https://alignment.anthropic.com/2026/automated-w2s-researcher/), progress on many questions in AI safety cannot be evaluated with verifiable rewards. For instance, research into mitigating risks from AI misalignment often involves forecasting risks posed by future AI systems. Another example is [detecting when models](https://arxiv.org/abs/2511.22662) [are deceptive](https://arxiv.org/abs/2511.22662), which depends on the difficult task of accurately attributing beliefs and intentions to models.
@@ -21,6 +23,8 @@ While [some aspects of AI safety research are relatively straightforward to meas
 If we want to automate AI safety research — which might become necessary if automated AI research and development outpaces our ability to mitigate the risk of misalignment and misuse — we need reliable [measurements of models’ cap](https://alignment.anthropic.com/2026/conceptual-reasoning-index/)[abilities](https://alignment.anthropic.com/2026/conceptual-reasoning-index/) [on the hard-to-verify parts of safety research](https://alignment.anthropic.com/2026/conceptual-reasoning-index/). One important hard-to-verify aspect of the research process is evaluating research proposals. Judging research proposals well is a high-leverage way to improve research quality, since some proposals are often much more important or tractable than others, and picking a poor initial direction can waste substantial time or resources.
 
 In order to evaluate models on the hardest-to-verify tasks, we have to use human judgment as ground truth. However, humans often disagree, making it unclear what the ground truth should be. This is why we focus on finding cases where humans agree and use agreement with humans as our main metric.
+
+---
 
 ## Building a Research Judgment Benchmark (TASTE)
 
@@ -56,6 +60,8 @@ To produce TASTE, we take strong-confidence, post-discussion preferences over pr
 
 To estimate human agreement, we randomly select a researcher’s “overall score” per proposal from the opposing discussion pair, and take the proposal with the higher sampled score as preferred. This allows us to evaluate pairs of proposals where no single researcher rated both of them. This does not perfectly capture human performance, and instead approximates "I assign a different person to score each proposal; the ‘preferred’ proposal is the one that receives the higher score". A more typical measure of inter-rater agreement – comparing only the pairs where another researcher scored both proposals – gives 83% agreement but only validates 50 of the 92 pairs.
 
+---
+
 ## Evaluating Models’ Research Judgment
 
 We measure model performance on TASTE, comparing against the human labels. We use two setups: a standard setup where the model sees two proposals in context and gives a probability to each proposal winning which we binarize to give a preference, and a tougher single-proposal scoring setup where the model sees each proposal individually in context, scores it, and is assessed on the implied preferences from its scores against the preferences in TASTE. In the standard setup, we find that the best model performs worse than our human researchers — Fable 5 achieves 60% whereas we estimate researcher performance at 77%. While there is currently a noticeable gap versus human performance, we think future models could close it: Fable 5 achieves 69% accuracy on 74 pairs of proposals drawn from different prompts, and we find some evidence that models over-focus on how well proposals answer the motivating question when shown on pairs from the same prompt. See the paper for more details.
@@ -63,6 +69,8 @@ We measure model performance on TASTE, comparing against the human labels. We us
 ![](https://alignment.anthropic.com/2026/taste/fig5.png)
 
 Model performance on TASTE by release date and model provider. Fable 5 achieves 60%, and almost all models perform within 2 standard deviations of chance. Opus 5 and GPT-5.6-Sol perform near chance on TASTE despite being at the frontier on general agentic benchmarks. Per-model confidence intervals span roughly ±10 percentage points, as we have a limited number of preference pairs making it difficult to draw conclusions about relative model performance.
+
+---
 
 ## Conclusion
 

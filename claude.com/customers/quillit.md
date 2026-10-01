@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Quillit eliminates 80% of the time-consuming tasks of qualitative research using Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Quillit logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2ff13204d78f5e78efa4b_cs-logo-quillit-light-theme.svg)![Quillit logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2ff158740c9ca3a76b05b_cs-logo-quillit-dark-theme.svg)
+![Quillit logo](https://assets.claude.com/921d65a9beea92eb9ac10746eefba2a848f1a527.svg)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 80% reduction
 
@@ -37,42 +27,6 @@ in report writing time
 89-98% accuracy
 
 in citation accuracy with Claude 3.5
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Quillit ®, a product developed by Civicom ®, uses Claude to transform the qualitative research process for market researchers. This reduces time spent writing research reports by up to 80%, ensures data security, and uncovers nuanced insights.
 
@@ -129,52 +83,12 @@ Quillit plans to leverage Claude to streamline the entire research lifecycle. Th
 
 By combining Claude's capabilities with their deep understanding of qualitative research workflows, Quillit is transforming how researchers uncover insights – making the process faster, more thorough, and more accessible while maintaining the highest standards of data security and privacy.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Blackinton](https://assets.claude.com/90342b2aa56e143b5fa63bf2e3b5a98bf3ca63b5.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How does a badge-maker shorten lead times but keep an old-world process alive?](https://claude.com/customers/blackinton)[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-[Next](#)Next
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-Video caption
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
-
-Caylent turns months of migration work into days with Claude Agent SDK
-
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)

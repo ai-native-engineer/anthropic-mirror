@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Chatbase helps companies deliver instant, personalized customer support with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Chatbase logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c3510b6b8c0614feeafa34_cs-logo-chatbase-light-theme.svg)![Chatbase logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c3510b6b8c0614feeafa34_cs-logo-chatbase-light-theme.svg)
+![Chatbase logo](https://assets.claude.com/341a97c81385e5a0396d948591a58dd9b439fd46.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 Tripled user
 
@@ -37,42 +27,6 @@ adoption since integration
 60-70%
 
 of customers in US/Canada
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Chatbase uses Claude for AI-driven customer service, helping businesses provide instant, personalized support across web chat, WhatsApp, Slack, and Instagram. Their platform enables customer service teams to automate routine inquiries while maintaining their brand voice and professional standards, transforming customer engagement.
 
@@ -101,7 +55,7 @@ Chatbase built a platform that deploys AI agents across multiple communication c
 
 The platform goes beyond simple chat by integrating with business systems through APIs, enabling AI agents to take direct actions. Through integrations like Stripe, agents can handle tasks like checking invoices and processing refunds, with optional human oversight for sensitive operations. For e-commerce customers, they're expanding into Shopify integrations to help AI agents serve as shopping assistants, demonstrating the platform's adaptability to different business needs through simple instruction changes.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf051a03fe834eea1c6ef_7280d40fab4a627689d239783179c74dfaddbf6a-1920x1043.png)
+![](https://assets.claude.com/bdef0526a4feb94e414fdb4145ca0cc5fd277e02.png)
 
 ## Delivering measurable impact for support teams and customers
 
@@ -113,52 +67,12 @@ The platform helps support teams identify and address issues more efficiently. M
 
 While AI continues to transform customer service, Chatbase recognizes that human connection remains essential. They're streamlining their human-in-the-loop approach to enable efficient oversight through simple one-click confirmations. They're developing more sophisticated ways to evaluate and optimize AI interactions through their collaboration with Anthropic. As Elsaid notes, "You need humans for the human aspect. Customers want to know there is a human on the other side they can reach if they need to." This balanced approach—combining AI capabilities with human insight—points toward a future where technology enhances rather than replaces meaningful customer relationships.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
