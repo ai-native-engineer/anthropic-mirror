@@ -12,7 +12,7 @@
 
 아래에서 `PY=~/.local/share/uv/tools/crawl4ai/bin/python`, `S=.agents/skills/anthropic-mirror/scripts`로 둔다.
 
-1. `$PY $S/login-academy.py` (사람, 헤드풀): 로그인(academy는 이메일+비밀번호, 인스턴스마다 다를 수 있음) -> 루트 재확인 -> 쿠키 저장.
+1. `$PY $S/login-academy.py` (사람, 헤드풀) 또는 `agents-env run --local SKILLJAR_EMAIL SKILLJAR_PASSWORD -- $PY $S/login-academy.py --auto` (이메일·비밀번호 폼 인스턴스): 로그인 -> 루트 재확인 -> 쿠키 저장.
 2. `$PY $S/academy-video.py <out_dir> [course-slug ...]` (AI): 모든 레슨을 렌더해 본문 hash와 모든 영상 ID를 검사 -> 달라진 본문과 새 clip만 저장·전사. 본문·자막이 없어도 catalog lesson ID마다 source stub을 남긴다.
 3. `academy-extract.py`는 영상 검사가 필요 없는 부분 본문 점검용이다. 기본 전체 갱신에서는 같은 레슨을 두 번 읽지 않도록 실행하지 않는다.
 4. 출력은 `<out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md`로 저장한다(A 트랙과 같은 `<도메인>/<경로>` 트리).
@@ -33,7 +33,9 @@
 - **쿠키 만료가 빠르다**: 만료되면 코스 페이지가 비로그인 미리보기를 반환하고 lesson ID가 `02`·`03` 같은 순번으로 나온다(실제는 287722 같은 6자리). 스크립트는 5자리 이상 ID만 쓰고, 로그인 여부는 `/accounts/`가 로그인 페이지로 이동하는지로 판정한다(`sj_sessionid`와 `auth/logout` 문자열은 비로그인에도 있다).
 - **인증 실패는 fail-closed다**: 세션이 없거나 만료되면 레슨을 쓰지 않고 exit 3으로 멈춘다. 경고 후 exit 0으로 끝나면 호출자가 갱신 완료로 오판하고, 만료 세션으로 받은 코스 랜딩이 레슨 본문으로 저장된다. 종료 코드 전체는 `crawl-notes.md`의 Academy 인증 실패 조건을 따른다.
 - **본문 없는 레슨은 상태를 명시한다**: 퀴즈·과제처럼 렌더해도 텍스트가 없는 레슨은 제목만 남기지 않고 `_(본문 없는 레슨: 퀴즈·과제처럼 추출할 텍스트가 없음)_`을 쓴다. 제목만 있는 기존 stub은 다음 인증 실행에서 이 마커로 바뀐다.
-- **세션 복구는 사람 몫이다**: `$PY $S/login-academy.py`(partner는 `SKILLJAR_BASE=https://anthropic-partners.skilljar.com` 추가)를 사용자 터미널에서 실행하고, `$PY $S/academy-video.py . --check-auth`가 0인지 확인한 뒤 Academy 단계를 다시 돈다.
+- **세션 복구**: `anthropic.skilljar.com`처럼 이메일·비밀번호 폼인 인스턴스는 repo 로컬 `.env`(gitignored)의 `SKILLJAR_EMAIL`·`SKILLJAR_PASSWORD`로 자동 재로그인한다. `refresh.sh`는 두 키가 있으면 `agents-env run --local`로 주입하고, `academy-video.py`는 시작 시 비로그인이거나 수집 중 만료되면 `login-academy.py --auto`(헤드리스, Remember me)를 한 번 실행해 같은 코스를 다시 돈다. 그래도 실패하면 exit 3이다. 세션은 로그인 후 약 1시간 안에 끊길 수 있어 사람 로그인과 수집 사이 간격을 두면 중간에 멈춘다. 파트너 포털처럼 SSO만 있는 인스턴스와 키가 없는 환경은 사람이 `$PY $S/login-academy.py`(partner는 `SKILLJAR_BASE=https://anthropic-partners.skilljar.com` 추가)를 사용자 터미널에서 실행하고 `--check-auth`가 0인지 확인한다. `!` 실행은 stdin이 없어 Enter 대기가 바로 끝나므로 Terminal 창에서 연다.
+- **개편된 레슨은 예시를 iframe으로 넣는다**: `academy.claude.com/embed/...` iframe 안의 인터랙티브 예시는 본문 frame에 없다. `rendered_body`가 그 frame 본문을 `<!-- embed: URL -->` 아래에 덧붙인다. 탭으로 넘기는 예시는 펼쳐진 첫 화면만 잡힌다.
+- **본문 안 채팅 버튼 메뉴는 버린다**: `.lp__chat-combo`("Open in Claude", "Copy notes")는 레슨 본문 컨테이너 안에 있어 지우지 않으면 모든 레슨 머리에 붙는다. `verify-publish.py`가 남은 메뉴를 문제로 잡는다.
 - **브라우저 크롤이 느리다**: skilljar 레슨 페이지가 1MB라 브라우저는 페이지당 12-18초. `text_mode=True`로 3초까지 줄지만, httpx 병렬(브라우저 없음)이 더 빠르고 안정적이다.
 - **본문 셀렉터는 가장 긴 후보를 고른다(첫 매칭 금지)**: 영상 코스 레슨은 `.course-text-content`가 "Video" 5자뿐이고 실제 본문은 `article`/`#lesson-main-content`에 있다(claude-code-101 article 2562자). `or` 체인으로 첫 매칭만 쓰면 본문을 통째로 놓친다 -> `.course-text-content`/`.clp__main-content`/`#lesson-main-content`/`article` 중 **가장 긴 것**을 본문으로 쓴다.
 - **영상 코스는 placeholder가 거짓 캡처된다**: 영상 레슨 본문 컨테이너에 `This video is still being processed`(약 218자) placeholder가 들어 50자 필터를 통과한다. academy-extract.py가 이 마커로 스킵하므로 captured에 안 잡힌다 -- captured 숫자만으로 텍스트 코스를 판단하지 말 것.

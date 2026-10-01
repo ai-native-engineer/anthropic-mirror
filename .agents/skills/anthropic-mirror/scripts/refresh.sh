@@ -115,8 +115,13 @@ cd "$REPO_ROOT"
 "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/crawl-site.py" .
 # Academy 실패(세션 만료 3, 등록 필요 4, 무진행 5, 중복 본문 6)는 레슨을 쓰지 않고 기록만 남긴다.
 # 공개 표면 갱신은 계속하되 마지막에 non-zero로 끝내 성공으로 보고되지 않게 한다.
+# SKILLJAR_EMAIL·SKILLJAR_PASSWORD가 repo 로컬 .env(gitignored)에 있으면 agents-env로 주입해 세션 만료 시 자동 재로그인한다.
+skilljar_env=()
+if command -v agents-env >/dev/null 2>&1 && agents-env ls --local 2>/dev/null | grep -q '^SKILLJAR_PASSWORD\b'; then
+  skilljar_env=(agents-env run --local SKILLJAR_EMAIL SKILLJAR_PASSWORD --)
+fi
 academy_rc=0
-"$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" . || academy_rc=$?
+${skilljar_env[@]+"${skilljar_env[@]}"} "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" . || academy_rc=$?
 partner_rc=0
 SKILLJAR_BASE=https://anthropic-partners.skilljar.com \
 SKILLJAR_SKIP_HOST=anthropic.skilljar.com \

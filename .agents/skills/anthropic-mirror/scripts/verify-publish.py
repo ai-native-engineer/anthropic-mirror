@@ -134,6 +134,7 @@ def body_of(text):
 CHROME_LEAKS = (
     ("raw HTML이 본문으로 저장됨", re.compile(r"^\s*<(?:!doctype html|html[\s>])", re.I)),
     ("쿠키 동의 배너가 본문에 남음", re.compile(r"^#+ Cookie settings\s*$", re.M)),
+    ("Academy 채팅 버튼 메뉴가 본문에 남음", re.compile(r"^Copy full course notes for LLMs\s*$", re.M)),
 )
 
 

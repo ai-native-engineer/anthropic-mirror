@@ -6,3 +6,5 @@ prompts/
 .anthropic-mirror-status.json
 .anthropic-mirror-audit/
 __pycache__/
+.env
+.env.*

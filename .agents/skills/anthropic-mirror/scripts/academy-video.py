@@ -125,23 +125,40 @@ def watch_process(proc, hb, label, stall=STALL_SECONDS, poll=30):
         return STALLED
 
 
-def supervise(courses, run_one, attempts=2):
+def supervise(courses, run_one, attempts=2, relogin=None):
     """코스별로 run_one을 최대 attempts번 시도한다.
 
     인증 만료(EXIT_AUTH)는 재시도해도 같은 결과이고 이후 코스도 모두 랜딩으로 튕기므로 즉시 AuthExpired로 멈춘다.
+    relogin이 있으면 만료 시 한 번 다시 로그인하고 같은 코스를 처음부터 다시 돈다. 그래도 만료면 멈춘다.
     반환: {course: 마지막 비정상 코드}. 등록 필요(EXIT_GATED)·중복 거부(EXIT_DUPLICATE)는 재시도하지 않는다.
     """
     failed = {}
     for course in courses:
-        for attempt in range(attempts):
+        relogged = False
+        attempt = 0
+        while attempt < attempts:
             code = run_one(course, attempt)
             if code == EXIT_AUTH:
+                if relogin and not relogged and relogin():
+                    relogged = True
+                    continue
                 raise AuthExpired(course)
+            attempt += 1
             if code in (0, EXIT_GATED, EXIT_DUPLICATE):
                 break
         if code != 0:
             failed[course] = code
     return failed
+
+
+def auto_relogin():
+    """SKILLJAR_EMAIL·SKILLJAR_PASSWORD가 주입돼 있으면 login-academy.py --auto로 세션을 새로 받는다.
+    비밀번호 폼이 없는 인스턴스(파트너 SSO)나 키가 없으면 False라 기존처럼 fail-closed로 멈춘다."""
+    if not (os.environ.get("SKILLJAR_EMAIL") and os.environ.get("SKILLJAR_PASSWORD")):
+        return False
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "login-academy.py")
+    print(f"[i] {_HOST} 세션 만료 - 자동 재로그인 시도", flush=True)
+    return subprocess.run([sys.executable, script, "--auto"]).returncode == 0
 
 
 def anonymous_landing(final_url):
@@ -386,6 +403,14 @@ def fetch_transcript(kind, ref):
     return ""
 
 
+QUIZ_START = re.compile(r"\A(?:#+ [^\n]*\n+)?\d+ questions?\s*\n+\s*Start\s*\Z", re.I)
+
+
+def quiz_start(text):
+    """퀴즈·설문 시작 화면(문항 수와 Start 버튼)뿐인가. 본문이 아니라 NO_BODY 레슨이다."""
+    return bool(QUIZ_START.match(text.strip()))
+
+
 async def rendered_body(pg):
     best = ""
     for sel in (
@@ -398,7 +423,8 @@ async def rendered_body(pg):
         if not await loc.count():
             continue
         soup = BeautifulSoup(await loc.evaluate("e => e.outerHTML"), "html.parser")
-        for tag in soup.select("script, style, nav, footer"):
+        # .lp__chat-combo는 본문 안에 붙은 "Open in Claude / Copy notes" 버튼 메뉴다.
+        for tag in soup.select("script, style, nav, footer, .lp__chat-combo"):
             tag.decompose()
         resolve_images(soup)
         text = md(str(soup), heading_style="ATX").strip()
@@ -406,12 +432,43 @@ async def rendered_body(pg):
             best = text
     if (
         len(best) < 50
+        or quiz_start(best)
         or "This video is still being processed" in best
         or "Skilljar is a learning management system that hosts our educational content"
         in best
     ):
         return ""
+    best += await embedded_bodies(pg)
     return EMPTY_MD_IMAGE.sub(lambda m: missing_image_marker(m.group(1)), best)
+
+
+EMBED_HOSTS = {"academy.claude.com"}
+
+
+async def embedded_bodies(pg):
+    """레슨 안 iframe으로 들어온 공식 예시(academy.claude.com/embed/...)의 본문.
+    본문 frame만 읽으면 개편된 레슨의 인터랙티브 예시가 통째로 빠진다."""
+    parts = []
+    for frame in pg.frames[1:]:
+        parsed = urlsplit(frame.url)
+        if parsed.netloc not in EMBED_HOSTS or "/embed/" not in parsed.path:
+            continue
+        try:
+            # 예시는 React로 늦게 그려진다. 로드 뒤 잠깐 기다려야 빈 셸을 읽지 않는다.
+            await frame.wait_for_load_state("load", timeout=15000)
+            await pg.wait_for_timeout(2000)
+            html = await frame.evaluate("() => document.body ? document.body.outerHTML : ''")
+        except Exception:
+            continue
+        soup = BeautifulSoup(html, "html.parser")
+        for tag in soup.select("script, style, nav, footer, button, svg"):
+            tag.decompose()
+        resolve_images(soup)
+        text = md(str(soup), heading_style="ATX").strip()
+        if text:
+            src = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
+            parts.append(f"\n\n<!-- embed: {src} -->\n\n{text}")
+    return "".join(parts)
 
 
 def missing_image_marker(label):
@@ -439,13 +496,31 @@ def resolve_images(soup):
                 img.decompose()
 
 
+GATED_STUB = "_(등록 또는 권한이 필요한 레슨)_"
+
+
+def placeholder_head(head):
+    """본문 대신 자리표시만 있는 레슨 머리인가: 제목만, 제목+NO_BODY/등록 stub, 제목+퀴즈 시작 화면.
+    등록 뒤 접근이 열린 레슨이나 제목 표기가 바뀐 레슨도 이 경우 새 stub으로 바꾼다."""
+    rest = head.split("\n", 1)[1].strip() if "\n" in head else ""
+    title, _, after = rest.partition("\n")
+    if not title.startswith("# "):
+        return False
+    after = after.strip()
+    return after in ("", NO_BODY, GATED_STUB) or quiz_start(after)
+
+
 def lesson_stub(bare, existing, head, tail, has_video):
     """본문 텍스트가 없는 레슨 파일 내용. 바꿀 필요가 없으면 None.
     영상이 있으면 제목과 자막이 본문이라 표시를 붙이지 않고, 영상도 없는 퀴즈·과제만 NO_BODY로 명시한다."""
-    if existing and head not in (bare, f"{bare}\n\n{NO_BODY}"):
+    marked = f"{bare}\n\n{NO_BODY}"
+    if existing and head not in (bare, marked) and not placeholder_head(head):
         return None
-    marker = "" if (tail or has_video) else f"\n\n{NO_BODY}"
-    stub = f"{bare}{marker}{tail}"
+    if tail or has_video:
+        # split_tail이 tail 앞 줄바꿈 하나를 head에서 떼므로, 다시 붙일 때 빈 줄을 되살린다.
+        stub = f"{bare}\n{tail}" if tail else bare
+        return None if head == bare and existing else stub
+    stub = f"{marked}{tail}"
     return None if stub == existing else stub
 
 
@@ -499,7 +574,7 @@ async def lesson_videos(pg, course, ck, cdir, state, items):
             cdir.mkdir(parents=True, exist_ok=True)
             if not listed_path.exists():
                 listed_path.write_text(
-                    f"<!-- {url} -->\n\n# {listed_title}\n\n_(등록 또는 권한이 필요한 레슨)_\n",
+                    f"<!-- {url} -->\n\n# {listed_title}\n\n{GATED_STUB}\n",
                     encoding="utf-8",
                 )
             by_source[url] = listed_path
@@ -746,6 +821,16 @@ async def main():
         else:
             raise AssertionError("인증 만료는 즉시 멈춰야 한다")
         assert auth_calls == ["x"], auth_calls
+        codes = iter([EXIT_AUTH, 0, 0])
+        relogins = []
+        assert supervise(["x", "y"], lambda c, a: next(codes), relogin=lambda: relogins.append(1) or True) == {}
+        assert relogins == [1], "만료되면 한 번 재로그인하고 같은 코스를 다시 돈다"
+        try:
+            supervise(["x"], lambda c, a: EXIT_AUTH, relogin=lambda: True)
+        except AuthExpired:
+            pass
+        else:
+            raise AssertionError("재로그인 뒤에도 만료면 멈춰야 한다")
         assert child_exit_code([]) == 0
         assert child_exit_code([{"class": "auth_blocked"}]) == EXIT_GATED
         assert child_exit_code([{"class": "auth_blocked"}, {"class": "extract_failed"}]) == EXIT_DUPLICATE
@@ -756,11 +841,20 @@ async def main():
         assert soup.find("img")["src"] == "/a.png" and "[미수집 이미지: Diagram]" in str(soup), soup
         assert len(soup.find_all("img")) == 1
         assert EMPTY_MD_IMAGE.sub(lambda m: missing_image_marker(m.group(1)), "x ![]() ![B]()") == "x  [미수집 이미지: B]"
-        bare, tail = "<!-- u -->\n\n# T", "\n<!-- youtube: abcdefghijk -->"
+        assert quiz_start("# Quiz on X\n\n7 questions\n\nStart") and quiz_start("3 questions\n\nStart")
+        assert not quiz_start("# Lesson\n\n7 questions about tools are covered below.\n\nStart here")
+        bare = "<!-- u -->\n\n# T"
+        video = f"{bare}\n\n<!-- youtube: abcdefghijk -->\n\nsub"
+        head, tail = split_tail(video)
         assert lesson_stub(bare, "", "", "", False) == f"{bare}\n\n{NO_BODY}", "영상 없는 퀴즈는 NO_BODY로 명시한다"
-        assert lesson_stub(bare, bare + tail, bare, tail, True) is None, "영상 레슨은 제목과 자막이 본문이다"
-        marked = f"{bare}\n\n{NO_BODY}"
-        assert lesson_stub(bare, marked + tail, marked, tail, True) == bare + tail, "영상 레슨에 잘못 붙은 표시는 걷어낸다"
+        gated_old = f"<!-- u -->\n\n# t\n\n{GATED_STUB}"
+        assert lesson_stub(bare, gated_old, gated_old, "", False) == f"{bare}\n\n{NO_BODY}", "접근이 열린 등록 stub은 갱신한다"
+        quiz_old = "<!-- u -->\n\n# T\n\n7 questions\n\nStart"
+        assert lesson_stub(bare, quiz_old, quiz_old, "", False) == f"{bare}\n\n{NO_BODY}", "퀴즈 시작 화면은 NO_BODY로 바꾼다"
+        assert lesson_stub(bare, video, head, tail, True) is None, "영상 레슨은 제목과 자막이 본문이다"
+        marked = f"{bare}\n\n{NO_BODY}\n\n<!-- youtube: abcdefghijk -->\n\nsub"
+        head, tail = split_tail(marked)
+        assert lesson_stub(bare, marked, head, tail, True) == video, "영상 레슨에 잘못 붙은 표시는 빈 줄까지 원래대로 걷어낸다"
         assert lesson_stub(bare, bare + "\n\nbody", bare + "\n\nbody", "", False) is None
         body, tail = split_tail("<!-- u -->\n\nbody ![]()\n\n<!-- youtube: ABCDEFGHIJK -->\n\n<details>x</details>\n")
         assert body == "<!-- u -->\n\nbody ![]()" and tail.startswith("\n<!-- youtube: ABCDEFGHIJK -->"), (body, tail)
@@ -799,7 +893,7 @@ async def main():
         at = args.index("--list-json")
         list_json = args[at + 1] if at + 1 < len(args) else None
         del args[at : at + 2]
-    if not args or not list_json and "--list-json" in sys.argv:
+    if not args or not list_json and "--list-json" in sys.argv or args[0] in ("-h", "--help"):
         print("사용법: academy-video.py <out_dir> [course-slug ...] [--list-json FILE | --check-auth]")
         raise SystemExit(2)
     out_root = Path(args[0])
@@ -814,6 +908,9 @@ async def main():
         if "skilljar" in c.get("domain", "")
     }
     # 코스를 인자로 넘기면 아래 카탈로그 분기를 타지 않으므로 로그인 확인은 여기서 무조건 한다.
+    if not signed_in(ck) and not check_auth and auto_relogin():
+        auth_state = json.load(open(STATE))
+        ck = {c["name"]: c["value"] for c in auth_state["cookies"] if "skilljar" in c.get("domain", "")}
     if not signed_in(ck):
         fail_auth(out_root, "/accounts/가 로그인 페이지로 이동")
     if check_auth:
@@ -869,7 +966,7 @@ async def main():
     if not os.environ.get("SKILLJAR_MISSING_ONLY") and not sys.argv[2:]:
         mc.record_status(str(out_root), f"academy:{_HOST}", [], replace_prefix=f"academy:{_HOST}")
     try:
-        failed = supervise(courses, lambda course, attempt: run_course(out_root, course, attempt))
+        failed = supervise(courses, lambda course, attempt: run_course(out_root, course, attempt), relogin=auto_relogin)
     except AuthExpired as exc:
         fail_auth(out_root, f"코스 {exc} 실행 중 만료")
     mc.record_status(str(out_root), f"academy:{_HOST}", [])
