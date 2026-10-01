@@ -1,10 +1,10 @@
 <!-- https://anthropic.skilljar.com/claude-101/383393 -->
 
-**Estimated time:** 20 minutes
+## What you'll learn
 
-### Learning objectives
+*Estimated time: 14 minutes*
 
-By the end of this lesson, you will be able to:
+By the end of this lesson you'll be able to:
 
 * Explain what projects are and when to use them
 * Create a new project with a name, description, and visibility settings
@@ -12,25 +12,21 @@ By the end of this lesson, you will be able to:
 * Write effective project instructions to guide Claude's behavior
 * Share projects with teammates (for Claude for Work (Team and Enterprise plan) users)
 
----
+## Video
 
-### Video
-
-[Video: Introduction to Projects - Getting started with projects in Claude.ai]
-
-#### Key takeaways
+## Key takeaways
 
 * **Projects are self-contained workspaces** with their own memory, chat histories, knowledge bases, and customized instructions. Think of them as dedicated environments for specific work streams.
 * **Project knowledge enhances Claude's understanding** by letting you upload relevant documents that Claude references across all chats within that project. No more re-uploading the same files each time.
 * **Project instructions guide Claude's behavior**—you can specify tone, expertise level, response style, and more. These instructions apply to every conversation within the project.
-* **Projects scale automatically.** When your knowledge base approaches context limits, Claude seamlessly enables Retrieval Augmented Generation (RAG) mode to expand capacity by up to 10x while maintaining response quality.
+* **Projects scale automatically.** When your knowledge base approaches context limits, Claude switches to searching your project knowledge and pulling in only what's relevant, expanding capacity by up to 10x while maintaining response quality.
 * **For Claude for Work users, projects enable collaboration.** Share projects with teammates so everyone benefits from the same context, instructions, and accumulated knowledge.
 
-### What are Projects?
+## What are Projects?
 
 Projects are ideal for storing knowledge Claude should reference, organizing related chats around a specific topic or work area, and collaborating with team members who need access to the same shared context.
 
-#### When to use Projects
+### When to use Projects
 
 Projects are particularly valuable when you're working on something ongoing—not just a one-off question. Consider creating a project when you have a workflow with:
 
@@ -38,15 +34,19 @@ Projects are particularly valuable when you're working on something ongoing—no
 * **Consistent requirements** for how Claude should respond (always use formal language, always cite sources, always follow our template)
 * **Team collaboration needs** where multiple people should work from the same foundation
 
-### Creating your first project
+## Creating your first project
 
 Setting up a project takes just a few minutes. Here's how to get started:
 
-#### Step 1: Set up your project
+### Step 1: Set up your project
 
-1. Hover over the left sidebar and click "Projects," or navigate directly to claude.ai/projects 2. Click "+ New Project" in the upper right corner 3. Give your project a descriptive name (e.g., "Q4 Marketing Campaign" or "Product Documentation") 4. Add a brief description of what you're working on. While Claude doesn't see this description directly, it helps you and your teammates understand the project's purpose. 5. Choose your visibility settings: keep it private or share with your organization (for Claude for Work users)
+1. Hover over the left sidebar and click "Projects," or navigate directly to claude.ai/projects
+2. Click "+ New Project" in the upper right corner
+3. Give your project a descriptive name (e.g., "Q4 Marketing Campaign" or "Product Documentation")
+4. Add a brief description of what you're working on. While Claude doesn't see this description directly, it helps you and your teammates understand the project's purpose.
+5. Choose your visibility settings: keep it private or share with your organization (for Claude for Work users)
 
-#### Step 2: Add project instructions
+### Step 2: Add project instructions
 
 Project instructions tell Claude how to behave across all conversations in this project. Click on "Instructions" to open the instructions panel.
 
@@ -61,7 +61,7 @@ Once you've written your instructions, click "Save instructions." These will app
 
 You can also use project instructions to automate workflows — for example, "When I upload a meeting transcript, create a structured summary using this template." Think of instructions as programming Claude's behavior for this project.
 
-#### Step 3: Build your knowledge base
+### Step 3: Build your knowledge base
 
 Your project's knowledge base is where you upload documents that Claude should reference. You'll find the files menu on the right side of your project's main page.
 
@@ -74,31 +74,37 @@ Click the "+" button to add content. You can upload various file types including
 * Examples of work you want Claude to emulate
 * Technical documentation or specifications
 
-**Pro tip:** Name your files descriptively. Claude uses file names to understand and retrieve the right information, so "Q4-2024-Brand-Guidelines.pdf" is more helpful than "document1.pdf."
+Pro tip
 
-#### How projects handle large knowledge bases
+Name your files descriptively. Claude uses file names to understand and
+retrieve the right information, so "Q4-2024-Brand-Guidelines.pdf" is more
+helpful than "document1.pdf."
+
+### How projects handle large knowledge bases
 
 You might wonder what happens when you upload a lot of content. Projects automatically scale to handle large amounts through a process called Retrieval Augmented Generation (RAG). At a high level, this means that Claude can automatically find and use the most relevant parts of your uploaded documents when answering, without you needing to tell it which file to look at.
 
-When your project knowledge approaches the context window limit, Claude seamlessly enables RAG mode. Instead of loading all project content into memory at once, Claude intelligently searches and retrieves only the most relevant information needed to answer your questions. This expands your project's capacity by up to 10x while maintaining response quality.
+When your project knowledge approaches the context window limit, Claude stops loading everything at once and instead searches your project's files, retrieving only what's relevant to your question. This expands your project's capacity by up to 10x while maintaining response quality.
 
 You'll see a visual indicator when your project is RAG-enabled, but the experience should feel the same—you can still upload documents, chat with Claude, and get context-aware responses.
 
-### Working within your project
+## Working within your project
 
 Once your project is set up, you can start chatting with Claude. Each conversation within the project automatically has access to your knowledge base and follows your project instructions.
 
-### Collaboration features
+## Collaboration features
 
 For users on Claude for Work (Team and Enterprise) plans, projects become even more powerful through collaboration features.
 
-#### Permission levels
+### Permission levels
 
 When sharing a project, you can choose from three permission levels:
 
-1. **Can view:** Members can see project contents, access knowledge, and chat—but can't make changes. Think of this as read-only access with discussion rights. 2. **Can edit:** Members have full collaboration power. They can modify instructions, update knowledge, manage other members, and actively contribute to the project. 3. **Owner:** Project creators control everything, including who sees the project. They can share with specific people or make projects visible to the entire organization.
+1. **Can view:** Members can see project contents, access knowledge, and chat—but can't make changes. Think of this as read-only access with discussion rights.
+2. **Can edit:** Members have full collaboration power. They can modify instructions, update knowledge, manage other members, and actively contribute to the project.
+3. **Owner:** Project creators control everything, including who sees the project. They can share with specific people or make projects visible to the entire organization.
 
-#### Sharing your project
+### Sharing your project
 
 To share a project:
 
@@ -109,7 +115,7 @@ To share a project:
 
 Team members will receive email notifications when you share a project with them, and they can find shared projects in their "Shared with me" tab.
 
-### Example projects to inspire you
+## Example projects to inspire you
 
 Not sure where to start? Here are some common project types across different functions:
 
@@ -119,7 +125,7 @@ Not sure where to start? Here are some common project types across different fun
 * **Event planning workspace:** Upload venue contracts, speaker bios, and attendee data. Claude can help generate run-of-show documents, attendee communications, and post-event reports that stay consistent with your event's theme.
 * **Job description generator:** Gather past job descriptions, team charters, and internal headcount request docs. Work with Claude to draft job descriptions that reflect your team's actual work and culture.
 
-### Best practices for projects
+## Best practices for projects
 
 To get the most out of projects:
 
@@ -129,7 +135,7 @@ To get the most out of projects:
 * **Name your documents descriptively.** (e.g., 'Q4-2025-Sales-Report.pdf' not 'report.pdf') and group related files together. Claude uses filenames and proximity to understand relationships between documents.
 * **Reference documents by name.** When asking questions, you can mention specific documents to help Claude focus its search: "Based on our Q3 report, what were the top customer concerns?"
 
-### Lesson reflection
+## Lesson reflection
 
 Before moving on, consider:
 
@@ -137,20 +143,11 @@ Before moving on, consider:
 * What documents do you expect you'll be re-uploading or re-explaining to Claude on a regular basis?
 * If you're on a team, are there projects that would benefit from shared knowledge and instructions?
 
-### What's next
+## What's next
 
-In the next lesson, we'll learn how to create mini-apps with Artifacts — actual outputs that Claude build and you can share right away.
+In the next lesson, we'll learn about artifacts — the designs, decks, documents, and interactive pages Claude builds with you, saved so you can keep editing and sharing them.
 
-For more information on getting started with projects, visit the [Anthropic Help Center](https://support.anthropic.com/en/articles/9519177-how-can-i-create-and-manage-projects).
-
-#### Feedback
-
-As you progress through the course, we'd love to hear from you about how you are using concepts from the course in your work and any feedback you may have. Share your feedback [here](https://forms.gle/sY9ou5fqZBd3TjHF8).
-
-#### Acknowledgments and license
-
-*Copyright 2025 Anthropic. All rights reserved.*
-
+For more information on getting started with projects, visit the [Anthropic Help Center](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects).
 <!-- youtube: GJ5jTgcbRHA -->
 
 [![Introduction To Projects](https://img.youtube.com/vi/GJ5jTgcbRHA/hqdefault.jpg)](https://www.youtube.com/watch?v=GJ5jTgcbRHA)
