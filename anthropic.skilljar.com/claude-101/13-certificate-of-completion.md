@@ -1,7 +1,5 @@
 <!-- https://anthropic.skilljar.com/claude-101/385349 -->
 
-# Claude 101 Certificate of Completion Quiz
+# Certificate of completion
 
-13 questions
-
-Start
+_(본문 없는 레슨: 퀴즈·과제처럼 추출할 텍스트가 없음)_

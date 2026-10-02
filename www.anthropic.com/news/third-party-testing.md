@@ -132,4 +132,16 @@ We believe that building out a third-party testing ecosystem is one of the best 
 
 [2] For example, if you openly release an AI model, it’s relatively easy for a third-party to fine-tune that model on a dataset of their own choosing. Such a dataset could be designed to optimize for a misuse (e.g, phishing or offensive hacking). If you were able to develop technology that made it very hard to fine-tune an AI model away from its original capability distribution, then it’d be easier to confidently release models without potentially compromising on downstream safety.
 
-Third-party testing as a key ingredient of AI policy \ Anthropic
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

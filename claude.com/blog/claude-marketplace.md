@@ -121,6 +121,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Oct 1, 2026
+
+### Customize Claude Code with mods
+
+Product announcements
+
+[Customize Claude Code with mods](#)Customize Claude Code with mods
+
+[Customize Claude Code with mods](https://claude.com/blog/claude-code-mods)Customize Claude Code with mods
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
 
 Sep 30, 2026
@@ -156,18 +168,6 @@ Product announcements
 [Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
 
 [Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
-
-Oct 20, 2025
-
-### Claude Code on the web
-
-Product announcements
-
-[Claude Code on the web](#)Claude Code on the web
-
-[Claude Code on the web](https://claude.com/blog/claude-code-on-the-web)Claude Code on the web
 
 ## Transform how your organization operates with Claude
 

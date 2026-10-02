@@ -55,7 +55,7 @@ Find UI & UX design references
 
 ### [TinyFish](https://claude.com/marketplace/connectors/tinyfish)
 
-Browser automation and web scraping with a cloud browser agent: automate websites, log in to portals, fill out and submit forms, scrape listings, prices and reviews, extract data, and monitor change
+Browser automation and web scraping with a cloud browser agent: automate websites, log in to portals, fill out and submit forms, scrape listings, prices and reviews, extract data, and monitor changes.
 
 [Add TinyFish in Claude (opens in new tab)](https://claude.ai/directory/e2dfb699-dcb9-4124-b190-9bb1f400adb4 "Add in Claude")
 

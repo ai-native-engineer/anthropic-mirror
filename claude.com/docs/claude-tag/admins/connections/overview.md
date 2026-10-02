@@ -34,7 +34,10 @@ Always connect a dedicated account for Claude (for example, `claude@yourcompany.
 
 GitHub is managed through the Claude GitHub App rather than a connection in this list; see [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github).
 Services marked (custom) have no preset button. Add them with **Custom tool** following their guide.
-The presets and guides cover common services, not the full set Claude can connect to. Any app with an API can be added as a custom connection or a custom MCP server. See [Connect a custom service](https://claude.com/docs/claude-tag/admins/connections/custom) for the credential types and form fields.
+
+##  Connect a service that has no guide
+
+You can add any app that has an API as a custom connection or a custom MCP server, including services this page has no guide for. See [Connect a custom service](https://claude.com/docs/claude-tag/admins/connections/custom) for the credential types and form fields.
 
 ##  When a connection fails after setup
 

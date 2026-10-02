@@ -19,3 +19,19 @@ Australia and New Zealand rank 4th and 8th globally in Claude.ai usage, relative
 We're also exploring opportunities to expand our compute capacity in Australia—a natural fit given our longstanding belief that democracies should lead in AI development, and one that aligns with the Australian government's own ambitions to become a trusted destination for sustainable AI infrastructure. We're exploring adding local capacity through our third-party partners in Australia, using infrastructure already in place. This is among the most consistent requests we hear from Australian enterprises and government agencies, particularly those with data residency requirements. Beyond that, we're in early conversations about longer-term infrastructure in the region, and we'll share more as those plans take shape.
 
 For information about career opportunities at our new Sydney office, visit [anthropic.com/careers](http://anthropic.com/careers).
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
+
+Sydney becomes Anthropic's fourth APAC office \ Anthropic

@@ -8,7 +8,7 @@ Aug 1, 2024
 
 Claude, Anthropic’s trusted AI assistant, is now available in Brazil. Starting today, consumers and businesses in Brazil will be able to access Claude via:
 
-* [Claude.ai](http://claude.ai/redirect/website.v1.ef7ee2a7-0261-465b-b6d6-e140a695a14b): The web-based version of our next-generation AI assistant.
+* [Claude.ai](http://claude.ai/redirect/website.v1.e24d206a-fb4d-4c9b-b538-ea2d4cd5741c): The web-based version of our next-generation AI assistant.
 * Claude mobile apps: Free [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude&pli=1) and [iOS](https://apps.apple.com/app/claude/id6473753684) apps, offering an intuitive mobile experience and access to our most powerful model, Claude 3.5 Sonnet.
 * [Anthropic API](https://www.anthropic.com/api): Enables developers to integrate Anthropic's state-of-the-art AI models into their own applications, websites, or services.
 
@@ -21,3 +21,17 @@ Paid users on the [Team plan](https://www.anthropic.com/team) get even more usag
 Anthropic prioritizes safety, privacy, and ethical AI development in Claude's design. Rigorous testing and training aim to reduce misuse, while a strong commitment to user privacy means generative models are not trained on user data without explicit permission.
 
 *Read this post in [Portuguese](https://cdn.sanity.io/files/4zrzovbb/website/ea3d47f547131c9fbed59bfe68ed8b1cbe747179.pdf).*
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

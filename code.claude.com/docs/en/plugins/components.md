@@ -11,7 +11,6 @@ export const PluginExplorer = ({children}) => {
     id: 'manifest',
     name: 'Manifest',
     path: '.claude-plugin/plugin.json',
-    required: "Required by Anthropic's directory",
     lines: [{
       depth: 0,
       kind: 'folder',
@@ -432,7 +431,7 @@ Each file is the smallest valid example of its format, there to show the shape r
 
 <PluginExplorer>
   <Piece id="manifest">
-    The [manifest](https://code.claude.com/docs/en/plugins/manifest-reference) is the `plugin.json` file in a plugin's `.claude-plugin/` directory. It contains the plugin's metadata and the `userConfig` values that Claude Code prompts the user for. Claude Code loads a plugin without one, but [Anthropic's directory](https://code.claude.com/docs/en/plugins/publish#submit-to-anthropics-directory) requires it. Inside the file, only `name` is required. In this one, `description` is the text users see for the plugin in `/plugin`, and `version` keeps users on that version until you change it:
+    The [manifest](https://code.claude.com/docs/en/plugins/manifest-reference) is the `plugin.json` file in a plugin's `.claude-plugin/` directory. It contains the plugin's metadata and the `userConfig` values that Claude Code prompts the user for. Claude Code loads a plugin without one. Inside the file, only `name` is required. In this one, `description` is the text users see for the plugin in `/plugin`, and `version` keeps users on that version until you change it:
 
     ```json theme={null}
     {
@@ -770,6 +769,8 @@ Save the script at `scripts/format.sh` and make it executable.
 Load the plugin and ask Claude to edit a file. A `PostToolUse` hook that exits 0 shows nothing in the transcript, so confirm it ran with [debug logging](https://code.claude.com/docs/en/hooks#debug-hooks) or by what the script itself changes.
 
 Hooks in `hooks/hooks.json` and in the `hooks` manifest key both load. For every event and its payload, see [Hook events](https://code.claude.com/docs/en/hooks#hook-events).
+
+To write hooks as JavaScript functions that run inside Claude Code and can draw in its interface, list a module file under a `modules` key in the same `hooks/hooks.json`. A plugin with one is a mod. See [Create a mod](https://code.claude.com/docs/en/plugins/mods/create).
 
 #### When plugin hooks fire
 

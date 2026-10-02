@@ -8,32 +8,32 @@ Bring HubSpot customer context into Claude. Search and update contacts, companie
 
 ## Tools
 
-* search\_crm\_objects
-* get\_user\_details
-* get\_properties
-* search\_properties
+* get\_aeo\_metrics
+* get\_campaign\_attribution\_reports
+* get\_content\_analytics\_report
+* get\_conversation\_channel\_metadata
 * get\_crm\_objects
-* render\_landing\_page\_ui
-* show\_feedback\_form
-* get\_content\_analytics
+* get\_marketing\_email\_analytics
 * get\_organization\_details
-* query\_crm\_data
-* search\_owners
-* Tool Guidance
-* manage\_crm\_objects
-* manage\_landing\_page
-* submit\_feedback
-* read\_landing\_page\_ui
-* Get campaign attribution reports
-* read\_campaign\_data
-* Search conversations
-* discover\_hubspot\_schema
-* Get conversation channel metadata
-* Get marketing email analytics
+* get\_properties
+* get\_user\_details
 * import-claude-design-from-url
+* manage\_aeo\_prompts
+* manage\_aeo\_recommendations
 * manage\_blog\_post
+* manage\_campaign\_objects
+* manage\_crm\_objects
+* manage\_custom\_pipelines
+* manage\_custom\_properties
+* manage\_landing\_page
+* manage\_marketing\_email
+* manage\_onboarding
+* manage\_saved\_reports
+* manage\_segment
+* manage\_website\_page
+* query\_crm\_data
 
-Show all 27 tools
+Show all 36 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 

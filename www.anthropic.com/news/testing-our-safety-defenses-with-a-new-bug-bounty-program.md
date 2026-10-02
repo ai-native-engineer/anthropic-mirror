@@ -24,4 +24,16 @@ The bug bounty program in this post has concluded. Participants will transition 
 
 To further advance AI safety, we are also accepting reports of universal jailbreaks for ASL-3 uses of concern (meaning those which elicit information related to biological threats) found on public platforms or forums, such as social media. For more information, see [here](https://docs.google.com/forms/d/e/1FAIpQLSfJAE2lJC0uKkkrKemR2ef_Q0yFFqiwjzcSE4lzMTdDQDuPcQ/viewform).
 
-Testing our safety defenses with a new bug bounty program \ Anthropic
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -41,9 +41,9 @@ For Team and Enterprise plans, an Owner or Primary Owner must enable these conne
 
 **Note:** When Claude reads a Google Drive file, it extracts text content only. Images embedded in documents are not processed.
 
-### Google Docs, Sheets, and Slides (beta)
+### Google Docs, Sheets, and Slides
 
-* **Edit files live in a pane beside the chat.** You and Claude can work in the same file at the same time.
+* **Edit files live in a pane beside the chat (beta).** You and Claude can work in the same file at the same time.
 * **Create new Google Docs, Sheets, and Slides files.**
 * **Read and work with comments and suggestions** in Google Docs.
 
@@ -202,7 +202,7 @@ On Team and Enterprise plans, Owners and Primary Owners can disable Google Works
 
 Browse all available connectors in the **[Connectors Directory](https://claude.ai/directory)**.
 
-* [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
 * [What are artifacts and how do I use them?](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them)
+* [Artifact usage promotion](https://support.claude.com/en/articles/17274727-artifact-usage-promotion)

@@ -696,7 +696,7 @@ PDT
 
 Talk
 
-Walden Robotics, Foundry Robotics, and Bedrock Robotics join Caitlin Kalinowski (Member of Technical Staff, Anthropic) to discuss how they're bringing AI into the physical world.
+Walden Robotics, Foundry Robotics, and Bedrock Robotics discuss how they're bringing AI into the physical world.
 
 Adrien Gaidon, PhD, Co-founder and Chief Strategy Officer, Walden Robotics · Adarsh Kulkarni, CEO, Foundry Robotics · Kevin Peterson, Co-founder and CTO, Bedrock Robotics
 
@@ -888,7 +888,7 @@ PDT
 
 Talk
 
-Walden Robotics, Foundry Robotics, and Bedrock Robotics join Caitlin Kalinowski (Member of Technical Staff, Anthropic) to discuss how they're bringing AI into the physical world.
+Walden Robotics, Foundry Robotics, and Bedrock Robotics discuss how they're bringing AI into the physical world.
 
 Adrien Gaidon, PhD, Co-founder and Chief Strategy Officer, Walden Robotics · Adarsh Kulkarni, CEO, Foundry Robotics · Kevin Peterson, Co-founder and CTO, Bedrock Robotics
 

@@ -31,3 +31,17 @@ We’re proud to share the addition of two new members to the Anthropic Economic
 
 * **Dr. Chiara Farronato,** Glenn and Mary Jane Creamer Associate Professor of Business Administration at Harvard Business School and co-Principal Investigator of the Platform Lab at the Digital Data Design Institute at Harvard (D^3). A fellow at the NBER and the CEPR, her research focuses on the growth and regulation of digital platforms.
 * **Dr. Pascual Restrepo**, Associate Professor of Economics at Yale University and a Faculty Research Fellow at the NBER. Restrepo’s research examines how technological change—particularly automation and artificial intelligence—affects labor markets, productivity, and inequality. His research combines empirical methods with macroeconomic and labor market theory.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

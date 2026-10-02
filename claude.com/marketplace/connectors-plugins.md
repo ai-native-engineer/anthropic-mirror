@@ -14,7 +14,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 877
+Show all 885
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -114,7 +114,7 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 ## Top plugins
 
-[Show all 340](https://claude.com/marketplace/plugins)
+[Show all 341](https://claude.com/marketplace/plugins)
 
 ### [Frontend Design](https://claude.com/marketplace/plugins/frontend-design)
 
@@ -144,6 +144,16 @@ Browser automation and end-to-end testing MCP server by Microsoft. Enables Claud
 
 Show all 7
 
+![](https://www.google.com/s2/favicons?domain=slicktrip.com&sz=96)
+
+### [SlickTrip](https://claude.com/marketplace/connectors/slicktrip)
+
+Anthropic verifiedTrending
+
+Search flights, hotels and seats, then get alerted the moment a price you are watching drops.
+
+[Add SlickTrip in Claude (opens in new tab)](https://claude.ai/directory/c1cba93e-98f4-4146-8afa-e9551a789823 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
 ### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
@@ -153,16 +163,6 @@ Anthropic verifiedTrending
 Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
-
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
-
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
-
-Anthropic verifiedTrending
-
-Faites vos courses rapidement
-
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
 
 ![](https://mcp.govola.com/icon.png)
 
@@ -174,25 +174,15 @@ Search flight offers
 
 [Add GoVola in Claude (opens in new tab)](https://claude.ai/directory/cb899a5b-01b8-41a3-8c39-c204acb1bd78 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=slicktrip.com&sz=96)
+![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
 
-### [SlickTrip](https://claude.com/marketplace/connectors/slicktrip)
-
-Anthropic verifiedTrending
-
-Search flights, hotels and seats, then get alerted the moment a price you are watching drops.
-
-[Add SlickTrip in Claude (opens in new tab)](https://claude.ai/directory/c1cba93e-98f4-4146-8afa-e9551a789823 "Add in Claude")
-
-![](https://app.paxton.ai/images/paxton-favicon.png)
-
-### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
+### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
 
 Anthropic verifiedTrending
 
-Research U.S. law in Claude—with citations you can open and verify.
+Faites vos courses rapidement
 
-[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
+[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
 
 ![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
@@ -214,9 +204,29 @@ Connect AI assistants to live crypto markets, prediction markets, your trading a
 
 [Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
+![](https://app.paxton.ai/images/paxton-favicon.png)
+
+### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
+
+Anthropic verifiedTrending
+
+Research U.S. law in Claude—with citations you can open and verify.
+
+[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
+
 ## New connectors
 
-Show all 4
+Show all 6
+
+![](https://onchaindiligence.com/anthropic-icon.png)
+
+### [OnChainDiligence](https://claude.com/marketplace/connectors/onchaindiligence)
+
+Anthropic verifiedNew
+
+Inspect autonomous payments before execution and independently verify evidence afterward.
+
+[Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
@@ -248,6 +258,16 @@ Search flights, hotels and seats, then get alerted the moment a price you are wa
 
 [Add SlickTrip in Claude (opens in new tab)](https://claude.ai/directory/c1cba93e-98f4-4146-8afa-e9551a789823 "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=financialdatasets.ai&sz=96)
+
+### [Financial Datasets](https://claude.com/marketplace/connectors/financial-datasets)
+
+Anthropic verifiedNew
+
+Access stock market data
+
+[Add Financial Datasets in Claude (opens in new tab)](https://claude.ai/directory/c6bd5a29-89cc-4b2b-a5e4-3b58363c58c1 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=brek.com&sz=96)
 
 ### [Brek - Hotel Wholesale Booking](https://claude.com/marketplace/connectors/brek-hotel-wholesale-booking)
@@ -260,7 +280,7 @@ Search and compare hotels with public and private wholesale rates.
 
 ## All connectors
 
-877 connectors
+885 connectors
 
 ![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
@@ -320,14 +340,6 @@ Connect your Notion workspace to search, update, and power workflows across tool
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
-
-### [Figma](https://claude.com/marketplace/connectors/figma)
-
-Generate diagrams and better code from Figma context
-
-[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
-
 ![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
 
 ### [Slack](https://claude.com/marketplace/connectors/slack)
@@ -336,15 +348,13 @@ Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
 
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
+### [Figma](https://claude.com/marketplace/connectors/figma)
 
-Anthropic verifiedTrending
+Generate diagrams and better code from Figma context
 
-Faites vos courses rapidement
-
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
 ![](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg?w=128&fit=max&auto=format)
 
@@ -362,37 +372,15 @@ Connect to Asana to coordinate tasks, projects, and goals
 
 [Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-![](https://assets.claude.com/ed172e953866fead6b10ab99ba870471a1ad4053.svg?w=128&fit=max&auto=format)
+![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
 
-### [Linear](https://claude.com/marketplace/connectors/linear)
+### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
 
-Manage issues, projects & team workflows in Linear
+Anthropic verifiedTrending
 
-[Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
+Faites vos courses rapidement
 
-![](https://www.google.com/s2/favicons?domain=thelinks.ai&sz=96)
-
-### [Links Connect](https://claude.com/marketplace/connectors/links-connect)
-
-Live financial data. Let Claude do the rest.
-
-[Add Links Connect in Claude (opens in new tab)](https://claude.ai/directory/cb34f851-d450-4cd8-8197-c292bbdcb2f2 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
-
-### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
-
-Design, combine, and edit with Adobe pro tools
-
-[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
-
-### [monday.com](https://claude.com/marketplace/connectors/monday)
-
-monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
-
-[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
 
 ![](https://www.gemini.com/favicon.ico)
 
@@ -403,6 +391,30 @@ Anthropic verifiedTrending
 Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
 [Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
+
+![](https://assets.claude.com/ed172e953866fead6b10ab99ba870471a1ad4053.svg?w=128&fit=max&auto=format)
+
+### [Linear](https://claude.com/marketplace/connectors/linear)
+
+Manage issues, projects & team workflows in Linear
+
+[Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
+
+### [monday.com](https://claude.com/marketplace/connectors/monday)
+
+monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
+
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
+
+### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
+
+Design, combine, and edit with Adobe pro tools
+
+[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
@@ -444,13 +456,13 @@ Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
-![](https://assets.claude.com/1f1b0d51c9561a9bd4de38331a65b5af8069e0a8.svg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=thelinks.ai&sz=96)
 
-### [Spotify](https://claude.com/marketplace/connectors/spotify)
+### [Links Connect](https://claude.com/marketplace/connectors/links-connect)
 
-Music and podcast recommendations, just for you.
+Live financial data. Let Claude do the rest.
 
-[Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
+[Add Links Connect in Claude (opens in new tab)](https://claude.ai/directory/cb34f851-d450-4cd8-8197-c292bbdcb2f2 "Add in Claude")
 
 ![](https://assets.claude.com/5d13b21d7329cefe058a60e9df0455a8594d3f6e.jpg?w=128&fit=max&auto=format)
 
@@ -459,5 +471,13 @@ Music and podcast recommendations, just for you.
 Search, recap, and act on your Zoom meetings
 
 [Add Zoom for Claude in Claude (opens in new tab)](https://claude.ai/directory/1ed68a66-c371-4d26-82dc-28e6c260ece8 "Add in Claude")
+
+![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
+
+### [Vercel](https://claude.com/marketplace/connectors/vercel)
+
+Analyze, debug, and manage projects and deployments
+
+[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
 
 View more

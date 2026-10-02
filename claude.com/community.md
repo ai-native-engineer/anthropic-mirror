@@ -92,6 +92,18 @@ October 2, 2026
 
 [Tokyo | Claude Meetup for Healthcare Professionals](https://luma.com/claude-urwj)Tokyo | Claude Meetup for Healthcare Professionals
 
+IT
+
+Milan | Claude Impact Lab
+
+Milano, IT
+
+October 3, 2026
+
+SmartCityLab Milano, Via Giuseppe Ripamonti, 88, 20141 Milano MI, Italy
+
+[Milan | Claude Impact Lab](https://luma.com/claude-gs6b)Milan | Claude Impact Lab
+
 IN
 
 Calicut | Claude Impact Lab - Superhuman Lab
@@ -116,21 +128,9 @@ REEF Ocean Exploration Center for Marine Conservation, 98380 Overseas Hwy, Key L
 
 [Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop](https://luma.com/claude-5bay)Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop
 
-SE
-
-Stockholm | Claude for Freelancers & Self-Employed
-
-Stockholm, SE
-
-October 5, 2026
-
-Kvadrat Holding, Kungsbroplan 3A, 112 27 Stockholm, Sweden
-
-[Stockholm | Claude for Freelancers & Self-Employed](https://luma.com/claude-2qhw)Stockholm | Claude for Freelancers & Self-Employed
-
 [View more](https://claude.com/community?46f68bc1_page=2)
 
-1 / 7
+1 / 8
 
 No posts for those filters
 

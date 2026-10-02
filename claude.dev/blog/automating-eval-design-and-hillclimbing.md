@@ -31,7 +31,11 @@ Well designed evaluations have a few common elements (Figure 1):
 3. **There is “passable” headroom at the frontier**. The most capable model at the highest effort should be well below 100% on the evaluation, otherwise you can’t reliably judge how changes impact performance. Importantly, the gap should not be explained by impossible or ambiguous tasks: a common tell is that a task fails every evaluation run, regardless of the number of replicates. A good task is one where two domain experts would reach the same verdict and everything the grader checks is stated in the task.
 4. **Low run-to-run variance**. High variance is often due to poorly designed, ambiguous tasks or a grader that produces different verdicts on identical output. Variance can also hide in the configuration. For example, effort may not be applied consistently. Also, the environment can affect the results of the evaluation: leftover state from an earlier trial (a file, a git history) can hand the agent the answer.
 
-![Score against action tokens per attempt for a smaller, a mid-size and the most capable model at low, medium and high effort. Numbered callouts mark the four elements: scores rise with a more capable model and with higher effort, the top line stays below a perfect score, and the error bars stay tight.](https://claude.dev/media/290b7cbf644ebcdff15e6a143aaf6a1a049d7164dadc7cd5c7bd80572ac85bc6.png)
+Score against tokens spent
+
+png
+
+Three model sizes at three effort settings, illustrative
 
 **FIG 1**The four elements of a good eval
 
@@ -153,7 +157,11 @@ The hillclimb first audited the prompt, [removing](https://claude.com/blog/reduc
 
 Part of that saving comes from [Opus 5.5's pricing](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/): input and output tokens cost 20% less than on Opus 4.8, and cache reads cost 60% less. Because Opus 5.5 cleared the bar, the hillclimb then stepped down a tier to check whether a cheaper model could clear it too. Sonnet 5 on low effort scored about the same, 88.9%, at about half the cost, 1 cent per ticket (Figure 8).
 
-![Decision accuracy on the train split against cost per ticket, tracing the adopted path: from the Opus 4.8 high-effort baseline at 74.4% and just over 4¢, to Opus 5.5 at low effort, to Sonnet 5 at low effort near 1¢, and finally Sonnet 5 with an improved prompt near 100%.](https://claude.dev/media/30294a004560ab4b287482ef536a7fdacb9af75c3599e2a5174db8522c189f5e.png)
+The customer support benchmark
+
+png
+
+Four configurations along the adopted path
 
 **FIG 8**Cost-focused hillclimbing.
 
@@ -167,7 +175,11 @@ On our evaluation, the skill started at 66%. We gave the hillclimber access to d
 
 Adding sections for them in the skill improved performance to 74%. It then found errors in C# and Java type tables, boosting performance to 77%.
 
-![Pass rate across hillclimbing rounds on the claude-api skill’s eval, rising from 66.1% at baseline to 87.9% at round 24. Shaded phases mark the work: adding missing sections and type tables, then fixing how the skill tells Claude to write code, then fixing graders plus more skill edits.](https://claude.dev/media/5a2d1629b9d790991737608384accbb5b175bbb147c569dc26b54fd603ef5ac2.png)
+The claude-api skill eval
+
+png
+
+From 66.1% to 87.9% in three phases of work
 
 **FIG 9**Performance-focused hillclimbing.
 
@@ -178,12 +190,29 @@ After the score stalled for two rounds, Claude analyzed the remaining failures a
 
 ## GETTING STARTED
 
+**Note:** Run `claude update` first. The claude-api skill ships inside Claude Code, so updating gets you the latest version of these commands.
+
+CODEShellCopy
+
+```
+claude update
+```
+
+Then, in Claude Code:
+
+PROMPTCopy
+
+```
+/claude-api build-eval
+/claude-api hillclimb
+```
+
 These sub-commands can be used directly in Claude Code via the [claude-api skill](https://github.com/anthropics/skills/tree/main/skills/claude-api):
 
 Run `/claude-api build-eval` if you want to generate an evaluation set for a particular problem. You can steer it by providing access to examples (e.g., traces). Claude will employ the guidance shared in this article to design the examples and grader, and ensure you approve the examples and the grader.
 
 Run `/claude-api hillclimb` if you have an evaluation and want Claude to improve on this, guided by your goal (e.g., better performance, or lower cost while performance holds). Claude will employ the guidance shared in this article to check for overfitting while climbing and check for bugs in the eval itself, such as a grader that marks a correct-looking answer wrong or a harness error, both before the first round and whenever the score stalls.
 
-*With special thanks to Misha Khalman for skill development. With thanks to Misha Khalman, Michael Segner, Matt Bell, and Matt Thanabalan for reviews, contributions, and product support.*
+*With special thanks to Misha Khalman for skill development. With thanks to Misha Khalman, Michael Segner, Matt Bell, Matt Thanabalan, and Punit Shah for reviews, contributions, and product support.*
 
-[Sep 28, 2026Building with Claude Sonnet 5.59 min](https://claude.dev/blog/building-with-claude-sonnet-5-5/)[Sep 25, 2026Using Claude Code: Spending your effort8 min](https://claude.dev/blog/spending-your-effort/)[Sep 25, 2026What a task costs on Opus 5.521 min](https://claude.dev/blog/what-a-task-costs-on-opus-5-5/)[Sep 23, 2026How we made claude.ai 3x faster in two weeks15 min](https://claude.dev/blog/how-we-made-claude-ai-faster/)[Sep 22, 2026Getting the most out of Opus 5.5 in Claude and Claude Code9 min](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/)
+[Oct 01, 2026Getting started with Claude Code mods11 min](https://claude.dev/blog/getting-started-with-claude-code-mods/)[Sep 28, 2026Building with Claude Sonnet 5.59 min](https://claude.dev/blog/building-with-claude-sonnet-5-5/)[Sep 25, 2026Using Claude Code: Spending your effort8 min](https://claude.dev/blog/spending-your-effort/)[Sep 25, 2026What a task costs on Opus 5.521 min](https://claude.dev/blog/what-a-task-costs-on-opus-5-5/)[Sep 23, 2026How we made claude.ai 3x faster in two weeks15 min](https://claude.dev/blog/how-we-made-claude-ai-faster/)

@@ -48,17 +48,6 @@ We are entering a pivotal time for cybersecurity. AI is compressing the timeline
 
 [Claude Security](https://youtu.be/0SgCiUfoYo8) can be accessed directly from the Claude.ai sidebar, or at [claude.ai/security](http://claude.ai/security). To begin, select one of your repositories (or scope to a specific directory or branch), then start a scan.
 
-<!-- yt-inline:0SgCiUfoYo8 -->
-[![YouTube 0SgCiUfoYo8](https://img.youtube.com/vi/0SgCiUfoYo8/hqdefault.jpg)](https://www.youtube.com/watch?v=0SgCiUfoYo8)
-
-<details>
-<summary>자막: YouTube 0SgCiUfoYo8</summary>
-
-_(자막 없음)_
-
-</details>
-
-
 While scanning, Claude reasons about code much like a security researcher. Rather than finding vulnerabilities by searching for known patterns, Claude seeks to understand how components interact across files and modules, traces data flows, and reads the source code.
 
 Once complete, Claude provides a detailed explanation of each of its findings, including its confidence that the vulnerability is real, how severe it is, its likely impact, and how it can be reproduced. It also generates instructions for a targeted patch, which users can open in Claude Code on the Web to work through the fix in context.
@@ -151,6 +140,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Oct 1, 2026
+
+### Customize Claude Code with mods
+
+Product announcements
+
+[Customize Claude Code with mods](#)Customize Claude Code with mods
+
+[Customize Claude Code with mods](https://claude.com/blog/claude-code-mods)Customize Claude Code with mods
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
 
 Sep 30, 2026
@@ -186,18 +187,6 @@ Product announcements
 [Claude Marketplace: one place to discover plugins, agents, and services from our partners](#)Claude Marketplace: one place to discover plugins, agents, and services from our partners
 
 [Claude Marketplace: one place to discover plugins, agents, and services from our partners](https://claude.com/blog/claude-marketplace)Claude Marketplace: one place to discover plugins, agents, and services from our partners
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
-
-Sep 24, 2026
-
-### Claude Tag now supports personal connectors in channels
-
-Product announcements
-
-[Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
-
-[Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
 
 ## Transform how your organization operates with Claude
 

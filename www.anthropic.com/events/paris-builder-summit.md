@@ -168,7 +168,7 @@ Agenda details coming soon.
 
 ###
 
-Agenda details coming soon.
+Check back for additional agenda items.
 
 ###
 

@@ -65,3 +65,17 @@ Lastly, our Responsible Scaling, Alignment Stress Testing, and Compliance teams 
 * In addition to providing regular updates to our Board of Directors and the [Long-Term Benefit Trust](https://www.anthropic.com/news/the-long-term-benefit-trust), we have shared evaluations reports and quarterly updates on progress towards future mitigations to all employees. Encouraging employees to feel ownership over the RSP and share areas they would like to see us improve the policy has been immensely helpful, with staff drawing on diverse backgrounds to provide valuable insights. We also recently implemented a non-compliance reporting policy that allows employees to anonymously report concerns to our Responsible Scaling Officer about our implementation of our RSP.
 
 Ensuring future generations of frontier models are trained and deployed responsibly will require serious investment from both Anthropic and others across industry and governments. Our Responsible Scaling Policy has been a powerful rallying point with many teams' objectives over the past months connecting directly back to the major workstreams above. The progress we have made on operationalizing safety during this period has necessitated significant engagement from teams across Anthropic, and there is much more work to be done. Our goal in sharing these reflections ahead of the upcoming AI Seoul Summit is to continue the discussion on creating thoughtful, empirically-grounded frameworks for managing risks from frontier models. We are eager to see more companies adopt their own frameworks and share their own experiences, leading to the development of shared best practices and informing future efforts by governments.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

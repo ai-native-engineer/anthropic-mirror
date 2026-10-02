@@ -1,7 +1,5 @@
 <!-- source: https://claude.com/customers/grab -->
 
-[Skip to main content](#main-content)
-
 Case study | Claude Platform
 
 # Grab scales personalized merchant support across Southeast Asia with Claude

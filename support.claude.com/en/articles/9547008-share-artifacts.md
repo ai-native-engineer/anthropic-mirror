@@ -135,7 +135,7 @@ On Team and Enterprise plans, owners can also remove outside access to individua
 
 ## Open an artifact you were invited to
 
-1. Open the email from Claude ([[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#97f9f8bae5f2e7fbeebaf4fbf6e2f3f2d7faf6fefbb9f6f9e3ffe5f8e7fef4b9f4f8fa)). It shows the email address of the person who invited you and what access you'll have.
+1. Open the email from Claude ([[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#b7d9d89ac5d2c7dbce9ad4dbd6c2d3d2f7dad6dedb99d6d9c3dfc5d8c7ded499d4d8da)). It shows the email address of the person who invited you and what access you'll have.
 2. Click "View invitation" and sign in to Claude in a web browser with the address the invitation was sent to.
 3. Click "Accept and open."
 

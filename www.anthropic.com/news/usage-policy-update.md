@@ -43,3 +43,17 @@ As Claude usage has expanded across enterprise use cases, we’re clarifying tha
 ## Looking ahead
 
 We view our Usage Policy as a living document, evolving as AI risks themselves evolve. We will continue to work within Anthropic and with external policymakers, subject matter experts, and civil society to evaluate our policies on an ongoing basis.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

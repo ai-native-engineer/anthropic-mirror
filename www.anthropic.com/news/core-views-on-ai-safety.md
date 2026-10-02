@@ -196,3 +196,17 @@ Anthropic is taking an empirically-driven approach to AI safety. Some of the key
 3. Extrapolating progress in AI capabilities from increases in the total amount of computation used for training is not an exact science and requires some judgment. We know that the capability jump from GPT-2 to GPT-3 resulted mostly from about a 250x increase in compute. We would guess that another 50x increase separates the original GPT-3 model and state-of-the-art models in 2023. Over the next 5 years we might expect around a 1000x increase in the computation used to train the largest models, based on trends in compute cost and spending. If the scaling laws hold, this would result in a capability jump that is significantly larger than the jump from GPT-2 to GPT-3 (or GPT-3 to Claude). At Anthropic, we’re deeply familiar with the capabilities of these systems and a jump that is this much larger feels to many of us like it could result in human-level performance across most tasks. This requires that we use intuition – albeit informed intuition – and is therefore an imperfect method of estimating progress in AI capabilities. But the underlying facts including (i) the compute difference between these two systems, (ii) the performance difference between these two systems, (iii) scaling laws that allow us to project out to future systems, and (iv) trends in compute cost and spending are available to anyone and we believe they jointly support a greater than 10% likelihood that we will develop broadly human-level AI systems within the next decade. In this coarse analysis we ignore algorithmic progress and the compute numbers are best estimates we don’t provide details for. However, the vast majority of internal disagreement here is in the intuition for extrapolating subsequent capabilities jumps given an equivalent compute jump.
 4. For example, in AI research, for a long time it was widely assumed on theoretical grounds that local minima might prevent neural networks from learning, while many qualitative aspects of their generalization properties, such as the widespread existence of adversarial examples, came as something of a mystery and surprise.
 5. Effective safety research on large models doesn't just require nominal (e.g. API) access to these systems – to do work on interpretability, fine tuning, and reinforcement learning it’s necessary to develop AI systems internally at Anthropic.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

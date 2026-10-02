@@ -119,5 +119,5 @@ By following these best practices, you can make the most efficient use of your C
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
-* [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
+* [Artifact usage promotion](https://support.claude.com/en/articles/17274727-artifact-usage-promotion)

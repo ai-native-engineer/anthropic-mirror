@@ -22,6 +22,8 @@ We focused on four journeys that make up 95% of user activity. At the 75th perce
 
 Core user journeys, p75
 
+png
+
 Real user monitoring, per platform and product, August 13 vs. August 27
 
 We used [Claude Tag](https://claude.com/product/tag) (beta), running an internal research model roughly comparable to Opus 5.5. Claude found bottlenecks, built benchmarks, shipped improvements, and watched every deploy. We steered by setting goals, making tradeoffs, and approving every change. With that approach, we merged more than three thousand changes without a single customer-facing incident or rollback. This post covers what we shipped, how we measured it, and the loop we built with Claude to do it safely.
@@ -86,6 +88,8 @@ An hour later it had cut instructions on both paths by 48% and 31%, and wall-clo
 
 Does the count track the clock?
 
+png
+
 CPU instructions vs. wall-clock time
 
 That led us to the central lesson of the sprint. **With Claude, measuring something makes it tractable.**
@@ -104,6 +108,8 @@ All of this ran in the same Slack channel, with multiple engineers and Claude ja
 6. Then it went looking for the next slow spot in the same journey.
 
 One thread in the loop
+
+png
 
 Someone opens a thread; Claude takes it from there
 
@@ -128,6 +134,8 @@ Every measurement found something to improve. Claude ran a React hook census and
 We rarely knew where a thread would lead. In a sweep for CPU hitches, Claude noticed that highlighting a finished code block could freeze the page for about a second. It dug in the lab and found the culprit: em dashes. If a reply’s markdown contained any non-Latin-1 character, like an em dash or a curly quote, V8 stored the entire string as UTF-16, which put every syntax-highlighting regex on its slower two-byte path. Claude fixed it with a twenty-line change to copy each code block into a one-byte string before highlighting it.
 
 Highlighting the first code block on a page
+
+png
 
 Main-thread blocking time, before and after the fix
 
@@ -254,5 +262,3 @@ Today, claude.ai and the desktop app are about 3x faster than they were in early
 When we shared the results internally, Issac put it best: “You could not have convinced me this was possible even six months ago.” We expect to keep working this way, one thread at a time, at any scale. The channel’s still going.
 
 *With contributions from Alfred Xing, Anthony Morris, Benjamin Pasero, Chase McCoy, Joshua N., Luke Deen Taylor, Marius Schulz, and Shelley Vohr. Special thanks to Boris Cherny for encouraging us to be more ambitious.*
-
-[Sep 28, 2026Automating eval design and hillclimbing with Claude12 min](https://claude.dev/blog/automating-eval-design-and-hillclimbing/)[Sep 28, 2026Building with Claude Sonnet 5.59 min](https://claude.dev/blog/building-with-claude-sonnet-5-5/)[Sep 25, 2026Using Claude Code: Spending your effort8 min](https://claude.dev/blog/spending-your-effort/)[Sep 25, 2026What a task costs on Opus 5.521 min](https://claude.dev/blog/what-a-task-costs-on-opus-5-5/)[Sep 22, 2026Getting the most out of Opus 5.5 in Claude and Claude Code9 min](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/)

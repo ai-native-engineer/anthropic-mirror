@@ -47,14 +47,6 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
-
-### [Dropbox](https://claude.com/marketplace/connectors/dropbox)
-
-Search, organize, and take action on your Dropbox content
-
-[Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
-
 ![](https://assets.claude.com/5a174f719f8a4f692a39b4f08a707f7284021f63.svg?w=128&fit=max&auto=format)
 
 ### [Docusign](https://claude.com/marketplace/connectors/docusign)
@@ -62,6 +54,14 @@ Search, organize, and take action on your Dropbox content
 Intelligent, secure contract management by Docusign
 
 [Add Docusign in Claude (opens in new tab)](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd "Add in Claude")
+
+![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
+
+### [Dropbox](https://claude.com/marketplace/connectors/dropbox)
+
+Search, organize, and take action on your Dropbox content
+
+[Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
 
 ![](https://app.paxton.ai/images/paxton-favicon.png)
 
@@ -81,10 +81,10 @@ Timekeeping and firm intelligence
 
 [Add PointOne in Claude (opens in new tab)](https://claude.ai/directory/08c6eea4-6ecb-4e0e-8487-97eed2241965 "Add in Claude")
 
-![](https://cdn.prod.website-files.com/69d3ac38e8e442c9fce520b4/6a0742ee5d1bde6d18668e0b_Frame.png)
+![](https://assets.claude.com/1a01745b4fbcfb8d75f0f2a761024720abbd6cb2.jpg?w=128&fit=max&auto=format)
 
-### [General Legal](https://claude.com/marketplace/connectors/general-legal)
+### [Harvey](https://claude.com/marketplace/connectors/harvey)
 
-Submit contracts for attorney review, answer their questions, and get redlined documents back — without leaving Claude.
+Answer legal queries, search vaults, and research
 
-[Add General Legal in Claude (opens in new tab)](https://claude.ai/directory/dba73da3-6015-4b3e-8acc-0ff38e2c511b "Add in Claude")
+[Add Harvey in Claude (opens in new tab)](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755 "Add in Claude")

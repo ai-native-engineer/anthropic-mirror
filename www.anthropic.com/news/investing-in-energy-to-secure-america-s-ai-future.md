@@ -18,3 +18,17 @@ Anthropic CEO Dario Amodei shared these priorities today at the inaugural [Penns
 These investments are just the beginning. We also believe that AI will be a powerful tool to support emissions reductions, advance clean energy innovation, and streamline efficiencies. We plan to continue making investments in this area and are actively looking to partner with organizations who are working to study and find solutions to reduce negative environmental impacts.
 
 By partnering across government, industry, and communities, we can build the foundation for decades of American leadership in AI—creating jobs, strengthening our energy independence, and ensuring the transformative benefits of AI are realized in the United States. We look forward to continuing to work with the U.S. government and other industry partners towards achieving this goal.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

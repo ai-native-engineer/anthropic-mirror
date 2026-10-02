@@ -8,6 +8,10 @@
 
 [Skip to main content](#content-area)
 
+2026.10.01.1
+
+* Added a **New members start here** option to self-managed seat tiers, so you can pick the tier new members start on.
+
 2026.09.29.1
 
 * Changed directory sync so that a member who leaves a group mapped to a self-managed seat tier with no seat limit keeps that seat tier until another group’s mapping or an admin moves them.

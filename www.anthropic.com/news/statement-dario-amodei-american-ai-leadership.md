@@ -43,3 +43,17 @@ Despite our track record of communicating frequently and transparently about our
 Anthropic is committed to constructive engagement on matters of public policy. When we agree, we say so. When we don’t, we propose an alternative for consideration. We do this because we are a public benefit corporation with a mission to ensure that AI benefits everyone, and because we want to maintain America’s lead in AI. Again, we believe we share those goals with the Trump administration, both sides of Congress, [and the public](https://news.gallup.com/poll/694685/americans-prioritize-safety-data-security.aspx). We are going to keep being honest and straightforward, and will stand up for the policies we believe are right. The stakes of this technology are too great for us to do otherwise.
 
 In his [recent remarks](https://www.newsmax.com/newsmax-tv/vance-artificial-intelligence-ai/2025/10/16/id/1230684/), the Vice President also said of AI, "Is it good or is it bad, or is it going to help us or going to hurt us? The answer is probably both, and we should be trying to maximize as much of the good and minimize as much of the bad." That perfectly captures our view. We're ready to work in good faith with anyone of any political stripe to make that vision a reality.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

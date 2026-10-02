@@ -99,3 +99,17 @@ As we continue to develop and deploy powerful AI systems, we remain committed to
 In all the above mentioned cases we banned the accounts associated with the violative activity. In addition we are always improving our detecting methods to detect adversarial use of our models, each case of abuse described fed into our broader set of controls to prevent and more quickly detect and prevent adversarial use of our models.
 
 We hope this report provides insights our industry, governments, and the wider research community can use to strengthen the AI industry’s collective defenses against online abuses.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -81,3 +81,17 @@ The Anthropic board chose these initial Trustees after a year-long search and in
 *In December 2023, Jason Matheny stepped down from the Trust to preempt any potential conflicts of interest that might arise with* [*RAND Corporation's*](https://www.rand.org/) *policy-related initiatives. Paul Christiano stepped down in April 2024 to take a new role as the Head of AI Safety at the* *[U.S. AI Safety Institute](https://www.nist.gov/news-events/news/2024/04/us-commerce-secretary-gina-raimondo-announces-expansion-us-ai-safety). In January 2026, Kanika Bahl stepped down to begin a new nonprofit, the* *[AI Access Initiative](https://www.aiaccessinitiative.org/), and Zach Robinson stepped down to focus on non-profit and philanthropic work.*
 
 *Richard Fontaine, CEO of the Center for a New American Security, joined the LTBT in May 2025; Mariano-Florentino (Tino) Cuéllar, President of the Carnegie Endowment for International Peace, joined in January 2026; and Dr. Ben Bernanke, Distinguished Fellow at the Brookings Institution and former Chair of the Federal Reserve, joined in July 2026.*
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

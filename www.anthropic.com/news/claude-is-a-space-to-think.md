@@ -10,46 +10,6 @@ There are many good places for advertising. A conversation with Claude is not on
 
 Advertising drives competition, helps people discover new products, and allows services like email and social media to be offered for free. We’ve run our own [ad campaigns](https://www.youtube.com/watch?v=FDNkDBNR7AM), and our AI models have, in turn, helped many of our customers in the advertising industry.
 
-<!-- yt-inline:FDNkDBNR7AM -->
-[![Keep thinking with Claude](https://img.youtube.com/vi/FDNkDBNR7AM/hqdefault.jpg)](https://www.youtube.com/watch?v=FDNkDBNR7AM)
-
-<details>
-<summary>자막: Keep thinking with Claude (1:30)</summary>
-
-[00:00]
-There's never been a worse time problem.
-There's never been a worse night
-problem. There's never been a worse
-night problem. There's never been a
-worse night. There's never been a worse
-time problem. There's never been a worse
-time. Problem has never
-been a better time. A better time to
-have a problem.
-To be stuck, to be overwhelmed, to be
-impatient,
-to be out of ideas or
-out of your depth,
-out of breath.
-There's never been a better time to have
-a medical condition. Just look at the
-research being done. To have no
-qualifications, no resources,
-to not understand, feel insignificant,
-
-[00:01]
-to feel restless.
-Right now, there really has never been a
-better time.
-[Music]
-[Applause]
-[Music]
-Heat. Heat.
-[Music]
-
-</details>
-
-
 But including ads in conversations with Claude would be incompatible with what we want Claude to be: a genuinely helpful assistant for work and for deep thinking.
 
 We want Claude to act unambiguously in our users’ interests. So we’ve made a choice: Claude will remain ad-free. Our users won’t see “sponsored” links adjacent to their conversations with Claude; nor will Claude’s responses be influenced by advertisers or include third-party product placements our users did not ask for.
@@ -95,3 +55,17 @@ We want our users to trust Claude to help them keep thinking—about their work,
 Our experience of using the internet has made it easy to assume that advertising on the products we use is inevitable. But open a notebook, pick up a well-crafted tool, or stand in front of a clean chalkboard, and there are no ads in sight.
 
 We think Claude should work the same way.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

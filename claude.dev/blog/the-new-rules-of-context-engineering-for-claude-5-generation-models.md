@@ -4,6 +4,8 @@
 
 We removed over 80% of Claude Code's system prompt for more advanced models. How to apply the lessons we learned to your own context engineering in Claude Code and with your own agents.
 
+Thariq Shihipar
+
 Jul 24, 2026
 
 7 min

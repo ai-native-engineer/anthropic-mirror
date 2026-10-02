@@ -43,3 +43,17 @@ In the US, our partnership will span three areas: developing portable records of
 The Gates Foundation has decades of experience and a track record of measurable impact in global health, life sciences, education, and economic mobility. We’re looking forward to working with them and their partners to set up these programs and apply Claude to real-world problems.
 
 As we scale our partnership over the coming years—and as we ratchet up our work on beneficial deployments more generally—we expect to learn much more about how Claude can make a difference. We intend to publish our thinking and decision-making as we do.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

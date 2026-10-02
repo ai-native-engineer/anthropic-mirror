@@ -2,7 +2,7 @@
 
 # Claude Fable 5 one-time free credits promotion
 
-Updated over a month ago
+September 1, 2026
 
 Table of contents
 

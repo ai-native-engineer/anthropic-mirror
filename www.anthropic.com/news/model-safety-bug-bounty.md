@@ -26,3 +26,17 @@ This model safety bug bounty initiative will begin as invite-only in partnership
 In the meantime, we actively seek any reports on model safety concerns to continually improve our current systems. If you've identified a potential safety issue in our current systems, please report it to usersafety@anthropic.com with sufficient details for us to replicate the issue. For more information, please refer to our [Responsible Disclosure Policy.](https://www.anthropic.com/responsible-disclosure-policy)
 
 This initiative aligns with commitments we’ve signed onto with other AI companies for developing responsible AI such as the [Voluntary AI Commitments](https://www.whitehouse.gov/wp-content/uploads/2023/09/Voluntary-AI-Commitments-September-2023.pdf) announced by the White House and the [Code of Conduct for Organizations Developing Advanced AI Systems](https://www.mofa.go.jp/files/100573473.pdf) developed through the G7 Hiroshima Process. Our goal is to help accelerate progress in mitigating universal jailbreaks and strengthen AI safety in high-risk areas. If you have expertise in this area, please join us in this crucial work. Your contributions could play a key role in ensuring that as AI capabilities advance, our safety measures keep pace.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

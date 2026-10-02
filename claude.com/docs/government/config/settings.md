@@ -126,7 +126,7 @@ The **Claude Desktop home** setting chooses what members see in Claude Desktop. 
 
 ###  Claude Code
 
-The **Claude Code** section of the **Config** page holds your organization’s settings for Claude Code, in the command-line tool and in Code in Claude Desktop 2.9939.2 or later. Claude for Government delivers them after a member signs in.
+The **Claude Code** section of the **Config** page holds your organization’s settings for Claude Code, in the command-line tool and in Code in Claude Desktop 2.9939.2 or later. Claude for Government delivers them after a member signs in. While Claude Code is in [early access](https://claude.com/docs/government/deploy-claude-code/configure), the section appears once your agency has access.
 
 * **Blocked shell commands**: command names, such as `curl` or `ssh`, that Claude Code never runs. None are blocked by default.
 * **Managed hooks**: hooks that run in every member’s Claude Code sessions, such as a command that writes an audit record after each tool use. None are set by default.
@@ -143,12 +143,14 @@ Connectors you add on the **Connectors** card reach the Claude Code command-line
 
 ###  Bypass-permissions mode and Auto mode
 
-**Bypass-permissions mode** controls whether members can start Claude Code in bypass-permissions mode, which skips permission prompts. **Auto mode** controls whether members can switch the Claude Code command-line tool, and Cowork and Code in Claude Desktop, to Auto mode, in which Claude approves routine actions itself and still asks about risky ones; when it is **Allowed**, new Code sessions in Claude Desktop 2.9939.2 or later and new interactive sessions in the Claude Code command-line tool 2.1.283 or later start in it on models that support Auto mode, unless another mode is chosen. Both are **Blocked** by default.
+**Bypass-permissions mode** controls whether members can start Claude Code in bypass-permissions mode, which skips permission prompts. **Auto mode** controls whether members can switch the Claude Code command-line tool, and Cowork and Code in Claude Desktop, to Auto mode, in which Claude approves routine actions itself and still asks about risky ones; when it is **Allowed**, new Code sessions in Claude Desktop 2.9939.2 or later and new interactive sessions in the Claude Code command-line tool 2.1.283 or later start in it on models that support Auto mode, unless another mode is chosen. Both are **Blocked** by default. Both settings appear on the **Config** page, and take effect, together with the [**Claude Code**](#claude-code) section.
 
 ###  Member-added plugins and marketplaces
 
 Two switches that control whether members can add plugins of their own in Claude Desktop. **Let members add plugin marketplaces** lets members add plugin marketplaces and install plugins from them. **Let members add their own plugins** lets members upload plugin files or have Claude create a plugin for them. Both switches are off by default.
-While a switch is off, Claude Desktop hides the corresponding controls from members. Marketplaces and plugins that members added earlier keep working, and members can still install plugins from those marketplaces.
+While a switch is off, Claude Desktop hides the corresponding controls from members. Plugins that members uploaded or created earlier keep working. Marketplaces that members added earlier are hidden while **Let members add plugin marketplaces** is off.
+
+Hiding marketplaces that members added earlier needs Claude Desktop 2.16120.0 or later.
 
 ###  Let members add their own connectors
 

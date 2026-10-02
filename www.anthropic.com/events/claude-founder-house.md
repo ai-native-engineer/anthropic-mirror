@@ -272,7 +272,7 @@ Agenda details coming soon.
 
 ### Thursday
 
-Agenda details coming soon.
+Check back for additional agenda items.
 
 ###
 

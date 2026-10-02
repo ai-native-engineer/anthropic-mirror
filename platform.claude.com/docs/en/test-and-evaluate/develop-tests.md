@@ -2829,7 +2829,7 @@ When deciding which method to use to grade evals, choose the fastest, most relia
     A given use case, or even a specific success criteria for that use case, might require several rubrics for holistic evaluation.
   </Note>
 * **Empirical or specific:** For example, instruct the LLM to output only 'correct' or 'incorrect', or to judge from a scale of 1–5. Purely qualitative evaluations are hard to assess quickly and at scale.
-* **Encourage reasoning:** Ask the LLM to reason first before producing an evaluation score, and then discard the reasoning. This increases evaluation performance, particularly for tasks requiring complex judgment.
+* **Encourage reasoning:** Use a grader model with [thinking](https://platform.claude.com/docs/en/build-with-claude/thinking) on, so that it reasons before it produces an evaluation score. This increases evaluation performance, particularly for tasks requiring complex judgment.
 
 <Accordion title="Example: LLM-based grading">
   <CodeGroup exclude="shell">
@@ -2840,7 +2840,7 @@ When deciding which method to use to grade evals, choose the fastest, most relia
         return f"""Grade this answer based on the rubric:
         <rubric>{rubric}</rubric>
         <answer>{answer}</answer>
-        Think through your reasoning in <thinking> tags, then output 'correct' or 'incorrect' in <result> tags."""
+        Output 'correct' or 'incorrect' in <result> tags."""
 
     def grade_completion(output, golden_answer):
         grader_message = client.messages.create(
@@ -2895,7 +2895,7 @@ When deciding which method to use to grade evals, choose the fastest, most relia
       return `Grade this answer based on the rubric:
     <rubric>${rubric}</rubric>
     <answer>${answer}</answer>
-    Think through your reasoning in <thinking> tags, then output 'correct' or 'incorrect' in <result> tags.`;
+    Output 'correct' or 'incorrect' in <result> tags.`;
     }
 
     async function gradeCompletion(output: string, goldenAnswer: string): Promise<string> {
@@ -2951,7 +2951,7 @@ When deciding which method to use to grade evals, choose the fastest, most relia
             Grade this answer based on the rubric:
             <rubric>{rubric}</rubric>
             <answer>{answer}</answer>
-            Think through your reasoning in <thinking> tags, then output 'correct' or 'incorrect' in <result> tags.
+            Output 'correct' or 'incorrect' in <result> tags.
             """;
     }
 
@@ -3032,7 +3032,7 @@ When deciding which method to use to grade evals, choose the fastest, most relia
     	return fmt.Sprintf(`Grade this answer based on the rubric:
     <rubric>%s</rubric>
     <answer>%s</answer>
-    Think through your reasoning in <thinking> tags, then output 'correct' or 'incorrect' in <result> tags.`, rubric, answer)
+    Output 'correct' or 'incorrect' in <result> tags.`, rubric, answer)
     }
 
     func gradeCompletion(output, goldenAnswer string) string {
@@ -3113,7 +3113,7 @@ When deciding which method to use to grade evals, choose the fastest, most relia
             Grade this answer based on the rubric:
             <rubric>%s</rubric>
             <answer>%s</answer>
-            Think through your reasoning in <thinking> tags, then output 'correct' or 'incorrect' in <result> tags.""".formatted(rubric, answer);
+            Output 'correct' or 'incorrect' in <result> tags.""".formatted(rubric, answer);
     }
 
     String gradeCompletion(String output, String goldenAnswer) {
@@ -3156,7 +3156,7 @@ When deciding which method to use to grade evals, choose the fastest, most relia
         Grade this answer based on the rubric:
         <rubric>{$rubric}</rubric>
         <answer>{$answer}</answer>
-        Think through your reasoning in <thinking> tags, then output 'correct' or 'incorrect' in <result> tags.
+        Output 'correct' or 'incorrect' in <result> tags.
         PROMPT;
     }
 
@@ -3237,7 +3237,7 @@ When deciding which method to use to grade evals, choose the fastest, most relia
         Grade this answer based on the rubric:
         <rubric>#{rubric}</rubric>
         <answer>#{answer}</answer>
-        Think through your reasoning in <thinking> tags, then output 'correct' or 'incorrect' in <result> tags.
+        Output 'correct' or 'incorrect' in <result> tags.
       PROMPT
     end
 

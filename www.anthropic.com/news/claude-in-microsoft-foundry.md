@@ -39,3 +39,17 @@ All models support a variety of Claude Developer Platform capabilities in Foundr
 ## Get started
 
 Claude is available now in public preview through Microsoft Foundry. Visit the [Microsoft Foundry catalog](https://ai.azure.com/catalog/publishers/anthropic) to deploy Claude Sonnet 4.5, Claude Haiku 4.5, or Claude Opus 4.1, or explore our [documentation](https://docs.claude.com/en/docs/build-with-claude/claude-in-microsoft-foundry) to learn more.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -22,13 +22,13 @@ We de-link your feedback from your user and customer IDs before it’s used by A
 
 Here’s an example of what you’ll see when using the thumbs up/thumbs down button to provide a feedback report from claude.ai:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790856900&signature=8fb645ed6fd145c4855710f522fc10bccbad4994299e6667d7ab6fc20da6201b&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B06sdv%2FKUdTynhlx8%2FaY8xIuhDhxqt8NZP%0AdqH8CLB7rPkUr1MTHfo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790856900&signature=8fb645ed6fd145c4855710f522fc10bccbad4994299e6667d7ab6fc20da6201b&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B06sdv%2FKUdTynhlx8%2FaY8xIuhDhxqt8NZP%0AdqH8CLB7rPkUr1MTHfo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790901900&signature=1489810ea0eeeb9d2c1c032a2d84873b1cfae8975fbbca9c507061a3f0a37f9c&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B178Bv%2FKUdTynhlx8Czhjn2fmoeadS6MtA%0ANnnUB9bdjt1e7Y%2Fksp0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790901900&signature=1489810ea0eeeb9d2c1c032a2d84873b1cfae8975fbbca9c507061a3f0a37f9c&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B178Bv%2FKUdTynhlx8Czhjn2fmoeadS6MtA%0ANnnUB9bdjt1e7Y%2Fksp0%3D%0A)
 
 ## Disabling Feedback
 
 As a Primary Owner or Owner of a Team or Enterprise plan, you can disable the ability for members of your organization to submit feedback to Anthropic via the thumbs up / down button using the **Rate chats** setting, under Organization settings > Data and Privacy:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790856900&signature=2e27c82ce6f6a5d34769796d7f51a38cf1d09ac8a0277636888fa63a703696fb&req=diAiEc55lIFXUPMW1HO4zaA59ardtRDX1xJ%2BJFalRXZAiFwakB3Wgx%2FPAsri%0A9aY9AzKjU0ag%2FBhrKlI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790856900&signature=2e27c82ce6f6a5d34769796d7f51a38cf1d09ac8a0277636888fa63a703696fb&req=diAiEc55lIFXUPMW1HO4zaA59ardtRDX1xJ%2BJFalRXZAiFwakB3Wgx%2FPAsri%0A9aY9AzKjU0ag%2FBhrKlI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790901900&signature=9a46233d70bae90ca66513570741ae0b2ae6210e7a66031e10df41ba3f7c5d2f&req=diAiEc55lIFXUPMW1HO4zaA59arcsBfX1xJ%2BJFalRXbfHDFULnQ%2FoyQTw%2BB0%0AVYiARCFsvsTiHMN2pVg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790901900&signature=9a46233d70bae90ca66513570741ae0b2ae6210e7a66031e10df41ba3f7c5d2f&req=diAiEc55lIFXUPMW1HO4zaA59arcsBfX1xJ%2BJFalRXbfHDFULnQ%2FoyQTw%2BB0%0AVYiARCFsvsTiHMN2pVg%3D%0A)
 
 ---
 

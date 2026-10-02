@@ -41,3 +41,17 @@ Information-finding can be even harder in a document-heavy space like the legal 
 In addition to improving existing products, we are excited about the potential of AI to transform digital media. We are proud to partner with [AssemblyAI](https://www.assemblyai.com/), an innovative AI company that is partnering with Anthropic to help power its platform of APIs that transcribe and understand audio data at scale. Dylan Fox, Founder & CEO of AssemblyAI, says, “We're thrilled to partner with a pioneering company like Anthropic whose commitment to AI integrity and research directly helps us ship more robust, LLM-backed Generative AI and Conversation Intelligence capabilities to our customers faster. We look forward to seeing this partnership propel our AI initiatives forward.”
 
 We’re excited about the potential applications Claude can power across industries. If you think you could use the power of AI to innovate, improve your offerings and better serve your customers, please request access to Claude and we’ll be in touch!
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

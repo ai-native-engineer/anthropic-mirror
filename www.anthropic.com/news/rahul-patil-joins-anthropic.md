@@ -13,3 +13,17 @@ Rahul brings over 20 years of experience building and maintaining industry-leadi
 “Building AI systems that people can trust has been central to our work as we've grown to serve over 300,000 business customers,” said Daniela Amodei, co-founder and President of Anthropic. “Rahul brings a proven track record in building and scaling robust infrastructure that businesses can depend on as we work to make Claude the leading intelligence platform for enterprises.”
 
 For developers building with Claude, Rahul's appointment signals our commitment to world-class infrastructure and reliability at scale. As part of these changes, Sam McCandlish, one of Anthropic's co-founders and previously CTO, has taken on a new role as Chief Architect. In this role, Sam will deepen his focus on large-scale model training, continuing to lead pretraining while expanding his scope to include research productivity and RL infrastructure.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

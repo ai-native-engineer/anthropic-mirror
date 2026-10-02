@@ -27,3 +27,17 @@ Buddy Shah, Chair of the Long-Term Benefit Trust, said: “I've been grateful fo
 Kanika Bahl, CEO & President of Evidence Action, said: “Serving on the Long-Term Benefit Trust has been a privilege during a pivotal time for both Anthropic and the broader AI field. I’ve been impressed by the seriousness with which Anthropic’s leadership approaches questions of safety and societal benefit. I wish the Trust and the entire Anthropic team continued success.”
 
 Zachary Robinson, CEO of the Centre for Effective Altruism, said: “I've been honored by the opportunity to serve on the Long-Term Benefit Trust during these formative years. I continue to admire the commitment Anthropic's leadership and Trustees make to safety and public benefit, and I have been impressed by the degree to which that commitment has endured as Anthropic has scaled and evolved. I am grateful to know Anthropic remains in the hands of leaders who care deeply about its mission, and I wish them all success.”
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -12,13 +12,13 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
-Oct
+Nov
 
-14
+30
 
 -
 
-14
+4
 
 ,
 
@@ -26,21 +26,21 @@ Oct
 
 -
 
-8:30 am
+8:00 am
 
 -
 
 8:00 pm
 
-CEST
+PST
 
-### Claude Founder House Stockholm
+### Anthropic at AWS re:Invent 2026
 
-A full day with the Anthropic team for the people shaping the next generation of AI companies. A morning for the Nordics' most ambitious founders, and an afternoon for the builders who ship.
+Join Anthropic at AWS re:Invent to experience Claude at the frontier.
 
 Add to calendar
 
-[Learn more](https://www.anthropic.com/events/claude-founder-house-stockholm)Learn more
+[Learn more](https://www.anthropic.com/events/anthropic-at-aws-re-invent-2026)Learn more
 
 Learn more
 

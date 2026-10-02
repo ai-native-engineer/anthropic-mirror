@@ -17,3 +17,17 @@ In connection with the Series C round, Yasmin Razavi, a General Partner at Spark
 In addition to our technical work, during the past year we have been further refining our governance structure to better achieve our Public Benefit orientation. We are glad to have the support of our investors in developing different approaches to corporate governance, and we will have more to share about this in the coming months.
 
 We are excited to use the new funding to grow our world-class team across product and research, and aim to meet increasing demand for AI technologies that are reliable and trustworthy. Please get in touch if you’re interested in working with Claude.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

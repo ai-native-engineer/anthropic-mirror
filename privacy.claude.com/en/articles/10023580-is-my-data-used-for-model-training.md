@@ -26,7 +26,7 @@ We de-link your feedback from your user ID (e.g. email address) before it’s us
 
 Here’s an example of what you’ll see when using the thumbs up / down button to provide a feedback report:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1790856000&signature=f267ace462b15a10c0b9f2e176cf2af9ae399d0ea513ca31736c190a0af4624d&req=dSQvEMB3nYFYXvMW1HO4zdLW1XepCjPYS2MKBI2FW5VlZS%2B4uMMON4e16PD%2F%0AKf0c%2BnkdffQtW5Z4qvw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1790856000&signature=f267ace462b15a10c0b9f2e176cf2af9ae399d0ea513ca31736c190a0af4624d&req=dSQvEMB3nYFYXvMW1HO4zdLW1XepCjPYS2MKBI2FW5VlZS%2B4uMMON4e16PD%2F%0AKf0c%2BnkdffQtW5Z4qvw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1790901900&signature=4752e75d59cc2df5da82013df15160e92b016109d565979141c9fad9c9978c84&req=dSQvEMB3nYFYXvMW1HO4zdLW1XeoDzTRS2MKBI2FW5WSB881Zdlh4Qy9ZkFl%0AtNejmG6XSBMViR0Z6U4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1790901900&signature=4752e75d59cc2df5da82013df15160e92b016109d565979141c9fad9c9978c84&req=dSQvEMB3nYFYXvMW1HO4zdLW1XeoDzTRS2MKBI2FW5WSB881Zdlh4Qy9ZkFl%0AtNejmG6XSBMViR0Z6U4%3D%0A)
 
 ---
 

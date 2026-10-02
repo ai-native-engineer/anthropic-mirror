@@ -4,6 +4,8 @@
 
 Learn how the Claude Code team designs, tests, and evolves tools by thinking from the model's point of view.
 
+Thariq Shihipar
+
 Apr 10, 2026
 
 7 min

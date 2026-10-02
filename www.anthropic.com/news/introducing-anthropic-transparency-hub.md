@@ -28,3 +28,17 @@ We've designed our approach to address a key challenge in AI governance: the pro
 In keeping with our commitment to raising the bar on transparency, we'll continuously expand our reporting to reflect evolving best practices as AI capabilities advance and new challenges emerge.
 
 We invite you to explore the [Transparency Hub](https://www.anthropic.com/transparency) and see firsthand how we're working to build AI systems worthy of trust. We welcome your feedback at transparency@anthropic.com.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -10,6 +10,10 @@ Recorded event
 
 # Configuring Claude: Guidance for Enterprise Admins
 
+###### Multiple sessions available. Choose your preferred date and time on the form.
+
+‍
+
 You’ve signed up for Claude Enterprise! Now let’s get the right setup and ensure your users have everything they need on day one.
 
 Join the Anthropic Customer Success team for a hands-on walkthrough of the settings that matter most when you first set up your org: SSO and SCIM, roles and permissions, connectors, skills and plugins, model defaults and data settings, and the per-product settings for the Claude app, Cowork and Claude Code. This session will be mostly demos and include dedicated time for live Q&A.

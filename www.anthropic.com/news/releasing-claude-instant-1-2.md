@@ -24,4 +24,16 @@ Safety evaluation of Claude models. Lower is better.
 
 Developers looking to work with Claude Instant 1.2 can now call our latest model over our API (pricing can be found [here](https://www-cdn.anthropic.com/90df03aed08b794ab03c5a7bf28b2ad9cf26cf3c/model_pricing_july2023.pdf)). If you’re a business and you’d like to work with us, you can indicate your interest [here](https://www.anthropic.com/contact-sales).
 
-Releasing Claude Instant 1.2 \ Anthropic
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

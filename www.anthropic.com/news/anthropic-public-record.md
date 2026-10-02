@@ -157,3 +157,17 @@ The direction AI takes should not be set only by the companies building it. The 
 **Reporting conventions:** All percentages in this report are weighted. Unless noted otherwise, percentages use the full segment as the denominator (respondents who answered "don't know" or skipped remain in the base). "Worried" on the fears battery is the top four boxes of a five-point worry scale. "As good or better" on the capability battery is the top three boxes of a five-point performance scale. "Integrated users" are respondents who report using AI one or more times daily for work and one or more times daily for personal purposes (unweighted n=2,717). Party affiliation groups include leaners.
 
 **Limitations:** Anthropic Public Record captures what Americans believed about AI in late 2025. We are treating it as a baseline.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

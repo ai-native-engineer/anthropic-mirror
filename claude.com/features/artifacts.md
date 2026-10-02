@@ -4,16 +4,12 @@
 
 Turn your ideas into interactive visual and written work, all in one conversation with Claude. Steer from start to finish.
 
-Get started
-
-[Get started](https://claude.ai/artifacts)Get started
+[Get started (opens in new tab)](https://claude.ai/artifacts)
 
 Claude Design, Claude Slides and Claude Docs are available in beta on paid plans.
 Enterprise admins can enable them in Organization settings.
 
-[Play video](#)Play video
-
-[](https://assets.claude.ai/brand/videos/features/artifacts/sizzle_600k_918KB.webm)
+[![](https://assets.claude.com/5417c7f247242efc74cab6cab3a72de5e1a8ea7c.png)](https://assets.claude.com/c5788873a7fbd74ad7caec11fa90610ee8d8bc14.webm)
 
 01
 
@@ -21,9 +17,7 @@ Enterprise admins can enable them in Organization settings.
 
 Explore where it works and how to use it.
 
-Jump to read
-
-[Jump to read](#how-it-works)Jump to read
+[Jump to read](#how-it-works)
 
 02
 
@@ -31,9 +25,7 @@ Jump to read
 
 Draft on-brand visuals, mockups, or assets.
 
-Jump to read
-
-[Jump to read](#design)Jump to read
+[Jump to read](#design)
 
 03
 
@@ -41,9 +33,7 @@ Jump to read
 
 Turn rough notes into polished decks in minutes.
 
-Jump to read
-
-[Jump to read](#slides)Jump to read
+[Jump to read](#slides)
 
 04
 
@@ -51,9 +41,7 @@ Jump to read
 
 Build living docs. Collaborate with Claude or coworkers.
 
-Jump to read
-
-[Jump to read](#docs)Jump to read
+[Jump to read](#docs)
 
 ## Start creating where you work with Claude
 
@@ -91,17 +79,9 @@ Send visuals and slides on to the tools you already use and keep going there.
 
 Draft visual collateral, mockups, landing pages, social assets and more. Start with Claude and share with a designer to polish.
 
-Learn more
+[Learn more](https://claude.com/product/design)
 
-[Learn more](https://claude.com/product/design)Learn more
-
-Asset creation
-
-One-pagers
-
-Mockups
-
-Active
+Asset creationOne-pagersMockups
 
 Prompt
 
@@ -109,55 +89,16 @@ Find my weakest revenue month from last year and plan a promo to address it. Dra
 
 Connectors
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c4094afe9398607424b105_quickbooks.svg)
-
-Intuit QuickBooks
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
-
-Canva
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+* [![](https://assets.claude.com/401b239066f04043c551d04903b046b8c7f5eb91.svg)Intuit QuickBooks](https://claude.com/marketplace/connectors/quickbooks)
+* [![](https://assets.claude.com/e476a6c2c2f961f5f2120482f37b1daafc1506d9.jpg)Canva](https://claude.com/marketplace/connectors/canva)
 
 ### Run your next campaign to grow your business
 
 Dig into your numbers in Intuit QuickBooks, plan a promotion to get sales up, generate branded assets in Canva, and get your next campaign staged in HubSpot. You decide what goes out and when.
 
-Prompt
-
-Turn this proposal into a one-pager a prospect will want to open. Pull their details from Salesforce and export it as a PDF.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90847a743b3af65ea2137f_Salesforce.com_logo.svg)
-
-Salesforce - Beta
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e318eaad6802d0604536_Google%20Drive.jpg)
-
-Google Drive
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
 ### Turn a proposal into a one-pager
 
 Make something a prospect actually wants to open, without waiting on a design queue, while staying on brand.
-
-Prompt
-
-Turn this rough idea into a clickable flow. Share it so the team can react, then open a ticket in Linear once we agree on it.
-
-Connectors
-
-![Linear logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab43729f44eabd60b9e2ec0_6ab4360ab06e949f996372ed_startups-square-linear-light.svg)
-
-Linear
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e8b534085f2b4436d1dc_github.png)
-
-GitHub MCP
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
 ### Mock up the flow before it’s a ticket
 
@@ -167,13 +108,7 @@ Turn a rough idea into a clickable flow your team can react to, before anyone wr
 
 Create finished, on-brand presentations like client pitches, roadmap reviews, or board meetings with Claude. Export to Google Slides, PPTX, PDF and more.
 
-QBRs
-
-Earnings
-
-Design review
-
-Active
+QBRsEarningsDesign review
 
 Prompt
 
@@ -181,51 +116,15 @@ Pull Q3 pipeline, closed-won, and churn for my accounts from Salesforce and make
 
 Connectors
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90847a743b3af65ea2137f_Salesforce.com_logo.svg)
-
-Salesforce - Beta
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+* [![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg)Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
 
 ### Draft QBR readout from your sales data
 
 Give Claude your latest CRM data using the Salesforce connector and have it draft a deck for the QBR readout.
 
-Prompt
-
-Use last quarter’s earnings deck as the template and rebuild it with the Q3 numbers in this spreadsheet. Keep the same slide order and chart types, update every figure and label, and flag any slide where the story changed direction so I can review the commentary.
-
-Attachments
-
-earnings-Q2-preso
-
-30MB
-
-PPTX
-
-earnings-Q3
-
-2MB
-
-CSV
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
 ### Make an earnings deck
 
 Ask Claude to replicate last quarter’s earnings deck, pulling in the latest numbers from a spreadsheet.
-
-Prompt
-
-Make a deck for tomorrow’s design review on the retry queue change: current architecture, what we’re proposing, tradeoffs vs the alternatives in docs/rfc-retry-queue.md, rollout plan, open questions. Use the real module structure for the diagram.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e318eaad6802d0604536_Google%20Drive.jpg)
-
-Google Drive
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
 ### Put together a design review presentation
 
@@ -235,13 +134,7 @@ Ask Claude, from inside your codebase in Claude Code, to draft the architecture 
 
 Write and edit living documents with Claude and your coworkers. Add diagrams and charts that use your connected tools.
 
-Specs
-
-Campaign tracking
-
-Onboarding
-
-Active
+SpecsCampaign trackingOnboarding
 
 Prompt
 
@@ -249,51 +142,16 @@ Draft the PRD for the new sharing feature from our roadmap in Notion and share i
 
 Connectors
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac11074040a8d303e83a5_Slack.jpg)
-
-Slack
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac085f91d777702ff6935_Notion%20MCP.jpg)
-
-Notion
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+* [![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg)Slack](https://claude.com/marketplace/connectors/slack)
+* [![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg)Notion](https://claude.com/marketplace/connectors/notion)
 
 ### Write a spec once, keep it current
 
 When a teammate asks for the PRD in Slack, mention Claude in the thread using Claude Tag. It drafts the spec from your roadmap in Notion and shares it back as a doc the whole channel can open, comment on, and keep current.
 
-Prompt
-
-Turn the campaign brief and timeline we track in Asana into one page the team can comment on, and pull the latest funnel numbers from Amplitude. Refresh the charts as new data comes in.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
-
-Asana
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
-
-Amplitude
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
 Make a living campaign brief
 
 Turn the brief and timeline your team tracks in Asana, plus the latest numbers from your tracker in Amplitude, into one page everyone can comment on the same day.
-
-Prompt
-
-Turn the benefits deck and the process docs in our Google Drive onboarding folder into a guide new hires can follow, and update it the moment a source file changes.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e318eaad6802d0604536_Google%20Drive.jpg)
-
-Google Drive
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
 ### Onboarding guides that stay current
 
@@ -301,15 +159,7 @@ Turn a benefits deck or a process doc already in Google Drive into a guide new h
 
 ## FAQ
 
-Artifacts
-
-Claude Design
-
-Claude Slides
-
-Claude Docs
-
-Active
+ArtifactsClaude DesignClaude SlidesClaude Docs
 
 ### Artifacts
 
@@ -325,10 +175,6 @@ Only you, until you share one. On Team and Enterprise plans, links stay inside y
 
 Ask for one in any conversation with Claude, or start from the Artifacts tab. Everything you’ve made is saved in the Artifacts tab.
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ### Claude Design
 
 ### What’s changing with Claude Design?
@@ -338,10 +184,6 @@ You can now use Claude Design in any conversation with Claude, including in Clau
 ### I already use Claude Design. Does anything change for me?
 
 No. You can use the new Claude Design in Claude Code, Chat and the Artifacts tab, or keep using the separate experience at claude.ai/design. Your existing projects stay where they are: the Design tab at the bottom of the sidebar lists them, and each one opens in standalone Claude Design.
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 ### Claude Slides
 
@@ -361,10 +203,6 @@ Yes. You can export your deck to PowerPoint and PDF.
 
 It’s private until you share it. Add people by name or email, or share with anyone in your organization who has the link, and give them view, comment or edit access. On Pro and Max plans, you can also share publicly. You need a Claude account to access an artifact that is shared with you. On Team and Enterprise plans, public sharing is off until an Owner or Primary Owner turns on External sharing in Organization settings > Artifacts.
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ### Claude Docs
 
 ### What is Claude Docs?
@@ -379,6 +217,4 @@ Claude Docs helps you write a document together with Claude starting from inside
 
 It’s private by default. Invite people one at a time or as a group, and give view or edit access to only the people you invite, your organization, or anyone with the link. On Team and Enterprise plans, sharing with anyone who has the link is off until an Owner or Primary Owner turns on External sharing in Organization settings > Artifacts. You must have a Claude account to view and edit artifacts.
 
-[Prev](#)Prev
-
-[Next](#)Next
+Claude Artifacts | Claude by Anthropic

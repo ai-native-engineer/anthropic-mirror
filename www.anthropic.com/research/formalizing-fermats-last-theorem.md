@@ -8,61 +8,6 @@ Sep 4, 2026
 
 *We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.*Around 1637, Pierre de Fermat jotted down a claim in the margin of his copy of Diophantus’s Arithmeticathat would become one of the most famous mathematical conjectures of all time: no positive integers a, b, c satisfy aⁿ + bⁿ = cⁿ for any n > 2. [Fermat’s Last Theorem](https://www.youtube.com/watch?v=1BSFyEIY2BY) (FLT), as the conjecture became known, turned out to be incredibly difficult to prove. The first proof, from Sir Andrew Wiles in1995, ran to 129 pages and required months of painstaking work to verify.
 
-<!-- yt-inline:1BSFyEIY2BY -->
-[![What is Fermat's Last Theorem?](https://img.youtube.com/vi/1BSFyEIY2BY/hqdefault.jpg)](https://www.youtube.com/watch?v=1BSFyEIY2BY)
-
-<details>
-<summary>자막: What is Fermat's Last Theorem? (1:43)</summary>
-
-[00:00]
-x^2 + y^2 = z^2 which um gives us the
-relationship between the sides of a
-right angle triangle for example 3^2 +
-4^2 = 5^ s but what if I change the
-squares to cubes for example or fourth
-powers or fifth powers are there any
-solutions to these equations and firmat
-believed there weren't any solutions
-that you can't find numbers x y and Zed
-such that X the n + y the N is equal to
-Z the N when n is bigger than two now
-trying to prove that you can't find
-Solutions is somehow much more difficult
-than actually finding three numbers
-which solve that equation and that's why
-it really was one of the biggest
-challenges for mathematicians for 350
-years we just couldn't find a reason to
-show why these equations couldn't be
-solved until that is Andrew WS came up
-with his great solution um actually a
-lot of people thought well Fat's last
-theem perhaps that's the Last Theorem
-perhaps we finished mathematics um but
-actually this work that Andrew WS has
-
-[00:01]
-done has really opened up a a whole new
-area of mathematics and is allowing us
-to understand a a whole whole slew of
-new equations a lot of people say well
-what was that useful for uh the world of
-cryptography depends on the mathematics
-that we've discovered on our journey to
-solve fermat Last Theorem but I would
-say actually uh that's not what
-motivates a mathematician like Andrew WS
-being able to have your name on
-something like Fermat's Last the which
-mathematicians have been trying to to to
-prove for for 350 years you that that's
-the Ultimate
-[Music]
-Prize
-
-</details>
-
-
 A decade later, Dutch computer scientist Jan Bergstra proposed “formalizing” Wiles’s proof: converting the mathematical reasoning into a form computers can check automatically. Since then, mathematicians have been developing the methods needed to encode such a complex proof, including a multi-year community effort kicked off in 2024 by Kevin Buzzard at Imperial College London [to complete the formalization](https://lean-lang.org/use-cases/flt/) using the [Lean proof assistant](https://en.wikipedia.org/wiki/Lean_(proof_assistant)).
 
 Recently, Tianyi Peng, an Anthropic researcher whose group at Columbia University builds tools for AI formalization, set out to test whether Claude could make progress on formalizing FLT.[1](#footnote-1) The result went further than he expected. In 11 days, working largely autonomously, Claude produced the first end-to-end, computer-checked proof of FLT. Along the way, it wrote 13 million lines of Lean and proved 29,500 intermediate theorems.
@@ -165,6 +110,12 @@ The full proof is available on [GitHub](https://github.com/anthropics/fermats-la
 2. There are numerous other stories of the mathematical community struggling with verification. Among the most famous is Thomas Hales’s 1998 proof of the [Kepler conjecture](https://en.wikipedia.org/wiki/Kepler_conjecture), which spent four years in review before a 12-referee panel settled for “99% certain” (Hales eventually led a 20-person project, [Flyspeck](https://github.com/flyspeck/flyspeck), that formalized the proof). Grigori Perelman’s 2002 proof of the [Poincaré conjecture](https://en.wikipedia.org/wiki/Poincar%C3%A9_conjecture) took the community roughly four years and three 300-page expositions to accept. Harald Helfgott’s 2013 proof of the [weak Goldbach conjecture](https://en.wikipedia.org/wiki/Goldbach%27s_weak_conjecture) is still under review. Sometimes results that turn out to be wrong are [accepted for years](https://www.ias.edu/ideas/2014/voevodsky-origins), and other mathematicians build their theories on these faulty foundations.
 3. This is partly because Mathlib is concise and well-reviewed, while our proof is likely much longer than it needs to be.
 
+### Claude-shaped science
+
+Guest author Prof. Matthew Schwartz describes what happened when he stopped fighting Claude and allowed Claude to find “Claude-shaped” problems: ones best suited to the capabilities of the current generation of LLM tools. This led him to build BootLoops, a toolkit for exact calculations in quantitative science, which he has been applying across scientific fields alongside experts.
+
+[Read more](https://www.anthropic.com/research/claude-shaped-science)
+
 ### What work can robots do?
 
 We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
@@ -176,12 +127,6 @@ We built an index of how well today’s robots can perform US job tasks. Robots 
 We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
 [Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
-
-### GLM-5.3 and the spread of advanced cyber capabilities
-
-Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
-
-[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
 
 ## Subscribe to Anthropic Science
 

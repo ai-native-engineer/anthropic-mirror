@@ -42,7 +42,7 @@ Get Messages Usage Report
 
   - `"1m"`
 
-- `context_window: optional array of "0-200k" or "200k-1M"`
+- `context_window: optional array of BetaAnalyticsContextWindow`
 
   Restrict usage returned to the specified context window(s).
 
@@ -78,7 +78,7 @@ Get Messages Usage Report
 
   - `"workspace_id"`
 
-- `inference_geos: optional array of "global" or "not_available" or "us"`
+- `inference_geos: optional array of BetaAnalyticsInferenceGeoFilter`
 
   Restrict usage returned to the specified inference geo(s). Use `not_available` for models that do not support specifying `inference_geo`.
 
@@ -244,6 +244,8 @@ Get Messages Usage Report
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 ### Returns
 
 - `BetaMessagesUsageReport object`
@@ -290,7 +292,7 @@ Get Messages Usage Report
 
         The number of input tokens read from the cache.
 
-      - `context_window: "0-200k" or "200k-1M" or null`
+      - `context_window: BetaAnalyticsContextWindow or null`
 
         Context window used. `null` if not grouping by context window.
 
@@ -298,7 +300,7 @@ Get Messages Usage Report
 
         - `"200k-1M"`
 
-      - `inference_geo: "global" or "not_available" or "us" or null`
+      - `inference_geo: BetaAnalyticsInferenceGeoFilter or null`
 
         Inference geo used matching requests' `inference_geo` parameter if set, otherwise the workspace's `default_inference_geo`.
         For models that do not support specifying `inference_geo` the value is `"not_available"`. Always `null` if not grouping by inference geo.
@@ -317,7 +319,7 @@ Get Messages Usage Report
 
         The number of output tokens generated.
 
-      - `server_tool_use: object`
+      - `server_tool_use: BetaAnalyticsServerToolUse`
 
         Server-side tool usage metrics.
 
@@ -883,7 +885,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 
         The number of input tokens read from the cache.
 
-      - `context_window: "0-200k" or "200k-1M" or null`
+      - `context_window: BetaAnalyticsContextWindow or null`
 
         Context window used. `null` if not grouping by context window.
 
@@ -891,7 +893,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 
         - `"200k-1M"`
 
-      - `inference_geo: "global" or "not_available" or "us" or null`
+      - `inference_geo: BetaAnalyticsInferenceGeoFilter or null`
 
         Inference geo used matching requests' `inference_geo` parameter if set, otherwise the workspace's `default_inference_geo`.
         For models that do not support specifying `inference_geo` the value is `"not_available"`. Always `null` if not grouping by inference geo.
@@ -910,7 +912,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 
         The number of output tokens generated.
 
-      - `server_tool_use: object`
+      - `server_tool_use: BetaAnalyticsServerToolUse`
 
         Server-side tool usage metrics.
 

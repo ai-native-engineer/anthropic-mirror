@@ -57,3 +57,17 @@ Even while we were recording demonstrations of computer use for today’s launch
 We expect that computer use will rapidly improve to become faster, more reliable, and more useful for the tasks our users want to complete. It’ll also become much easier to implement for those with less software-development experience. At every stage, our researchers will be working closely with our safety teams to ensure that Claude’s new capabilities are accompanied by the appropriate safety measures.
 
 We invite developers who try computer use in our public beta to contact us with their feedback [using this form](https://docs.google.com/forms/d/e/1FAIpQLSeD3IqITWsuepB19SEv889HsBvN9WOi6HRblPrJNyA9G7q02w/viewform), so that our researchers can continue to improve the usefulness and safety of this new capability.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

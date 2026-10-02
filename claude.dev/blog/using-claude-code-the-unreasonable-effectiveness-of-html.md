@@ -4,6 +4,8 @@
 
 How and why members of the Claude Code team use HTML instead of Markdown to produce richer, more readable, and easily shareable outputs.
 
+Thariq Shihipar
+
 May 20, 2026
 
 9 min

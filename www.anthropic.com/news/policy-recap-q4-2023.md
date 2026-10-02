@@ -38,4 +38,16 @@ We have previously outlined the [challenges of evaluating AI systems](https://ww
 
 The announcements of this week mark the beginning of a new phase of AI safety and policy work. Major world governments are demonstrating unprecedented interest and engagement in evaluating and monitoring AI systems—and it’s clear that much of their focus relies on the ability to test and evaluate AI systems for capabilities, potential for misuse, and inherent safety properties. We are committed to playing our part to contribute to the realization of these objectives and encourage a safety race to the top.
 
-Thoughts on the US Executive Order, G7 Code of Conduct, and Bletchley Park Summit \ Anthropic
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

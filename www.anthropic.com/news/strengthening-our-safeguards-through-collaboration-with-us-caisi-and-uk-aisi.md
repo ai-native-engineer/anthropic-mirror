@@ -48,3 +48,17 @@ Making powerful AI models secure and beneficial requires not just technical inno
 As AI capabilities advance, the role of independent evaluations of mitigations is increasingly important. We are heartened that other AI developers are also working with these government bodies, and encourage more companies to do so and share their own lessons more widely.
 
 *We extend our gratitude to the technical teams at both US CAISI and UK AISI for their rigorous testing, thoughtful feedback, and ongoing collaboration. Their work has materially improved the security of our systems and advanced the field of measuring AI safeguard effectiveness.*
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

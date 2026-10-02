@@ -56,6 +56,9 @@ Search
 
 DateCategoryTitle
 
+* [Oct 1, 2026Science
+
+  Claude-shaped science](https://www.anthropic.com/research/claude-shaped-science)
 * [Sep 30, 2026Economics
 
   What work can robots do?](https://www.anthropic.com/research/what-work-can-robots-do)
@@ -83,9 +86,6 @@ DateCategoryTitle
 * [Sep 4, 2026Science
 
   Formalizing Fermat's Last Theorem](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-* [Aug 28, 2026Alignment
-
-  Automated researchers can reliably mitigate alignment failures](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
 
 [See more](#)
 

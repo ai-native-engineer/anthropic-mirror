@@ -19,3 +19,17 @@ Hastings has seen first-hand how quickly transformative technologies can reshape
 "Reed understands that technology companies have a responsibility beyond just building products," said Daniela Amodei, President of Anthropic. "His focus on the human impact of technology—whether at Netflix or through his global health and education initiatives—makes him an ideal addition to our board as we continue building AI that helps rather than harms."
 
 With Hastings' appointment, the Trust continues to build a board with the diverse expertise needed to guide Anthropic's mission of developing reliable, interpretable, and steerable AI systems.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

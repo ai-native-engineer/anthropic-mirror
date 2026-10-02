@@ -8,7 +8,7 @@ Sep 29, 2026
 
 ![What do you want from AI? ](https://www-cdn.anthropic.com/images/4zrzovbb/website/f11a2dcfffbb0f1e5913d794299b6857653413af-2000x1125.jpg)
 
-*We’re launching a new study using [Anthropic Interviewer](https://www.anthropic.com/about-anthropic-interviewer) to learn from your experiences with AI, and we’d like you to participate. After you finish, you can decide to make your interview public, so that anyone, not just Anthropic, can read and learn from it. You can [participate here](https://claude.ai/redirect/website.v1.403b43c4-e7b9-467a-9325-7d104ecfe2bb/anthropic-interviewer/your-thoughts-on-ai?from=blog).*
+*We’re launching a new study using [Anthropic Interviewer](https://www.anthropic.com/about-anthropic-interviewer) to learn from your experiences with AI, and we’d like you to participate. After you finish, you can decide to make your interview public, so that anyone, not just Anthropic, can read and learn from it. You can [participate here](https://claude.ai/redirect/website.v1.f3989e60-cc48-44ca-9457-1502bbeb79be/anthropic-interviewer/your-thoughts-on-ai?from=blog).*
 
 We are at a pivotal moment in the development of AI, as its growing capabilities mean it becomes potentially more useful and more dangerous. Frontier AI is rapidly accelerating discoveries in [science](https://www.anthropic.com/research/Claude-accelerates-protein-design) and [medicine](https://openai.com/index/diagnose-rare-childhood-diseases/), while at the same time the cost of its misuse grows [more consequential](https://darioamodei.com/post/we-must-pace-the-frontier)—[a single security incident](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident) can cause far more damage than it did a year ago.
 
@@ -22,7 +22,7 @@ This project builds on a similar study conducted last December, in which [81,000
 
 AI and Anthropic have changed a lot since then. AI has improved, more people use Claude, and people’s feelings toward the technology have shifted. For the previous study, only the high-level results and a small number of quotes were made public. This time, we want your thoughts to be made widely available so that anyone can learn from them.
 
-We’ve written a FAQ so you can make an informed decision about whether to make your interview public and what to share. You can choose to [participate here](https://claude.ai/redirect/website.v1.403b43c4-e7b9-467a-9325-7d104ecfe2bb/anthropic-interviewer/your-thoughts-on-ai?from=blog).
+We’ve written a FAQ so you can make an informed decision about whether to make your interview public and what to share. You can choose to [participate here](https://claude.ai/redirect/website.v1.f3989e60-cc48-44ca-9457-1502bbeb79be/anthropic-interviewer/your-thoughts-on-ai?from=blog).
 
 ## FAQ
 
@@ -102,6 +102,12 @@ The interviews will be published online once we have completed the study and our
 
 Participants in this study will all be people who use Claude, which is not a representative sample of the public. Published interviews are a further subset, since people who opt in for public release may differ from those who don’t. And as with any interview, the questions we ask shape what people share. Even so, nothing like this has been public before. We believe it can significantly advance the study of how AI is changing people’s lives.
 
+### Claude-shaped science
+
+Guest author Prof. Matthew Schwartz describes what happened when he stopped fighting Claude and allowed Claude to find “Claude-shaped” problems: ones best suited to the capabilities of the current generation of LLM tools. This led him to build BootLoops, a toolkit for exact calculations in quantitative science, which he has been applying across scientific fields alongside experts.
+
+[Read more](https://www.anthropic.com/research/claude-shaped-science)
+
 ### What work can robots do?
 
 We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
@@ -113,9 +119,3 @@ We built an index of how well today’s robots can perform US job tasks. Robots 
 Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
 
 [Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
-
-### Yes, Claude can do Nine Loops
-
-Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
-
-[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)

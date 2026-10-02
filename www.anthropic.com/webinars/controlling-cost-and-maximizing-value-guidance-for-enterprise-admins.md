@@ -10,6 +10,10 @@ Recorded event
 
 # Controlling Cost and Maximizing Value: Guidance for Enterprise Admins
 
+###### Multiple sessions available. Choose your preferred date and time on the form.
+
+‍
+
 Join Anthropic for a practical session on Claude Enterprise cost controls and value realization. In 45 minutes we'll walk through a lightweight setup one admin can turn on the same day to keep spend visible and within the limits you set: model defaults, spend limits and threshold alerts, per-teammate spend visibility, natural language cost answers from Analytics Chat, and usage and cost reporting through the Analytics API.
 
 Then we'll show how to attribute value, not just tokens, so you can tell the story to your leadership. We'll demo important settings throughout and speak to how to best think about deploying Claude across your organization.

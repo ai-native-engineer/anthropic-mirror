@@ -95,3 +95,17 @@ Les pays qui investiront le plus dans l’IA de pointe au cours des prochaines a
 La semaine dernière, nous avons publié une étude de cas sur le ministère de la Technologie et de l’Innovation du gouvernement de l’Alberta, où une équipe a utilisé Claude Code pour passer en revue 466 millions de lignes de code dans l’ensemble des systèmes provinciaux en environ 20 heures, puis a [communiqué ses méthodes](https://thevelocitywhitepapers.com/) à d’autres gouvernements.
 
 Les huit partenariats annoncés aujourd’hui ne sont qu’un commencement pour nos investissements dans la recherche canadienne. Nous sommes ravis à l’idée d’apporter notre soutien à ces travaux dans les instituts de recherche, les hôpitaux et les universités pour de nombreuses années encore.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

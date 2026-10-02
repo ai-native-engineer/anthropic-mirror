@@ -6,7 +6,7 @@ Works with
 
 ClaudeClaude Code
 
-340 plugins
+341 plugins
 
 ### [Frontend Design](https://claude.com/marketplace/plugins/frontend-design)
 

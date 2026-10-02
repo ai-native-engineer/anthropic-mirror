@@ -289,7 +289,7 @@ The add-in has no Claude.ai user identity in this mode, so spans carry no `user.
 
 This produces a complete, ordered transcript of the interaction in both deployment modes.
 
-* [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
+* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 * [Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)
 * [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
 * [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)

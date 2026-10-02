@@ -103,8 +103,8 @@ London
 Los Angeles
 Minneapolis
 Memphis
+Miami
 New York City
-Paris
 Phoenix
 Raleigh
 San Francisco
@@ -126,58 +126,6 @@ Non-Technical
 Financial Services
 Healthcare & Life Sciences
 Clear filters
-
-Claude Coworkshop
-
-Paris
-
-September 30
-
-About this session
-
-A hands-on session for non-developers. Learn how to hand Claude real tasks from your actual job — research, drafts, decks, follow-ups — and get time back.
-
-[Apply ↗](https://www.zartis.com/events/claude-coworkshop-paris/)
-
-Claude Workshop
-
-New York City
-
-September 30
-
-About this session
-
-A hands-on session for non-developers. Learn how to hand Claude real tasks from your actual job — research, drafts, decks, follow-ups — and get time back.
-
-[Apply ↗](https://luma.com/claude-workshop-nyc-sept-30)
-
-Claude Code Workshop
-
-New York City
-
-September 30
-
-About this session
-
-Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
-
-[Apply ↗](https://luma.com/claude-code-workshop-nyc-sept-30)
-
-Claude Code Workshop
-
-New York City
-
-September 30
-
-About this session
-
-Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
-
-Focus
-
-Claude on Google Cloud
-
-[Apply ↗](https://anthropic.swoogo.com/claude-google-cloud-workshop-new-york-30-september/rta)
 
 Claude SMB Workshop
 
@@ -278,6 +226,34 @@ About this session
 A hands-on AI fluency session for small and medium-sized business owners and operators. Learn how to hand Claude real tasks from your actual job — payroll, marketing, invoices, lead follow-ups — and get time back.
 
 [Apply ↗](https://anthropic.swoogo.com/claude-smb-workshop-phoenix/rta)
+
+Claude Code Workshop
+
+London
+
+October 8
+
+About this session
+
+Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
+
+[Apply ↗](https://events.bounteous.com/bntsclaudecodeldn/)
+
+Claude Code Workshop
+
+San Francisco
+
+October 8
+
+About this session
+
+Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
+
+Focus
+
+Presented with Microsoft
+
+[Apply ↗](https://luma.com/p6m4n0g7)
 
 Claude Code Workshop
 
@@ -449,6 +425,30 @@ A hands-on AI fluency session for small and medium-sized business owners and ope
 
 [Apply ↗](https://anthropic.swoogo.com/claude-smb-workshop-memphis/rta)
 
+Claude Workshop
+
+New York City
+
+October 20
+
+About this session
+
+A hands-on session for non-developers. Learn how to hand Claude real tasks from your actual job — research, drafts, decks, follow-ups — and get time back.
+
+[Apply ↗](https://luma.com/claude-workshop-nyc-oct-20)
+
+Claude Code Workshop
+
+New York City
+
+October 20
+
+About this session
+
+Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
+
+[Apply ↗](https://luma.com/claude-code-workshop-nyc-oct-20)
+
 Claude SMB Workshop
 
 Savannah
@@ -576,6 +576,18 @@ Hands-on session for developers and technical builders. Bring a laptop and a pro
 
 Claude Code Workshop
 
+Miami
+
+November 17
+
+About this session
+
+Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
+
+[Apply ↗](https://events.bounteous.com/bntsclaudecodemia1126/)
+
+Claude Code Workshop
+
 Atlanta
 
 December 2
@@ -696,7 +708,7 @@ Agenda details coming soon.
 
 ###
 
-Agenda details coming soon.
+Check back for additional agenda items.
 
 ###
 

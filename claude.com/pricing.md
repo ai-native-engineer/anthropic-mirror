@@ -12,9 +12,7 @@ Rolling out to Pro and Max, with more plans to follow.
 
 # Pricing
 
-IndividualDeveloperTeam & EnterpriseAPI
-
-Individual
+IndividualTeam & EnterpriseAPI
 
 ### Free
 
@@ -34,8 +32,6 @@ Free for everyone
 
 ### Pro
 
-Claude Code included
-
 For everyday work
 
 $17
@@ -49,14 +45,13 @@ Everything in Free, plus:
 * More usage\*
 * Hand off and schedule tasks
 * Claude Design, Slides, Docs
+* Claude Code
 * Claude Science
 * Projects
 * More Claude models
 * Claude in Chrome and Microsoft 365
 
 ### Max
-
-Claude Code included
 
 For people who work with Claude all day
 

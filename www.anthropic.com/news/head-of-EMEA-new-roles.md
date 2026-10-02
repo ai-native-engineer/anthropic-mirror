@@ -15,3 +15,17 @@ Over the next year Anthropic intends to hire a variety of roles across sales, en
 **Daniela Amodei, President and co-founder of Anthropic, said**: “EMEA has been central to our vision from the beginning. Since launching Claude in Europe last year, we've seen rapid organic growth amongst businesses and consumers alike, confirming the region’s strategic importance to Anthropic's future. We've long planned to deepen our investment here, and finding the right leadership in Guillaume was the critical piece that allowed us to move forward with the thoughtful expansion we envision. Guillaume brings invaluable expertise in scaling businesses across diverse EMEA markets and his commitment to responsible innovation made him a natural choice to lead this next phase of our growth. Our focus remains on serving the thriving startup ecosystem while continuing to deliver Claude's capabilities to major enterprises across the region—providing the advanced performance, security, and reliability that leading organizations need to transform how they work with AI.”
 
 For more information about current career opportunities at Anthropic visit [anthropic.com/careers](http://anthropic.com/careers).
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

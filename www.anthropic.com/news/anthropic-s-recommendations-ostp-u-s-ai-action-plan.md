@@ -29,3 +29,17 @@ We believe the United States must take decisive action to maintain technological
 These recommendations build on Anthropic's previous policy work, including our advocacy for [responsible scaling policies](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) and [testing and evaluation](https://www.anthropic.com/news/third-party-testing#:~:text=A%20robust%20third%2Dparty%20testing,should%20and%20shouldn't%20include). Our aim is to strike a balance—enabling innovation while mitigating serious risks posed by increasingly capable AI systems.
 
 Our full submission, found [here](https://assets.anthropic.com/m/4e20a4ab6512e217/original/Anthropic-Response-to-OSTP-RFI-March-2025-Final-Submission-v3.pdf), offers further detail into these recommendations and provides practical implementation strategies to help the U.S. government navigate this critical technological transition.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-This page covers errors you might hit setting up and administering Claude Tag: Slack app permissions, guest and shared channels, console errors, channels and threads where nothing responds, access and connections, and session starts. Each entry has the same three parts: what you see, what it means, and how to resolve it.
+This page covers errors you might hit setting up and administering Claude Tag: Slack app permissions, guest and shared channels, console errors, channels and threads where nothing responds, access and connections, and session starts.
 
 For problems people can resolve on their own in a channel, like a missing reply or a thread that lost its work, see [Troubleshoot Claude Tag in channels and DMs](https://claude.com/docs/claude-tag/users/troubleshooting).
 
@@ -52,11 +52,6 @@ Most errors in this section appear when Claude needs a Slack permission that was
 Claude replies to `@Claude connect`:
 > This workspace’s Claude app installation is out of date — it hasn’t granted the [permission name] permission(s). I can’t create a link code until a Slack admin reinstalls the Claude app or approves its updated permissions. Once that’s done, ask me to link again.
 
-Two phrases in the message are links:
-
-* **reinstalls the Claude app** opens the reinstall flow. The fix below starts from this link.
-* **approves its updated permissions** opens Slack’s Manage apps page for the workspace.
-
 On Enterprise Grid the message names “this Slack organization’s Claude app installation” and asks a Slack organization admin to reinstall the org-wide app. The org-wide reinstall works from inside one of the Grid’s workspaces with **Install to entire organization**, following the steps in [Claude is silent everywhere on Enterprise Grid](#claude-is-silent-everywhere-on-enterprise-grid).
 Sometimes the reply issues a code anyway, with a footnote that the install “is out of date”. The reinstall steps below clear the footnote too.
 **What it means**
@@ -96,7 +91,7 @@ Claude replies to `@Claude connect`:
 > Only Slack workspace admins (or Enterprise Grid org admins) can link this workspace to a Claude organization. Please ask a workspace admin to mention me with `@Claude connect`.
 
 **What it means**
-Slack reports that the person who ran `@Claude connect` doesn’t hold the workspace admin role, so no pairing code was issued. This reply is itself the signal, and there’s nothing else to check. The Claude Owner role doesn’t satisfy the check; it’s the Slack-side role that matters.
+Slack reports that the person who ran `@Claude connect` doesn’t hold the workspace admin role, so no pairing code was issued. The Claude Owner role doesn’t satisfy the check; it’s the Slack-side role that matters.
 **How to resolve**
 Have a Slack workspace admin run `@Claude connect` instead. On Enterprise Grid, a Grid organization admin works too. If the fix worked, their reply contains a pairing code.
 
@@ -148,7 +143,7 @@ Either fix works:
 * Change **How should Claude work in channels with guests** for the scope covering this channel, at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) → **Claude Tag’s access** → **Slack** → the scope → the collapsed **Advanced** section. **Channel only** restores replies with [channel-only access](https://claude.com/docs/claude-tag/admins/restrict-access#how-channel-only-works). **Full access** restores replies with the scope’s full access, and only an organization Owner can choose it. See [restrict guest channels](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels) for what each value exposes.
 
 Either value applies to every guest channel that scope covers. To limit the change to one channel, set the value on the channel’s own scope.
-Either value restores replies, not workspace search. Claude can’t search the workspace from a channel that includes guests, even under **Full access**. Removing the guests restores search as well.
+Claude can’t search the workspace from a channel that includes guests, even under **Full access**. Removing the guests restores search as well.
 If the fix worked, a mention in the channel gets a reply.
 
 ###  Couldn’t check this channel just now
@@ -244,7 +239,7 @@ A banner at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-sett
 > Couldn’t load Slack scopes. Reload the page to try again.
 
 **What it means**
-The request that loads your scope list from Claude’s backend failed; it isn’t a Slack permissions problem, and your configuration is intact. The page shows the error instead of an empty list so that a failed load doesn’t look like an unconfigured workspace.
+The request that loads your scope list from Claude’s backend failed; it isn’t a Slack permissions problem, and your configuration is intact.
 **How to resolve**
 
 1. Reload the page. If the reload worked, the scope list renders. That’s the usual outcome.
@@ -381,7 +376,7 @@ Claude posts “Using the legacy Claude in Slack bot. Ask your Claude workspace 
 **What it means**
 The earlier per-user Claude in Slack app answered the message instead of the new version. That happens when the Slack workspace isn’t paired with a Claude organization that has Claude Tag turned on, or when the channel’s or workspace’s **Claude Tag version** is set to **Legacy**. Turning Claude Tag on needs an Owner of your Claude organization, not a Slack workspace owner.
 **How to resolve**
-The fix is in claude.ai admin settings, not in Slack. An Owner turns Claude Tag on at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) and [pairs the workspace](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace). If the workspace is already paired, check the **Claude Tag version** on the channel’s scope, then on its workspace’s, and set it to **New** or **Inherit**; see [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/migrate-from-earlier). Once Claude Tag is on and the workspace is paired, the notice stops appearing.
+An Owner turns Claude Tag on at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) and [pairs the workspace](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace). If the workspace is already paired, check the **Claude Tag version** on the channel’s scope, then on its workspace’s, and set it to **New** or **Inherit**; see [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/migrate-from-earlier). Once Claude Tag is on and the workspace is paired, the notice stops appearing.
 
 ###  Claude Tag is turned off for your organization
 

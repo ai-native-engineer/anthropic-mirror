@@ -29,3 +29,19 @@ The company uses what it learns internally to shape how it brings Claude to clie
 "Deepening our partnership with Cognizant will help more companies harness AI's growing capability and deploy it in real, practical ways for their businesses," said Daniela Amodei, Co-Founder and President of Anthropic. "From manufacturing to the life sciences, Cognizant is bringing Claude into the everyday work of some of the world's most demanding industries—the kinds of contexts where AI can demonstrate its greatest value for humanity."
 
 To learn more about the Claude Partner Network, visit [anthropic.com/partners](https://www.anthropic.com/partners).
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
+
+Expanding our partnership with Cognizant \ Anthropic

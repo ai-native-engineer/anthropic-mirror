@@ -56,10 +56,10 @@ Create, share, and edit e-signature documents right inside Claude
 
 [Add Jotform Sign in Claude (opens in new tab)](https://claude.ai/directory/c8e5e99b-788d-4e64-bf4d-ef65b4cb92d5 "Add in Claude")
 
-![](https://padlet.net/logos/padlet_crane_icon.png)
+![](https://www.thenational.academy/images/favicons/favicon.ico)
 
-### [Padlet](https://claude.com/marketplace/connectors/padlet-mcp)
+### [Oak National Academy](https://claude.com/marketplace/connectors/oak-national-academy)
 
-Create and manage padlets
+Free, national curriculum-aligned Oak teaching resources
 
-[Add Padlet in Claude (opens in new tab)](https://claude.ai/directory/618a4a60-3705-448f-b86f-b43e85fb37ba "Add in Claude")
+[Add Oak National Academy in Claude (opens in new tab)](https://claude.ai/directory/1399f75f-e240-4046-a3c9-711c6cd5d66a "Add in Claude")

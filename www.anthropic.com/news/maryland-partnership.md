@@ -19,3 +19,17 @@ Anthropic’s co-founder and CEO Dario Amodei met Maryland Governor Wes Moore th
 Anthropic’s commitment to responsible AI deployment, including rigorous safety testing, makes Claude uniquely suited for sensitive government applications like these. Anthropic is pleased to help Maryland translate its [AI governance principles](https://doit.maryland.gov/policies/ai/Pages/maryland-responsible-ai-policy.aspx) into tangible new initiatives that make public services more efficient, accessible, and responsive.
 
 Other public sector organizations interested in using Claude can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

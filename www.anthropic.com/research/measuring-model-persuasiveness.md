@@ -161,6 +161,12 @@ Table 2: Pairwise t-test p values between each model/source. We applied the Fals
 
 ⁶ While our work builds upon the extensive literature on persuasion more broadly, providing a comprehensive review was beyond the scope of this blog post.
 
+### Claude-shaped science
+
+Guest author Prof. Matthew Schwartz describes what happened when he stopped fighting Claude and allowed Claude to find “Claude-shaped” problems: ones best suited to the capabilities of the current generation of LLM tools. This led him to build BootLoops, a toolkit for exact calculations in quantitative science, which he has been applying across scientific fields alongside experts.
+
+[Read more](https://www.anthropic.com/research/claude-shaped-science)
+
 ### What work can robots do?
 
 We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
@@ -173,8 +179,4 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 
 [Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
 
-### GLM-5.3 and the spread of advanced cyber capabilities
-
-Like Claude Mythos Preview, GLM-5.3 has strong capabilities for autonomously building end-to-end cyber exploits. But GLM-5.3 is unlike other frontier models in that it has been released without meaningful safeguards to limit misuse.
-
-[Read more](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
+Measuring the persuasiveness of language models \ Anthropic

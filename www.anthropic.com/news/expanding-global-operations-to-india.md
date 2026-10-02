@@ -21,3 +21,17 @@ According to our recent [Economic Index Report](https://www.anthropic.com/econom
 Our expansion into India also dovetails with our continuing investment in advancing Claude’s Indic language capabilities. Building robust support for the languages and contexts that matter most to users in India will be a cornerstone of our work in the region. Claude already provides support across major Indic languages, and will launch enhanced performance in Hindi and nearly a dozen additional languages, including Bengali, Marathi, Telugu, Tamil, Punjabi, Gujarati, Kannada, Malayalam, and Urdu. These extended capabilities will strengthen public sector adoption and enable broader access to AI across all of India.
 
 For information about career opportunities at our new Bengaluru office, visit anthropic.com/careers.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -33,3 +33,5 @@ We’ve developed safeguards to prevent the misuse of our models, but malicious 
 #### Detecting and countering malicious uses of Claude: March 2025
 
 This report outlines several case studies on how actors have misused our models, as well as the steps we have taken to detect and counter such misuse.](https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025)
+
+Threat Intelligence / Anthropic \ Anthropic

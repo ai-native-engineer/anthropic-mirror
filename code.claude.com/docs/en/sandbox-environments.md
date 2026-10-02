@@ -93,7 +93,9 @@ Allow write access to at least:
 
 * Your project directory.
 * Claude Code's configuration paths `~/.claude` and `~/.claude.json`.
-* `/tmp`, where Claude Code writes runtime files.
+* The directory where Claude Code writes runtime files. Unless you set [`CLAUDE_CODE_TMPDIR`](https://code.claude.com/docs/en/env-vars), that directory is:
+  * **Linux and WSL2**: `/tmp`
+  * **macOS**: `/private/tmp`. `/tmp` is a symlink to that directory, and Seatbelt checks the resolved path.
 
 Allow the network domains your session needs:
 

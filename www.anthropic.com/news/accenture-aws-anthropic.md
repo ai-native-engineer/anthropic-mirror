@@ -13,3 +13,17 @@ Over 1,400 Accenture engineers will be trained as specialists in using Anthropic
 The initiative is already delivering impact in the public health sector. Powered by Claude through Amazon Bedrock, Accenture collaborated with the District of Columbia Department of Health to create a custom chatbot called Knowledge Assist. Available in both English and Spanish, this intelligent chatbot enables employees and residents to ask questions in natural language and receive quick, accurate responses about health programs and services.
 
 By combining Anthropic's technical AI expertise, AWS's approach to security and reliability, and Accenture's deep industry knowledge, we hope to provide tailored solutions for trust-driven sectors and streamline the adoption of powerful AI systems that put humans at the center.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

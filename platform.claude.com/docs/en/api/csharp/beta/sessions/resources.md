@@ -143,6 +143,8 @@ Add Session Resource
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -153,7 +155,7 @@ Add Session Resource
 
 - `class BetaManagedAgentsFileResource`
 
-  - `required Type Type`
+  - `required BetaManagedAgentsFileResourceType Type`
 
   - `required string ID`
 
@@ -329,6 +331,8 @@ List Session Resources
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -341,7 +345,7 @@ List Session Resources
 
   - `class BetaManagedAgentsGitHubRepositoryResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
     - `required string ID`
 
@@ -385,7 +389,7 @@ List Session Resources
 
   - `class BetaManagedAgentsFileResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsFileResourceType Type`
 
     - `required string ID`
 
@@ -409,7 +413,7 @@ List Session Resources
 
     A memory store attached to an agent session.
 
-    - `required Type Type`
+    - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
     - `required string MemoryStoreID`
 
@@ -608,6 +612,8 @@ Get Session Resource
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -622,7 +628,7 @@ Get Session Resource
 
   - `class BetaManagedAgentsGitHubRepositoryResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
     - `required string ID`
 
@@ -666,7 +672,7 @@ Get Session Resource
 
   - `class BetaManagedAgentsFileResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsFileResourceType Type`
 
     - `required string ID`
 
@@ -690,7 +696,7 @@ Get Session Resource
 
     A memory store attached to an agent session.
 
-    - `required Type Type`
+    - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
     - `required string MemoryStoreID`
 
@@ -881,6 +887,8 @@ Update Session Resource
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -895,7 +903,7 @@ Update Session Resource
 
   - `class BetaManagedAgentsGitHubRepositoryResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
     - `required string ID`
 
@@ -939,7 +947,7 @@ Update Session Resource
 
   - `class BetaManagedAgentsFileResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsFileResourceType Type`
 
     - `required string ID`
 
@@ -963,7 +971,7 @@ Update Session Resource
 
     A memory store attached to an agent session.
 
-    - `required Type Type`
+    - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
     - `required string MemoryStoreID`
 
@@ -1149,6 +1157,8 @@ Delete Session Resource
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1161,7 +1171,7 @@ Delete Session Resource
 
   Confirmation of resource deletion.
 
-  - `required Type Type`
+  - `required BetaManagedAgentsDeleteSessionResourceType Type`
 
   - `required string ID`
 
@@ -1196,7 +1206,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
   Confirmation of resource deletion.
 
-  - `required Type Type`
+  - `required BetaManagedAgentsDeleteSessionResourceType Type`
 
   - `required string ID`
 
@@ -1204,7 +1214,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
 - `class BetaManagedAgentsFileResource`
 
-  - `required Type Type`
+  - `required BetaManagedAgentsFileResourceType Type`
 
   - `required string ID`
 
@@ -1228,7 +1238,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
 - `class BetaManagedAgentsGitHubRepositoryResource`
 
-  - `required Type Type`
+  - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
   - `required string ID`
 
@@ -1276,7 +1286,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
   A memory store attached to an agent session.
 
-  - `required Type Type`
+  - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
   - `required string MemoryStoreID`
 
@@ -1314,7 +1324,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
   - `class BetaManagedAgentsGitHubRepositoryResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
     - `required string ID`
 
@@ -1358,7 +1368,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
   - `class BetaManagedAgentsFileResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsFileResourceType Type`
 
     - `required string ID`
 
@@ -1382,7 +1392,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
     A memory store attached to an agent session.
 
-    - `required Type Type`
+    - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
     - `required string MemoryStoreID`
 

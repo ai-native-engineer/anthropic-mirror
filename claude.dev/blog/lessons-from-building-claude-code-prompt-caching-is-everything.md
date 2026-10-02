@@ -4,6 +4,8 @@
 
 Best practices for optimizing prompt caching in Claude Code, including how to most effectively structure your prompt, use tools, and layer on compaction.
 
+Thariq Shihipar
+
 Apr 30, 2026
 
 6 min

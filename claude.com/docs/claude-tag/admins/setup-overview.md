@@ -139,7 +139,7 @@ Paste the key on the setup page
 
 Back on the setup page, each tool you selected is listed. Click **Connect** next to the tool and paste the key you just created. Then repeat the last three steps for the next tool you selected: add Claude as a member, create an API key in Claude’s account, and paste it here. Claude keeps the one email address for every tool.
 
-To finish this step later, select **Skip** and confirm past the warning that Claude won’t be able to act in the unconnected tools. Claude still works from what’s in Slack: it can catch a team up on a channel, turn a thread into a doc, and search the web. It can’t act in a tool until that tool is connected. See [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections) for what access to give each account, and the [per-service connection guides](https://claude.com/docs/claude-tag/admins/connections/overview) for the credential fields per tool.
+To finish this step later, select **Skip** and confirm past the warning that Claude won’t be able to act in the unconnected tools. Claude still works from what’s in Slack: it can catch a team up on a channel, turn a thread into a doc, and search the web. See [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections) for what access to give each account, and the [per-service connection guides](https://claude.com/docs/claude-tag/admins/connections/overview) for the credential fields per tool.
 
 ##  Launch Claude Tag
 

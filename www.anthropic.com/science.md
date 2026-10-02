@@ -6,13 +6,13 @@ Using AI to increase the pace of scientific progress is a core part of Anthropic
 
 Science
 
-## Yes, Claude can do Nine Loops
+## Claude-shaped science
 
-In this guest post, physicist and science writer Matt von Hippel shares what happened when he issued a challenge to AI companies regarding a problem in his former subfield of theoretical physics.
+In this guest post, Prof. Matthew Schwartz describes what happened when he stopped fighting Claude and allowed Claude to find “Claude-shaped” problems. This led him to build BootLoops, a toolkit for exact calculations in quantitative science. Because similar calculations often turn up across very disparate areas of science, Claude found connections to ecology, population genetics, and a dozen other fields. These connections were often technically correct but scientifically unremarkable at first, so Schwartz worked with domain experts to steer BootLoops toward questions those fields care about.
 
-[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
+[Read more](https://www.anthropic.com/research/claude-shaped-science)
 
-![Yes, Claude can do Nine Loops](https://www-cdn.anthropic.com/images/4zrzovbb/website/2ed453f8c87d2166b09940a859cd193b29678a88-3840x2160.png)
+![Collage of a physics diagram and trees](https://www-cdn.anthropic.com/images/4zrzovbb/website/5dca367673e615ac7abbbdac9f44733d1f52638a-2000x1125.jpg)
 
 ## Publications
 
@@ -20,6 +20,9 @@ Search
 
 DateCategoryTitle
 
+* [Oct 1, 2026Science
+
+  Claude-shaped science](https://www.anthropic.com/research/claude-shaped-science)
 * [Sep 25, 2026Science
 
   Yes, Claude can do Nine Loops](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
@@ -47,9 +50,6 @@ DateCategoryTitle
 * [Mar 23, 2026Science
 
   Introducing our Science Blog](https://www.anthropic.com/research/introducing-anthropic-science)
-* [Mar 23, 2026Science
-
-  Long-running Claude for scientific computing](https://www.anthropic.com/research/long-running-Claude)
 
 [See more](#)
 

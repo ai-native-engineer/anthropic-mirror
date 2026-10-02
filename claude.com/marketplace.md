@@ -58,9 +58,9 @@ The connectors teams reach for first.
 Fast-growing connectors this week.
 
 1. 01![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)[Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)Amazon Selling Partner MCP
-2. 02![](https://app.paxton.ai/images/paxton-favicon.png)[Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)Research U.S. law in Claude—with citations you can open and verify.
-3. 03![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)[Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
-4. 04![](https://www.gemini.com/favicon.ico)[Gemini](https://claude.com/marketplace/connectors/gemini-mcp)Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
+2. 02![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)[Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+3. 03![](https://www.gemini.com/favicon.ico)[Gemini](https://claude.com/marketplace/connectors/gemini-mcp)Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
+4. 04![](https://app.paxton.ai/images/paxton-favicon.png)[Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)Research U.S. law in Claude—with citations you can open and verify.
 
 ### Connectors for Connector category: Productivity
 

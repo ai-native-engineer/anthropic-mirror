@@ -4,6 +4,8 @@
 
 What we learned building and scaling hundreds of skills internally at Anthropic.
 
+Thariq Shihipar
+
 Jun 03, 2026
 
 11 min

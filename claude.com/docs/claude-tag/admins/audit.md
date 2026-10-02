@@ -38,7 +38,6 @@ In channels, Claude acts as itself, so each action there carries the service-acc
 * **In every other connected service**, actions appear under the service account you created for the connection.
 
 That last one is the general-purpose trail: because you provisioned the credential, the connected service’s audit log shows everything Claude did there, under an account your security team already monitors.
-[Verify your setup](https://claude.com/docs/claude-tag/admins/setup-overview#verify-your-setup) uses this check to validate a new connection.
 
 ##  See what’s scheduled in a channel
 

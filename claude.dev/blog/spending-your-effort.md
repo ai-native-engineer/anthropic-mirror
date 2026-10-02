@@ -4,6 +4,8 @@
 
 What effort really is and when to use which level in Claude Code, from my own tests of three builds and a deep dive into Terminal-Bench 3.0 on Opus 5.5 and Fable 5.1.
 
+Thariq Shihipar
+
 Sep 25, 2026
 
 8 min
@@ -37,6 +39,8 @@ You should think of effort in the same way. Claude will always try and do your t
 Fable 5.1 and Opus 5.5’s effort curves are our best yet: at each level, there is an uptick in benchmark scores and tokens consumed.
 
 Terminal-Bench 3.0
+
+png
 
 Pass rate against tokens spent, by effort setting
 
@@ -182,4 +186,4 @@ Try varying effort for Opus 5.5 and Fable 5.1 based on your task or even mid-con
 
 *¹ A note on the numbers: these come from our own internal runs, 5 attempts per task, with our production safety interventions off for Fable 5.1; in Claude products, Fable 5.1’s safeguards hand some security requests to Opus. The security tasks also ran without internet access, so the per-task counts here won’t line up with the public leaderboard or the launch post. The worked examples come from individual runs, some at intermediate effort settings.*
 
-[Sep 28, 2026Automating eval design and hillclimbing with Claude12 min](https://claude.dev/blog/automating-eval-design-and-hillclimbing/)[Sep 28, 2026Building with Claude Sonnet 5.59 min](https://claude.dev/blog/building-with-claude-sonnet-5-5/)[Sep 25, 2026What a task costs on Opus 5.521 min](https://claude.dev/blog/what-a-task-costs-on-opus-5-5/)[Sep 23, 2026How we made claude.ai 3x faster in two weeks15 min](https://claude.dev/blog/how-we-made-claude-ai-faster/)[Sep 22, 2026Getting the most out of Opus 5.5 in Claude and Claude Code9 min](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/)
+[Oct 01, 2026Getting started with Claude Code mods11 min](https://claude.dev/blog/getting-started-with-claude-code-mods/)[Sep 28, 2026Automating eval design and hillclimbing with Claude12 min](https://claude.dev/blog/automating-eval-design-and-hillclimbing/)[Sep 28, 2026Building with Claude Sonnet 5.59 min](https://claude.dev/blog/building-with-claude-sonnet-5-5/)[Sep 25, 2026What a task costs on Opus 5.521 min](https://claude.dev/blog/what-a-task-costs-on-opus-5-5/)[Sep 23, 2026How we made claude.ai 3x faster in two weeks15 min](https://claude.dev/blog/how-we-made-claude-ai-faster/)

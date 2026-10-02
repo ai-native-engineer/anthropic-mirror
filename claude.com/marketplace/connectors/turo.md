@@ -16,16 +16,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://mcp.govola.com/icon.png)
-
-### [GoVola](https://claude.com/marketplace/connectors/govola)
-
-Anthropic verifiedTrending
-
-Search flight offers
-
-[Add GoVola in Claude (opens in new tab)](https://claude.ai/directory/cb899a5b-01b8-41a3-8c39-c204acb1bd78 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=slicktrip.com&sz=96)
 
 ### [SlickTrip](https://claude.com/marketplace/connectors/slicktrip)
@@ -35,6 +25,16 @@ Anthropic verifiedTrending
 Search flights, hotels and seats, then get alerted the moment a price you are watching drops.
 
 [Add SlickTrip in Claude (opens in new tab)](https://claude.ai/directory/c1cba93e-98f4-4146-8afa-e9551a789823 "Add in Claude")
+
+![](https://mcp.govola.com/icon.png)
+
+### [GoVola](https://claude.com/marketplace/connectors/govola)
+
+Anthropic verifiedTrending
+
+Search flight offers
+
+[Add GoVola in Claude (opens in new tab)](https://claude.ai/directory/cb899a5b-01b8-41a3-8c39-c204acb1bd78 "Add in Claude")
 
 ![](https://tineo.ai/favicon/favicon-96x96.png)
 

@@ -6,7 +6,7 @@ More[Documentation (opens in new tab)](https://amass.tech/mcp)[Support (opens in
 
 \*\*The biomedical intelligence layer for AI\*\*
 
-Search and reason across 60M+ cross-linked life science records — including peer-reviewed publications, clinical trials, drugs, genes, regulatory approvals, and patents — from a single connector.
+Search and reason across 60M+ cross-linked life science records — including peer-reviewed publications, conferences, clinical trials, drugs, genes, regulatory approvals, and patents — from a single connector.
 
 Instead of searching individual databases, Amass gives Claude access to a unified biomedical knowledge layer where entities are linked across sources, enabling richer retrieval, evidence synthesis, and scientific reasoning with full source attribution.
 
@@ -36,7 +36,7 @@ Use Amass to power workflows such as:
 
 \*\*BioMedCore\*\*
 
-40M+ peer-reviewed publications from PubMed and PubMed Central, including 3.6M+ with full text and 29M+ with abstracts.
+BioMedCore (43M+ records: peer-reviewed publications from PubMed/PMC and conference abstracts from society meetings)
 
 \*\*TrialCore\*\*
 

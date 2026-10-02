@@ -8,9 +8,13 @@ Sharing tips, tricks, and POVs from Anthropic’s developers.
 
 [Featured
 
-Automating eval design and hillclimbing with Claude
+Getting started with Claude Code mods
 
-Lance MartinPlaybooks12 min
+Addy OsmaniTutorials11 min
+
+11 minutesmin](https://claude.dev/blog/getting-started-with-claude-code-mods/)[Sep 28, 2026
+
+Automating eval design and hillclimbing with Claude
 
 12 minutesmin](https://claude.dev/blog/automating-eval-design-and-hillclimbing/)[Sep 28, 2026
 
@@ -44,11 +48,7 @@ Lessons from building Claude Code: How we use skills
 
 A harness for every task: dynamic workflows in Claude Code
 
-11 minutesmin](https://claude.dev/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code/)[May 20, 2026
-
-Using Claude Code: The unreasonable effectiveness of HTML
-
-9 minutesmin](https://claude.dev/blog/using-claude-code-the-unreasonable-effectiveness-of-html/)
+11 minutesmin](https://claude.dev/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code/)
 
 LOAD MOREPress R to load more
 

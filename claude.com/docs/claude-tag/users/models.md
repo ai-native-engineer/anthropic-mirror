@@ -17,7 +17,7 @@ Which models you can ask for depends on your organization; see [which models you
 Tell Claude which model you want, in your own words, in the thread.
 
 ```
-@Claude switch to Claude Opus 4.8 for the rest of this thread.
+@Claude switch to Claude Opus 5.5 for the rest of this thread.
 ```
 
 To confirm the switch, check the reply footers. The reply that acknowledges the switch still names the previous model, because Claude writes it before the switch takes effect; the new model appears in the footer of the reply after it. Asking in a thread changes the model for that thread only. To change what new threads in the channel start on, set a [default model for the channel](#set-a-default-model-for-the-channel) instead.
@@ -39,6 +39,26 @@ Admins set the same default from claude.ai, per workspace or channel; see [choos
 Open the Claude app’s **Home** tab in Slack. When model selection is enabled for your organization, the tab includes a model selector for direct messages. New direct message conversations you start with Claude use the model you pick there. The selector offers only the models your organization allows.
 The selector doesn’t change a conversation already underway. To change one of those, ask Claude to switch in that conversation.
 
+##  Run a thread in fast mode
+
+Fast mode gives a thread faster output at a higher cost per token. It’s the same [fast mode as in Claude Code](https://code.claude.com/docs/en/fast-mode), and that page lists the models that support it and what it costs. Use it where response time matters more than cost, such as a thread working a live alert.
+Fast mode is available once an Owner [allows it for your organization](https://claude.com/docs/claude-tag/admins/customize#allow-fast-mode). To turn it on, send the [`!fast` command](https://claude.com/docs/claude-tag/users/commands#turn-fast-mode-on-or-off) in the thread.
+
+```
+@Claude !fast
+```
+
+Claude confirms with a reply in the thread.
+Fast mode runs on Opus models, so a thread on an Opus model stays on it. If the thread is on another model, such as Sonnet, Claude also switches it to the newest Opus model [you can use](#which-models-you-can-use), and the reply names that model. Replies speed up only if that Opus version supports fast mode.
+Fast mode applies to the thread you turn it on in, and new threads start at standard speed. The thread goes back to standard speed in any of these cases:
+
+* You send `@Claude !fast off`
+* You ask Claude to [switch models](#switch-the-model-in-a-thread)
+* The thread’s session is replaced, for example when you [restart it](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session)
+
+After `!fast off`, a thread that Claude switched to Opus stays on Opus. To return to the earlier model, ask Claude to switch.
+Fast mode isn’t available in a channel that runs with [channel-only access](https://claude.com/docs/claude-tag/admins/restrict-access#how-channel-only-works) because a guest is present, or in a [channel shared with another company](https://claude.com/docs/claude-tag/users/troubleshooting#claude-never-responds-in-a-channel-shared-with-another-company).
+
 ##  Which models you can use
 
 Anthropic manages the list of models on offer, and your organization’s settings narrow it. The options include Opus and Sonnet models, drawn from the models your organization allows, and in channels that list applies regardless of your own account’s model access. Every list you see in Slack, the direct message selector and the models Claude offers to switch to, is already filtered to that set.
@@ -54,4 +74,5 @@ For how your organization’s model settings apply in Slack, see [Models your or
 ##  Related resources
 
 * [Get started](https://claude.com/docs/claude-tag/users/getting-started): what else the reply footer links to
+* [Commands](https://claude.com/docs/claude-tag/users/commands#turn-fast-mode-on-or-off): where `!fast` works and what Claude replies when it can’t change the speed
 * [Customize Claude Tag](https://claude.com/docs/claude-tag/admins/customize#choose-the-model-for-a-scope): how admins set a default model per workspace or channel, and how the organization’s model policy applies

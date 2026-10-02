@@ -41,3 +41,17 @@ The Model Context Protocol’s [governance model](https://modelcontextprotocol.i
 Open-source software is essential for building a secure and innovative ecosystem for agentic AI. Today’s donation to the Linux Foundation demonstrates our commitment to ensuring MCP remains a neutral, open standard. We’re excited to continue contributing to MCP and other agentic AI projects through the AAIF.
 
 Learn more about MCP at [modelcontextprotocol.io](https://modelcontextprotocol.io) and get involved with the AAIF [here](https://aaif.io/).
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

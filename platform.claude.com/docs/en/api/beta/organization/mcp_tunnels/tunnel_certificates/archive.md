@@ -135,6 +135,8 @@ certificate is added.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 ## Returns
 
 - `BetaOrganizationTunnelCertificate object`

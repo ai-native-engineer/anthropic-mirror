@@ -15,3 +15,19 @@ Liddell joins Dario Amodei, Daniela Amodei, [Yasmin Razavi](https://www.anthropi
 Liddell currently serves as a Director of both Commonwealth Fusion Systems and the Council on Foreign Relations. He has also been involved in several presidential transition teams, has written a book on that topic, and was the Director of the American Technology Council in the White House, focused on modernizing government technology.
 
 Beyond his corporate and public service career, Liddell has been recognized for his contributions to business and philanthropy. He currently serves as Chairman of New Zealand’s largest environmental foundation and has sat on several nonprofit boards, including the New Zealand Rugby Union. In 2016, he was appointed a Companion of the New Zealand Order of Merit for services to business and philanthropy.
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
+
+Chris Liddell appointed to Anthropic's board \ Anthropic

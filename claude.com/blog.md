@@ -158,6 +158,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Oct 1, 2026
+
+Customize Claude Code with mods
+
+Product announcements
+
+Customize Claude Code with mods
+
+October 1, 2026
+
+[Customize Claude Code with mods](https://claude.com/blog/claude-code-mods)Customize Claude Code with mods
+
+[Customize Claude Code with mods](#)Customize Claude Code with mods
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
 
 Sep 30, 2026
@@ -382,22 +398,6 @@ September 15, 2026
 
 [Bringing Salesforce into Claude](#)Bringing Salesforce into Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
-
-Sep 15, 2026
-
-Building an AI-native revenue organization
-
-Enterprise AI
-
-Building an AI-native revenue organization
-
-September 15, 2026
-
-[Building an AI-native revenue organization](https://claude.com/blog/building-an-ai-native-revenue-organization)Building an AI-native revenue organization
-
-[Building an AI-native revenue organization](#)Building an AI-native revenue organization
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 17
@@ -407,6 +407,22 @@ Category
 Product
 
 Usecase
+
+### Customize Claude Code with mods
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+October 1, 2026
+
+[Customize Claude Code with mods](https://claude.com/blog/claude-code-mods)Customize Claude Code with mods
+
+[Customize Claude Code with mods](#)Customize Claude Code with mods
 
 ### Claude for Government is now generally available
 
@@ -631,22 +647,6 @@ September 15, 2026
 [Bringing Salesforce into Claude](https://claude.com/blog/salesforce-in-claude)Bringing Salesforce into Claude
 
 [Bringing Salesforce into Claude](#)Bringing Salesforce into Claude
-
-### Building an AI-native revenue organization
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-September 15, 2026
-
-[Building an AI-native revenue organization](https://claude.com/blog/building-an-ai-native-revenue-organization)Building an AI-native revenue organization
-
-[Building an AI-native revenue organization](#)Building an AI-native revenue organization
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 

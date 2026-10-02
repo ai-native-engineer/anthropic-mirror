@@ -280,7 +280,7 @@ Agenda details coming soon.
 
 ### Wednesday
 
-Agenda details coming soon.
+Check back for additional agenda items.
 
 ###
 

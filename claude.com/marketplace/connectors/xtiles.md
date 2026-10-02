@@ -4,9 +4,7 @@ Connector URL`https://mcp.xtiles.app/mcp`
 
 More[Documentation (opens in new tab)](https://xtiles.app/en/blog/xtiles-mcp-claude-integration-guide/)[Support (opens in new tab)](mailto:support@xtiles.app)[Privacy policy (opens in new tab)](https://xtiles.app/en/privacypolicy/)
 
-Turn any conversation into a living xTiles project: next move, decisions, risks, and open questions, always up to date.
-
-Pull any project back into the chat with its current state — so the next conversation starts where the work left off.
+Turn any conversation into a living xTiles project: next move, decisions, risks, and open questions, always up to date. Pull any project back into the chat with its current state — so the next conversation starts where the work left off.
 
 ## Tools
 

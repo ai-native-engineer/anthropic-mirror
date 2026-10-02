@@ -23,3 +23,17 @@ The decision to acquire Bun is in line with our strategic, disciplined approach 
 Bun will be instrumental in helping us build the infrastructure for the next generation of software. Together, we will continue to make Claude the platform of choice for coders and anyone who relies on AI for important work. Bun will remain open source and MIT-licensed, and we will continue to invest in making it the runtime, bundler, package manager, and test runner of choice for JavaScript and TypeScript developers.
 
 If you’re interested in joining Anthropic’s engineering team, visit our [careers page](https://www.anthropic.com/jobs?team=4050633008).
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

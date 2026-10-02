@@ -22,4 +22,4 @@ Note that if you have an active paid Claude subscription and would like to unins
 * [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
 * [Install Claude for Android](https://support.claude.com/en/articles/9612887-install-claude-for-android)
 * [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
-* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
+* [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)

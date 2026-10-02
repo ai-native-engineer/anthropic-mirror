@@ -602,6 +602,7 @@ scope: "Which settings files can set the key: user (~/.claude/settings.json), pr
 | [`alwaysThinkingEnabled`](#alwaysthinkingenabled) | Turn [extended thinking](https://code.claude.com/docs/en/model-config#extended-thinking) off for every session | Model and responses | Any file |
 | [`apiKeyHelper`](#apikeyhelper) | Generate the [API credential](https://code.claude.com/docs/en/authentication#credential-management) with your own command | Authentication and providers | Any file |
 | [`askUserQuestionTimeout`](#askuserquestiontimeout) | Let an unanswered question [auto-continue](https://code.claude.com/docs/en/tools-reference#question-auto-continue-timeout) after idle time | Interface and terminal | User or managed |
+| [`appendPlugins`](#appendplugins) | Run your organization's [mods](https://code.claude.com/docs/en/plugins/mods/admin) after every mod a user installs | Plugins and skills | User or managed |
 | [`attribution`](#attribution) | Customize the attribution Claude Code adds to commits and pull requests | Git and attribution | Any file |
 | [`attribution.commit`](#attribution-commit) | Change or hide the trailer Claude Code adds to commits | Git and attribution | Any file |
 | [`attribution.pr`](#attribution-pr) | Change or hide the attribution line in pull request descriptions | Git and attribution | Any file |
@@ -726,6 +727,7 @@ scope: "Which settings files can set the key: user (~/.claude/settings.json), pr
 | [`policyHelper.timeoutMs`](#policyhelper-timeoutms) | Set how long Claude Code waits for the [helper](https://code.claude.com/docs/en/managed-settings#compute-the-policy-with-a-helper-program) | Enterprise and managed settings | Managed |
 | [`preferredNotifChannel`](#preferrednotifchannel) | Choose a [terminal bell or desktop notification](https://code.claude.com/docs/en/terminal-config#get-a-terminal-bell-or-notification) for task completion | Remote, desktop, and notifications | Any file |
 | [`prefersReducedMotion`](#prefersreducedmotion) | [Reduce or turn off](https://code.claude.com/docs/en/accessibility#accessibility-settings) spinner, shimmer, and flash animations | Interface and terminal | Any file |
+| [`prependPlugins`](#prependplugins) | Run your organization's [mods](https://code.claude.com/docs/en/plugins/mods/admin) before every mod a user installs | Plugins and skills | User or managed |
 | [`processWrapper`](#processwrapper) | Run Claude Code's background processes through a [corporate launcher](https://code.claude.com/docs/en/corporate-launcher) on macOS and Linux | Agents, sessions, and worktrees | User or managed |
 | [`promptCacheTtl`](#promptcachettl) | Choose the [prompt cache lifetime](https://code.claude.com/docs/en/prompt-caching#cache-lifetime) for the main conversation | Model and responses | Any file |
 | [`promptSuggestionEnabled`](#promptsuggestionenabled) | Hide the grayed-out [prompt suggestions](https://code.claude.com/docs/en/interactive-mode#prompt-suggestions) in the input box | Interface and terminal | Any file |
@@ -1383,6 +1385,15 @@ When [parent settings from an embedding host](https://code.claude.com/docs/en/ma
 
 For what a `!` pattern in a `--disallowedTools` or session rule can carve out, see [Read and Edit rules](https://code.claude.com/docs/en/permissions#read-and-edit).
 
+When you set this key, Claude Code v2.1.282 or later also ignores the [`allowed-tools`](https://code.claude.com/docs/en/skills#pre-approve-tools-for-a-skill) frontmatter in skills and `.claude/commands/` files from these sources:
+
+* A repository's `.claude/` directory
+* Your `~/.claude/skills/` and `~/.claude/commands/` directories, including [skills synced from claude.ai](https://code.claude.com/docs/en/skills#where-synced-skills-load)
+* An `--add-dir` directory
+* [Plugins declared with a `.claude-plugin` manifest](https://code.claude.com/docs/en/plugins/loading#plugins-shared-through-a-repository) inside `~/.claude/skills/` or the project's `.claude/skills/`
+
+Skills from managed settings and bundled skills keep their `allowed-tools`. A skill's `disallowed-tools` still applies. For what a developer sees when Claude Code ignores the field, see [When only managed permission rules apply](https://code.claude.com/docs/en/skills#when-only-managed-permission-rules-apply).
+
 * **Scope**: [`Managed`](#scopes)
 * **Type**: Boolean
   * `true`: managed settings become the only settings source of permission rules
@@ -1850,8 +1861,9 @@ Claude Code keeps a Bash call sandboxed when it has one of these shapes, among o
 * A command substitution, a subshell, or a control-flow block such as `if` or `for`
 * A redirection, such as `docker build . > build.log`, other than one that only duplicates a file descriptor, as `2>&1` does
 * A command name that comes from a variable
+* A `git clone`, `git init`, `git worktree add`, `git worktree move`, or `git bundle create` with a path argument that is absolute, starts with `~`, or contains a `..` segment
 
-For example, `cd build && docker compose up` stays sandboxed under a `docker *` entry, and adding a `cd` entry doesn't change that.
+For example, `cd build && docker compose up` stays sandboxed under a `docker *` entry, and adding a `cd` entry doesn't change that. Under a `git *` entry, `git clone <url> vendor/lib` runs outside the sandbox, but `git clone <url> ~/tools` stays sandboxed. A clone writes a whole tree of files, possibly executable ones, wherever its destination path points.
 
 Excluded commands still go through the regular permission flow. Exclusion is a convenience, not a security boundary: prefer [`filesystem.allowWrite`](#sandbox-filesystem-allowwrite) when a tool only needs to write somewhere specific. Claude Code merges entries across every settings scope the session loads, and there is no managed-only lock for this list, so keep a managed list narrow.
 
@@ -3984,8 +3996,8 @@ Restrict hook execution to hooks your organization deploys.
 When you set it to `true`, Claude Code changes which hooks and hook-like commands load:
 
 * **Managed and SDK hooks run**: hooks from managed settings and hooks the [Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview) registers in process
-* **Force-enabled plugin hooks run**: hooks from plugins your managed settings force-enable through [`enabledPlugins`](#enabledplugins). Claude Code matches on the full `plugin@marketplace` ID, so a plugin with the same name from a different marketplace stays blocked. This lets you distribute vetted hooks through an organization marketplace while blocking everything else
-* **Everything else is blocked**: user, project, and local hooks, hooks from other plugins, and hooks declared in agent frontmatter
+* **Force-enabled plugin hooks run**: hooks from plugins your managed settings force-enable through [`enabledPlugins`](#enabledplugins). Claude Code matches on the full `plugin@marketplace` ID, so a plugin with the same name from a different marketplace stays blocked. This lets you distribute vetted hooks through an organization marketplace while blocking everything else. A [mod](https://code.claude.com/docs/en/plugins/mods/overview) in such a plugin loads only when it [counts as your organization's](https://code.claude.com/docs/en/plugins/mods/admin#install-your-organizations-mods)
+* **Everything else is blocked**: user, project, and local hooks, hooks and mods from other installed plugins, and hooks declared in agent frontmatter. [Mods built into Claude Code](https://code.claude.com/docs/en/plugins/mods/overview#mods-built-into-claude-code) keep running. To block only users' mods, set [`allowManagedModsOnly`](https://code.claude.com/docs/en/plugins/mods/admin#set-options-on-the-built-in-guard) instead.
 * **Command-sourced plugins are disabled**: Claude Code also disables plugins with a [`command` source](https://code.claude.com/docs/en/plugins/marketplace-reference#command-plugin-source), including plugins force-enabled in managed `enabledPlugins`, unless you set [`disableCommandPluginSources`](#disablecommandpluginsources) to `false` explicitly
 * **Marketplace `headersHelper` commands are blocked**: Claude Code also blocks marketplace [`headersHelper` commands](https://code.claude.com/docs/en/plugins/host-marketplace#authenticate-archive-downloads) unless [`disableCommandPluginSources`](#disablecommandpluginsources) is explicitly set to `false`, except for a marketplace that managed settings themselves declare. Requires Claude Code v2.1.238 or later
 * **Status line and file suggestion narrow to managed settings**: Claude Code reads [`statusLine`](https://code.claude.com/docs/en/statusline), [`fileSuggestion`](#filesuggestion), and [`subagentStatusLine`](https://code.claude.com/docs/en/statusline#subagent-status-lines) from managed settings only, following the [status line and file suggestion gates](#status-line-and-file-suggestion-gates)
@@ -4012,6 +4024,13 @@ The reach depends on which file carries the key:
 
 * **In managed settings**: Claude Code disables every configured hook, including managed ones, and keeps running the hooks the [Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview) registers in process
 * **In any other settings file**: Claude Code disables user, project, local, and plugin hooks; managed hooks, Agent SDK hooks, and hooks from plugins force-enabled in managed [`enabledPlugins`](#enabledplugins) keep running
+
+The key also stops [mods](https://code.claude.com/docs/en/plugins/mods/overview), which are plugins whose code registers hooks:
+
+* **In managed settings**: the mods in every installed plugin stop, your organization's included
+* **In any other settings file**: the mods you installed stop, and [your organization's mods](https://code.claude.com/docs/en/plugins/mods/admin#install-your-organizations-mods) keep running
+
+Mods built into Claude Code keep running in both cases. Each has [its own switch](https://code.claude.com/docs/en/plugins/mods/overview#mods-built-into-claude-code).
 
 Keeping Agent SDK hooks running when managed settings set this key requires Claude Code v2.1.242 or later.
 
@@ -4657,7 +4676,7 @@ The `source` object takes one of these forms:
 * **`git`**: any git URL, with `url`
 * **`url`**: a direct URL to a `marketplace.json` file, with `url` and optional `headers` and `headersHelper` for authenticated access. `headersHelper` names a command that prints headers whose values are too short-lived to list in `headers`, and requires Claude Code v2.1.238 or later
 * **`file`**: a local path to a `marketplace.json` file, with `path`
-* **`directory`**: a local filesystem path, with `path`, for development only
+* **`directory`**: a local filesystem path, with `path`. Use it for development, or for a marketplace your organization [deploys to each machine](https://code.claude.com/docs/en/plugins/mods/admin#install-your-organizations-mods).
 * **`settings`**: an inline marketplace declared directly in the settings file without a hosted repository, with `name` and `plugins`
 
 The `git` source type works with any git hosting service, including self-hosted GitLab and Bitbucket. Claude Code clones the repository with the same authentication that `git clone` would use on that machine: configured credential helpers or SSH keys. A provider token such as `GITHUB_TOKEN` takes effect through a credential helper that reads it. See [Private repositories](https://code.claude.com/docs/en/plugins/host-marketplace#grant-access-to-a-private-marketplace) for setup details.
@@ -4739,6 +4758,46 @@ This example stores the `api_endpoint` option for the `deployer` plugin from `ac
 Built-in plugins store their options under the same key with an `@builtin` suffix. For example, the [**Project instructions**](https://code.claude.com/docs/en/memory#choose-which-instruction-files-load) setting that controls whether Claude Code reads `AGENTS.md` files is `pluginConfigs["agents-md@builtin"].options.instructionFiles`.
 
 Claude Code ignores project and local entries because it substitutes these values into plugin hook, MCP, and LSP configurations, and a cloned repository must not be able to supply them. Before v2.1.207, project and local settings were also read.
+
+### `prependPlugins`
+
+List the managed plugins whose [mods](https://code.claude.com/docs/en/plugins/mods/overview) run before every mod a user installs, in the listed order. When you set this key in managed settings, name `sec-default@builtin` in the list to keep the built-in guard. In managed settings, Claude Code skips an id whose plugin doesn't count as your organization's. See [Install your organization's mods and set the order](https://code.claude.com/docs/en/plugins/mods/admin#install-your-organizations-mods) for those conditions and for how the two ordering keys work together.
+
+* **Scope**: [`User or managed`](#scopes). Claude Code reads the key from managed settings. It reads the key from user settings only on a machine with no managed settings, for a user who isn't signed in with a Team or Enterprise plan. It ignores the key in project and local settings and in a `--settings` file.
+* **Type**: array of `plugin-name@marketplace-name` strings
+* **Default**: unset
+
+```json managed-settings.json theme={null}
+{
+  "extraKnownMarketplaces": {
+    "acme-tools": {
+      "source": { "source": "directory", "path": "/opt/acme/claude-plugins" }
+    }
+  },
+  "enabledPlugins": { "acme-guard@acme-tools": true },
+  "prependPlugins": ["acme-guard@acme-tools", "sec-default@builtin"]
+}
+```
+
+### `appendPlugins`
+
+List the managed plugins whose [mods](https://code.claude.com/docs/en/plugins/mods/overview) run after every mod a user installs, in the listed order. An id listed in both `prependPlugins` and `appendPlugins` is prepended. In managed settings, Claude Code skips an id whose plugin doesn't [count as your organization's](https://code.claude.com/docs/en/plugins/mods/admin#install-your-organizations-mods).
+
+* **Scope**: [`User or managed`](#scopes). Claude Code reads the key from managed settings. It reads the key from user settings only on a machine with no managed settings, for a user who isn't signed in with a Team or Enterprise plan. It ignores the key in project and local settings and in a `--settings` file.
+* **Type**: array of `plugin-name@marketplace-name` strings
+* **Default**: unset
+
+```json managed-settings.json theme={null}
+{
+  "extraKnownMarketplaces": {
+    "acme-tools": {
+      "source": { "source": "directory", "path": "/opt/acme/claude-plugins" }
+    }
+  },
+  "enabledPlugins": { "acme-audit@acme-tools": true },
+  "appendPlugins": ["acme-audit@acme-tools"]
+}
+```
 
 ## MCP
 
@@ -5479,6 +5538,8 @@ In interactive sessions, when the command comes from project or local settings, 
 
 Run your own command, such as `aws sso login`, to refresh the credentials in your `.aws` directory when the ones Claude Code has for [Amazon Bedrock](https://code.claude.com/docs/en/amazon-bedrock) stop working. Claude Code checks the current credentials against STS first and runs the command only when that check fails, then reads the refreshed `.aws` directory.
 
+When the check fails at the same time in several Claude Code processes that use the same command and credentials, such as separate terminals or IDE windows, one process runs the command and the rest wait for that run instead of starting their own. A process that has waited 60 seconds with a request pending runs the command itself. To turn this off, set [`CLAUDE_CODE_DISABLE_AUTH_REFRESH_LOCK`](https://code.claude.com/docs/en/env-vars) to `1`.
+
 * **Scope**: [`Any file`](#scopes)
 * **Type**: string, a shell command line
 * **Default**: unset, so Claude Code doesn't refresh AWS credentials for you
@@ -5589,6 +5650,8 @@ If an entry is invalid, or the value isn't a list of strings, `/login` names the
 ### `gcpAuthRefresh`
 
 Run your own command to refresh Google Cloud Application Default Credentials when Claude Code finds they've expired or can't be loaded, so [Google Cloud's Agent Platform](https://code.claude.com/docs/en/google-vertex-ai) requests keep working without you re-authenticating by hand.
+
+When several Claude Code processes that use the same command and credentials, such as separate terminals or IDE windows, find them expired at the same time, one process runs the command and the rest wait for that run instead of starting their own. A process that has waited 60 seconds with a request pending runs the command itself. To turn this off, set [`CLAUDE_CODE_DISABLE_AUTH_REFRESH_LOCK`](https://code.claude.com/docs/en/env-vars) to `1`.
 
 * **Scope**: [`Any file`](#scopes)
 * **Type**: string, a shell command line

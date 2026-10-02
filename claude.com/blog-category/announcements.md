@@ -18,6 +18,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Oct 1, 2026
+
+Customize Claude Code with mods
+
+Product announcements
+
+Customize Claude Code with mods
+
+October 1, 2026
+
+[Customize Claude Code with mods](https://claude.com/blog/claude-code-mods)Customize Claude Code with mods
+
+[Customize Claude Code with mods](#)Customize Claude Code with mods
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
 
 Sep 30, 2026
@@ -242,22 +258,6 @@ August 21, 2026
 
 [Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](#)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
-
-Aug 20, 2026
-
-Anthropic’s approach to teaching and learning AI
-
-Product announcements
-
-Anthropic’s approach to teaching and learning AI
-
-August 20, 2026
-
-[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
-
-[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -265,6 +265,22 @@ Category
 Product
 
 Usecase
+
+### Customize Claude Code with mods
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+October 1, 2026
+
+[Customize Claude Code with mods](https://claude.com/blog/claude-code-mods)Customize Claude Code with mods
+
+[Customize Claude Code with mods](#)Customize Claude Code with mods
 
 ### Claude for Government is now generally available
 
@@ -489,22 +505,6 @@ August 21, 2026
 [Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
 
 [Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](#)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
-
-### Anthropic’s approach to teaching and learning AI
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 20, 2026
-
-[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
-
-[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
 
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 

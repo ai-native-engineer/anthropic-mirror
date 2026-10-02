@@ -27,3 +27,5 @@
 [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
 
 [Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)
+
+[Artifact usage promotion](https://support.claude.com/en/articles/17274727-artifact-usage-promotion)

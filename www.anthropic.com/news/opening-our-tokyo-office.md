@@ -37,3 +37,17 @@ We also announced that we have extended our partnership with the Mori Art Museum
 The people and organizations we’ve met in Japan share our conviction that technological progress must enable human progress. We're building a team in Tokyo to work alongside partners across industry, government, and culture toward that goal. Over the coming months, we'll bring this same approach to Seoul and Bengaluru as we continue our Asia-Pacific expansion. We look forward to helping innovation flourish across the region.
 
 For information about career opportunities at our Tokyo office, [see here](https://www.anthropic.com/jobs?office=4035213008).
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -26,52 +26,6 @@ Anthropic is a [Public Benefit Corporation](https://www.anthropic.com/company)�
 
 To truly act in the public interest, we need to fully understand the hopes and concerns the public has about this new technology. As part of our [new initiative on hard questions](https://www.youtube.com/watch?v=jVbGX7zJHi8), we’re taking further steps to understand people’s views and questions on a variety of AI-related topics, and transparently chart our progress toward our public benefit goals.
 
-<!-- yt-inline:jVbGX7zJHi8 -->
-[![There’s hope in hard questions](https://img.youtube.com/vi/jVbGX7zJHi8/hqdefault.jpg)](https://www.youtube.com/watch?v=jVbGX7zJHi8)
-
-<details>
-<summary>자막: There’s hope in hard questions (1:30)</summary>
-
-[00:00]
-“Can AI be trusted?”
-“Who’s gonna hit the brakes,
-if we need to?”
-“How do we really ensure that,
-what we’re aiming to achieve,
-really does,
-benefit the majority of people?”
-“If it ends up taking like
-almost all the jobs,
-then what does it mean to work?”
-“But wait a minute,
-why do we have to have this stuff?”
-“If a machine can pretend to care,
-better than I can actually care,
-how do we draw the line there?”
-“If we all had a voice in it,
-then I feel like it would be better.”
-“Could AI help people
-stop feeling misunderstood?”
-“Could AI help me build
-more connections in the community?”
-“Can AI help me be a better,
-teacher, better mom?”
-
-[00:01]
-“Maybe it’ll cure some great things,
-you know?”
-“Things that we're not even
-at the cusp of understanding yet.”
-“Will it create a group of people that,
-ask more questions?”
-“What if we started,
-to be more human again?”
-“We don’t want to lose
-the most beautiful parts of life.”
-
-</details>
-
-
 We’ve already been laying the groundwork, asking thousands of people for their views on AI:
 
 * We’ve begun the [Anthropic Public Record](https://www.anthropic.com/news/anthropic-public-record)—a public survey that, in its first round, asked 52,000 Americans to set out their biggest hopes and concerns about this technology;
@@ -86,3 +40,17 @@ Now, we’re explicitly asking you to send us your hardest questions on AI: ques
 In return, we’ll publicly track and report the specific actions we’re taking to address those questions—and we’ll be clear about the ways in which we might fall short of our stated goals.
 
 To see some of the questions others are asking, and to share your own, visit our [**hard questions website**](https://claude.com/hard-questions).
+
+### Barclays scales Claude to upgrade operations and improve client experience
+
+[Read more](https://www.anthropic.com/news/barclays-scales-claude)
+
+### Claude discovers a novel enzyme system with CRISPR-like repeats
+
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
+
+### Partnering with Accenture on embedded evaluation
+
+[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -43,6 +43,14 @@ Build and manage no-code apps
 
 [Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=rsvpify.com&sz=96)
+
+### [RSVPify](https://claude.com/marketplace/connectors/rsvpify)
+
+Run your event operations in RSVPify, end-to-end
+
+[Add RSVPify in Claude (opens in new tab)](https://claude.ai/directory/10622bb7-fadd-4edf-bf2d-29d73138711e "Add in Claude")
+
 ![](https://cdn.candid.org/images/candid-logo/candid-icon.svg)
 
 ### [Candid](https://claude.com/marketplace/connectors/candid)
@@ -58,11 +66,3 @@ Research nonprofits and funders using Candid's data
 Discover every grant opportunity in existence.
 
 [Add Granted in Claude (opens in new tab)](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad "Add in Claude")
-
-![](https://mcp.givebutter.com/mcp/icon.svg)
-
-### [Givebutter](https://claude.com/marketplace/connectors/givebutter)
-
-Manage your fundraising
-
-[Add Givebutter in Claude (opens in new tab)](https://claude.ai/directory/d4d95e77-c166-4ee8-b2e5-fae34743cfe3 "Add in Claude")
