@@ -4,27 +4,15 @@
 
 Claude Code helps leading enterprises modernize legacy codebases, assisting with scalable migration while maintaining business logic integrity.
 
-Speak with sales
+[Speak with sales](https://claude.com/contact-sales)[Learn more](https://claude.com/product/claude-code/enterprise)
 
-[Speak with sales](https://claude.com/contact-sales)Speak with sales
-
-Learn more
-
-[Learn more](https://claude.com/product/claude-code/enterprise)Learn more
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae314813a930db5dbd37_Turing_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae2b07adfc102c0f9836_Turing_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad854d234546bd3155fe_Slalom_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad8129fd5cfaec6e630e_Slalom_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae1c07927800140c1ff7_Tribe%20ai_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae2133fe818503bd7f1c_Tribe%20ai_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad2a3bc17a074ec7604a_quantium_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad33a51ccb23802c611d_quantium_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a085e911bd4167f05736_deepsense-light-mode.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a07dd1c70c9f0ab170d9_deepsense-dark-mode.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa4f49588bd5ac875956_deloitte_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa491a800b9e0c37fe24_deloitte_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05bcd76e1d673fc80f2_caylent-light-mode.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05d723ff69d39ca2748_caylent-dark-mode.svg)
+* ![Turing](https://assets.claude.com/ca5ae5efd468b4e142518358052bbca29b56a721.svg)
+* ![Slalom](https://assets.claude.com/76abd5aaf53902c94b5e66904103c203fd558b79.svg)
+* ![Tribe AI](https://assets.claude.com/9b1586611187dae631f27da64cd140367f66de78.svg)
+* ![Quantium](https://assets.claude.com/0e6b8d1ab806b1a949b793cce5bc3b294fe8d88c.svg)
+* ![Deepsense AI](https://assets.claude.com/a465953cf1a07fc0cffa5c6a277b7ffcf0befe15.svg)
+* ![Deloitte](https://assets.claude.com/d799180e9a468d82dc23a32c1ddfe94dcee116d0.svg)
+* ![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
 ## The agentic modernization tool for enterprise legacy systems
 
@@ -68,58 +56,34 @@ Create modern documentation from undocumented legacy code, capturing institution
 
 ## The AI ecosystem for code modernization
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7e33062ccf9eb34ffc2_Aws_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7e72c5c0a63b1d2c4b2_Aws_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05bcd76e1d673fc80f2_caylent-light-mode.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05d723ff69d39ca2748_caylent-dark-mode.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a085e911bd4167f05736_deepsense-light-mode.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a07dd1c70c9f0ab170d9_deepsense-dark-mode.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa4f49588bd5ac875956_deloitte_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa491a800b9e0c37fe24_deloitte_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaf1b161d57cbe7095b8_GitLab_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaebe118de085a232f53_GitLab_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aafce69e3d9faa33ee5d_google%20cloud_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab01beb08c598a6a82e1_google%20cloud_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad2a3bc17a074ec7604a_quantium_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad33a51ccb23802c611d_quantium_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad854d234546bd3155fe_Slalom_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad8129fd5cfaec6e630e_Slalom_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae1c07927800140c1ff7_Tribe%20ai_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae2133fe818503bd7f1c_Tribe%20ai_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae314813a930db5dbd37_Turing_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae2b07adfc102c0f9836_Turing_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af863ee4a7acccb3f45c_68079342136c3363721f7e0c_terraform%201.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af8a70faf1100b4bef20_68079342136c3363721f7e0c_terraform%203.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b1f0251ef26c2f437138f1_logo_circleci-light-mode.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b1f02afb707d585ea57da3_logo_circleci-dark-mode.svg)
+* ![AWS](https://assets.claude.com/723ac3a5a747c466218a5d007ff4839141f462ee.svg)
+* ![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
+* ![Deepsense AI](https://assets.claude.com/a465953cf1a07fc0cffa5c6a277b7ffcf0befe15.svg)
+* ![Deloitte](https://assets.claude.com/d799180e9a468d82dc23a32c1ddfe94dcee116d0.svg)
+* ![GitLab](https://assets.claude.com/9760b31778be76fd66c6b722dced22db12cb59e8.svg)
+* ![Google Cloud](https://assets.claude.com/8557be9c8987aa27573d8533b17bcf14109ad7b1.svg)
+* ![Quantium](https://assets.claude.com/0e6b8d1ab806b1a949b793cce5bc3b294fe8d88c.svg)
+* ![Slalom](https://assets.claude.com/76abd5aaf53902c94b5e66904103c203fd558b79.svg)
+* ![Tribe AI](https://assets.claude.com/9b1586611187dae631f27da64cd140367f66de78.svg)
+* ![Turing](https://assets.claude.com/ca5ae5efd468b4e142518358052bbca29b56a721.svg)
+* ![GitHub](https://assets.claude.com/ff6655b95f24d2aa0b9bf52c94ef5d5f5e54a70e.svg)
+* ![Terraform](https://assets.claude.com/29f9867e9ce2a0784d68e8f4714faabbc2bb81f2.svg)
+* ![Circleci](https://assets.claude.com/298400459eeefd8578e298986d96a5616025d2a4.svg)
 
 ## Coding modernization resources
 
-Start building
+[Start building (opens in new tab)](https://platform.claude.com/)
 
-[Start building](https://platform.claude.com/)Start building
+[Claude Code for Financial Services
 
-[Claude Code for Financial Services](https://www.anthropic.com/webinars/claude-code-financial-services)Claude Code for Financial Services
+Webinar](https://www.anthropic.com/webinars/claude-code-financial-services)
 
-Claude Code for Financial Services
+[The Code Modernization Playbook
 
-Webinar
+eBook](https://resources.anthropic.com/code-modernization-playbook)
 
-[Webinar](https://www.anthropic.com/webinars/claude-code-financial-services)Webinar
+[How AI helps break the cost barrier to COBOL modernization
 
-[The Code Modernization Playbook](https://resources.anthropic.com/code-modernization-playbook)The Code Modernization Playbook
+Blog](https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization)
 
-The Code Modernization Playbook
-
-eBook
-
-[eBook](https://resources.anthropic.com/code-modernization-playbook)eBook
-
-[How AI helps break the cost barrier to COBOL modernization](https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization)How AI helps break the cost barrier to COBOL modernization
-
-How AI helps break the cost barrier to COBOL modernization
-
-Blog
-
-[Blog](https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization)Blog
+Code modernization | Claude by Anthropic

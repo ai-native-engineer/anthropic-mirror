@@ -15,7 +15,7 @@ Anthropic's analysis of this finding, sealed at approval.
 
 Updating a Git submodule from a malicious repository leads to remote code execution.
 
-**Project:** GitoxideLabs/gitoxide
+**Project:** gitoxidelabs/gitoxide
 
 Step [A] reads `submodule.<name>.update` newest-to-oldest across sections, so if the trusted override section has no `update` key the attacker's .gitmodules value is returned. Step [B] then disarms the guard because `.any(|s| s.header().subsection_name() == Some(name) && !std::ptr::eq(s.meta(), ours))` only checks that a foreign-metadata section exists for that name, not that it supplied the value read in [A]. The two checks ask different questions, and the mismatch lets a .gitmodules-sourced `!command` pass as trusted.
 
@@ -26,8 +26,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 ---
 
 **Reference:** ANT-2026-6SNS6KMP
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -74,7 +72,7 @@ ADVISORY
 
 <https://github.com/GitoxideLabs/gitoxide/security/advisories/GHSA-f26g-jm89-4g65>
 
-1. 2026-03-29
+1. 2026-03-10
 2. 2026-03-29
 3. 2026-04-24
 4. 2026-05-08
@@ -82,9 +80,9 @@ ADVISORY
 
 bc1d508742c8b9b677d57b6feae069ec5a97a697eba86a13021c648a8457d27998aac7f9245b25e244e4ae804163175bd310e4302c522abf267f76e64a845221
 
-Committed 2026-05-08 09:37 PT
+Committed 2026-05-08 16:37 UTC
 
-Revealed 2026-05-20 00:40 PT
+Revealed 2026-05-20 07:40 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-6SNS6KMP%22%2C%22bug_class%22%3A%22Remote%20Code%20Execution%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-29T20%3A43%3A51%2B00%3A00%22%2C%22description%22%3A%22Updating%20a%20Git%20submodule%20from%20a%20malicious%20repository%20leads%20to%20remote%20code%20execution.%22%2C%22discovered_at%22%3A%222026-03-10T00%3A00%3A00%2B00%3A00%22%2C%22location%22%3Anull%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22GitoxideLabs/gitoxide%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3A%22Step%20%5BA%5D%20reads%20%60submodule.%3Cname%3E.update%60%20newest-to-oldest%20across%20sections%2C%20so%20if%20the%20trusted%20override%20section%20has%20no%20%60update%60%20key%20the%20attacker%27s%20.gitmodules%20value%20is%20returned.%20Step%20%5BB%5D%20then%20disarms%20the%20guard%20because%20%60.any%28%7Cs%7C%20s.header%28%29.subsection_name%28%29%20%3D%3D%20Some%28name%29%20%26%26%20%21std%3A%3Aptr%3A%3Aeq%28s.meta%28%29%2C%20ours%29%29%60%20only%20checks%20that%20a%20foreign-metadata%20section%20exists%20for%20that%20name%2C%20not%20that%20it%20supplied%20the%20value%20read%20in%20%5BA%5D.%20The%20two%20checks%20ask%20different%20questions%2C%20and%20the%20mismatch%20lets%20a%20.gitmodules-sourced%20%60%21command%60%20pass%20as%20trusted.%22%2C%22title%22%3A%22RCE%20when%20updating%20a%20Git%20submodule%20of%20a%20malicious%20repository%22%2C%22vendor_severity%22%3Anull%7D)
 

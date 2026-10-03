@@ -73,3 +73,5 @@ Even better, building Claude into ScriptSense was a smooth and straightforward p
 ### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
 ### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)
+
+Jumpcut Claude Platform (API) case study | Claude by Anthropic

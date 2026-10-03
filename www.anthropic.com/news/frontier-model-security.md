@@ -50,17 +50,3 @@ Frontier AI research labs should participate in public-private cooperation in th
 It can be tempting to deprioritize security: when everything is going well, it can feel like it isn’t necessary or that it is in tension with other company goals. But this technology is becoming more powerful and will require enhanced precautions. We also believe that while security can sometimes interfere with productivity, that there are creative ways to ensure that its effects are limited and that research and other work can proceed effectively.
 
 The development of artificial intelligence has incredible potential to benefit humanity, but it also comes with risks if not pursued thoughtfully. As an AI company working on the frontier of this technology, we take our responsibility seriously to build and deploy Claude in a way that is safe, secure and aligned with human values. We will continue sharing our perspectives on the responsible development of AI.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

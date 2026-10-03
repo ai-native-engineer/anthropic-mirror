@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/partners -->
 
+![](https://assets.claude.com/2d4dbefcce661a81a0f5346bcca01b16fb36739c.svg)
+
 # Claude Partner Network
 
 Build the enterprise AI practice your customers are asking for — with the training, technical support, and co-investment to back it up.
@@ -8,25 +10,19 @@ Build the enterprise AI practice your customers are asking for — with the trai
 
 Apply to the Claude Partner Network.
 
-Get started
-
-[Get started](https://claude.com/form/cpn-partner-application)Get started
+[Get started (opens in new tab)](https://claude.com/form/cpn-partner-application)
 
 ## Partner Portal
 
 Already working with Anthropic? Log in to access resources, templates and playbooks.
 
-Login
-
-[Login](http://partnerhub.anthropic.com/)Login
+[Login (opens in new tab)](http://partnerhub.anthropic.com/)
 
 ## Get Claude certified
 
 Check out Anthropic Academy to get Claude certified.
 
-Learn more
-
-[Learn more](https://anthropic-partners.skilljar.com/page/partner-certifications)Learn more
+[Learn more (opens in new tab)](https://anthropic-partners.skilljar.com/page/partner-certifications)
 
 ## Flexible deployment for
 any environment
@@ -35,114 +31,70 @@ any environment
 
 Many of the world's leading companies access frontier Claude models on AWS, Google Cloud, and Microsoft.
 
-AWS
-
-[AWS](https://claude.com/partners/amazon-bedrock)AWS
-
-Google Cloud
-
-[Google Cloud](https://claude.com/partners/google-cloud)Google Cloud
-
-Microsoft
-
-[Microsoft](https://claude.com/partners/microsoft-foundry)Microsoft
+[AWS](https://claude.com/partners/amazon-bedrock)[Google Cloud](https://claude.com/partners/google-cloud)[Microsoft](https://claude.com/partners/microsoft-foundry)
 
 ### Services partner directory
 
 Looking for expert partners to help with your AI strategy, consulting, or Claude implementation? Explore our network of services partners who have successfully delivered Claude solutions for enterprise customers.
 
-Learn more
-
-[Learn more](https://claude.com/partners/services)Learn more
+[Learn more](https://claude.com/partners/services)
 
 ### Powered by Claude directory
 
 See the list of businesses that use Claude to build better, faster, and safer product experiences for their customers.
 
-Learn more
+[Learn more](https://claude.com/partners/powered-by-claude)
 
-[Learn more](https://claude.com/partners/powered-by-claude)Learn more
+![Airtable](https://assets.claude.com/9c9bf1b0c0919a10b29b5e06e40de567cc4af41e.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abda0aebae637a39b8031_Airtable.jpg)
+![Chrome](https://assets.claude.com/5cd804e6a6ff321616420479540c6e03d63e280d.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abecc34132f76378e6839_Control%20Chrome.jpg)
+![Notion MCP](https://assets.claude.com/89b5dce76292b5fe3db18fd2d9f8abec2647eace.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac085f91d777702ff6935_Notion%20MCP.jpg)
+![Asana](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+![Benchling](https://assets.claude.com/1c981e9efbfd8c98ff0d86054d0c54defbd9c951.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdfc622a31cabb4ed418_Benchling.jpg)
+![Amplitude](https://assets.claude.com/01bd40346f00e79de7b2de999e893189661ff8bb.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+![Atlassian](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abde7cfa24b799acf7fc9_Atlassian.jpg)
+![Benevity](https://assets.claude.com/6df195ec4b40e43a2bb71c108667ac1dc38f6ae4.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692e4c057216b17022e9dc17_benevity.svg)
+![Cloudflare](https://assets.claude.com/a4a2d475e36592f3a6bdc1f2bf2337d13c5f4ac8.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abeb765f2d57005074b8f_Cloudflare%20Developer%20Platform.jpg)
+![Close](https://assets.claude.com/878bf9530c63952923c2c3e43e2e1ddc9faada0a.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abeac92266bd43baf3e13_Close.jpg)
+![Figma](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf35eff31cb9416d9ec4_Figma.jpg)
+![Startups Square Hex](https://assets.claude.com/7400a71516c0d72eb78be6aaac71fb378e6c58ec.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab43729f44eabd60b9e2e9a_6ab4360a6ea33ab113811507_startups-square-hex-light.svg)
+![Hubspot](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf89f91d777702ff37af_HubSpot.jpg)
+![Intercom](https://assets.claude.com/37ce5968b2e46e9c696132cd4970baeeff9a08f0.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abfac1647ce192e81c3ba_Intercom.jpg)
+![Jotform](https://assets.claude.com/949ad8b2de4362c0b945dda5655db3a666ded338.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abfc71647ce192e81d28a_jotform.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab43729f44eabd60b9e2ec0_6ab4360ab06e949f996372ed_startups-square-linear-light.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac024622a31cabb4f22f9_Mermaid%20Chart.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690c442881b2f70098a4491a_logo_microsoft.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac0797fb7905db81f0c5f_NetSuite%20AI%20Connector%20for%20Claude.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac11074040a8d303e83a5_Slack.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac12b69f1d226d230746c_Stripe.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac10642323897e8eebfdd_Sentry%20MCP.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac122efac2533660b7814_Square%20MCP.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac166a0909415690fdb58_Vercel.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac0b95f15547a984ac458_Plaid%20Developer%20Tools.jpg)
+![Linear](https://assets.claude.com/ed172e953866fead6b10ab99ba870471a1ad4053.svg)
 
 ## MCP Connectors
 
 Claude can work with your tools, databases, and applications—and give you more relevant responses. Choose from a variety of connectors, powered by the Model Context Protocol (MCP)
 
-Explore connectors
-
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)
 
 ## Partner news
 
-[Deloitte will make Claude available to 470,000 people across its global network](https://www.anthropic.com/news/deloitte-anthropic-partnership)Deloitte will make Claude available to 470,000 people across its global network
+[Deloitte will make Claude available to 470,000 people across its global network
 
-Deloitte will make Claude available to 470,000 people across its global network
+Announcement](https://www.anthropic.com/news/deloitte-anthropic-partnership)
 
-Announcement
+[Claude now available in Microsoft Foundry and Microsoft 365 Copilot
 
-[Announcement](https://www.anthropic.com/news/deloitte-anthropic-partnership)Announcement
+Announcement](https://www.anthropic.com/news/claude-in-microsoft-foundry)
 
-[Claude now available in Microsoft Foundry and Microsoft 365 Copilot](https://www.anthropic.com/news/claude-in-microsoft-foundry)Claude now available in Microsoft Foundry and Microsoft 365 Copilot
+[Anthropic Lands Cognizant as Enterprise AI Customer
 
-Claude now available in Microsoft Foundry and Microsoft 365 Copilot
+Announcement](https://www.wsj.com/articles/anthropic-lands-cognizant-as-enterprise-ai-customer-af22f359?gaa_at=eafs&gaa_n=AWEtsqeVVcY72rEKxXb7l0X3xWSM1E3yfL7Sm-QBP_-XgEqZ402_A1dYrZ6MhJtFANk%3D&gaa_ts=69214f43&gaa_sig=WVtuGF7WSN395IAZBrmRqH0LECdh0Xl1tZlL3KlHqdiiPSO2C_WsFsb3lNSmoBqExN9InhJy89lWkwMdb12rig%3D%3D)
 
-Announcement
-
-[Announcement](https://www.anthropic.com/news/claude-in-microsoft-foundry)Announcement
-
-[Anthropic Lands Cognizant as Enterprise AI Customer](https://www.wsj.com/articles/anthropic-lands-cognizant-as-enterprise-ai-customer-af22f359?gaa_at=eafs&gaa_n=AWEtsqeVVcY72rEKxXb7l0X3xWSM1E3yfL7Sm-QBP_-XgEqZ402_A1dYrZ6MhJtFANk%3D&gaa_ts=69214f43&gaa_sig=WVtuGF7WSN395IAZBrmRqH0LECdh0Xl1tZlL3KlHqdiiPSO2C_WsFsb3lNSmoBqExN9InhJy89lWkwMdb12rig%3D%3D)Anthropic Lands Cognizant as Enterprise AI Customer
-
-Anthropic Lands Cognizant as Enterprise AI Customer
-
-Announcement
-
-[Announcement](https://www.wsj.com/articles/anthropic-lands-cognizant-as-enterprise-ai-customer-af22f359?gaa_at=eafs&gaa_n=AWEtsqeVVcY72rEKxXb7l0X3xWSM1E3yfL7Sm-QBP_-XgEqZ402_A1dYrZ6MhJtFANk%3D&gaa_ts=69214f43&gaa_sig=WVtuGF7WSN395IAZBrmRqH0LECdh0Xl1tZlL3KlHqdiiPSO2C_WsFsb3lNSmoBqExN9InhJy89lWkwMdb12rig%3D%3D)Announcement
+Partners | Claude by Anthropic

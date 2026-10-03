@@ -21,17 +21,3 @@ This growth spans the entire Anthropic platform, with advancements for businesse
 “Anthropic is on an exceptional trajectory, combining research excellence, technological leadership, and relentless focus on customers. We’re honored to partner with Dario and the team, and our lead investment in their Series F reflects our belief in their values and their ability to shape the future of responsible AI,” said Divesh Makan, Partner at ICONIQ. “Enterprise leaders tell us what we’re seeing firsthand—Claude is reliable, built on a trustworthy foundation, and guided by leaders truly focused on the long term.”
 
 The Series F investment will expand our capacity to meet growing enterprise demand, deepen our safety research, and support international expansion as we continue building reliable, interpretable, and steerable AI systems.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

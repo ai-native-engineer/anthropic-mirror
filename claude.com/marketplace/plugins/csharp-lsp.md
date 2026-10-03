@@ -31,5 +31,3 @@ Code clarity agent: simplifies and refines recently modified code while preservi
 ### [Playwright](https://claude.com/marketplace/plugins/playwright)
 
 Browser automation and end-to-end testing MCP server by Microsoft. Enables Claude to interact with web pages, take screenshots, fill forms, and automate testing workflows.
-
-C# LSP | Claude by Anthropic

@@ -29,17 +29,3 @@ Engagements like this will run across mid-sized companies across industries, eac
 This company will also become a member of Anthropic’s growing Claude Partner Network.
 
 Our partnerships with Accenture, Deloitte, PwC, and the other consulting and systems integration firms in the Claude Partner Network are one of the ways Claude benefits the world’s largest enterprises today. These firms lead the complex transformation programs that shape how global enterprises operate, and they bring Claude expertise to their millions of practitioners across every major industry. We have been steadily expanding the Claude Partner Network since its launch, and we are continuing to invest in the programs, funding, and teams that support our partners.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

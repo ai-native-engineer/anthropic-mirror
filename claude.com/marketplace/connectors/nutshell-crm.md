@@ -75,3 +75,5 @@ Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claud
 Connect your Notion workspace to search, update, and power workflows across tools
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
+
+Nutshell CRM connector | Claude by Anthropic

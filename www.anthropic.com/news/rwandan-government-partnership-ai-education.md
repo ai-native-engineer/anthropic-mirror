@@ -42,16 +42,4 @@ These partnerships demonstrate a consistent approach to working closely with gov
 
 We look forward to learning from these deployments, sharing what we've learned with the wider community, and continuing to support educators and learners as they shape AI's role in building our future.
 
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
+Anthropic brings AI education to Africa with Rwanda and ALX \ Anthropic

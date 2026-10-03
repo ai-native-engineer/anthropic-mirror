@@ -90,3 +90,5 @@ Anthropic verifiedTrending
 Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
+
+stub connector | Claude by Anthropic

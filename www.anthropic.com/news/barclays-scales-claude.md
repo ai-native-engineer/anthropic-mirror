@@ -38,18 +38,6 @@ As Barclays continues to expand its use of AI, responsible deployment remains ce
 
 The expanded partnership reflects Barclays’ long-term commitment to using AI to improve productivity, strengthen resilience, and improve customer and client outcomes. By combining Anthropic’s frontier AI capabilities with Barclays’ focus on responsible innovation, the organizations are working together to scale practical AI applications across one of the world’s largest financial institutions.
 
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
 ### Partnering with Accenture on embedded evaluation
 
 [Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
-
-### Introducing the Life Sciences Verification Program
-
-The Life Sciences Verification Program (LSVP) gives life science professionals access to Claude Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work.
-
-[Read more](https://www.anthropic.com/news/life-sciences-verification-program)

@@ -22,7 +22,7 @@ An **Author-level** user (Joomla's default content-creation group, which has `co
 
 This breaks the fundamental security boundary of the media adapter, which is supposed to jail all operations inside the configured media root (`/var/www/html/images`).
 
-**Project:** joomla
+**Project:** joomla/joomla-cms
 **Commit:** `b794d03bd42cf8ba`
 
 The root cause is that LocalAdapter::search() builds `$pattern = Path::clean($this->getLocalPath($path) . '/*' . $needle . '*')` where `$needle` is attacker-controlled and unvalidated; Path::clean() only normalizes slashes and does not strip `..`, and PHP's glob() resolves `..` segments during pattern expansion. The existing Path::check() guard is applied only to `$path`, not to the search needle, so the sandbox boundary is enforced on the wrong input.
@@ -268,9 +268,9 @@ index 9f8ecd9..74e48d9 100644
 
 d7de4969efd4f3d7e9c4921183300a215f7ed12cf7cc72a058f666216d45394f963e93d1e9c78a2e73dcd3471c8548e8160cef16bacaed927db723f7e4ea78f5
 
-Committed 2026-04-23 00:04 PT
+Committed 2026-04-23 07:04 UTC
 
-Revealed 2026-05-28 11:00 PT
+Revealed 2026-05-28 18:00 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-GSV3GS1G%22%2C%22bug_class%22%3A%22Path-traversal%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3A%22b794d03bd42cf8ba%22%2C%22created_at%22%3A%222026-03-30T23%3A19%3A37%2B00%3A00%22%2C%22description%22%3A%22The%20Joomla%20Media%20Manager%20%28%60com_media%60%29%20exposes%20a%20file%20search%20endpoint%20that%20passes%20the%20user-supplied%20%60search%60%20parameter%20directly%20into%20a%20%60glob%28%29%60%20pattern%20without%20sanitization.%20While%20the%20%60path%60%20parameter%20is%20properly%20validated%20via%20%60Path%3A%3Acheck%28%29%60%20%28which%20rejects%20%60..%60%29%2C%20the%20%60search%60%20parameter%20receives%20no%20such%20validation.%5Cn%5CnAn%20%2A%2AAuthor-level%2A%2A%20user%20%28Joomla%27s%20default%20content-creation%20group%2C%20which%20has%20%60core.create%60%20on%20%60com_media%60%29%20can%20inject%20%60../%60%20sequences%20into%20the%20%60search%60%20parameter%20to%20escape%20the%20media%20sandbox%20%28%60/images%60%29%20and%3A%5Cn%5Cn1.%20%2A%2AEnumerate%20the%20entire%20server%20filesystem%2A%2A%20%E2%80%94%20directories%20are%20never%20filtered%5Cn2.%20%2A%2ARead%20the%20contents%2A%2A%20of%20any%20file%20with%20an%20allowed%20media%20extension%20%28%60.txt%60%2C%20%60.csv%60%2C%20%60.pdf%60%2C%20%60.doc%60%2C%20%60.xls%60%2C%20%60.jpg%60%2C%20%60.png%60%2C%20etc.%29%20%2A%2Aanywhere%20on%20the%20filesystem%2A%2A%2C%20including%20outside%20the%20webroot%5Cn%5CnThis%20breaks%20the%20fundamental%20security%20boundary%20of%20the%20media%20adapter%2C%20which%20is%20supposed%20to%20jail%20all%20operations%20inside%20the%20configured%20media%20root%20%28%60/var/www/html/images%60%29.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3Anull%2C%22poc_sha256%22%3A%222582bdc36655e31e92c9e5397a55a7315b2ba50f0c5c176e25ad0f5299285bb0%22%2C%22preimage_version%22%3A1%2C%22project%22%3A%22joomla%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3A%22The%20root%20cause%20is%20that%20LocalAdapter%3A%3Asearch%28%29%20builds%20%60%24pattern%20%3D%20Path%3A%3Aclean%28%24this-%3EgetLocalPath%28%24path%29%20.%20%27/%2A%27%20.%20%24needle%20.%20%27%2A%27%29%60%20where%20%60%24needle%60%20is%20attacker-controlled%20and%20unvalidated%3B%20Path%3A%3Aclean%28%29%20only%20normalizes%20slashes%20and%20does%20not%20strip%20%60..%60%2C%20and%20PHP%27s%20glob%28%29%20resolves%20%60..%60%20segments%20during%20pattern%20expansion.%20The%20existing%20Path%3A%3Acheck%28%29%20guard%20is%20applied%20only%20to%20%60%24path%60%2C%20not%20to%20the%20search%20needle%2C%20so%20the%20sandbox%20boundary%20is%20enforced%20on%20the%20wrong%20input.%22%2C%22title%22%3A%22Path%20Traversal%20via%20Glob%20Injection%20in%20com_media%20Search%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

@@ -26,9 +26,9 @@ Start a review from any git repository:
 /code-review ultra
 ```
 
-Without arguments, ultrareview reviews the diff between your current branch and the default branch, including uncommitted and staged changes. For uncommitted changes to files named like credentials or keys, such as `.env` and `*.tfvars` files, Claude Code follows the rules for [uploading a local repository to a cloud session](https://code.claude.com/docs/en/claude-code-on-the-web#send-local-repositories-without-github).
+Without arguments, ultrareview reviews the diff between your current branch and the default branch, including uncommitted and staged changes.
 
-For a branch review, Claude Code bundles the repository state and uploads it to a cloud sandbox; when you [review a pull request](#review-a-pull-request), Claude Code uploads nothing from your machine.
+For a branch review, Claude Code bundles the repository state and uploads it to a cloud sandbox under the rules for [uploading a local repository to a cloud session](https://code.claude.com/docs/en/claude-code-on-the-web#send-local-repositories-without-github), which cover the size limits, the checkout requirements, and what happens to uncommitted changes in files named like credentials or keys, such as `.env` and `*.tfvars` files. When you [review a pull request](#review-a-pull-request), Claude Code uploads nothing from your machine.
 
 Before launching, Claude Code shows a confirmation dialog with the review scope, your remaining free runs, and the estimated cost; for a branch review, the scope includes the file and line count. After you confirm, the review continues in the background while you keep using your session.
 
@@ -118,16 +118,12 @@ Ultrareview is a premium feature that bills against usage credits rather than yo
 | - | - | - |
 | Pro | 3 free runs | billed as [usage credits](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) |
 | Max | 3 free runs | billed as [usage credits](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) |
-| Team and Enterprise | none | billed as [usage credits](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) |
 
 * **Free runs**: the three Pro and Max runs are a one-time allotment per account and don't refresh.
 * **Cost per review**: after you use the free runs, typically \$5 to \$25 in usage credits depending on the size of the change, matching the estimate the launch dialog shows before each run.
 * **When a run counts**: once the cloud session starts. A review you stop early or that fails to complete still uses a free run; a paid review bills only for the portion that ran.
 
-Because ultrareview always bills as usage credits outside the free runs, your account or organization must have usage credits turned on before you can launch a paid review. If usage credits aren't turned on, Claude Code blocks the launch, and how you turn them on depends on your billing access:
-
-* If you can manage billing for your account, Claude Code links you to the billing settings where you can turn on usage credits.
-* On Team and Enterprise plans, members without billing access send a request from the CLI asking their admin to turn on usage credits.
+Because ultrareview always bills as usage credits outside the free runs, your account or organization must have usage credits turned on before you can launch a paid review. If usage credits aren't turned on, Claude Code blocks the launch. If you can manage billing for your account, Claude Code links you to the billing settings where you can turn on usage credits.
 
 You can also run `/usage-credits` to check or change your usage-credits setting.
 
@@ -180,7 +176,7 @@ The subcommand exits with one of three codes:
 * **1**: the review failed to launch or was stopped before it finished, the cloud session errored, or the timeout elapsed
 * **130**: you interrupted the subcommand with Ctrl-C
 
-If the subcommand exits before the findings arrive, they never reach your terminal, and running it again starts a new review rather than resuming that one. The new review [counts as a run](#pricing-and-free-runs) of its own.
+If the subcommand exits before the findings arrive, they never reach your terminal. The review may still be running in the cloud. Running the subcommand again starts a new review rather than resuming that one, and the new review [uses a free run or bills as usage credits](#pricing-and-free-runs).
 
 With `--post`, the subcommand starts the post right after printing the findings, and prints the link to stderr.
 

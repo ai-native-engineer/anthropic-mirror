@@ -7,4 +7,4 @@ Visit the Amazon Bedrock [user guide](https://docs.aws.amazon.com/bedrock/latest
 * [How do I get access to Claude in Amazon Bedrock?](https://support.claude.com/en/articles/7996920-how-do-i-get-access-to-claude-in-amazon-bedrock)
 * [I use Claude in Amazon Bedrock. Who do I contact for customer support inquiries?](https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries)
 * [Where do I find Claude in Amazon Bedrock documentation?](https://support.claude.com/en/articles/10280783-where-do-i-find-claude-in-amazon-bedrock-documentation)
-* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)

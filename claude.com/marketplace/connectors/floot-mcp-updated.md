@@ -4,7 +4,11 @@ Connector URL`https://mcp.floot.com/mcp`
 
 More[Documentation (opens in new tab)](https://floot.com/integrations/mcp)[Support (opens in new tab)](https://floot.com/support)[Privacy policy (opens in new tab)](https://floot.com/privacy)
 
-Build and host full-stack apps using your own Claude subscription. No AI build credits required. Floot MCP Server exposes the entire platform as native Claude tool calls: create a project, write code, provision a database, enable auth, manage file storage, and deploy, all from a single conversation. Your Claude subscription does the building. Floot handles the infrastructure. One conversation in, one working, hosted app out. Works with Claude, Claude Code, and Cowork.
+Build and launch real apps from Claude. Describe what you want, and Claude writes the code in a Floot project and puts it online as a web app at its own address. It can also ship it as an iOS and Android app to the App Store and Google Play.
+
+Every project comes with a database, user sign-in, file storage, email and push notifications, so you don't need to set up any servers. A live preview updates while Claude works, and you publish when it looks right.
+
+Claude does the building with your existing Claude subscription, so you don't buy any AI credits from Floot. Works in Claude, Claude Code and Cowork.
 
 ## Tools
 
@@ -39,6 +43,22 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
+![](https://assets.claude.com/e476a6c2c2f961f5f2120482f37b1daafc1506d9.jpg?w=128&fit=max&auto=format)
+
+### [Canva](https://claude.com/marketplace/connectors/canva)
+
+Search, create, autofill, and export Canva designs
+
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
+
+![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
+
+### [Figma](https://claude.com/marketplace/connectors/figma)
+
+Generate diagrams and better code from Figma context
+
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -46,6 +66,14 @@ Only use connectors from developers you trust. Anthropic does not control which 
 monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
+
+### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
+
+Design, combine, and edit with Adobe pro tools
+
+[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
@@ -62,27 +90,3 @@ Manage databases, authentication, and storage
 Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
-
-![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
-
-### [Vercel](https://claude.com/marketplace/connectors/vercel)
-
-Analyze, debug, and manage projects and deployments
-
-[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
-
-![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
-
-### [Zapier](https://claude.com/marketplace/connectors/zapier)
-
-Automate workflows across thousands of apps via conversation
-
-[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
-
-### [Microsoft Learn](https://claude.com/marketplace/connectors/microsoft-learn)
-
-Search trusted Microsoft docs to power your development
-
-[Add Microsoft Learn in Claude (opens in new tab)](https://claude.ai/directory/89a7ddf5-2a6b-410c-be11-aa0e1a1b35a6 "Add in Claude")

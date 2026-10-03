@@ -65,14 +65,6 @@ Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
-![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg?w=128&fit=max&auto=format)
-
-### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
-
-Sell, serve, and operate at scale with Salesforce.
-
-[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
 ### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
@@ -82,6 +74,14 @@ Anthropic verifiedTrending
 Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
+
+![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg?w=128&fit=max&auto=format)
+
+### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
+
+Sell, serve, and operate at scale with Salesforce.
+
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
 ![](https://mcp.govola.com/icon.png)
 
@@ -93,10 +93,12 @@ Search flight offers
 
 [Add GoVola in Claude (opens in new tab)](https://claude.ai/directory/cb899a5b-01b8-41a3-8c39-c204acb1bd78 "Add in Claude")
 
-![](https://tineo.ai/favicon/favicon-96x96.png)
+![](https://www.google.com/s2/favicons?domain=brek.com&sz=96)
 
-### [Tineo](https://claude.com/marketplace/connectors/tineo)
+### [Brek - Hotel Wholesale Booking](https://claude.com/marketplace/connectors/brek-hotel-wholesale-booking)
 
-Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
+Anthropic verifiedTrending
 
-[Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
+Search and compare hotels with public and private wholesale rates.
+
+[Add Brek - Hotel Wholesale Booking in Claude (opens in new tab)](https://claude.ai/directory/5590ae2e-c452-4baf-afe8-697ec9f2ef70 "Add in Claude")

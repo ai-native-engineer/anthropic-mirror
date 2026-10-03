@@ -2,7 +2,7 @@
 
 # Claude Tag launch promo for Claude Team and Enterprise
 
-Updated over a month ago
+September 2, 2026
 
 Table of contents
 

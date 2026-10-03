@@ -20,16 +20,4 @@ The rapid pace of technological advancement is increasing the challenges in anal
 
 The partnership will help expand the methodologies used to study AI's economic impact, with the goal of providing policymakers and researchers with more robust insights. As our [Economic Index](https://www.anthropic.com/economic-index) shows, AI use is distributed unevenly across the economy–with complex patterns that defy simple narratives about automation. Working hand-in-hand with BFI economists, we hope to develop a more precise understanding of these patterns and their implications for economic policy, workforce development, and technology governance.
 
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
+Anthropic partners with the University of Chicago’s Becker Friedman Institute for Economics on AI economic research \ Anthropic

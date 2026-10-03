@@ -38,6 +38,9 @@ Search
 
 DateCategoryTitle
 
+* [Oct 2, 2026Announcements
+
+  Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap](https://www.anthropic.com/news/claude-frontier-academy)
 * [Oct 1, 2026Announcements
 
   Barclays scales Claude to upgrade operations and improve client experience](https://www.anthropic.com/news/barclays-scales-claude)
@@ -65,8 +68,7 @@ DateCategoryTitle
 * [Aug 25, 2026Announcements
 
   Funding better evaluations of AI’s impact on wellbeing](https://www.anthropic.com/news/wellbeing-research-grants)
-* [Aug 14, 2026Announcements
-
-  How Claude’s text watermark works](https://www.anthropic.com/news/claude-text-watermark)
 
 [See more](#)
+
+![Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap](https://www-cdn.anthropic.com/images/4zrzovbb/website/cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)

@@ -1,142 +1,138 @@
 <!-- source: https://claude.com/product/tag -->
 
-Explore here
-
 @Claude beta
 
 # Tag Claude in Slack
 
 @Claude reads threads, understands full context, and reacts in real time so your team moves forward together. Bring Claude into your channel.
 
-Add to Slack
-
-[Add to Slack](https://api.anthropic.com/integrations/v1/slack/install)Add to Slack
-
-Read documentation
-
-[Read documentation](https://claude.com/docs/claude-tag/overview)Read documentation
+[Add to Slack (opens in new tab)](https://api.anthropic.com/integrations/v1/slack/install)[Read documentation (opens in new tab)](https://claude.com/docs/claude-tag/overview)
 
 Available in beta for Claude Enterprise and Team customers in Slack.
 
-[Play video](#)Play video
+[![](https://assets.claude.com/91f46f8542c64e47861a5e42ac52a626a16cc8c0.png)](https://assets.claude.com/ecd1f28c9cda3b9761f9aef5cc1a34907a00f692.webm)
 
-[](https://assets.claude.ai/brand/videos/tag/tag-supercut.webm)
+![GitLab](https://assets.claude.com/9760b31778be76fd66c6b722dced22db12cb59e8.svg)
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603d8a_6ab2c6e911264eab20be06e2_startups-wordmark-firecrawl-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da7_6ab2c6ea2a0f7493d7d5b089_startups-wordmark-firecrawl-dark.svg)
-
-“Rather than using AI on my computer or in my own IDE, I can now do work out in the open in a public Slack channel with my teammates, and we can actually more effectively collaborate on tasks together.”
-
-Micah Stairs, Head of Support Engineering
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69010941df4d50c5b91b2ba1_Clay-light-theme.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69010943d7b5a7bb5f07d8d6_Clay-dark-theme.svg)
-
-“Claude Tag solved two problems at once: the interface and the data access piece. My whole team now has Claude as a teammate to ask about our code, docs and support conversations right in Slack, where they already work, and we manage what it can access in one place.”
-
-George Dilthey, Head of Support
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f3a87453ecfe9d53a39_Hebbia-light-theme.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f3d5a2f38a808068b47_Hebbia-dark-theme.svg)
-
-“Claude Tag is our first responder for internal bugs. It reads incoming reports, looks at screenshots of failures, and uses access to Datadog, Linear, and GitHub to weed out user errors, trace root cause, and often draft a fix PR. Our engineers’ first reaction was ‘this is amazing.’”
-
-Aabhas Sharma, CTO
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a7bd324891ae5d72739a8b_logo_descript-light-mode.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a7b795aaa4ae1799cce978_logo_descript-dark-mode.svg)
-
-“Claude Tag turned a summer of conference logistics — the follow-ups and chasing that always fell through the cracks — into an events program that runs itself while I stay on strategy.”
-
-Matthew Scott, Product Marketing
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaf1b161d57cbe7095b8_GitLab_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaebe118de085a232f53_GitLab_dark.svg)
-
-“Claude Tag doesn’t just do the work — it challenges our thinking, provokes better questions, and elevates our judgement rather than replacing it. And we still feel very much in control throughout.”
+> “Claude Tag doesn’t just do the work — it challenges our thinking, provokes better questions, and elevates our judgement rather than replacing it. And we still feel very much in control throughout.”
 
 Simon Mansfield, Director, Enterprise AI
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3bea04ff3207f3131ff28d_fractional-ai_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3bea044afca0c052e6560d_fractional-ai_dark.svg)
+![Fractional AI](https://assets.claude.com/b75b19b47c8f479c0b7b5f76d6a320607ffb2491.svg)
 
-“There were no skeptics on our team. Everyone leaned in from day one — it felt like Claude Tag in Slack was something they’d been waiting for.”
+> “There were no skeptics on our team. Everyone leaned in from day one — it felt like Claude Tag in Slack was something they’d been waiting for.”
 
 Darian Bailey, AI Engineer & Tag Admin
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3c4cc3cd8e7abe79f4dbd8_gusto_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3c4cc5db57efe3dec310ae_gusto_dark.svg)
+![Gusto](https://assets.claude.com/8a33e695a4b145386eca05940de86cb5782b22c3.svg)
 
-“Claude Tag meets our teams where they already work. Slack is the entry point for everything at Gusto, and the fact that Claude Tag is native there is huge for us. We see a lot of potential here.”
+> “Claude Tag meets our teams where they already work. Slack is the entry point for everything at Gusto, and the fact that Claude Tag is native there is huge for us. We see a lot of potential here.”
 
 Chad Kunsman, AI Developer
 
-[Prev](#)Prev
+![Firecrawl](https://assets.claude.com/43a43d9205dc4a69fd877aa8271971f439acf721.svg)
 
-0/5
+> “Rather than using AI on my computer or in my own IDE, I can now do work out in the open in a public Slack channel with my teammates, and we can actually more effectively collaborate on tasks together.”
 
-[Next](#)Next
+Micah Stairs, Head of Support Engineering
+
+![Clay](https://assets.claude.com/267a4deeacbde106146d26ffa4ef2b08fbb3cb4f.svg)
+
+> “Claude Tag solved two problems at once: the interface and the data access piece. My whole team now has Claude as a teammate to ask about our code, docs and support conversations right in Slack, where they already work, and we manage what it can access in one place.”
+
+George Dilthey, Head of Support
+
+![Hebbia](https://assets.claude.com/a51bf0be0d5ebeb3530f010c18452357dde28d83.svg)
+
+> “Claude Tag is our first responder for internal bugs. It reads incoming reports, looks at screenshots of failures, and uses access to Datadog, Linear, and GitHub to weed out user errors, trace root cause, and often draft a fix PR. Our engineers’ first reaction was ‘this is amazing.’”
+
+Aabhas Sharma, CTO
+
+![Descript](https://assets.claude.com/05128b9e935b6625beecc1bc4c6fa08814473e3e.svg)
+
+> “Claude Tag turned a summer of conference logistics — the follow-ups and chasing that always fell through the cracks — into an events program that runs itself while I stay on strategy.”
+
+Matthew Scott, Product Marketing
+
+![GitLab](https://assets.claude.com/9760b31778be76fd66c6b722dced22db12cb59e8.svg)
+
+> “Claude Tag doesn’t just do the work — it challenges our thinking, provokes better questions, and elevates our judgement rather than replacing it. And we still feel very much in control throughout.”
+
+Simon Mansfield, Director, Enterprise AI
+
+![Fractional AI](https://assets.claude.com/b75b19b47c8f479c0b7b5f76d6a320607ffb2491.svg)
+
+> “There were no skeptics on our team. Everyone leaned in from day one — it felt like Claude Tag in Slack was something they’d been waiting for.”
+
+Darian Bailey, AI Engineer & Tag Admin
+
+![Gusto](https://assets.claude.com/8a33e695a4b145386eca05940de86cb5782b22c3.svg)
+
+> “Claude Tag meets our teams where they already work. Slack is the entry point for everything at Gusto, and the fact that Claude Tag is native there is huge for us. We see a lot of potential here.”
+
+Chad Kunsman, AI Developer
+
+![Firecrawl](https://assets.claude.com/43a43d9205dc4a69fd877aa8271971f439acf721.svg)
+
+> “Rather than using AI on my computer or in my own IDE, I can now do work out in the open in a public Slack channel with my teammates, and we can actually more effectively collaborate on tasks together.”
+
+Micah Stairs, Head of Support Engineering
+
+![Clay](https://assets.claude.com/267a4deeacbde106146d26ffa4ef2b08fbb3cb4f.svg)
+
+> “Claude Tag solved two problems at once: the interface and the data access piece. My whole team now has Claude as a teammate to ask about our code, docs and support conversations right in Slack, where they already work, and we manage what it can access in one place.”
+
+George Dilthey, Head of Support
+
+![Hebbia](https://assets.claude.com/a51bf0be0d5ebeb3530f010c18452357dde28d83.svg)
+
+> “Claude Tag is our first responder for internal bugs. It reads incoming reports, looks at screenshots of failures, and uses access to Datadog, Linear, and GitHub to weed out user errors, trace root cause, and often draft a fix PR. Our engineers’ first reaction was ‘this is amazing.’”
+
+Aabhas Sharma, CTO
+
+1/7
 
 Coming soon to Microsoft Teams
 
-Tag [@Claude](https://anthropic.enterprise.slack.com/team/U08SSLN6TTL) in Teams, where it will read the conversation, understand context, and respond in real time.
+Tag @Claude in Teams, where it will read the conversation, understand context, and respond in real time.
 
-Join the waitlist
-
-[Join the waitlist](https://claude.com/form/claude-tag-teams-waitlist)Join the waitlist
+[Join the waitlist](https://claude.com/form/claude-tag-teams-waitlist)
 
 ## How it works
 
 Tag Claude into any thread in Slack, no matter how long or messy. It reacts to context, decisions, or open questions to help busy teams get more done.
 
+![Tag it in — interactive demo](https://assets.claude.com/3ba71caf9406aa010b9f22df10f69675dd96f890.png)Interactive demo — open this page on a larger screen to try it
+
 ### Tag it in
 
 @Claude in any thread or channel and it picks up the context everyone already shares. Ask it to run the numbers, file a ticket, or organize a chaotic chat into action items. It reads the room and does the work.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3aa6d5fde4686830931668_pv-tag-in-800x600-2x.webp)
+![Set a schedule or let it run long tasks — interactive demo](https://assets.claude.com/4983cd87f303b454b660a223e33cf1f95cd9d8ae.png)Interactive demo — open this page on a larger screen to try it
 
 ### Set a schedule or let it run long tasks
 
 Give @Claude standing instructions and it works without a mention now or in the future. Ask it to watch a channel, run a weekly digest, flag anything urgent, or page the right person.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3aa718df48ce647ffaf32d_pv-digest-800x600-2x.webp)
+![It jumps in, and can tag you back — interactive demo](https://assets.claude.com/2e621f91150be711f6879a617b9d4108753f22cf.png)Interactive demo — open this page on a larger screen to try it
 
 ### It jumps in, and can tag you back
 
 @Claude doesn't wait to be asked. It surfaces the thread that went quiet, posts when the deploy is live, and flags the decision that needs your call.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3aa74b42d61eac7bc42a1f_pv-triage-800x600-2x.webp)
+![Tag it in — interactive demo](https://assets.claude.com/3ba71caf9406aa010b9f22df10f69675dd96f890.png)Interactive demo — open this page on a larger screen to try it
+
+![Set a schedule or let it run long tasks — interactive demo](https://assets.claude.com/4983cd87f303b454b660a223e33cf1f95cd9d8ae.png)Interactive demo — open this page on a larger screen to try it
+
+![It jumps in, and can tag you back — interactive demo](https://assets.claude.com/2e621f91150be711f6879a617b9d4108753f22cf.png)Interactive demo — open this page on a larger screen to try it
 
 ## How teams use @Claude
 
 Claude in Slack can share work in the format your team needs, right in the thread.
 
-New
+NewOn-callCatch upPull numbersDraft PRsCall prep
 
-On-call
-
-Catch up
-
-Pull numbers
-
-Draft PRs
-
-Call prep
-
-Active
-
-Prompt
-
-Can you tell me ...
-
-Attachments
-
-Document
-
-84kb
-
-TXT
-
-Document
-
-105 lines
-
-TXT
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a4dfa9608d0d72727df_2e8c5c719077802290648adb0ff0bbc7_tag_img_monitor-channels.png)
+![Watch what matters — interactive demo](https://assets.claude.com/891f0e11cb38f8c1fb863ebfb0745c5fa67cbadf.png)Interactive demo — open this page on a larger screen to try it
 
 ### Watch what matters
 
@@ -146,26 +142,6 @@ TXT
 
 @Claude Watch this channel, triage what comes in, and work through the backlog. Tag me only when something needs my call.
 
-Prompt
-
-Can you tell me ...
-
-Attachments
-
-Document
-
-84kb
-
-TXT
-
-Document
-
-105 lines
-
-TXT
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a489e1797f1e0665bbe_d5622abab0729b05479a1127780e0fc2_tag_img_catch-up.png)
-
 ### Catch up fast
 
 Get everything you need from a long thread in seconds. @Claude can surface decisions, open questions, and stakeholders, and you see exactly what's waiting on you.
@@ -173,26 +149,6 @@ Get everything you need from a long thread in seconds. @Claude can surface decis
 ## Prompt
 
 @Claude What got decided here and what's still open?
-
-Prompt
-
-Can you tell me ...
-
-Attachments
-
-Document
-
-84kb
-
-TXT
-
-Document
-
-105 lines
-
-TXT
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a483452abcaa293aa7a_e4851576863e95688132488f21e5a9b4_tag_img_pull-numbers.png)
 
 ### Pull the numbers
 
@@ -202,26 +158,6 @@ Ask @Claude to query your data and it posts results like metrics, benchmarks, an
 
 @Claude Top 20 enterprise accounts by spend, last 7 and 28 days.
 
-Prompt
-
-Can you tell me ...
-
-Attachments
-
-Document
-
-84kb
-
-TXT
-
-Document
-
-105 lines
-
-TXT
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a4d1d6688235b6da910_59b3eb2c3ea8efd3531293b45ff1c524_tag_img_draft-prs.png)
-
 ### Build from the thread
 
 Turn a bug report into a draft PR from the context is in the thread without ever leaving Slack. Get more done without switching tabs.
@@ -229,26 +165,6 @@ Turn a bug report into a draft PR from the context is in the thread without ever
 ## Prompt
 
 @Claude Fix the bug in this thread and open a draft PR.
-
-Prompt
-
-Can you tell me ...
-
-Attachments
-
-Document
-
-84kb
-
-TXT
-
-Document
-
-105 lines
-
-TXT
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a4dd211407e09ef3275_f73eeb30406c909512270f7032063b9f_tag_img_call-prep.png)
 
 ### Prep before calls
 
@@ -262,7 +178,7 @@ Walk into every meeting with a full briefing. CRM notes, recent threads, and cal
 
 See what @Claude can do for your team.
 
-### **Customizable  identities for granular governance**
+### Customizable identities for granular governance
 
 The longer Claude works with your team, the more it understands how your organization thinks, how decisions get made, and who owns what.
 
@@ -286,92 +202,66 @@ Shape how Claude works in each channel with skills and instructions. Give it acc
 
 Hand Claude a complex task and it works while you move on to other projects. It follows up, asks for input, or comes back when it's done.
 
-![Carvana](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a97624449e9faa7a99adab9_logo_carvana-light-mode.svg)![Carvana](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a976247318d4486e007daf9_logo_carvana-dark-mode.svg)
+![Carvana](https://assets.claude.com/6d55e4e27973e13fce3e66d63ef5618d65cb12ae.svg)
 
 56%
 
 fewer alerts after Claude Tag began resolving the root causes behind them
 
-Read story
+[Read story](https://claude.com/customers/carvana)
 
-[Read story](https://claude.com/customers/carvana)Read story
+Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD failures
 
-Claude on call:
-How Claude Tag serves as Anthropic’s first responder for CI/CD failures
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa0386ac6de94c5868450d5_6a84a8dee0d08841721bbc53_og_ai-ci-cd-on-call.jpg)
+![](https://assets.claude.com/0460449df94028a5bd7227e27c1c93b4b6abf79a.jpg)
 
 An engineer on our Continuous Integration team walks through the agent he built that powers CI incident response at Anthropic.
 
-Read more
-
-[Read more](https://claude.com/blog/ai-ci-cd-on-call)Read more
+[Read more](https://claude.com/blog/ai-ci-cd-on-call)
 
 How Anthropic deploys Claude Tag for ad-hoc questions
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa0464ab930a06f20566655_ad-hoc-questions.jpg)
+![](https://assets.claude.com/c852c54a2a833a10a1542916faeb4aee92b5ce7d.jpg)
 
 Two data scientists at Anthropic walk through how Claude Tag turns Slack threads into self-service analytics, with the same governed definitions analysts use.
 
-Read more
-
-[Read more](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Read more
+[Read more](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)
 
 Learn more about how Anthropic employees are using Claude Tag
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa0492568b37af129c481b4_slack-imgs.jpg)
+![](https://assets.claude.com/20a263374a9dfa06931d756a278f27daf2651dc9.jpg)
 
 Producing customer-ready collateral, compiling weekly issue reports, and running legal review, all where the work already happens.
 
-Read more
+[Read more](https://claude.com/blog/how-anthropic-employees-use-claude-tag)
 
-[Read more](https://claude.com/blog/how-anthropic-employees-use-claude-tag)Read more
+1 of 3
 
-[Prev](#)Prev
-
-[Next](#)Next
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f7e645f7fe4aabfb7a4_asana-logo-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f851118c8688fe503ab_asana-logo-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed0_6ab2c6ea1b9635a4a50e11a6_startups-wordmark-linear-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed3_6ab2c6eab5afe149426a3f08_startups-wordmark-linear-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6989420bd171609a4d78b31e_logo_hubspot-light-mode.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6989420ff5d1708aeefc4396_logo_hubspot-dark-mode.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3a0155bb4800cd93420579_logo_google-drive.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3a0155bb4800cd93420579_logo_google-drive.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ada683bb0532fc4582a3_Snowflake_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adab7a0103ed60805b38_Snowflake_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4898064ee45d6186056ab_Frame.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4897e0ac296b8c65e5713_Frame-1.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ac5e2edc550c36ff4eff_Pagerduty_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ac59acb8170797d48950_Pagerduty_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d1ee4cb7c69d15a44ec7d6_Figma%20Dark.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d1ee481c19e67f332ef755_Figma%20Light.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3a02bf335186777dcd73dc_logo_gong-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3a02d0d367195273d0889b_logo_gong-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aacf49352cdc3b7fcc725_logo_zendesk-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aacfdb5405b27e0e45afe_logo_zendesk-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aad2a53be419579869170_logo_salesforce-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aad365bcec2d2a9f4292d_logo_salesforce-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aafa01cbebd7630440466_logo_bigquery-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3aafa8066066a59cb19e54_logo_bigquery-dark.svg)
+* ![GitHub](https://assets.claude.com/ff6655b95f24d2aa0b9bf52c94ef5d5f5e54a70e.svg)
+* ![Asana](https://assets.claude.com/b8ffecd4a133f2860151d51156002816a54772e7.svg)
+* ![Linear](https://assets.claude.com/02794cae131d86ae8d46e3238f14d1a7ad685181.svg)
+* ![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
+* ![Hubspot](https://assets.claude.com/d6f4aa0286766975a05548621fb66283ec2bfe32.svg)
+* ![Google Drive](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg)
+* ![Snowflake](https://assets.claude.com/5137db8e735ff610a994507050d0a0cea7ce6fd0.svg)
+* ![Datadog](https://assets.claude.com/0a17621af2bfc623c9104a3dd9fba2e6ebfc89d5.svg)
+* ![Pagerduty](https://assets.claude.com/e66fa87cb0236fb0bb7ded4facb4cd6013f01a7f.svg)
+* ![Figma](https://assets.claude.com/30df15cbd261edbc52262a1fa2d1339f3a1a372b.svg)
+* ![Gong](https://assets.claude.com/ca2c7c820ee21054c847f2ee44913820fb0cc36e.svg)
+* ![Zendesk](https://assets.claude.com/eb4ae3eeaffc7fb16618696c1baa3ef6c6224977.svg)
+* ![Salesforce](https://assets.claude.com/8c83c934a1cb4917afa17904ca318872dcec12d6.svg)
+* ![BigQuery](https://assets.claude.com/812289cf0d57902ab1e0a35c5676f82e7dc6a5b2.svg)
 
 ## @Claude connects to your tools
 
 Configure any tool with an API using Agent Identity. Claude can query, act, and report back in the thread where the work is happening.
 
-Read more
-
-[Read more](https://claude.com/blog/agent-identity-access-model)Read more
+[Read more](https://claude.com/blog/agent-identity-access-model)
 
 ## Admins stay in control
 
 Claude acts under its own identity in your systems. Admins configure access once; everyone else just types @Claude.
 
-### **Customizable  identities for granular governance**
+### Customizable identities for granular governance
 
 Claude has its own account in your systems, not a borrowed login. Every credential’s use is logged, so "what did Claude do, and who asked for it?" always has an answer.
 
@@ -381,40 +271,28 @@ Decide which tools Claude can reach and read. Confine sensitive connectors to a 
 
 What is Claude Tag?
 
-Learn more about [**@Claude**](https://anthropic.enterprise.slack.com/team/U08SSLN6TTL) and what happens to the former Claude for Slack experience.
+Learn more about @Claude and what happens to the former Claude for Slack experience.
 
-Read more
-
-[Read more](https://support.claude.com/en/articles/15594475)Read more
+[Read more](https://support.claude.com/en/articles/15594475)
 
 Agent identity: a new security model for autonomous, team-wide AI
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ab887858bde9a0bded954_img_tag-blog.webp)
+![](https://assets.claude.com/e3bad5580772c3e464460ac96ecb037055283dd1.jpg)
 
 Explore our new security model built for agents, not retrofitted from chatbots.
 
-Read more
-
-[Read more](https://claude.com/blog/agent-identity-access-model)Read more
+[Read more](https://claude.com/blog/agent-identity-access-model)
 
 Tutorial: Working with @Claude in your workspace
 
 Claude now works alongside your team, under its own account, in the places you already work together. You tag it in the way you'd tag anyone, or have it speak up on its own when there's something it can help with.
 
-Read more
+[Read more](https://academy.claude.com/tutorials/best-practices-using-claude-tag)
 
-[Read more](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Read more
-
-[Prev](#)Prev
-
-[Next](#)Next
+1 of 2
 
 ## Ready for a new way of working?
 
-Add to Slack
+[Add to Slack (opens in new tab)](https://api.anthropic.com/integrations/v1/slack/install)[Join Teams waitlist (opens in new tab)](https://claude.com/form/claude-tag-teams-waitlist)
 
-[Add to Slack](https://api.anthropic.com/integrations/v1/slack/install)Add to Slack
-
-Join Teams waitlist
-
-[Join Teams waitlist](https://claude.com/form/claude-tag-teams-waitlist)Join Teams waitlist
+Claude in Slack: Tag @Claude in any thread | Claude by Anthropic

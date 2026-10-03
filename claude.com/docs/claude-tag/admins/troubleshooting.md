@@ -31,8 +31,9 @@ What you expected to see while running [setup](https://claude.com/docs/claude-ta
 | The console to accept your pairing code | ”Already connected to a different organization” | The workspace is paired to another Claude organization, often a trial org. See [Already connected to a different organization](#already-connected-to-a-different-organization). |
 | Your Claude account to connect after you select **Connect Claude account** | The browser page refuses the connection, and Claude DMs you “This workspace is connected to a different Claude organization” | The Claude account belongs to a different organization than the one the workspace is paired with. Connect an account from that organization; if the browser is signed in to another Claude account, sign out at claude.ai first. See [This workspace is connected to a different Claude organization](#this-workspace-is-connected-to-a-different-claude-organization). |
 | The spend limit picker on the **Launch Claude Tag** step | A **Buy usage credits** step | Your organization pays by card in US dollars and has no credits loaded. Load credits, or select **Skip** to continue without; nothing runs in channels until the balance is funded. Invoiced organizations and those billing in other currencies see the spend limit picker regardless of balance. |
-| A reply from Claude while you’re still in setup | ”Claude is disabled in this channel. Your admin can re-enable it here.” | Claude Tag isn’t turned on until you finish [Launch Claude Tag](https://claude.com/docs/claude-tag/admins/setup-overview#launch-claude-tag). Finish setup, then mention `@Claude` again. If the message persists after launch, see [Claude is disabled in this channel](#claude-is-disabled-in-this-channel). |
-| The **Connect GitHub** step to list your organization’s repositories | ”The Claude app is installed on [username], a personal account. Claude Tag connects to a GitHub organization. Install it on your organization instead.” | The Claude GitHub App is on a personal GitHub account. Have a GitHub organization owner [install it on the organization](https://claude.com/docs/claude-tag/admins/configure-github#link-your-github-organization) that owns your repositories. You can skip the step and [grant repositories](https://claude.com/docs/claude-tag/admins/configure-github#grant-repository-access) after setup. |
+| **Launch Claude Tag** to finish | ”Couldn’t turn on personal connectors in channels. Try again.” | Launch didn’t finish. Click **Launch Claude Tag** again. |
+| Claude to join the channels you selected on the **Launch Claude Tag** step | ”Couldn’t add Claude to some channels. Add Claude from Slack instead.” | Claude Tag is on, but Claude didn’t join every channel you selected. Run `/invite @Claude` in each channel it’s missing from. |
+| A reply from Claude while you’re still in setup | A notice that starts “Claude isn’t on in this channel yet.” | Claude Tag isn’t turned on until you finish [Launch Claude Tag](https://claude.com/docs/claude-tag/admins/setup-overview#launch-claude-tag). Finish setup, then mention `@Claude` again. A channel that’s turned off after launch gets a different notice; see [Claude is disabled in this channel](#claude-is-disabled-in-this-channel). |
 | A connected tool to work in your test | “I can’t reach…” | Claude isn’t told about a connection added after the thread started. Ask it to use the service by name, or start a fresh thread. |
 | The **Where Claude Tag works** section with a **+ Connect** button | Only the legacy Claude in Slack toggles | Your organization isn’t enabled for Claude Tag. Contact your account team. |
 | Claude to respond in Slack | ”Claude Tag has been turned off for your Claude organization…” | The **Enable Claude Tag for your organization** toggle is off. An Owner turns it on at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). See [the troubleshooting entry](#claude-tag-is-turned-off-for-your-organization). |
@@ -309,10 +310,10 @@ In one thread, a working indicator appeared under a request and no reply followe
 **What it means**
 First check the thread for either of two notices from Claude:
 
-* A notice that begins `:mute: Claude is muted in this thread` means the thread is muted and the session isn’t stuck. A 👎 reaction on one of Claude’s replies mutes the thread and posts that notice. If Claude’s session for the thread was partway through a reply, the reaction also stops that reply.
+* A notice that begins `:mute: Claude is muted in this thread` means the thread is muted and the session isn’t stuck. Selecting the thumbs-down button under one of Claude’s replies mutes the thread and posts that notice.
 * A notice that ends `stopped Claude's response in this thread. Mention @Claude to pick up again.` means someone selected **Stop** on the working indicator. The session is intact, and a mention continues it.
 
-To bring Claude back to a muted thread, send `@Claude !unmute` in the thread or @-mention Claude there, as [Thumbs-down reactions and muting](https://claude.com/docs/claude-tag/users/commands#thumbs-down-reactions-and-muting) describes.
+To bring Claude back to a muted thread, send `@Claude !unmute` in the thread or @-mention Claude there, as [Thumbs-down button and muting](https://claude.com/docs/claude-tag/users/commands#thumbs-down-button-and-muting) describes.
 Without either notice, the session behind that thread is stuck: it hasn’t replied and hasn’t posted an error. Because Claude responds everywhere else, the problem is confined to that one session, and none of the workspace-level fixes in the entries below apply.
 **How to resolve**
 Have someone in the thread send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session). The command archives the stuck session and starts a fresh one that rereads the thread, so a follow-up message in the same thread gets an answer. Starting a new thread and restating the request also works.
@@ -353,7 +354,7 @@ Reinstall over the existing app. Don’t uninstall first; installing over the to
 **What you see**
 Channels in the paired workspace work normally, but some users’ direct messages with Claude answer with a redirect to setup instructions, even after their account connects.
 **What it means**
-On Enterprise Grid, direct messages follow each user’s home workspace, not the workspace you paired. A user homed in a Grid workspace the pairing doesn’t cover gets the setup redirect in DMs.
+On Enterprise Grid, one-to-one direct messages follow each user’s home workspace, not the workspace you paired. A user homed in a Grid workspace the pairing doesn’t cover gets the setup redirect in DMs.
 **How to resolve**
 Pair the whole Grid rather than one workspace. When a Grid Org Owner or Org Admin sends `@Claude connect`, the reply includes two codes; redeem the one starting with `enterprise_` (not the `workspace_` one) in the pairing step. See [Pair on Enterprise Grid](https://claude.com/docs/claude-tag/admins/workspaces#pair-an-enterprise-grid).
 
@@ -506,7 +507,7 @@ Claude replies in the DM:
 > Your Claude account is connected, but it doesn’t have access in this organization yet, usually because it needs a seat that includes Claude Code. A Claude admin can add one in your organization’s settings. Once they do, mention me here and I’ll pick this back up.
 
 **What it means**
-DMs run on the user’s own claude.ai account and need a qualifying seat, which this user doesn’t have. A seat that includes Claude Code always qualifies; on the Enterprise plan, a **Standard** or **Usage-Based Chat** seat also qualifies when the user has Cowork. Mentioning `@Claude` in a channel doesn’t depend on the sender’s seat.
+One-to-one DMs run on the user’s own claude.ai account and need a qualifying seat, which this user doesn’t have. A seat that includes Claude Code always qualifies; on the Enterprise plan, a **Standard** or **Usage-Based Chat** seat also qualifies when the user has Cowork. Mentioning `@Claude` in a channel doesn’t depend on the sender’s seat.
 **How to resolve**
 Assign the user a qualifying seat on the **Members** page at [`claude.ai/admin-settings/members`](https://claude.ai/admin-settings/members), then have them mention Claude in the same DM thread. If the fix worked, the DM gets a reply instead of this message.
 

@@ -45,10 +45,10 @@ Follow these steps to get started:
 4. Click “Dispatch” on the left side panel.
 5. You’ll land on a page describing the functionality. Click “Get started”:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1790901900&signature=1b8a8f2d78705f835f0079601c1617110c2381805cea5c36c749f52bbd1f48da&req=diEhH8B7mYFXX%2FMW1HO4zSZP05KCFQ%2F2B32drIe5EDmQURFL14rQx9hP5Jaj%0AhPp%2F%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1790901900&signature=1b8a8f2d78705f835f0079601c1617110c2381805cea5c36c749f52bbd1f48da&req=diEhH8B7mYFXX%2FMW1HO4zSZP05KCFQ%2F2B32drIe5EDmQURFL14rQx9hP5Jaj%0AhPp%2F%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1790988300&signature=fb737121702d2f45ec32d361160298bdf083f4610b2372a895d7c9f78d07537f&req=diEhH8B7mYFXX%2FMW1HO4zSZP05KCHQb8B32drIe5EDkM1TCNfMR2xSGwKQYx%0Ahz%2Fp%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1790988300&signature=fb737121702d2f45ec32d361160298bdf083f4610b2372a895d7c9f78d07537f&req=diEhH8B7mYFXX%2FMW1HO4zSZP05KCHQb8B32drIe5EDkM1TCNfMR2xSGwKQYx%0Ahz%2Fp%0A)
 6. On the next screen, you can give Claude access to your files and keep your computer awake by toggling those on:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1790901900&signature=2181fba0218c86c8c48431b5b8b7f9d8a0b9bac69bbce4aa2c27e21303cd0553&req=diEhH8B7mIFXW%2FMW1HO4zaZWstqRXQAXepuGRb1rD3I2wZEGYfbc8vSPZOPA%0Az64p%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1790901900&signature=2181fba0218c86c8c48431b5b8b7f9d8a0b9bac69bbce4aa2c27e21303cd0553&req=diEhH8B7mIFXW%2FMW1HO4zaZWstqRXQAXepuGRb1rD3I2wZEGYfbc8vSPZOPA%0Az64p%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1790988300&signature=399052341da88b4520d1d6e9fe6e20c3863310ee8d996e55470ce080beb0d406&req=diEhH8B7mIFXW%2FMW1HO4zaZWstqRVQkdepuGRb1rD3I7P2%2FdrsjR2LJHRZgZ%0AzYdN%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1790988300&signature=399052341da88b4520d1d6e9fe6e20c3863310ee8d996e55470ce080beb0d406&req=diEhH8B7mIFXW%2FMW1HO4zaZWstqRVQkdepuGRb1rD3I7P2%2FdrsjR2LJHRZgZ%0AzYdN%0A)
 7. Click “Finish setup.”
 8. Start messaging Claude within the “Dispatch” section.
 
@@ -121,6 +121,6 @@ The following limitations apply:
 * **On Linux, tasks that rely on computer use aren't available**, since computer use isn't part of the Linux beta. File, connector, and plugin tasks work as normal.
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
-* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+* [Schedule recurring tasks in Claude Cowork](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)
+* [Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

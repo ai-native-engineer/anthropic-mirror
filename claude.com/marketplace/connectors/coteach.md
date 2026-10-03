@@ -38,13 +38,13 @@ Find UI & UX design references
 
 [Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
 
-![](https://www.articulate.com/favicon.ico)
+![](https://appexchange.salesforce.com/image_host/82be812c-159e-49b7-aa89-828b29c95e0b.png)
 
-### [Articulate](https://claude.com/marketplace/connectors/articulate)
+### [Blackthorn Forge MCP for Native Salesforce Event Management](https://claude.com/marketplace/connectors/blackthorn-beacon-event-management-for-salesforce)
 
-Build interactive training right from Claude
+Blackthorn's MCP server for Salesforce events: create, query, and report on events, attendees, tickets, sessions, forms, and email campaigns, over 100 available tools, live against your org.
 
-[Add Articulate in Claude (opens in new tab)](https://claude.ai/directory/93ea6e24-abcf-48de-a227-7a97e4392192 "Add in Claude")
+[Add Blackthorn Forge MCP for Native Salesforce Event Management in Claude (opens in new tab)](https://claude.ai/directory/bb966230-ca18-4d33-8601-7d54184931c1 "Add in Claude")
 
 ![](https://assets.claude.com/62162a8aba6991bc7a9493e28b8870257536ae6a.jpg?w=128&fit=max&auto=format)
 
@@ -54,10 +54,10 @@ K-12 standards, skills, and learning progressions
 
 [Add Learning Commons in Claude (opens in new tab)](https://claude.ai/directory/6e94f5fc-5dc8-4f0a-9fcf-741bcab4e034 "Add in Claude")
 
-![](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/ae/4c/82ae4ce7-6614-ea43-f543-d3cbd11e9726/AppIcon-0-0-1x_U007epad-0-10-0-85-220.png/512x512bb.png)
+![](https://www.articulate.com/favicon.ico)
 
-### [Jotform Sign](https://claude.com/marketplace/connectors/jotform-sign)
+### [Articulate](https://claude.com/marketplace/connectors/articulate)
 
-Create, share, and edit e-signature documents right inside Claude
+Build interactive training right from Claude
 
-[Add Jotform Sign in Claude (opens in new tab)](https://claude.ai/directory/c8e5e99b-788d-4e64-bf4d-ef65b4cb92d5 "Add in Claude")
+[Add Articulate in Claude (opens in new tab)](https://claude.ai/directory/93ea6e24-abcf-48de-a227-7a97e4392192 "Add in Claude")

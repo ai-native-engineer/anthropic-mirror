@@ -15,7 +15,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 wc\_PKCS7\_DecodeAuthEnvelopedData() in wolfcrypt/src/pkcs7.c took the AES-GCM authentication tag length directly from the mac OCTET STRING of the incoming CMS AuthEnvelopedData message, applied only an upper-bound check, and never compared it with the message's aes-ICVlen parameter; the underlying wc\_AesGcmDecrypt() in turn accepted tags as short as one byte even though the encrypt path enforces WOLFSSL\_MIN\_AUTH\_TAG\_SZ. An attacker able to modify a message in transit could alter the encrypted content and truncate the mac field from 16 bytes to 1 byte, reducing the integrity check from a 2^-128 to a 2^-8 per-attempt forgery probability. The issue is tracked as CVE-2026-5500 / GHSA-m77r-vqw2-hffx and was fixed in commit a88dd07c7 (wolfSSL PR #10102), included in wolfSSL 5.9.1.
 
-**Project:** wolfSSL
+**Project:** wolfssl/wolfssl
 **Location:** `wolfcrypt/src/pkcs7.c:wc_PKCS7_DecodeAuthEnvelopedData (with wolfcrypt/src/aes.c:wc_AesGcmDecrypt)`
 
 **Root cause.** In `wc_PKCS7_DecodeAuthEnvelopedData()` (`wolfcrypt/src/pkcs7.c`), the length of the `mac` OCTET STRING parsed from the attacker-supplied DER is stored in `authTagSz` and checked only against the 16-byte upper bound of the local tag buffer before being passed through `wc_PKCS7_DecryptContent()` to `wc_AesGcmDecrypt()`. The RFC 5084 `aes-ICVlen` value from the content-encryption AlgorithmIdentifier is parsed into `macSz` but never cross-checked against `authTagSz`, and neither length is covered by the GCM additional authenticated data (only the encoded authenticated attributes are). Separately, in `wolfcrypt/src/aes.c`, `wc_AesGcmDecrypt()` rejected only `authTagSz == 0` or `authTagSz > WC_AES_BLOCK_SIZE`, whereas the encrypt side enforces `WOLFSSL_MIN_AUTH_TAG_SZ` (12 by default). The combination made a one-byte tag comparison reachable through the CMS AuthEnvelopedData decoder.
@@ -48,8 +48,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 **Reference:** ANT-2026-P23DVQM2
 
 Triage and disclosure were performed by Calif.
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -222,9 +220,9 @@ index a0c79c5e846..4929b61cb43 100644
 
 2c8aa01adff247bee658ef6ef3ae642a97192eb85e456ea259eb203b183b4eed7b40c8a991be73dc4ab9dd6829d840aae1799e93cdad5de9615a26a38614f46a
 
-Committed 2026-04-05 16:37 PT
+Committed 2026-04-05 23:37 UTC
 
-Revealed 2026-05-20 00:40 PT
+Revealed 2026-05-20 07:40 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-P23DVQM2%22%2C%22bug_class%22%3A%22crypto-failure%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-29T20%3A42%3A35%2B00%3A00%22%2C%22description%22%3Anull%2C%22discovered_at%22%3Anull%2C%22location%22%3Anull%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22wolfSSL%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3Anull%2C%22title%22%3A%22cms%20authenvelopeddata%20aead%20forgery%20via%20gcm%20tag%20truncati%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

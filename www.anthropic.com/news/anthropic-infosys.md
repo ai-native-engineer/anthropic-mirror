@@ -33,17 +33,3 @@ Together, Infosys and Anthropic will develop AI agents tailored to specific indu
 Visit our [Enterprise page](https://www.anthropic.com/enterprise) to learn more about Claude. Claude is the only frontier model available on all three of the world’s most prominent cloud services: Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure.
 
 Learn more about Anthropic’s expanded presence in India [here](https://www.anthropic.com/news/bengaluru-office-partnerships-across-india).
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

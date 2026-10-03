@@ -41,19 +41,3 @@ Anthropic’s leaders have previously outlined our position on competition with 
 * “[Trump Can Keep America’s AI Advantage,](https://www.wsj.com/opinion/trump-can-keep-americas-ai-advantage-china-chips-data-eccdce91)” Dario Amodei & Matthew Pottinger, Wall Street Journal, January 6, 2025.
 * “[On DeepSeek and Export Controls](https://www.darioamodei.com/post/on-deepseek-and-export-controls),” Dario Amodei, darioamodei.com, January 2025“[Anthropic's Dario Amodei on AI Competition](https://www.chinatalk.media/p/anthropics-dario-amodei-on-ai-competition),” China Talk Podcast, February 5, 2025
 * “[DeepSeek means AI proliferation is guaranteed](https://jack-clark.net/2025/01/27/import-ai-397-deepseek-means-ai-proliferation-is-guaranteed-maritime-wardrones-and-more-evidence-of-llm-capability-overhangs/),” Jack Clark Import AI 397
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
-
-Anthropic's AI Export Controls Framework Response \ Anthropic

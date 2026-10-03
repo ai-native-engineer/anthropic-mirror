@@ -91,3 +91,5 @@ Fountain envisions a future where AI operates autonomously to handle complete wo
 ### Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)[![Braintrust](https://assets.claude.com/e902bcd557abee20fb67ab82f79395b90141b73c.svg)
 
 ### Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)
+
+Fountain Claude Platform (API) case study | Claude by Anthropic

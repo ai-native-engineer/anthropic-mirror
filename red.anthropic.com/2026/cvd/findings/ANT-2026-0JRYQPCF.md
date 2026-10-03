@@ -15,7 +15,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 wolfSSL's TLS 1.3 Encrypted Client Hello (ECH) client code contained a heap buffer overflow, tracked as CVE-2026-5503 (GHSA-65xm-pfx9-g5p3). When a client used ECH with no Server Name Indication (SNI) configured, TLSX\_EchChangeSNI() in src/tls.c attached the ECH configuration's public name as an SNI entry on the shared WOLFSSL\_CTX and TLSX\_EchRestoreSNI() never removed it; the inner ClientHello, which had been sized before this injection but was serialized after it, was then overrun when TLSX\_SNI\_Write() copied the public name up to 255 bytes past the end of the allocation. wolfSSL fixed the issue in commit 1823f2e9f (PR #10102), released in wolfSSL 5.9.1, by performing the SNI swap only when an SNI is actually present, always removing the injected public-name SNI, and rejecting ECH use without an inner SNI.
 
-**Project:** wolfSSL
+**Project:** wolfssl/wolfssl
 **Location:** `src/tls.c:TLSX_EchChangeSNI (and TLSX_EchRestoreSNI)`
 
 **Component.** The defect is in the ECH helper pair `TLSX_EchChangeSNI()` / `TLSX_EchRestoreSNI()` in `src/tls.c`, compiled when both `WOLFSSL_TLS13` and `HAVE_ECH` are defined. These helpers run from `TLSX_GetSizeWithEch()` and `TLSX_WriteWithEch()` while the client sizes and writes its ClientHello extensions: for the outer ClientHello, `TLSX_EchChangeSNI()` temporarily replaces the client's real (inner) SNI with `echConfig->publicName`, and `TLSX_EchRestoreSNI()` undoes the swap afterwards.
@@ -46,8 +46,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 **Reference:** ANT-2026-0JRYQPCF
 
 Triage and disclosure were performed by Calif.
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -128,9 +126,9 @@ index b854b8f8cd5..09e6c921740 100644
 
 5175ece3afdba9cf93587112f7601b7e22caaf48410a2cb260e59f4b801eedbaf9de7f494493b446bd9e829ce6162cd0dcf3b285879b0f82342bc38b1e3b1ac8
 
-Committed 2026-04-05 16:37 PT
+Committed 2026-04-05 23:37 UTC
 
-Revealed 2026-05-20 00:40 PT
+Revealed 2026-05-20 07:40 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-0JRYQPCF%22%2C%22bug_class%22%3A%22heap-buffer-overflow%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-29T20%3A42%3A36%2B00%3A00%22%2C%22description%22%3Anull%2C%22discovered_at%22%3Anull%2C%22location%22%3Anull%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22wolfSSL%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3Anull%2C%22title%22%3A%22wolfssl%20ech%20heap%20buffer%20overflow%20via%20publicname%20sni%20pol%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

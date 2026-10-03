@@ -100,6 +100,15 @@ When someone shares an artifact with you, you can have Claude read it: give Clau
 
 Claude reads a page someone else wrote the way it reads a web page with [WebFetch](https://code.claude.com/docs/en/tools-reference#webfetch-tool-behavior): it gets a summary of what it asked about rather than the raw page, and the summary reports instructions written into the page instead of relaying them. Claude Code also saves the page's full source to a local file, which Claude can open when it needs the exact content, such as to republish the artifact as an [editor](#let-someone-edit-with-you).
 
+Claude Code asks for your approval before Claude reads the artifact in these cases, in addition to any prompt your permission mode or rules call for:
+
+* **Cloud session without network access**: for a [cloud environment](https://code.claude.com/docs/en/cloud-environments#access-levels), that's the **None** level. In [auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode), the classifier can approve instead; in a [Cowork](https://claude.com/product/cowork) session, the approval is yours alone.
+* **Another organization's public artifact**: Claude Code asks you first, even in auto mode. Where Claude Code can't ask you, such as in `bypassPermissions` mode, Claude can't read the artifact. Claude can read these artifacts only while [feature-flag fetching](https://code.claude.com/docs/en/env-vars#features-that-need-feature-flag-fetching) is on.
+* **Unconfirmed owner or network setting**: when Claude Code can't confirm who made the artifact, or can't confirm a cloud session's network setting, it asks, and your approval covers that one request.
+* **Plan mode, or feature-flag fetching turned off**: in [plan mode](https://code.claude.com/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode), or if you turned [feature-flag fetching](https://code.claude.com/docs/en/env-vars#features-that-need-feature-flag-fetching) off, Claude Code asks before the Artifact tool reads an artifact someone else in your organization made.
+
+When Claude reads the artifact with WebFetch, WebFetch's own [prompting rules](https://code.claude.com/docs/en/tools-reference#webfetch-tool-behavior) still apply.
+
 ## Collect comments on an artifact
 
 When you share an artifact within your organization, the people you share it with can leave comments on the page, and you can have Claude read those comments and reply to them. You need Claude Code v2.1.221 or later. Claude reads the comments in two cases:
@@ -305,6 +314,7 @@ Each artifact is one self-contained page. Claude Code wraps the file you publish
 | Downloads | The page can't start a download itself. To let viewers save a file the page generates, Claude declares the downloads capability. See [Offer a file download](#offer-a-file-download). |
 | Single page | Relative links do not resolve, because nothing is deployed alongside the page. For multi-section content, Claude uses in-page anchors rather than separate files. |
 | Source file types | The published file must be `.html`, `.htm`, or `.md`, and must decode as UTF-8, or as little-endian UTF-16 by its byte-order mark. Markdown files render as styled document pages with syntax-highlighted code. A file that doesn't decode, or that contains the replacement character `U+FFFD`, is [refused with the line and column to fix](https://code.claude.com/docs/en/errors#the-source-file-is-not-valid-utf-8-text). |
+| Source location | A file at a path that names a network host is refused without being read. See [Not published: that file is on a network share](https://code.claude.com/docs/en/errors#not-published-that-file-is-on-a-network-share) for which paths are refused and the mapped-drive exception on Windows. |
 | Rendered size | The rendered page must be 16 MiB or smaller. Large embedded images are the usual cause when a publish fails for size. |
 
 Generating an artifact uses output tokens like any other response, and a styled page is more token-intensive than the same content as terminal text. Inline CSS, JavaScript for interactive controls, and especially images embedded as data URIs are the main contributors. To reduce an artifact's token cost:

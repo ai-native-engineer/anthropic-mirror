@@ -27,17 +27,3 @@ Beyond the classroom, Anthropic and CodePath will collaborate on public research
 This partnership builds on Anthropic’s work to put AI tools in the hands of educators and students. We’re partnering with the [American Federation of Teachers (AFT)](https://www.aft.org/press-release/aft-launch-national-academy-ai-instruction-microsoft-openai-anthropic-and-united) to offer free AI training to their 1.8 million members across the US. In [Iceland](https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots), we launched one of the world’s first national AI education pilots with the Ministry of Education and Children, giving teachers across the country access to Claude. In [Rwanda](https://www.anthropic.com/news/rwandan-government-partnership-ai-education), we’re working with the government and ALX to bring a Claude-powered learning companion to hundreds of thousands of students and young professionals across Africa. We also signed the White House’s “[Pledge to America’s Youth: Investing in AI Education](https://www.anthropic.com/news/anthropic-signs-pledge-to-americas-youth-investing-in-ai-education),” committing to expand AI education nationwide through investments in cybersecurity education, the Presidential AI Challenge, and a free AI curriculum for educators.
 
 The tools changing how software is built shouldn’t only be available to students at well-resourced universities. With CodePath, they won’t be.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

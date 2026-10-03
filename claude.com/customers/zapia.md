@@ -95,3 +95,5 @@ Looking ahead, Zapia is poised to play a crucial role in Latin America's technol
 ### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
 ### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)
+
+Zapia Claude Platform (API) case study | Claude by Anthropic

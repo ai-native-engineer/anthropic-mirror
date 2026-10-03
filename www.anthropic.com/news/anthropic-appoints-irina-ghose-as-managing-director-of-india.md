@@ -15,17 +15,3 @@ Irina brings more than three decades of experience in scaling technology busines
 Our India team will work closely with policymakers and academic institutions, strengthen developer engagement, and build partnerships with enterprises and organizations using AI to address local challenges.
 
 India ranks as the second-largest market globally for Claude.ai. Anthropic's fourth [Economic Index](https://www.anthropic.com/economic-index) showed that Indian users have a striking focus on technical applications, with nearly half of all Claude.ai usage concentrated in computer and mathematical tasks.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

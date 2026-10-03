@@ -19,7 +19,7 @@ An attacker who observes *any* LD-signed activity with an embedded object — th
 
 **Demonstrated impact:** Convert a victim's `Undo{Announce}` (unboost) into an `Announce` (boost) attributed to the victim, persisted to the database and federated as a public status. The same technique applies to `Undo{Follow}`, `Undo{Like}`, `Undo{Block}`, `Reject{Follow}` → `Follow`, etc. — any activity with a structurally complete embedded sub-activity.
 
-**Project:** mastodon
+**Project:** mastodon/mastodon
 **Commit:** `73c43f476878aad1`
 **Location:** `app/lib/activitypub/linked_data_signature.rb:28`
 
@@ -697,9 +697,9 @@ ADVISORY
 
 9b255d47046f22115964a5d2188f12d17def4a057f3320d558190a6ebfc554768f29aa76160aba8d0099888ce3dd07f03159591d6d091dad304e1ab223f2a950
 
-Committed 2026-04-23 00:04 PT
+Committed 2026-04-23 07:04 UTC
 
-Revealed 2026-05-20 11:00 PT
+Revealed 2026-05-20 18:00 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-P2DWB2SK%22%2C%22bug_class%22%3A%22Signature-bypass%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3A%2273c43f476878aad1%22%2C%22created_at%22%3A%222026-03-30T23%3A19%3A44%2B00%3A00%22%2C%22description%22%3A%22%60ActivityPub%3A%3ALinkedDataSignature%23verify_actor%21%60%20verifies%20signatures%20over%20the%20%2A%2ARDF%20canonicalization%2A%2A%20of%20a%20JSON-LD%20document%2C%20but%20Mastodon%20then%20%2A%2Adispatches%2A%2A%20on%20the%20raw%20JSON%20tree%20shape.%20These%20two%20views%20diverge%20for%20documents%20containing%20named%20%60%40graph%60%20blocks%2C%20because%20%60JsonLdHelper%23canonicalize%60%20pipes%20quads%20through%20%60RDF%3A%3AGraph.new%60%2C%20which%20silently%20strips%20graph%20names.%5Cn%5CnAn%20attacker%20who%20observes%20%2Aany%2A%20LD-signed%20activity%20with%20an%20embedded%20object%20%E2%80%94%20the%20canonical%20example%20being%20%60Undo%7BAnnounce%7D%60%20%28an%20unboost%29%20%E2%80%94%20can%20restructure%20the%20JSON%20to%20hoist%20the%20inner%20object%20%28%60Announce%60%29%20to%20the%20top%20level%20while%20pushing%20the%20outer%20wrapper%20%28%60Undo%60%29%20into%20a%20named%20%60%40graph%60.%20The%20signature%20bytes%20are%20%2A%2Areused%20unchanged%2A%2A%3B%20the%20RDF%20triple%20set%20is%20identical%3B%20%60verify_actor%21%60%20returns%20the%20victim%3B%20and%20%60ProcessCollectionService%60%20dispatches%20an%20%60Announce%60%20in%20the%20victim%27s%20name.%5Cn%5Cn%2A%2ADemonstrated%20impact%3A%2A%2A%20Convert%20a%20victim%27s%20%60Undo%7BAnnounce%7D%60%20%28unboost%29%20into%20an%20%60Announce%60%20%28boost%29%20attributed%20to%20the%20victim%2C%20persisted%20to%20the%20database%20and%20federated%20as%20a%20public%20status.%20The%20same%20technique%20applies%20to%20%60Undo%7BFollow%7D%60%2C%20%60Undo%7BLike%7D%60%2C%20%60Undo%7BBlock%7D%60%2C%20%60Reject%7BFollow%7D%60%20%E2%86%92%20%60Follow%60%2C%20etc.%20%E2%80%94%20any%20activity%20with%20a%20structurally%20complete%20embedded%20sub-activity.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22app/lib/activitypub/linked_data_signature.rb%3A28%22%2C%22poc_sha256%22%3A%221ea154b5316d90a56209dab12e77121690df7629e6cc2814ba93544646847901%22%2C%22preimage_version%22%3A1%2C%22project%22%3A%22mastodon%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3A%22JsonLdHelper%23canonicalize%20does%20%60RDF%3A%3AGraph.new%20%3C%3C%20JSON%3A%3ALD%3A%3AAPI.toRdf%28json%29%60%3B%20RDF%3A%3AGraph%20represents%20a%20single%20unnamed%20graph%20and%20drops%20the%20graph_name%20component%20of%20incoming%20quads%2C%20so%20a%20document%20with%20the%20Undo%20moved%20into%20a%20named%20%40graph%20yields%20exactly%20the%20same%20URDNA2015%20N-Quads%20output%20and%20SHA-256%20document_hash%20as%20the%20original.%20The%20signature%20therefore%20covers%20the%20RDF%20triple%20set%2C%20not%20the%20JSON%20tree%20shape%20that%20Activity.factory%20actually%20dispatches%20on%2C%20and%20embedding%20vs.%20IRI-referencing%20a%20node%20produces%20the%20same%20triple%2C%20letting%20the%20attacker%20freely%20rearrange%20the%20tree.%22%2C%22title%22%3A%22LD-Signature%20bypass%20via%20JSON-LD%20named-graph%20restructuring%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

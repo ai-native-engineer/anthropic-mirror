@@ -147,7 +147,7 @@ Claude can create projects from a description:
 make me a simple webpage that says hello world
 ```
 
-Before creating or changing files, Claude asks for your permission. Press `Enter` to choose **Yes** and approve. Once Claude creates the files, double-click the HTML file to open it in your browser.
+If Claude asks for your permission before creating or changing files, press `Enter` to choose **Yes** and approve. Once Claude creates the files, double-click the HTML file to open it in your browser.
 
 ### Work with files on your computer
 

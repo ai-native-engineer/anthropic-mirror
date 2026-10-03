@@ -13,19 +13,3 @@ More recently, Mike spent the past three years building Artifact, a personalized
 "I've long admired Anthropic's relentless focus on building capable and trustworthy AI systems that empower humans and expand what's possible with technology," said Mike. "I'm thrilled to join the exceptional team at Anthropic and partner with them to design and scale transformative products like Claude. The potential for AI to positively impact the world is immense, and I believe Anthropic has the talent, principles, and technology to help realize that potential."
 
 "Mike is a world-class engineer, builder, and leader," said Dario Amodei, CEO of Anthropic. "Mike's background in developing intuitive products and user experiences will be invaluable as we create new ways for people to interact with Claude, particularly in the workplace. We feel fortunate to add Mike's vision and expertise to our leadership team.”
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
-
-Mike Krieger joins Anthropic as Chief Product Officer \ Anthropic

@@ -530,9 +530,9 @@ fi
 
 f0a0272127e818f17635b5af4aa4e3630e50273d8048fe1d0cbc118003c476935904b2e3f12bc2cabbde80cf02dcf7c6a7607dbb3add0f15d2d452ba3169beb2
 
-Committed 2026-04-05 16:37 PT
+Committed 2026-04-05 23:37 UTC
 
-Revealed 2026-05-20 00:40 PT
+Revealed 2026-05-20 07:40 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-K8YY7WWS%22%2C%22bug_class%22%3A%22improper-cert-validation%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-29T20%3A42%3A36%2B00%3A00%22%2C%22description%22%3Anull%2C%22discovered_at%22%3Anull%2C%22location%22%3Anull%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22wolfSSL%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3Anull%2C%22title%22%3A%22wolfssl%20x509%20verify%20cert%20leaf%20signature%20verification%20by%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

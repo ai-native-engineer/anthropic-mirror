@@ -34,17 +34,3 @@ The organization will work with Republicans, Democrats, and Independents who sha
 These policies aren’t partisan. Nor are they for the benefit of Anthropic as an AI developer—effective AI governance means *more* scrutiny of companies like ours, not less. They’re also not an attempt to hold back smaller or less well-resourced developers: our view is that transparency regulation, for example, should apply only to companies developing the most powerful (and most dangerous) AI models.
 
 The companies building AI have a responsibility to help ensure the technology serves the public good, not just their own interests. Our contribution to Public First Action is part of our commitment to governance that enables AI’s transformative potential and helps proportionately manage its risks.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

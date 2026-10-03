@@ -108,3 +108,5 @@ Connect your Notion workspace to search, update, and power workflows across tool
 Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
+
+Ubersuggest connector | Claude by Anthropic

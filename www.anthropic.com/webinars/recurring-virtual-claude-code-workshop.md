@@ -12,9 +12,11 @@ Recorded event
 
 # Virtual Claude Code Workshop
 
-This Claude Code workshop, presented with Tenex, is a 1.5 hour product experience for engineers who ship in codebases they did not write — platform, product, infrastructure, and the teams that own what runs in production.The focus is the product, the people who build it, and the work you do every sprint.
+###### Multiple sessions available. Choose your preferred date and time on the form.
 
-*Multiple Dates & Times available. Please selection an option on the form.*
+‍
+
+This Claude Code workshop, presented with Tenex, is a 1.5 hour product experience for engineers who ship in codebases they did not write — platform, product, infrastructure, and the teams that own what runs in production.The focus is the product, the people who build it, and the work you do every sprint.
 
 ## Featuring
 

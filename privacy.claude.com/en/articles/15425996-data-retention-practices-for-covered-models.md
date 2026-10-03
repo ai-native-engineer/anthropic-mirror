@@ -2,7 +2,7 @@
 
 # Data retention practices for Covered Models
 
-Updated over 3 weeks ago
+Updated over a month ago
 
 Table of contents
 

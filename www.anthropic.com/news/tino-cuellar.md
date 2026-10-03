@@ -17,17 +17,3 @@ Tino has served as a Trustee of Anthropic's Long-Term Benefit Trust since Januar
 “Tino has spent his career helping public institutions respond to times of change with thoughtfulness, pragmatism, and deep commitment to the common good,” said Daniela Amodei. “At all levels of government, the law, and academia, Tino has served with sound judgment and civic-mindedness, and we’re looking forward to him putting these principles to work at Anthropic. I can't think of anyone better prepared to partner with governments, civil society, and community groups as they engage with both the risks and opportunities presented by advanced AI.”
 
 Tino arrives at a pivotal moment for Anthropic's work with governments around the world. The questions AI raises for economies, for security, and for communities absorbing rapid change are being debated by leaders everywhere. Ensuring AI’s trajectory is shaped by democratic societies and its benefits reach people broadly is a critical priority. Tino will help steer this work while finding common cause with heads of state and policy leaders on the questions and possibilities AI is raising for communities everywhere.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

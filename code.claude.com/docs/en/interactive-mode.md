@@ -314,7 +314,7 @@ When a command reaches its timeout before it finishes, Claude Code automatically
 * On macOS and Linux, Claude Code stops your running background tasks when the operating system reports critical memory pressure, provided the session has been idle for at least 30 minutes and no turn or subagent is running. Requires Claude Code v2.1.193 or later
   * The [debug log](https://code.claude.com/docs/en/debug-your-config) says why tasks were stopped, or why a pressure event left them running
   * Set [`CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP`](https://code.claude.com/docs/en/env-vars) to `1` to turn off memory-pressure stops
-* Background Bash and PowerShell commands have a time limit, counted from the moment the command enters the background: 30 minutes, or the `timeout` Claude asks for when it starts a command in the background, up to a maximum of 2 hours. A command that moves to the background while it runs, for example with `Ctrl+B`, gets 30 minutes from the move. When a command reaches its limit, Claude Code stops it and tells Claude why, and Claude can start it again with a longer `timeout` if the work still needs it. To lengthen the limits, see [Raise the time limit for background commands](https://code.claude.com/docs/en/tools-reference#raise-the-time-limit-for-background-commands) in the tools reference
+* Background commands in a local session you work in from a terminal, the desktop app, or the VS Code extension have no time limit. In a session that runs unattended, such as a `-p` run or a cloud session, Claude Code stops a background command at its [time limit](https://code.claude.com/docs/en/tools-reference#time-limit-for-background-commands)
 * A background command that a foreground [subagent](https://code.claude.com/docs/en/sub-agents#run-subagents-in-foreground-or-background) started ends when that subagent's run ends, whether it finished, failed, or was interrupted; see [When a background command stops](https://code.claude.com/docs/en/tools-reference#when-a-background-command-stops) in the tools reference
 
 To disable all background task functionality, set the [`CLAUDE_CODE_DISABLE_BACKGROUND_TASKS`](https://code.claude.com/docs/en/env-vars#variables) environment variable to `1`. Starting in [bare mode](https://code.claude.com/docs/en/headless#start-faster-with-bare-mode) turns it off as well.
@@ -348,7 +348,7 @@ Shell mode:
 * Exit with `Escape`, `Backspace`, or `Ctrl+U` on an empty prompt
 * Pasting text that starts with `!` into an empty prompt enters shell mode automatically, matching typed `!` behavior
 
-Unless your session is one of those listed under [strict sandbox mode](https://code.claude.com/docs/en/sandboxing#the-unsandboxed-retry-escape-hatch), commands you type in shell mode run outside the [sandbox](https://code.claude.com/docs/en/sandboxing) even when you've enabled sandboxing, because the sandbox applies to the commands Claude runs.
+Unless your session is one of those listed under [strict sandbox mode](https://code.claude.com/docs/en/sandboxing#turn-off-the-retry-with-strict-sandbox-mode), commands you type in shell mode run outside the [sandbox](https://code.claude.com/docs/en/sandboxing) even when you've enabled sandboxing, because the sandbox applies to the commands Claude runs.
 
 Claude responds to the command output automatically once it lands in the transcript, so you can run `! npm test` and get an explanation of the failures without a second prompt. The response costs the same as sending a normal prompt. To restore the earlier behavior where the output is added to context without a response, set [`respondToBashCommands`](https://code.claude.com/docs/en/settings-reference#respondtobashcommands) to `false` in `settings.json`. Before v2.1.186, shell mode always added output to context without a response.
 
@@ -358,7 +358,7 @@ Type a message and press `Enter` while Claude is working. Claude Code queues the
 
 Sent and queued messages show in gray until Claude starts responding to them, so you can tell which messages Claude hasn't started on yet.
 
-If you queue a message with a selection attached from a [connected IDE](https://code.claude.com/docs/en/vs-code#the-built-in-ide-mcp-server) or the [diff panel](#diff-panel), it keeps the selection you had when you pressed `Enter`, whatever you select afterward.
+If you queue a message with a selection attached from a [connected IDE](https://code.claude.com/docs/en/vs-code#the-built-in-ide-mcp-server), it keeps the selection you had when you pressed `Enter`, whatever you select afterward.
 
 ### When Claude Code sends what you queued
 
@@ -543,53 +543,54 @@ Pasted text can carry Unicode characters that a terminal draws as nothing at all
 
 If Claude Code removed anything, that Enter sends nothing. The cleaned prompt goes back into the input box with a notice such as `Removed 3 invisible characters · review and press Enter to send`, and pressing Enter again sends the text as shown.
 
-When you pass a prompt on the command line, as in `claude "fix the login bug"`, or pipe one into an interactive session, Claude Code doesn't wait for a second Enter. It removes the characters, shows a notice, and sends the cleaned prompt. If the cleaned prompt would begin with `/`, Claude Code puts it in the input box for you to review and send instead.
+When you pass a prompt on the command line, as in `claude "fix the login bug"`, Claude Code doesn't wait for a second Enter. It removes the characters, shows a notice, and sends the cleaned prompt. If the cleaned prompt would begin with `/`, Claude Code puts it in the input box for you to review and send instead.
 
 ## Review changes with /diff
 
-Run `/diff` to look over the changes in your working tree without leaving Claude Code. You see the edits Claude has made so far alongside anything else you haven't committed.
+Run `/diff` to look over the changes in your working tree without leaving Claude Code. You see the edits Claude has made so far alongside anything else you haven't committed. What `/diff` opens depends on which renderer is active:
 
-In the changes `/diff` reads from git, a submodule appears as a single entry, and only when the commit it points to changes; edits to files inside the submodule don't appear there.
+* **[Fullscreen rendering](https://code.claude.com/docs/en/fullscreen)**: the [diff panel](#diff-panel) opens beside the conversation. It stays open and updates while you keep working.
+* **Classic renderer**: the [diff dialog](#diff-dialog) opens above the prompt, and you close it when you're done reading.
 
-In [fullscreen rendering](https://code.claude.com/docs/en/fullscreen), `/diff` opens the [diff panel](#diff-panel) beside the conversation, which stays open and updates while you keep working. In the classic renderer, `/diff` opens the [diff viewer](#diff-viewer) in place of the prompt, and you close it when you're done reading.
+The panel and the dialog both come from `cc-plugin-diff`, one of the [mods built into Claude Code](https://code.claude.com/docs/en/plugins/mods/overview#mods-built-into-claude-code). If you disable that mod in `/plugin`, `/diff` opens Claude Code's earlier panel and [diff viewer](https://code.claude.com/docs/en/keybindings#diff-actions) instead.
+
+In the changes `/diff` reads from git, a submodule appears as a single entry, and only when the commit it points to changes; edits to files inside the submodule don't appear there. The panel and the dialog also offer a view of each turn's edits once Claude has edited files. These turn views come from Claude's file edits rather than from git, so a change Claude makes through a shell command appears only under `Current`, the working-tree view.
 
 ### Diff panel
 
-The diff panel lists the changed files with their added and removed line counts, and shows each file's diff under the list. Claude Code refreshes it each time Claude edits a file or runs a shell command. To close it, run `/diff` again or click the `✕` in its header.
+The diff panel lists the changed files with their added and removed line counts, and shows each file's diff under the list. Claude Code refreshes it each time Claude edits a file or runs a shell command. To close the panel, run `/diff` again or click the `✕` in its header.
 
 To use the panel you need:
 
 * [Fullscreen rendering](https://code.claude.com/docs/en/fullscreen)
 * A git repository
 * A terminal at least 110 columns wide
-* Claude Code v2.1.260 or later
-
-When the panel can't open, `/diff` opens the diff viewer instead or tells you why.
+* Claude Code v2.1.287 or later
 
 The panel also opens on its own once Claude starts editing files, if your terminal is at least 144 columns wide. After you've opened it yourself with `/diff`, later sessions open it as soon as Claude edits a file in any terminal wide enough to fit it. Close the panel and it stays closed, in this session and later ones, until you run `/diff` again.
 
 While the panel is open, you can:
 
 * **Jump to a file**: click its row in the list. Scroll the panel with the mouse wheel. When the file list itself is too long to fit, scroll it with `Alt+Up` and `Alt+Down`, or `Ctrl+Up` and `Ctrl+Down`.
-* **Ask Claude about specific lines**: select them in the panel with the mouse. Claude Code attaches the selection to your next prompt and shows a line count in the input until you send it.
-  * To send the prompt without the selection, move the cursor to just after the line-count indicator and press `Backspace` to delete it. Requires Claude Code v2.1.271 or later.
+* **Ask Claude about a file's changes**: click `ask`, at the right of the file's name above its diff. Claude Code attaches that file's diff to your next prompt, and the button reads `asked ✓` until you send that prompt. Asking on a second file replaces the first.
+* **Show one turn's edits**: click the `source` picker in the panel's header, then choose a turn with `Up` and `Down` and press `Enter`. Turns are labeled `T1`, `T2`, and so on. The picker appears once Claude has edited files, and `Current` returns you to the working tree.
 * **Show the files the panel leaves out**: the list skips test files and generated files, and collapses changes from before this session into one line at the bottom. Click either count line to expand it.
-* **Change what the panel compares against**: press `Ctrl+X B` to cycle from this session's changes, to your uncommitted changes as one list, to everything since your branch split from the default branch. Claude Code remembers the choice for each project.
+* **Change what the panel compares against**: press `Ctrl+X B` to cycle from this session's changes, to your uncommitted changes as one list, to everything since your branch split from the default branch. Claude Code remembers the choice for each repository.
 
-To bind keys to these actions, see [Diff panel actions](https://code.claude.com/docs/en/keybindings#diff-panel-actions).
+To rebind the keys that scroll the file list or change the comparison, see [Diff panel actions](https://code.claude.com/docs/en/keybindings#diff-panel-actions).
 
-### Diff viewer
+### Diff dialog
 
-The diff viewer takes the place of the prompt until you close it. Its **Current** view shows your uncommitted changes from git, or, when there are none, what your branch adds on top of the default branch. The viewer also has a turn view for each prompt after which Claude edited files, showing just those edits. Claude Code builds the turn views from Claude's file edits rather than from git, so a change Claude makes through a shell command appears only under Current.
+The diff dialog opens as a bordered block above the prompt and lists your changed files with their added and removed line counts. It compares them against `HEAD`, or against whatever you last [chose in the diff panel](#diff-panel) for this repository.
 
-Use these keys in the viewer:
+Once Claude has edited files, a `source` picker appears above the list. It offers one turn view, labeled `T1`, `T2`, and so on, for each of your prompts that led Claude to edit files. A turn view shows only that turn's edits, and `Current` returns you to the working tree.
 
-* **Left and Right**: move between Current and the turn views.
+Use these keys in the dialog:
+
 * **Up and Down**: select a file.
 * **Enter**: open the selected file's diff. Scroll it with Up and Down, or PageUp and PageDown.
-* **Esc**: return from a file's diff to the list, or close the viewer from the list.
-
-To rebind these keys, see [Diff actions](https://code.claude.com/docs/en/keybindings#diff-actions).
+* **Esc**: return from a file's diff to the list, or close the dialog from the list.
+* **Tab**: move to the `source` picker, then choose `Current` or a turn view with Up and Down and press Enter. In a file's diff, Tab moves to the `ask` button. Press Enter to attach that file's diff to your next prompt.
 
 ## Side questions with /btw
 
@@ -643,37 +644,40 @@ The list fills only in sessions that have the task-tracking tools, which Claude 
 
 When you return to the terminal after stepping away, Claude Code shows a one-line recap of what happened in the session so far. The recap generates in the background once at least three minutes have passed since the last completed turn and the terminal is unfocused, so it's ready when you switch back. Recaps only appear once the session has at least three turns, and never twice in a row.
 
-Run `/recap` to generate a summary on demand. Claude Code caps both automatic recaps and `/recap` output at 400 characters. To turn automatic recaps off, open `/config` and turn off **Session recap**.
+Run `/recap` to generate a summary on demand. It runs only when you ask for it yourself. When it arrives in a message relayed from a Slack, Teams, or project thread, or in a prompt a routine sent, you get a [notice](https://code.claude.com/docs/en/errors#recap-only-runs-when-you-ask-for-it-yourself) instead of a recap.
 
-Session recap is on by default for every plan and provider. The recap is always skipped in non-interactive mode.
+Session recap is on by default for every plan and provider. To turn automatic recaps off, open `/config` and turn off **Session recap**. The automatic recap never appears in non-interactive mode. Claude Code caps both automatic recaps and `/recap` output at 400 characters.
 
 ## Wait for a usage limit to reset
 
 When a claude.ai [usage limit](https://code.claude.com/docs/en/errors#youve-hit-your-session-limit) stops Claude mid-task, Claude Code waits in the open session and continues the task on its own after the limit resets. Automatic continue is on by default in interactive sessions signed in with a claude.ai subscription. Requires Claude Code v2.1.234 or later.
 
-While Claude Code waits, a line at the bottom of the session shows when it will continue:
+While Claude Code waits, the lines at the bottom of the session show when your limit resets and when Claude will continue:
 
 ```text theme={null}
-Usage limit reached · continuing automatically at 3:45pm · esc to cancel
+Usage limit reached · limit resets 3:45pm
+Continuing automatically at 3:45pm · esc to cancel
 ```
+
+Either line can carry more after these words, such as a help link on the first or `/usage-credits to continue now` on the second. When the wait starts on its own, the conversation also records it with a line that reads `Usage limit reached · continuing automatically at 3:45pm · esc to cancel`.
 
 Keep the session open. What happens next depends on how the wait ends:
 
-* **At the reset**: the line reads `continuing shortly`, then `Usage limit reset · continuing automatically`, and Claude Code sends Claude a fixed prompt to pick the task up where it stopped. It doesn't resend your last message.
-* **After your computer slept**: if it slept for more than about 30 minutes and the limit reset while it slept, the line reads `Your usage limit has reset · press enter to continue`. Press `Enter` to continue. After a shorter sleep, Claude Code continues on its own.
+* **At the reset**: the second line changes to `Continuing shortly · esc to cancel`. Then `Usage limit reset · continuing automatically` appears in the conversation, and Claude Code prompts Claude to pick the task up where it stopped. It doesn't resend your last message.
+* **After your computer slept**: if it slept for more than about 30 minutes and the limit reset while it slept, the first line reads `Your usage limit has reset` and the second reads `Press enter to continue`. Press `Enter` to continue. After a shorter sleep, or one that ended before the reset, Claude Code continues on its own.
 * **Early**: when you finish adding [usage credits](https://code.claude.com/docs/en/costs#add-usage-credits-to-your-subscription) with `/usage-credits`, sign back in after `/upgrade`, or switch models with `/model` during the wait, Claude Code checks whether usage is available again and continues right away if it is. It doesn't check after an upgrade or purchase you make in a browser on your own. Under [`opusplan`](https://code.claude.com/docs/en/model-config#opusplan-model-setting) and other model settings that run plan mode on a different model, Claude Code waits for the reset instead.
 
 The continued task runs like any other turn. Claude Code still asks for [permissions](https://code.claude.com/docs/en/permissions) as usual, so the task can stop on a prompt while you're away. If it hits the limit again, Claude Code re-arms the wait on its own at most twice in a row, then stops and shows `Automatic continue stopped after repeated usage-limit hits · /rate-limit-options to try again`.
 
 ### Cancel the wait
 
-Press `Esc` at an empty prompt, or `Ctrl+C`, while the line shows, or run [`/rate-limit-options`](https://code.claude.com/docs/en/commands#all-commands) and pick **Don't continue automatically**. Claude Code confirms with a line that starts `Automatic continue cancelled`.
+Press `Esc` at an empty prompt, or `Ctrl+C`, while the lines show, or run [`/rate-limit-options`](https://code.claude.com/docs/en/commands#all-commands) and pick **Don't continue automatically**. Claude Code confirms with a line that starts `Automatic continue cancelled`.
 
 After a cancel, nothing continues until you send a prompt or pick the row that starts **Wait here, then continue automatically** from `/rate-limit-options` again. Claude Code doesn't start a wait on its own again for that reset window; the next reset window starts fresh.
 
 The wait also ends without continuing the task in these cases:
 
-* **You send a prompt**: Claude Code runs your prompt instead of waiting.
+* **You send a prompt**: Claude Code sends your prompt instead of waiting. If your prompt hits the limit too, it stays in the conversation and Claude Code starts the wait again.
 * **You exit Claude Code**: the wait doesn't restart when you resume the session.
 * **The conversation changes hands**: you switch accounts with `/login`, clear or rewind the conversation, `/resume` another session, pull one with `/teleport`, relaunch with `/tui`, or hand the session to Claude Desktop, a background session, or the cloud.
 * **The setting turns off, or the reset moves past 24 hours**: this ends only a wait Claude Code started on its own. A wait you picked from `/rate-limit-options` keeps counting down.

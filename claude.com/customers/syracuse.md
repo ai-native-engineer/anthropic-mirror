@@ -123,3 +123,5 @@ Jeff RubinSenior Vice President and Chief Digital Officer, Syracuse University
 ### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
 ### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)
+
+Syracuse University Claude Enterprise case study | Claude by Anthropic

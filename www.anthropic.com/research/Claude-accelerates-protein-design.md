@@ -176,5 +176,3 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 ## Subscribe to Anthropic Science
 
 Features on AI-assisted discoveries, practical workflows, and field notes across the sciences.
-
-Claude accelerates protein design and analytical chemistry \ Anthropic

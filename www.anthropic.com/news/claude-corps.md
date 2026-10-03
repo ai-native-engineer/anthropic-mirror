@@ -113,17 +113,3 @@ You can hear more from our hosts below:
 ## What’s next
 
 Our ambition is for this program to scale far beyond 1,000 fellows, as we’ve outlined above. We'll be rigorously measuring the extent to which host organizations have advanced their missions, as well as how fellows develop their skills and career prospects, to understand how Claude Corps should evolve. We plan to open-source some of the core technology and infrastructure that enables this program to work, so that others can build out similar initiatives towards what could be a large-scale nationwide effort. And, we’d like to build a model that can be replicated in other countries outside the US.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

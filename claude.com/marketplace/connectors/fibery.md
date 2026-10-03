@@ -4,17 +4,29 @@ Connector URL`https://mcp.fibery.io/mcp`
 
 More[Documentation (opens in new tab)](https://the.fibery.io/@public/User_Guide/Guide/Fibery-MCP-Server-401)[Support (opens in new tab)](mailto:support@fibery.io)[Privacy policy (opens in new tab)](https://fibery.com/privacy-policy)
 
-Once Fibery MCP is connected to your workspace, Claude can do almost anything you can do in Fibery yourself — read and write data, reshape your workspace structure, manage views (including reports and whiteboards), and work with automations.
+Fibery is an operating system for orgs run by nerds: a modular work platform where you build the tools your team runs on. Startups, agencies, enterprises and non-profits use it for everything from product roadmaps and customer feedback to sales CRM, hiring, OKRs and client projects. Everything can link to everything else, so work never gets lost between teams.
 
-Search. Explore your workspace structure (spaces, databases, fields), query any database with filtering and sorting, run full-text search across entities, documents, and comments, inspect activity history (who changed what, and when), and pull data from saved views with their filters applied.
+This plugin connects Claude to your workspace and teaches it how to build in Fibery.
 
-Data. Perform CRUD operations on your data, move them through workflow states, assign people and link related records. Write documents, add comments, and attach files.
+Describe how your team works, and Claude builds it.
 
-Schema. Create spaces and databases, and add fields of any type available in Fibery (including formulas).
+Sprints and bug tracking, a content calendar, a company wiki, or a process no template covers: explain it in your own words, or start from a process doc or a ready-made recipe like Shape Up. Claude asks what it needs to know, then sets up the databases, workflows, views and automations, with sample data to try it on. Want a priority field or a board grouped by stage? Just ask. Happy with the result? Save it as a recipe for the next team.
 
-Views. Visualize the data in one of the 12 view types: grid, list, board, timeline, calendar, map, feed, gallery, gantt, form, a standalone document, or a whiteboard.
+When views aren’t enough, ask for an app.
 
-Automations. Setup rules and buttons to automate your processes.
+Claude can build a custom app on your Fibery data, like a step-by-step intake form or a dashboard your CEO actually reads. Your data stays in Fibery, with its permissions and history intact.
+
+Ask the way you’d ask a colleague.
+
+“Which customers asked for the features we shipped last month?” “What happened with the Acme deal this week?” “Who’s still waiting on interview feedback?” Claude searches records, documents, comments and activity history to answer, and turns the answers worth keeping into live reports.
+
+Let routine work run itself.
+
+Set up rules and buttons in plain words: when a deal is won, create the onboarding project; when a bug turns critical, assign it and set a due date.
+
+Put your data to work.
+
+Draft release notes from what shipped this month, write a client update from open tasks, turn meeting notes into assigned tasks, or update a hundred records at once.
 
 ## Tools
 

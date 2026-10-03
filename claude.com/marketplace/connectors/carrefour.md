@@ -59,9 +59,19 @@ Sell, serve, and operate at scale with Salesforce.
 
 Anthropic verifiedTrending
 
-Search flights, hotels and seats, then get alerted the moment a price you are watching drops.
+Search flights, hotels and seats, then get alerted the moment a price drops.
 
 [Add SlickTrip in Claude (opens in new tab)](https://claude.ai/directory/c1cba93e-98f4-4146-8afa-e9551a789823 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=brek.com&sz=96)
+
+### [Brek - Hotel Wholesale Booking](https://claude.com/marketplace/connectors/brek-hotel-wholesale-booking)
+
+Anthropic verifiedTrending
+
+Search and compare hotels with public and private wholesale rates.
+
+[Add Brek - Hotel Wholesale Booking in Claude (opens in new tab)](https://claude.ai/directory/5590ae2e-c452-4baf-afe8-697ec9f2ef70 "Add in Claude")
 
 ![](https://metricool.com/wp-content/uploads/cropped-web-app-manifest-512x512-1-180x180.png)
 
@@ -70,11 +80,3 @@ Search flights, hotels and seats, then get alerted the moment a price you are wa
 Schedule posts, analyze, and manage social media with AI
 
 [Add Metricool Social Media Management in Claude (opens in new tab)](https://claude.ai/directory/70ba6d62-7e98-4ef4-9073-d161d900a95f "Add in Claude")
-
-![](https://agent.enrichlabs.ai/avatars/helena.png)
-
-### [Helena by Enrich Labs](https://claude.com/marketplace/connectors/helena-by-enrich-labs)
-
-Your AI marketer for paid ads, SEO, email, social, and analytics
-
-[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")

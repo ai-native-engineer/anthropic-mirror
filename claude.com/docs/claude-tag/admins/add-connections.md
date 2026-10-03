@@ -13,7 +13,7 @@ Claude starts delivering work before you connect anything. On Slack content alon
 ##  Your first Access bundle
 
 An [Access bundle](https://claude.com/docs/claude-tag/concepts/glossary#access-bundle) is a named set of credentials, domain entries, repository grants, plugins, and instructions that Claude uses in the channels the bundle covers. A connection is one service credential inside a bundle, like a Datadog API key or a warehouse service account, that Claude uses to act in that service from any channel under the bundle’s [scope](https://claude.com/docs/claude-tag/concepts/glossary#scope).
-If you’re in [setup](https://claude.com/docs/claude-tag/admins/setup-overview), you add these connections there; skip to [Decide what to connect](#decide-what-to-connect). The steps below are for creating a bundle outside setup, on the admin page directly.
+You create your first bundle on the admin page, after you finish [setup](https://claude.com/docs/claude-tag/admins/setup-overview) and launch.
 
 1
 
@@ -34,7 +34,7 @@ Name the bundle
 A bundle created on a workspace or channel scope is named after that scope, like **Acme bundle** for a workspace named Acme or **#engineering bundle** for that channel. A bundle created on **Default Slack** is named **Untitled access bundle** until you rename it. To rename a bundle, click the pencil next to the name (the console uses “profile” and “Access bundle” interchangeably).
 
 You can also create an unattached bundle by clicking **Create** on the **Access bundles** page in the left navigation, then attach it to scopes afterward. A bundle created there is named **Untitled access bundle** until you rename it.
-Connections belong to the [agent identity](https://claude.com/docs/claude-tag/concepts/agent-identity), not to any person. Personal claude.ai connectors apply in DMs. Claude can also [use a member’s own connectors in a channel](https://claude.com/docs/claude-tag/concepts/personal-connectors) for that member’s own tasks, after the member allows it.
+Connections belong to the [agent identity](https://claude.com/docs/claude-tag/concepts/agent-identity), not to any person. Personal claude.ai connectors apply in one-to-one DMs. Claude can also [use a member’s own connectors in a channel](https://claude.com/docs/claude-tag/concepts/personal-connectors) for that member’s own tasks, after the member allows it.
 Name a bundle after what it grants, since the name is what you’ll read when deciding which bundles to bind to a channel: `data-readonly`, `github-write`, `monitoring`, `gtm-tools`. A capability name stays meaningful when the same bundle serves several teams; a team name (`devprod-team`) works when one team’s full access is the unit you’ll reuse.
 
 ###  Why create more than one bundle
@@ -110,9 +110,9 @@ A domain entry allowlists one hostname for every channel this bundle covers. Aft
 To get there, open the bundle from the scope that covers the channel, under **Claude Tag’s access** at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag); if the scope has no bundle yet, [create one](#your-first-access-bundle) first. On the bundle’s **Domains** tab, fill in the form and click **Add domain**:
 
 * **Domain**: the hostname to allow; a wildcard is allowed as the leftmost label, like `*.example.com`, and covers subdomains at any depth but not `example.com` itself
-* **Ports**: needed only when the service listens on something other than 443
+* **Ports**: `443` unless the service listens on another port
 
-For example, to let Claude check a vendor’s status page at `status.example.org`, enter `status.example.org` in the **Domain** field and leave the **Ports** field empty.
+For example, to let Claude check a vendor’s status page at `status.example.org`, enter `status.example.org` in the **Domain** field and leave the other fields as they are.
 You don’t have to predict the full list up front. When a request is blocked, Claude says so in the thread and names the host, with wording like “blocked by the network egress proxy” (that is, by Agent Proxy); add that host here and retry. If the host is listed and Claude still reports it blocked, check these in order:
 
 * **The bundle is attached to the channel’s scope.** Claude can use a Domains entry only in channels whose scope, or an ancestor scope, has this bundle attached; see [Attach bundles to scopes](https://claude.com/docs/claude-tag/admins/attach-to-scope).
@@ -135,14 +135,12 @@ To give a scope broader access, create an organization-shared environment with a
 
 ###  Allow all hosts
 
-Allow-all egress is off by default; ask your Anthropic account team to enable it for your organization. Once enabled, you can enter `*` alone as the domain. A `*` entry needs ports assigned; it admits any host on those ports, with no credential attached.
+To allow every host, enter `*` alone as the domain. A `*` entry needs ports assigned. It admits any host on those ports, with no credential attached.
 With `*` active:
 
 * Requests to hosts that no connection covers go through with no credential attached.
 * A `*` entry never carries a credential, and a connection’s credential still travels only to its [allowed websites](#set-allowed-websites).
 * Private and internal network addresses and cloud metadata endpoints remain blocked.
-
-Without allow-all egress enabled, saving `*` fails with a generic “Couldn’t add domain.” error that doesn’t name the cause. If the capability is later disabled, you can disable an existing `*` entry or narrow it to specific hosts, but you can’t keep it active.
 
 ###  Web search vs. network requests
 

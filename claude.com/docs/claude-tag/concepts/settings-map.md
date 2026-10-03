@@ -16,7 +16,7 @@ Claude Tag’s settings live on claude.ai, split across a few pages that each ow
 | [Usage page](https://claude.ai/admin-settings/usage/claude-tag) | An admin | Spend limits and each channel’s spend against them |
 | [Analytics page](https://claude.ai/analytics/claude-tag) | Anyone who can view the Analytics dashboard | Spend trends, projections, and per-channel reports; read-only |
 | The **Configure** link in the footer of any Claude reply in a channel | Channel members (unless an admin restricts editing) and [channel managers](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) for their assigned channels | One channel’s instructions and whether Claude replies there without an @-mention. Channel managers also set the channel’s default model, repositories, connections, and plugins |
-| [Customize > Connectors](https://claude.ai/customize/connectors) on your own claude.ai account | You | Which of your personal tools apply in [DMs](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) and for [your own tasks in a channel](https://claude.com/docs/claude-tag/concepts/personal-connectors) |
+| [Customize > Connectors](https://claude.ai/customize/connectors) on your own claude.ai account | You | Which of your personal tools apply in [one-to-one DMs](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) and for [your own tasks in a channel](https://claude.com/docs/claude-tag/concepts/personal-connectors) |
 
 Channel memory and routines aren’t in the table because you change them by talking to Claude in the channel; see [what anyone can change from the channel](https://claude.com/docs/claude-tag/admins/customize#change-behavior-from-the-channel). Owners can review both, as each scope’s memory files and scheduled work, from [the Audit page](https://claude.com/docs/claude-tag/admins/audit), labeled **Activity** in the console.
 
@@ -48,7 +48,7 @@ On the Enterprise plan, an Owner can name [channel managers](https://claude.com/
 
 ##  Personal connectors on claude.ai
 
-Connectors you add to your own claude.ai account, under **Customize > Connectors**, apply in DMs with Claude, because [a DM runs on your own account](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels). A channel session uses the connections an admin attached to it. Claude can also [use your personal connectors there](https://claude.com/docs/claude-tag/concepts/personal-connectors) for your own tasks, after you allow it. Slack has no connector settings of its own.
+Connectors you add to your own claude.ai account, under **Customize > Connectors**, apply in one-to-one DMs with Claude, because [a DM runs on your own account](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels). A channel session uses the connections an admin attached to it. Claude can also [use your personal connectors there](https://claude.com/docs/claude-tag/concepts/personal-connectors) for your own tasks, after you allow it. Slack has no connector settings of its own.
 See [connectors on claude.ai](https://claude.com/docs/connectors/getting-started) for setting one up, and [the troubleshooting entry](https://claude.com/docs/claude-tag/users/troubleshooting#a-connector-works-on-claude-ai-but-not-in-slack) if a connector you use on claude.ai is missing in Slack.
 
 ##  Claude Tag versus Claude Managed Agents
@@ -60,4 +60,4 @@ The two products don’t share settings. Nothing on the Claude Tag admin page co
 
 * [Customize Claude Tag](https://claude.com/docs/claude-tag/admins/customize): the layers that shape Claude’s behavior in a channel and who sets each one
 * [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity): why channels and DMs use different access
-* [Set up Claude Tag](https://claude.com/docs/claude-tag/admins/setup-overview): where each setting is first created during setup
+* [Set up Claude Tag](https://claude.com/docs/claude-tag/admins/setup-overview): pair a workspace, launch, and give Claude access

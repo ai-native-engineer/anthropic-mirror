@@ -29,17 +29,3 @@ As part of its long-running Client Zero initiative, in which NEC serves as its o
 Claude is now being deployed to NEC Group employees around the world, and our joint development of industry-specific AI solutions is underway. Learn more about NEC’s value-creation model at [NEC BluStellar](https://www.nec.com/en/global/necblustellar/index.html).
 
 *Claude, Claude Code, and Claude Cowork are Anthropic products. NEC BluStellar is an offering from NEC Corporation.*
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

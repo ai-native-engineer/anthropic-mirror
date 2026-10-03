@@ -13,19 +13,3 @@ Earlier in his career, Krishna spent time as a private equity investor at Blacks
 “I am thrilled to join Anthropic at such a pivotal moment in the company’s journey,” said Krishna. “Anthropic’s mission to build transformative AI systems that benefit humanity deeply resonates with me. I look forward to working with the exceptional team at Anthropic to build a strong financial foundation that will support the responsible development and deployment of our technology.”
 
 “Krishna is a world-class financial leader with an impressive history of driving strategic growth and operational excellence at innovative, mission-driven companies,” said Daniela Amodei, co-founder and President of Anthropic. “As we continue to grow our footprint and expand our impact, Krishna’s deep expertise in financial strategy and analysis, capital allocation, and scaling high-growth organizations will be essential. We’re thrilled to have him join our leadership team and help guide Anthropic through our next phase of growth.”
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
-
-Krishna Rao joins Anthropic as Chief Financial Officer \ Anthropic

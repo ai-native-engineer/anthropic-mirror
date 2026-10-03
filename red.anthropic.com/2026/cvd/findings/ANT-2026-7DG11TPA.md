@@ -40,14 +40,14 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 1. 2026-03-26
 2. 2026-03-26
-3. 2026-04-07
-4. 2026-05-14
+3. 2026-03-26
+4. 2026-04-08
 5. 2026-06-02
 
 795b824d3a8ae740b46f0ead862b0ea39eba87b6fe127e9eb774ef4e34a17aec032cfd1a1cfeb29958f591e5118f4525adc14699a2e0c6f103f24dc793aa9a99
 
-Committed 2026-03-26 16:21 PT
+Committed 2026-03-26 23:21 UTC
 
-Revealed 2026-06-02 11:00 PT
+Revealed 2026-06-02 18:00 UTC
 
 The preimage for this commitment is withheld because it references findings that are not yet disclosed. The commitment hash remains in the ledger and the full preimage will be published when the referenced findings are revealed.

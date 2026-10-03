@@ -1,144 +1,29 @@
 <!-- source: https://claude.com/community -->
 
-# Where problem solvers**think together**
-
-# Where problem solvers**think together**
+# Where problem solvers think together
 
 Get involved in the Claude Community to share solutions, help each other, and push the boundaries of what's possible with AI.
 
-View events
-
-[View events](https://luma.com/claudecommunity)View events
+[View events (opens in new tab)](https://luma.com/claudecommunity)
 
 ## Upcoming community events
 
 Claude Community Events are hosted globally by Claude Community Ambassadors. Meet others building with Claude, and keep thinking.
 
-View events
+[View all (opens in new tab)](https://luma.com/claudecommunity)
 
-[View events](https://luma.com/claudecommunity)View events
+titleLocationDate
 
-Thank you! Your submission has been received!
+* [CHZurich | Claude Conversation on ClimateZürich, CHOctober 2, 2026](https://luma.com/claude-ycsc)
+* [ESMadrid | 48-hour Claude Code HackathonMadrid, ESOctober 2, 2026](https://luma.com/claude-dyek)
+* [JPTokyo | Claude Meetup for Healthcare ProfessionalsMinato City, JPOctober 2, 2026](https://luma.com/claude-urwj)
+* [INCalicut | Claude Impact Lab - Superhuman LabKozhikode, INOctober 3, 2026](https://luma.com/claude-06vm)
+* [USMiami | Building with Claude: AI for ocean conservation in Florida Keys WorkshopKey Largo, USOctober 3, 2026](https://luma.com/claude-5bay)
+* [SEStockholm | Claude for Freelancers & Self-EmployedStockholm, SEOctober 5, 2026](https://luma.com/claude-2qhw)
+* [USOrange County | Claude Conversation for MarketersIrvine, USOctober 5, 2026](https://luma.com/claude-mo0t)
+* [CHZurich | Claude Opus 5.5 Build Day WorkshopZürich, CHOctober 6, 2026](https://luma.com/claude-m5ji)
 
-Oops! Something went wrong while submitting the form.
-
-View all
-
-[View all](https://luma.com/claudecommunity)View all
-
-title
-
-Location
-
-Date
-
-JP
-
-Kesennuma | Claude for Business
-
-Kesennuma, JP
-
-October 1, 2026
-
-Pier 7, 1-11 Minamimachikaigan, Kesennuma, Miyagi 988-0018, Japan
-
-[Kesennuma | Claude for Business](https://luma.com/claude-tpx0)Kesennuma | Claude for Business
-
-MX
-
-Mexico City | El Club Violeta Vol. 1 Claude Meetup
-
-Ciudad de México, MX
-
-October 1, 2026
-
-UTOPÍA Elena Poniatowska Amor, Av Miguel Hidalgo 128, San Lucas, Coyoacán, 04100 Ciudad de México, CDMX, Mexico
-
-[Mexico City | El Club Violeta Vol. 1 Claude Meetup](https://luma.com/claude-1er9)Mexico City | El Club Violeta Vol. 1 Claude Meetup
-
-CH
-
-Zurich | Claude Conversation on Climate
-
-Zürich, CH
-
-October 2, 2026
-
-Sonneggstrasse 76, 8006 Zürich, Switzerland
-
-[Zurich | Claude Conversation on Climate](https://luma.com/claude-ycsc)Zurich | Claude Conversation on Climate
-
-ES
-
-Madrid | 48-hour Claude Code Hackathon
-
-Madrid, ES
-
-October 2, 2026
-
-C/ de Aranjuez, 2, Tetuán, 28039 Madrid, Spain
-
-[Madrid | 48-hour Claude Code Hackathon](https://luma.com/claude-dyek)Madrid | 48-hour Claude Code Hackathon
-
-JP
-
-Tokyo | Claude Meetup for Healthcare Professionals
-
-Minato City, JP
-
-October 2, 2026
-
-2-chōme-8-14 Hamamatsuchō, Minato City, Tokyo 105-0013, Japan
-
-[Tokyo | Claude Meetup for Healthcare Professionals](https://luma.com/claude-urwj)Tokyo | Claude Meetup for Healthcare Professionals
-
-IT
-
-Milan | Claude Impact Lab
-
-Milano, IT
-
-October 3, 2026
-
-SmartCityLab Milano, Via Giuseppe Ripamonti, 88, 20141 Milano MI, Italy
-
-[Milan | Claude Impact Lab](https://luma.com/claude-gs6b)Milan | Claude Impact Lab
-
-IN
-
-Calicut | Claude Impact Lab - Superhuman Lab
-
-Kozhikode, IN
-
-October 3, 2026
-
-Institute of Palliative Medicine, Medical college P.O., 7RHV+2QC, Palakottuvayal, Kozhikode, Kerala 673008, India
-
-[Calicut | Claude Impact Lab - Superhuman Lab](https://luma.com/claude-06vm)Calicut | Claude Impact Lab - Superhuman Lab
-
-US
-
-Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop
-
-Key Largo, US
-
-October 3, 2026
-
-REEF Ocean Exploration Center for Marine Conservation, 98380 Overseas Hwy, Key Largo, FL 33037, USA
-
-[Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop](https://luma.com/claude-5bay)Miami | Building with Claude: AI for ocean conservation in Florida Keys Workshop
-
-[View more](https://claude.com/community?46f68bc1_page=2)
-
-1 / 8
-
-No posts for those filters
-
-Try another search or clear some of your filters.
-
-Clear all filters
-
-[Clear all filters](#)Clear all filters
+View more
 
 ## Bring your big ideas in to the world
 
@@ -148,22 +33,17 @@ Build and lead the community you want to see.
 
 Build and lead the Claude Community in your city with support from Anthropic.
 
-Learn more
-
-[Learn more](https://claude.com/community/ambassadors)Learn more
+[Learn more](https://claude.com/community/ambassadors)
 
 ### Join a Claude Campus Program
 
 Lead student-driven AI initiatives with support from Anthropic.
 
-Learn more
+[Learn more](https://claude.com/programs/campus)
 
-[Learn more](https://claude.com/programs/campus)Learn more
+![](https://assets.claude.com/f85cddd4b1ee27e0f2e8cd6c46b704d504f49e52.jpg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69a8d2c816d75af2e8ef4303_community-marginalia.webp)
-
-Build together with the
-Claude Community.
+Build together with the Claude Community.
 
 Our growing community
 
@@ -179,9 +59,7 @@ Cities
 
 Share projects you've built with Claude to be considered for a feature on Claude's social channels or marketing. Learn more [here](https://support.claude.com/en/articles/15485501-submit-your-build-how-it-works-and-what-you-re-agreeing-to).
 
-Share your project
-
-[Share your project](https://form.typeform.com/to/VIUAjxNi)Share your project
+[Share your project (opens in new tab)](https://form.typeform.com/to/VIUAjxNi)
 
 ## Find your space
 
@@ -191,28 +69,22 @@ Connect with other builders online to learn and share.
 
 Real-time help, project sharing, and active discussions with thousands of developers.
 
-Join server
-
-[Join server](https://discord.com/invite/6PPFFzqPDZ)Join server
+[Join server (opens in new tab)](https://discord.com/invite/6PPFFzqPDZ)
 
 ### Reddit
 
 Long-form discussions, project showcases, and community knowledge that sticks around.
 
-Join subreddit
-
-[Join subreddit](https://www.reddit.com/r/ClaudeAI/)Join subreddit
+[Join subreddit (opens in new tab)](https://www.reddit.com/r/ClaudeAI/)
 
 ## Where problem solvers think together
 
-View events
-
-[View events](https://luma.com/claudecommunity)View events
+[View events (opens in new tab)](https://luma.com/claudecommunity)
 
 ### Get insights in your inbox
 
 Get monthly highlights: featured projects, upcoming events, and tips from expert problem solvers.
 
-Thank you! You’re subscribed.
+By subscribing, you agree to receive Claude marketing emails and agree to the Privacy Policy. You can unsubscribe any time.
 
-Sorry, there was a problem with your submission, please try again later.
+Community | Claude by Anthropic

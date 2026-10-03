@@ -19,17 +19,3 @@ Healthcare's interoperability challenge mirrors a problem we've already solved i
 At Anthropic, we are focused on creating a healthcare ecosystem of partners who can connect easily and securely so that users can leverage their clinical and non-clinical data to better understand their health. We will work with payers, providers, data platforms and consumer technology companies to aggregate patient data and make it usable and actionable in a responsible way with Claude.
 
 We look forward to continuing to work with policymakers across the U.S. government to ensure the opportunities AI unlocks support the American people. Sectors including healthcare, science, energy infrastructure, and citizen services can use this technology to keep the United States on the frontier of innovation—advancing our economy and communities in unprecedented ways.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

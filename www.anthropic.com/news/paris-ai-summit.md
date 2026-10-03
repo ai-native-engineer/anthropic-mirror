@@ -19,17 +19,3 @@ We are pleased to see commitments from over 16 frontier AI companies to follow s
 Third, while AI has the potential to dramatically **accelerate economic growth** throughout the world, it also has the potential to be highly disruptive. A “country of geniuses in a datacenter” could represent the largest change to the global labor market in human history. A first step is to monitor and observe the economic impacts of today’s AI systems. That’s why this week we released the [Anthropic Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index), which tracks the distribution of economic activities for which people are currently using our AI systems, including whether they augment or automate current human tasks. There is a need for governments to use their much greater resources to do similar measurement and monitoring—and eventually to enact policy focused on ensuring that everyone shares in the economic benefits of very powerful AI.
 
 At the next international summit, we should not repeat this missed opportunity. These three issues should be at the top of the agenda. The advance of AI presents major new global challenges. We must move faster and with greater clarity to confront them.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

@@ -89,3 +89,5 @@ Ross McNairnCEO of Wordsmith
 ### Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)[![GC AI](https://assets.claude.com/bf75981f3c09a3118604def848ab045ebfd0bfb5.svg)
 
 ### GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)
+
+Wordsmith Claude Code case study | Claude by Anthropic

@@ -69,4 +69,5 @@ The connector is read-only, and some email content isn’t visible to Claude:
 
 * [Google Calendar](https://claude.com/docs/connectors/google/calendar): access your calendar information
 * [Google Drive](https://claude.com/docs/connectors/google/drive): search and read your Drive files
+* [Add a connector from the directory](https://claude.com/docs/connectors/getting-started#add-a-connector-from-the-directory): find a connector for another service in the directory and connect it
 * [Connectors directory](https://claude.com/docs/connectors/directory): browse verified and community integrations

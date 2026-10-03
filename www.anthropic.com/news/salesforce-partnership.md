@@ -54,17 +54,3 @@ For more information on how to leverage Claude within your Salesforce environmen
 ![Salesforce product screen](https://www-cdn.anthropic.com/images/4zrzovbb/website/5d0eec6c2d66f65782d0700761e6b093ff9dc775-2880x1620.jpg)
 
 ![Salesforce product screenshot](https://www-cdn.anthropic.com/images/4zrzovbb/website/8460665b8e289b2c80ad3cf9092193dec51274db-2880x1620.jpg)
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

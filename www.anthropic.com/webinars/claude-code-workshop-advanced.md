@@ -10,9 +10,11 @@ Recorded event
 
 # Claude Code: Advanced
 
-You already use Claude Code every day. This is the session that turns you into the person your team asks how you did that. In 90 hands-on minutes with Anthropic's Claude Code specialists, we go deep on the two things that separate casual users from power users: engineering the context Claude works with, and multiplying yourself through agent orchestration — subagents, parallel sessions, and agents that finish long-running work while you're in a meeting. You'll work in a real codebase the whole time and leave with configurations you can commit to your repos that same afternoon.
+**Multiple sessions available. Choose your preferred date and time on the form.**
 
-*Next Session: September 29th at 1:00 pm PT*
+‍
+
+You already use Claude Code every day. This is the session that turns you into the person your team asks how you did that. In 90 hands-on minutes with Anthropic's Claude Code specialists, we go deep on the two things that separate casual users from power users: engineering the context Claude works with, and multiplying yourself through agent orchestration — subagents, parallel sessions, and agents that finish long-running work while you're in a meeting. You'll work in a real codebase the whole time and leave with configurations you can commit to your repos that same afternoon.
 
 ## Featuring
 

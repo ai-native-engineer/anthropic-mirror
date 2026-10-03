@@ -4,19 +4,21 @@ Connector URL`https://mcp.hellobonsai.com/mcp`
 
 More[Documentation (opens in new tab)](https://docs.hellobonsai.com/)[Support (opens in new tab)](https://help.hellobonsai.com/en/)[Privacy policy (opens in new tab)](https://www.hellobonsai.com/legal/privacy)
 
-Bonsai is where independent consultants and small service businesses run client work: CRM, deals, projects, tasks, time tracking, and invoices in one place.
+Bonsai is where independent consultants and small service businesses run client work: CRM, deals, projects, tasks, time tracking, proposals and invoices in one place.
 
-The Bonsai MCP server connects your account to Claude. Ask where work stands, keep clients and projects current, and run the whole business from one conversation.
+Connect Bonsai to run your business from Claude.
 
-Key features:
+\*\*Key features:\*\*
 
-- Ask about your business - Your tasks for today, where a deal stands, what's outstanding, or a project summary you can send a client.
+- \*\*Ask about your business\*\* - Your tasks for today, where a deal stands, what's outstanding, or a project summary you can send a client.
 
-- Keep your CRM current - Add contacts and companies, log activity, and move deals through your pipeline.
+- \*\*Keep your CRM current\*\* - Add contacts and companies, log activity, and move deals through your pipeline.
 
-- Turn won work into a project - A closed deal becomes a project with tasks, owners, and due dates, ready to start.
+- \*\*Create proposals\*\* - Ask Claude to set up a proposal in Bonsai for you to review and send.
 
-- Track time and bill for it - Log hours against a project, then draft the invoice when the work is done.
+- \*\*Turn won work into a project\*\* - A closed deal becomes a project with tasks, owners, and due dates, ready to start.
+
+- \*\*Track time and bill for it\*\* - Log hours against a project, then draft the invoice when the work is done.
 
 ## Tools
 

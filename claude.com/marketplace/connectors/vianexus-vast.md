@@ -67,14 +67,6 @@ Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)
-
-### [Asana](https://claude.com/marketplace/connectors/asana)
-
-Connect to Asana to coordinate tasks, projects, and goals
-
-[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
-
 ![](https://www.gemini.com/favicon.ico)
 
 ### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
@@ -84,3 +76,11 @@ Anthropic verifiedTrending
 Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
 [Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
+
+![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)
+
+### [Asana](https://claude.com/marketplace/connectors/asana)
+
+Connect to Asana to coordinate tasks, projects, and goals
+
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")

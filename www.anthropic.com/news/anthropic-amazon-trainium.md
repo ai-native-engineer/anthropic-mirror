@@ -29,17 +29,3 @@ By leveraging AWS’s robust security features and compliance certifications, or
 Together with AWS, we’re laying the technological foundation—from silicon to software—that will power the next generation of AI research and development. By combining Anthropic’s expertise in frontier AI systems with AWS’s world-class infrastructure, we’re building a secure, enterprise-ready platform that gives organizations of all sizes access to the forefront of AI technology.
 
 If you're interested in using Claude in Amazon Bedrock, you can get started at [aws.amazon.com/bedrock/claude/](http://aws.amazon.com/bedrock/claude/).
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

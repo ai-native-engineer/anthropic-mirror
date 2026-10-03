@@ -168,7 +168,7 @@ To remove a custom skill you've uploaded:
 3. Use the toggle in the upper right corner to disable the skill.
 4. To delete the custom skill entirely, click the "..." button next to the toggle, then select "Delete":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1790901900&signature=bdfb958ff590d14e535ea12609b6c16432bab86c26495a124333a8688fa9ec8c&req=diEnE8p3nINYWvMW1HO4zSOgDishwuekH%2BdCnFXB0uhIvqdObIwSVXBMWlb%2F%0A%2BUyv%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1790901900&signature=bdfb958ff590d14e535ea12609b6c16432bab86c26495a124333a8688fa9ec8c&req=diEnE8p3nINYWvMW1HO4zSOgDishwuekH%2BdCnFXB0uhIvqdObIwSVXBMWlb%2F%0A%2BUyv%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1790988300&signature=59756404ecf55517804f764094db0b5b6badaf6b08c9c6ed489ce071d046379e&req=diEnE8p3nINYWvMW1HO4zSOgDishyu6uH%2BdCnFXB0uj7kkVql34gJJ0g5KgR%0ATSfQ%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1790988300&signature=59756404ecf55517804f764094db0b5b6badaf6b08c9c6ed489ce071d046379e&req=diEnE8p3nINYWvMW1HO4zSOgDishyu6uH%2BdCnFXB0uj7kkVql34gJJ0g5KgR%0ATSfQ%0A)
 5. Click "Delete" in the confirmation prompt.
 
 If you change your mind, you can add the skill again by re-uploading the file.
@@ -253,8 +253,8 @@ Your organization's **Publishing** setting may be turned off, or the skill may n
 
 For more information and video demonstrations, refer to **[Teach Claude your way of working using skills](https://claude.com/resources/tutorials/teach-claude-your-way-of-working-using-skills).**
 
+* [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
-* [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
 * [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
 * [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 * [Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)

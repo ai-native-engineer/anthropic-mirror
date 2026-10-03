@@ -1,100 +1,48 @@
 <!-- source: https://claude.com/download -->
 
-Explore here
-
 Latest news
 
-[Next](#)Next
-
-## Claude Cowork is now just Claude
+Claude Cowork is now just Claude
 
 Rolling out to Pro and Max, with more plans to follow.
 
-Read what changed
+[Read what changed (opens in new tab)](https://claude.com/blog/cowork-is-now-claude)
 
-[Read what changed](https://claude.com/blog/cowork-is-now-claude)Read what changed
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aaad76b8d9af5b763e8efd1_cowork-tn.webp)
+![](https://assets.claude.com/c4cccb47d2ee2cf151f52b084554003b801e6a75.jpg)
 
 # Download Claude
 
 Think, hand off tasks, and code, all in one place.
 
-Download for macOS
-
-[Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)Download for macOS
-
-Download for Windows
-
-[Download for Windows](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect)Download for Windows
-
-Windows (arm64)
-
-[Windows (arm64)](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect)Windows (arm64)
-
-Download for ChromeOS
-
-[Download for ChromeOS](https://play.google.com/store/apps/details?id=com.anthropic.claude)Download for ChromeOS
-
-Download for Linux
-
-[Download for Linux](http://code.claude.com/docs/en/desktop-linux)Download for Linux
+[Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)
 
 ## Get started
 
 Access all of Claude on desktop and mobile.
 
-‍
-
 ## Desktop
 
 All of Claude, in one app. Works with your files and apps to get things done.
 
-macOS
+macOS[Download](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)
 
-Download
+Windows[Download](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect)
 
-[Download](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)Download
+Windows (arm 64)[Download](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect)
 
-Windows
+Microsoft Store[![Download from the Microsoft Store](https://claude.com/static/badges/microsoft-store-en-us-light.svg) (opens in new tab)](https://apps.microsoft.com/detail/9P6K58THS811)
 
-Download
+Linux[See docs](http://code.claude.com/docs/en/desktop-linux)
 
-[Download](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect)Download
-
-Windows (arm 64)
-
-Download
-
-[Download](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect)Download
-
-Linux
-
-See docs
-
-[See docs](http://code.claude.com/docs/en/desktop-linux)See docs
-
-Enterprise deployment
-
-[macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
-
-[Windows](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows)
+Enterprise deployment[macOS (opens in new tab)](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)[Windows (opens in new tab)](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows)
 
 ## Mobile
 
 Take Claude anywhere. Pair with the desktop app.
 
-iOS
+iOS[Download](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684)
 
-Download
-
-[Download](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684)Download
-
-Android
-
-Download
-
-[Download](https://play.google.com/store/apps/details?id=com.anthropic.claude)Download
+Android[Download](https://play.google.com/store/apps/details?id=com.anthropic.claude)
 
 ## Claude Science beta
 
@@ -102,9 +50,12 @@ Your AI workbench for scientific research
 
 Download
 
-Learn more
+* [Mac (Apple Silicon)](https://downloads.claude.ai/claude-science/latest/mac-arm64.dmg)
+* [Mac (Intel)](https://downloads.claude.ai/claude-science/latest/mac-x64.dmg)
+* [Windows](https://downloads.claude.ai/claude-science/latest/windows-x64.exe)
+* [Linux](https://downloads.claude.ai/claude-science/latest/linux-x64)
 
-[Learn more](https://claude.com/product/claude-science)Learn more
+[Learn more](https://claude.com/product/claude-science)
 
 ## Go further
 
@@ -114,123 +65,57 @@ Bring Claude to your workflow.
 
 Put Claude to work across your apps.
 
-Chrome
+Chrome[Install](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn)
 
-Install
+Slack[Install](https://slack.com/oauth/v2/authorize?client_id=1601185624273.8899143856786&scope=app_mentions:read,assistant:write,channels:history,channels:read,chat:write,files:read,files:write,groups:history,groups:read,im:history,im:read,im:write,mpim:history,reactions:write,users:read,users:read.email,commands,search:read.public&user_scope=bookmarks:read,channels:history,channels:read,chat:write,emoji:read,files:read,groups:history,groups:read,groups:write,im:history,im:read,im:write,links:read,mpim:history,mpim:read,mpim:write,mpim:write.topic,pins:read,reactions:read,reactions:write,remote_files:read,team:read,users:read,users:read.email,search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.files,search:read.users,canvases:read,canvases:write)
 
-[Install](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn)Install
+Excel[Install](https://marketplace.microsoft.com/en-us/product/saas/wa200009404?tab=overview)
 
-Slack
+PowerPoint[Install](https://marketplace.microsoft.com/en-us/product/office/WA200010001?tab=Overview)
 
-Install
+Word[Install](https://marketplace.microsoft.com/en-us/product/office/WA200010453?tab=Overview)
 
-[Install](https://slack.com/oauth/v2/authorize?client_id=1601185624273.8899143856786&scope=app_mentions:read,assistant:write,channels:history,channels:read,chat:write,files:read,files:write,groups:history,groups:read,im:history,im:read,im:write,mpim:history,reactions:write,users:read,users:read.email,commands,search:read.public&user_scope=bookmarks:read,channels:history,channels:read,chat:write,emoji:read,files:read,groups:history,groups:read,groups:write,im:history,im:read,im:write,links:read,mpim:history,mpim:read,mpim:write,mpim:write.topic,pins:read,reactions:read,reactions:write,remote_files:read,team:read,users:read,users:read.email,search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.files,search:read.users,canvases:read,canvases:write)Install
-
-Excel
-
-Install
-
-[Install](https://marketplace.microsoft.com/en-us/product/saas/wa200009404?tab=overview)Install
-
-PowerPoint
-
-Install
-
-[Install](https://marketplace.microsoft.com/en-us/product/office/WA200010001?tab=Overview)Install
-
-Word
-
-Install
-
-[Install](https://marketplace.microsoft.com/en-us/product/office/WA200010453?tab=Overview)Install
-
-Outlook beta
-
-Install
-
-[Install](https://marketplace.microsoft.com/en-us/product/WA200010724)Install
+Outlook beta[Install](https://marketplace.microsoft.com/en-us/product/WA200010724)
 
 ## Claude Code environments
 
 Build, debug, and ship where you work best.
 
-Desktop
+Desktop[Download](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)
 
-Download
+Terminal[Install](https://code.claude.com/docs/en/overview)
 
-[Download](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)Download
+VS Code[Install (opens in new tab)](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)
 
-Desktop
+JetBrains[Install](https://plugins.jetbrains.com/plugin/27310-claude-code-beta-)
 
-Download
-
-[Download](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect)Download
-
-Desktop
-
-Download
-
-[Download](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect)Download
-
-Terminal
-
-Install
-
-[Install](https://code.claude.com/docs/en/overview)Install
-
-VS Code
-
-Install
-
-[Install](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)Install
-
-JetBrains
-
-Install
-
-[Install](https://plugins.jetbrains.com/plugin/27310-claude-code-beta-)Install
-
-Slack
-
-Install
-
-[Install](https://slack.com/oauth/v2/authorize?client_id=1601185624273.8899143856786&scope=app_mentions:read,assistant:write,channels:history,channels:read,chat:write,files:read,files:write,groups:history,groups:read,im:history,im:read,im:write,mpim:history,reactions:write,users:read,users:read.email,commands,search:read.public&user_scope=bookmarks:read,channels:history,channels:read,chat:write,emoji:read,files:read,groups:history,groups:read,groups:write,im:history,im:read,im:write,links:read,mpim:history,mpim:read,mpim:write,mpim:write.topic,pins:read,reactions:read,reactions:write,remote_files:read,team:read,users:read,users:read.email,search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.files,search:read.users,canvases:read,canvases:write)Install
-
-# Take Claude on the go
-
-Start a thought here, finish anywhere. Claude remembers across your phone, desktop, and the web.
-
-Download iOS app
-
-[Download iOS app](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684)Download iOS app
-
-Download Android app
-
-[Download Android app](https://play.google.com/store/apps/details?id=com.anthropic.claude)Download Android app
-
-### Hand a task to your desktop
-
-Pair the desktop and mobile apps. Share a task from your phone and Claude can get started in Cowork.
-
-### Kick off a coding task from your phone
-
-Use Remote Control on mobile to send tasks from your phone to the Claude Code CLI. Access your local dev environment or files.
+Slack[Install](https://slack.com/oauth/v2/authorize?client_id=1601185624273.8899143856786&scope=app_mentions:read,assistant:write,channels:history,channels:read,chat:write,files:read,files:write,groups:history,groups:read,im:history,im:read,im:write,mpim:history,reactions:write,users:read,users:read.email,commands,search:read.public&user_scope=bookmarks:read,channels:history,channels:read,chat:write,emoji:read,files:read,groups:history,groups:read,groups:write,im:history,im:read,im:write,links:read,mpim:history,mpim:read,mpim:write,mpim:write.topic,pins:read,reactions:read,reactions:write,remote_files:read,team:read,users:read,users:read.email,search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.files,search:read.users,canvases:read,canvases:write)
 
 ## Take Claude on the go
 
 Start a thought here, finish anywhere. Claude remembers across your phone, desktop, and the web.
 
-Apple
+[Apple (opens in new tab)](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684)
 
-[Apple](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684)Apple
-
-Google Play
-
-[Google Play](https://play.google.com/store/apps/details?id=com.anthropic.claude)Google Play
+[Google Play (opens in new tab)](https://play.google.com/store/apps/details?id=com.anthropic.claude)
 
 ### Hand a task to your desktop
 
 Pair the desktop and mobile apps. Share a task on your phone and Claude can get started in Cowork.
+
+### Kick off a coding task from your phone
+
+Use Remote Control on mobile to send tasks from your phone to the Claude Code CLI. Access your local dev environment or files.
+
+# Take Claude on the go
+
+Start a thought here, finish anywhere. Claude remembers across your phone, desktop, and the web.
+
+[Download iOS app](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684)
+
+### Hand a task to your desktop
+
+Pair the desktop and mobile apps. Share a task from your phone and Claude can get started in Cowork.
 
 ### Kick off a coding task from your phone
 
@@ -256,11 +141,11 @@ Connectors allow Claude to work with tools like your apps and databases. Web-bas
 
 ### How does Claude Desktop work with the Chrome extension?
 
-Claude in Chrome is included as a connector and is ready to use when you enable it. Turn it on in any conversation and Claude can navigate, click, and fill forms in your browser from the Desktop app. Start a task without switching windows. Learn more about [Claude in Chrome](http://claude.com/chrome).
+Claude in Chrome is included as a connector and is ready to use when you enable it. Turn it on in any conversation and Claude can navigate, click, and fill forms in your browser from the Desktop app. Start a task without switching windows. Learn more about [Claude in Chrome](http://claude.com/claude-in-chrome).
 
 ### Can I use Claude Code in the desktop app?
 
-Yes. Claude Code runs directly in the desktop app. You can preview running servers, review local code changes, and monitor pull request status without leaving the app. Your work moves with you. Bring a CLI conversation into the desktop app with `/desktop`, or continue from the web or your phone. [Learn more about Claude Code](https://claude.com/product/claude-code).
+Yes. Claude Code runs directly in the desktop app. You can preview running servers, review local code changes, and monitor pull request status without leaving the app. Your work moves with you. Bring a CLI conversation into the desktop app with `/desktop`, or continue from the web or your phone. [Learn more about Claude Code (opens in new tab)](https://claude.com/product/claude-code).
 
 ### How do I bring the desktop app to my organization?
 
@@ -281,7 +166,3 @@ Chat is available on all plans, including Free. Claude Code and Claude Cowork ar
 ### Are all features available on Linux?
 
 Most are. Claude Code, Claude Cowork, and Chat are all available at launch. Computer Use is not yet available on Linux, and is coming soon. Dictation is also not available in this release. The Quick Entry global hotkey works on X11; on native Wayland it requires the desktop's GlobalShortcuts portal.
-
-[Prev](#)Prev
-
-[Next](#)Next

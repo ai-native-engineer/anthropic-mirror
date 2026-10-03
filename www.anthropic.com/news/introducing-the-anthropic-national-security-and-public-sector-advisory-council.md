@@ -37,17 +37,3 @@ To that end, Anthropic has taken significant steps over the past several months 
 In addition, as AI systems grow more capable, understanding their national security implications is increasingly vital. Over the past year, we have voluntarily [partnered](https://www.axios.com/2024/11/14/anthropic-claude-nuclear-information-safety) with the Department of Energy’s nuclear experts to assess our models’ potential to divulge sensitive information about nuclear weapons and with the U.S. Center for AI Standards and Innovation and UK AI Security Institute to [test](https://www.nist.gov/news-events/news/2024/11/pre-deployment-evaluation-anthropics-upgraded-claude-35-sonnet) our models’ biological, cyber, and AI R&D capabilities.
 
 The Council will aid in the development of safe, effective, and cutting edge technology for the United States and closely allied democracies to establish and maintain enduring technological advantages in this vital era of strategic competition.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

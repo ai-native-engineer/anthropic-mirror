@@ -1,20 +1,14 @@
 <!-- source: https://claude.com/solutions/small-business -->
 
-Explore here
-
 Events
 
-[Next](#)Next
-
-## Join a workshop
+Join a workshop
 
 Claude is on the road this fall with hands-on sessions for small business owners and operators.
 
-Find one near you
+[Find one near you](#events)
 
-[Find one near you](#events)Find one near you
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fa4b2ff4c8b6184004bbb0_img_events-toast.jpg)
+![](https://assets.claude.com/cdc57270c7504788a7e9b86efd094b5fe2a20d9e.jpg)
 
 # Claude for small business
 
@@ -22,55 +16,93 @@ Run and grow your business
 
 Claude helps you run and grow your business with ready-to-run workflows you sign off on, so you can take on more. Close the books, answer every lead, and get proposals out the door.
 
-Install the plugin
+[Install the plugin (opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)[Find a workshop](#events)
 
-[Install the plugin](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)Install the plugin
+![Blackfyre](https://assets.claude.com/018bd4d3a297ac819b05f55b350da7e0fbbc6718.svg)
 
-Find a workshop
-
-[Find a workshop](#events)Find a workshop
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa2f7a5392186c273f3347f_rebelcheese-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa2f7a95ed2891c4465f4b6_rebelcheese-logo-dark.svg)
-
-“We got about $180,000 back in shipping overcharges. There's just no way a person could have done that analysis, even if they were dedicated full time to it.”
-
-Kirsten Maitland, Co-founder & CEO
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa2f842c61a6f8b4eb4702b_sboc-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa2f7c6891ee0839220e370_sboc-logo-dark.svg)
-
-“Cowork has completely changed my business. It's saving me over 21 hours a week. It has turned Claude into an employee and an executive assistant to help me get more done and build a better business.”
-
-Pat Miller, Founder
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa058ca8d8326ba0169ab38_blackfyre-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa058d08993136a5a93670d_blackfyre-logo-dark.svg)
-
-“What used to take me 120 hours now takes me five minutes with Claude Code, and I'm able to really scale.”
+> “What used to take me 120 hours now takes me five minutes with Claude Code, and I'm able to really scale.”
 
 Pedro Rubio, Founder and CEO
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa05a4b5f0f270c495646cb_nortons-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa05a4d95a06d1e11b31cd1_nortons-logo-dark.svg)
+![Norton's Florist](https://assets.claude.com/ad1db88f46e23571a339569cdb2d1354f9f7f846.svg)
 
-“I've never coded anything in my life. Our design team is more efficient, our buying is better, and the customer is a lot more likely to get what they ordered.”
+> “I've never coded anything in my life. Our design team is more efficient, our buying is better, and the customer is a lot more likely to get what they ordered.”
 
 Cameron Pappas, Owner
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa05a01190dce9dfbdc835a_libertytrailers-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa05a04f765bdbfed08070f_libertytrailers-logo-dark.svg)
+![Liberty Trailers](https://assets.claude.com/12d30118a73ba9e39402fa8108371451e16a1ee2.svg)
 
-“Dashboards that would take weeks or months, we can now build in a day or two. It's allowed me to become the CFO of a growing company and keep pace with it.”
+> “Dashboards that would take weeks or months, we can now build in a day or two. It's allowed me to become the CFO of a growing company and keep pace with it.”
 
 Ashley Wells, CFO
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa059335dc8a4833e271922_chiefofminds-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa05937980b89a3abc5c3e9_chiefofminds-logo-dark.svg)
+![Chief of Minds](https://assets.claude.com/c4570eb4bf191383907b8b37e7c2ec2e398937da.svg)
 
-“At Chief of Minds, we treat our partners' time as the most valuable thing they have. Claude helps us protect it. What used to take our team two days… we now turn around in hours, with the same quality our partners expect. That's not replacing people, it's freeing them to do the work only they can do.”
+> “At Chief of Minds, we treat our partners' time as the most valuable thing they have. Claude helps us protect it. What used to take our team two days… we now turn around in hours, with the same quality our partners expect. That's not replacing people, it's freeing them to do the work only they can do.”
 
 Lakeisha Robichaux, CEO and Founder
 
-[Prev](#)Prev
+![Rebel Cheese](https://assets.claude.com/e9ac2adefa65600363d62238d53619e86e0622f3.svg)
 
-0/5
+> “We got about $180,000 back in shipping overcharges. There's just no way a person could have done that analysis, even if they were dedicated full time to it.”
 
-[Next](#)Next
+Kirsten Maitland, Co-founder & CEO
+
+![Small Business Owners Community](https://assets.claude.com/7b45ec4c846bbdcddf99c52037c05c94bff29631.svg)
+
+> “Cowork has completely changed my business. It's saving me over 21 hours a week. It has turned Claude into an employee and an executive assistant to help me get more done and build a better business.”
+
+Pat Miller, Founder
+
+![Blackfyre](https://assets.claude.com/018bd4d3a297ac819b05f55b350da7e0fbbc6718.svg)
+
+> “What used to take me 120 hours now takes me five minutes with Claude Code, and I'm able to really scale.”
+
+Pedro Rubio, Founder and CEO
+
+![Norton's Florist](https://assets.claude.com/ad1db88f46e23571a339569cdb2d1354f9f7f846.svg)
+
+> “I've never coded anything in my life. Our design team is more efficient, our buying is better, and the customer is a lot more likely to get what they ordered.”
+
+Cameron Pappas, Owner
+
+![Liberty Trailers](https://assets.claude.com/12d30118a73ba9e39402fa8108371451e16a1ee2.svg)
+
+> “Dashboards that would take weeks or months, we can now build in a day or two. It's allowed me to become the CFO of a growing company and keep pace with it.”
+
+Ashley Wells, CFO
+
+![Chief of Minds](https://assets.claude.com/c4570eb4bf191383907b8b37e7c2ec2e398937da.svg)
+
+> “At Chief of Minds, we treat our partners' time as the most valuable thing they have. Claude helps us protect it. What used to take our team two days… we now turn around in hours, with the same quality our partners expect. That's not replacing people, it's freeing them to do the work only they can do.”
+
+Lakeisha Robichaux, CEO and Founder
+
+![Rebel Cheese](https://assets.claude.com/e9ac2adefa65600363d62238d53619e86e0622f3.svg)
+
+> “We got about $180,000 back in shipping overcharges. There's just no way a person could have done that analysis, even if they were dedicated full time to it.”
+
+Kirsten Maitland, Co-founder & CEO
+
+![Small Business Owners Community](https://assets.claude.com/7b45ec4c846bbdcddf99c52037c05c94bff29631.svg)
+
+> “Cowork has completely changed my business. It's saving me over 21 hours a week. It has turned Claude into an employee and an executive assistant to help me get more done and build a better business.”
+
+Pat Miller, Founder
+
+![Blackfyre](https://assets.claude.com/018bd4d3a297ac819b05f55b350da7e0fbbc6718.svg)
+
+> “What used to take me 120 hours now takes me five minutes with Claude Code, and I'm able to really scale.”
+
+Pedro Rubio, Founder and CEO
+
+![Norton's Florist](https://assets.claude.com/ad1db88f46e23571a339569cdb2d1354f9f7f846.svg)
+
+> “I've never coded anything in my life. Our design team is more efficient, our buying is better, and the customer is a lot more likely to get what they ordered.”
+
+Cameron Pappas, Owner
+
+1/6
 
 ## A big difference for small businesses
 
@@ -92,29 +124,15 @@ Connect Intuit QuickBooks, HubSpot, Shopify, Stripe, Gusto, Canva and 25 more. N
 
 Trust center
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa9555770f31e215b2dd613_trust-center.jpg)
+![](https://assets.claude.com/693f976cb2f7e640c4d53a09e65580fcc73cf011.jpg)
 
 Explore security with Claude: your data, your business, what Claude does with it.
 
-Read more
-
-[Read more](https://trust.anthropic.com)Read more
+[Read more](https://trust.anthropic.com)
 
 ## See what Claude can do for your business
 
-Monday brief
-
-Close books
-
-Proposals
-
-Leads
-
-Marketing
-
-Build agents
-
-Active
+Monday briefClose booksProposalsLeadsMarketingBuild agents
 
 Prompt
 
@@ -122,202 +140,29 @@ Every Monday at 6:30 AM, post my business brief to my Slack: cash position, week
 
 Connectors
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f528c0d0b2dc39cb5860ca_Xero-logo%20-%20Kayne%20Richens.svg)
-
-Xero
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f3ab1075ee2aa943f306c1_Logo-light%20-%20Natalie%20Mannion.png)
-
-Shopify
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a36e52639b2e82385fa088_gusto-favicon-192x192-160x160-5cf1c88.png)
-
-Gusto
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a049d5aa03bf5b3512149b6_smb-grow-your-business.webp)
+* [![](https://assets.claude.com/71de78bf8d473d8bd59716a03ed0bb470511508c.svg)Xero](https://claude.com/marketplace/connectors/xero)
+* [![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png)Shopify](https://claude.com/marketplace/connectors/shopify)
+* [![](https://assets.claude.com/a558609780f1418a7364aa94d2789aa8e497f6ac.png)Gusto](https://claude.com/marketplace/connectors/gusto)
 
 ### Get a handle on Monday
 
 Get a brief highlighting your cash, weekend sales, the week ahead, and the one thing that needs your attention today in Slack at 6:30 every Monday, without you asking.
 
-Prompt
-
-Close July. Reconcile QuickBooks against my Shopify Payments and Stripe settlements, flag anything uncategorized or duplicated, write the P&L in plain English, and refresh my cash forecast off the closed numbers. I want the packet ready for my accountant by Tuesday.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c4094afe9398607424b105_quickbooks.svg)
-
-Intuit QuickBooks
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac12b69f1d226d230746c_Stripe.jpg)
-
-Stripe
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f3ab1075ee2aa943f306c1_Logo-light%20-%20Natalie%20Mannion.png)
-
-Shopify
-
-### July 2026 close packet
-
-*Greenleaf Grounds · July 1–31, 2026 · Prepared Aug 3, 2026*
-
-##### Reconciliation
-
-**Shopify Payments:** 31 payouts, $77,436.15 — matches QuickBooks to the cent.
-
-**Stripe:** 9 settlements, $31,778.35 — matches QuickBooks to the cent.
-
-**Uncategorized transactions:** 7 → 0, all coded.
-
-**Duplicates:** 1 found, held (see below).
-
-‍
-
-##### Flags for review
-
-**Duplicate vendor bill — held, not paid.** Cascade Packaging bill #4471 ($1,842.00) was entered twice. The second copy is on hold in QuickBooks; nothing left the bank. Confirm and delete it.
-
-‍**Café labor over target.** Labor ran 34.1% of café sales against a 30% target, about $1,700 over, mostly street-fair overtime and two new hires in training.
-
-‍
-
-##### P&L summary
-
-July brought in **$112,400**, up 6% from June, led by online orders and wholesale. After $47,900 of coffee and goods, $41,200 of payroll, and $14,800 of everything else, the business kept **$8,500 — a 7.6% net margin.**That is $1,100 better than June, mostly because green-coffee costs fell under the new supplier contract.
-
-‍
-
-##### Cash forecast
-
-**Covers Aug 15 payroll with $22K headroom.** $41.8K cash at close, plus $36.4K in settlements due by Aug 14, less $31.8K in rent, bills, and loan payment and $24.4K in payroll.
-
-‍
-
-**Books closed Day 3.**
-
 Close the books
 
 Claude can check your books against Stripe and Shopify, flag anything odd, and explain the month in plain English, so you can share with your accountant.
-
-Prompt
-
-Here's my voice memo from the Harbor Dental site visit plus photos of their break rooms. Build the wholesale proposal on my template with our standard pricing from past wholesale deals, twelve locations, weekly delivery. Route it for signature when I've approved it.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e318eaad6802d0604536_Google%20Drive.jpg)
-
-Google Drive
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6998e8defaa12a843a37084c_docusign.jpeg)
-
-Docusign
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
-
-Canva
-
-#### Wholesale Supply Proposal
-
-###### Meridian Roasting Co.
-
-*Prepared for Harbor Dental Group · September 1, 2026*
-
-##### Scope
-
-Following our August 27 site visit, this proposal covers weekly wholesale coffee and break-room supply for all twelve Harbor Dental locations. Each break room is set up for drip service, and the quantities below are sized to roughly 40 cups per location per day.
-
-##### Monthly pricing
-
-* **House Blend, whole bean** — 96 five-lb bags at $38.00 — $3,648.00
-* **Decaf, whole bean** — 24 five-lb bags at $41.00 — $984.00
-* **Assorted tea** — 12 cases at $29.00 — $348.00
-* **Creamers, dairy and oat —** 12 locations at $34.00 — $408.00
-* **Cups, lids and sleeves** — 24 cases at $18.50 — $444.00
-* **Brewer service and filters** — 12 locations at $25.00 — $300.00
-* **Weekly delivery, twelve locations** — included
-* **Total monthly:** $6,132.00
-
-‍*Pricing matched to your last three wholesale agreements in QuickBooks.*
 
 ### Win the work
 
 Send Claude a voice memo and photos from your site visit, get back a proposal in your format, priced from your last three deals and ready for signature once you approve.
 
-Prompt
-
-A wholesale inquiry just came in from Harbor Dental Group asking about coffee service for their offices. Qualify it against my wholesale criteria in HubSpot, draft a reply with two real meeting times from my calendar this week, and log the contact and next step in HubSpot. Don't send anything without me.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ac4a4b5df309b6fb48e4f_Gmail.jpg)
-
-Gmail
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf89f91d777702ff37af_HubSpot.jpg)
-
-Hubspot
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699cc5c8e115b1bc6e58cb4c_Apollo.svg)
-
-Apollo.io
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a049d58d4c60ee943ab18ee_smb-payroll.webp)
-
 ### Never lose a lead
 
 Claude can work all hours, so a 9pm inquiry will get a reply with two real meeting times that land in your CRM before you wake up. Nothing sends until you say so.
 
-Prompt
-
-Coffee-club signups have dipped three weeks running. Build me a two-week posting calendar that pushes the subscription, pull the product images and prices from my Shopify store for the graphics, write the captions, and stage everything for my approval. Nothing posts until I say so.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
-
-Canva
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f3ab1075ee2aa943f306c1_Logo-light%20-%20Natalie%20Mannion.png)
-
-Shopify
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a049d58d4c60ee943ab18ee_smb-payroll.webp)
-
 ### Run your marketing
 
 Keep your signups high. Claude can build a two-week posting calendar with product shots from your store complete with written captions, all for your approval.
-
-Prompt
-
-My roastery runs production on BeanTrack and Claude can't see it. Build me a connection so my Monday brief and month-end close can read roast batches and green-coffee inventory. Read-only for now, and I approve any write later.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac18581a191dea79db82d_Zapier.jpg)
-
-Zapier
-
-> My roastery runs production on BeanTrack and Claude can't see it. Build me a connection so my Monday brief and month-end close can read roast batches and green-coffee inventory. Read-only for now, and I approve any write later.
-
-‍
-
-› Checking for an existing connector for BeanTrack… none found
-
-› Checking for a public API… none. Routing through Zapier
-
-› Creating Zapier bridge: BeanTrack → Claude (triggers: batch completed, inventory updated)
-
-✓ Scoped credentials stored (read-only)
-
-✓ Approval gate: any write action requires owner confirmation
-
-✓ Registered with router as "beantrack" · available to business-pulse, /close-month, inventory-planner
-
-› Test pull: 14 batches this week · Harbor Blend green stock: 220 lb (11 days at current velocity)
-
-✓ Done in 84s.
 
 ### Build what we didn’t ship
 
@@ -327,9 +172,7 @@ Run on a system Claude doesn't connect to yet? Tell Claude what the system is an
 
 Claude drafts and prepares. You decide what goes out. Payroll is set up for you to submit, bills wait for your approval before they're paid, and Claude doesn't file anything for you. The permissions you've set in each tool still apply.
 
-Visit trust center
-
-[Visit trust center](https://trust.anthropic.com/)Visit trust center
+[Visit trust center (opens in new tab)](https://trust.anthropic.com/)
 
 ### Your data stays yours
 
@@ -365,359 +208,101 @@ Install the Small Business plugin and pick what Claude handles. Set when each on
 
 Claude shows its plan before it acts. By default, nothing sends or pays without your OK, and Claude only sees what your accounts allow.
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
+![Canva](https://assets.claude.com/e476a6c2c2f961f5f2120482f37b1daafc1506d9.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac11074040a8d303e83a5_Slack.jpg)
+![Slack](https://assets.claude.com/9c6fcbe23070620609ef3f777aa33af3e53d04a4.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a204b043a1098addb5797cd_6921e7cdccfb4d1db46251e1_google.jpeg)
+![Google](https://assets.claude.com/d2525ffa65202ca5f4358a37478847e98de6050c.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690c442881b2f70098a4491a_logo_microsoft.svg)
+![Microsoft / Office 365](https://assets.claude.com/2a601f6776859d4ccb6151ed7b80a9f76a257934.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac18581a191dea79db82d_Zapier.jpg)
+![Zapier](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf89f91d777702ff37af_HubSpot.jpg)
+![Hubspot](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f3ab1075ee2aa943f306c1_Logo-light%20-%20Natalie%20Mannion.png)
+![Shopify](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![Airwallex](https://assets.claude.com/35c6b53a7a64475d747f417f910bd99268696148.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6921e782b78ebbcbede151d0_monday.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699cc5c8e115b1bc6e58cb4c_Apollo.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f528c0d0b2dc39cb5860ca_Xero-logo%20-%20Kayne%20Richens.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a36e52639b2e82385fa088_gusto-favicon-192x192-160x160-5cf1c88.png)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac12b69f1d226d230746c_Stripe.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac085f91d777702ff6935_Notion%20MCP.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac0e242323897e8eeb479_Ramp.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac0797fb7905db81f0c5f_NetSuite%20AI%20Connector%20for%20Claude.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ac4f7d476b9cf74683f19_Clay.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c31a019b039932134d6a82_zoho_crm.png)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6998e8defaa12a843a37084c_docusign.jpeg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696ed33f296efad49cec4b60_5968770.png)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b5e5439b9955e4369306_icon_zoom.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abde7cfa24b799acf7fc9_Atlassian.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac08f7113e7cbba88188e_PayPal%20MCP%20Server.jpg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac122efac2533660b7814_Square%20MCP.jpg)
+![Monday](https://assets.claude.com/84ef1a559dec19b2ece8e26b7f5d2c83197f39d3.jpg)
 
 ## Works with the apps you already run on
 
 Don't see yours? Every workflow also runs from a spreadsheet or a forwarded email, and Claude can connect more tools as you go.
 
-Explore connectors
-
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)
 
 ## Join a free workshop in your city
 
 Access hands-on sessions in cities across the country. Can't make one? Join one of our partner-led webinars or take the free AI Fluency course.
 
-In-person
-
-Virtual
-
-Active
-
-title
-
-Location
-
-Date
-
-MN
-
-Minneapolis | Claude SMB Workshop
-
-Minneapolis, MN
-
-October 1, 2026
-
-Minneapolis
-
-[Minneapolis | Claude SMB Workshop](https://anthropic.swoogo.com/claude-smb-workshop-minneapolis/rta)Minneapolis | Claude SMB Workshop
-
-AZ
-
-Phoenix | Claude SMB Workshop
-
-Phoenix, AZ
-
-October 8, 2026
-
-Phoenix
-
-[Phoenix | Claude SMB Workshop](https://anthropic.swoogo.com/claude-smb-workshop-phoenix/rta)Phoenix | Claude SMB Workshop
-
-TN
-
-Memphis | Claude SMB Workshop
-
-Memphis, TN
-
-October 20, 2026
-
-Memphis
-
-[Memphis | Claude SMB Workshop](https://anthropic.swoogo.com/claude-smb-workshop-memphis/rta)Memphis | Claude SMB Workshop
-
-GA
-
-Savannah | Claude SMB Workshop
-
-Savannah, GA
-
-October 22, 2026
-
-Savannah
-
-[Savannah | Claude SMB Workshop](https://anthropic.swoogo.com/claude-smb-workshop-savannah/rta)Savannah | Claude SMB Workshop
-
-AR
-
-Bentonville | Claude SMB Workshop
-
-Bentonville, AR
-
-November 4, 2026
-
-Bentonville
-
-[Bentonville | Claude SMB Workshop](https://anthropic.swoogo.com/claude-smb-workshop-bentonville/rta)Bentonville | Claude SMB Workshop
-
-FL
-
-Tampa | Claude SMB Workshop
-
-Tampa, FL
-
-November 10, 2026
-
-Tampa
-
-[Tampa | Claude SMB Workshop](https://anthropic.swoogo.com/claude-smb-workshop-tampa/rta)Tampa | Claude SMB Workshop
-
-NC
-
-Raleigh | Claude SMB Workshop
-
-Raleigh, NC
-
-November 12, 2026
-
-Raleigh
-
-[Raleigh | Claude SMB Workshop](https://anthropic.swoogo.com/claude-smb-workshop-raleigh/rta)Raleigh | Claude SMB Workshop
-
-title
-
-Location
-
-Date
-
-V
-
-RingCentral Webinar
-
-Virtual
-
-October 1, 2026
-
-Virtual
-
-[RingCentral Webinar](https://events.ringcentral.com/events/ringcentral-anthropic-webinar?code=1VT0iDMhkYRYHvCvKuh7xHS1x)RingCentral Webinar
-
-V
-
-Zoom Webinar
-
-Virtual
-
-October 8, 2026
-
-Virtual
-
-[Zoom Webinar](https://events.zoom.us/ev/AiJIgCaSD_osXZeGeXnc35LGiTBIHdUDmFozuhmTENO1P2oUl3I-~AgAG7IFCoItAIlAIpdM2J7wX0K8l1OTZimYEPk8HrltCwvlqK6sEY7HXfqtWBB5w0i-aA4o-9WIvF50a6y0xYOIbiQ)Zoom Webinar
-
-V
-
-Monday.com Webinar
-
-Virtual
-
-October 12, 2026
-
-Virtual
-
-[Monday.com Webinar](https://monday.zoom.us/webinar/register/WN_WkuWnYDXQ9GQMisrSzJgpg#/registration)Monday.com Webinar
-
-V
-
-Expensify Webinar
-
-Virtual
-
-October 13, 2026
-
-Virtual
-
-[Expensify Webinar](https://use.expensify.com/c4sb-webinar?utm_source=anthropic&utm_medium=partner_blog&utm_campaign=claude_for_small_business_sept_2026)Expensify Webinar
-
-V
-
-Apollo Webinar
-
-Virtual
-
-October 15, 2026
-
-Virtual
-
-[Apollo Webinar](https://events.apollo.io/apollo-claude-growth/)Apollo Webinar
-
-V
-
-Hubspot Webinar
-
-Virtual
-
-October 20, 2026
-
-Virtual
-
-[Hubspot Webinar](https://adminhug.info/claude102026)Hubspot Webinar
-
-V
-
-Gusto Webinar
-
-Virtual
-
-October 21, 2026
-
-Virtual
-
-[Gusto Webinar](https://event.on24.com/wcc/r/5496016/977F305A86D5D6E06F602DE266A993C6)Gusto Webinar
-
-V
-
-Zapier Webinar
-
-Virtual
-
-October 22, 2026
-
-Virtual
-
-[Zapier Webinar](https://zapier.com/resources/events/claude-smb-zapier-with-anthropic)Zapier Webinar
-
-V
-
-Xero Webinar
-
-Virtual
-
-October 27, 2026
-
-Virtual
-
-[Xero Webinar](https://xero.zoom.us/webinar/register/WN_c_4fE7BGRGi35kiIK1OwCA#/registration)Xero Webinar
-
-V
-
-Clay Webinar
-
-Virtual
-
-October 28, 2026
-
-Virtual
-
-[Clay Webinar](https://www.clay.com/livestreams/claude-for-small-business-build-your-growth-engine-with-clay?utm_source=all&utm_medium=influencerpartner&utm_campaign=claude_smb_anthropic)Clay Webinar
-
-V
-
-TikTok Webinar
-
-Virtual
-
-October 29, 2026
-
-Virtual
-
-[TikTok Webinar](https://www.tiktokacademy.com/student/page/3663358-north-american-europe-putting-ai-agents-to-work-powering-growth-with-tiktok-ads-and-claude-for-small-business?utm_source=partner_site&utm_medium=blog&utm_campaign=anthropic_MCP_261022_partner_enablement_na&utm_content=webinar)TikTok Webinar
-
-V
-
-Alignable Webinar
-
-Virtual
-
-November 5, 2026
-
-Virtual
-
-[Alignable Webinar](https://www.alignable.com/groups/invite-only-events/events/how-small-businesses-are-growing-with-ai-nov-2026)Alignable Webinar
-
-V
-
-Atlassian Webinar
-
-Virtual
-
-November 17, 2026
-
-Virtual
-
-[Atlassian Webinar](https://www.linkedin.com/events/run-grow-andenableyourbusinessw7503923852599525376/)Atlassian Webinar
+In-personVirtual
+
+titleLocationDate
+
+* [AZPhoenix | Claude SMB WorkshopPhoenix, AZOctober 8, 2026](https://anthropic.swoogo.com/claude-smb-workshop-phoenix/rta)
+* [TNMemphis | Claude SMB WorkshopMemphis, TNOctober 20, 2026](https://anthropic.swoogo.com/claude-smb-workshop-memphis/rta)
+* [GASavannah | Claude SMB WorkshopSavannah, GAOctober 22, 2026](https://anthropic.swoogo.com/claude-smb-workshop-savannah/rta)
+* [ARBentonville | Claude SMB WorkshopBentonville, ARNovember 4, 2026](https://anthropic.swoogo.com/claude-smb-workshop-bentonville/rta)
+* [FLTampa | Claude SMB WorkshopTampa, FLNovember 10, 2026](https://anthropic.swoogo.com/claude-smb-workshop-tampa/rta)
+* [NCRaleigh | Claude SMB WorkshopRaleigh, NCNovember 12, 2026](https://anthropic.swoogo.com/claude-smb-workshop-raleigh/rta)
 
 Course
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa955579fd1f79ca0c64897_course.jpg)
+![](https://assets.claude.com/e78c60145bb6e06cb5c04af133aedb0c402b88cc.jpg)
 
 Can’t make an in-person event? Take the AI Fluency course, co-presented with PayPal.
 
-Enroll now
-
-[Enroll now](https://anthropic.skilljar.com/ai-fluency-for-small-businesses)Enroll now
+[Enroll now (opens in new tab)](https://anthropic.skilljar.com/ai-fluency-for-small-businesses)
 
 Claude for Small Business plugin
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa9554f36a4bcddbfb1d2dd_smb.jpg)
+![](https://assets.claude.com/fff16c4e4c9607289f289912c5c029f82a63ba8b.jpg)
 
 How to install and use the Claude for Small Business plugin.
 
-Read now
+[Read now (opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)
 
-[Read now](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)Read now
+titleLocationDate
+
+* [VZoom WebinarVirtualOctober 8, 2026](https://events.zoom.us/ev/AiJIgCaSD_osXZeGeXnc35LGiTBIHdUDmFozuhmTENO1P2oUl3I-~AgAG7IFCoItAIlAIpdM2J7wX0K8l1OTZimYEPk8HrltCwvlqK6sEY7HXfqtWBB5w0i-aA4o-9WIvF50a6y0xYOIbiQ)
+* [VMonday.com WebinarVirtualOctober 12, 2026](https://monday.zoom.us/webinar/register/WN_WkuWnYDXQ9GQMisrSzJgpg#/registration)
+* [VExpensify WebinarVirtualOctober 13, 2026](https://use.expensify.com/c4sb-webinar?utm_source=anthropic&utm_medium=partner_blog&utm_campaign=claude_for_small_business_sept_2026)
+* [VApollo WebinarVirtualOctober 15, 2026](https://events.apollo.io/apollo-claude-growth/)
+* [VHubspot WebinarVirtualOctober 20, 2026](https://adminhug.info/claude102026)
+* [VGusto WebinarVirtualOctober 21, 2026](https://event.on24.com/wcc/r/5496016/977F305A86D5D6E06F602DE266A993C6)
+* [VZapier WebinarVirtualOctober 22, 2026](https://zapier.com/resources/events/claude-smb-zapier-with-anthropic)
+* [VXero WebinarVirtualOctober 27, 2026](https://xero.zoom.us/webinar/register/WN_c_4fE7BGRGi35kiIK1OwCA#/registration)
+* [VClay WebinarVirtualOctober 28, 2026](https://www.clay.com/livestreams/claude-for-small-business-build-your-growth-engine-with-clay?utm_source=all&utm_medium=influencerpartner&utm_campaign=claude_smb_anthropic)
+* [VTikTok WebinarVirtualOctober 29, 2026](https://www.tiktokacademy.com/student/page/3663358-north-american-europe-putting-ai-agents-to-work-powering-growth-with-tiktok-ads-and-claude-for-small-business?utm_source=partner_site&utm_medium=blog&utm_campaign=anthropic_MCP_261022_partner_enablement_na&utm_content=webinar)
+* [VAlignable WebinarVirtualNovember 5, 2026](https://www.alignable.com/groups/invite-only-events/events/how-small-businesses-are-growing-with-ai-nov-2026)
+* [VAtlassian WebinarVirtualNovember 17, 2026](https://www.linkedin.com/events/run-grow-andenableyourbusinessw7503923852599525376/)
+
+Course
+
+![](https://assets.claude.com/e78c60145bb6e06cb5c04af133aedb0c402b88cc.jpg)
+
+Can’t make an in-person event? Take the AI Fluency course, co-presented with PayPal.
+
+[Enroll now (opens in new tab)](https://anthropic.skilljar.com/ai-fluency-for-small-businesses)
+
+Claude for Small Business plugin
+
+![](https://assets.claude.com/fff16c4e4c9607289f289912c5c029f82a63ba8b.jpg)
+
+How to install and use the Claude for Small Business plugin.
+
+[Read now (opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)
 
 Need more hands-on help?
 
 We work with several service partners in the Claude Partner Network who specialize in helping small businesses get set up.
 
-See Partner Directory
-
-[See Partner Directory](https://partnerhub.claude.com/directory?filters=1789178865067x436833862108438660)See Partner Directory
+[See Partner Directory (opens in new tab)](https://partnerhub.claude.com/directory?filters=1789178865067x436833862108438660)
 
 ## FAQ
 
-Getting started
-
-Privacy & security
-
-Active
+Getting startedPrivacy & security
 
 ### Getting started
 
@@ -749,10 +334,6 @@ Pro for one person, Team for a business with more than one; both are month to mo
 
 Visit the resources section for support, review the [small business tutorial](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), or [file a ticket](https://support.claude.com/en/articles/9015913-how-to-get-support).
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ### Privacy & security
 
 ### Is my data safe?
@@ -771,16 +352,6 @@ No. We don't train our models on your business data.
 
 No. We don't sell your data or use what's in your tools to build products that compete with you.
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ## Run and grow your business with Claude
 
-Install the plugin
-
-[Install the plugin](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)Install the plugin
-
-Find a workshop
-
-[Find a workshop](#events)Find a workshop
+[Install the plugin (opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)[Find a workshop](#events)

@@ -62,13 +62,13 @@ Triage and disclosure were performed by Ada Logics.
 2. 2026-05-13
 3. 2026-05-13
 4. 2026-05-28
-5. 2026-07-20
+5. 2026-07-21
 
 7a7e55e50f61c3afc2409fdfb1614d90c34fba559bb37c9a31661778cd36575196c68f44622667cc78c4e05d378670762f40034923f73a18f0f0f3528098a378
 
-Committed 2026-05-13 10:56 PT
+Committed 2026-05-13 17:56 UTC
 
-Revealed 2026-07-20 22:04 PT
+Revealed 2026-07-21 05:04 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-QQ2P9M9V%22%2C%22bug_class%22%3A%22Heap-buffer-overflow%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-24T18%3A27%3A21%2B00%3A00%22%2C%22description%22%3A%22While%20decoding%20a%20crafted%20OpenEXR%20file%20that%20uses%20HTJ2K%20%28High-Throughput%20JPEG%202000%29%20compression%2C%20ht_undo_impl%28%29%20in%20OpenEXRCore%20reads%204%20bytes%20past%20the%20end%20of%20a%20buffer%20allocated%20by%20the%20bundled%20OpenJPH%20codestream%20allocator.%20The%20overflow%20is%20reached%20through%20the%20normal%20file-decoding%20path%20%28exr_uncompress_chunk%20%E2%86%92%20internal_exr_undo_ht%20%E2%86%92%20ht_undo_impl%29%2C%20so%20any%20application%20that%20opens%20untrusted%20EXR%20files%20can%20hit%20it.%20The%20attacker%20controls%20the%20EXR/HTJ2K%20codestream%20contents%20that%20determine%20the%20buffer%20size%20and%20the%20read%20offset.%20The%20result%20is%20an%20out-of-bounds%20read%20that%20could%20cause%20a%20crash%20%28DoS%29%20or%20leak%20adjacent%20heap%20memory.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22internal_ht.cpp%3A305%22%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22openexr%22%2C%22reproduction%22%3A%5B%221.%20Craft%20an%20EXR%20file%20with%20a%20scanline%20part%20whose%20chunk%20uses%20HTJ2K%20compression%20and%20whose%20embedded%20JPEG%202000%20codestream%20declares%20dimensions/components%20smaller%20than%20the%20EXR%20channel%20layout%20expects%22%2C%222.%20Deliver%20the%20file%20to%20the%20victim%20%28download%2C%20email%20attachment%2C%20asset%20pipeline%2C%20thumbnailer%29%22%2C%223.%20Victim%20application%20calls%20exr_decoding_run%20/%20exr_uncompress_chunk%20on%20the%20part%22%2C%224.%20ht_undo_impl%20reads%20a%2032-bit%20sample%20past%20the%20end%20of%20the%20OpenJPH-allocated%20line%20buffer%22%5D%2C%22technical_details%22%3A%22ASAN%3A%20%5C%22READ%20of%20size%204%20at%200x7aed229e5428%20...%20heap-buffer-overflow%20...%20internal_ht.cpp%3A305%3A45%20in%20ht_undo_impl%5C%22.%20The%20read%20lands%20immediately%20after%20a%2021033-byte%20region%20allocated%20via%20ojph%3A%3Alocal%3A%3Acodestream%3A%3Afinalize_alloc%28%29%2C%20indicating%20ht_undo_impl%20pulls%20a%2032-bit%20value%20from%20the%20OpenJPH-decoded%20line/component%20buffer%20without%20validating%20that%20the%20decoded%20codestream%20dimensions%20match%20the%20EXR%20channel/scanline%20dimensions%20it%20is%20iterating%20over.%22%2C%22title%22%3A%22Heap-buffer-overflow%20in%20internal_ht.cpp%3A305%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

@@ -143,4 +143,5 @@ If a reconnection error keeps coming back, select **Disconnect**, then **Connect
 * [Gmail](https://claude.com/docs/connectors/google/gmail): search and analyze your emails
 * [Google Calendar](https://claude.com/docs/connectors/google/calendar): access your calendar information
 * [Get started with connectors](https://claude.com/docs/connectors/getting-started#manage-or-disconnect-a-connector): set tool permissions and manage any connector
+* [Add a connector from the directory](https://claude.com/docs/connectors/getting-started#add-a-connector-from-the-directory): find a connector for another service in the directory and connect it
 * [Connectors directory](https://claude.com/docs/connectors/directory): browse verified and community integrations

@@ -240,12 +240,13 @@ index 13cbdc66..bca27ba7 100644
 2. 2026-05-07
 3. 2026-05-07
 4. 2026-06-10
+5. 2026-08-17
 
 189c82e012e75b5ab44d20ba1449802f6da28844dbac5d3b08165c48a31fe875043fe292cd13d1b1bd9054a429c2810b5e527a1e1c82752debd777935b8e0bfd
 
-Committed 2026-05-07 00:07 PT
+Committed 2026-05-07 07:07 UTC
 
-Revealed 2026-08-17 10:47 PT
+Revealed 2026-08-17 17:47 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-MHJX7J31%22%2C%22bug_class%22%3A%22XSS%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3A%2293ed2f0ef8f842a6%22%2C%22created_at%22%3A%222026-03-30T23%3A21%3A29%2B00%3A00%22%2C%22description%22%3A%22%60TYPO3%5C%5CHtmlSanitizer%5C%5CSanitizer%3A%3Asanitize%28%29%60%20is%20the%20last%20line%20of%20defence%20that%20TYPO3%20places%20between%20editor-supplied%20RTE%20content%20and%20the%20browser.%20It%20is%20%2A%2Aenabled%20by%20default%2A%2A%20on%20every%20frontend%20page%20render%20%28%60ContentObjectRenderer%3A%3AparseFunc%28%29%60%20%E2%86%92%20%60stdWrap_htmlSanitize%28%29%60%29.%5Cn%5CnAn%20attacker%20who%20can%20write%20to%20any%20RTE%20bodytext%20field%20%28i.e.%20any%20backend%20editor%20%E2%80%94%20the%20%2A%2Alowest-privilege%20backend%20role%2A%2A%29%20can%20inject%3A%5Cn%5Cn%60%60%60html%5Cn%3Cp%20xmlns%3Ax%3D%5C%22%26quot%3B%26gt%3B%26lt%3Bimg%20src%3Dx%20onerror%3Dalert%28document.domain%29%26gt%3B%5C%22%3Etext%3C/p%3E%5Cn%60%60%60%5Cn%5CnThe%20sanitizer%20emits%3A%5Cn%5Cn%60%60%60html%5Cn%3Cp%20xmlns%3Ax%3D%5C%22%5C%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert%28document.domain%29%3E%5C%22%3Etext%3C/p%3E%5Cn%60%60%60%5Cn%5CnThe%20%60%3Cimg%3E%60%20tag%20has%20broken%20out%20of%20the%20attribute%20and%20its%20%60onerror%60%20handler%20%2A%2Afires%20automatically%2A%2A%20in%20every%20visitor%27s%20browser%20%28%60src%3Dx%60%20always%20errors%29.%20This%20is%20a%20%2A%2Acomplete%2C%20zero-click%20stored%20XSS%2A%2A.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22/var/www/html/vendor/masterminds/html5/src/HTML5/Serializer/OutputRules.php%3A314%22%2C%22poc_sha256%22%3A%220ba4476579ed00f558240c313da3bbaf9c55507ae839ca9b25a4d3efbf5f0769%22%2C%22preimage_version%22%3A1%2C%22project%22%3A%22typo3%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3A%22OutputRules.php%3A314%20serializes%20namespace%20declarations%20with%20%60-%3Ewr%28%24nsNode-%3EnodeValue%29%60%20instead%20of%20%60-%3Ewr%28%24this-%3Eenc%28%24nsNode-%3EnodeValue%2C%20true%29%29%60%2C%20under%20the%20false%20assumption%20that%20namespace%20URIs%20are%20always%20safe%20constants.%20TYPO3%5C%5CHtmlSanitizer%5C%5CSerializer%5C%5CRules%20extends%20OutputRules%20but%20does%20not%20override%20namespaceAttrs%28%29%2C%20and%20CommonVisitor%3A%3AprocessAttributes%28%29%20iterates%20%24domNode-%3Eattributes%2C%20which%20never%20contains%20xmlns%3A%2A%20nodes%20%28they%20live%20on%20the%20XPath%20namespace%3A%3A%2A%20axis%29.%20The%20combination%20yields%20a%20decode-then-emit-raw%20path%20for%20attacker-controlled%20namespace%20URIs.%22%2C%22title%22%3A%22Stored%20XSS%20in%20TYPO3%20HTML%20Sanitizer%20via%20%60xmlns%60%20Namespace%20URI%20Injection%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

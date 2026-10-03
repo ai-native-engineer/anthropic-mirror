@@ -1,50 +1,30 @@
 <!-- source: https://claude.com/solutions/education -->
 
-Explore here
-
 Claude Team plan for scientists
-
-[Next](#)Next
 
 Putting Claude in the hands of more scientists
 
-Scientists at academic and nonprofit research institutions around the world can now get Claude at no cost to start.
+Scientists at academic and nonprofit research institutions around the world can now get Claude at no cost to start. ‍
 
-‍
+[Learn more](https://claude.com/programs/team-plan-for-scientists)
 
-Learn more
+![](https://assets.claude.com/b0670ea8ef49ff4b2be33f5e89df7c65d998256a.jpg)
 
-[Learn more](https://claude.com/programs/team-plan-for-scientists)Learn more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a970e15253064fcb1cf2977_toast-team-plan-for-research-labs.avif)
-
-# Navigating AI in higher **education together**
-
-# Navigating AI in higher **education together**
+# Navigating AI in higher education together
 
 Claude helps universities and colleges advance research, support teaching and learning, and run operations and student support systems more effectively.
 
-Contact our Education team
+[Contact our Education team](https://claude.com/contact-sales/education-plan)
 
-[Contact our Education team](https://claude.com/contact-sales/education-plan)Contact our Education team
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae4928a0f9cf0ee72e29_university%20of%20san%20francsisco_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae4d4bbd92308d666f8c_university%20of%20san%20francsisco_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5abb08c1c4a46ee8927d1_LSE_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5abb08c1c4a46ee8927d1_LSE_light.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5abeda45e10eb68f18172_Northeastern%20university_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5abf2342c5a0fe66d8531_Northeastern%20university_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a95de5ff8c4e3b38e4e1_Champlain%20college_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a962bf44c034410cb0df_Champlain%20college_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ac24069da781c2a4736b_Northumbria%20university_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ac1d8c96a87aa8c90c68_Northumbria%20university_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698deac8116caa635532a5b6_syracuse-logo-color.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698deaca9bf36d9744303a66_syracuse-logo-white.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698de8d6ab55fa98dc5f9fcc_Dartmouth-College-Logo-color.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698de8d8e747fc317228bd5b_Dartmouth-College-Logo-white.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698de8e2c9521d93b29941f9_University_of_Virginia_logo_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698de8dfab55fa98dc5fa176_University_of_Virginia_logo_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698de9f8aa9a2b8975c68ce6_university-of-pittsburgh-color.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698de9f2caddf54310d9d65c_university-of-pittsburgh-white.svg)
+* ![University of San Francisco](https://assets.claude.com/c65837da348516cc1cffada7d3cb700d1a94b3fd.svg)
+* ![London School of Economics and Political Science](https://assets.claude.com/3e85b8c5e4ed36f7495923be6a89f5bea7a4b88d.svg)
+* ![Northeastern University](https://assets.claude.com/d76ba56a4f6185db22c34cf02050114c1cdafedd.svg)
+* ![Champlain College](https://assets.claude.com/237eab56f196a7d8e1b7ce658266ecfc4d8a6a10.svg)
+* ![Northumbria University Newcastle](https://assets.claude.com/7e643d11a958240597f327628335524585d34887.svg)
+* ![Syracuse University](https://assets.claude.com/6faf42a6bf63981cdb21b56aa6c486dfe5f6aa5b.svg)
+* ![Dartmouth](https://assets.claude.com/58ed9f3d3de292fa7096a36b7a33d8eed57685c7.svg)
+* ![University of Virginia](https://assets.claude.com/5217e02e0e84eec0442c053e3ad0d812def1c632.svg)
+* ![University of Pittsburgh](https://assets.claude.com/e6c31b180a2aa1d15ddadd865436cf337014beaf.svg)
 
 ## How Claude works
 for higher education
@@ -63,17 +43,13 @@ Claude meets the compliance requirements higher education institutions have for 
 
 K-12 teacher? Claude for Teachers is built for you.
 
-Get verified
-
-[Get verified](https://claude.com/solutions/teachers)Get verified
+[Get verified](https://claude.com/solutions/teachers)
 
 ## Claude for higher education
 
 A comprehensive university-wide plan for institutions, including its students, faculty, and staff.
 
-Contact our Education team
-
-[Contact our Education team](https://claude.com/contact-sales/education-plan)Contact our Education team
+[Contact our Education team](https://claude.com/contact-sales/education-plan)
 
 ### Faculty
 
@@ -91,57 +67,41 @@ How can I help?
 
 I'm writing an essay on the ethical implications of predictive policing. After each paragraph I write, give me feedback on 1) clarity, 2) evidence quality, 3) whether my argument actually follows from the evidence.
 
-Ask Claude
-
-[Ask Claude](#)Ask Claude
+[Ask Claude (opens in new tab)](https://claude.ai/new?q=I%27m+writing+an+essay+on+the+ethical+implications+of+predictive+policing.+After+each+paragraph+I+write%2C+give+me+feedback+on+1%29+clarity%2C+2%29+evidence+quality%2C+3%29+whether+my+argument+actually+follows+from+the+evidence.)
 
 How can I help?
 
 Review this grant proposal draft and suggest stronger evidence for the methodology section. I'm studying the effect of bilingual education on long-term literacy outcomes in immigrant communities.
 
-Ask Claude
-
-[Ask Claude](#)Ask Claude
+[Ask Claude (opens in new tab)](https://claude.ai/new?q=Review+this+grant+proposal+draft+and+suggest+stronger+evidence+for+the+methodology+section.+I%27m+studying+the+effect+of+bilingual+education+on+long-term+literacy+outcomes+in+immigrant+communities.)
 
 How can I help?
 
 Create a budget narrative explaining why we need three new positions in the data science department. Audience is the provost's office.
 
-Ask Claude
+[Ask Claude (opens in new tab)](https://claude.ai/new?q=Create+a+budget+narrative+explaining+why+we+need+three+new+positions+in+the+data+science+department.+Audience+is+the+provost%27s+office.)
 
-[Ask Claude](#)Ask Claude
-
-[Prev](#)Prev
-
-[Next](#)Next
+1 of 3
 
 ## Resources for students, educators, and administrators
 
 Everything you need to integrate AI thoughtfully into your educational environment.
 
-AI Fluency for students
+[AI Fluency for students
 
-Anthropic Academy
+Anthropic Academy](https://anthropic.skilljar.com/ai-fluency-for-students)
 
-[AI Fluency for students](https://anthropic.skilljar.com/ai-fluency-for-students)AI Fluency for students
+[AI Fluency for educators
 
-AI Fluency for educators
+Anthropic Academy](https://anthropic.skilljar.com/ai-fluency-for-educators)
 
-Anthropic Academy
+[Teaching AI Fluency
 
-[AI Fluency for educators](https://anthropic.skilljar.com/ai-fluency-for-educators)AI Fluency for educators
+Anthropic Academy](https://anthropic.skilljar.com/teaching-ai-fluency)
 
-Teaching AI Fluency
+[**AI Fluency:** Framework & Foundations
 
-Anthropic Academy
-
-[Teaching AI Fluency](https://anthropic.skilljar.com/teaching-ai-fluency)Teaching AI Fluency
-
-AI Fluency: Framework & Foundations
-
-Anthropic Academy
-
-[AI Fluency: Framework & Foundations](https://anthropic.skilljar.com/ai-fluency-framework-foundations)AI Fluency: Framework & Foundations
+Anthropic Academy](https://anthropic.skilljar.com/ai-fluency-framework-foundations)
 
 ## Our commitment to responsible AI in higher education
 
@@ -167,130 +127,40 @@ We share what Claude can (and can’t) do honestly, empowering you to make infor
 
 Write and debug research code directly in your terminal or IDE. Claude works through analysis scripts, data pipelines, and computational problems, while explaining its reasoning. For courses across disciplines, students get a collaborator to build understanding.
 
-Learn more
-
-[Learn more](https://claude.com/product/claude-code)Learn more
+[Learn more](https://claude.com/product/claude-code)
 
 ### Claude Developer Platform
 
 Build AI directly into your own research tools, course platforms, or campus systems. The Claude API gives faculty developers and university IT teams access to integrate Claude into custom applications and existing workflows. If the right tool for your research doesn’t exist yet, build it.
 
-Learn more
-
-[Learn more](https://claude.com/platform/api)Learn more
+[Learn more](https://claude.com/platform/api)
 
 ### Claude Cowork
 
 Set up a recurring task once and Claude runs it on the schedule you choose: a weekly digest of papers in your field, summaries compiled from your notes, reminders drafted from your grant calendar. You set the rules. Cowork follows them.
 
-Learn more
-
-[Learn more](https://claude.com/product/cowork)Learn more
+[Learn more](https://claude.com/product/cowork)
 
 ### Claude for Word
 
 Draft and revise academic writing without leaving Word. Claude works inside your document to help structure arguments, tighten methodology sections, and give feedback on grant proposals or manuscripts. Changes come in as tracked revisions you accept, reject, or adjust.
 
-Learn more
-
-[Learn more](https://claude.com/claude-for-microsoft-365)Learn more
+[Learn more](https://claude.com/claude-for-microsoft-365)
 
 ### Claude for Research Labs
 
 Connect Claude to the databases and files your research depends on. It holds context across a long conversation, helps you spot gaps in the evidence, and drafts sections grounded in what’s there.
 
-Learn more
-
-[Learn more](https://claude.com/programs/team-plan-for-scientists)Learn more
+[Learn more](https://claude.com/programs/team-plan-for-scientists)
 
 ### Claude Science
 
 Collaborate on rigorous scientific research with the Claude Science app. It runs analyses, searches databases, and traces every step from data wrangling to publication, so you can spend time on science.
 
-Learn more
-
-[Learn more](https://claude.com/product/claude-science)Learn more
+[Learn more](https://claude.com/product/claude-science)
 
 ## Try Claude
 
 Get to know Claude by trying a few sample prompts.
 
-Students
-
-Educators
-
-Administrators
-
-Active
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
+StudentsEducatorsAdministrators

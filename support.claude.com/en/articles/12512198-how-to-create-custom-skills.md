@@ -241,5 +241,5 @@ Visit our repository on GitHub for example skills you can use as templates: **<h
 
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
 * [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
-* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
 * [Schedule recurring tasks in Claude Cowork](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)

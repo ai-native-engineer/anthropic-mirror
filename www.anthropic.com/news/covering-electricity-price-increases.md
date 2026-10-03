@@ -22,17 +22,3 @@ Where we work with partners to develop data centers for handling our own workloa
 Of course, company-level action isn't enough. Keeping electricity affordable also requires systemic change. We support [federal policies](https://www.anthropic.com/news/build-ai-in-america)—including permitting reform and efforts to speed up transmission development and grid interconnection—that make it faster and cheaper to bring new energy online for everyone.
 
 Done right, AI infrastructure can be a catalyst for the broader energy investment the country needs. These commitments are the beginning of our efforts to address data centers’ impact on energy costs. We have more to do, and we’ll continue to share updates as this work develops.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

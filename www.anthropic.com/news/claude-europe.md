@@ -8,7 +8,7 @@ May 14, 2024
 
 We’re excited to announce that [Claude](https://www.anthropic.com/claude), Anthropic’s trusted AI assistant, is now available for people and businesses across Europe to enhance their productivity and creativity. Starting today, they will be able to use:
 
-* [Claude.ai](http://claude.ai/redirect/website.v1.8c0f34d4-17ac-472f-bf47-e50d74a02ad0): the web-based version of our next-generation AI assistant
+* [Claude.ai](http://claude.ai/redirect/website.v1.d47db9c1-f03a-4d15-9fed-aeda348b13fc): the web-based version of our next-generation AI assistant
 * The [Claude iOS app](https://apps.apple.com/app/claude/id6473753684): a free version of Claude that offers the same intuitive experience as mobile web
 * The [Claude Team plan](https://www.anthropic.com/news/team-plan-and-ios): the best way for every business to provide teams with secure access to Claude's state-of-the-art AI capabilities and the [Claude 3 model family](https://www.anthropic.com/news/claude-3-family)
 
@@ -21,17 +21,3 @@ Both Claude.ai and the Claude iOS app are available for free. The Claude app is 
 At Anthropic, we're dedicated to creating AI systems that put people first. We look forward to bringing the unique capabilities of the Claude 3 model family to more people throughout Europe.
 
 *Read this post in [French](https://cdn.sanity.io/files/4zrzovbb/website/bfbafc8f692634001f9f5fb7d05d12a4ef71ad24.pdf), [German](https://cdn.sanity.io/files/4zrzovbb/website/397335b3ce79aff658ba1a35f73c26cce0ea5490.pdf), [Italian](https://cdn.sanity.io/files/4zrzovbb/website/c2e15095e05250d9feecef8a1b9e9fd319acd7c7.pdf), or [Spanish](https://cdn.sanity.io/files/4zrzovbb/website/5686521fb5eaa65ae0a3e79c7d7713760942e6d2.pdf).*
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

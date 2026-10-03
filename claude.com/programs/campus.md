@@ -1,8 +1,6 @@
 <!-- source: https://claude.com/programs/campus -->
 
-Explore here
-
-Supporting student builders
+# Supporting student builders
 
 Lead student-driven AI initiatives with support from Anthropic.
 
@@ -51,23 +49,13 @@ Get the chance to engage Anthropic teams on Claude features or product ideas. Yo
 
 ## Meet our ambassadors
 
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“Being a Claude Ambassador has been one of the most rewarding parts of my university experience—from planning packed-out AI events to giving direct feedback to the team to shape the future of education. I’ve built amazing friendships, grown my network threefold, and had the chance to work alongside arguably the most exciting company in the world.”
+> “Being a Claude Ambassador has been one of the most rewarding parts of my university experience—from planning packed-out AI events to giving direct feedback to the team to shape the future of education. I’ve built amazing friendships, grown my network threefold, and had the chance to work alongside arguably the most exciting company in the world.”
 
 Zain Mirza, LSE
 
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“Being a Claude Campus Ambassador gave me the opportunity to spark meaningful conversations about AI, not just with students, but also with researchers, professors, and staff across campus. It was exciting to help more people explore how Claude can support their work, while also advancing awareness around safe, responsible AI.”
+> “Being a Claude Campus Ambassador gave me the opportunity to spark meaningful conversations about AI, not just with students, but also with researchers, professors, and staff across campus. It was exciting to help more people explore how Claude can support their work, while also advancing awareness around safe, responsible AI.”
 
 Charles Zuo, NYU
-
-[Prev](#)Prev
-
-0/5
-
-[Next](#)Next
 
 ## FAQ
 
@@ -102,9 +90,5 @@ We expect some level of AI fluency and Claude proficiency for this program, but 
 ### How long does the program run?
 
 This is a full school year program that runs from September 2026 to June 2027.
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 The program is closed for Fall 2026

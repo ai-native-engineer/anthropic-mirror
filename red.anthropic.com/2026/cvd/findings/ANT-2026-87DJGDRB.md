@@ -15,7 +15,7 @@ Anthropic's analysis of this finding, sealed at approval.
 
 When wc\_PKCS7\_InitWithCert is given an attacker-supplied certificate buffer, ParseCertRelative calls CalcHashId\_ex to hash certificate data, which reaches wc\_ShaUpdate. With a crafted short input, wc\_ShaUpdate performs a 64-byte memcpy that reads past the end of the 8-byte input allocation. The attacker controls the certificate bytes and length supplied to the PKCS#7 API. The result is an out-of-bounds heap read that could disclose adjacent heap memory or crash the process.
 
-**Project:** wolfSSL
+**Project:** wolfssl/wolfssl
 **Location:** `sha.c:733`
 
 ASAN: "READ of size 64 at 0x704ffcee0058 ... 0 bytes after 8-byte region". During certificate parsing, CalcHashId\_ex passes a buffer/length derived from the malformed DER to wc\_ShaHash → wc\_ShaUpdate, which copies a full 64-byte SHA block without ensuring that many bytes remain in the source buffer, reading beyond the allocation.
@@ -58,8 +58,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Independent triage by an external party.
 
-UPSTREAM FIX
-
 The change that resolved this finding.
 
 ```
@@ -87,15 +85,16 @@ ADVISORY
 <https://github.com/wolfSSL/wolfssl/pull/10641>
 
 1. 2026-03-24
-2. 2026-03-26
-3. 2026-03-26
-4. 2026-06-24
+2. 2026-03-27
+3. 2026-03-27
+4. 2026-06-25
+5. 2026-08-17
 
 f35e4f410ec58dab28431670e173e03fd1e5105f8afefc79c7edd5117d684d3aa377d218762d2f1ab70c6262e31227885bacaf2062958b077e305e5aebc6c37d
 
-Committed 2026-05-17 20:27 PT
+Committed 2026-05-18 03:27 UTC
 
-Revealed 2026-08-17 10:47 PT
+Revealed 2026-08-17 17:47 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-87DJGDRB%22%2C%22bug_class%22%3A%22Heap-buffer-overflow%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-24T18%3A46%3A56%2B00%3A00%22%2C%22description%22%3A%22When%20wc_PKCS7_InitWithCert%20is%20given%20an%20attacker-supplied%20certificate%20buffer%2C%20ParseCertRelative%20calls%20CalcHashId_ex%20to%20hash%20certificate%20data%2C%20which%20reaches%20wc_ShaUpdate.%20With%20a%20crafted%20short%20input%2C%20wc_ShaUpdate%20performs%20a%2064-byte%20memcpy%20that%20reads%20past%20the%20end%20of%20the%208-byte%20input%20allocation.%20The%20attacker%20controls%20the%20certificate%20bytes%20and%20length%20supplied%20to%20the%20PKCS%237%20API.%20The%20result%20is%20an%20out-of-bounds%20heap%20read%20that%20could%20disclose%20adjacent%20heap%20memory%20or%20crash%20the%20process.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22sha.c%3A733%22%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22wolfssl%22%2C%22reproduction%22%3A%5B%221.%20Craft%20a%20short/malformed%20DER%20certificate%20buffer%22%2C%222.%20Supply%20it%20to%20wc_PKCS7_InitWithCert%28%29%22%2C%223.%20ParseCertRelative%20%E2%86%92%20CalcHashId_ex%20%E2%86%92%20wc_ShaHash%20%E2%86%92%20wc_ShaUpdate%20memcpy%20reads%2064%20bytes%20past%20the%20buffer%20end%22%5D%2C%22technical_details%22%3A%22ASAN%3A%20%5C%22READ%20of%20size%2064%20at%200x704ffcee0058%20...%200%20bytes%20after%208-byte%20region%5C%22.%20During%20certificate%20parsing%2C%20CalcHashId_ex%20passes%20a%20buffer/length%20derived%20from%20the%20malformed%20DER%20to%20wc_ShaHash%20%E2%86%92%20wc_ShaUpdate%2C%20which%20copies%20a%20full%2064-byte%20SHA%20block%20without%20ensuring%20that%20many%20bytes%20remain%20in%20the%20source%20buffer%2C%20reading%20beyond%20the%20allocation.%22%2C%22title%22%3A%22Heap-buffer-overflow%20in%20sha.c%3A733%22%2C%22vendor_severity%22%3Anull%7D)
 

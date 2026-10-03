@@ -130,9 +130,9 @@ When you answer by typing your own text, Claude Code relays the answer with neut
 
 Questions stay open until you answer them. If you want a question you leave unanswered to eventually close and let Claude continue without you, set the [`askUserQuestionTimeout`](https://code.claude.com/docs/en/settings-reference#askuserquestiontimeout) setting to `60s`, `5m`, or `10m`, either in your user `settings.json` or from the **Question auto-continue timeout** row in `/config`.
 
-After a question sits that long with no input, the dialog closes on its own: it submits any options you'd already selected and tells Claude you may be away from your keyboard, so Claude proceeds on its own judgment and can re-ask later. You see a countdown for the last 20 seconds. Press any key to restart the timer; on terminals that report focus, switching to the window restarts it too.
+After a question sits that long with no input, the dialog closes on its own: it submits any options you'd already selected and tells Claude you may be away from your keyboard, so Claude proceeds on its own judgment and can re-ask later. You see a countdown for the last 20 seconds. Press any key to restart the timer. While your terminal reports that its window is focused, the timer doesn't count down.
 
-The timeout applies only to `AskUserQuestion`'s multiple-choice questions; permission prompts, including plan approval, never auto-resolve on idle.
+The timer never starts for a question Claude asks in a [background session](https://code.claude.com/docs/en/agent-view), in [screen reader mode](https://code.claude.com/docs/en/accessibility), or while the session is connected to [Remote Control](https://code.claude.com/docs/en/remote-control). Those questions wait until you answer them. The timeout applies only to `AskUserQuestion`'s multiple-choice questions; permission prompts, including plan approval, never auto-resolve on idle.
 
 ## Bash tool behavior
 
@@ -158,7 +158,7 @@ Two [environment variables](https://code.claude.com/docs/en/env-vars) control wh
 * `BASH_DEFAULT_TIMEOUT_MS` — the default when Claude passes no timeout; two minutes out of the box
 * `BASH_MAX_TIMEOUT_MS` — with the default, sets the ceiling that caps whatever Claude requests: the effective ceiling is the larger of the two, ten minutes out of the box
 
-For a command that Claude starts in the background, `timeout` instead sets how long the command may run there, with the separate default and maximum described under [Time limit for background commands](#time-limit-for-background-commands). The [PowerShell tool](#powershell-tool) follows the same timeout rules and reads the same two variables.
+In a session that has a [time limit for background commands](#time-limit-for-background-commands), `timeout` on a command that Claude starts in the background instead sets how long the command may run there, with that limit's separate default and maximum. The [PowerShell tool](#powershell-tool) follows the same timeout rules and reads the same two variables.
 
 #### Output limits
 
@@ -185,10 +185,14 @@ A command that a [foreground subagent](https://code.claude.com/docs/en/sub-agent
 
 #### Time limit for background commands
 
-Background Bash and PowerShell commands have a time limit, counted from the moment the command enters the background:
+In a session that runs unattended, such as a run with the `-p` flag, an Agent SDK application, a CI job, or a cloud session, background Bash and PowerShell commands have a time limit. A local session you work in from a terminal, the desktop app, or the VS Code extension has no time limit on background commands.
+
+The time limit requires Claude Code v2.1.285 or later. Before v2.1.288, it applied in every session.
+
+The time limit counts from the moment the command enters the background:
 
 * A command that Claude starts in the background gets 30 minutes, or the `timeout` Claude passes with `run_in_background`, up to a maximum of 2 hours
-* A command that starts in the foreground and then moves to the background, for example with `Ctrl+B` or at its timeout, gets 30 minutes from the move
+* A command that starts in the foreground and then moves to the background, for example at its timeout, gets 30 minutes from the move
 
 When a background command reaches its time limit, Claude Code stops it and tells Claude why, and Claude can start the command again with a longer `timeout` if the work still needs it. The stop notice reads `Background command "<description>" was stopped after reaching its background time limit`.
 
@@ -365,7 +369,7 @@ When Monitor runs a command, it uses the same [permission rules as Bash](https:/
 
 The [WebSocket source](#websocket-source) has its own approval prompt, which the classifier also decides in auto mode.
 
-The tool is not available on Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry. It is also not available when `DISABLE_TELEMETRY` or `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` is set.
+The tool is not available on Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry. It is also not available when `DISABLE_TELEMETRY` or `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` is set. On Windows, the tool is available only when [Git Bash](https://code.claude.com/docs/en/setup#set-up-on-windows) is installed.
 
 Plugins can declare monitors that start automatically when the plugin is active, instead of asking Claude to start them. See [plugin monitors](https://code.claude.com/docs/en/plugins/components#monitors).
 
@@ -561,7 +565,7 @@ The default set described here applies in Claude Code v2.1.268 and later.
 
 ## WebFetch tool behavior
 
-WebFetch takes a URL and a prompt describing what to extract. It fetches the page, converts the response to Markdown when the server returns HTML, and runs the prompt against the content using a small, fast model. For most fetches, Claude receives that model's answer, not the raw page. The conversion step is not configurable.
+WebFetch takes a URL and a prompt describing what to extract. It fetches the page and converts the response to Markdown when the server returns HTML. For most fetches, it then runs the prompt against the content in a separate model call, and Claude receives the result of that call rather than the raw page. The conversion step is not configurable.
 
 This makes WebFetch lossy by design. The extraction prompt determines what reaches Claude, so a result that says a page doesn't mention something may only mean the prompt didn't ask about it. Ask Claude to fetch again with a more specific prompt, or use `curl` via Bash for the unprocessed page.
 
@@ -584,6 +588,8 @@ In Manual and `acceptEdits` [permission modes](https://code.claude.com/docs/en/p
 To allow a domain in advance without a prompt, add an allow rule like `WebFetch(domain:example.com)`; `WebFetch(domain:*)` allows every domain. The `auto` and `bypassPermissions` [permission modes](https://code.claude.com/docs/en/permissions#permission-modes) skip the prompt, except for a domain an explicit `ask` rule matches.
 
 An explicit `WebFetch(domain:...)` rule in `deny`, `ask`, or `allow` takes precedence over the preapproved set, so you can block a preapproved domain or require a prompt for it.
+
+When the URL is a claude.ai [artifact](https://code.claude.com/docs/en/artifacts) link, Claude Code can also ask for approval to read the artifact itself. For the cases where it asks, see [Read an artifact shared with you](https://code.claude.com/docs/en/artifacts#read-an-artifact-shared-with-you).
 
 WebFetch sets a `User-Agent` header beginning with `Claude-User`, and an `Accept` header that prefers Markdown over HTML so servers that support content negotiation can return Markdown directly.
 

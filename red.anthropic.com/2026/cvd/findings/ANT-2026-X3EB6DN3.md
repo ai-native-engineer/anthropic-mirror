@@ -15,7 +15,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 The bug sits in libexpat's doProlog function in xmlparse.c, triggered when a crafted XML document combines an external entity containing a deeply nested ELEMENT content model (~32 levels) with a main DTD having even deeper nesting (~64+ levels). The external entity sub-parser reallocates m\_groupConnector based on its own nesting level, but when control returns to the main parser with deeper nesting, the bounds check at line 5906 (m\_prologState.level >= m\_groupSize) fails to account for the cross-context buffer state. An attacker controls the XML document structure and nesting depths. The result is a 4-byte write of zero past the 264-byte heap buffer, potentially corrupting adjacent heap metadata or objects for code execution or denial of service.
 
-**Project:** expat
+**Project:** libexpat/libexpat
 **Location:** `xmlparse.c:5957, doProlog()`
 
 ASAN reports a WRITE of size 4 exactly at the boundary of the 264-byte heap region allocated via expat\_realloc. The root cause is that parser->m\_groupConnector[parser->m\_prologState.level] = 0 at line 5957 writes past the buffer end because the size check at line 5906 doesn't correctly synchronize m\_groupSize between the parent parser and the external entity sub-parser — the sub-parser's reallocation doesn't propagate properly when the main parser resumes with deeper nesting.
@@ -61,8 +61,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 **Reference:** ANT-2026-X3EB6DN3
 
 Triage and disclosure were performed by Trail of Bits.
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -237,13 +235,14 @@ ADVISORY
 1. 2026-03-20
 2. 2026-05-21
 3. 2026-05-28
-4. 2026-06-19
+4. 2026-06-20
+5. 2026-08-17
 
 bdf77e15fd29d60ffc0dcf00fd4d2b1f0bc1d862c694e8e5914a35f23e54ce99c7998642f61aa543090450bc1a91ce59ed8130f7b012838ec15bfec160129a02
 
-Committed 2026-05-28 08:14 PT
+Committed 2026-05-28 15:14 UTC
 
-Revealed 2026-08-17 10:47 PT
+Revealed 2026-08-17 17:47 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-X3EB6DN3%22%2C%22bug_class%22%3A%22heap-buffer-overflow%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-20T19%3A13%3A12%2B00%3A00%22%2C%22description%22%3A%22The%20bug%20sits%20in%20libexpat%27s%20doProlog%20function%20in%20xmlparse.c%2C%20triggered%20when%20a%20crafted%20XML%20document%20combines%20an%20external%20entity%20containing%20a%20deeply%20nested%20ELEMENT%20content%20model%20%28~32%20levels%29%20with%20a%20main%20DTD%20having%20even%20deeper%20nesting%20%28~64%2B%20levels%29.%20The%20external%20entity%20sub-parser%20reallocates%20m_groupConnector%20based%20on%20its%20own%20nesting%20level%2C%20but%20when%20control%20returns%20to%20the%20main%20parser%20with%20deeper%20nesting%2C%20the%20bounds%20check%20at%20line%205906%20%28m_prologState.level%20%3E%3D%20m_groupSize%29%20fails%20to%20account%20for%20the%20cross-context%20buffer%20state.%20An%20attacker%20controls%20the%20XML%20document%20structure%20and%20nesting%20depths.%20The%20result%20is%20a%204-byte%20write%20of%20zero%20past%20the%20264-byte%20heap%20buffer%2C%20potentially%20corrupting%20adjacent%20heap%20metadata%20or%20objects%20for%20code%20execution%20or%20denial%20of%20service.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22xmlparse.c%3A5957%2C%20doProlog%28%29%22%2C%22poc_sha256%22%3A%22351f79465c6d5b8827d4581c30d24cd52b65dcbcff71cbdb8559372a9ccd7c46%22%2C%22preimage_version%22%3A1%2C%22project%22%3A%22expat%22%2C%22reproduction%22%3A%5B%22Construct%20an%20external%20entity%20definition%20containing%20an%20ELEMENT%20content%20model%20with%20~32%20levels%20of%20nested%20parentheses%22%2C%22Construct%20a%20main%20document%20DTD%20with%20~64%2B%20levels%20of%20nested%20parentheses%20that%20references%20the%20external%20entity%20via%20%25e%3B%22%2C%22Deliver%20the%20crafted%20XML%20to%20the%20target%20parser%22%2C%22External%20entity%20sub-parser%20reallocates%20m_groupConnector%20to%20fit%20its%20nesting%20depth%22%2C%22Control%20returns%20to%20main%20parser%3B%20deeper%20nesting%20bypasses%20the%20stale%20size%20check%20at%20line%205906%22%2C%22Write%20at%20line%205957%20overflows%20the%20264-byte%20buffer%20by%204%20bytes%22%5D%2C%22technical_details%22%3A%22ASAN%20reports%20a%20WRITE%20of%20size%204%20exactly%20at%20the%20boundary%20of%20the%20264-byte%20heap%20region%20allocated%20via%20expat_realloc.%20The%20root%20cause%20is%20that%20parser-%3Em_groupConnector%5Bparser-%3Em_prologState.level%5D%20%3D%200%20at%20line%205957%20writes%20past%20the%20buffer%20end%20because%20the%20size%20check%20at%20line%205906%20doesn%27t%20correctly%20synchronize%20m_groupSize%20between%20the%20parent%20parser%20and%20the%20external%20entity%20sub-parser%20%E2%80%94%20the%20sub-parser%27s%20reallocation%20doesn%27t%20propagate%20properly%20when%20the%20main%20parser%20resumes%20with%20deeper%20nesting.%22%2C%22title%22%3A%22Heap-buffer-overflow%20in%20doProlog%20at%20xmlparse.c%3A5957%20via%20deeply%20nested%20DTD%20with%20external%20entity%20interaction%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

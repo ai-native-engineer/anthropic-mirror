@@ -40,6 +40,14 @@ Find UI & UX design references
 
 [Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
 
+![](https://appexchange.salesforce.com/image_host/82be812c-159e-49b7-aa89-828b29c95e0b.png)
+
+### [Blackthorn Forge MCP for Native Salesforce Event Management](https://claude.com/marketplace/connectors/blackthorn-beacon-event-management-for-salesforce)
+
+Blackthorn's MCP server for Salesforce events: create, query, and report on events, attendees, tickets, sessions, forms, and email campaigns, over 100 available tools, live against your org.
+
+[Add Blackthorn Forge MCP for Native Salesforce Event Management in Claude (opens in new tab)](https://claude.ai/directory/bb966230-ca18-4d33-8601-7d54184931c1 "Add in Claude")
+
 ![](https://www.articulate.com/favicon.ico)
 
 ### [Articulate](https://claude.com/marketplace/connectors/articulate)
@@ -55,11 +63,3 @@ Build interactive training right from Claude
 Create, share, and edit e-signature documents right inside Claude
 
 [Add Jotform Sign in Claude (opens in new tab)](https://claude.ai/directory/c8e5e99b-788d-4e64-bf4d-ef65b4cb92d5 "Add in Claude")
-
-![](https://www.thenational.academy/images/favicons/favicon.ico)
-
-### [Oak National Academy](https://claude.com/marketplace/connectors/oak-national-academy)
-
-Free, national curriculum-aligned Oak teaching resources
-
-[Add Oak National Academy in Claude (opens in new tab)](https://claude.ai/directory/1399f75f-e240-4046-a3c9-711c6cd5d66a "Add in Claude")

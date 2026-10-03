@@ -69,3 +69,5 @@ Create presentations, docs, socials, and sites with AI
 Get answers and take action with context from your Jobber account
 
 [Add Jobber in Claude (opens in new tab)](https://claude.ai/directory/d53b3c4b-c4c7-4886-8698-786cfaff70f2 "Add in Claude")
+
+RocketReach connector | Claude by Anthropic

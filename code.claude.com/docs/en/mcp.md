@@ -35,7 +35,7 @@ You can also have Claude scaffold a server for you with the official [`mcp-serve
 
 <Steps>
   <Step title="Install the plugin">
-    In a Claude Code session, run:
+    In the VS Code extension or the desktop app, follow [Install a plugin](https://code.claude.com/docs/en/plugins/install#install-a-plugin) instead of this step. In a terminal, start Claude Code by running `claude`, then enter this at its prompt:
 
     ```
     /plugin install mcp-server-dev@claude-plugins-official
@@ -302,6 +302,8 @@ If your request needs tools from a server that is still connecting in the backgr
 
 With tool search enabled, when a server finishes connecting while Claude is working, Claude Code lists the server's tool names to Claude on its next request in the same turn. Claude can then search for and call those tools without waiting for your next message.
 
+After you resume a session, Claude can call a tool from the saved conversation while the tool's MCP server is still connecting. While the server is on its first connection attempt, Claude Code holds the call for up to 10 seconds and runs it once the tool is available. If the server doesn't connect in time, or it is already [retrying after a failed attempt](#automatic-reconnection), the call fails with the `No such tool available` [tool error](https://code.claude.com/docs/en/errors#no-such-tool-available).
+
 ### Disable a server without removing it
 
 Toggle a server off in the `/mcp` panel to stop Claude Code from connecting to it without losing its configuration. Claude Code still lists the server in `/mcp`, marked as disabled.
@@ -341,7 +343,10 @@ To pick the runtime yourself, set [`MCP_SDK_GENERATION`](https://code.claude.com
 
 ### Dynamic tool updates
 
-Claude Code supports MCP `list_changed` notifications, allowing MCP servers to dynamically update their available tools, prompts, and resources without requiring you to disconnect and reconnect. When an MCP server sends a `list_changed` notification, Claude Code automatically refreshes the available capabilities from that server.
+An MCP server can change the tools, prompts, or resources it offers while connected and send a `list_changed` notification. When one arrives:
+
+* **In an interactive terminal session**, Claude Code fetches the updated list from that server, so you don't need to reconnect it.
+* **In [non-interactive mode](https://code.claude.com/docs/en/headless) with the `-p` flag and in the [Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview)**, Claude Code refreshes only the tool list on these notifications.
 
 If a refresh request fails, Claude Code keeps the server's previously discovered tools, prompts, and resources until a later refresh succeeds. Before v2.1.214, a transient error during the refresh replaced the server's tools, prompts, and resources with an empty list.
 
@@ -377,6 +382,10 @@ Claude Code doesn't retry in these cases:
 #### Failed discovery requests
 
 After a server connects, Claude Code sends it capability discovery requests such as `tools/list`, `prompts/list`, and `resources/list`. Claude Code retries those requests up to three times with short backoff after a transient network or server error. It doesn't retry authentication errors, 4xx responses, or request timeouts.
+
+#### Retry failed servers yourself
+
+To retry every server that failed or needs authentication, run `/mcp reconnect all`. In the interactive terminal this requires Claude Code v2.1.284 or later, and earlier versions print `MCP server "all" not found` there.
 
 #### How Claude learns that a server failed
 

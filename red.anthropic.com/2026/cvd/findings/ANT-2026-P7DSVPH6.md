@@ -4,7 +4,7 @@
 
 ## heap-buffer-overflow critical
 
-[GHSA-wj3p-xhqm-pffc](https://github.com/advisories/GHSA-wj3p-xhqm-pffc)
+[GHSA-wj3p-xhqm-pffc](https://github.com/wasm-micro-runtime/wasm-micro-runtime/security/advisories/GHSA-wj3p-xhqm-pffc)
 
 Claude critical
 Security research firm critical
@@ -16,7 +16,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 In WAMR's sandboxed WASI layer, wasmtime\_ssp\_poll\_oneoff allocates a 16-byte heap buffer at posix.c:2186 but later writes 8 bytes past its end at posix.c:2253 while emitting poll events. A 116-byte valid WebAssembly module that invokes the WASI poll\_oneoff import deterministically triggers the overflow (3/3 identical ASAN reports in a clean container). The attacker controls the guest Wasm module and thus the poll\_oneoff subscription arguments that drive the event count. The result is an out-of-bounds heap WRITE in the host runtime from guest-controlled sandboxed code.
 
-**Project:** wasm-micro-runtime
+**Project:** bytecodealliance/wasm-micro-runtime
 **Location:** `posix.c:2253`
 
 ASAN: heap-buffer-overflow, WRITE of size 8, 0 bytes to the right of a 16-byte region allocated at posix.c:2186. The output buffer sized at allocation time is too small for the number of events subsequently written at posix.c:2253, so the event-store loop runs off the end of the heap block.
@@ -51,8 +51,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 Triage and disclosure were performed by Ada Logics.
 
 :   critical
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -249,14 +247,14 @@ index 9083af9014..ebde50babd 100644
 
 1. 2026-03-24
 2. 2026-05-07
-3. 2026-06-24
+3. 2026-06-25
 4. 2026-08-17
 
 9680ba7f19079c28d92bf1d9291a85ad88dbecf9fadd1316805a0ed4783ceb902a261fe1af85a092280115e0fde1b6183c2ac7af27cc7aa23ebbbc23d0bd29ed
 
-Committed 2026-05-07 03:18 PT
+Committed 2026-05-07 10:18 UTC
 
-Revealed 2026-08-17 10:47 PT
+Revealed 2026-08-17 17:47 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-P7DSVPH6%22%2C%22bug_class%22%3A%22Heap-buffer-overflow%22%2C%22claude_severity%22%3A%22critical%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-24T20%3A43%3A47%2B00%3A00%22%2C%22description%22%3A%22In%20WAMR%27s%20sandboxed%20WASI%20layer%2C%20wasmtime_ssp_poll_oneoff%20allocates%20a%2016-byte%20heap%20buffer%20at%20posix.c%3A2186%20but%20later%20writes%208%20bytes%20past%20its%20end%20at%20posix.c%3A2253%20while%20emitting%20poll%20events.%20A%20116-byte%20valid%20WebAssembly%20module%20that%20invokes%20the%20WASI%20poll_oneoff%20import%20deterministically%20triggers%20the%20overflow%20%283/3%20identical%20ASAN%20reports%20in%20a%20clean%20container%29.%20The%20attacker%20controls%20the%20guest%20Wasm%20module%20and%20thus%20the%20poll_oneoff%20subscription%20arguments%20that%20drive%20the%20event%20count.%20The%20result%20is%20an%20out-of-bounds%20heap%20WRITE%20in%20the%20host%20runtime%20from%20guest-controlled%20sandboxed%20code.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22posix.c%3A2253%22%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22wasm-micro-runtime%22%2C%22reproduction%22%3A%5B%221.%20Craft%20a%20small%20%28%E2%89%88116-byte%29%20Wasm%20module%20that%20imports%20and%20invokes%20wasi_snapshot_preview1%20poll_oneoff%20with%20subscription%20arguments%20that%20yield%20more%20output%20events%20than%20the%20host%20allocates%20space%20for%22%2C%222.%20Execute%20the%20module%20with%20iwasm%20/%20wasm_application_execute_main%22%2C%223.%20wasi_poll_oneoff%20calls%20wasmtime_ssp_poll_oneoff%2C%20which%20allocates%20a%2016-byte%20buffer%20at%20posix.c%3A2186%22%2C%224.%20The%20event-write%20loop%20at%20posix.c%3A2253%20stores%208%20bytes%20past%20the%20end%20of%20that%20buffer%2C%20corrupting%20adjacent%20heap%20memory%22%5D%2C%22technical_details%22%3A%22ASAN%3A%20heap-buffer-overflow%2C%20WRITE%20of%20size%208%2C%200%20bytes%20to%20the%20right%20of%20a%2016-byte%20region%20allocated%20at%20posix.c%3A2186.%20The%20output%20buffer%20sized%20at%20allocation%20time%20is%20too%20small%20for%20the%20number%20of%20events%20subsequently%20written%20at%20posix.c%3A2253%2C%20so%20the%20event-store%20loop%20runs%20off%20the%20end%20of%20the%20heap%20block.%22%2C%22title%22%3A%22Heap-buffer-overflow%20in%20posix.c%3A2253%22%2C%22vendor_severity%22%3A%22critical%22%7D)
 

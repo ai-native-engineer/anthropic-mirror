@@ -81,16 +81,12 @@ Unmute the same way:
 A muted thread also unmutes when you @-mention Claude there with a request, so you don’t need `!unmute` before asking something new. Checking on Claude with [`!status`](#check-whether-claude-is-still-working) leaves the thread muted.
 You need the same access to mute or unmute a thread that you’d need to message Claude there.
 
-###  Thumbs-down reactions and muting
+###  Thumbs-down button and muting
 
-When someone reacts 👎 to one of Claude’s replies in a thread, Claude mutes that thread and stops posting there. If Claude’s [working session](https://claude.com/docs/claude-tag/concepts/how-it-works) in that thread is partway through writing another reply, Claude abandons that unfinished reply. Claude then posts this notice in the thread:
-
-```
-:mute: Claude is muted in this thread and won't post here again. `@Claude !unmute` (or any @-mention) brings it back; `@Claude !mute` mutes it again anytime.
-```
-
+Some of Claude’s replies carry a thumbs-up and a thumbs-down button for rating the reply. When someone selects the thumbs-down button, Claude mutes that thread and stops posting there. Claude then posts a notice in the thread that begins `:mute: Claude is muted in this thread`.
+A 👎 emoji reaction on one of Claude’s replies doesn’t mute the thread.
 To bring Claude back, send `@Claude !unmute` in the thread, or @-mention Claude there with your next request.
-A 👎 reaction doesn’t tell Claude what was wrong with the answer. To get a corrected answer, @-mention Claude in the thread and say what was wrong. The mention also unmutes the thread.
+To get a corrected answer, @-mention Claude in the thread and say what was wrong. The mention also unmutes the thread.
 
 ##  Turn fast mode on or off
 

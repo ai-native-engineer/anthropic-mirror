@@ -70,4 +70,5 @@ The connector is read-only:
 
 * [Gmail](https://claude.com/docs/connectors/google/gmail): search and analyze your emails
 * [Google Drive](https://claude.com/docs/connectors/google/drive): search and read your Drive files
+* [Add a connector from the directory](https://claude.com/docs/connectors/getting-started#add-a-connector-from-the-directory): find a connector for another service in the directory and connect it
 * [Connectors directory](https://claude.com/docs/connectors/directory): browse verified and community integrations

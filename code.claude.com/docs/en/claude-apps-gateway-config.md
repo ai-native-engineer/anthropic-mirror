@@ -67,7 +67,8 @@ OpenID Connect (OIDC) is the SSO protocol the gateway uses with your identity pr
 | Field | Required | Description |
 | - | - | - |
 | `issuer` | Yes | OIDC discovery base. Must serve discovery at `/.well-known/openid-configuration`. Use HTTPS in production; the gateway accepts an `http://` issuer. A loopback issuer such as `http://localhost:8081` is rejected by the [SSRF guard](https://code.claude.com/docs/en/claude-apps-gateway-deploy#threat-model-summary) unless `CLAUDE_GATEWAY_ALLOW_LOOPBACK=1` is set in the gateway's environment. |
-| `client_id` / `client_secret` | Yes | From your OAuth client registration |
+| `client_id` | Yes | From your OAuth client registration |
+| `client_secret` | Unless `token_endpoint_auth_method` is `private_key_jwt` | From your OAuth client registration. Leave it out when you use [certificate client authentication](#certificate-client-authentication). |
 | `allowed_email_domains` | No | Reject id\_tokens whose `email` claim isn't in one of these domains, case-insensitive. Defense-in-depth against multi-tenant IdP misconfiguration. Independent of this setting, an id\_token whose `email_verified` claim is explicitly `false` is always rejected. |
 | `allowed_groups` | No | Restrict sign-in to members of these IdP groups, matched against `groups_claim`. A user in an allowed email domain but in none of these groups is rejected. Requires the IdP to emit the groups claim. Matching is an exact, case-sensitive string comparison against the values in that claim, and the gateway doesn't expand nested groups: to admit members of a sub-group, list the sub-group here or configure the IdP to emit flattened membership. |
 | `groups_claim` | No | Which id\_token claim carries group membership. Default `groups`. Microsoft Entra emits app roles under `roles`. Accepts a flat key or an RFC 6901 JSON Pointer such as `/resource_access/gateway/roles` for nested claims. |
@@ -79,13 +80,70 @@ OpenID Connect (OIDC) is the SSO protocol the gateway uses with your identity pr
 | `userinfo_fallback` | No | When the id\_token omits email or groups, fetch them from `/userinfo`. Needed for Keycloak lightweight access tokens, the Okta org server, and ADFS minimal tokens. The id\_token stays authoritative; userinfo only fills gaps. Default `false`. |
 | `use_pkce` | No | Send a PKCE (S256) challenge on the authorization request. Default `true`. Set `false` only if your IdP rejects PKCE for this confidential client. |
 | `clock_skew_seconds` | No | Tolerate clock drift when validating id\_token time claims. Default `0`, which is strict. Raise if you see "token expired / not yet valid" errors right after sign-in due to host/IdP clock skew. |
-| `token_endpoint_auth_method` | No | Override the token-endpoint auth method. Accepts `client_secret_basic` or `client_secret_post`. Auto-negotiated by default. |
+| `token_endpoint_auth_method` | No | How the gateway authenticates to the IdP's token endpoint: `client_secret_basic`, `client_secret_post`, or `private_key_jwt` for [certificate client authentication](#certificate-client-authentication). By default the gateway picks one of the two `client_secret` methods from what the IdP advertises. |
+| `client_assertion` | With `private_key_jwt` | A block with `private_key_pem` and `certificate_pem`: the private key and certificate for [certificate client authentication](#certificate-client-authentication). Requires v2.1.284 or later. |
 | `id_token_signed_response_alg` | No | Expected id\_token signing algorithm. Default `RS256`. Set for IdPs that sign with ES256, PS256, or EdDSA. |
 | `additional_authorized_parties` | No | Extra `azp` values to accept beyond `client_id`, for Keycloak broker and token-exchange flows |
 | `discovery_url` | No | Fetch the discovery document from this URL instead of deriving it from `issuer`, for IdPs behind a proxy that rewrites the issuer host. The path must contain `/.well-known/`. |
 | `use_proxy` | No | Send the gateway's own IdP requests through the forward proxy in `HTTPS_PROXY` or `HTTP_PROXY`, honoring `NO_PROXY`. `false` keeps those requests direct. Requires v2.1.227 or later; see [IdP requests through a forward proxy](#idp-requests-through-a-forward-proxy) below. |
 | `form_action_origins` | No | Additional origins for the `/device` page's `Content-Security-Policy: form-action` directive. The gateway already allows `'self'` and the discovered `authorization_endpoint` origin, but Chrome enforces `form-action` against the entire redirect chain. If your IdP redirects through a second host, such as Azure AD federated to ADFS, hub-spoke Okta, or a corporate SSO interceptor, list every origin the authorization request may redirect through. |
 | `ca_cert_pem` | No | The PEM-encoded CA certificate itself, not a path to a file. It replaces the system trust store for IdP requests only. To load a mounted file, write `${file:/etc/gateway/idp-ca.pem}`. Use for Keycloak or Dex behind corporate PKI. |
+
+#### Certificate client authentication
+
+If your identity provider authenticates OAuth clients with a certificate instead of a client secret, as Microsoft Entra does with certificate credentials, set `token_endpoint_auth_method: private_key_jwt`. Requires Claude Code v2.1.284 or later on the gateway server.
+
+With this configuration the gateway sends no secret. It authenticates to the IdP's token endpoint with a short-lived JWT signed with the certificate's private key when a developer signs in and each time the gateway refreshes their session. The JWT is signed with RS256 and identifies the certificate by `x5t` and `x5t#S256` thumbprint headers rather than a `kid`. Your IdP must be able to find the registered certificate by thumbprint.
+
+<Steps>
+  <Step title="Create the key and certificate">
+    Create an unencrypted RSA private key of at least 2048 bits, in PKCS#8 or PKCS#1 PEM form, and a certificate for it. The gateway refuses to start with any key that doesn't meet these conditions. This `openssl` command creates such a key with a self-signed certificate that is valid for one year:
+
+    ```bash theme={null}
+    openssl req -x509 -newkey rsa:2048 -nodes -keyout idp-client.key -out idp-client.crt -days 365 -subj "/CN=claude-gateway"
+    ```
+
+    It writes `idp-client.key` and `idp-client.crt` to the current directory. Copy or mount both files where the gateway can read them. The example in step 3 uses `/etc/gateway/`.
+  </Step>
+
+  <Step title="Upload the certificate to the IdP">
+    Upload the certificate, not the private key, to the gateway's app registration at the IdP.
+  </Step>
+
+  <Step title="Add the key and certificate to gateway.yaml">
+    Give the gateway the private key and the certificate in a `client_assertion` block. Leave `client_secret` out, because the gateway refuses to start when one is set together with `private_key_jwt`. This `oidc` block authenticates the gateway to a Microsoft Entra tenant with a certificate:
+
+    ```yaml theme={null}
+    oidc:
+      issuer: https://login.microsoftonline.com/<tenant-id>/v2.0
+      client_id: <application-id>
+      token_endpoint_auth_method: private_key_jwt
+      client_assertion:
+        private_key_pem: ${file:/etc/gateway/idp-client.key}
+        certificate_pem: ${file:/etc/gateway/idp-client.crt}
+    ```
+
+    Both values are the PEM contents, not file paths, so load mounted files with `${file:/path}` as the example does. The gateway refuses to start unless `certificate_pem` is a single PEM certificate, without the rest of its chain, whose public key matches `private_key_pem`.
+  </Step>
+
+  <Step title="Restart the gateway and check the boot log">
+    Restart the gateway and find this line in the boot log:
+
+    ```text theme={null}
+    [gateway] 2026-10-01T23:07:40.512Z info oidc: client authentication private_key_jwt; certificate CN=claude-gateway, SHA-1 thumbprint DE92821854EE8BAA1D98C758FAA04AABE80B9F57, expires Oct  1 23:07:31 2027 GMT
+    ```
+
+    Compare the SHA-1 thumbprint with the one the IdP shows for the certificate you uploaded. If the certificate has expired or isn't valid yet, the gateway still starts but logs a warning that sign-ins and refreshes will fail until you replace it. To confirm that the IdP accepts the certificate, have one developer sign in through the gateway.
+  </Step>
+</Steps>
+
+#### Rotate the client certificate
+
+The gateway reads the key and certificate once at boot, so a changed file takes effect only after a restart. Rotate in this order so that no token request presents a certificate the IdP doesn't have:
+
+1. Upload the new certificate to the IdP alongside the old one.
+2. Replace the key and certificate files that `gateway.yaml` loads, then restart the gateway.
+3. Remove the old certificate from the IdP.
 
 #### IdP requests through a forward proxy
 
@@ -849,6 +907,25 @@ If a developer declines, Claude Code exits that session rather than applying the
 
 The `cli` key was named `settings` in earlier releases. That spelling is still accepted as an alias, but new deployments should use `cli`.
 
+#### Context window in terminal sessions
+
+Terminal sessions signed in through `/login` use the 1M context window for Opus 4.7 and later, Sonnet 5 and later, and the Fable models. The model ID needs no `[1m]` suffix, and sessions compact at about 967K tokens. Before Claude Code v2.1.287 on the developer's machine, Claude Code treated the Opus and Fable models as having a 200K window unless the model ID ended in `[1m]`.
+
+To have terminal sessions compact at the 200K boundary instead, set the [auto-compact window](https://code.claude.com/docs/en/model-config#set-the-auto-compact-window) in the policy's `env`:
+
+```yaml theme={null}
+managed:
+  policies:
+    - match: {}
+      cli:
+        env:
+          CLAUDE_CODE_AUTO_COMPACT_WINDOW: "200000"
+```
+
+Claude Code applies this variable without showing the developer the approval dialog. The variable applies to every model, including model IDs that end in `[1m]`.
+
+To turn off 1M context instead, set [`CLAUDE_CODE_DISABLE_1M_CONTEXT: "1"`](https://code.claude.com/docs/en/model-config#extended-context) in the same `env` block. Claude Code then treats every model as having a 200K window. In interactive sessions, each developer approves this variable in the [approval dialog](#what-goes-in-cli) before it takes effect.
+
 #### MCP servers in a policy
 
 To provide MCP servers to the Claude Code clients a policy matches, set [`managedMcpServers`](https://code.claude.com/docs/en/managed-mcp#provide-servers-through-managed-settings) in that policy's `cli` block. You need Claude Code v2.1.259 or later on the gateway server and on clients.
@@ -869,7 +946,7 @@ If your organization also deploys [Claude Desktop](https://code.claude.com/docs/
 
 The gateway derives much of the response from the matched policy's `cli` block and from top-level gateway config:
 
-* The model list, from `availableModels`
+* The model list, from `availableModels`. [Extended context in Claude Desktop](#extended-context-in-claude-desktop) covers each model's 1M context option
 * Disabled tools, from bare tool-name `permissions.deny` entries. If you set `disabledBuiltinTools` in the policy's `desktop` block, the gateway serves the union of your value and the derived list, so you can disable more tools this way but can't re-enable one you disabled through `permissions.deny`
 * The egress allowlist, from `sandbox.network.allowedDomains`. If you set `coworkEgressAllowedHosts` in the policy's `desktop` block, the gateway uses that value instead of the derived list
 * An OTLP endpoint that points at the gateway itself, and the signed-in user's identity attributes. The gateway relays the exports it receives at that endpoint to your `forward_to` destinations. It includes the endpoint and the attributes when you set both [`telemetry.forward_to`](#telemetry) and `listen.public_url`.
@@ -917,6 +994,44 @@ The gateway fills in keys a policy's `desktop` block doesn't set from the `match
 For every other key, if you set it in the role policy, the gateway uses the role policy's value. The gateway replaces an array or a nested object such as `banner` whole, so if you set `banner.text` in a role policy, the gateway drops the base's `banner.backgroundColor`.
 
 If you don't deploy Claude Desktop, leave `desktop` out of your policies entirely; the gateway then returns 404 from `/user/bootstrap` for every user.
+
+#### Extended context in Claude Desktop
+
+If you serve [Claude Desktop](#claude-desktop-overlay) from the gateway, its model picker offers a 1M context option for each listed model that can run with a 1M context window. These include Claude Opus 4.6 and later, Claude Sonnet 4.6 and later, and the Fable models. The option is the model's `[1m]` variant, which [Extended context](https://code.claude.com/docs/en/model-config#extended-context) describes. You need Claude Code v2.1.284 or later on the gateway server.
+
+A [`models`](#models) entry gets no 1M option when:
+
+* An upstream that can serve the entry maps it to a model without 1M support, including an upstream the gateway reaches only on failover
+* Neither its `id` nor any of its `upstream_model` values names a Claude model, such as a custom alias routed to an application inference profile ARN
+
+To change what the picker offers, use one of these:
+
+* **Start users on the 1M option**: set `modelPrefer1mContext: true` in the policy's `desktop` block. Users who haven't yet chosen a model start on the 1M option when the first listed model has one. Users who already chose a model keep their choice.
+* **Offer the option by hand**: do this if your gateway server runs a version older than v2.1.284, or an entry names no Claude model. List the model twice in `models`, once with its plain ID and once with `[1m]` appended, both with the same `upstream_model` map. Claude Desktop shows the pair as one model with a 1M option. The gateway serves a `[1m]` entry without checking it, so add one only for a model your upstreams serve at 1M.
+
+This example offers the option by hand for a custom alias routed to an application inference profile, and starts new users on it:
+
+```yaml theme={null}
+models:
+  - id: corp-sonnet
+    upstream_model:
+      bedrock: arn:aws:bedrock:us-east-2:123456789012:application-inference-profile/sonnet-5-prod
+  - id: corp-sonnet[1m]
+    upstream_model:
+      bedrock: arn:aws:bedrock:us-east-2:123456789012:application-inference-profile/sonnet-5-prod
+
+managed:
+  policies:
+    - match: {}
+      desktop:
+        modelPrefer1mContext: true
+```
+
+##### Remove the 1M option
+
+To remove the option from the picker, set `CLAUDE_CODE_DISABLE_1M_CONTEXT: "1"` in the `env` block under the policy's `cli` key. If you also listed an entry whose `id` ends in `[1m]`, the gateway still serves it, so delete that entry too.
+
+The variable also reaches the terminal sessions of developers the policy matches. For what it changes there, see [Extended context](https://code.claude.com/docs/en/model-config#extended-context).
 
 #### Precedence with other managed sources
 

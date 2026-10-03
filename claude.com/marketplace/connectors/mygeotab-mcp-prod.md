@@ -71,14 +71,14 @@ Find UI & UX design references
 
 ### [TinyFish](https://claude.com/marketplace/connectors/tinyfish)
 
-Browser automation and web scraping with a cloud browser agent: automate websites, log in to portals, fill out and submit forms, scrape listings, prices and reviews, extract data, and monitor changes.
+Browser automation and web scraping with a cloud browser agent: automate websites, log in to portals, fill out and submit forms, scrape social media, listings, prices and reviews, and monitor changes.
 
 [Add TinyFish in Claude (opens in new tab)](https://claude.ai/directory/e2dfb699-dcb9-4124-b190-9bb1f400adb4 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=terminal49.com&sz=96)
+![](https://neon.com/brand/neon-logomark-light-color.svg)
 
-### [Terminal49](https://claude.com/marketplace/connectors/terminal49)
+### [Neon](https://claude.com/marketplace/connectors/neon)
 
-Track ocean shipments and containers
+Postgres, Object Storage, Managed Better Auth, and more
 
-[Add Terminal49 in Claude (opens in new tab)](https://claude.ai/directory/e976edae-40c4-4c29-a1f8-6d5b40bc7cee "Add in Claude")
+[Add Neon in Claude (opens in new tab)](https://claude.ai/directory/33e1b084-f45e-4fa3-951a-b08ad61101c9 "Add in Claude")

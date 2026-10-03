@@ -42,6 +42,8 @@ Oct
 
 -
 
+Oct
+
 8
 
 ,
@@ -404,6 +406,42 @@ Member of Technical Staff, Anthropic
 
 Member of Technical Staff, Anthropic
 
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03c0b6ec579cc500de6bd_olivia-moore.jpg)
+
+### Olivia Moore
+
+Investing Partner, Andreessen Horowitz
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03bbaa1561404b3b96c3b_william-hu.jpg)
+
+### William Hu
+
+Member of Technical Staff, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03c68808755884ff264a5_aaron-jacobson.jpg)
+
+### Aaron Jacobson
+
+Partner, NEA
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03c9d9f843ff4949605ef_vas-natarajan.jpg)
+
+### Vas Natarajan
+
+Partner, Accel
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03d1aa1561404b3b9c769_michelle-lee.jpg)
+
+### Michelle Lee
+
+CEO & Founder, Medra
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03d64504b4b7bcc8b41a5_andrew-beam.jpg)
+
+### Andrew Beam
+
+CTO, Lila Sciences
+
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6abc0f7b9d3d7ff469364f19_CleanShot%202026-09-29%20at%201.20.19%20PM%402x.png)
 
 ### Mike Krieger
@@ -619,6 +657,42 @@ Member of Technical Staff, Anthropic
 ### Nate Parrott
 
 Member of Technical Staff, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03c0b6ec579cc500de6bd_olivia-moore.jpg)
+
+### Olivia Moore
+
+Investing Partner, Andreessen Horowitz
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03bbaa1561404b3b96c3b_william-hu.jpg)
+
+### William Hu
+
+Member of Technical Staff, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03c68808755884ff264a5_aaron-jacobson.jpg)
+
+### Aaron Jacobson
+
+Partner, NEA
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03c9d9f843ff4949605ef_vas-natarajan.jpg)
+
+### Vas Natarajan
+
+Partner, Accel
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03d1aa1561404b3b9c769_michelle-lee.jpg)
+
+### Michelle Lee
+
+CEO & Founder, Medra
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac03d64504b4b7bcc8b41a5_andrew-beam.jpg)
+
+### Andrew Beam
+
+CTO, Lila Sciences
 
 ## Agenda
 

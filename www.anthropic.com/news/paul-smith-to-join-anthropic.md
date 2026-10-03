@@ -14,16 +14,4 @@ Confirmation of Paul's appointment comes at a moment of exceptional growth for A
 
 AI is fundamentally restructuring how businesses create and capture value. Paul's expertise will help us support more organizations in navigating this transition thoughtfully, as we work to become the most trusted AI partner for businesses.
 
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
+Paul Smith to join Anthropic as Chief Commercial Officer \ Anthropic

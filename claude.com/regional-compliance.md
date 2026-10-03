@@ -4,13 +4,7 @@
 
 Claude is available globally with regional data residency and inference, comprehensive compliance certifications, and deployment across all major cloud platforms.
 
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Visit Trust Center
-
-[Visit Trust Center](https://trust.anthropic.com/)Visit Trust Center
+[Contact sales](https://claude.com/contact-sales)[Visit Trust Center (opens in new tab)](https://trust.anthropic.com/)
 
 ## Built for regulated industries, worldwide
 
@@ -34,123 +28,55 @@ Meet your regional data residency and compliance requirements with Claude. Choos
 
 Region
 
-AWS Bedrock
+AWS Bedrock[Specifications (opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)
 
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)
+GCP Vertex[Specifications (opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)
 
-GCP Vertex
+Microsoft Foundry[Specifications (opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
 
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)
-
-Microsoft Foundry
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
-
-Asia-Pacific
-
-AWS Bedrock
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)
-
-GCP Vertex
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)
-
-Microsoft Foundry
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
-
-Canada
-
-AWS Bedrock
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)
-
-GCP Vertex
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)
-
-Microsoft Foundry
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
-
-Europe
-
-AWS Bedrock
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)
-
-GCP Vertex
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)
-
-Microsoft Foundry
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
-
-Coming soon
-
-United States
-
-AWS Bedrock
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)
-
-GCP Vertex
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)
-
-Microsoft Foundry
-
-[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
+| Region | AWS Bedrock | GCP Vertex | Microsoft Foundry |
+| --- | --- | --- | --- |
+| Asia-Pacific | AWS Bedrock[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)  Included | GCP Vertex[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)  Included | Microsoft Foundry[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)  Not included |
+| Canada | AWS Bedrock[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)  Included | GCP Vertex[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)  Included | Microsoft Foundry[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)  Not included |
+| Europe | AWS Bedrock[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)  Included | GCP Vertex[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)  Included | Microsoft Foundry[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)Coming soon |
+| United States | AWS Bedrock[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock)  Included | GCP Vertex[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)  Included | Microsoft Foundry[Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)  Included |
 
 Understand data residency
 and inference
 
 Claude gives you control over where your data is stored, requests are processed, and responses are generated.
 
-Data residency
+* Data residency
 
-Controls where prompts, outputs, and conversation history are stored.
+  Controls where prompts, outputs, and conversation history are stored.
+* Inference residency
 
-Inference residency
-
-Controls where Claude processes requests and generates responses.
+  Controls where Claude processes requests and generates responses.
 
 ## Trusted across
 regulated sectors
 
 Organizations in financial services, healthcare, life sciences, government, and legal services accelerate sensitive, mission-critical workflows with Claude while maintaining compliance standards.
 
-![Norges Bank](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69024ccbf55f348e93fa53da_logo_NBIM-light.svg)![Norges Bank](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69024cd21320bee289fca342_logo_NBIM-dark.svg)
+* ![NBIM](https://assets.claude.com/ba63fc8f22c700507805f256e2a25282773a86c9.svg)
 
-$1.7T
+  $1.7T
 
-Norges Bank Investment Management handles $1.7T in assets with European data protection compliance.
+  Norges Bank Investment Management handles $1.7T in assets with European data protection compliance.
 
-Read story
+  [Read story](https://claude.com/customers/nbim)
+* ![Novo Nordisk](https://assets.claude.com/c704b3e5698e39df44f1812135eb46e27f59cc3d.svg)
 
-[Read story](https://claude.com/customers/nbim)Read story
+  90%
 
-![Novo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e95892c8138bb71e5f49a8_logo_novonordisk-light.svg)![Novo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e9589e1a4ce420f9e6cee5_logo_novonordisk-dark.svg)
+  Novo Nordisk, the maker of Ozempic, cut regulatory documentation time by 90% with Claude.
 
-90%
+  [Read story](https://claude.com/customers/novo-nordisk)
+* ![European Parliament](https://assets.claude.com/227fdd612ce017c59d2f295213d2f1c2be3cbcc8.svg)
 
-Novo Nordisk, the maker of Ozempic, cut regulatory documentation time by 90% with Claude.
+  2.1M
 
-Read story
-
-[Read story](https://claude.com/customers/novo-nordisk)Read story
-
-![European Parliament ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa7d3062ccf9eb360e34_European%20Parliment_light.svg)![European Parliament ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa7822750d186de2350b_European%20Parliment_dark.svg)
-
-2.1M
-
-The European Parliament transformed 2.1M archive documents accessibility with Claude via AWS Bedrock.
-
-Read story
-
-[Read story](#)Read story
+  The European Parliament transformed 2.1M archive documents accessibility with Claude via AWS Bedrock.
 
 ## Compliance and certifications
 
@@ -159,11 +85,9 @@ Claude supports compliance with industry and regional standards.
 ### Regulatory compliance
 
 * **GDPR** (General Data Protection Regulation) with regional processing within EU/EEA
-* **HIPAA** (Health Insurance Portability and Accountability Act) for protected health information[‍](https://www.anthropic.com/legal/data-processing-addendum)
-* [Data Processing Addendum](https://www.anthropic.com/legal/data-processing-addendum) defining roles and responsibilities
+* **HIPAA** (Health Insurance Portability and Accountability Act) for protected health information
+* [Data Processing Addendum (opens in new tab)](https://www.anthropic.com/legal/data-processing-addendum) defining roles and responsibilities
 * Support for data subject rights, retention policies, and deletion capabilities
-
-‍
 
 ### Security certifications
 
@@ -177,25 +101,19 @@ Documentation and certifications
 
 View complete compliance documentation and certifications at our Trust Center.
 
-Visit Trust Center
-
-[Visit Trust Center](https://trust.anthropic.com/)Visit Trust Center
+[Visit Trust Center (opens in new tab)](https://trust.anthropic.com/)
 
 Data protection commitment
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6942191b06daae2001641e0d_image_compliance-protection.webp)
+![](https://assets.claude.com/b2d31f3e119240caf9b4eff64534724d5bf68b4a.jpg)
 
 By default, Anthropic does not use customer data from commercial deployments to train models. Your proprietary information and client data remain confidential across all deployment options and compliance frameworks.
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694347c77716d9508d082076_badge_star-2_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694347e005c5d1fafb66592e_badge_star-2_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6943474104aa892b6bd20513_badge_iso-27018_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69434748ecd5eb3d26431270_badge_iso-27018_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694346edff56a73e7b6b9e2d_badge_ISO-27001_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69434663793e0a69561ae76c_badge_ISO-27003_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694346b5d7b324059eb0347a_badge_iso-27017_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694346bc6419e792910a40ca_badge_iso-27017_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694346283e1a5194f527c95e_badge_hipaa_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6943467107cd8283b742acd2_badge_hipaa_dark.svg)
+* ![[Badge] CSA Star](https://assets.claude.com/90088d799b30f6848cee7d8147f63350fa64ce5d.svg)
+* ![[Badge] ISO 27018](https://assets.claude.com/d74d4eb6bc25a9b13e219742d55d28e9db87b2f1.svg)
+* ![[Badge] ISO-27001](https://assets.claude.com/60436402394cf65d55b0561d10d4b50e9a892c4c.svg)
+* ![[Badge]-ISO-27017](https://assets.claude.com/d81af44e9f6cf2d9134c9aa23a308d2e016ca347.svg)
+* ![[Badge] HIPAA](https://assets.claude.com/2bf375973c2e54482975e0f6d26bf1fd060b6ee7.svg)
 
 ## FAQ
 
@@ -215,16 +133,8 @@ Global endpoints dynamically route requests to regions with available capacity, 
 
 Regional deployment provides access to the same frontier Claude models (Sonnet 5, Opus 5, and Haiku 4.5) with the same intelligence and performance. All platforms support fundamental capabilities including vision, tool use, and extended context windows. Some advanced features may vary by platform—check the feature support documentation for AWS Bedrock, GCP Vertex, and Microsoft Foundry—or reach out to our sales team—to confirm specific capabilities for your needs.
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 Get started with regional deployment
 
-Visit Trust Center
+[Visit Trust Center (opens in new tab)](https://trust.anthropic.com/)[Contact sales](https://claude.com/contact-sales)
 
-[Visit Trust Center](https://trust.anthropic.com/)Visit Trust Center
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
+Regional Compliance | Claude by Anthropic

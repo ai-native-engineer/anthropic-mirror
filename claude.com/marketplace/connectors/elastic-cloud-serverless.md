@@ -6,7 +6,6 @@ Connect Claude to your Elastic Cloud Serverless project to search and analyze yo
 
 ## Tools
 
-* platform\_context\_engine\_save\_automation
 * platform\_core\_execute\_esql
 * platform\_core\_execute\_workflow
 * platform\_core\_generate\_esql
@@ -21,17 +20,13 @@ Connect Claude to your Elastic Cloud Serverless project to search and analyze yo
 * platform\_core\_product\_documentation
 * platform\_core\_resume\_workflow\_execution
 * platform\_core\_search
-* platform\_streams\_create\_partition
-* platform\_streams\_delete\_stream
-* platform\_streams\_design\_pipeline
-* platform\_streams\_diagnose\_stream
-* platform\_streams\_inspect\_streams
-* platform\_streams\_query\_documents
-* platform\_streams\_update\_stream
 * platform\_workflows\_get\_connectors
 * platform\_workflows\_get\_examples
-
-Show all 29 tools
+* platform\_workflows\_get\_step\_definitions
+* platform\_workflows\_get\_trigger\_definitions
+* platform\_workflows\_get\_workflow
+* platform\_workflows\_validate\_workflow
+* platform\_workflows\_workflow\_execute\_step
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
@@ -86,3 +81,5 @@ Connect your Notion workspace to search, update, and power workflows across tool
 Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
+
+Elastic Cloud Serverless connector | Claude by Anthropic

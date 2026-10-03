@@ -33,14 +33,15 @@ Triage and disclosure were performed by Trail of Bits.
 
 1. 2026-03-03
 2. 2026-03-29
-3. 2026-03-29
+3. 2026-03-30
 4. 2026-05-09
+5. 2026-08-17
 
 ce928e32f2d40c5afc3911f86cbf75774a72defba7331a4233ba68f846447e71482974fd708e1b7137ccf7edcae245f89826cfeb3b038c4fa962703b3640efdb
 
-Committed 2026-04-09 11:50 PT
+Committed 2026-04-09 18:50 UTC
 
-Revealed 2026-08-17 10:47 PT
+Revealed 2026-08-17 17:47 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-GSDN3H7W%22%2C%22bug_class%22%3A%22Stack%20Buffer%20Overflow%22%2C%22claude_severity%22%3A%22low%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-29T20%3A43%3A23%2B00%3A00%22%2C%22description%22%3A%22An%20unbounded%20memcpy%20in%20do_key_value%20copies%20profile%20data%20into%20a%20fixed%2032-byte%20stack%20buffer%2C%20overflowing%20it.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22do_key_value%28%29%22%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22OpenSC%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3Anull%2C%22title%22%3A%22Stack%20buffer%20overflow%20in%20do_key_value%20profile%20parsing%20via%20unbounded%20memcpy%20into%2032-byte%20buffer%22%2C%22vendor_severity%22%3A%22low%22%7D)
 

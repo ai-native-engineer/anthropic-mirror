@@ -5,7 +5,7 @@
 ## use-after-free medium
 
 [CVE-2026-41401](https://nvd.nist.gov/vuln/detail/CVE-2026-41401)
-[GHSA-9f49-8x56-jmjc](https://github.com/advisories/GHSA-9f49-8x56-jmjc)
+[GHSA-9f49-8x56-jmjc](https://github.com/CESNET/libyang/security/advisories/GHSA-9f49-8x56-jmjc)
 [GHSA-v7jp-vmx6-5429](https://github.com/advisories/GHSA-v7jp-vmx6-5429)
 
 Claude medium
@@ -18,7 +18,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 A heap use-after-free write occurs in metadata list management during XML data parsing due to an incorrect update of the list head pointer.
 
-**Project:** libyang
+**Project:** cesnet/libyang
 
 During XML data parsing, the code managing the metadata linked list updates the list head pointer incorrectly, leaving a reference to freed heap memory that is subsequently written to.
 
@@ -72,8 +72,6 @@ Anthropic is conducting research into the use of large language models for autom
 
 Thank you for your work on libyang!
 
-UPSTREAM FIX
-
 The change that resolved this finding.
 
 ```
@@ -107,16 +105,16 @@ index 000000000..7e3b6c39e
 <https://github.com/CESNET/libyang/commit/54c3276d871023da266d4ed3ceaee7e8d71d0b04>
 
 1. 2026-03-26
-2. 2026-03-29
-3. 2026-04-01
+2. 2026-03-26
+3. 2026-03-29
 4. 2026-05-09
 5. 2026-05-20
 
 e0d7ff03175cfb6f262ec1ce13576b26ab2125bf68ff4ba73e0038c768ad2a44514bb277f85c8737968bf040c411a277752967b60dfd39ae451244fd83ed6ad4
 
-Committed 2026-05-07 00:01 PT
+Committed 2026-05-07 07:01 UTC
 
-Revealed 2026-05-20 00:40 PT
+Revealed 2026-05-20 07:40 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-TZQ1KH7E%22%2C%22bug_class%22%3A%22Use-After-Free%22%2C%22claude_severity%22%3A%22medium%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-29T20%3A43%3A15%2B00%3A00%22%2C%22description%22%3A%22A%20heap%20use-after-free%20write%20occurs%20in%20metadata%20list%20management%20during%20XML%20data%20parsing%20due%20to%20an%20incorrect%20update%20of%20the%20list%20head%20pointer.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3Anull%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22libyang%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3A%22During%20XML%20data%20parsing%2C%20the%20code%20managing%20the%20metadata%20linked%20list%20updates%20the%20list%20head%20pointer%20incorrectly%2C%20leaving%20a%20reference%20to%20freed%20heap%20memory%20that%20is%20subsequently%20written%20to.%22%2C%22title%22%3A%22Heap%20use-after-free%20write%20in%20metadata%20list%20management%20during%20XML%20data%20parsing%20due%20to%20incorrect%20list%20head%20pointer%20update%22%2C%22vendor_severity%22%3A%22medium%22%7D)
 

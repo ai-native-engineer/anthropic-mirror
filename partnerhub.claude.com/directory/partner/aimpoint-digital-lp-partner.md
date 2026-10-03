@@ -22,7 +22,7 @@ English, French, German, Spanish
 
 Atlanta, GA, USA
 
-25 September 2026
+2 October 2026
 
 ## About Aimpoint Digital
 
@@ -36,15 +36,11 @@ As an Anthropic Select Partner, a three-time Databricks Digital Native Partner o
 
 ## Case Studies
 
-![](https://api.eulerapp.com/partner-directory/assets/cdcab7156c09177d470bcc1ae9d4a73e)
-
-Turning Claude Code adoption into governed, scalable impact
-
 ![](https://api.eulerapp.com/partner-directory/assets/dcb189450ca0b072a20706388197b56b)
 
 Building Responsible AI Fluency: A Claude Enablement Program for Critical Infrastructure
 
-![](https://api.eulerapp.com/partner-directory/assets/dcb189450ca0b072a20706388197b56b)
+![](https://api.eulerapp.com/partner-directory/assets/eb5bf17bafbe5c4f2f930b8cd4c603cf)
 
 Turning Claude Code Adoption into Governed, Scalable Impact
 

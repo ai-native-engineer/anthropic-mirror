@@ -4,15 +4,7 @@
 
 Deploy frontier AI solutions safely and simply, using your existing Azure ecosystem.
 
-‍
-
-Get started
-
-[Get started](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude?tabs=python)Get started
-
-Read API docs
-
-[Read API docs](https://code.claude.com/docs/en/microsoft-foundry)Read API docs
+[Get started (opens in new tab)](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude?tabs=python)[Read API docs (opens in new tab)](https://code.claude.com/docs/en/microsoft-foundry)
 
 ## Simplify your path to AI production and business impact
 
@@ -40,17 +32,13 @@ Claude usage appears on your Azure invoice alongside other services, simplifying
 
 Anthropic’s models are at the forefront of coding, math, and reasoning skills. Claude can complete complex engineering tasks to solve problems that would typically take a full day of engineering work.
 
-Learn more
-
-[Learn more](https://claude.com/solutions/coding)Learn more
+[Learn more](https://claude.com/solutions/coding)
 
 ### Customer support
 
 Claude can handle ticket triage, on-demand complex inquiries using rich context awareness, and multi-step support workflows—all with conversational responses and a warm tone.
 
-Learn more
-
-[Learn more](https://claude.com/solutions/customer-support)Learn more
+[Learn more](https://claude.com/solutions/customer-support)
 
 ### Productivity
 
@@ -60,9 +48,7 @@ Claude can extract relevant information from business emails and documents, cate
 
 Claude can handle everything from entry-level financial analysis to advanced predictive modeling, connecting insights across regulatory filings, market reports, and internal data.
 
-Learn more
-
-[Learn more](https://claude.com/solutions/financial-services)Learn more
+[Learn more](https://claude.com/solutions/financial-services)
 
 Claude API
 
@@ -70,13 +56,7 @@ Claude API
 
 Inference runs in an Azure data zone, operated by Anthropic.
 
-Get started
-
-[Get started](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude)Get started
-
-Read API docs
-
-[Read API docs](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)Read API docs
+[Get started (opens in new tab)](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude)[Read API docs (opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
 
 ### Runs in Azure
 
@@ -90,35 +70,67 @@ Usage appears alongside your other Azure services. Eligible spend counts toward 
 
 Point Claude Code at your Foundry endpoint and start shipping.
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a204b023a1098addb579701_6a204a9b15a9f95c27630dc2_NVIDIA_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2859e3adf1957b476f9302_NVIDIA_dark.svg)
+![Bolt](https://assets.claude.com/c47ae719ec15794844da97bc7651c0081ce5a4e2.svg)
 
-“At NVIDIA, we use autonomous AI agents every day to help our teams move faster and think bigger. Claude models bring strong reasoning, coding and enterprise capabilities that are valuable for complex technical work. With Claude now available in Microsoft Foundry running on NVIDIA GB300 GPUs, more organizations can run advanced, specialized AI agents with the performance, scale and security needed for production.”
-
-Justin Boitano, VP and GM Enterprise Computing
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f26e70e1444e31742ca027_logo_boltupdatedlogo-light-mode.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f26e76cdf0245458a77c3f_logo_boltupdatedlogo-dark-mode.svg)
-
-"Running Claude models on Azure has given us the sustained throughput and reliability our enterprise customers expect. The combination of frontier model quality and enterprise-grade infrastructure is what makes Bolt viable for the Fortune 500."
+> “Running Claude models on Azure has given us the sustained throughput and reliability our enterprise customers expect. The combination of frontier model quality and enterprise-grade infrastructure is what makes Bolt viable for the Fortune 500.”
 
 Gary Ballabio, VP Partnerships
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4294731824c4a56d179e38_everstar_logo_text_black_transparent.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a429480abcaaadc64e5a626_everstar_logo_text_white_transparent.svg)
+![Everstar](https://assets.claude.com/6f7717716904d0404851a3260a6b8614a90b4b9b.svg)
 
-"Between Anthropic and Azure, we get the best capabilities in the world and we get the best security in the world. And that's exactly what nuclear needs. It's how we compressed a safety analysis that would have taken 200 human days into a single day."
+> “Between Anthropic and Azure, we get the best capabilities in the world and we get the best security in the world. And that's exactly what nuclear needs. It's how we compressed a safety analysis that would have taken 200 human days into a single day.”
 
 Matt Huang, Founding Product Lead
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ff92789d8b7fe87033d56_momentic_Logo_OffBlackonTransparent.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ff9309a1295ecd91d8e21_momentic_Logo_OffWhiteonTransparent.svg)
+![Momentic](https://assets.claude.com/1e772cafba3aa7df6421311004ebba996aae91f4.svg)
 
-"Our customers describe their tests in plain English, and Momentic runs through the interface to verify everything works before a release ships. We found Claude Opus especially suited to this, and running it on Azure Foundry we now serve millions of tokens per minute with the reliability our customers depend on."
+> “Our customers describe their tests in plain English, and Momentic runs through the interface to verify everything works before a release ships. We found Claude Opus especially suited to this, and running it on Azure Foundry we now serve millions of tokens per minute with the reliability our customers depend on.”
 
 Jeff An, Co-founder & CTO
 
-[Prev](#)Prev
+![NVIDIA](https://assets.claude.com/044005ede158436b5a7762e9f636b29d8f6a0ea5.svg)
 
-0/5
+> “At NVIDIA, we use autonomous AI agents every day to help our teams move faster and think bigger. Claude models bring strong reasoning, coding and enterprise capabilities that are valuable for complex technical work. With Claude now available in Microsoft Foundry running on NVIDIA GB300 GPUs, more organizations can run advanced, specialized AI agents with the performance, scale and security needed for production.”
 
-[Next](#)Next
+Justin Boitano, VP and GM Enterprise Computing
+
+![Bolt](https://assets.claude.com/c47ae719ec15794844da97bc7651c0081ce5a4e2.svg)
+
+> “Running Claude models on Azure has given us the sustained throughput and reliability our enterprise customers expect. The combination of frontier model quality and enterprise-grade infrastructure is what makes Bolt viable for the Fortune 500.”
+
+Gary Ballabio, VP Partnerships
+
+![Everstar](https://assets.claude.com/6f7717716904d0404851a3260a6b8614a90b4b9b.svg)
+
+> “Between Anthropic and Azure, we get the best capabilities in the world and we get the best security in the world. And that's exactly what nuclear needs. It's how we compressed a safety analysis that would have taken 200 human days into a single day.”
+
+Matt Huang, Founding Product Lead
+
+![Momentic](https://assets.claude.com/1e772cafba3aa7df6421311004ebba996aae91f4.svg)
+
+> “Our customers describe their tests in plain English, and Momentic runs through the interface to verify everything works before a release ships. We found Claude Opus especially suited to this, and running it on Azure Foundry we now serve millions of tokens per minute with the reliability our customers depend on.”
+
+Jeff An, Co-founder & CTO
+
+![NVIDIA](https://assets.claude.com/044005ede158436b5a7762e9f636b29d8f6a0ea5.svg)
+
+> “At NVIDIA, we use autonomous AI agents every day to help our teams move faster and think bigger. Claude models bring strong reasoning, coding and enterprise capabilities that are valuable for complex technical work. With Claude now available in Microsoft Foundry running on NVIDIA GB300 GPUs, more organizations can run advanced, specialized AI agents with the performance, scale and security needed for production.”
+
+Justin Boitano, VP and GM Enterprise Computing
+
+![Bolt](https://assets.claude.com/c47ae719ec15794844da97bc7651c0081ce5a4e2.svg)
+
+> “Running Claude models on Azure has given us the sustained throughput and reliability our enterprise customers expect. The combination of frontier model quality and enterprise-grade infrastructure is what makes Bolt viable for the Fortune 500.”
+
+Gary Ballabio, VP Partnerships
+
+![Everstar](https://assets.claude.com/6f7717716904d0404851a3260a6b8614a90b4b9b.svg)
+
+> “Between Anthropic and Azure, we get the best capabilities in the world and we get the best security in the world. And that's exactly what nuclear needs. It's how we compressed a safety analysis that would have taken 200 human days into a single day.”
+
+Matt Huang, Founding Product Lead
+
+1/4
 
 Claude API
 
@@ -126,13 +138,7 @@ Claude API
 
 The newest Claude models and API features, reached through Foundry.
 
-Get started
-
-[Get started](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude?tabs=python)Get started
-
-Read API docs
-
-[Read API docs](#)Read API docs
+[Get started](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude?tabs=python)[Read API docs](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
 
 ### Every Claude model
 
@@ -148,10 +154,6 @@ Usage appears on your Azure invoice. Eligible spend counts toward your MACC.
 
 ## Get started with Claude in Microsoft Foundry
 
-Get started
+[Get started](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude?tabs=python)[Read API docs](https://code.claude.com/docs/en/microsoft-foundry)
 
-[Get started](#)Get started
-
-Read API docs
-
-[Read API docs](#)Read API docs
+Claude in Microsoft Foundry | Claude by Anthropic

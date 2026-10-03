@@ -110,3 +110,5 @@ Search, edit and get insights on your Box content
 Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+
+Coinversa Pulse connector | Claude by Anthropic

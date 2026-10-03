@@ -153,7 +153,7 @@ No. Reply in your existing conversation, in the messenger or by email, and it mo
 Organization owners and admins on qualifying Enterprise plans have prioritized options in the messenger. Platform status is always available on **[our status page](https://status.claude.com)**.
 
 * [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
-* [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
 * [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
-* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
+* [Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)
 * [What is Claude Tag?](https://support.claude.com/en/articles/15594475-what-is-claude-tag)

@@ -60,17 +60,3 @@ The alignment between many of our recommendations and the AI Action Plan demonst
 We look forward to working with the Administration to implement these initiatives while ensuring appropriate attention to catastrophic risks and maintaining strong export controls. Together, we can ensure that powerful AI systems are developed safely in America, by American companies, reflecting American values and interests.
 
 For more details on our policy recommendations, see our full [submission to OSTP](https://assets.anthropic.com/m/4e20a4ab6512e217/original/Anthropic-Response-to-OSTP-RFI-March-2025-Final-Submission-v3.pdf), and our ongoing work on [responsible AI development](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) and our recent report on [increasing domestic energy capacity](https://www-cdn.anthropic.com/0dc382a2086f6a054eeb17e8a531bd9625b8e6e5.pdf).
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

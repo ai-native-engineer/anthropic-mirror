@@ -23,17 +23,3 @@ Over the nearly two years since we first published our Responsible Scaling Polic
 As an industry, we're still developing best practices for assessing the systemic risks identified in the Code. Different risks require different methodologies. Third-party organizations like the [Frontier Model Forum](https://www.frontiermodelforum.org/) play a critical role, establishing common safety practices and evaluation standards that evolve with the technology. These groups bridge industry and government, translating technical insights into actionable policy.
 
 We're committed to working with the EU AI Office and safety organizations to ensure the Code remains both robust and responsive to emerging technologies. This collaborative approach—combining regulatory frameworks with flexibility—will be essential for Europe to harness AI's benefits while competing effectively on the global stage.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

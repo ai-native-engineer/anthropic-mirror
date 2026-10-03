@@ -4,165 +4,126 @@
 
 Claude is the not-so-secret advantage for world class engineering teams and software companies.
 
-Start building
+[Start building (opens in new tab)](https://platform.claude.com/)[Contact sales](https://claude.com/contact-sales)
 
-[Start building](https://platform.claude.com/)Start building
+[![](https://assets.claude.com/2b058b37151273b2dfff681861d4f99dc28a882d.png)](https://assets.claude.com/27884c4362fe884eca5dba08fe5c7efb1bbf567a.mp4)
 
-Contact sales
+* 66.4%
 
-[Contact sales](https://claude.com/contact-sales)Contact sales
+  Opus 5.5 on Terminal-Bench 4.0
+* ## 60x
 
-[Play video](#)Play video
+  faster code review feedback for an AI platform customer
+* ## 95%
 
-[](https://www-cdn.anthropic.com/27884c4362fe884eca5dba08fe5c7efb1bbf567a.mp4)
+  reduction in time to run tests for an enterprise software customer
 
-66.4%
-
-Opus 5.5 on Terminal-Bench 4.0
-
-## 60x
-
-faster code review feedback for an AI platform customer
-
-## 95%
-
-reduction in time to run tests for an enterprise software customer
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8ba3466f0c993603d7b_6ab2c6e8c7f95095d8c9bba5_startups-wordmark-augment-code-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603d8d_6ab2c6e8bcffe96ca440c809_startups-wordmark-augment-code-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaf1b161d57cbe7095b8_GitLab_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaebe118de085a232f53_GitLab_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae5cc28a7f003e87512b_Vercel_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae58a9b3ff9512c20db4_Vercel_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aadb9c888be349095269_github%20copilot_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aae383bb0532fc4469ff_github%20copilot_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bce42081e89a8bec1f_logo_cursor-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bafffa19b5e3366ebc_logo_cursor-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adbbc56b42302c22e057_sourcegraph_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5b5e9000806e93902a96b_sourcegraph_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
+* ![Augment Code](https://assets.claude.com/7c991eec0ef2ebdbb312e3a55072965c105f343e.svg)
+* ![GitLab](https://assets.claude.com/9760b31778be76fd66c6b722dced22db12cb59e8.svg)
+* ![Vercel](https://assets.claude.com/f6f5598aac3be6fd9b2dfc23eced7509c90d387b.svg)
+* ![GitHub Copilot](https://assets.claude.com/ca4926c8671ff31babf492320985b02d2ce36f3c.svg)
+* ![Cursor](https://assets.claude.com/ff9cb146ba10268aa06e6488b4a5528bc06e0830.svg)
+* ![Sourcegraph](https://assets.claude.com/4c92243e3dd5b307a7ddc1b4ef279a0839b7f3e1.svg)
+* ![Replit](https://assets.claude.com/28b18c56c8aea46930c7b90ecfe004893de1d250.svg)
+* ![Cognition](https://assets.claude.com/668e21fde8e649dceecf16e585196cbf01f4f916.svg)
 
 ## Write code with Claude
 
 Get complete insight into your codebase and accelerate exceptional software.
 
-Prompt
-
-> claude fix the authentication error in our login flow
-
+```
 I'll investigate the auth error. Let me look at the relevant files.
 
-‍
-
 Examining auth-related files...
-
-\* src/services/authService.js
-
-\* src/components/Login.jsx
-
-\* src/store/authSlice.js
-
-‍
+* src/services/authService.js
+* src/components/Login.jsx
+* src/store/authSlice.js
 
 Running the login flow...
 
-‍
-
 Error detected: "401 Unauthorized: Token expired"
 
-‍
-
 Root cause:
-
-\* Token refresh mechanism not handling expired tokens correctly
-
-\* Refresh token missing from request header
-
-\* Improper error handling for 401 responses
-
-‍
+* Token refresh mechanism not handling expired tokens correctly
+* Refresh token missing from request header
+* Improper error handling for 401 responses
 
 Updating authService.js with proper refresh logic...
-
 Updating request interceptor for 401 handling...
-
 Testing the fix...
 
-‍
-
-\* Login successful ✓
-
-\* Token refresh working ✓
-
-\* Proper redirection on expired tokens ✓
-
-‍
+* Login successful ✓
+* Token refresh working ✓
+* Proper redirection on expired tokens ✓
 
 Authentication error fixed! The login flow now properly handles token expiration.
+```
 
 ### Scale coding impact, not overhead
 
 Write, test, and debug complex software with [Claude](https://claude.ai), analyze codebases with expert-level reasoning via GitHub integration, delegate development tasks through computer use, and fast-track smarter engineering decisions in a shared workspace.
 
-Learn more
+[Learn more](https://claude.com/product/claude-code/enterprise)
 
-[Learn more](https://claude.com/product/claude-code/enterprise)Learn more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/691505c9bba2f78bec842d0c_claude-code_use-case_terminal_w-bg.webp)
+![](https://assets.claude.com/cdad5485cfc8dd3d4d226ed395f619acd7062ef6.jpg)
 
 ### Explore agentic coding with Claude Code
 
 Claude Code brings Fable 5.1 to your terminal, with deep codebase awareness and the ability to edit files and run commands directly in your environment.
 
-Learn more
-
-[Learn more](https://claude.com/product/claude-code)Learn more
+[Learn more](https://claude.com/product/claude-code)
 
 ## Developers love Claude
 
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“I taught a friend who has never written code in her life how to use Claude to build a simple app and deploy it on Cloudflare today. Watching someone realize that they can now build software is a great experience. Enable everyone to build anything.”
-
-Logan Grasby, @LoganGrasby
-
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“I introduced someone to Claude Code, Opus last night, and we were up til 4 am building a project. It was crazy! 20K lines of codes, audit logging, a full Prisma Database, complete architecture, and a complete roadmap with 4 phases for complete implementation.”
-
-Teneika Askew, @teneikaask\_you
-
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“Just taught my fiancée how to use claude to write code that automates dumb tasks that have been making her work life miserable for months. She went from being downtrodden and skeptical to dancing around the room in about 15 minutes. END USER PROGRAMMING IS NOW.”
-
-Kasey, @kaseyklimes
-
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“I know this sounds cringe, but I literally have clammy hands and a racing heart because of how powerful Claude + Cursor is. Like I just made a whole new feature, frontend and backend, built on top of my own custom APIs without touching code, then I had it switch from a SwiftUI.”
+> “I know this sounds cringe, but I literally have clammy hands and a racing heart because of how powerful Claude + Cursor is. Like I just made a whole new feature, frontend and backend, built on top of my own custom APIs without touching code, then I had it switch from a SwiftUI.”
 
 Majd Taby, @jtaby
 
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“Anthropic is leading the Industry with models - like Sonnet and Opus - and developer tools - like Claude Code.”
+> “Anthropic is leading the Industry with models - like Sonnet and Opus - and developer tools - like Claude Code.”
 
 Jon Meyers, @jonmeyers\_io
 
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“With new Claude i officially feel like a fraud when i code, I’m the guy in the corner saying um nice job boss keep going.”
+> “With new Claude i officially feel like a fraud when i code, I’m the guy in the corner saying um nice job boss keep going.”
 
 Nick, @nickcammarata
 
-[Prev](#)Prev
+> “I taught a friend who has never written code in her life how to use Claude to build a simple app and deploy it on Cloudflare today. Watching someone realize that they can now build software is a great experience. Enable everyone to build anything.”
 
-0/5
+Logan Grasby, @LoganGrasby
 
-[Next](#)Next
+> “I introduced someone to Claude Code, Opus last night, and we were up til 4 am building a project. It was crazy! 20K lines of codes, audit logging, a full Prisma Database, complete architecture, and a complete roadmap with 4 phases for complete implementation.”
+
+Teneika Askew, @teneikaask\_you
+
+> “Just taught my fiancée how to use claude to write code that automates dumb tasks that have been making her work life miserable for months. She went from being downtrodden and skeptical to dancing around the room in about 15 minutes. END USER PROGRAMMING IS NOW.”
+
+Kasey, @kaseyklimes
+
+> “I know this sounds cringe, but I literally have clammy hands and a racing heart because of how powerful Claude + Cursor is. Like I just made a whole new feature, frontend and backend, built on top of my own custom APIs without touching code, then I had it switch from a SwiftUI.”
+
+Majd Taby, @jtaby
+
+> “Anthropic is leading the Industry with models - like Sonnet and Opus - and developer tools - like Claude Code.”
+
+Jon Meyers, @jonmeyers\_io
+
+> “With new Claude i officially feel like a fraud when i code, I’m the guy in the corner saying um nice job boss keep going.”
+
+Nick, @nickcammarata
+
+> “I taught a friend who has never written code in her life how to use Claude to build a simple app and deploy it on Cloudflare today. Watching someone realize that they can now build software is a great experience. Enable everyone to build anything.”
+
+Logan Grasby, @LoganGrasby
+
+> “I introduced someone to Claude Code, Opus last night, and we were up til 4 am building a project. It was crazy! 20K lines of codes, audit logging, a full Prisma Database, complete architecture, and a complete roadmap with 4 phases for complete implementation.”
+
+Teneika Askew, @teneikaask\_you
+
+> “Just taught my fiancée how to use claude to write code that automates dumb tasks that have been making her work life miserable for months. She went from being downtrodden and skeptical to dancing around the room in about 15 minutes. END USER PROGRAMMING IS NOW.”
+
+Kasey, @kaseyklimes
+
+1/6
 
 ## Build products with the Claude Platform
 
@@ -171,10 +132,8 @@ Integrate Claude’s powerful AI capabilities into your apps and deliver product
 Existing prompt
 
 Classify all customer support tickets into the most relevant category.
-
 Here is the list of categories to choose from:
 {{CATEGORY\_LIST}}
-
 Here is the content of the support ticket:
 {{TICKET\_CONTENT}}
 
@@ -227,103 +186,123 @@ Remember to be thorough in your analysis and clear in your explanation. Your goa
 
 ## See why companies choose Claude
 
-![Deloitte Consulting LLP (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa4f49588bd5ac875956_deloitte_light.svg)![Deloitte Consulting LLP (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa491a800b9e0c37fe24_deloitte_dark.svg)
+![Red Hat](https://assets.claude.com/144df01d20c51393e75bf99327301d061c3ef9ef.svg)
 
-“Even at its lowest effort setting, Claude Opus 5.5 caught 72% of known bugs in our code reviews to Opus 5’s 56% at high effort, with fewer false alarms and a fraction of the output. On US consulting analysis, low thinking effort matched its higher thinking settings on half the output and passed our quality checks. When more lower thinking efforts are deployed in production, that’s client-ready work delivered efficiently.”
-
-Carl Bennett, CIO
-
-![GitHub (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![GitHub (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
-
-“Developers want agents that can take on real software work and finish it. In our testing across GitHub Copilot CLI and VS Code, Claude Opus 5.5 used among the fewest tokens and steps we measured. In VS Code, it solved more terminal tasks than Opus 5 in less than half the steps. More than making individual tasks more efficient, it’s making developers’ bigger projects more achievable.”
-
-Mario Rodriguez, Chief Product Officer
-
-![Clio (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab27f82cd30d8963d03f5bc_clio-light.svg)![Clio (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab27f8a23529d9546ea88fa_clio-dark.svg)
-
-“I handed Claude Opus 5.5 a large engineering task across six of our repositories and let it run overnight, unattended. It stayed on task for over 18 hours defining how our services talk to each other and working out how each one should apply that. Compared with Opus 5, it hit milestones faster and required minimal reworking. Its code comments were short and useful instead of long and prose-heavy. I’m struggling to find anything negative to say.”
-
-Sean Heintz, Staff Software Developer
-
-![Lovable (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed7_6ab2c6eb2a0f7493d7d5b0ed_startups-wordmark-lovable-light.svg)![Lovable (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8be3466f0c993603eef_6ab2c6ebbcffe96ca440c8d3_startups-wordmark-lovable-dark.svg)
-
-“For Lovable builders, Opus 5.5 means faster builds with the same quality, whether you’re starting from scratch or working on a live app. It gathers context once, makes fewer and more complete edits, and doesn’t get stuck retrying, finishing in a third to half fewer steps and using significantly fewer tokens along the way.”
-
-Fabian Hedin, CTO & Co-founder
-
-![Spotify (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4fac9a204dd3aef4556_spotify-logo-black.svg)![Spotify (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
-
-“With Claude Opus 5.5, we’ve seen a clear improvement in token efficiency across our internal evaluations, as we’ve been able to complete the same tasks both cheaper and faster.”
-
-Aleksandar Mitic, Senior Engineer
-
-![Optiver (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2776f3765518e9a151fa9b_logo_optiver-light.svg)![Optiver (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2776fed93e492e2711c1a3_logo_optiver-dark.svg)
-
-“We test models on real engineering and trading-desk work. On our agentic coding tasks, Claude Opus 5.5 matched Opus 5’s quality in about half the turns, time and output tokens, cutting the cost of that workload by 40 to 50%. It posted the highest score we’ve recorded on one desk’s trading-support suite, passing tasks earlier Claude models had failed, and topped all eight models on our analysis task.”
-
-Noyan Tokgozoglu, Global Head of AI Engineering
-
-![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
-
-“We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review.”
-
-Walden Yan, Co-founder and CPO
-
-![Shopify (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9368f2bd228e7080695d_logo_shopify-light.svg)![Shopify (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da936caa7913237c0589f4_logo_shopify-dark.svg)
-
-“Claude Fable 5.1 is more comfortable with long, unattended work than Fable 5. I've had workflows run for a long stretch without losing the plot: it keeps its own records, reprioritizes as things change, and picks up where it left off.”
-
-Ben Lafferty, Senior Staff Engineer
-
-![iGent (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9cbcc543d1002a3d3de9_logo_igentai-light.svg)![iGent (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9cc83d1d0e7f5216bb24_logo_igentai-dark.svg)
-
-“On the hardest problems we work on, Claude Fable 5.1 separates strongly from any other model we've tried. On a grand challenge-tier problem we've used as a testbed for 18 months, it actually produced material progress. Rather than being trapped in stamp collecting, it made clear white-space connections I have yet to see elsewhere. It also optimized a compute kernel that Fable 5 had tapped out on by about 35%.”
-
-Sean Ward, Co-founder and CEO
-
-![Plaid (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad18cefcc0f38fff4e04_Plaid_light.svg)![Plaid (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad129d3cb836048d2f6b_Plaid_dark.svg)
-
-“We had a change that touched more than eight services across three codebases. Claude Fable 5.1 mapped the whole workflow end to end, in extremely fine detail, from the incoming service call down to the individual function and the database tables and rows, and it was accurate all the way down. We appreciated the opportunity to test the model and provide feedback, helping us prepare for a new frontier where we can increasingly rely on these tools to take on bolder initiatives.”
-
-Aditya Gupta, Staff Software Engineer
-
-![SpaceXAI (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3465ab2398c17d0176_logo_spacex-light.svg)![SpaceXAI (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3841222d7122838bde_logo_spacex-dark.svg)
-
-“Claude Fable 5.1 is the most capable model we've run on CursorBench 3.2, scoring 73.4% at max effort. We found it especially skilled at verifying its own work, allowing it to take on difficult coding tasks from start to finish.”
-
-Sualeh Asif, Director of ML
-
-![Canva (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a94f6f82b1f84f489887_Canva_light.svg)![Canva (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a94baddb6685c1e5410d_Canva_dark.svg)
-
-“The standout in Claude Fable 5.1 is the writing: more understandable, more meaningful, and it follows our writing guidance better. In blind tests against Fable 5, I preferred its writing and output. And in Canva Code it built a rhythm game with real music and on-beat gameplay matched to the level it generated, something no other model we tested delivered.”
-
-Danny Wu, Head of AI
-
-![Rakuten (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5faa6352b26bf7542cb9b_logo_rakuten-light.svg)![Rakuten (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5fab610bf0d091b541153_logo_rakuten-dark.svg)
-
-“We asked Claude Fable 5.1 to review a clinical research project for Rakuten Medical that three other frontier models had signed off on. It found a gap none of them had seen and insisted on testing it further. It then proposed a completely new hypothesis, turning a dataset we had written off into a new research direction in one afternoon. It's the first time a frontier model like Claude has empowered us to explore new research in this way.”
-
-Felix Giovanni Virgo, Principal AI Engineer
-
-![Red Hat (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd41339475e271c59ea3_6a2ecc7a1372de816bc282aa_RedHat_light.svg)![Red Hat (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd40339475e271c59e88_6a2ecc7a028e2d7625286222_RedHat_dark.svg)
-
-“As part of our ongoing evaluation of AI models, Claude Fable 5.1 delivered impressive results in our tests. Using Claude Code, it correctly identified the root cause of every broken build we tested, across all the effort levels. It also communicates more effectively than earlier Anthropic models, with updates that are more concise and easier to follow.”
+> “As part of our ongoing evaluation of AI models, Claude Fable 5.1 delivered impressive results in our tests. Using Claude Code, it correctly identified the root cause of every broken build we tested, across all the effort levels. It also communicates more effectively than earlier Anthropic models, with updates that are more concise and easier to follow.”
 
 Josh Boyer, Distinguished Engineer
 
-[Prev](#)Prev
+![Deloitte](https://assets.claude.com/d799180e9a468d82dc23a32c1ddfe94dcee116d0.svg)
 
-0/5
+> “Even at its lowest effort setting, Claude Opus 5.5 caught 72% of known bugs in our code reviews to Opus 5’s 56% at high effort, with fewer false alarms and a fraction of the output. On US consulting analysis, low thinking effort matched its higher thinking settings on half the output and passed our quality checks. When more lower thinking efforts are deployed in production, that’s client-ready work delivered efficiently.”
 
-[Next](#)Next
+Carl Bennett, CIO
 
-![Replit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![Replit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
+![GitHub](https://assets.claude.com/ff6655b95f24d2aa0b9bf52c94ef5d5f5e54a70e.svg)
+
+> “Developers want agents that can take on real software work and finish it. In our testing across GitHub Copilot CLI and VS Code, Claude Opus 5.5 used among the fewest tokens and steps we measured. In VS Code, it solved more terminal tasks than Opus 5 in less than half the steps. More than making individual tasks more efficient, it’s making developers’ bigger projects more achievable.”
+
+Mario Rodriguez, Chief Product Officer
+
+![Clio](https://assets.claude.com/f72cb9a169e05b3415b3e122dd687e6a012f0509.svg)
+
+> “I handed Claude Opus 5.5 a large engineering task across six of our repositories and let it run overnight, unattended. It stayed on task for over 18 hours defining how our services talk to each other and working out how each one should apply that. Compared with Opus 5, it hit milestones faster and required minimal reworking. Its code comments were short and useful instead of long and prose-heavy. I’m struggling to find anything negative to say.”
+
+Sean Heintz, Staff Software Developer
+
+![Lovable](https://assets.claude.com/696241c910e095691021db3ee35efd8dfac8f4f2.svg)
+
+> “For Lovable builders, Opus 5.5 means faster builds with the same quality, whether you’re starting from scratch or working on a live app. It gathers context once, makes fewer and more complete edits, and doesn’t get stuck retrying, finishing in a third to half fewer steps and using significantly fewer tokens along the way.”
+
+Fabian Hedin, CTO & Co-founder
+
+![Spotify](https://assets.claude.com/ca907a6ebfed4932cb7766ca322936b3c65b2a94.svg)
+
+> “With Claude Opus 5.5, we’ve seen a clear improvement in token efficiency across our internal evaluations, as we’ve been able to complete the same tasks both cheaper and faster.”
+
+Aleksandar Mitic, Senior Engineer
+
+![Optiver](https://assets.claude.com/89d6d866124763400d2482d2aae68c663590fd2a.svg)
+
+> “We test models on real engineering and trading-desk work. On our agentic coding tasks, Claude Opus 5.5 matched Opus 5’s quality in about half the turns, time and output tokens, cutting the cost of that workload by 40 to 50%. It posted the highest score we’ve recorded on one desk’s trading-support suite, passing tasks earlier Claude models had failed, and topped all eight models on our analysis task.”
+
+Noyan Tokgozoglu, Global Head of AI Engineering
+
+![Cognition](https://assets.claude.com/668e21fde8e649dceecf16e585196cbf01f4f916.svg)
+
+> “We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review.”
+
+Walden Yan, Co-founder and CPO
+
+![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
+
+> “Claude Fable 5.1 is more comfortable with long, unattended work than Fable 5. I've had workflows run for a long stretch without losing the plot: it keeps its own records, reprioritizes as things change, and picks up where it left off.”
+
+Ben Lafferty, Senior Staff Engineer
+
+![iGent AI](https://assets.claude.com/0b0944f9ca032d4531865d2fa22d1f43a31c4daf.svg)
+
+> “On the hardest problems we work on, Claude Fable 5.1 separates strongly from any other model we've tried. On a grand challenge-tier problem we've used as a testbed for 18 months, it actually produced material progress. Rather than being trapped in stamp collecting, it made clear white-space connections I have yet to see elsewhere. It also optimized a compute kernel that Fable 5 had tapped out on by about 35%.”
+
+Sean Ward, Co-founder and CEO
+
+![Plaid](https://assets.claude.com/40cac5bb60362b9a3d1711447d37e78e78bd547e.svg)
+
+> “We had a change that touched more than eight services across three codebases. Claude Fable 5.1 mapped the whole workflow end to end, in extremely fine detail, from the incoming service call down to the individual function and the database tables and rows, and it was accurate all the way down. We appreciated the opportunity to test the model and provide feedback, helping us prepare for a new frontier where we can increasingly rely on these tools to take on bolder initiatives.”
+
+Aditya Gupta, Staff Software Engineer
+
+![SpaceX](https://assets.claude.com/16b96e8bd9d142709aad56da70ef3a9f46b69dc3.svg)
+
+> “Claude Fable 5.1 is the most capable model we've run on CursorBench 3.2, scoring 73.4% at max effort. We found it especially skilled at verifying its own work, allowing it to take on difficult coding tasks from start to finish.”
+
+Sualeh Asif, Director of ML
+
+![Canva](https://assets.claude.com/f047885ca3dadf9a16509752ef150ebb9bd424bb.svg)
+
+> “The standout in Claude Fable 5.1 is the writing: more understandable, more meaningful, and it follows our writing guidance better. In blind tests against Fable 5, I preferred its writing and output. And in Canva Code it built a rhythm game with real music and on-beat gameplay matched to the level it generated, something no other model we tested delivered.”
+
+Danny Wu, Head of AI
+
+![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
+
+> “We asked Claude Fable 5.1 to review a clinical research project for Rakuten Medical that three other frontier models had signed off on. It found a gap none of them had seen and insisted on testing it further. It then proposed a completely new hypothesis, turning a dataset we had written off into a new research direction in one afternoon. It's the first time a frontier model like Claude has empowered us to explore new research in this way.”
+
+Felix Giovanni Virgo, Principal AI Engineer
+
+![Red Hat](https://assets.claude.com/144df01d20c51393e75bf99327301d061c3ef9ef.svg)
+
+> “As part of our ongoing evaluation of AI models, Claude Fable 5.1 delivered impressive results in our tests. Using Claude Code, it correctly identified the root cause of every broken build we tested, across all the effort levels. It also communicates more effectively than earlier Anthropic models, with updates that are more concise and easier to follow.”
+
+Josh Boyer, Distinguished Engineer
+
+![Deloitte](https://assets.claude.com/d799180e9a468d82dc23a32c1ddfe94dcee116d0.svg)
+
+> “Even at its lowest effort setting, Claude Opus 5.5 caught 72% of known bugs in our code reviews to Opus 5’s 56% at high effort, with fewer false alarms and a fraction of the output. On US consulting analysis, low thinking effort matched its higher thinking settings on half the output and passed our quality checks. When more lower thinking efforts are deployed in production, that’s client-ready work delivered efficiently.”
+
+Carl Bennett, CIO
+
+1/14
+
+![Replit](https://assets.claude.com/28b18c56c8aea46930c7b90ecfe004893de1d250.svg)
 
 100K+
 
 applications deployed on Google Cloud run
 
-![Block](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8f5833964b86f792d52_block_light.svg)![Block](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8f18c96a87aa8c7e1ac_block_dark.svg)
+![Block](https://assets.claude.com/172f59075049c2af9b7896e868bc60122e3dd0f3.svg)
+
+75%
+
+engineers saving 8–10+ hours every week
+
+![Replit](https://assets.claude.com/28b18c56c8aea46930c7b90ecfe004893de1d250.svg)
+
+100K+
+
+applications deployed on Google Cloud run
+
+![Block](https://assets.claude.com/172f59075049c2af9b7896e868bc60122e3dd0f3.svg)
 
 75%
 
@@ -331,36 +310,20 @@ engineers saving 8–10+ hours every week
 
 ## Coding resources
 
-[Learn how to use Claude Code](https://code.claude.com/docs)Learn how to use Claude Code
+[Learn how to use Claude Code
 
-Learn how to use Claude Code
+Developer docs](https://code.claude.com/docs)
 
-Developer docs
+[Start building with our quickstart guides
 
-[Developer docs](https://code.claude.com/docs)Developer docs
+Quickstart](https://docs.claude.com/en/docs/get-started)
 
-[Start building with our quickstart guides](https://docs.claude.com/en/docs/get-started)Start building with our quickstart guides
+[How Anthropic teams use Claude Code
 
-Start building with our quickstart guides
-
-Quickstart
-
-[Quickstart](https://docs.claude.com/en/docs/get-started)Quickstart
-
-[How Anthropic teams use Claude Code](https://www.anthropic.com/news/how-anthropic-teams-use-claude-code)How Anthropic teams use Claude Code
-
-How Anthropic teams use Claude Code
-
-Case study
-
-[Case study](https://www.anthropic.com/news/how-anthropic-teams-use-claude-code)Case study
+Case study](https://www.anthropic.com/news/how-anthropic-teams-use-claude-code)
 
 Why do programmers prefer dark mode?
 
 I don't know
 
-[I don't know](#)I don't know
-
-Ask Claude
-
-[Ask Claude](https://claude.ai/)Ask Claude
+Coding | Claude by Anthropic

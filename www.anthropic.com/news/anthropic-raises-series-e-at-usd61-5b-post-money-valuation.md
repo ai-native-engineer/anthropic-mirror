@@ -15,17 +15,3 @@ Today's announcement follows the launch of [Claude 3.7 Sonnet](https://www.anthr
 Businesses across industries—from fast-growing startups like Cursor and Codeium to global corporations like Zoom, Snowflake and Pfizer—are turning to Claude to transform their operations. [Replit](https://www.anthropic.com/customers/replit) integrated Claude into "Agent" to turn natural language into code, [driving 10X revenue growth](https://www.inc.com/ben-sherry/after-partnering-with-anthropic-replit-has-grown-revenue-by-10x/91147509); [Thomson Reuters](https://www.anthropic.com/customers/thomson-reuters)' tax platform CoCounsel uses Claude to assist tax professionals; [Novo Nordisk](https://www.theinformation.com/articles/ozempic-maker-says-ai-is-finally-reliable-enough-to-produce-sensitive-documents?rc=77swo1) has used Claude to reduce clinical study report writing from 12 weeks to 10 minutes; and [Claude now helps to power Alexa+](https://www.anthropic.com/news/claude-and-alexa-plus), bringing advanced AI capabilities to millions of households and Prime members.
 
 Continuing this trajectory, Anthropic remains focused on deepening our understanding of frontier AI systems and ensuring that artificial intelligence advances human progress.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

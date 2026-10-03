@@ -60,14 +60,6 @@ Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
 
-![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
-
-### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
-
-Build, analyze, and compare portfolios for advisors
-
-[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
-
 ![](https://assets.claude.com/07bae35b38ae52ac6425e5a507288a7bfabc1ffd.jpg?w=128&fit=max&auto=format)
 
 ### [Stripe](https://claude.com/marketplace/connectors/stripe)
@@ -83,3 +75,11 @@ Payment processing and financial infrastructure tools
 Intelligent, secure contract management by Docusign
 
 [Add Docusign in Claude (opens in new tab)](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd "Add in Claude")
+
+![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
+
+### [Dropbox](https://claude.com/marketplace/connectors/dropbox)
+
+Search, organize, and take action on your Dropbox content
+
+[Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")

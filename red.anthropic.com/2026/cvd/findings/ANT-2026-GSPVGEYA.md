@@ -39,8 +39,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Calif.
 
-UPSTREAM FIX
-
 The change that resolved this finding.
 
 ```
@@ -274,16 +272,17 @@ index 03958bb08..8c3f650e5 100644
 
 <https://github.com/gpg/libgcrypt/commit/905e00f046a71e5670517779afaf85a354952832>
 
-1. 2026-04-13
-2. 2026-04-15
+1. 2026-04-02
+2. 2026-04-13
 3. 2026-04-15
 4. 2026-05-28
+5. 2026-08-17
 
 86f014c5715067bbe17ca099b1f5c66cb367ce1167c9d0c77c15ca73594cb5c2a6ae966ae8809431af4cb2bc6eb0b7201c5ebdd8f1e2ae2f29987915712a8300
 
-Committed 2026-05-28 08:09 PT
+Committed 2026-05-28 15:09 UTC
 
-Revealed 2026-08-17 10:47 PT
+Revealed 2026-08-17 17:47 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-GSPVGEYA%22%2C%22bug_class%22%3A%22Stack%20Buffer%20Overflow%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-04-16T02%3A33%3A49%2B00%3A00%22%2C%22description%22%3A%22In%20cipher/dilithium.c%2C%20dilithium_sign%28%29%20and%20dilithium_verify%28%29%20declare%20%60uint8_t%20pre%5B257%5D%60%20and%20loop-copy%20%60ctxlen%60%20bytes%20of%20the%20caller%27s%20context%20into%20it%20with%20no%20bound%20check.%20The%20reference%20implementation%27s%20%60if%28ctxlen%3E255%29%20return%20-1%3B%60%20guard%20in%20dilithium-dep.c%20is%20wrapped%20in%20%60%23ifndef%20DILITHIUM_INTERNAL_API_ONLY%60%2C%20but%20libgcrypt%20defines%20that%20macro%20at%20dilithium.c%3A85%2C%20so%20the%20check%20is%20compiled%20out.%20The%20context%20arrives%20from%20the%20public%20gcry_pk_sign/gcry_pk_verify%20API%20via%20the%20%60%28label%20...%29%60%20S-expression%20token%2C%20which%20pubkey-util.c%20stores%20into%20ctx.label/ctx.labellen%20with%20no%20length%20cap%20and%20pubkey-dilithium.c%20passes%20straight%20through.%20An%20attacker%20who%20can%20influence%20the%20label%20to%20exceed%20255%20bytes%20overwrites%20the%20stack%20past%20%60pre%5B%5D%60%2C%20smashing%20saved%20registers/return%20address%20and%20likely%20achieving%20code%20execution%20during%20signature%20verification.%22%2C%22discovered_at%22%3A%222026-04-02T00%3A00%3A00%2B00%3A00%22%2C%22location%22%3A%22cipher/dilithium.c%3A189%22%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22gpg/libgcrypt%22%2C%22reproduction%22%3A%5B%221.%20Attacker%20supplies%20an%20ML-DSA%20signed%20object%20or%20handshake%20message%20whose%20domain-separation%20context/label%20is%20longer%20than%20255%20bytes.%22%2C%222.%20Application%20builds%20the%20data%20S-expression%20including%20%60%28label%20%23...%3E255%20bytes...%23%29%60%20and%20calls%20gcry_pk_verify%28%29.%22%2C%223.%20_gcry_pk_util_data_to_mpi%20reads%20the%20label%20via%20sexp_nth_buffer%20with%20no%20length%20cap%20%28pubkey-util.c%3A760-777%29.%22%2C%224.%20mldsa_verify%20passes%20ctx-%3Elabel%20/%20ctx-%3Elabellen%20directly%20to%20dilithium_verify%20%28pubkey-dilithium.c%3A356-357%29.%22%2C%225.%20dilithium_verify%20loop-copies%20ctxlen%20bytes%20into%20the%20257-byte%20stack%20array%20%60pre%5B%5D%60%2C%20overflowing%20it%20and%20overwriting%20saved%20registers%20/%20return%20address.%22%5D%2C%22technical_details%22%3A%22dilithium.c%3A189%20declares%20%60uint8_t%20pre%5B257%5D%60%20and%20lines%20199-200%20execute%20%60for%28i%3D0%3Bi%3Cctxlen%3Bi%2B%2B%29%20pre%5B2%2Bi%5D%3Dctx%5Bi%5D%3B%60%20with%20%60ctxlen%60%20as%20an%20unchecked%20size_t.%20The%20upstream%20255-byte%20guard%20at%20dilithium-dep.c%3A1061/1235%20is%20excluded%20by%20%60%23define%20DILITHIUM_INTERNAL_API_ONLY%60%20%28dilithium.c%3A85%29%2C%20and%20no%20replacement%20cap%20exists%20anywhere%20in%20the%20active%20gcry_pk_verify%20%E2%86%92%20mldsa_verify%20%E2%86%92%20dilithium_verify%20path%2C%20so%20any%20label%20%3E255%20bytes%20writes%20past%20the%20end%20of%20the%20stack%20array.%22%2C%22title%22%3A%22ML-DSA%20context%20string%20stack%20buffer%20overflow%22%2C%22vendor_severity%22%3Anull%7D)
 

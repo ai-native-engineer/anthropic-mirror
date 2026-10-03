@@ -36,16 +36,4 @@ Public Policy focuses on the areas where Anthropic has defined priorities and pe
 
 We're growing our Public Policy team to help inform and shape AI governance around the world. We’re opening our first office in DC this spring, and are quickly expanding our global policy footprint. You can see our current openings [here](https://www.anthropic.com/careers/jobs?team=4002056008).
 
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
+Introducing The Anthropic Institute \ Anthropic

@@ -12,11 +12,11 @@ Recorded event
 
 # Virtual Claude Workshop
 
+###### Multiple sessions available. Choose your preferred date and time on the form.
+
+‍
+
 This Claude Workshop, presented with Tenex, is a 1.5 hour product experience for business leaders who live in documents, spreadsheets, decks, and cross-tool workflows — Finance, Operations, Marketing, HR, Legal, Sales. The focus is the product, the people who build it, and the work you do every week.
-
-*Multiple Dates & Times available. Please selection an option on the form.*
-
-**Next Session:** October 5th at 8:30am - 10:00am PT
 
 ## Featuring
 

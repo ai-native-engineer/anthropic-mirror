@@ -13,8 +13,6 @@ Using GitLab instead of GitHub? See [Configure GitLab access](https://claude.com
 Claude Tag gives Claude its own GitHub identity, the Claude GitHub App, so pull requests it opens from a channel or a DM are authored by Claude rather than by a person. You only need GitHub access if a team will hand Claude code work: branches, pull requests, review, or CI follow-up.
 You link GitHub once for your Claude organization, then grant repositories per Access bundle.
 
-If you link your GitHub organization before running [setup](https://claude.com/docs/claude-tag/admins/setup-overview), setup includes a step for granting repository access inline, so you don’t need to return to the Repositories tab afterward.
-
 ##  Link your GitHub organization
 
 The person who completes the link must be both an **owner of the GitHub organization** and an **Owner in your Claude organization**. If you aren’t a GitHub organization owner, use **Copy message** under **Not a GitHub account owner?** on the GitHub settings page to send the link to someone who is.
@@ -145,7 +143,7 @@ Registering a GHE host with your Claude organization isn’t fully self-serve. R
 
 ####  GitHub Enterprise Server in direct messages
 
-In a [direct message](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels), Claude reaches repositories on a registered host through the sender’s own GitHub Enterprise account instead of the bundle’s grants. Claude adds a repository to a DM session only when both of these are true:
+In a [one-to-one direct message](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels), Claude reaches repositories on a registered host through the sender’s own GitHub Enterprise account instead of the bundle’s grants. Claude adds a repository to a DM session only when both of these are true:
 
 * The sender’s GitHub Enterprise account has push access to the repository
 * Your GitHub App’s installation on the instance includes the repository

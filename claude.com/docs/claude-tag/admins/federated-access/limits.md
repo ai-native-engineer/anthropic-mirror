@@ -12,7 +12,7 @@ This page collects the fixed limits of Federated agent access in one place.
 
 ##  Where federated connections work
 
-Federated connections are available to Claude in Slack channels, where it acts under your organization’s [agent identity](https://claude.com/docs/claude-tag/concepts/agent-identity). They aren’t available in direct messages, which run on the individual’s own claude.ai account, and they need an Anthropic-hosted environment; Claude can’t use them in a [self-hosted environment](https://claude.com/docs/claude-tag/concepts/security-and-data).
+Federated connections are available to Claude in Slack channels, where it acts under your organization’s [agent identity](https://claude.com/docs/claude-tag/concepts/agent-identity). They aren’t available in one-to-one direct messages, which run on the individual’s own claude.ai account, and they need an Anthropic-hosted environment; Claude can’t use them in a [self-hosted environment](https://claude.com/docs/claude-tag/concepts/security-and-data).
 
 ##  Identity token
 

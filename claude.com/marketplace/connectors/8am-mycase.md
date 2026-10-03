@@ -67,19 +67,9 @@ Search, organize, and take action on your Dropbox content
 
 ### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
 
-Anthropic verifiedTrending
-
 Research U.S. law in Claude—with citations you can open and verify.
 
 [Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
-
-![](https://bookface-images.s3.amazonaws.com/small_logos/f848e072de817e8a37aeb1ad8a912f9e2f5d9c52.png)
-
-### [PointOne](https://claude.com/marketplace/connectors/pointone)
-
-Timekeeping and firm intelligence
-
-[Add PointOne in Claude (opens in new tab)](https://claude.ai/directory/08c6eea4-6ecb-4e0e-8487-97eed2241965 "Add in Claude")
 
 ![](https://assets.claude.com/1a01745b4fbcfb8d75f0f2a761024720abbd6cb2.jpg?w=128&fit=max&auto=format)
 
@@ -88,3 +78,13 @@ Timekeeping and firm intelligence
 Answer legal queries, search vaults, and research
 
 [Add Harvey in Claude (opens in new tab)](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=patlytics.ai&sz=96)
+
+### [Patlytics](https://claude.com/marketplace/connectors/patlytics)
+
+Prior art, claims, and portfolio search
+
+[Add Patlytics in Claude (opens in new tab)](https://claude.ai/directory/bbf58559-0ce4-4567-a5c9-947ce33e9f81 "Add in Claude")
+
+8am MyCase connector | Claude by Anthropic

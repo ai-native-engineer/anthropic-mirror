@@ -1,40 +1,22 @@
 <!-- source: https://claude.com/solutions/agents -->
 
-# Make AI agents **your unfair advantage**
-
-# Make AI agents **your unfair advantage**
+# Make AI agents your unfair advantage
 
 With Claude, you can build AI agents that plan, act, and collaborate more effectively.
 
-Start building
+[Start building (opens in new tab)](https://platform.claude.com/)[Contact sales](https://claude.com/contact-sales)
 
-[Start building](https://platform.claude.com/)Start building
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa863c8a450480170023_Factory_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa8cfc7e786bb0781067_Factory_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad7358ee49cc337e342a_sk%20telecom_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad77976700940e3b3d59_sk%20telecom_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aeb2753efa6aa9d82211_Windsurf_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aeadbd1a11c46562259c_Windsurf_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7d5f323b66b6497e655_Amazon%20Q_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7d17660c35eff40c701_Amazon%20Q_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aadb9c888be349095269_github%20copilot_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aae383bb0532fc4469ff_github%20copilot_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8ba3466f0c993603d7b_6ab2c6e8c7f95095d8c9bba5_startups-wordmark-augment-code-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603d8d_6ab2c6e8bcffe96ca440c809_startups-wordmark-augment-code-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a868318d2e33400f4646_Bito_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a86c2ddf19006fe1a9bc_Bito_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab502bc6f647706fcb9f_Intercom_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab481a800b9e0c386290_Intercom_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bce42081e89a8bec1f_logo_cursor-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bafffa19b5e3366ebc_logo_cursor-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692481a076d768db9276c4d9_warp-black.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692481a493eb0f6f4ca5b90a_warp-white.svg)
+* ![Factory](https://assets.claude.com/87ed06e3a5284cc3cc54b2e40051da1d15a205af.svg)
+* ![SK Telecom](https://assets.claude.com/ac49fa991310f8e962ca384c70ebdfb42d7894da.svg)
+* ![Windsurf](https://assets.claude.com/a64fa7e4d3284e98efff2b624cb6dc6531e11b7e.svg)
+* ![Amazon Q Developer](https://assets.claude.com/6b083394fd9a48a16859bf98bb105c3350673154.svg)
+* ![GitHub Copilot](https://assets.claude.com/ca4926c8671ff31babf492320985b02d2ce36f3c.svg)
+* ![Replit](https://assets.claude.com/28b18c56c8aea46930c7b90ecfe004893de1d250.svg)
+* ![Augment Code](https://assets.claude.com/7c991eec0ef2ebdbb312e3a55072965c105f343e.svg)
+* ![Bito](https://assets.claude.com/55d2fa545e85bfc592ff817e97daa03fe9ffe704.svg)
+* ![Intercom](https://assets.claude.com/d60d14e07300066206a9765859021f49663f2d38.svg)
+* ![Cursor](https://assets.claude.com/ff9cb146ba10268aa06e6488b4a5528bc06e0830.svg)
+* ![Warp](https://assets.claude.com/399915ee2f0b3513a52ff63e61b1da17ed7eb078.svg)
 
 ## Powerful, collaborative, and safe AI agents
 
@@ -54,15 +36,13 @@ Claude ranks highest on honesty, jailbreak resistance, and brand safety.
 
 Building effective agents
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68b9e3cbc14084911b8d241b_762fcb9685d787e57668ade7fe676853_Marginalia%20Media.svg)
+![](https://assets.claude.com/6559faeaab4f990ecabd5849cae5f90f6de5e49b.svg)
 
 What the Anthropic Engineering team has learned from working with customers and building agents ourselves.
 
-Read more
+[Read more (opens in new tab)](https://www.anthropic.com/engineering/building-effective-agents)
 
-[Read more](https://www.anthropic.com/engineering/building-effective-agents)Read more
-
-![Factory](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa863c8a450480170023_Factory_light.svg)![Factory](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa8cfc7e786bb0781067_Factory_dark.svg)
+![Factory](https://assets.claude.com/87ed06e3a5284cc3cc54b2e40051da1d15a205af.svg)
 
 3x
 
@@ -75,10 +55,8 @@ Integrate Claude’s powerful AI capabilities into your apps and deliver product
 Existing prompt
 
 Classify all customer support tickets into the most relevant category.
-
 Here is the list of categories to choose from:
 {{CATEGORY\_LIST}}
-
 Here is the content of the support ticket:
 {{TICKET\_CONTENT}}
 
@@ -130,75 +108,49 @@ AI agents
 * Build frontier capabilities into your agents
 * Empower any developer to build AI agents
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/689ca7abcff690b07c62fb43_cc08c7c80742b99a736e29763f7ef442_claude_code.webp)
+![](https://assets.claude.com/d4ecd0156e0bb0b24f5ef382a06f8192ad797c21.jpg)
 
 ## Collaborate with Claude on coding tasks
 
 Claude Code is an agentic tool. Developers work with Claude directly from their terminal, delegating tasks from code migrations to bug fixes.
 
-Explore Claude Code
-
-[Explore Claude Code](https://claude.com/product/claude-code)Explore Claude Code
-
-Explore for Enterprise
-
-[Explore for Enterprise](https://claude.com/product/claude-code/enterprise)Explore for Enterprise
+[Explore Claude Code](https://claude.com/product/claude-code)[Explore for Enterprise](https://claude.com/product/claude-code/enterprise)
 
 ## See why industry leaders
 choose Claude
 
-Start building
+[Start building (opens in new tab)](https://platform.claude.com/)[See customer stories](https://claude.com/customers)
 
-[Start building](https://platform.claude.com/)Start building
+* ![SpaceX](https://assets.claude.com/16b96e8bd9d142709aad56da70ef3a9f46b69dc3.svg)
 
-See customer stories
+  > “Claude Fable 5.1 is the most capable model we've run on CursorBench 3.2, scoring 73.4% at max effort. We found it especially skilled at verifying its own work, allowing it to take on difficult coding tasks from start to finish.”
 
-[See customer stories](https://claude.com/customers)See customer stories
+  Sualeh Asif, Director of ML
+* ![Red Hat](https://assets.claude.com/144df01d20c51393e75bf99327301d061c3ef9ef.svg)
 
-![SpaceXAI (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3465ab2398c17d0176_logo_spacex-light.svg)![SpaceXAI (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3841222d7122838bde_logo_spacex-dark.svg)
+  > “As part of our ongoing evaluation of AI models, Claude Fable 5.1 delivered impressive results in our tests. Using Claude Code, it correctly identified the root cause of every broken build we tested, across all the effort levels. It also communicates more effectively than earlier Anthropic models, with updates that are more concise and easier to follow.”
 
-“Claude Fable 5.1 is the most capable model we've run on CursorBench 3.2, scoring 73.4% at max effort. We found it especially skilled at verifying its own work, allowing it to take on difficult coding tasks from start to finish.”
+  Josh Boyer, Distinguished Engineer
+* ![GitHub](https://assets.claude.com/ff6655b95f24d2aa0b9bf52c94ef5d5f5e54a70e.svg)
 
-Sualeh Asif, Director of ML
+  > “Developers want agents that can take on real software work and finish it. In our testing across GitHub Copilot CLI and VS Code, Claude Opus 5.5 used among the fewest tokens and steps we measured. In VS Code, it solved more terminal tasks than Opus 5 in less than half the steps. More than making individual tasks more efficient, it’s making developers’ bigger projects more achievable.”
 
-![Red Hat (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd41339475e271c59ea3_6a2ecc7a1372de816bc282aa_RedHat_light.svg)![Red Hat (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd40339475e271c59e88_6a2ecc7a028e2d7625286222_RedHat_dark.svg)
-
-“As part of our ongoing evaluation of AI models, Claude Fable 5.1 delivered impressive results in our tests. Using Claude Code, it correctly identified the root cause of every broken build we tested, across all the effort levels. It also communicates more effectively than earlier Anthropic models, with updates that are more concise and easier to follow.”
-
-Josh Boyer, Distinguished Engineer
-
-![GitHub (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![GitHub (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
-
-“Developers want agents that can take on real software work and finish it. In our testing across GitHub Copilot CLI and VS Code, Claude Opus 5.5 used among the fewest tokens and steps we measured. In VS Code, it solved more terminal tasks than Opus 5 in less than half the steps. More than making individual tasks more efficient, it’s making developers’ bigger projects more achievable.”
-
-Mario Rodriguez, Chief Product Officer
+  Mario Rodriguez, Chief Product Officer
 
 ## AI agent resources
 
-Start building
+[Start building (opens in new tab)](https://platform.claude.com/)
 
-[Start building](https://platform.claude.com/)Start building
+[See how other companies are building AI agents with Claude
 
-[See how other companies are building AI agents with Claude](https://claude.com/customers)See how other companies are building AI agents with Claude
+Customer stories](https://claude.com/customers)
 
-See how other companies are building AI agents with Claude
+[Building effective agents
 
-Customer stories
+Engineering at Anthropic](https://www.anthropic.com/engineering/building-effective-agents)
 
-[Customer stories](https://claude.com/customers)Customer stories
+[Get started with our API
 
-[Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)Building effective agents
+Developer docs](https://platform.claude.com/docs)
 
-Building effective agents
-
-Engineering at Anthropic
-
-[Engineering at Anthropic](https://www.anthropic.com/engineering/building-effective-agents)Engineering at Anthropic
-
-[Get started with our API](https://platform.claude.com/docs)Get started with our API
-
-Get started with our API
-
-Developer docs
-
-[Developer docs](https://platform.claude.com/docs)Developer docs
+AI agents | Claude by Anthropic

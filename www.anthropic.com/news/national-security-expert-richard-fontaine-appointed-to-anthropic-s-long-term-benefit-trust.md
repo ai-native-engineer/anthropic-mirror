@@ -18,16 +18,4 @@ Fontaine’s appointment adds deep foreign policy and national security experien
 
 “Richard’s expertise comes at a critical time as advanced AI capabilities increasingly intersect with national security considerations,” said Dario Amodei, CEO and Co-founder of Anthropic. “I've long believed that ensuring democratic nations maintain leadership in responsible AI development is essential for both global security and the common good. Richard’s appointment strengthens the Trust’s ability to guide Anthropic through the complex decisions that will shape not just our industry, but the global balance of power.”
 
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
+National security expert Richard Fontaine appointed to Anthropic’s long-term benefit trust \ Anthropic

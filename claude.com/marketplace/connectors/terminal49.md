@@ -31,16 +31,6 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
-
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
-
-Anthropic verifiedTrending
-
-Faites vos courses rapidement
-
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
-
 ![](https://www.gemini.com/favicon.ico)
 
 ### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
@@ -58,6 +48,16 @@ Connect AI assistants to live crypto markets, prediction markets, your trading a
 monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+
+![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+
+### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
+
+Anthropic verifiedTrending
+
+Faites vos courses rapidement
+
+[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 

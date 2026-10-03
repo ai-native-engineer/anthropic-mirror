@@ -81,10 +81,10 @@ Access ClinicalTrials.gov data
 
 [Add Clinical Trials in Claude (opens in new tab)](https://claude.ai/directory/c1754944-3ad1-49ab-bec5-9aeae3a6a9a3 "Add in Claude")
 
-![](https://assets.claude.com/949ad8b2de4362c0b945dda5655db3a666ded338.jpg?w=128&fit=max&auto=format)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/biorxiv.png)
 
-### [Jotform](https://claude.com/marketplace/connectors/jotform)
+### [bioRxiv](https://claude.com/marketplace/connectors/biorxiv)
 
-Create forms, surveys, quizzes & analyze submissions
+Access bioRxiv and medRxiv preprint data
 
-[Add Jotform in Claude (opens in new tab)](https://claude.ai/directory/aed7e2be-868e-4046-9e12-5c917b4e6b97 "Add in Claude")
+[Add bioRxiv in Claude (opens in new tab)](https://claude.ai/directory/7f750eb6-c3cb-47d7-9269-d35c43fe9925 "Add in Claude")

@@ -126,5 +126,3 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 ## Subscribe to Anthropic Science
 
 Features on AI-assisted discoveries, practical workflows, and field notes across the sciences.
-
-Paving the way for AI agents in biology \ Anthropic

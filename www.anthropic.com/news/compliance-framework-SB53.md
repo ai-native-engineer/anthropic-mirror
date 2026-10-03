@@ -33,17 +33,3 @@ Earlier this year, we proposed a [framework](https://www.anthropic.com/news/the-
 * **Limit application to the largest model developers**: To avoid burdening the startup ecosystem and smaller developers with models at low risk for causing catastrophic harm, requirements should apply only to established frontier developers building the most capable models.
 
 As AI systems grow more powerful, the public deserves visibility into how they're being developed and what safeguards are in place. We look forward to working with Congress and the administration to develop a national transparency framework that ensures safety while preserving America’s AI leadership.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

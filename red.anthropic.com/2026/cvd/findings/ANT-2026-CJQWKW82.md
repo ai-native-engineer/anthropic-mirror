@@ -33,8 +33,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Calif.
 
-UPSTREAM FIX
-
 The change that resolved this finding.
 
 ```
@@ -202,7 +200,7 @@ index 0000000000000..949aa2ba19ac0
 
 <https://github.com/postgres/postgres/commit/b63f25bddfebc67b1e78f86341a6aecb0e9fe576>
 
-1. 2026-04-01
+1. 2026-04-02
 2. 2026-05-08
 3. 2026-05-09
 4. 2026-05-14
@@ -210,9 +208,9 @@ index 0000000000000..949aa2ba19ac0
 
 6ccb97193bc23f5185d8846690778b6b553b97c7a27eff1ae8a5e80c0f404193c5d139372722332faa52572e486f6d0512238b53e885233b5bf7d1c8d3589f5a
 
-Committed 2026-05-08 00:09 PT
+Committed 2026-05-08 07:09 UTC
 
-Revealed 2026-07-21 11:01 PT
+Revealed 2026-07-21 18:01 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-CJQWKW82%22%2C%22bug_class%22%3A%22Denial-of-service%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3A%225241616289cc64e0%22%2C%22created_at%22%3A%222026-04-02T05%3A09%3A32%2B00%3A00%22%2C%22description%22%3A%22Unauthenticated%20attacker%20alternates%20SSL%20and%20GSS%20request%20packets.%20After%20~40K-80K%20exchanges%20the%20backend%20crashes%20from%20stack%20overflow%20%28SIGSEGV%29.%20On%20localhost%20takes%20seconds.%20AuthenticationTimeout%20%2860s%29%20is%20only%20time%20bound.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22src/backend/tcop/backend_startup.c%3A637%22%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22postgres/postgres%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3A%22When%20SSL%20is%20rejected%2C%20line%20637%20recurses%20with%20ProcessStartupPacket%28port%2C%20true%2C%20SSLok%20%3D%3D%20%27S%27%29%20%E2%86%92%20%28true%2Cfalse%29%3B%20when%20GSS%20is%20rejected%2C%20line%20693%20recurses%20with%20ProcessStartupPacket%28port%2C%20GSSok%20%3D%3D%20%27G%27%2C%20true%29%20%E2%86%92%20%28false%2Ctrue%29.%20The%20guards%20at%20lines%20574%20%28%21ssl_done%29%20and%20639%20%28%21gss_done%29%20therefore%20never%20both%20stay%20true%2C%20so%20alternating%20requests%20re-enter%20forever.%20No%20check_stack_depth%28%29%2C%20counter%2C%20or%20iteration%20cap%20exists%20in%20the%20path%2C%20so%20the%20recursion%20terminates%20only%20via%20stack%20exhaustion%20%28SIGSEGV%29.%22%2C%22title%22%3A%22Pre-auth%20unbounded%20recursion%20in%20ProcessStartupPacket%3A%20alternating%20SSL/GSS%20negotiation%20requests%20cause%20infinite%20recursion%20when%20both%20are%20rejected.%20ssl_done/gss_done%20flags%20oscillate%20%28true%2Cfalse%29-%3E%28false%2Ctrue%29%20endlessly.%20No%20check_stack_depth.%20Pre-authentication.%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

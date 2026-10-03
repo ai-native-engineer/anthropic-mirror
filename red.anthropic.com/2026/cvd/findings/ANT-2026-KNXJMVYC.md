@@ -15,7 +15,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 wolfSSL's ECCSI (RFC 6507) signature verifier, wc\_VerifyEccsiHash() in wolfcrypt/src/eccsi.c, decoded the signature components r and s from the signature buffer with mp\_read\_unsigned\_bin() and never checked that they lie in the range [1, q-1]. A signature carrying s = 0 makes the verification point J the point at infinity, whose x-coordinate is treated as 0, and with r = 0 the final comparison of J's x-coordinate against r succeeds, so the forged signature is accepted for any message and any signer identity using only publicly known constants. The issue is CVE-2026-5466 / GHSA-47qf-hp3h-rwmm, rated High, and is fixed in wolfSSL 5.9.1.
 
-**Project:** wolfSSL
+**Project:** wolfssl/wolfssl
 **Location:** `wolfcrypt/src/eccsi.c:wc_VerifyEccsiHash (and eccsi_calc_j)`
 
 ECCSI verification (RFC 6507, section 5.2.2) in wolfSSL decodes a signature of the form `r | s | PVT`, computes `HE = hash(HS | r | M)`, `Y = [HS]PVT + KPAK` and `J = [s]([HE]G + [r]Y)`, and accepts the signature when the x-coordinate of J compares equal to r. In `wolfcrypt/src/eccsi.c`, `eccsi_decode_sig_r_pvt()` and `eccsi_decode_sig_s()` read r and s with `mp_read_unsigned_bin()`; before the fix, the checks applied to the signature were its length and that PVT decodes to a point on the curve. Neither r nor s was validated against `[1, q-1]`.
@@ -44,8 +44,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 **Reference:** ANT-2026-KNXJMVYC
 
 Triage and disclosure were performed by Calif.
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -119,9 +117,9 @@ index b4cf859e500..d919dd8a341 100644
 
 e4b9aa3b2e76b2e8e469e6d0bcadd5f14c9a876e667184ecf444b15e78488876b22e9c62781469f71687db5744334620cfa82068c52c47642611ed20394f2bcd
 
-Committed 2026-04-05 16:37 PT
+Committed 2026-04-05 23:37 UTC
 
-Revealed 2026-05-20 00:40 PT
+Revealed 2026-05-20 07:40 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-KNXJMVYC%22%2C%22bug_class%22%3A%22signature-bypass%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-29T20%3A42%3A34%2B00%3A00%22%2C%22description%22%3Anull%2C%22discovered_at%22%3Anull%2C%22location%22%3Anull%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22wolfSSL%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3Anull%2C%22title%22%3A%22eccsi%20universal%20signature%20forgery%20via%20r%200%20s%200%20missing%20s%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

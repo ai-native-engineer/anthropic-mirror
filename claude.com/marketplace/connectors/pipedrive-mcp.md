@@ -71,7 +71,7 @@ Why use the official connector?
 * searchPersons
 * updateActivity
 
-Show all 32 tools
+Show all 33 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 

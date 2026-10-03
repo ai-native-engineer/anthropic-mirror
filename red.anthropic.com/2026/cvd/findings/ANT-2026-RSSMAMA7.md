@@ -14,7 +14,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 In wolfSSL's OpenSSL-compatibility EVP layer, wolfSSL\_EVP\_CipherFinal() (wolfcrypt/src/evp.c) finalised ChaCha20-Poly1305 decryption by computing the Poly1305 tag into ctx->authTag, overwriting the expected tag the caller had supplied through EVP\_CTRL\_AEAD\_SET\_TAG, and then returned success without comparing the two. Any application that decrypts with EVP\_chacha20\_poly1305() and relies on EVP\_DecryptFinal\_ex()/EVP\_CipherFinal() to reject forgeries, including wolfSSL's own QUIC helper wolfSSL\_quic\_aead\_decrypt() when TLS\_CHACHA20\_POLY1305\_SHA256 is negotiated, therefore accepted tampered or forged ciphertext as authentic. The issue is tracked as CVE-2026-5479 (GHSA-3xr8-r75g-g9c6) and was fixed by commit 1faddd640, which is included in wolfSSL 5.9.1.
 
-**Project:** wolfSSL
+**Project:** wolfssl/wolfssl
 **Location:** `wolfcrypt/src/evp.c:wolfSSL_EVP_CipherFinal`
 
 **Root cause.** In `wolfSSL_EVP_CipherFinal()` (`wolfcrypt/src/evp.c`), the `WC_CHACHA20_POLY1305_TYPE` case had no `ctx->enc` branch: for both encryption and decryption it called `wc_ChaCha20Poly1305_Final(&ctx->cipher.chachaPoly, ctx->authTag)` and returned `WOLFSSL_SUCCESS` whenever that call succeeded. `wc_ChaCha20Poly1305_Final()` only generates a tag, so on the decrypt path it overwrote the expected tag that `EVP_CIPHER_CTX_ctrl(..., EVP_CTRL_AEAD_SET_TAG, ...)` had copied into `ctx->authTag`. `wc_ChaCha20Poly1305_CheckTag()` was not called anywhere in `evp.c`, and `wolfSSL_EVP_DecryptFinal_ex()` is a plain passthrough to `wolfSSL_EVP_CipherFinal()`, so no tag comparison took place at any point. The adjacent AES-GCM branch of the same function does verify the tag.
@@ -53,8 +53,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 **Reference:** ANT-2026-RSSMAMA7
 
 Triage and disclosure were performed by Calif.
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -152,9 +150,9 @@ index fc4f68eb9fc..121d926555f 100644
 
 3d2166ecae422707fc5deddb8399d45cfe7100af81f11c4db5e69c322ab9e357919f53f646abd59e37131b10cd08784ab37185431b9cfd803d3bc0f26297cddf
 
-Committed 2026-04-05 16:37 PT
+Committed 2026-04-05 23:37 UTC
 
-Revealed 2026-05-20 00:40 PT
+Revealed 2026-05-20 07:40 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-RSSMAMA7%22%2C%22bug_class%22%3A%22crypto-failure%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-29T20%3A42%3A34%2B00%3A00%22%2C%22description%22%3Anull%2C%22discovered_at%22%3Anull%2C%22location%22%3Anull%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22wolfSSL%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3Anull%2C%22title%22%3A%22wolfssl%20evp%20chacha20%20poly1305%20poly1305%20tag%20never%20verifi%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

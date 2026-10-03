@@ -1,20 +1,14 @@
 <!-- source: https://claude.com/product/claude-security -->
 
-Explore here
-
 Webinar (on demand)
 
-[Next](#)Next
+Claude Security
 
-# Claude Security
+Putting Claude to work for defenders.
 
-# Putting Claude to work for defenders.
+[Watch on-demand](https://www.anthropic.com/webinars/claude-security-putting-claude-to-work-for-defenders)
 
-Watch on-demand
-
-[Watch on-demand](https://www.anthropic.com/webinars/claude-security-putting-claude-to-work-for-defenders)Watch on-demand
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69974e8e374fa7ebd6e107ca_og-claude-security.jpg)
+![](https://assets.claude.com/28485d6f8deb57841d721be1a2a2a28977d627da.jpg)
 
 # Claude Security
 
@@ -22,17 +16,9 @@ From scan to fix, done seamlessly
 
 Claude scans your codebase with Claude Mythos 5.1, validates findings, and suggests patches you can review and approve. Available in public beta for Claude Enterprise.
 
-Contact sales
+[Contact sales](https://claude.com/contact-sales)[Read the tutorial](https://academy.claude.com/tutorials/getting-started-with-claude-security)
 
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Read the tutorial
-
-[Read the tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-security)Read the tutorial
-
-[Play video](#)Play video
-
-[](https://assets.claude.ai/brand/videos/cc-security-thumbnail.webm)
+[![](https://assets.claude.com/db5b0eb52879bafd5325601021c5431e874ba9f3.png)](https://assets.claude.com/15a276ba3a448f2c1ee91c6287345a06059bb9ab.webm)
 
 ## How teams use Claude Security
 
@@ -54,9 +40,7 @@ Claude Security Plugin for Claude Code now in beta.
 
 Scan, validate, and patch directly inside Claude Code while keeping all code inside your environment.
 
-Learn more
-
-[Learn more](https://code.claude.com/docs/en/claude-security)Learn more
+[Learn more (opens in new tab)](https://code.claude.com/docs/en/claude-security)
 
 ## Built for security teams, used by Anthropic
 
@@ -82,51 +66,29 @@ Scan your codebase with our most cyber-capable model
 
 Security resources
 
-Contact sales
+[Contact sales](https://claude.com/contact-sales)[Read the tutorial](https://academy.claude.com/tutorials/getting-started-with-claude-security)
 
-[Contact sales](https://claude.com/contact-sales)Contact sales
+[Claude Security Plugin for Claude Code in beta
 
-Read the tutorial
+Docs](https://code.claude.com/docs/en/claude-security)
 
-[Read the tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-security)Read the tutorial
+[Claude Security is now in public beta
 
-[Claude Security Plugin for Claude Code in beta](https://code.claude.com/docs/en/claude-security)Claude Security Plugin for Claude Code in beta
+Blog](https://claude.com/blog/claude-security-public-beta)
 
-Claude Security Plugin for Claude Code in beta
+[Evaluating and mitigating the growing risk of LLM-discovered 0-days
 
-Docs
+Blog](https://red.anthropic.com/2026/zero-days/)
 
-[Docs](https://code.claude.com/docs/en/claude-security)Docs
+[Experimenting with AI to defend critical infrastructure
 
-[Claude Security is now in public beta](https://claude.com/blog/claude-security-public-beta)Claude Security is now in public beta
-
-Claude Security is now in public beta
-
-Blog
-
-[Blog](https://claude.com/blog/claude-security-public-beta)Blog
-
-[Evaluating and mitigating the growing risk of LLM-discovered 0-days](https://red.anthropic.com/2026/zero-days/)Evaluating and mitigating the growing risk of LLM-discovered 0-days
-
-Evaluating and mitigating the growing risk of LLM-discovered 0-days
-
-Blog
-
-[Blog](https://red.anthropic.com/2026/zero-days/)Blog
-
-[Experimenting with AI to defend critical infrastructure](https://red.anthropic.com/2026/critical-infrastructure-defense/)Experimenting with AI to defend critical infrastructure
-
-Experimenting with AI to defend critical infrastructure
-
-Blog
-
-[Blog](https://red.anthropic.com/2026/critical-infrastructure-defense/)Blog
+Blog](https://red.anthropic.com/2026/critical-infrastructure-defense/)
 
 ## FAQ
 
 ### Where is this available?
 
-Admins can enable Claude Security in the [admin console](http://claude.ai/admin-settings/claude-code). See the getting started guide for [setup steps](https://claude.com/resources/tutorials/getting-started-with-claude-security).
+Admins can enable Claude Security in the [admin console](http://claude.ai/admin-settings/claude-code). See the getting started guide for [setup steps](https://academy.claude.com/tutorials/getting-started-with-claude-security).
 
 The [Claude Security plugin](https://code.claude.com/docs/en/claude-security) is now available in beta for all Claude Code users.
 
@@ -136,7 +98,7 @@ Claude Security scans now run on Claude Mythos 5.1 for all Enterprise customers.
 
 Connect a GitHub repository and Claude Security scans it with Claude Mythos 5.1. Validated findings come back with confidence ratings and suggested patches, which you can open in Claude Code on the web and fix using the models available in your account.
 
-‍*Scans powered by Claude Mythos 5.1 are only available in the Claude Security app on Claude.ai. The Claude Security plugin for Claude Code only uses the models available in your Claude Code account.*
+*Scans powered by Claude Mythos 5.1 are only available in the Claude Security app on Claude.ai. The Claude Security plugin for Claude Code only uses the models available in your Claude Code account.*
 
 ### What are the security risks I should know about?
 
@@ -158,6 +120,4 @@ Yes. Claude Security is built to feed into the tools your team already uses. Sen
 
 Yes to both. You can scope a scan to a specific directory, and you can configure scheduled scans for ongoing coverage without manual kickoffs.
 
-[Prev](#)Prev
-
-[Next](#)Next
+Claude Security | Claude by Anthropic

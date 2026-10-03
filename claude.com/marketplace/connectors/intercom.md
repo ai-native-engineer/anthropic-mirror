@@ -59,10 +59,10 @@ Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=getjobber.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=wisprflow.ai&sz=96)
 
-### [Jobber](https://claude.com/marketplace/connectors/jobber)
+### [Wispr Flow](https://claude.com/marketplace/connectors/wispr-flow)
 
-Get answers and take action with context from your Jobber account
+Your meetings, notes, and tasks from Wispr Flow — now native context for Claude.
 
-[Add Jobber in Claude (opens in new tab)](https://claude.ai/directory/d53b3c4b-c4c7-4886-8698-786cfaff70f2 "Add in Claude")
+[Add Wispr Flow in Claude (opens in new tab)](https://claude.ai/directory/958b6948-97e4-4315-9ee5-82254f617557 "Add in Claude")

@@ -20,7 +20,7 @@
 
 Get started with Claude across everyday conversations, projects, and files.
 
-78 articles
+79 articles
 
 ![](https://downloads.intercomcdn.com/i/hc/icons/v3/lupk8zyo/938301/38ac2cf80abb9aeb3af2b9bef14b/141413.svg)
 

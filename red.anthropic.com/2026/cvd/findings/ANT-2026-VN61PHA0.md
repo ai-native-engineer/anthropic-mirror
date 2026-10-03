@@ -17,7 +17,7 @@ Gitea's LFS server (`services/lfs/server.go`) blindly trusts the `UserID` embedd
 
 Deploy keys exist precisely to give narrow, single-repo access to CI/CD systems. This vulnerability completely defeats that isolation for LFS data.
 
-**Project:** gitea
+**Project:** go-gitea/gitea
 **Commit:** `cb95c8100fab6c96`
 **Location:** `serv.go:275`
 
@@ -463,8 +463,6 @@ else
 fi
 ```
 
-UPSTREAM FIX
-
 The change that resolved this finding.
 
 ```
@@ -588,13 +586,14 @@ index 5dc8671e2aebd..0f65606017f61 100644
 1. 2026-03-30
 2. 2026-05-07
 3. 2026-07-07
-4. 2026-07-12
+4. 2026-07-13
+5. 2026-08-17
 
 792fb8eabe7a87b60f3e2d0dd223112d1c98a3a08735d4fed6c05796f6021939aab5dbf05b80c0a0dbbf9e3fb4d7dff530b824f32a837f35d8c97760ac460be9
 
-Committed 2026-05-07 00:06 PT
+Committed 2026-05-07 07:06 UTC
 
-Revealed 2026-08-17 10:47 PT
+Revealed 2026-08-17 17:47 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-VN61PHA0%22%2C%22bug_class%22%3A%22IDOR%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3A%22cb95c8100fab6c96%22%2C%22created_at%22%3A%222026-03-30T23%3A19%3A26%2B00%3A00%22%2C%22description%22%3A%22Gitea%27s%20LFS%20server%20%28%60services/lfs/server.go%60%29%20blindly%20trusts%20the%20%60UserID%60%20embedded%20in%20LFS%20JWT%20tokens%20and%20uses%20it%20as%20%60ctx.Doer%60%20for%20%2A%2Across-repository%2A%2A%20privilege%20decisions%20in%20%60LFSObjectAccessible%28%29%60.%20When%20combined%20with%20the%20fact%20that%20%60routers/private/serv.go%60%20sets%20%60UserID%20%3D%20repo.OwnerID%60%20for%20%2A%2Adeploy%20keys%2A%2A%2C%20a%20holder%20of%20a%20write-access%20deploy%20key%20on%20%2Aany%20single%20repo%2A%20can%20exfiltrate%20LFS%20objects%20from%20%2Aevery%20repo%2A%20the%20repo%20owner%20has%20access%20to%20%E2%80%94%20and%20if%20the%20owner%20is%20a%20site%20admin%2C%20from%20every%20repo%20on%20the%20instance.%5Cn%5CnDeploy%20keys%20exist%20precisely%20to%20give%20narrow%2C%20single-repo%20access%20to%20CI/CD%20systems.%20This%20vulnerability%20completely%20defeats%20that%20isolation%20for%20LFS%20data.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22serv.go%3A275%22%2C%22poc_sha256%22%3A%2246521d4e19c49eba7b8f1481658672703fd5774c21358a46644d0f3cccb03fb4%22%2C%22preimage_version%22%3A1%2C%22project%22%3A%22gitea%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3A%22The%20root%20cause%20is%20a%20trust-boundary%20mismatch%3A%20serv.go%20treats%20the%20JWT%20UserID%20as%20a%20cosmetic%20attribution%20label%20%28setting%20it%20to%20repo.OwnerID%20for%20deploy%20keys%20at%20line%20275%29%2C%20while%20server.go%20treats%20it%20as%20the%20authenticated%20principal%20for%20authorization%20decisions.%20The%20JWT%20correctly%20pins%20RepoID%20%28checked%20at%20line%20609%29%2C%20but%20LFSObjectAccessible%20at%20line%20268%20deliberately%20consults%20other%20repositories%20using%20the%20claimed%20user%27s%20permissions%20%E2%80%94%20and%20for%20deploy%20keys%20that%20claimed%20user%20is%20the%20repo%20owner%2C%20not%20the%20key%20holder.%20Additionally%2C%20line%20613%20only%20rejects%20Op%21%3D%27upload%27%20when%20mode%3D%3DWrite%2C%20so%20an%20upload-Op%20token%20is%20also%20valid%20for%20download.%22%2C%22title%22%3A%22Gitea%20LFS%20Deploy-Key%20Privilege%20Escalation%20%E2%80%94%20Cross-Repository%20Data%20Exfiltration%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

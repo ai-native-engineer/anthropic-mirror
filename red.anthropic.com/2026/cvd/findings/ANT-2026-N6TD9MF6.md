@@ -17,7 +17,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 In libcontainer/rootfs\_linux.go, prepareRootfs() mounts the /dev tmpfs and creates device nodes using safe RESOLVE\_IN\_ROOT fd-relative operations, which follow a /dev symlink scoped inside the rootfs and leave the symlink itself intact. Immediately after, setupPtmx() and setupDevSymlinks() call filepath.Join(rootfs, "dev/...") with os.Remove/os.Symlink, which the kernel resolves without scoping — following an absolute /dev symlink out to the host filesystem. This runs as host root and before pivot\_root, while the mount namespace still mirrors the host. An attacker who authors a container image with /dev as a symlink to an arbitrary absolute host directory causes runc to create fixed-name symlinks (ptmx, fd, stdin, stdout, stderr, core) in that host directory. Pointing /dev at host /dev deletes and replaces the real /dev/ptmx, breaking PTY allocation host-wide.
 
-**Project:** runc
+**Project:** opencontainers/runc
 **Version:** 7a1cae6dd02884889960889fe11c1dad832a3cce (present at HEAD)
 **Location:** `libcontainer/rootfs_linux.go:1125`
 
@@ -37,8 +37,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 **Reference:** ANT-2026-N6TD9MF6
 
 Triage and disclosure were performed by Ada Logics.
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -209,16 +207,16 @@ index 8bd5d1ef8c8..7accf3648a6 100644
 
 <https://github.com/opencontainers/runc/commit/864db8042dbb191028676f80addf8c35f348aee2>
 
-1. 2026-04-08
+1. 2026-04-09
 2. 2026-04-16
-3. 2026-06-12
+3. 2026-06-13
 4. 2026-08-17
 
 9208b5c16f124f4133ecf196cfb0a749223196aaab8e2a859cbb2cd13a594b6681e743b3ef14eecd894e9c2a805ed3e2949ee01d5288459576a46d6416469d42
 
-Committed 2026-04-16 08:59 PT
+Committed 2026-04-16 15:59 UTC
 
-Revealed 2026-08-17 10:47 PT
+Revealed 2026-08-17 17:47 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-N6TD9MF6%22%2C%22bug_class%22%3A%22Symlink-following%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-04-09T05%3A38%3A25%2B00%3A00%22%2C%22description%22%3A%22In%20libcontainer/rootfs_linux.go%2C%20prepareRootfs%28%29%20mounts%20the%20/dev%20tmpfs%20and%20creates%20device%20nodes%20using%20safe%20RESOLVE_IN_ROOT%20fd-relative%20operations%2C%20which%20follow%20a%20/dev%20symlink%20scoped%20inside%20the%20rootfs%20and%20leave%20the%20symlink%20itself%20intact.%20Immediately%20after%2C%20setupPtmx%28%29%20and%20setupDevSymlinks%28%29%20call%20filepath.Join%28rootfs%2C%20%5C%22dev/...%5C%22%29%20with%20os.Remove/os.Symlink%2C%20which%20the%20kernel%20resolves%20without%20scoping%20%E2%80%94%20following%20an%20absolute%20/dev%20symlink%20out%20to%20the%20host%20filesystem.%20This%20runs%20as%20host%20root%20and%20before%20pivot_root%2C%20while%20the%20mount%20namespace%20still%20mirrors%20the%20host.%20An%20attacker%20who%20authors%20a%20container%20image%20with%20/dev%20as%20a%20symlink%20to%20an%20arbitrary%20absolute%20host%20directory%20causes%20runc%20to%20create%20fixed-name%20symlinks%20%28ptmx%2C%20fd%2C%20stdin%2C%20stdout%2C%20stderr%2C%20core%29%20in%20that%20host%20directory.%20Pointing%20/dev%20at%20host%20/dev%20deletes%20and%20replaces%20the%20real%20/dev/ptmx%2C%20breaking%20PTY%20allocation%20host-wide.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22libcontainer/rootfs_linux.go%3A1125%22%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22runc%22%2C%22reproduction%22%3A%5B%221.%20Build%20an%20OCI%20rootfs%20where%20/dev%20is%20a%20symlink%20to%20an%20absolute%20host%20path%20%28e.g.%20/etc%20or%20/dev%29%20and%20a%20real%20directory%20exists%20at%20that%20path%20inside%20the%20rootfs%20so%20scoped%20resolution%20succeeds.%22%2C%222.%20Push%20the%20image%3B%20victim%20pulls%20and%20runs%20it%20with%20standard%20config.json%20%28tmpfs%20on%20/dev%29.%22%2C%223.%20prepareRootfs%20mounts%20tmpfs%20onto%20the%20scoped%20target%20%28%3Crootfs%3E/%3Ctarget%3E%29%20via%20openat2%20RESOLVE_IN_ROOT%2C%20leaving%20the%20%3Crootfs%3E/dev%20symlink%20untouched.%22%2C%224.%20setupPtmx%28%29%20does%20os.Remove%20%2B%20os.Symlink%20on%20%5C%22%3Crootfs%3E/dev/ptmx%5C%22%3B%20kernel%20follows%20the%20absolute%20symlink%20unscoped%20and%20creates%20/%3Ctarget%3E/ptmx%20-%3E%20pts/ptmx%20on%20the%20host.%22%2C%225.%20setupDevSymlinks%28%29%20likewise%20creates%20fd%2C%20stdin%2C%20stdout%2C%20stderr%2C%20core%20symlinks%20in%20the%20host%20target%20directory.%22%2C%226.%20If%20target%20is%20host%20/dev%2C%20the%20real%20/dev/ptmx%20char%20device%20is%20deleted%20and%20replaced%2C%20breaking%20PTY%20allocation%20for%20non-root%20users%20on%20systems%20with%20ptmxmode%3D000.%22%5D%2C%22technical_details%22%3A%22Built%20runc%20at%20HEAD%20%287a1cae6dd%29.%20Created%20an%20OCI%20bundle%20whose%20rootfs/dev%20is%20a%20symlink%20to%20an%20absolute%20path%20/tmp/host-sentinel-408%20%28a%20directory%20OUTSIDE%20the%20rootfs%2C%20on%20the%20%27host%27%20%E2%80%94%20here%20the%20outer%20privileged%20Docker%20container%29.%20The%20bundle%20uses%20the%20standard%20tmpfs%20/dev%20mount.%20Ran%20%60runc%20run%60.%20The%20container%20started%20successfully%20%28exit%200%29.%20After%20the%20run%2C%20/tmp/host-sentinel-408%20contained%20five%20new%20symlinks%3A%20ptmx%E2%86%92pts/ptmx%2C%20fd%E2%86%92/proc/self/fd%2C%20stdin%E2%86%92/proc/self/fd/0%2C%20stdout%E2%86%92/proc/self/fd/1%2C%20stderr%E2%86%92/proc/self/fd/2.%20These%20were%20created%20by%20setupPtmx%28%29%20and%20setupDevSymlinks%28%29%20in%20libcontainer/rootfs_linux.go%2C%20which%20use%20filepath.Join%28rootfs%2C%5C%22dev/...%5C%22%29%2Bos.Symlink%20%E2%80%94%20the%20kernel%20followed%20the%20absolute%20symlink%20at%20rootfs/dev%20unscoped%2C%20landing%20outside%20the%20rootfs%2C%20before%20pivot_root.%20The%20safe%20pathrs-based%20/dev%20tmpfs%20mount%20followed%20the%20symlink%20SCOPED%20%28to%20rootfs/tmp/host-sentinel-408%29%2C%20leaving%20the%20rootfs/dev%20symlink%20itself%20intact%20for%20the%20unsafe%20calls%20to%20follow.%20This%20is%20a%20host-filesystem%20write%20from%20a%20malicious%20container%20image%20with%20no%20privileges%20beyond%20image%20authorship.%22%2C%22title%22%3A%22Host%20filesystem%20write%20via%20/dev%20symlink%20in%20container%20image%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

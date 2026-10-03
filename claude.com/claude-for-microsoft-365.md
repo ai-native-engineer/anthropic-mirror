@@ -6,33 +6,19 @@ Work without the window shuffle
 
 Claude works inside Excel, PowerPoint, Word, and Outlook. Start in your inbox, end in the deck. It remembers everything in between.
 
-Install for Microsoft 365
-
-[Install for Microsoft 365](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview)Install for Microsoft 365
-
-Install for Outlook
-
-[Install for Outlook](https://marketplace.microsoft.com/en-us/product/office/WA200010724?tab=Overview)Install for Outlook
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3eb4a8e9112a9e3a235_Microsoft_Office_Excel_(2025%E2%80%93present)%201.svg)
+[Install for Microsoft 365 (opens in new tab)](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview)[Install for Outlook (opens in new tab)](https://marketplace.microsoft.com/en-us/product/office/WA200010724?tab=Overview)
 
 ## Claude for Excel
 
 Ask about any cell, update assumptions without breaking formulas, and build models from scratch.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3ea4f91467c3bbcde6f_Microsoft_Office_PowerPoint_(2025%E2%80%93present)%201.svg)
-
 ## Claude for PowerPoint
 
 Build slides in your template, edit what you've selected, and generate native charts and diagrams.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3ea39f537d5a9875aee_Microsoft_Office_Word_(2025%E2%80%93present)%201.svg)
-
 ## Claude for Word
 
 Edit with tracked changes, respond to comment threads, and update content using company styles.
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3ea2795ae3e05c000b8_Microsoft_Outlook_Icon_(2025%E2%80%93present)%201.svg)
 
 Beta
 
@@ -42,9 +28,7 @@ Triage your inbox in one prompt, draft replies that wait for you to send, and fi
 
 ## How teams use Claude for Microsoft 365
 
-[Play video](#)Play video
-
-[](https://assets.claude.ai/brand/videos/microsoft-365-thumbnail.webm)
+[![](https://assets.claude.com/062636c191ab44665046dbfd4da77b0de8bfea85.png)](https://assets.claude.com/d05f92ffebe7e9b6b3922904d6b4bb51800ebaeb.webm)
 
 ### Turn an email into a deliverable
 
@@ -80,77 +64,99 @@ How can Claude help?
 
 Open the brief in Word and start the memo from our firm template.
 
-Copy prompt
-
-[Copy prompt](https://claude.ai/new?q=Open+the+brief+in+Word+and+start+the+memo+from+our+firm+template.)Copy prompt
+[Copy prompt (opens in new tab)](https://claude.ai/new?q=Open+the+brief+in+Word+and+start+the+memo+from+our+firm+template.)
 
 How can Claude help?
 
 Turn this updated analysis into the SteerCo deck in the Acme template.
 
-Copy prompt
-
-[Copy prompt](https://claude.ai/new?q=Turn+this+updated+analysis+into+the+SteerCo+deck+in+the+Acme+template)Copy prompt
+[Copy prompt (opens in new tab)](https://claude.ai/new?q=Turn+this+updated+analysis+into+the+SteerCo+deck+in+the+Acme+template.)
 
 How can Claude help?
 
 Find 30 minutes with everyone on this thread next week
 
-Copy prompt
+[Copy prompt (opens in new tab)](https://claude.ai/new?q=Find+30+minutes+with+everyone+on+this+thread+next+week)
 
-[Copy prompt](https://claude.ai/new?q=What+did+the+other+side+change+in+section+4%2C+and+are+any+of+these+dealbreakers%3F)Copy prompt
-
-[Prev](#)Prev
-
-[Next](#)Next
+1 of 3
 
 Blog post
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cff62673d4aa76aab52ed7_og-claude-in-word.jpg)
+![](https://assets.claude.com/db862608b8c0db2f4d859ff4b21b222415ce7bc8.jpg)
 
 Claude for Excel, PowerPoint, and Word are now generally available on all paid plans, with Claude for Outlook joining in beta.
 
-Read blog
-
-[Read blog](https://claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook)Read blog
+[Read blog](https://claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook)
 
 ### What customers are saying
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa4f49588bd5ac875956_deloitte_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa491a800b9e0c37fe24_deloitte_dark.svg)
+![ServiceNow](https://assets.claude.com/fe0e4049f1a44dacc4b0e11ea7be3c1e5eb6b255.svg)
 
-“Claude enables a seamless transition from rough ideas to polished, branded deliverables across presentation, document and spreadsheet applications without disrupting the workflow. That end-to-end consistency has been a significant time-saver, especially when quality, formatting, and speed all matter.”
-
-Vivek Kulkarni, US AI Transformation Leader
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2be95a402ad3cb9e5ef1_bain-co-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2c0085999666b31fe241_bain-co-logo-dark-mode.svg)
-
-“Claude in Excel allows my teams to build an initial version of complex models faster, enabling them to focus on refining the model, pressure testing inputs and assumption, and exploring more scenarios and trade-offs. This helps us have richer and deeper discussions with our clients earlier.”
-
-Gene Rapoport, Head of Private Equity AI Practice
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2cf24bd8c16a849d017c_servicenow-dark-mode.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2cf434dfc8599b43d17c_servicenow-light-mode.svg)
-
-“Claude for M365 is being rapidly adopted by ServiceNow. Claude does the work in Excel itself, instead of asking us to move content between tools, driving step change in productivity.”
+> “Claude for M365 is being rapidly adopted by ServiceNow. Claude does the work in Excel itself, instead of asking us to move content between tools, driving step change in productivity.”
 
 Rajeev Sethi, GVP Enterprise Technologies
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2c7e3b559bfaa084ac5e_BCI-logo-light-mode.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2c80dba35f3eb780b917_BCI-logo-dark-mode.svg)
+![British Columbia Investment Management Corp](https://assets.claude.com/f9578c1cf0c050b2131464fceb3ac9bc1cb19062.svg)
 
-“We can instruct Claude to build a style guide from an executive's prior written communications so our EAs can draft their emails in their voice. That's high-leverage work the team would never have time to set up by hand.”
+> “We can instruct Claude to build a style guide from an executive's prior written communications so our EAs can draft their emails in their voice. That's high-leverage work the team would never have time to set up by hand.”
 
 Ben Letalik, Sr. Director, Digital Transformation & Innovation
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f9164fe390163f4c6c6fc9_citadel-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f91652ec3e6676dd8330b8_citadel-dark.svg)
+![Citadel](https://assets.claude.com/6974233e910a5ba470a017719933cbf677a74d0b.svg)
 
-“Our investment professionals live in data and analytical models, and Claude for Excel meets them there. Analysts are using it to build and update coverage models, separate signal from noise, and pressure-test their work — all with a step-change in efficiency.”
+> “Our investment professionals live in data and analytical models, and Claude for Excel meets them there. Analysts are using it to build and update coverage models, separate signal from noise, and pressure-test their work — all with a step-change in efficiency.”
 
 Atte Lahtiranta, Head of Core Engineering
 
-[Prev](#)Prev
+![Deloitte](https://assets.claude.com/d799180e9a468d82dc23a32c1ddfe94dcee116d0.svg)
 
-0/5
+> “Claude enables a seamless transition from rough ideas to polished, branded deliverables across presentation, document and spreadsheet applications without disrupting the workflow. That end-to-end consistency has been a significant time-saver, especially when quality, formatting, and speed all matter.”
 
-[Next](#)Next
+Vivek Kulkarni, US AI Transformation Leader
+
+![Bain & Company](https://assets.claude.com/687ae4df36a08c5cd73be9019650f3358fc4c3b2.svg)
+
+> “Claude in Excel allows my teams to build an initial version of complex models faster, enabling them to focus on refining the model, pressure testing inputs and assumption, and exploring more scenarios and trade-offs. This helps us have richer and deeper discussions with our clients earlier.”
+
+Gene Rapoport, Head of Private Equity AI Practice
+
+![ServiceNow](https://assets.claude.com/fe0e4049f1a44dacc4b0e11ea7be3c1e5eb6b255.svg)
+
+> “Claude for M365 is being rapidly adopted by ServiceNow. Claude does the work in Excel itself, instead of asking us to move content between tools, driving step change in productivity.”
+
+Rajeev Sethi, GVP Enterprise Technologies
+
+![British Columbia Investment Management Corp](https://assets.claude.com/f9578c1cf0c050b2131464fceb3ac9bc1cb19062.svg)
+
+> “We can instruct Claude to build a style guide from an executive's prior written communications so our EAs can draft their emails in their voice. That's high-leverage work the team would never have time to set up by hand.”
+
+Ben Letalik, Sr. Director, Digital Transformation & Innovation
+
+![Citadel](https://assets.claude.com/6974233e910a5ba470a017719933cbf677a74d0b.svg)
+
+> “Our investment professionals live in data and analytical models, and Claude for Excel meets them there. Analysts are using it to build and update coverage models, separate signal from noise, and pressure-test their work — all with a step-change in efficiency.”
+
+Atte Lahtiranta, Head of Core Engineering
+
+![Deloitte](https://assets.claude.com/d799180e9a468d82dc23a32c1ddfe94dcee116d0.svg)
+
+> “Claude enables a seamless transition from rough ideas to polished, branded deliverables across presentation, document and spreadsheet applications without disrupting the workflow. That end-to-end consistency has been a significant time-saver, especially when quality, formatting, and speed all matter.”
+
+Vivek Kulkarni, US AI Transformation Leader
+
+![Bain & Company](https://assets.claude.com/687ae4df36a08c5cd73be9019650f3358fc4c3b2.svg)
+
+> “Claude in Excel allows my teams to build an initial version of complex models faster, enabling them to focus on refining the model, pressure testing inputs and assumption, and exploring more scenarios and trade-offs. This helps us have richer and deeper discussions with our clients earlier.”
+
+Gene Rapoport, Head of Private Equity AI Practice
+
+![ServiceNow](https://assets.claude.com/fe0e4049f1a44dacc4b0e11ea7be3c1e5eb6b255.svg)
+
+> “Claude for M365 is being rapidly adopted by ServiceNow. Claude does the work in Excel itself, instead of asking us to move content between tools, driving step change in productivity.”
+
+Rajeev Sethi, GVP Enterprise Technologies
+
+1/5
 
 ## Core capabilities across the apps you use every day
 
@@ -170,9 +176,7 @@ Drop a PDF or doc into any sidebar. Claude reads it alongside your open file and
 
 When a process is right, save it as a skill. The team can use it the same way in all four apps.
 
-Learn more
-
-[Learn more](https://claude.com/skills)Learn more
+[Learn more](https://claude.com/skills)
 
 ### Type or talk, whichever is faster
 
@@ -182,9 +186,7 @@ Use dictation to talk to Claude in a sidebar instead of typing.
 
 Pull context from outside sources directly from the sidebar.
 
-Learn more
-
-[Learn more](https://claude.com/connectors)Learn more
+[Learn more](https://claude.com/connectors)
 
 ## FAQ
 
@@ -204,16 +206,6 @@ Yes. Claude inherits your heading styles, slide masters, formula conventions, an
 
 No. Drafts and calendar invites open in Outlook's native compose form and wait for you to click send.
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ## Get started with Claude for Microsoft 365
 
-Install for Microsoft 365
-
-[Install for Microsoft 365](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview)Install for Microsoft 365
-
-Install for Outlook
-
-[Install for Outlook](https://marketplace.microsoft.com/en-us/product/office/WA200010724?tab=Overview)Install for Outlook
+[Install for Microsoft 365 (opens in new tab)](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview)[Install for Outlook (opens in new tab)](https://marketplace.microsoft.com/en-us/product/office/WA200010724?tab=Overview)

@@ -17,17 +17,3 @@ Anthropic now serves more than 300,000 business customers, and our number of lar
 Anthropic’s unique compute strategy focuses on a diversified approach that efficiently uses three chip platforms–Google’s TPUs, Amazon’s Trainium, and NVIDIA’s GPUs. This multi-platform approach ensures we can continue advancing Claude's capabilities while maintaining strong partnerships across the industry. We remain committed to our partnership with Amazon, our primary training partner and cloud provider, and continue to work with the company on Project Rainier, a massive compute cluster with hundreds of thousands of AI chips across multiple U.S. data centers.
 
 Anthropic will continue to invest in additional compute capacity to ensure our models and capabilities remain at the frontier.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

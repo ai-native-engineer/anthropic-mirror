@@ -15,17 +15,3 @@ Anthropic is a Public Benefit Corporation and its Board is elected by stockholde
 “Working across medicine, innovation, and global health has shown me the transformative potential of technology when deployed responsibly. In healthcare, AI is accelerating solutions to some of the hardest scientific challenges, from deepening our understanding of disease biology to designing better medicines,” said Narasimhan. “Anthropic is setting the standard for how AI should be developed to benefit humanity, and I’m honored to join the Board and contribute to its mission.”
 
 Early in his career, Narasimhan worked on HIV/AIDS, malaria, and tuberculosis programs in India, Africa, and South America, and he continues to champion access and global health priorities today. He is an elected member of the US National Academy of Medicine and a member of the Council on Foreign Relations. He serves on the University of Chicago board of trustees and the board of fellows at Harvard Medical School. He previously chaired the Pharmaceutical Research and Manufacturers of America, where he remains on the board of directors.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

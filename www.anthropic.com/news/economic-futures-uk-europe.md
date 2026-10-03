@@ -39,17 +39,3 @@ Professor Cosmina Dorobantu at the London School of Economics added: "AI is forc
 The decisions that people in Europe make today about the development, deployment, and governing of AI will shape the continent's economic future. We're committed to partnering with policymakers, academics and economists across the region to prepare for the transition ahead.
 
 If you’re a researcher working on AI policy in the UK or Europe, you can submit your research proposal or learn more about the program at [anthropic.com/economic-futures](https://www.anthropic.com/economic-futures). For questions, contact **economicfutures@anthropic.com**.
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)

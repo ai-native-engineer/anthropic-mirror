@@ -4,9 +4,7 @@
 
 Build and lead the Claude community in your city. Host local events, bring builders together, and partner with Anthropic to shape the future of Claude.
 
-Apply now
-
-[Apply now](https://form.typeform.com/to/OIUYgsnS)Apply now
+[Apply now (opens in new tab)](https://form.typeform.com/to/OIUYgsnS)
 
 ## What you get
 
@@ -28,15 +26,13 @@ Bring your community's perspective to Anthropic’s product teams. Access pre-re
 
 Share what's working in your city and help shape how this program grows through a private Slack with fellow Ambassadors and the Anthropic team.
 
-**Our growing community**
+Our growing community
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69a1ab069962284cd0d58d26_7515b2db2605de402ac0dd2c634ef25558985605.png)
+![](https://assets.claude.com/09198388f48a6ab54133652d2d3000964802e9bd.png)
 
 Claude Community Events are hosted globally by Claude Community Ambassadors. Meet others building with Claude, and keep thinking.
 
-Learn more
-
-[Learn more](https://claude.com/community)Learn more
+[Learn more](https://claude.com/community)
 
 ## Our ambassadors
 
@@ -58,9 +54,7 @@ You're genuinely excited about Claude and Anthropic's mission. You help others l
 
 Ambassadors can be from any background and from anywhere in the world. Multiple ambassadors from the same city are welcome.
 
-Apply now
-
-[Apply now](https://form.typeform.com/to/OIUYgsnS)Apply now
+[Apply now (opens in new tab)](https://form.typeform.com/to/OIUYgsnS)
 
 ### Applications
 
@@ -104,14 +98,10 @@ Yes, in most cases. We ask that you're not also an ambassador for a company whos
 
 Yes! We encourage you to share it on social media, your resume, and LinkedIn.
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ## Ready to grow your city’s Claude Community?
 
 Applications are open. If you’re a builder who brings people together, we’d love to hear from you.
 
-Apply now
+[Apply now (opens in new tab)](https://form.typeform.com/to/OIUYgsnS)
 
-[Apply now](https://form.typeform.com/to/OIUYgsnS)Apply now
+Claude Community Ambassadors | Claude by Anthropic

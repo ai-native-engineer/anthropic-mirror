@@ -86,3 +86,5 @@ With plans to upskill 100,000 employees on AI this year and one million the next
 ### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
 ### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)
+
+Section Claude Platform (API) case study | Claude by Anthropic

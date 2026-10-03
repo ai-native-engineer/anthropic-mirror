@@ -37,3 +37,5 @@ Anthropic은 수시로 본 쿠키정책을 업데이트할 수 있습니다. 본
 ## 연락처
 
 문의 또는 의견이 있으신 경우 [privacy@anthropic.com](mailto:privacy@anthropic.com)으로 연락주시기 바랍니다.
+
+Cookie Policy \ Anthropic

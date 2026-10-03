@@ -105,8 +105,8 @@ No. Purchases through third-party interactive connectors are not supported.
 
 MCP Apps is the open-source extension to the Model Context Protocol that powers interactive apps. If you are building your own interactive connector, note that it must meet additional design, security, and testing requirements. For details, see **[Submitting to the Connectors Directory](https://claude.com/docs/connectors/building/submission)** on Claude Docs.
 
-* [Can Claude produce images?](https://support.claude.com/en/articles/9002504-can-claude-produce-images)
 * [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Visual and interactive content](https://support.claude.com/en/articles/13641943-visual-and-interactive-content)
+* [Manage Claude’s tool access](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access)

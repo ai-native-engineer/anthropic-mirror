@@ -216,5 +216,3 @@ Claude Docs helps you write a document together with Claude starting from inside
 ### Who can see and edit my doc?
 
 It’s private by default. Invite people one at a time or as a group, and give view or edit access to only the people you invite, your organization, or anyone with the link. On Team and Enterprise plans, sharing with anyone who has the link is off until an Owner or Primary Owner turns on External sharing in Organization settings > Artifacts. You must have a Claude account to view and edit artifacts.
-
-Claude Artifacts | Claude by Anthropic

@@ -118,6 +118,14 @@ Global Premier
 
 For 60+ years, DXC has designed, engineered and operated some of the world’s most complex technology estates for enterprises and governments. As a Claude Global Premier Partner, we embed Claude-certified engineers directly in our customers’ environments to bring agentic AI into their mission-critical systems. With our deep domain expertise in insurance, cybersecurity and application modernization,
 
+![Fujitsu logo](https://api.eulerapp.com/partner-directory/assets/f5d98ad8e6e970289f9c40dba240fe69)
+
+[Fujitsu](https://partnerhub.claude.com/directory/partner/1784259851254x887974829336712900)
+
+Global Premier
+
+Fujitsu is a global leader in technology and business solutions that transform organizations and the world around us. For over 90 years, we have brought innovation and expertise, continuously working to contribute to the growth of society and our customers.
+
 ![Infosys logo](https://api.eulerapp.com/partner-directory/assets/1851e0d1945bdbc580f2ce2822bbc7b9)
 
 [Infosys](https://partnerhub.claude.com/directory/partner/1784259853001x655636911739725360)
@@ -125,14 +133,6 @@ For 60+ years, DXC has designed, engineered and operated some of the world’s m
 Global Premier
 
 Infosys is a global leader in next-generation digital services and consulting. With over four decades of experience in managing the systems and workings of global enterprises, we expertly steer clients in 59 countries, as they navigate their digital transformation powered by cloud and AI.
-
-![KPMG logo](https://api.eulerapp.com/partner-directory/assets/8de97858fe9f037fdc280a970bc6c453)
-
-[KPMG](https://partnerhub.claude.com/directory/partner/1784259853473x554283735794331300)
-
-Global Premier
-
-KPMG is one of the "Big Four" global professional services firms. As a network of independent member firms, KPMG operates across roughly 140 countries and territories with more than 276,000 partners and employees around the world. KPMG provides audit, tax, and advisory services to large corporations, governments, and institutions worldwide.
 
 View more
 

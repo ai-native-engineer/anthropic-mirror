@@ -56,13 +56,13 @@ Create forms, surveys, quizzes & analyze submissions
 
 [Add Jotform in Claude (opens in new tab)](https://claude.ai/directory/aed7e2be-868e-4046-9e12-5c917b4e6b97 "Add in Claude")
 
-![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
+![](https://appexchange.salesforce.com/image_host/82be812c-159e-49b7-aa89-828b29c95e0b.png)
 
-### [Jotform Apps](https://claude.com/marketplace/connectors/jotform-apps)
+### [Blackthorn Forge MCP for Native Salesforce Event Management](https://claude.com/marketplace/connectors/blackthorn-beacon-event-management-for-salesforce)
 
-Build and manage no-code apps
+Blackthorn's MCP server for Salesforce events: create, query, and report on events, attendees, tickets, sessions, forms, and email campaigns, over 100 available tools, live against your org.
 
-[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
+[Add Blackthorn Forge MCP for Native Salesforce Event Management in Claude (opens in new tab)](https://claude.ai/directory/bb966230-ca18-4d33-8601-7d54184931c1 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=rsvpify.com&sz=96)
 
@@ -72,6 +72,14 @@ Run your event operations in RSVPify, end-to-end
 
 [Add RSVPify in Claude (opens in new tab)](https://claude.ai/directory/10622bb7-fadd-4edf-bf2d-29d73138711e "Add in Claude")
 
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
+
+### [Jotform Apps](https://claude.com/marketplace/connectors/jotform-apps)
+
+Build and manage no-code apps
+
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
+
 ![](https://cdn.candid.org/images/candid-logo/candid-icon.svg)
 
 ### [Candid](https://claude.com/marketplace/connectors/candid)
@@ -79,11 +87,3 @@ Run your event operations in RSVPify, end-to-end
 Research nonprofits and funders using Candid's data
 
 [Add Candid in Claude (opens in new tab)](https://claude.ai/directory/875faf93-08c4-469c-980f-6f79f70f10d3 "Add in Claude")
-
-![](https://assets.claude.com/02447ea067dc2624af0c1eb2a51df059d6242b4c.png?w=128&fit=max&auto=format)
-
-### [Granted](https://claude.com/marketplace/connectors/granted)
-
-Discover every grant opportunity in existence.
-
-[Add Granted in Claude (opens in new tab)](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad "Add in Claude")

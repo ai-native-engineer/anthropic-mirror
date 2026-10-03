@@ -512,7 +512,7 @@ When `(see the debug log)` follows `is added but ignored` in place of a reason, 
 
 * Follow the fix in the message. In your shell, run `claude plugin marketplace remove <name>`, then add the marketplace again from a supported source or a local path and reinstall its plugins, which the remove command uninstalls. The remove command works on an ignored entry
 * To keep a marketplace on a network location, declare it under [`extraKnownMarketplaces`](https://code.claude.com/docs/en/settings-reference#extraknownmarketplaces) in your user or managed settings; a declaration in a repository's `.claude/settings.json` or `.claude/settings.local.json` doesn't count
-* For a source that differs from its settings declaration, re-add the marketplace from the declared source or change the declaration. `claude plugin marketplace add` refuses the same mismatch; see [the matching `Cannot add marketplace` entry](#cannot-add-marketplace-its-network-source-differs)
+* For a source that differs from its settings declaration, re-add the marketplace from the declared source or change the declaration. `claude plugin marketplace add` refuses the same mismatch; see [the matching `Cannot add marketplace` entry](#cannot-add-marketplace-source-doesnt-match)
 * For a refused name, remove the marketplace, using the command after `Remove it:` when the line gives one; adding it again under the same name is refused again
 
 Before v2.1.286, whatever the reason, `claude plugin list` reported such a marketplace as `Marketplace <name> not found`, and the `/plugin` **Errors** tab reported it as `Marketplace "<name>" is registered but was refused (see the debug log)`. The reason appeared only in the debug log. In v2.1.286, the reason and fix sentences used different wording, such as `Its recorded location is network-shaped or unclassifiable (never probed)`.
@@ -572,16 +572,25 @@ Choose which source you want:
 * **The marketplace you already added**: install from it by name with `/plugin install <plugin>@<name>`
 * **The new source**: run `/plugin marketplace remove <name>`, then retry the install
 
-<h3 id="cannot-add-marketplace-its-network-source-differs">
-  `Cannot add marketplace "<name>": its network source differs from the one declared for it in settings`
+<h3 id="cannot-add-marketplace-source-doesnt-match">
+  `Cannot add marketplace "<name>": its source doesn't match its extraKnownMarketplaces entry in user or managed settings`
 </h3>
 
-You ran `marketplace add`, and the catalog at that source has the same name as a marketplace that a settings file already declares under [`extraKnownMarketplaces`](https://code.claude.com/docs/en/settings-reference#extraknownmarketplaces) with a different source. Claude Code refuses the add and registers nothing.
+You added a marketplace, and the `name` in its `marketplace.json` already has an [`extraKnownMarketplaces`](https://code.claude.com/docs/en/settings-reference#extraknownmarketplaces) entry in your user settings or managed settings. The source you gave differs from the one that entry lists, so Claude Code refuses the add and registers nothing.
 
-The message ends with the fix: the source must match the one declared for this name in settings, or you change the declaration. Compare the source you passed against the `extraKnownMarketplaces` entry for that name, including its `ref`, `path`, and `headers`, then do one of these:
+Two sources match when they have the same type and the same value in every field. An entry that sets a `ref` you didn't pass counts as different. A `github` entry also counts as different when you gave the repository as an `https://github.com/` URL, because Claude Code records that URL as a [`git` source](https://code.claude.com/docs/en/plugins/marketplace-reference#marketplace-sources). Do one of these:
 
-* **Use the declared source**: add the marketplace from the source the settings entry names
+* **Use the declared source**: Claude Code [registers marketplaces declared in settings](https://code.claude.com/docs/en/settings-reference#extraknownmarketplaces) on its own, so first run `/plugin marketplace list` in a session. If the list shows the name, the marketplace is already registered and there's nothing to add.
+
+  If the list doesn't show it, add it with the source typed the way the entry writes it. For an entry whose `source` object is `{ "source": "github", "repo": "acme-corp/claude-plugins", "ref": "v1.2.0" }`, run this:
+
+  ```text theme={null}
+  /plugin marketplace add acme-corp/claude-plugins#v1.2.0
+  ```
+
 * **Use the new source**: edit or remove the `extraKnownMarketplaces` entry, then add the marketplace again. If managed settings declare it, ask your administrator
+
+Before v2.1.287, the message read `Cannot add marketplace "<name>": its network source differs from the one declared for it in settings (kind, target, or a fetch-shaping field such as headers / ref / path / sparsePaths)`.
 
 <h3 id="failed-to-install-from-the-plugin-menu">
   `Failed to install: <plugin> (<reason>)`
@@ -693,6 +702,22 @@ Read what that reload prints:
 Before v2.1.268, an install that didn't activate during the install stayed pending until you ran `/reload-plugins` yourself.
 
 Before v2.1.246, the skills count in that summary included only a plugin's `commands/` entries, so a reload could load a plugin's `SKILL.md` skills and still report `0 skills`.
+
+<h3 id="the-packages-it-lists-are-not-installed">
+  `The packages it lists are not installed` or `were not installed, because ...`
+</h3>
+
+`/plugin` and `claude plugin list` show one of these notes on a plugin whose dependency install left no `node_modules` directory. The plugin loads, but the parts that need the missing packages may not work.
+
+* **`are not installed`**: the install can run for this plugin but didn't finish, for example because it failed or timed out. To retry the install, run the `claude plugin update` command that the note gives, in your shell, or update the plugin from `/plugin`
+
+  ```shell theme={null}
+  claude plugin update formatter@my-marketplace
+  ```
+
+  If the retry fails, the output gives the cause. While `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` is set, `claude plugin update` and `/plugin` skip the retry and report that the plugin is at its latest version.
+
+* **`were not installed, because ...`**: the install can't run for this plugin, and the note names the reason, such as a Yarn, pnpm, or `bun.lockb` lockfile, or a lockfile whose package manager isn't installed on this computer. Updating the plugin doesn't install the packages while that reason stands. If the reason is the lockfile, the plugin's author has to replace it. If it's a missing package manager, install it, then update the plugin
 
 <h3 id="plugin-not-cached-at">
   `Plugin "<name>" not cached at <path>`

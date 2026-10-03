@@ -4,7 +4,7 @@
 
 ## stack-buffer-overflow critical
 
-[GHSA-589g-qgf8-m6mx](https://github.com/advisories/GHSA-589g-qgf8-m6mx)
+[GHSA-589g-qgf8-m6mx](https://github.com/asterisk/asterisk/security/advisories/GHSA-589g-qgf8-m6mx)
 
 Claude critical
 Security research firm critical (revised; sealed as high)
@@ -48,13 +48,13 @@ ADVISORY
 2. 2026-05-07
 3. 2026-05-09
 4. 2026-05-29
-5. 2026-07-20
+5. 2026-07-21
 
 4af0e700ec9c669355834e3145eef3b8a700d116006ebbf92fbb1219711ed32b6b53e7c3625b7c28fe84fb31aa2e9c5adcfae86b6091f267dcff34fe0dee0386
 
-Committed 2026-05-07 00:03 PT
+Committed 2026-05-07 07:03 UTC
 
-Revealed 2026-07-20 22:23 PT
+Revealed 2026-07-21 05:23 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-HFGGE6HR%22%2C%22bug_class%22%3A%22stack_buffer_overflow%22%2C%22claude_severity%22%3A%22critical%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-04-10T23%3A56%3A30%2B00%3A00%22%2C%22description%22%3A%22In%20res_pjsip_pubsub.c%20at%20line%203889%2C%20parse_simple_message_summary%28%29%20uses%20sscanf%20with%20an%20unbounded%20%25s%20conversion%20to%20read%20a%20field%20from%20the%20body%20of%20an%20incoming%20SIP%20NOTIFY%20%28Event%3A%20message-summary%29%20into%20a%20fixed-size%20stack%20buffer.%20The%20parser%20is%20reached%20from%20the%20network%20via%20pubsub_on_rx_notify_request%20%E2%86%92%20pubsub_on_rx_mwi_notify_request%20%E2%86%92%20parse_simple_message_summary.%20An%20attacker%20who%20can%20deliver%20a%20single%20UDP%20NOTIFY%20with%20an%20oversized%20body%20field%20writes%20fully%20attacker-controlled%20bytes%20past%20the%20end%20of%20the%20stack%20local%20%28a%20901-byte%20out-of-bounds%20WRITE%20was%20observed%29.%20This%20yields%20stack%20memory%20corruption%20and%20potential%20control-flow%20hijack.%22%2C%22discovered_at%22%3Anull%2C%22location%22%3A%22res/res_pjsip_pubsub.c%3A3889%22%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22asterisk/asterisk%22%2C%22reproduction%22%3A%5B%221.%20Craft%20a%20SIP%20NOTIFY%20request%20with%20Event%3A%20message-summary%20and%20a%20body%20field%20longer%20than%20the%20fixed%20stack%20buffer.%22%2C%222.%20Send%20the%20NOTIFY%20over%20UDP%20to%20the%20target%27s%20SIP%20endpoint.%22%2C%223.%20pubsub_on_rx_notify_request%20dispatches%20to%20pubsub_on_rx_mwi_notify_request%2C%20which%20calls%20parse_simple_message_summary%28%29.%22%2C%224.%20sscanf%20with%20unbounded%20%25s%20copies%20the%20oversized%20field%20into%20the%20stack%20buffer%2C%20writing%20attacker-controlled%20bytes%20past%20its%20end.%22%5D%2C%22technical_details%22%3A%22res_pjsip_pubsub.c%3A3889%20parse_simple_message_summary%28%29%20calls%20sscanf%20with%20an%20unbounded%20%25s%20into%20a%20fixed%20stack%20buffer%20while%20parsing%20the%20body%20of%20an%20incoming%20SIP%20NOTIFY%20%28Event%3A%20message-summary%29.%20A%20single%20UDP%20NOTIFY%20whose%20body%20field%20exceeds%20the%20buffer%20length%20writes%20attacker-controlled%20bytes%20%28observed%20901-byte%20WRITE%29%20past%20the%20stack%20local.%20Reached%20via%20pubsub_on_rx_notify_request%20%E2%86%92%20pubsub_on_rx_mwi_notify_request%20%E2%86%92%20parse_simple_message_summary.%22%2C%22title%22%3A%22Stack%20buffer%20overflow%20in%20parse_simple_message_summary%20via%20unbounded%20sscanf%20%25s%20%28SIP%20MWI%20NOTIFY%29%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

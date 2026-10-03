@@ -1,54 +1,28 @@
 <!-- source: https://claude.com/solutions/government -->
 
-Explore here
-
-[Next](#)Next
-
-## **Security details**
-
-## Authorization
-
-Claude for Government runs in a dedicated, pre-authorized environment built for government use. Claude Enterprise is independently assessed against federal security controls but isn't FedRAMP authorized today. Claude runs on your cloud provider's authorized service, and your agency's ATO covers the deployment.
-
-## Data classification
-
-Claude for Government is built for controlled unclassified information and high-impact systems, and your account team covers export-controlled requirements during contracting. Claude Enterprise is independently assessed against the federal standard for safeguarding controlled unclassified information (NIST 800-171), but isn't designed for export-controlled data. Through your own cloud, Claude works with whatever your environment is cleared to hold.
-
-## Where your data stays
-
-Claude for Government keeps conversation history on each user's device, and admins can export usage and audit records at any time. With Claude Enterprise, you set how long your data is stored, and we don't use it for training. Through your own cloud, requests stay with your cloud provider. Claude Code and Claude Desktop can be configured to keep data on the end user's machine.
-
-## Admin controls
-
-Claude for Government comes with the most extensive controls, with defaults set for government use: an admin console, sign-in through your identity provider, automatic user provisioning, and a compliance export. Claude Enterprise offers the same core controls with commercial defaults. Through your own cloud, you manage access, logging, and configuration with your existing tools, and your prompts go straight to your cloud provider.
-
 # Claude for government
 
 Serve people better with AI built for government
 
 Claude brings advanced AI into your government organizations with the security and compliance controls your mission requires.
 
-Contact sales
+[Contact sales](https://claude.com/contact-sales)
 
-[Contact sales](https://claude.com/contact-sales)Contact sales
+* ![California](https://assets.claude.com/17008830ada46f500aee23312ec21c539c26f240.svg)
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab57644ce1cfa29d20a1300_california.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+  > “We’re about using [Anthropic] technology the California way: responsibly, transparently, and in service of people. AI should not replace the human work of government; it should help our workers move faster, solve problems more effectively, and deliver better results for Californians.”
 
-“We’re about using [Anthropic] technology the California way: responsibly, transparently, and in service of people. AI should not replace the human work of government; it should help our workers move faster, solve problems more effectively, and deliver better results for Californians.”
+  Gavin Newsom, California Governor
+* ![Rwanda](https://assets.claude.com/c9ede6984c44f3a0ca0449cf4edec3740fc382df.svg)
 
-Gavin Newsom, California Governor
+  > “This partnership with Anthropic is an important milestone in Rwanda’s AI journey. Our goal is to continue to design and deploy AI solutions that can be applied at a national level to strengthen education, advance health outcomes, and enhance governance with an emphasis on our context.”
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab57787832eea1570cac3a1_rwanda.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+  Paula Ingabire, Rwanda Minister of Information and Communications Technology
+* ![Alberta](https://assets.claude.com/017a802aad2153d5568147c38d73db71a0096beb.svg)
 
-“This partnership with Anthropic is an important milestone in Rwanda’s AI journey. Our goal is to continue to design and deploy AI solutions that can be applied at a national level to strengthen education, advance health outcomes, and enhance governance with an emphasis on our context.”
+  > “Albertans trust their government with sensitive information, and it is our responsibility to protect it. By using AI to find and fix vulnerabilities across our systems, we accomplished in hours what would have taken years. This is what responsible government looks like in the AI era, and the best is still ahead of us.”
 
-Paula Ingabire, Rwanda Minister of Information and Communications Technology
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab577bb860396f2c72122f5_alberta.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“Albertans trust their government with sensitive information, and it is our responsibility to protect it. By using AI to find and fix vulnerabilities across our systems, we accomplished in hours what would have taken years. This is what responsible government looks like in the AI era, and the best is still ahead of us.”
-
-Nate Glubish, Alberta Minister of Technology and Innovation
+  Nate Glubish, Alberta Minister of Technology and Innovation
 
 ## Trusted by governments and institutions worldwide
 
@@ -58,68 +32,46 @@ Local governments, national agencies, and international institutions rely on Cla
 
 Government teams have more work than headcount allows. Claude handles document review, research, drafting, case processing, and coding with reasoning your teams can review before they decide. That frees staff for the people and policies they serve.
 
-Learn more
-
-[Learn more](https://www.anthropic.com/webinars/claude-code-and-public-service-modernizing-how-state-and-local-governments-build-software)Learn more
+[Learn more (opens in new tab)](https://www.anthropic.com/webinars/claude-code-and-public-service-modernizing-how-state-and-local-governments-build-software)
 
 ### Retire technical debt and legacy O&M
 
 Most government IT spending goes toward keeping old systems running. Claude reads legacy codebases, documents them, and rewrites them in modern languages, so stalled modernization moves again and budgets shift from maintenance to new outcomes.
 
-Learn more
-
-[Learn more](https://claude.com/solutions/code-modernization)Learn more
+[Learn more](https://claude.com/solutions/code-modernization)
 
 ### Safe to deploy and fast to approve
 
 Claude for Government is delivered through a FedRAMP High authorized environment, so agencies build on an assessed package, not from zero. Claude is also available through Amazon Bedrock and Google Cloud Vertex AI. Capabilities reach the mission in weeks, not years.
 
-Visit trust center
-
-[Visit trust center](https://trust.anthropic.com/)Visit trust center
+[Visit trust center (opens in new tab)](https://trust.anthropic.com/)
 
 COBOL Modernization with AI: Breaking the Cost Barrier
 
-![code magnifying glass](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aba91bb4a4835da7cd6f13a_Media-1.jpg)
+![code magnifying glass](https://assets.claude.com/d8d966e37c41e0db3e8ee33809d63776cd0bcc09.jpg)
 
 Legacy code modernization stalled for years because understanding legacy code cost more than rewriting it. AI flips that equation.
 
-Read more
-
-[Read more](https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization)Read more
+[Read more](https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization)
 
 Case study
 
 ![laptop
-](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aba91c048290d87a828587c_Media.jpg)
+](https://assets.claude.com/34a4ffc29bee2f940dfd1e6b7618f4aba6e0c7ee.jpg)
 
 The government of Alberta uses Claude to find and fix cybersecurity vulnerabilities across government systems.
 
-Read more
-
-[Read more](https://www.anthropic.com/news/alberta-government-claude-cybersecurity)Read more
+[Read more (opens in new tab)](https://www.anthropic.com/news/alberta-government-claude-cybersecurity)
 
 Claude for Government Desktop, now generally available
 
 Claude and Claude Code are live, built on the same application our commercial customers use and delivered through a FedRAMP High authorized environment.
 
-Learn more
-
-[Learn more](https://claude.com/blog/claude-for-government-is-now-generally-available)Learn more
+[Learn more](https://claude.com/blog/claude-for-government-is-now-generally-available)
 
 ## Change what’s possible for your mission
 
-International governments
-
-Federal civilian agencies
-
-National security
-
-State and local
-
-GovTech
-
-Active
+International governmentsFederal civilian agenciesNational securityState and localGovTech
 
 Prompt
 
@@ -127,165 +79,24 @@ Using the attached district health reports and school enrollment data, identify 
 
 Attachments
 
-District\_Health\_Facilities\_Q2\_2026
-
-4.2 MB
-
-XLSX
-
-School\_Enrollment\_2026
-
-23.6 MB
-
-CSV
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a049d5aa03bf5b3512149b6_smb-grow-your-business.webp)
+* District\_Health\_Facilities\_Q2\_20264.2 MBXLSX
+* School\_Enrollment\_202623.6 MBCSV
 
 ### Turn department data into national programs
 
 Join datasets across departments, see where health and education outcomes overlap, and draft briefs with interventions the departments can run together.
 
-Prompt
-
-Analyze the attached COBOL claims-adjudication module. Document business rules, generate a test suite that captures current behavior, then migrate to Java with the same outputs. Flag any rule that looks like dead code or a policy exception. Compare against our existing rules doc.
-
-Attachments
-
-CLMADJ-legacy
-
-2.4 MB
-
-ZIP
-
-Business\_Rules
-
-13,203 lines
-
-MD
-
-› Indexing CLMADJ-legacy… 18 programs · 47,200 lines · 9 copybooks · VSAM + DB2
-
-› Tracing the adjudication path · intake → eligibility → pricing → payment
-
-› Documented 214 business rules · 63 appear nowhere in Business\_Rules.docx
-
-› Dead code · 9 rules unreachable since the 2006 eligibility rewrite
-
-› Policy exception · 4 hardcoded provider-ID overrides with no policy citation
-
-› Generated 340 characterization tests · 12 months of de-identified claims in the repo
-
-✓ Migrated adjudication logic to Java 21 · DB2 access behind an adapter
-
-✓ All 340 tests match recorded legacy payments to the cent
-
-✓ Wrote BUSINESS\_RULES.md + FLAGGED\_RULES.md · every rule cited to its COBOL paragraph
-
-✓ Saved to CLMADJ-java.zip · awaiting engineer review
-
-✓ Done in 3h 12m. 13 flagged rules need policy-team sign-off before cutover.
-
 Modernize legacy technology
 
 Update the COBOL backlog years ahead of plan. Claude Code reads legacy systems, documents unrecorded logic, writes tests, and moves modules to modern languages. Your engineers set the architecture and sign off on every merge. Best for agencies running decades-old benefit, tax, and case systems.
-
-Prompt
-
-Scan the attached repository for security vulnerabilities. Rank by severity and reachability, map each to CWE, propose a patch for anything critical, produce a remediation plan sized for a two-week sprint, and map each finding to our ATO controls.
-
-Attachments
-
-mission-planning-svc
-
-3.4 MB
-
-ZIP
-
-ATO\_Controls
-
-720 KB
-
-XLSX
-
-› Indexing mission-planning-svc… 412 files · Go + Python · 38 dependencies
-
-› Tracing untrusted input from 14 API entry points to data stores and file parsers
-
-› Ranked 14 findings by severity × reachability · 2 critical · 3 high · 6 medium · 3 low
-
-› Critical CWE-89 SQL injection in waypoint search · reachable from public search endpoint
-
-› Critical CWE-502 unsafe deserialization in mission file import · reachable via unauthenticated upload
-
-› Cross-referencing ATO\_Controls.xlsx… findings affect 5 controls (SI-10, SI-2, AC-6, CM-7, SA-11)
-
-✓ Patches drafted for both criticals: parameterized queries · safe loader (added 6 tests · full suite passes)
-
-✓ Saved to critical-fixes.patch · awaiting security team approval
-
-✓ Wrote REMEDIATION\_PLAN.md · week 1: criticals + 3 highs · week 2: 6 mediums + control evidence · 3 lows to backlog
-
-✓ Done in 6m 12s.
 
 ### Fix vulnerabilities in mission systems
 
 Find exploitable flaws before an attacker does. Claude scans mission codebases, ranks findings by how risky they are, and proposes fixes. Your security team approves every patch. Built for cyber commands and defense program offices.
 
-Prompt
-
-Let's prep materials for my meetings. This needs Comms team review for public release as an update on the backlog and what we're doing about it. Their comms guidance doc is in my Google Drive. Keep placeholders for date, contact info, and corrective actions. For now, focus on the findings and why we're prioritizing this.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e318eaad6802d0604536_Google%20Drive.jpg)
-
-Google Drive
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a049d58d4c60ee943ab18ee_smb-payroll.webp)
-
 ### Serve residents faster
 
 Clear the backlog and answer residents the same day. A plain-language assistant handles questions on food assistance, health coverage, and housing support around the clock, and hands eligibility decisions and incomplete cases to a caseworker.
-
-Prompt
-
-Build an agent for our permitting product that takes a submitted application, checks it against the municipality’s zoning code and fee schedule, drafts the deficiency letter or approval, and writes a structured audit record for every decision. Expose it as an API our front end can call, with a human review step before anything is sent to the applicant.
-
-Attachments
-
-Zoning\_Code\_Ch14
-
-6.8 MB
-
-PDF
-
-Fee\_Schedule\_2026
-
-148 Kb
-
-XLSX
-
-› Reading Zoning\_Code\_Ch14.pdf… 112 pages · 14 districts
-
-› Reading Fee\_Schedule\_2026.xlsx · 38 fee lines
-
-› Mapping Permit\_Schema.json · 41 fields → zoning checks
-
-› Built zoning\_check · 27 rules, each cited to Ch. 14
-
-› Built fee\_calc · deterministic, straight from the schedule
-
-› Drafts deficiency letter or approval · cites code + cure
-
-✓ Audit record per decision · inputs, rules, citations, fees
-
-✓ API · POST /applications/{id}/review · POST /decisions/{id}/approve
-
-✓ Human gate · drafts hold at pending\_review until approved
-
-✓ Ran 48 past applications · matched staff decisions on 45 · 3 flagged
-
-✓ Done in 11m 52s. Wrote permit\_agent/ · awaiting engineering review.
 
 ### Build the next generation of government software
 
@@ -307,25 +118,15 @@ For federal, state, and local agencies, delivered in a FedRAMP High–authorized
 
 European Parliament
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68ba0c117280c710085e4185_guy.webp)
-
-[Play video](#)Play video
+![Video: European Parliament](https://assets.claude.com/58d569c1fdecdc3478eb2587d4c675b3240e434f.jpg)
 
 The European Parliament expands access to their archives with Claude.
 
-Read story
-
-[Read story](https://www.claude.com/customers/european-parliament)Read story
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68ba0c117280c710085e4185_guy.webp)
+[Read story](https://claude.com/customers/european-parliament)
 
 ## Availability
 
-See security details
-
-[See security details](#)See security details
+[See security details](#panel)
 
 FedRAMP High
 
@@ -333,121 +134,56 @@ DoD IL5
 
 Classified
 
-Claude for Government
+|  | FedRAMP High | DoD IL5 | Classified |
+| --- | --- | --- | --- |
+| Claude for Government | FedRAMP High  Included | DoD IL5  Not included | ClassifiedIn pilot |
+| Claude Enterprise | FedRAMP High  Not included | DoD IL5  Not included | Classified  Not included |
+| Claude API | | | |
+| Claude in Amazon Bedrock | FedRAMP High  Included | DoD IL5  Included | Classified  Not included |
+| Gov models in Amazon Bedrock | FedRAMP High  Not included | DoD IL5  Not included | Classified  Included |
+| Claude on Google Cloud Vertex AI | FedRAMP High  Included | DoD IL5  Not included | Classified  Not included |
+| Claude Code through your cloud | FedRAMP HighFollows your region | DoD IL5Follows your region | ClassifiedAsk your account team |
+| Claude Desktop through your cloud | FedRAMP HighFollows your region | DoD IL5Follows your region | ClassifiedAsk your account team |
 
-FedRAMP High
+## Security details
 
-DoD IL5
+## Authorization
 
-Classified
+Claude for Government runs in a dedicated, pre-authorized environment built for government use. Claude Enterprise is independently assessed against federal security controls but isn't FedRAMP authorized today. Claude runs on your cloud provider's authorized service, and your agency's ATO covers the deployment.
 
-In pilot
+## Data classification
 
-Claude Enterprise
+Claude for Government is built for controlled unclassified information and high-impact systems, and your account team covers export-controlled requirements during contracting. Claude Enterprise is independently assessed against the federal standard for safeguarding controlled unclassified information (NIST 800-171), but isn't designed for export-controlled data. Through your own cloud, Claude works with whatever your environment is cleared to hold.
 
-FedRAMP High
+## Where your data stays
 
-DoD IL5
+Claude for Government keeps conversation history on each user's device, and admins can export usage and audit records at any time. With Claude Enterprise, you set how long your data is stored, and we don't use it for training. Through your own cloud, requests stay with your cloud provider. Claude Code and Claude Desktop can be configured to keep data on the end user's machine.
 
-Classified
+## Admin controls
 
-Claude API
-
-Claude in Amazon Bedrock
-
-FedRAMP High
-
-DoD IL5
-
-Classified
-
-Gov models in Amazon Bedrock
-
-FedRAMP High
-
-DoD IL5
-
-Classified
-
-Claude on Google Cloud Vertex AI
-
-FedRAMP High
-
-DoD IL5
-
-Classified
-
-Claude Code through your cloud
-
-FedRAMP High
-
-Follows your region
-
-DoD IL5
-
-Follows your region
-
-Classified
-
-Ask your account team
-
-Claude Desktop through your cloud
-
-FedRAMP High
-
-Follows your region
-
-DoD IL5
-
-Follows your region
-
-Classified
-
-Ask your account team
+Claude for Government comes with the most extensive controls, with defaults set for government use: an admin console, sign-in through your identity provider, automatic user provisioning, and a compliance export. Claude Enterprise offers the same core controls with commercial defaults. Through your own cloud, you manage access, logging, and configuration with your existing tools, and your prompts go straight to your cloud provider.
 
 ## Government resources
 
-[Australian government and Anthropic work on AI safety and research](https://www.anthropic.com/news/australia-MOU)Australian government and Anthropic work on AI safety and research
+[Australian government and Anthropic work on AI safety and research
 
-Australian government and Anthropic work on AI safety and research
+News](https://www.anthropic.com/news/australia-MOU)
 
-News
+[Government of Rwanda and Anthropic unite for AI in health and education
 
-[News](https://www.anthropic.com/news/australia-MOU)News
+News](https://www.anthropic.com/news/anthropic-rwanda-mou)
 
-[Government of Rwanda and Anthropic unite for AI in health and education](https://www.anthropic.com/news/anthropic-rwanda-mou)Government of Rwanda and Anthropic unite for AI in health and education
+[Learn more about Anthropic’s security and compliance
 
-Government of Rwanda and Anthropic unite for AI in health and education
+Trust center](https://trust.anthropic.com/)
 
-News
+[Deploy Claude in the public sector with the controls and compliance you need
 
-[News](https://www.anthropic.com/news/anthropic-rwanda-mou)News
-
-[Learn more about Anthropic’s security and compliance](https://trust.anthropic.com/)Learn more about Anthropic’s security and compliance
-
-Learn more about Anthropic’s security and compliance
-
-Trust center
-
-[Trust center](https://trust.anthropic.com/)Trust center
-
-[Deploy Claude in the public sector with the controls and compliance you need](https://support.claude.com/en/collections/19395194-claude-for-government)Deploy Claude in the public sector with the controls and compliance you need
-
-Deploy Claude in the public sector with the controls and compliance you need
-
-Help center
-
-[Help center](https://support.claude.com/en/collections/19395194-claude-for-government)Help center
+Help center](https://support.claude.com/en/collections/19395194-claude-for-government)
 
 ## FAQ
 
-Products and features
-
-FedRAMP and compliance
-
-Cloud service and pricing
-
-Active
+Products and featuresFedRAMP and complianceCloud service and pricing
 
 ### Products and features
 
@@ -501,10 +237,6 @@ Anthropic is challenging the designation in court. On August 27, 2026, a federal
 
 Learn more: [Where things stand with the Department of War.](https://www.anthropic.com/news/where-stand-department-war)
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ### FedRAMP and compliance
 
 ### What types of data can be used in Claude?
@@ -555,11 +287,7 @@ No. Claude Enterprise and Claude Platform on AWS (the Claude API with AWS billin
 
 Claude Enterprise is not FedRAMP authorized, so agencies with criminal justice information (CJIS), federal tax information (IRS Publication 1075), or similarly restricted data typically use Claude for Government, or Claude through Amazon Bedrock in AWS GovCloud or Google Cloud Vertex AI with Assured Workloads, inside an environment their security team has approved.
 
-[Prev](#)Prev
-
-[Next](#)Next
-
-Cloud service and pricing
+### Cloud service and pricing
 
 ### How do I deploy Claude in Amazon Bedrock on AWS GovCloud/GCP Vertex in Assured Workloads?
 
@@ -578,7 +306,7 @@ Google Cloud Vertex AI: [Cost of building and deploying AI models in Vertex AI](
 
 ### Can we purchase directly from Anthropic or only through Carahsoft?
 
-You can purchase either directly through Anthropic or through Carahsoft. Both options are available to government entities. Anthropic can sell directly, and/or resell/distribute via Carahsoft. Through Carahsoft, Claude is available on the GSA Multiple Award Schedule and cooperative contracts such as NASPO ValuePoint and OMNIA Partners (see [Carahsoft’s current contracts](https://www.carahsoft.com/anthropic/contracts)). Commercial entities are not able to procure via Carahsoft.
+You can purchase either directly through Anthropic or through Carahsoft. Both options are available to government entities. Anthropic can sell directly, and/or resell/distribute via Carahsoft. Through Carahsoft, Claude is available on the GSA Multiple Award Schedule and cooperative contracts such as NASPO ValuePoint and OMNIA Partners (see [Carahsoft’s current contracts](https://www.carahsoft.com/anthropic/contracts)). Commercial entities are not able to procure via Carahsoft.
 
 ### How much does Claude cost?
 
@@ -600,14 +328,8 @@ To place an order:
 
 Learn more: [California expands AI access across state government through Anthropic partnership](https://www.cdt.ca.gov/newsroom/2026/07/california-expands-ai-access-across-state-government-through-anthropic-partnership/)
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ## Bring Claude to your government
 
 Trusted AI that supports your mission. Talk to our public sector team about the right deployment for your government.
 
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)

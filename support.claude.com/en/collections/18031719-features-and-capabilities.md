@@ -57,3 +57,5 @@
 [Use Salesforce in Claude](https://support.claude.com/en/articles/16952186-use-salesforce-in-claude)
 
 [Set up Salesforce in Claude for your organization](https://support.claude.com/en/articles/16952184-set-up-salesforce-in-claude-for-your-organization)
+
+[Use Claude in Google Docs, Sheets, and Slides](https://support.claude.com/en/articles/16951679-use-claude-in-google-docs-sheets-and-slides)

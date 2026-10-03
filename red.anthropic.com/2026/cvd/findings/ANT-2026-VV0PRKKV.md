@@ -16,7 +16,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 In wolfSSL's OpenSSL-compatibility layer, CertFromX509() in src/x509.c converts a parsed certificate back into a Cert structure for re-encoding. When WOLFSSL\_AKID\_NAME is enabled, it bounds-checked only the AuthorityKeyIdentifier keyIdentifier length (authKeyIdSz) against the fixed-size cert->akid buffer but then copied the entire raw extension (authKeyIdSrcSz bytes, including authorityCertIssuer and authorityCertSerialNumber), whose length comes from the certificate without an upper bound. A crafted certificate with a short keyIdentifier and a multi-kilobyte authorityCertIssuer therefore passes the check and overflows the heap-allocated Cert when an application parses it and then re-encodes or re-signs it (for example via wolfSSL\_i2d\_X509\_bio() or wolfSSL\_X509\_sign()). The issue is CVE-2026-5447 / GHSA-mx4j-fjqx-f8qj and was fixed upstream in wolfSSL PR #10112 (merge commit d278da09), which validates the length that is actually copied.
 
-**Project:** wolfSSL
+**Project:** wolfssl/wolfssl
 **Location:** `src/x509.c:CertFromX509()`
 
 **Root cause.** `CertFromX509()` (`src/x509.c`) copies the AuthorityKeyIdentifier (AKID) from a `WOLFSSL_X509` into the fixed-size `akid[]` array of a `Cert` structure that is heap-allocated during DER generation. Before the fix, the guard and the copy used different lengths:
@@ -55,8 +55,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 Triage and disclosure were performed by Calif.
 
 :   medium
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -284,17 +282,17 @@ index cd0a06241de..47780e6dc4e 100644
 
 <https://github.com/wolfSSL/wolfssl/commit/d278da09dfa60237f246236f2c8acc5d11c5915a>
 
-1. 2026-03-26
-2. 2026-03-26
+1. 2026-03-27
+2. 2026-03-27
 3. 2026-03-27
 4. 2026-04-08
 5. 2026-05-21
 
 1bab7d8c0711e693bd53c3eec2b556b1ba8709ea1e4f3b0719a15ee8eaa70c89eeec4797e90b5ab922b7b8935bd6636effceefe31a976be0d557537919daab7d
 
-Committed 2026-03-26 17:00 PT
+Committed 2026-03-27
 
-Revealed 2026-05-21 16:00 PT
+Revealed 2026-05-21 23:00 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-VV0PRKKV%22%2C%22bug_class%22%3A%22heap-buffer-overflow%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3Anull%2C%22created_at%22%3A%222026-03-27T02%3A08%3A32%2B00%3A00%22%2C%22description%22%3Anull%2C%22discovered_at%22%3Anull%2C%22location%22%3Anull%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22wolfSSL%22%2C%22reproduction%22%3Anull%2C%22technical_details%22%3Anull%2C%22title%22%3Anull%2C%22vendor_severity%22%3A%22medium%22%7D)
 

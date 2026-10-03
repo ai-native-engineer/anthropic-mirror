@@ -5,6 +5,7 @@
 ## sql-injection high
 
 [CVE-2026-55084](https://nvd.nist.gov/vuln/detail/CVE-2026-55084)
+[GHSA-pwmg-mvjw-4m23](https://github.com/dhis2/dhis2-core/security/advisories/GHSA-pwmg-mvjw-4m23)
 
 Maintainer -
 
@@ -14,7 +15,7 @@ Anthropic's analysis, sealed at approval. Disclosure to the maintainer was perfo
 
 The /api/sqlViews/{uid}/data endpoint accepts a filter parameter of the form columnName:operator:value. In DefaultSqlViewService.getFilterQuery(), the columnName portion is concatenated raw into the SQL string, while only the operator's value is parameterized. Existing sanitization (ILLEGAL\_KEYWORDS, QUERY\_NAME\_REGEX, SqlUtils.quote()) covers stored query text, criteria keys, and select fields, but not the runtime filter column name. An authenticated user with read access to any SqlView can therefore inject arbitrary SQL, e.g. a UNION SELECT, into the query executed by jdbcTemplate.queryForRowSet(). This allows reading arbitrary tables such as userinfo and returning the results in the Grid response.
 
-**Project:** [dhis2-core](https://github.com/dhis2/dhis2-core)
+**Project:** [dhis2/dhis2-core](https://github.com/dhis2/dhis2-core)
 **Commit:** `5c98fe9d15b8033f`
 **Version:** master @ 661c44651367 (as of 2026-04-17)
 **Location:** `DefaultSqlViewService.java:262`
@@ -120,8 +121,6 @@ Apply SqlUtils.quote() to the column name in getFilterQuery(), consistent with g
 -> CVD Recommendation: Report
 
 -> Anthropic discussion:
-
-UPSTREAM FIX
 
 The change that resolved this finding.
 
@@ -291,15 +290,16 @@ index 000000000000..ea0cdaf4e05c
 <https://github.com/dhis2/dhis2-core/commit/16cbb390a21391cc5f948092f06a52ce69a3274f>
 
 1. 2026-04-16
-2. 2026-05-03
+2. 2026-05-04
 3. 2026-05-07
-4. 2026-06-08
+4. 2026-06-09
+5. 2026-08-17
 
 68ded1ff1ee7e9e30fd004f1ec1bc8aeafe4c6d0dc6f40776fa19d937fbb76645beff98c9faa848cdeac10cb56957abd740b6f68d3b7846d3c5c9cf93c40babb
 
-Committed 2026-05-07 00:08 PT
+Committed 2026-05-07 07:08 UTC
 
-Revealed 2026-08-17 10:47 PT
+Revealed 2026-08-17 17:47 UTC
 
 [Verify (download preimage.json)](data:application/json;charset=utf-8,%7B%22ant_id%22%3A%22ANT-2026-FW0V6SAJ%22%2C%22bug_class%22%3A%22SQL%20Injection%22%2C%22claude_severity%22%3A%22high%22%2C%22commit_sha%22%3A%225c98fe9d15b8033f%22%2C%22created_at%22%3A%222026-04-17T05%3A20%3A48%2B00%3A00%22%2C%22description%22%3A%22The%20/api/sqlViews/%7Buid%7D/data%20endpoint%20accepts%20a%20filter%20parameter%20of%20the%20form%20columnName%3Aoperator%3Avalue.%20In%20DefaultSqlViewService.getFilterQuery%28%29%2C%20the%20columnName%20portion%20is%20concatenated%20raw%20into%20the%20SQL%20string%2C%20while%20only%20the%20operator%27s%20value%20is%20parameterized.%20Existing%20sanitization%20%28ILLEGAL_KEYWORDS%2C%20QUERY_NAME_REGEX%2C%20SqlUtils.quote%28%29%29%20covers%20stored%20query%20text%2C%20criteria%20keys%2C%20and%20select%20fields%2C%20but%20not%20the%20runtime%20filter%20column%20name.%20An%20authenticated%20user%20with%20read%20access%20to%20any%20SqlView%20can%20therefore%20inject%20arbitrary%20SQL%2C%20e.g.%20a%20UNION%20SELECT%2C%20into%20the%20query%20executed%20by%20jdbcTemplate.queryForRowSet%28%29.%20This%20allows%20reading%20arbitrary%20tables%20such%20as%20userinfo%20and%20returning%20the%20results%20in%20the%20Grid%20response.%22%2C%22discovered_at%22%3A%222026-04-16T00%3A00%3A00%2B00%3A00%22%2C%22location%22%3A%22DefaultSqlViewService.java%3A262%22%2C%22poc_sha256%22%3Anull%2C%22preimage_version%22%3A1%2C%22project%22%3A%22dhis2-core%22%2C%22reproduction%22%3A%5B%221.%20Identify%20any%20SqlView%20%7Buid%7D%20the%20user%20can%20read.%22%2C%222.%20Send%20GET%20/api/sqlViews/%7Buid%7D/data%3Ffilter%3D1%253D1%2520UNION%2520SELECT%2520username%252Cpassword%2520FROM%2520userinfo--%3Aeq%3Ax%22%2C%223.%20The%20column%20name%20%271%3D1%20UNION%20SELECT%20username%2Cpassword%20FROM%20userinfo--%27%20is%20concatenated%20into%20the%20WHERE%20clause%3B%20%27--%27%20comments%20out%20the%20remainder%20of%20the%20generated%20SQL.%22%2C%224.%20Read%20the%20injected%20userinfo%20rows%20from%20the%20returned%20Grid%20response.%22%5D%2C%22technical_details%22%3A%22getFilterQuery%28%29%20builds%20the%20clause%20as%20%60filter%20%2B%3D%20sqlHelper.whereAnd%28%29%20%2B%20%5C%22%20%5C%22%20%2B%20columnName%20%2B%20%5C%22%20%5C%22%20%2B%20operatorWithPlaceholder%60%2C%20where%20columnName%20is%20split%5B0%5D%20taken%20directly%20from%20the%20user-supplied%20filter%20parameter%20with%20no%20regex%20check%2C%20allowlist%2C%20or%20quoting.%20The%20resulting%20string%20is%20passed%20to%20jdbcTemplate.queryForRowSet%28sql%2C%20args%29%20in%20HibernateSqlViewStore.populateSqlViewGrid%28%29%2C%20so%20attacker-controlled%20SQL%20executes%20verbatim.%22%2C%22title%22%3A%22SQL%20Injection%20via%20Unquoted%20Column%20Name%20in%20SqlView%20Filter%20Parameter%22%2C%22vendor_severity%22%3A%22high%22%7D)
 

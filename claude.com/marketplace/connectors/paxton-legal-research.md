@@ -48,14 +48,6 @@ Search, organize, and take action on your Dropbox content
 
 [Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
 
-![](https://bookface-images.s3.amazonaws.com/small_logos/f848e072de817e8a37aeb1ad8a912f9e2f5d9c52.png)
-
-### [PointOne](https://claude.com/marketplace/connectors/pointone)
-
-Timekeeping and firm intelligence
-
-[Add PointOne in Claude (opens in new tab)](https://claude.ai/directory/08c6eea4-6ecb-4e0e-8487-97eed2241965 "Add in Claude")
-
 ![](https://assets.claude.com/1a01745b4fbcfb8d75f0f2a761024720abbd6cb2.jpg?w=128&fit=max&auto=format)
 
 ### [Harvey](https://claude.com/marketplace/connectors/harvey)
@@ -71,3 +63,11 @@ Answer legal queries, search vaults, and research
 Prior art, claims, and portfolio search
 
 [Add Patlytics in Claude (opens in new tab)](https://claude.ai/directory/bbf58559-0ce4-4567-a5c9-947ce33e9f81 "Add in Claude")
+
+![](https://assets.claude.com/0ac1d5098007447f019dafd5d1c218e697131c3e.svg?w=128&fit=max&auto=format)
+
+### [Ironclad Contracts](https://claude.com/marketplace/connectors/ironclad)
+
+Plain language search for faster contract answers and manage your contractual obligations
+
+[Add Ironclad Contracts in Claude (opens in new tab)](https://claude.ai/directory/c5504c7c-d299-4637-a012-29ef1a2354a9 "Add in Claude")

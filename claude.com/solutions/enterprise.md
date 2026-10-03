@@ -6,129 +6,219 @@ The frontier, on every desk
 
 Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
 
-Get Enterprise plan
-
-[Get Enterprise plan](http://claude.ai/create/enterprise)Get Enterprise plan
-
-Build on Claude Platform
-
-[Build on Claude Platform](https://claude.com/platform/api)Build on Claude Platform
+[Get Enterprise plan](http://claude.ai/create/enterprise)[Build on Claude Platform](https://claude.com/platform/api)
 
 ## Trusted by the world’s leading organizations
 
-[Previous](#)Previous
+![](https://assets.claude.com/b8b7348bebaf2bd3bfb65b1800cce67c11342963.jpg)[](https://assets.claude.com/39f3cca8cbd5de7b0d44dc265b1a736e615d0299.webm)
 
-[Next](#)Next
+![](https://assets.claude.com/1e97abfa19201b641c46b8cebc68b6894b8aee05.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a15ee129364c8e55411daa2_enterprise-hero-slack.webp)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0d20d86e2e21026f727e59_89841d2905da18d6e333fb3720070ec2_Group.svg)
-
-“Slack’s close collaboration with Anthropic has helped our Engineering and Product teams accelerate prototyping and model testing.”
-
-97minutes per week saved by the average user through summarization and recap features
-
-Industry:Software
-
-Company size:Large
-
-Product:Claude Platform
-
-Location:North America
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a16012ced85b2c17b03ad8a_allianz-logo.svg)
-
-“With this partnership, Allianz is taking a decisive step to address critical AI challenges in insurance. Anthropic's focus on safety and transparency complements our strong dedication to customer excellence and stakeholder trust.”
-
-90%week-over-week growth company-wide deployment, with rapid global adoption
-
-Industry:Insurance
-
-Company size:Large
-
-Product:Claude Platform
-
-Location:EMEA
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a15f7a04498773d51289cc4_frame-8.webp)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0d23e997ef8c84873e4a85_lyft-logo.svg)
-
-“Through using Claude, we’ve saved millions, which we have reinvested in *upskilling* our customer support agents. We’ve empowered our agents to focus on those more complex issues that really require human care.”
-
-87%reduction in customer support time
-
-30%more accurate teams making sharper calls
-
-Industry:Transportation
-
-Company size:Large
-
-Product:Claude Platform
-
-Location:North America
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a1602fc4d5ca4f35a3751ff_moodys-logo.svg)
-
-“As AI becomes the interface for decisions, trust becomes the standard. Moody’s decision-grade connected intelligence is key to unlocking AI for high‑stakes credit and compliance decision‑making.”
-
-1200%credit memo prep time cut from 40 hours to 2 minutes with Claude-built agents
-
-Industry:Financial services
-
-Company size:Large
-
-Product:Claude Platform
-
-Location:North America
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a20844b09195003a0053c2c_notion_sizzle_reel_thumb.webp)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a10983f2f16955d1e463573_logo_notion-dark.svg)
-
-“We saw 12 hours of prototyping work collapse into about 20 minutes. Then your whole team can jump in and refine it together.”
+> “We saw 12 hours of prototyping work collapse into about 20 minutes. Then your whole team can jump in and refine it together.”
 
 30+concurrent agent tasks from a single task board
 
 97%reduction in prototyping time
 
-Industry:Software
+Industry:
+:   Software
 
-Company size:Large
+Company size:
+:   Large
 
-Product:Claude Managed Agents
+Product:
+:   Claude Managed Agents
 
-Location:North America
+Location:
+:   North America
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a1603b98d189673104e85cf_logo_novonordisk-light.svg)
+![](https://assets.claude.com/7943a1eca0e6893514d9870061a5e5ccd3b09704.svg)
 
-“In a highly regulated industry, we can't just throw our data and information into a large language model and hope for the best. Our conversations with Anthropic really guided in the ways we can securely use Claude for planning, for strategic tasks, for code generation.”
+> “In a highly regulated industry, we can't just throw our data and information into a large language model and hope for the best. Our conversations with Anthropic really guided in the ways we can securely use Claude for planning, for strategic tasks, for code generation.”
 
 1000xclinical study documentation down from 10 weeks to 10 minutes
 
-Industry:Life sciences
+Industry:
+:   Life sciences
 
-Company size:Large
+Company size:
+:   Large
 
-Product:Claude Code
+Product:
+:   Claude Code
 
-Location:Europe
+Location:
+:   Europe
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a3df6f37b772965a5c4_uber.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a4368d48e57ad911656_uber-1.svg)
+![](https://assets.claude.com/e5c63aefb441175c709122d56a9670da3604726c.jpg)[](https://assets.claude.com/2cc605453b4d1965ecc4caa8f3c1ba3ba5834ea8.webm)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8cfcc9195782f0851f0_Bridgewater_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8d35cc7b57f838f9679_Bridgewater_dark.svg)
+![](https://assets.claude.com/c998b420b22ec13a0ddb9f8338547423ea204478.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
+> “Slack’s close collaboration with Anthropic has helped our Engineering and Product teams accelerate prototyping and model testing.”
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a21dcb3d7e099a5f60e67fe_citi-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18bb56d8b4f7bc7cb2653f_citi-logo-white.svg)
+97minutes per week saved by the average user through summarization and recap features
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a797eb5aba2db4ba3e05_AIG_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a79b85e4bd76b40ef3a3_AIG_dark.svg)
+Industry:
+:   Software
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4fac9a204dd3aef4556_spotify-logo-black.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
+Company size:
+:   Large
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5faa6352b26bf7542cb9b_logo_rakuten-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5fab610bf0d091b541153_logo_rakuten-dark.svg)
+Product:
+:   Claude Platform
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae674813a930db5dcaf7_Visa_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae6d39727b14adbf7631_Visa_dark.svg)
+Location:
+:   North America
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcafa93907f736cf33c15_banner-health-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcaf6e759325a5107816e_banner-health-dark.svg)
+![](https://assets.claude.com/91535135dbaa2fa73f4efc60a1f202de0e57c602.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adf8d23ff734739d3a80_Stripe_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adfff1546febae66f812_Stripe_dark.svg)
+> “With this partnership, Allianz is taking a decisive step to address critical AI challenges in insurance. Anthropic's focus on safety and transparency complements our strong dedication to customer excellence and stakeholder trust.”
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba1577e91d8296653388ca_Group%202055245285.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a186e574d077d020536326e_thomson_reuters_logo_white.svg)
+90%week-over-week growth company-wide deployment, with rapid global adoption
+
+Industry:
+:   Insurance
+
+Company size:
+:   Large
+
+Product:
+:   Claude Platform
+
+Location:
+:   EMEA
+
+![](https://assets.claude.com/972974c5d13e2c9aa5bdeb15b6a1911ff95535f4.jpg)[](https://assets.claude.com/06d5c3ec35d40b35a9dbae1761d19417c045b092.webm)
+
+![](https://assets.claude.com/a7bc2875764acfac8d206c0b7ed10b21b84d9d09.svg)
+
+> “Through using Claude, we’ve saved millions, which we have reinvested in upskilling our customer support agents. We’ve empowered our agents to focus on those more complex issues that really require human care.”
+
+87%reduction in customer support time
+
+30%more accurate teams making sharper calls
+
+Industry:
+:   Transportation
+
+Company size:
+:   Large
+
+Product:
+:   Claude Platform
+
+Location:
+:   North America
+
+![](https://assets.claude.com/a37067bc561c00af41fbc682c4be9146bd551b29.svg)
+
+> “As AI becomes the interface for decisions, trust becomes the standard. Moody’s decision-grade connected intelligence is key to unlocking AI for high‑stakes credit and compliance decision‑making.”
+
+1200%credit memo prep time cut from 40 hours to 2 minutes with Claude-built agents
+
+Industry:
+:   Financial services
+
+Company size:
+:   Large
+
+Product:
+:   Claude Platform
+
+Location:
+:   North America
+
+![](https://assets.claude.com/b8b7348bebaf2bd3bfb65b1800cce67c11342963.jpg)[](https://assets.claude.com/39f3cca8cbd5de7b0d44dc265b1a736e615d0299.webm)
+
+![](https://assets.claude.com/1e97abfa19201b641c46b8cebc68b6894b8aee05.svg)
+
+> “We saw 12 hours of prototyping work collapse into about 20 minutes. Then your whole team can jump in and refine it together.”
+
+30+concurrent agent tasks from a single task board
+
+97%reduction in prototyping time
+
+Industry:
+:   Software
+
+Company size:
+:   Large
+
+Product:
+:   Claude Managed Agents
+
+Location:
+:   North America
+
+![](https://assets.claude.com/7943a1eca0e6893514d9870061a5e5ccd3b09704.svg)
+
+> “In a highly regulated industry, we can't just throw our data and information into a large language model and hope for the best. Our conversations with Anthropic really guided in the ways we can securely use Claude for planning, for strategic tasks, for code generation.”
+
+1000xclinical study documentation down from 10 weeks to 10 minutes
+
+Industry:
+:   Life sciences
+
+Company size:
+:   Large
+
+Product:
+:   Claude Code
+
+Location:
+:   Europe
+
+![](https://assets.claude.com/e5c63aefb441175c709122d56a9670da3604726c.jpg)[](https://assets.claude.com/2cc605453b4d1965ecc4caa8f3c1ba3ba5834ea8.webm)
+
+![](https://assets.claude.com/c998b420b22ec13a0ddb9f8338547423ea204478.svg)
+
+> “Slack’s close collaboration with Anthropic has helped our Engineering and Product teams accelerate prototyping and model testing.”
+
+97minutes per week saved by the average user through summarization and recap features
+
+Industry:
+:   Software
+
+Company size:
+:   Large
+
+Product:
+:   Claude Platform
+
+Location:
+:   North America
+
+![](https://assets.claude.com/91535135dbaa2fa73f4efc60a1f202de0e57c602.svg)
+
+> “With this partnership, Allianz is taking a decisive step to address critical AI challenges in insurance. Anthropic's focus on safety and transparency complements our strong dedication to customer excellence and stakeholder trust.”
+
+90%week-over-week growth company-wide deployment, with rapid global adoption
+
+Industry:
+:   Insurance
+
+Company size:
+:   Large
+
+Product:
+:   Claude Platform
+
+Location:
+:   EMEA
+
+1 of 6
+
+* ![Uber](https://assets.claude.com/3f7a7fe5def2d5016217a20cbc6bc64a81ba889c.svg)
+* ![Bridgewater](https://assets.claude.com/537c1c86f57465b5d7cba25059a9a9d17618166d.svg)
+* ![GitHub](https://assets.claude.com/ff6655b95f24d2aa0b9bf52c94ef5d5f5e54a70e.svg)
+* ![Citi](https://assets.claude.com/c1dc04d3b27625bd7ff9f83a067ad026997a5a7d.svg)
+* ![AIG](https://assets.claude.com/200330d7e054e5b63c9216070704146b1698960a.svg)
+* ![Spotify](https://assets.claude.com/ca907a6ebfed4932cb7766ca322936b3c65b2a94.svg)
+* ![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
+* ![Visa](https://assets.claude.com/0e2431b0f4c10fb7cdaa4c5a08d3048cf0320583.svg)
+* ![Banner Health](https://assets.claude.com/82b8c654bd30ad2381913d6e1e76e00499cb6b4a.svg)
+* ![Stripe](https://assets.claude.com/0e2493b60dbe1a71a144ca649e1916bade399bf7.svg)
+* ![Thomson Reuters](https://assets.claude.com/3c80d8dc7dbf6556d1137977873dee26eaffae1d.svg)
 
 ## Built for enterprise
 
@@ -148,31 +238,20 @@ Pick the products and platform that are right for your teams, whether you’re c
 
 The security, compliance, and admin controls your organization needs.
 
-Learn more
-
-[Learn more](https://trust.anthropic.com/)Learn more
+[Learn more (opens in new tab)](https://trust.anthropic.com/)
 
 \*Data retention controls and OTEL monitoring are currently available on Claude Enterprise only.
 
-Single sign-on (SSO/SAML) and domain capture
-
-SOC 2, ISO 27001, GDPR, and CCPA compliance
-
-Usage analytics and reporting
-
-SCIM provisioning
-
-Spend controls
-
-Data retention controls\*
-
-Compliance API
-
-HIPAA-ready offering
-
-Audit logs and OpenTelemetry monitoring\*
-
-Role-based access control (RBAC)
+* Single sign-on (SSO/SAML) and domain capture
+* SOC 2, ISO 27001, GDPR, and CCPA compliance
+* Usage analytics and reporting
+* SCIM provisioning
+* Spend controls
+* Data retention controls\*
+* Compliance API
+* HIPAA-ready offering
+* Audit logs and OpenTelemetry monitoring\*
+* Role-based access control (RBAC)
 
 ## Bring Claude to your enterprise two ways
 
@@ -182,21 +261,17 @@ Deploy Claude to your workforce or build it into your products.
 
 Give every employee secure access to Chat, Claude Cowork, Claude Code, and your company's connectors. Get the admin controls, management, and visibility your IT and security teams need.
 
-See plans
-
-[See plans](#pricing)See plans
+[See plans](#pricing)
 
 ### Claude Platform
 
 Access the Claude API to power new experiences, ship production-grade agents, and integrate Claude into the workflows and applications you're building.
 
-Explore the platform
-
-[Explore the platform](https://claude.com/platform/api)Explore the platform
+[Explore the platform](https://claude.com/platform/api)
 
 Results with Claude Code
 
-![Spotify](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4fac9a204dd3aef4556_spotify-logo-black.svg)![Spotify](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
+![Spotify](https://assets.claude.com/ca907a6ebfed4932cb7766ca322936b3c65b2a94.svg)
 
 90%
 
@@ -204,141 +279,78 @@ less time spent on complex code migrations
 
 ## Secure products for employees, everywhere your teams work
 
-Claude Code
+Claude CodeClaude CoworkClaude ChatClaude Security
 
-Claude Cowork
-
-Claude Chat
-
-Claude Security
-
-Active
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fd0c0c347227f56f59139f_maxresdefault.jpg)
+![Video: Code faster across your enterprise stack](https://assets.claude.com/922f32dbd47ffa8d43f3a9dc7f44b9e2f803f76a.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ### Code faster across your enterprise stack
 
 Build, debug, and ship using natural language from your terminal, IDE, Slack, or the web. Claude Code works wherever your team does.
 
-Learn more
-
-[Learn more](https://claude.com/product/claude-code/enterprise)Learn more
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fcfdb277363bbe323dfd39_maxresdefault.jpg)
+[Learn more](https://claude.com/product/claude-code/enterprise)
 
 ### Delegate tasks to Claude with Cowork
 
 Connect your files and tools, then hand off research, documents, and repetitive work. Get polished deliverables back while you focus on the work that needs your judgment.
 
-Learn more
-
-[Learn more](https://claude.com/product/cowork)Learn more
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fd0ca45e705644001aa5c1_maxresdefault-1.jpg)
+[Learn more](https://claude.com/product/cowork)
 
 ### Chat: A thinking partner for everyday work
 
 Chat with Claude to develop ideas, draft content, tighten reports, work through hard problems, and more.
 
-Learn more
-
-[Learn more](https://claude.com/product/overview)Learn more
-
-[Play video](#)Play video
-
-![claude security
-](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0f3ed6261932e5de835422_claude-security-thumbnail.png)
+[Learn more](https://claude.com/product/overview)
 
 ### Find and fix vulnerabilities with Claude Security
 
 Claude helps security teams and developers by reviewing code for security issues, drafts patches, and explains the risk in language your whole team can act on.
 
-Learn more
-
-[Learn more](https://claude.com/product/claude-security)Learn more
+[Learn more](https://claude.com/product/claude-security)
 
 Tailor Claude to your business
 
 Connect to Gmail, Google Drive, Slack and more to give Claude context from across your stack. Use Claude directly inside Microsoft 365 or with Google Chrome.
 
-Learn more
-
-[Learn more](https://claude.com/connectors)Learn more
+[Learn more](https://claude.com/connectors)
 
 ## Real work, across every function
 
-Engineering
-
-Marketing
-
-Sales
-
-Product Management
-
-Human Resources
-
-Security
-
-Active
+EngineeringMarketingSalesProduct ManagementHuman ResourcesSecurity
 
 Prompt
 
 Audit our use of the deprecated legacy-auth library across the monorepo. Generate a migration plan to move all 47 services to auth-v2, prioritized by risk and ordered by dependencies.
 
+```
 ✻ Migration plan: legacy-auth → auth-v2
 
-‍
+  Audited 47 services, 312 call sites, 8 distinct usage patterns.
 
-Audited 47 services, 312 call sites, 8 distinct usage patterns.
+  Recommended order
 
-‍
+    Phase 1 — Low risk (weeks 1–2, 12 services)
+      Internal admin tools with no external dependencies. Safe to validate the auth-v2 codemod and surface unknown patterns.
+    Phase 2 — Leaf services (weeks 3–5, 18 services)
+      No downstream consumers in the dependency graph. Failures stay contained; single staged rollout per service.
+    Phase 3 — Core services (weeks 6–9, 17 services)
+      Auth-critical paths with downstream impact. Requires feature flags, shadow traffic comparison, and per-team rollback plans.
 
-Recommended order
+  Risk callouts
 
-‍
+    payments-api — blocker
+      Uses undocumented legacy-auth.signWithRotation() not present in auth-v2. Needs design discussion before migration.
+    mobile-bff — needs review
+      Integration tests pinned to legacy-auth response format. Token envelope changed (token.claims → token.payload); 23 fixtures to update.
+    identity-gateway — coordinated cutover
+      Sits in front of 31 of 47 services. Recommend cutover at the Phase 2 → 3 boundary with a 48-hour dual-write window.
 
-Phase 1 — Low risk (weeks 1–2, 12 services)
- Internal admin tools with no external dependencies. Safe to validate the auth-v2 codemod and surface unknown patterns.
+  Suggested next steps
 
-Phase 2 — Leaf services (weeks 3–5, 18 services)
- No downstream consumers in the dependency graph. Failures stay contained; single staged rollout per service.
-
-Phase 3 — Core services (weeks 6–9, 17 services)
- Auth-critical paths with downstream impact. Requires feature flags, shadow traffic comparison, and per-team rollback plans.
-
-‍
-
-Risk callouts
-
-‍
-
-payments-api — blocker
- Uses undocumented legacy-auth.signWithRotation() not present in auth-v2. Needs design discussion before migration.
-
-mobile-bff — needs review
- Integration tests pinned to legacy-auth response format. Token envelope changed (token.claims → token.payload); 23 fixtures to update.
-
-identity-gateway — coordinated cutover
- Sits in front of 31 of 47 services. Recommend cutover at the Phase 2 → 3 boundary with a 48-hour dual-write window.
-
-‍
-
-Suggested next steps
-
-‍
-
-1. Open an RFC for the signWithRotation equivalent in auth-v2.
- 2. Run the codemod against Phase 1 services, one PR per service.
- 3. Add a CI check that fails on new legacy-auth imports in week 2.
- 4. Schedule identity-gateway cutover with platform for week 5.
-
-‍
+    1. Open an RFC for the signWithRotation equivalent in auth-v2.
+    2. Run the codemod against Phase 1 services, one PR per service.
+    3. Add a CI check that fails on new legacy-auth imports in week 2.
+    4. Schedule identity-gateway cutover with platform for week 5.
+```
 
 ### Engineering
 
@@ -347,29 +359,7 @@ Suggested next steps
 * Troubleshoot errors and runtime issues
 * Identify code optimizations and performance improvements
 
-Claude Code for Enterprise
-
-[Claude Code for Enterprise](https://claude.com/product/claude-code/enterprise)Claude Code for Enterprise
-
-Prompt
-
-Build a Q1 channel performance review. Pull spend and conversions from HubSpot and paid social metrics from our LinkedIn dashboards. Show ROAS by channel over the last six months and flag the channels where performance is declining.
-
-Attachments
-
-HubSpot\_Q1\_export
-
-24 kb
-
-CSV
-
-LinkedIn\_Ads\_Q1
-
-8 kb
-
-CSV
-
-![q1 channel performance review](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0f1123bba161898ef529be_q1-channel-performance-review.png)
+[Claude Code for Enterprise](https://claude.com/product/claude-code/enterprise)
 
 ### Marketing
 
@@ -378,52 +368,12 @@ CSV
 * Develop marketing campaign strategies
 * Create post campaign performance reports
 
-Prompt
-
-I have a renewal call with Acme Corp's VP of Operations on Thursday. Pull the account picture from HubSpot, open work in Asana, and any mentions in #acme-account on Slack. Produce a brief covering relationship status, open risks, expansion signals, and three talking points for the call. Send to me in Slack.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf89f91d777702ff37af_HubSpot.jpg)
-
-Hubspot
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac11074040a8d303e83a5_Slack.jpg)
-
-Slack
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
-
-Asana
-
-![slack message](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a185be57365d964abe67dea_slack-message.webp)
-
 ### Sales
 
 * Analyze sales calls to craft tailored account plans
 * Develop objection handling strategies
 * Build compelling and tailored pitches
 * Interpret sales metrics and KPIs
-
-Prompt
-
-Score the candidate features for our Q3 roadmap. Pull usage data from Amplitude, recent product feedback from #product-feedback in Slack, and engineering effort estimates from Linear. Score each feature on reach, impact, and effort. Rank them and flag the top three to discuss in roadmap planning Thursday.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
-
-Amplitude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac11074040a8d303e83a5_Slack.jpg)
-
-Slack
-
-![Linear logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab43729f44eabd60b9e2ec0_6ab4360ab06e949f996372ed_startups-square-linear-light.svg)
-
-Linear
-
-![q3 prioritization](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0f12455d61e69f34181f82_q3-prioritization.png)
 
 ### Product Management
 
@@ -432,98 +382,12 @@ Linear
 * Create product specifications and requirements documents
 * Interpret product usage metrics and KPIs
 
-Prompt
-
-Build a 30-60-90 day onboarding plan for our new Senior Product Designer starting Monday. Pull from the role's job description, the design team's Notion handbook, recent Figma files the team has shipped. Include who they should meet in week one, what to read, what to ship by day 30, and goals for days 60 and 90.
-
-Connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf35eff31cb9416d9ec4_Figma.jpg)
-
-Figma
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac085f91d777702ff6935_Notion%20MCP.jpg)
-
-Notion
-
-#### Onboarding plan: Maya Chen, Senior Product Designer
-
-*Start date: Monday, May 18
-Manager: Priya Shah*
-
-‍
-
-**Week 1 — Get oriented**
-
-###### **People to meet (15 min each)**
-
-* Priya Shah (managetr) — already on calendar, Monday 10am
-* Jordan Lee (design lead, peer) — book Tuesday
-* Sam Patel (PM partner for the checkout team)
-* Two engineers from the checkout team: Ana Torres, Ben Wu
-
-###### **Read first**
-
-* Design system docs (Notion: /Design/System)
-* Last quarter's research readouts (Notion: /Research/Q1)
-* Checkout team's most recent Figma file (Onboarding-redesign-v2)
-
-###### **Days 1–30 — Land**
-
-* Ship one small UI fix end-to-end to learn the workflow
-* Attend three user research sessions
-* Present a teardown of one competitor's checkout in week 4 design crit
-
-###### **Days 31–60 — Contribute**
-
-* Own one in-flight project (likely the cart abandonment redesign)
-* First design review on owned work by day 60
-
-###### **Days 61–90 — Lead**
-
-* Drive the next quarter's roadmap discussion for the checkout team
-* Goal: ship one feature you scoped end-to-end
-
 ### Human Resources
 
 * Summarize candidate feedback into hiring recommendations
 * Create performance review templates and calibration summaries
 * Develop learning and development programs
 * Interpret headcount and workforce planning metrics
-
-Prompt
-
-Scan our webhook service for security vulnerabilities
-
-● Scanning 247 files across app/, services/, routes/...
-
-● Analyzing auth flows, input validation, file handling...
-
-● Filtering by severity ≥ high...
-
-● Found 4 findings in acme-corp/hookrelay
-
-‍
-
-CRITICAL Shell command injection via webhook payload
-
-app/services/notifiers/script\_runner.py:21 · Command injection
-
-CRITICAL JWT authentication bypass via "none" algorithm
-
-app/auth/jwt\_handler.py:28 · Auth bypass
-
-CRITICAL Path traversal in export file download endpoint
-
-app/routes/exports.py:39 · Path traversal
-
-HIGH Server-side request forgery in destination URL validation
-
-app/services/validator.py:36 · SSRF
-
-‍
-
-✓ 12 lower-severity findings filtered out
 
 ### Security
 
@@ -533,13 +397,9 @@ app/services/validator.py:36 · SSRF
 * Draft incident reports and post-mortems
 * Build detection rules and tune existing ones
 
-‍
-
 ## Get the Enterprise plan
 
-Explore features
-
-[Explore features](https://claude.com/pricing#team-enterprise-features)Explore features
+[Explore features](https://claude.com/pricing#team-enterprise-features)
 
 ### Enterprise
 
@@ -550,87 +410,67 @@ $20
 Per seat / month, billed annually.
 Usage is billed as you go at API rates, based on what your team uses. Annual commitment required. Minimum 20 seats.
 
-Get the Enterprise plan
+[Get the Enterprise plan](http://claude.ai/create/enterprise)[Chat with buying specialist](https://claude.ai/buying-specialist)
 
-[Get the Enterprise plan](http://claude.ai/create/enterprise)Get the Enterprise plan
+[Usage limits (opens in new tab)](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic's discretion.
 
-Chat with buying specialist
-
-[Chat with buying specialist](https://claude.ai/buying-specialist)Chat with buying specialist
-
-[Usage limits](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic's discretion.
-
-[Usage limits](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Price and plans are subject to change at Anthropic's discretion.
+[Usage limits (opens in new tab)](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Price and plans are subject to change at Anthropic's discretion.
 
 ## Build on the Claude Platform
 
 Give developers access to the API to build AI-enabled products, services, and agents.
 
-View documentation
-
-[View documentation](https://platform.claude.com/docs)View documentation
+[View documentation](https://platform.claude.com/docs)
 
 ### Primitives
 
 Building blocks to integrate Claude, including the Messages API and tools, with full control over every layer.
 
-Learn more
-
-[Learn more](https://platform.claude.com/docs)Learn more
+[Learn more](https://platform.claude.com/docs)
 
 ### Harnesses and infrastructure
 
 Everything you need to ship production-grade agents, including Claude Managed Agents.
 
-Learn more
-
-[Learn more](https://claude.com/blog/claude-managed-agents)Learn more
+[Learn more](https://claude.com/blog/claude-managed-agents)
 
 ### Operating system
 
 Controls to deploy and manage agents across your organization, including authorization, governance, and observability.
 
-Learn more
-
-[Learn more](https://platform.claude.com/)Learn more
+[Learn more](https://platform.claude.com/)
 
 Customer story
 
-![Canva](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a94f6f82b1f84f489887_Canva_light.svg)![Canva](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a94baddb6685c1e5410d_Canva_dark.svg)
+![Canva](https://assets.claude.com/f047885ca3dadf9a16509752ef150ebb9bd424bb.svg)
 
 Canva empowers employees across teams with Claude
 
-Read story
-
-[Read story](https://claude.com/customers/canva)Read story
+[Read story](https://claude.com/customers/canva)
 
 Customer story
 
-![GitLab](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaf1b161d57cbe7095b8_GitLab_light.svg)![GitLab](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaebe118de085a232f53_GitLab_dark.svg)
+![GitLab](https://assets.claude.com/9760b31778be76fd66c6b722dced22db12cb59e8.svg)
 
 GitLab enhances productivity with Claude
 
-Read story
+[Read story](https://claude.com/customers/gitlab-enterprise)
 
-[Read story](https://claude.com/customers/gitlab-enterprise)Read story
-
-[Prev](#)Prev
-
-[Next](#)Next
+1 of 2
 
 Code modernization
 
-![code modernization ](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0c98577898479170a984c0_image%201471.webp)
+![code modernization ](https://assets.claude.com/96ef6497272e6a93db8fbaa2b46a25d866ee6685.jpg)
 
 Modernize legacy code without starting over. Claude Code handles large-scale refactoring while keeping your existing business logic intact.
 
-Learn more
-
-[Learn more](https://claude.com/solutions/code-modernization)Learn more
+[Learn more](https://claude.com/solutions/code-modernization)
 
 ### Build on your own
 
 Launch your own generative AI-enabled products with:
+
+---
 
 * Access to all Claude models
 * Usage-based tiers
@@ -639,13 +479,13 @@ Launch your own generative AI-enabled products with:
 * Self-serve deployment on workbench
 * [Prompting guides and developer docs](https://docs.anthropic.com/claude/reference/getting-started-with-the-api)
 
-Start building
-
-[Start building](https://claude.com/platform/api)Start building
+[Start building](https://claude.com/platform/api)
 
 ### Get extra support
 
 Need custom rate limits or hands-on help? Contact our sales team for:
+
+---
 
 * Anthropic-supported onboarding
 * Custom rate limits
@@ -653,25 +493,17 @@ Need custom rate limits or hands-on help? Contact our sales team for:
 * Prompting support
 * Deployment support
 
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)
 
 ## FAQ
 
-Security and compliance
-
-Products and capabilities
-
-Getting started
-
-Active
+Security and complianceProducts and capabilitiesGetting started
 
 ### Security and compliance
 
 ### Does Anthropic train on our data?
 
-No. Your inputs and outputs are not used to train our models by default. Review our data practices at the [Trust Center](https://trust.anthropic.com/).
+No. Your inputs and outputs are not used to train our models by default. Review our data practices at the [Trust Center (opens in new tab)](https://trust.anthropic.com/).
 
 ### What security and compliance controls does Claude Enterprise include?
 
@@ -686,10 +518,6 @@ Enterprise is built for organizations with real compliance obligations:
 ### Do you support HIPAA? Can we get a BAA?
 
 Yes, for both the Claude Platform and Claude Enterprise. Claude Platform: Healthcare customers can sign a BAA with no Zero Data Retention requirement. The HIPAA-ready feature set in the Messages API includes prompt caching, web search, and structured outputs, with coverage expanding over time. Claude Enterprise: HIPAA-ready configuration is available with a BAA from Anthropic. Once enabled, your organization can process Protected Health Information (PHI) through Claude in accordance with HIPAA.
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 ### Products and capabilities
 
@@ -731,15 +559,11 @@ Chat is meant for research, brainstorming, writing, and analysis. Claude Code is
 
 ### Can we connect Claude to the tools we already use?
 
-Yes. Connectors bring context from Google Drive, Gmail, Slack, Microsoft 365 and many more into Claude. You can also use Claude directly inside Excel, PowerPoint, Outlook, Slack, and Chrome. See the [Enterprise administrator guide](https://claude.com/resources/tutorials/claude-enterprise-administrator-guide) for setup.
+Yes. Connectors bring context from Google Drive, Gmail, Slack, Microsoft 365 and many more into Claude. You can also use Claude directly inside Excel, PowerPoint, Outlook, Slack, and Chrome. See the [Enterprise administrator guide (opens in new tab)](https://academy.claude.com/tutorials/claude-enterprise-administrator-guide) for setup.
 
 ### What is Claude for Work?
 
 Claude for Work was the earlier name for our business plans — what are now the Team and Enterprise plans. The name has been retired, but the plans still exist: Team for collaboration across smaller organizations, and Enterprise for organizations operating at scale that need advanced security, compliance, and administrative controls.
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 ### Getting started
 
@@ -755,98 +579,54 @@ Yes. Sales-assisted Claude Enterprise plans include invoice billing. Self-serve 
 
 If you're a developer building user-facing experiences or new products with Claude, the Claude Platform is the right starting point. It gives you direct access to our models, the Claude Agent SDK, and the building blocks for production agents.
 
-‍[Explore the developer docs](https://docs.claude.com/en/home) to get started, or [contact our Sales team](https://claude.com/contact-sales) to talk through platform plans and volume commitments.
+[Explore the developer docs](https://docs.claude.com/en/home) to get started, or [contact our Sales team](https://claude.com/contact-sales) to talk through platform plans and volume commitments.
 
 ### Where do I get an API key for Claude Platform and how does billing work?
 
-Create an API key in the [Claude Console](http://platform.claude.com/settings/keys). For production workloads, you can use [Workload Identity Federation](https://platform.claude.com/docs/en/manage-claude/workload-identity-federation) to exchange your cloud provider's identity for short-lived tokens instead of managing static keys. Self-serve accounts are prepaid: add a payment method, purchase credits, and optionally enable auto-reload. Credits cover API usage, the Workbench, and Claude Code (when authenticated with an API key). Enterprise customers can use monthly invoicing instead, [contact sales](https://claude.com/contact-sales) to set this up.
-
-[Prev](#)Prev
-
-[Next](#)Next
+Create an API key in the [Claude Console (opens in new tab)](http://platform.claude.com/settings/keys). For production workloads, you can use [Workload Identity Federation (opens in new tab)](https://platform.claude.com/docs/en/manage-claude/workload-identity-federation) to exchange your cloud provider's identity for short-lived tokens instead of managing static keys. Self-serve accounts are prepaid: add a payment method, purchase credits, and optionally enable auto-reload. Credits cover API usage, the Workbench, and Claude Code (when authenticated with an API key). Enterprise customers can use monthly invoicing instead, [contact sales (opens in new tab)](https://claude.com/contact-sales) to set this up.
 
 ## Enterprise resources
 
 Everything you need to integrate AI thoughtfully
 into your organization.
 
-[Claude Enterprise administrator guide](https://claude.com/resources/tutorials/claude-enterprise-administrator-guide)Claude Enterprise administrator guide
+[Claude Enterprise administrator guide
 
-Claude Enterprise administrator guide
+Tutorial](https://academy.claude.com/tutorials/claude-enterprise-administrator-guide)
 
-Tutorial
+[Claude Academy
 
-[Tutorial](https://claude.com/resources/tutorials/claude-enterprise-administrator-guide)Tutorial
+Resource](https://academy.claude.com/)
 
-[Claude Academy](https://academy.claude.com/)Claude Academy
+[Zero trust AI agents
 
-Claude Academy
+Guide](https://assets.claude.com/4e89a59711a145138bd8edbe7539331abc14ac0b.pdf)
 
-Resource
+[Deploying Claude across your organization
 
-[Resource](https://academy.claude.com/)Resource
+Guide](https://assets.claude.com/e784e0ee3705d9dbdbc6f3fa2a8fb8eee319b3cf.pdf)
 
-[Zero trust AI agents](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0521e14a6fed28fe4a3b3b_Claude-eBook-Zero-Trust-for-AI-Agents-05132026.pdf)Zero trust AI agents
+[The Enterprise AI transformation guide
 
-Zero trust AI agents
+Guide](https://assets.claude.com/beff77fbe08721ffde22a88bae3c58f488c941a1.pdf)
 
-Guide
+[The 2026 state of AI agents report
 
-[Guide](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0521e14a6fed28fe4a3b3b_Claude-eBook-Zero-Trust-for-AI-Agents-05132026.pdf)Guide
-
-[Deploying Claude across your organization](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69f24d3e09b921b92403774e_Claude-Deploying-Claude-Across-Your-Organization-04292026.pdf)Deploying Claude across your organization
-
-Deploying Claude across your organization
-
-Guide
-
-[Guide](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69f24d3e09b921b92403774e_Claude-Deploying-Claude-Across-Your-Organization-04292026.pdf)Guide
-
-[The Enterprise AI transformation guide](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a05227a9465cf77dba4c51a_The%20Enterprise%20AI%20Transformation%20Guide%20101425%20(1).pdf)The Enterprise AI transformation guide
-
-The Enterprise AI transformation guide
-
-Guide
-
-[Guide](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a05227a9465cf77dba4c51a_The%20Enterprise%20AI%20Transformation%20Guide%20101425%20(1).pdf)Guide
-
-[The 2026 state of AI agents report](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0522b7ebbb33addef0d238_2026%20State%20of%20AI%20Agents%20Report%20(1).pdf)The 2026 state of AI agents report
-
-The 2026 state of AI agents report
-
-‍Report
-
-[‍Report](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0522b7ebbb33addef0d238_2026%20State%20of%20AI%20Agents%20Report%20(1).pdf)‍Report
+Report](https://assets.claude.com/f16be510381799bc0bcd3a2c18957d2e6e0b78da.pdf)
 
 ## Ready to bring Claude
 to your organization?
 
-Get Enterprise plan
+[Get Enterprise plan](http://claude.ai/create/enterprise)[Build on Claude Platform](https://claude.com/platform/api)
 
-[Get Enterprise plan](http://claude.ai/create/enterprise)Get Enterprise plan
-
-Build on Claude Platform
-
-[Build on Claude Platform](https://claude.com/platform/api)Build on Claude Platform
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a3df6f37b772965a5c4_uber.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a4368d48e57ad911656_uber-1.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8cfcc9195782f0851f0_Bridgewater_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8d35cc7b57f838f9679_Bridgewater_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a21dcb3d7e099a5f60e67fe_citi-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18bb56d8b4f7bc7cb2653f_citi-logo-white.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a797eb5aba2db4ba3e05_AIG_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a79b85e4bd76b40ef3a3_AIG_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4fac9a204dd3aef4556_spotify-logo-black.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5faa6352b26bf7542cb9b_logo_rakuten-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5fab610bf0d091b541153_logo_rakuten-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae674813a930db5dcaf7_Visa_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae6d39727b14adbf7631_Visa_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcafa93907f736cf33c15_banner-health-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcaf6e759325a5107816e_banner-health-dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adf8d23ff734739d3a80_Stripe_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adfff1546febae66f812_Stripe_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba1577e91d8296653388ca_Group%202055245285.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a186e574d077d020536326e_thomson_reuters_logo_white.svg)
+* ![Uber](https://assets.claude.com/f8c48d55789b124416184369fd74aa71c3a414e1.svg)
+* ![Bridgewater](https://assets.claude.com/540662be052b766c75138e658bb632cec958daad.svg)
+* ![GitHub](https://assets.claude.com/e358d7627ad92bfb7462706bb3756549b1d5b892.svg)
+* ![Citi](https://assets.claude.com/261563b273a05f17b2be1b2e27f5f05f384c36a2.svg)
+* ![AIG](https://assets.claude.com/06ccbeb3f1be27cba6b732ac2b504259f76309b5.svg)
+* ![Spotify](https://assets.claude.com/95ea6651445ed111cb4017cf63dec40c671edc65.svg)
+* ![Rakuten](https://assets.claude.com/3410c2b6d923fd37f3110f8f678929cb45270ab9.svg)
+* ![Visa](https://assets.claude.com/f69208dae286fb150db52303ed09599bdab433e0.svg)
+* ![Banner Health](https://assets.claude.com/294bd076e0527e15d2f2328eb899cde75196952a.svg)
+* ![Stripe](https://assets.claude.com/8997c058bff47ff57fd097dc3a866a2347ca266c.svg)
+* ![Thomson Reuters](https://assets.claude.com/c7c6ef2f7dc2257c429a154f761197f0f02f5790.svg)

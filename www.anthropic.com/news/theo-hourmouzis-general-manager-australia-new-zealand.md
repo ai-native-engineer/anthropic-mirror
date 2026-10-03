@@ -23,17 +23,3 @@ We're also working with YMCA South Australia as a [Claude for Nonprofits](https:
 “The future for us is about Claude becoming embedded infrastructure, a core part of how we run the organisation,” said Devan Seamans, Head of Marketing & Technology, YMCA South Australia. “That requires a platform with the enterprise governance and controls to match the obligations of a large not-for-profit. We want to be a leader in the Australian NFP space with AI adoption, and Anthropic's approach gives us the confidence to pursue that.”
 
 Sydney follows our recent office openings in [Tokyo](https://www.anthropic.com/news/opening-our-tokyo-office) and [Bengaluru](https://www.anthropic.com/news/bengaluru-office-partnerships-across-india), and comes just ahead of [Seoul](https://www.anthropic.com/news/seoul-becomes-third-anthropic-office-in-asia-pacific), bringing us closer to where our customers are. For more information about current career opportunities in our Sydney office, visit [anthropic.com/careers](http://anthropic.com/careers).
-
-### Barclays scales Claude to upgrade operations and improve client experience
-
-[Read more](https://www.anthropic.com/news/barclays-scales-claude)
-
-### Claude discovers a novel enzyme system with CRISPR-like repeats
-
-We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
-
-[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)
-
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
