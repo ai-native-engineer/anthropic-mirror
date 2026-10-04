@@ -48,6 +48,7 @@ Revealed 2026-08-17 21:12 UTC
   "bug_class": "Heap Buffer Overflow",
   "created_at": "2026-03-29T20:43:11+00:00",
   "description": "Integer truncation from sal_Int32 to sal_uInt16 during DXF LWPOLYLINE import causes a heap buffer overflow.",
+  "location": null,
   "project": "LibreOffice",
   "technical_details": "A 32-bit value (sal_Int32) is truncated to 16 bits (sal_uInt16) when handling an LWPOLYLINE entity in the DXF importer; the truncated value leads to an undersized buffer and a subsequent out-of-bounds heap write.",
   "title": "Heap buffer overflow in DXF LWPOLYLINE import via integer truncation from sal_Int32 to sal_uInt16",

@@ -12,8 +12,6 @@ Resy makes it easy to discover and book restaurant reservations across the Unite
 
 ### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
 
-Anthropic verifiedTrending
-
 Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
 
 [Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")

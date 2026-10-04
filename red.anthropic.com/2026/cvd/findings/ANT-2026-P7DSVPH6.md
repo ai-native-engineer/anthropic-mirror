@@ -52,8 +52,6 @@ Triage and disclosure were performed by Ada Logics.
 
 :   critical
 
-The change that resolved this finding.
-
 ```
 diff --git a/core/iwasm/libraries/libc-uvwasi/libc_uvwasi_wrapper.c b/core/iwasm/libraries/libc-uvwasi/libc_uvwasi_wrapper.c
 index 35d091e78d..fad77406fe 100644

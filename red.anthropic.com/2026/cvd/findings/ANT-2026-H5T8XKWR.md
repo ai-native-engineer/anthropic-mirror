@@ -33,6 +33,7 @@ Revealed 2026-05-20 07:40 UTC
   "claude_severity": "critical",
   "created_at": "2026-03-29T20:43:35+00:00",
   "description": "The Ghost Content API, which is publicly accessible by design, fails to properly sanitize the slug filter parameter in query strings. An unauthenticated attacker can inject SQL via a crafted `slug:[...]` filter value. This allows reading arbitrary data from the Ghost database, including staff API keys and other sensitive records. Because the Content API key is intentionally public, no authentication barrier exists.",
+  "location": null,
   "project": "TryGhost/Ghost",
   "technical_details": "User-supplied input in the Content API `filter` query-string parameter (specifically `slug:[...]` expressions) is incorporated into a SQL query without sufficient sanitization, permitting injection of arbitrary SQL and exfiltration of any row in the database.",
   "title": "SQL injection in Content API",

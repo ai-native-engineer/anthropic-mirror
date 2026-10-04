@@ -541,6 +541,7 @@ Revealed 2026-05-20 07:40 UTC
   "bug_class": "improper-cert-validation",
   "created_at": "2026-03-29T20:42:36+00:00",
   "description": null,
+  "location": null,
   "project": "wolfSSL",
   "technical_details": null,
   "title": "wolfssl x509 verify cert leaf signature verification by",

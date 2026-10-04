@@ -88,5 +88,3 @@ This bold expansion leverages Claude's intelligence and Sendbird's infrastructur
 ### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
 ### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)
-
-Lotte Homeshopping Claude Platform (API) case study | Claude by Anthropic

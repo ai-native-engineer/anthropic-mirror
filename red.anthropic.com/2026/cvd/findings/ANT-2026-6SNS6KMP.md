@@ -27,8 +27,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 **Reference:** ANT-2026-6SNS6KMP
 
-The change that resolved this finding.
-
 ```
 diff --git a/gix-submodule/src/access.rs b/gix-submodule/src/access.rs
 index 0b2f5b21c2d..0ae7d654867 100644
@@ -92,6 +90,7 @@ Revealed 2026-05-20 07:40 UTC
   "created_at": "2026-03-29T20:43:51+00:00",
   "description": "Updating a Git submodule from a malicious repository leads to remote code execution.",
   "discovered_at": "2026-03-10T00:00:00+00:00",
+  "location": null,
   "project": "GitoxideLabs/gitoxide",
   "technical_details": "Step [A] reads `submodule.<name>.update` newest-to-oldest across sections, so if the trusted override section has no `update` key the attacker's .gitmodules value is returned. Step [B] then disarms the guard because `.any(|s| s.header().subsection_name() == Some(name) && !std::ptr::eq(s.meta(), ours))` only checks that a foreign-metadata section exists for that name, not that it supplied the value read in [A]. The two checks ask different questions, and the mismatch lets a .gitmodules-sourced `!command` pass as trusted.",
   "title": "RCE when updating a Git submodule of a malicious repository",

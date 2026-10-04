@@ -39,8 +39,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Calif.
 
-The change that resolved this finding.
-
 ```
 diff --git a/cipher/dilithium.c b/cipher/dilithium.c
 index 955feb2ae..212c4afe5 100644

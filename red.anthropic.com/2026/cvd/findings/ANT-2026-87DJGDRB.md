@@ -58,8 +58,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Independent triage by an external party.
 
-The change that resolved this finding.
-
 ```
 diff --git a/wolfcrypt/src/asn.c b/wolfcrypt/src/asn.c
 index 00be607506c..664d7862f5b 100644

@@ -36,8 +36,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Anvil Security.
 
-The change that resolved this finding.
-
 ```
 diff --git a/openmeter/streaming/clickhouse/utils_query.go b/openmeter/streaming/clickhouse/utils_query.go
 index 078f7af103..35360e0e31 100644

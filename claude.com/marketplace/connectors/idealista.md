@@ -57,16 +57,6 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
-
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
-
-Anthropic verifiedTrending
-
-Faites vos courses rapidement
-
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
-
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
 ### [Supabase](https://claude.com/marketplace/connectors/supabase)
@@ -74,6 +64,14 @@ Faites vos courses rapidement
 Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+
+![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+
+### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
+
+Faites vos courses rapidement
+
+[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
 
 ![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
 

@@ -142,7 +142,7 @@ Browser automation and end-to-end testing MCP server by Microsoft. Enables Claud
 
 ## Trending connectors
 
-Show all 7
+Show all 6
 
 ![](https://www.google.com/s2/favicons?domain=slicktrip.com&sz=96)
 
@@ -194,29 +194,19 @@ Connect AI assistants to live crypto markets, prediction markets, your trading a
 
 [Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+![](https://www.coinversa.ai/web-app-manifest-512x512.png)
 
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
-
-Anthropic verifiedTrending
-
-Faites vos courses rapidement
-
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
-
-![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
-
-### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
+### [Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)
 
 Anthropic verifiedTrending
 
-Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
 
-[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
+[Add Coinversa Pulse in Claude (opens in new tab)](https://claude.ai/directory/4f5d3539-79ae-4f8b-8011-356259b4dff6 "Add in Claude")
 
 ## New connectors
 
-Show all 8
+Show all 6
 
 ![](https://www.webmcp-eval.com/favicon.png)
 
@@ -278,26 +268,6 @@ Manage Chatbase agents, sources, conversations, tickets.
 
 [Add Chatbase in Claude (opens in new tab)](https://claude.ai/directory/48ba489e-160f-4965-913b-667cce063da2 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=vanta.com&sz=96)
-
-### [Vanta](https://claude.com/marketplace/connectors/vanta)
-
-Anthropic verifiedNew
-
-Connect to Vanta's trust management platform
-
-[Add Vanta in Claude (opens in new tab)](https://claude.ai/directory/a06a16f0-182d-43c1-a20d-0f95aee6027e "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=mollie.com&sz=96)
-
-### [Mollie](https://claude.com/marketplace/connectors/mollie)
-
-Anthropic verifiedNew
-
-Online and in-person payments, subscriptions, funding, reconciliation, and fraud prevention – so growth never means more providers.
-
-[Add Mollie in Claude (opens in new tab)](https://claude.ai/directory/7407d19d-d56f-4701-99d5-b33cdb08ab7f "Add in Claude")
-
 ## All connectors
 
 892 connectors
@@ -305,8 +275,6 @@ Online and in-person payments, subscriptions, funding, reconciliation, and fraud
 ![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
 ### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
-
-Anthropic verifiedTrending
 
 Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
 
@@ -360,14 +328,6 @@ Connect your Notion workspace to search, update, and power workflows across tool
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
-
-### [Figma](https://claude.com/marketplace/connectors/figma)
-
-Generate diagrams and better code from Figma context
-
-[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
-
 ![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
 
 ### [Slack](https://claude.com/marketplace/connectors/slack)
@@ -375,6 +335,14 @@ Generate diagrams and better code from Figma context
 Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
+
+![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
+
+### [Figma](https://claude.com/marketplace/connectors/figma)
+
+Generate diagrams and better code from Figma context
+
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
 ![](https://www.gemini.com/favicon.ico)
 
@@ -410,14 +378,6 @@ Manage issues, projects & team workflows in Linear
 
 [Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
-
-### [monday.com](https://claude.com/marketplace/connectors/monday)
-
-monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
-
-[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 
 ### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
@@ -426,15 +386,13 @@ Design, combine, and edit with Adobe pro tools
 
 [Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
+### [monday.com](https://claude.com/marketplace/connectors/monday)
 
-Anthropic verifiedTrending
+monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
 
-Faites vos courses rapidement
-
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
@@ -451,6 +409,14 @@ Manage databases, authentication, and storage
 Search for jobs on Indeed
 
 [Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
+
+![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+
+### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
+
+Faites vos courses rapidement
+
+[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
 
 ![](https://assets.claude.com/37ce5968b2e46e9c696132cd4970baeeff9a08f0.jpg?w=128&fit=max&auto=format)
 
@@ -476,6 +442,14 @@ Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
+![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
+
+### [Shopify](https://claude.com/marketplace/connectors/shopify)
+
+Build, manage, and analyze your Shopify store
+
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
+
 ![](https://assets.claude.com/5d13b21d7329cefe058a60e9df0455a8594d3f6e.jpg?w=128&fit=max&auto=format)
 
 ### [Zoom for Claude](https://claude.com/marketplace/connectors/zoom-for-claude)
@@ -491,13 +465,5 @@ Search, recap, and act on your Zoom meetings
 Analyze, debug, and manage projects and deployments
 
 [Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
-
-![](https://assets.claude.com/1f1b0d51c9561a9bd4de38331a65b5af8069e0a8.svg?w=128&fit=max&auto=format)
-
-### [Spotify](https://claude.com/marketplace/connectors/spotify)
-
-Music and podcast recommendations, just for you.
-
-[Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
 
 View more

@@ -59,7 +59,7 @@ Fast-growing connectors this week.
 
 1. 01![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)[Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)Amazon Selling Partner MCP
 2. 02![](https://www.gemini.com/favicon.ico)[Gemini](https://claude.com/marketplace/connectors/gemini-mcp)Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-3. 03![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)[Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+3. 03![](https://www.coinversa.ai/web-app-manifest-512x512.png)[Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
 
 ### Connectors for Connector category: Productivity
 

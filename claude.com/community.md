@@ -14,14 +14,14 @@ Claude Community Events are hosted globally by Claude Community Ambassadors. Mee
 
 titleLocationDate
 
-* [CHZurich | Claude Conversation on ClimateZürich, CHOctober 2, 2026](https://luma.com/claude-ycsc)
-* [ESMadrid | 48-hour Claude Code HackathonMadrid, ESOctober 2, 2026](https://luma.com/claude-dyek)
-* [JPTokyo | Claude Meetup for Healthcare ProfessionalsMinato City, JPOctober 2, 2026](https://luma.com/claude-urwj)
 * [INCalicut | Claude Impact Lab - Superhuman LabKozhikode, INOctober 3, 2026](https://luma.com/claude-06vm)
 * [USMiami | Building with Claude: AI for ocean conservation in Florida Keys WorkshopKey Largo, USOctober 3, 2026](https://luma.com/claude-5bay)
 * [SEStockholm | Claude for Freelancers & Self-EmployedStockholm, SEOctober 5, 2026](https://luma.com/claude-2qhw)
 * [USOrange County | Claude Conversation for MarketersIrvine, USOctober 5, 2026](https://luma.com/claude-mo0t)
 * [CHZurich | Claude Opus 5.5 Build Day WorkshopZürich, CHOctober 6, 2026](https://luma.com/claude-m5ji)
+* [USSan Francisco | Claude for ….San Francisco, USOctober 6, 2026](https://luma.com/claudeimpactlab)
+* [ITTorino | Claude MeetupTorino, ITOctober 7, 2026](https://luma.com/claude-hv3a)
+* [CHZurich | Claude Cyber MeetupZürich, CHOctober 7, 2026](https://luma.com/claude-cyber-zurich)
 
 View more
 

@@ -19,8 +19,8 @@ As described in our [research paper](https://arxiv.org/abs/2412.13678), we also 
 
 ---
 
-* [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [How does Anthropic protect the personal data of Claude users?](https://privacy.claude.com/en/articles/10458704-how-does-anthropic-protect-the-personal-data-of-claude-users)
 * [How does Clio analyze usage patterns while protecting user data?](https://privacy.claude.com/en/articles/10807912-how-does-clio-analyze-usage-patterns-while-protecting-user-data)
-* [How does Anthropic Interviewer collect and use my data?](https://privacy.claude.com/en/articles/12996960-how-does-anthropic-interviewer-collect-and-use-my-data)
+* [Supplemental Anthropic Interviewer Privacy Policy](https://privacy.claude.com/en/articles/14139821-supplemental-anthropic-interviewer-privacy-policy)
 * [Anthropic Interviewer sessions completed after March 23, 2026](https://privacy.claude.com/en/articles/14170919-anthropic-interviewer-sessions-completed-after-march-23-2026)
+* [Anthropic Interviewer sessions completed after September 29, 2026](https://privacy.claude.com/en/articles/17232486-anthropic-interviewer-sessions-completed-after-september-29-2026)

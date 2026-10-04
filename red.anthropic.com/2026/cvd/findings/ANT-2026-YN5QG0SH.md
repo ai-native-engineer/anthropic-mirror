@@ -62,6 +62,7 @@ Revealed 2026-07-08 23:29 UTC
   "claude_severity": "critical",
   "created_at": "2026-03-24T18:46:34+00:00",
   "description": "The fods2xlsfuzzer libFuzzer harness terminated with EXIT_CODE:1 when executing the supplied PoC input. No AddressSanitizer, UBSan, or other sanitizer report was printed, so the crash type, faulting function, and memory-access shape cannot be determined from this log alone. The harness name indicates the input is likely a crafted FODS (Flat ODF Spreadsheet) document processed through a FODS-to-XLS conversion code path.",
+  "location": null,
   "project": "libreoffice",
   "technical_details": null,
   "title": "Heap-buffer-overflow in libreoffice",

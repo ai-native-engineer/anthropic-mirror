@@ -29,5 +29,3 @@ For the millions of people who rely on Lyft every day, this collaboration aims t
 **Forward-Looking Statements**
 
 *Certain statements contained in this blog are “forward-looking statements” about Lyft within the meaning of the securities laws, including statements about Lyft’s anticipated collaboration with Anthropic, its benefits, including for riders and drivers, access to and development of certain products, models and technologies, and training and education of Lyft’s engineering organization. Such statements, which are not of historical fact, involve estimates, assumptions, judgments and uncertainties. There are a number of factors that could cause actual results or outcomes to differ materially from those addressed in the forward-looking statements. Such factors are detailed in Lyft’s filings with the Securities and Exchange Commission. Lyft does not undertake an obligation to update its forward-looking statements to reflect future events, except as required by applicable law.*
-
-Lyft to bring Claude to more than 40 million riders and over 1 million drivers \ Anthropic

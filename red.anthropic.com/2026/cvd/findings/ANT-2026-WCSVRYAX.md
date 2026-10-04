@@ -33,8 +33,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Trail of Bits.
 
-The change that resolved this finding.
-
 ```
 diff --git a/rust/src/detect/transforms/dotprefix.rs b/rust/src/detect/transforms/dotprefix.rs
 index 2b52462fba1a..b6f973835671 100644
@@ -99,6 +97,7 @@ Revealed 2026-08-17 17:47 UTC
   "commit_sha": "7eb45c02afbaf2ad",
   "created_at": "2026-03-27T02:07:51+00:00",
   "description": "A heap-use-after-free was detected in Suricata while fuzzing through the fuzz_sigpcap_aware7 harness. The faulting access is a READ of freed heap memory. The sigpcap_aware harness drives combined signature rules and pcap traffic through the detection engine, so the bug is likely reachable via a crafted rule set paired with crafted packet capture input.",
+  "location": null,
   "project": "suricata",
   "technical_details": null,
   "title": "heap-use-after-free in suricata",

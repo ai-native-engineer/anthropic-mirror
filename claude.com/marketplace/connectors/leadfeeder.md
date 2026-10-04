@@ -45,8 +45,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
 
-Anthropic verifiedTrending
-
 Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
 
 [Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
@@ -90,5 +88,3 @@ Connect your Notion workspace to search, update, and power workflows across tool
 Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
-
-Leadfeeder connector | Claude by Anthropic

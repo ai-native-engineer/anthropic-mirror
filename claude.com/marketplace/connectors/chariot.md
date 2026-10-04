@@ -75,20 +75,20 @@ Payment processing and financial infrastructure tools
 
 [Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
+![](https://appexchange.salesforce.com/image_host/82be812c-159e-49b7-aa89-828b29c95e0b.png)
 
-### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
+### [Blackthorn Forge MCP for Native Salesforce Event Management](https://claude.com/marketplace/connectors/blackthorn-beacon-event-management-for-salesforce)
 
-Build, analyze, and compare portfolios for advisors
+Blackthorn's MCP server for Salesforce events: create, query, and report on events, attendees, tickets, sessions, forms, and email campaigns, over 100 available tools, live against your org.
 
-[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
+[Add Blackthorn Forge MCP for Native Salesforce Event Management in Claude (opens in new tab)](https://claude.ai/directory/bb966230-ca18-4d33-8601-7d54184931c1 "Add in Claude")
 
-![](https://app.superbooks.io/icons/icon-512.png)
+![](https://www.coinversa.ai/web-app-manifest-512x512.png)
 
-### [SuperBooks](https://claude.com/marketplace/connectors/superbooks)
+### [Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)
 
-Financial OS for small businesses
+Anthropic verifiedTrending
 
-[Add SuperBooks in Claude (opens in new tab)](https://claude.ai/directory/f80d20ad-23dc-46d7-bca4-0057424eb163 "Add in Claude")
+Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
 
-Chariot connector | Claude by Anthropic
+[Add Coinversa Pulse in Claude (opens in new tab)](https://claude.ai/directory/4f5d3539-79ae-4f8b-8011-356259b4dff6 "Add in Claude")

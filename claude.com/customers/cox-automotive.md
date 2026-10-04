@@ -80,5 +80,3 @@ Cox Automotive sees AI as key to transforming the automotive industry through di
 ### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
 ### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)
-
-Cox Automotive Claude Platform (API) case study | Claude by Anthropic

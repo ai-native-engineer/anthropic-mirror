@@ -204,5 +204,3 @@ Claude Design is included in all paid plans. Admins must turn it on in Organizat
 ### What are my usage limits?
 
 Artifacts, including work made with Claude Design, Claude Slides and Claude Docs, count toward your plan's usage limits, like the rest of your work with Claude. Larger requests, like a full deck or design, use more of your limit than a typical message. See the [Help Center](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) for current details.
-
-Claude Design | Turn Ideas into Design | Claude by Anthropic

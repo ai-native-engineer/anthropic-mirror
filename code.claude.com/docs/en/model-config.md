@@ -696,7 +696,7 @@ Extended thinking is the reasoning Claude emits before responding. On models tha
 | :- | :- |
 | Toggle for the current session | Press `Option+T` on macOS or `Alt+T` on Windows and Linux |
 | Set the global default | Run `/config` and toggle thinking mode. Saved as `alwaysThinkingEnabled` in `~/.claude/settings.json` |
-| Disable through an environment variable | Set [`MAX_THINKING_TOKENS=0`](https://code.claude.com/docs/en/env-vars), which turns thinking off on the Anthropic API except on Opus 5.5, Sonnet 5.5, and Fable models. On [third-party providers](https://code.claude.com/docs/en/third-party-integrations), Claude Code omits the `thinking` parameter instead, and adaptive-reasoning models may still think. Other values apply only with a [fixed thinking budget](#adaptive-reasoning-and-fixed-thinking-budgets) |
+| Disable through an environment variable | Set [`MAX_THINKING_TOKENS=0`](https://code.claude.com/docs/en/env-vars), which turns thinking off on the Anthropic API except on Opus 5.5, Sonnet 5.5, and Fable models. On [third-party providers](https://code.claude.com/docs/en/third-party-integrations), Claude Code omits the `thinking` parameter instead, and adaptive-reasoning models may still think |
 
 You can't turn thinking off on Opus 5.5, Sonnet 5.5, or the Fable models. The session toggle and the `/config` row show `Thinking can't be turned off` for these models instead of offering the switch, and a saved `alwaysThinkingEnabled: false` or `MAX_THINKING_TOKENS=0` has no effect there. On these models, the model decides per step how much to think based on the effort level. The saved setting applies again when you switch to a model that accepts it.
 

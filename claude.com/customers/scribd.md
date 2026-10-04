@@ -87,5 +87,3 @@ With Claude's ability to process and enhance millions of documents efficiently, 
 ### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
 ### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)
-
-Scribd Claude Platform (API) case study | Claude by Anthropic

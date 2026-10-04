@@ -17,5 +17,3 @@ Richard Fontaine said: “With transformative AI on the near-term horizon, compa
 Fontaine’s appointment adds deep foreign policy and national security experience to the Trust’s range of expertise, reflecting Anthropic’s commitment to supporting democracy and global stability as a core pillar of its mission.
 
 “Richard’s expertise comes at a critical time as advanced AI capabilities increasingly intersect with national security considerations,” said Dario Amodei, CEO and Co-founder of Anthropic. “I've long believed that ensuring democratic nations maintain leadership in responsible AI development is essential for both global security and the common good. Richard’s appointment strengthens the Trust’s ability to guide Anthropic through the complex decisions that will shape not just our industry, but the global balance of power.”
-
-National security expert Richard Fontaine appointed to Anthropic’s long-term benefit trust \ Anthropic

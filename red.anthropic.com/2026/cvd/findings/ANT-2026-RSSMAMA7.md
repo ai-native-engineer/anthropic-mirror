@@ -54,8 +54,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Calif.
 
-The change that resolved this finding.
-
 ```
 diff --git a/tests/api/test_evp_cipher.c b/tests/api/test_evp_cipher.c
 index b4e37df7a28..1e88da9979c 100644
@@ -161,6 +159,7 @@ Revealed 2026-05-20 07:40 UTC
   "bug_class": "crypto-failure",
   "created_at": "2026-03-29T20:42:34+00:00",
   "description": null,
+  "location": null,
   "project": "wolfSSL",
   "technical_details": null,
   "title": "wolfssl evp chacha20 poly1305 poly1305 tag never verifi",

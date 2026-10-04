@@ -56,8 +56,6 @@ Triage and disclosure were performed by Calif.
 
 :   medium
 
-The change that resolved this finding.
-
 ```
 diff --git a/src/x509.c b/src/x509.c
 index 3593cd82f47..f4006ffe3ac 100644
@@ -301,6 +299,7 @@ Revealed 2026-05-21 23:00 UTC
   "bug_class": "heap-buffer-overflow",
   "created_at": "2026-03-27T02:08:32+00:00",
   "description": null,
+  "location": null,
   "project": "wolfSSL",
   "technical_details": null,
   "title": null,

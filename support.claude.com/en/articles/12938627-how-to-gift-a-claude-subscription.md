@@ -43,8 +43,8 @@ After purchase, you'll receive a confirmation email with your order details.
 * Recipients with active mobile (iOS or Android) subscriptions will need to wait until their mobile subscription ends before redeeming.
 * No credit card is required for the recipient to redeem.
 
-* [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
 * [Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan)
+* [Claude 4 Invite Sweepstakes Official Rules](https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules)
 * [How to redeem a Claude gift subscription](https://support.claude.com/en/articles/12938695-how-to-redeem-a-claude-gift-subscription)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)

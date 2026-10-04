@@ -284,7 +284,7 @@ Computer use is off by default. If you ask Claude to do something that needs it 
   </Step>
 
   <Step title="Turn on the toggle">
-    In the desktop app, go to **Settings > General** (under **Desktop app**). Find the **Computer use** toggle and turn it on. On Windows, the toggle takes effect immediately and setup is complete. On macOS, continue to the next step.
+    In the desktop app, go to **Settings > This computer > System**. Under **Computer use**, turn on **Enable computer use**. On Windows, the toggle takes effect immediately and setup is complete. On macOS, continue to the next step.
 
     If you don't see the toggle, confirm you're on macOS or Windows with a Pro or Max plan, then update and restart the app.
   </Step>
@@ -313,7 +313,7 @@ The prompt also shows what level of control Claude gets for that app. These tier
 
 Apps with broad reach, like terminals, Finder or File Explorer, and System Settings or Settings, show an extra warning in the prompt so you know what approving them grants.
 
-You can configure two settings in **Settings > General** (under **Desktop app**):
+The **Computer use** section in **Settings > This computer > System** includes these options:
 
 * **Denied apps**: add apps here to reject them without prompting. Claude may still affect a denied app indirectly through actions in an allowed app, but it can't interact with the denied app directly.
 * **Unhide apps when Claude finishes**: when computer use isn't running in the background, Claude hides your other windows while it works so it interacts with only the approved app. When Claude finishes, hidden windows are restored unless you turn this setting off.
@@ -647,7 +647,7 @@ To set environment variables for local sessions and dev servers on any platform,
 
 [Extended thinking](https://code.claude.com/docs/en/model-config#extended-thinking) is enabled by default, which improves performance on complex reasoning tasks but uses additional tokens. On the Anthropic API, set `MAX_THINKING_TOKENS` to `0` in the local environment editor to turn thinking off; this has no effect on Opus 5.5, Sonnet 5.5, or the Fable models, which always use extended thinking. With thinking turned off on the Anthropic API, Claude Code sends effort `high` instead of a higher level to models it knows [don't accept that combination](https://code.claude.com/docs/en/errors#effort-isnt-available-with-thinking-turned-off), such as Opus 5.
 
-On models with [adaptive reasoning](https://code.claude.com/docs/en/model-config#adjust-effort-level), `MAX_THINKING_TOKENS` values other than `0` are ignored because adaptive reasoning controls thinking depth instead. On Opus 4.6 and Sonnet 4.6, set `CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING` to `1` to use a fixed thinking budget; Fable models, Sonnet 5 and later, and Opus 4.7 and later always use adaptive reasoning and have no fixed-budget mode.
+On models with [adaptive reasoning](https://code.claude.com/docs/en/model-config#adjust-effort-level), Claude Code ignores the number itself in a positive `MAX_THINKING_TOKENS` value because adaptive reasoning controls thinking depth instead. On Opus 4.6 and Sonnet 4.6, set `CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING` to `1` to use a fixed thinking budget; Fable models, Sonnet 5 and later, and Opus 4.7 and later always use adaptive reasoning and have no fixed-budget mode.
 
 #### Local sessions on managed devices
 

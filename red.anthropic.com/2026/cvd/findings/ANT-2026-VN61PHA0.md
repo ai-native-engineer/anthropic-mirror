@@ -463,8 +463,6 @@ else
 fi
 ```
 
-The change that resolved this finding.
-
 ```
 diff --git a/services/lfs/server.go b/services/lfs/server.go
 index 6340b06252141..8c7de2ccb655b 100644

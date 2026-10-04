@@ -41,8 +41,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 **Reference:** ANT-2026-CM0TCREP
 
-The change that resolved this finding.
-
 ```
 diff --git a/fs/eventpoll.c b/fs/eventpoll.c
 index 5714e900567c49..4b43bf41296d4b 100644

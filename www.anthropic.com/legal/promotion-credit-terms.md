@@ -21,5 +21,3 @@ Credit applies only toward Usage Credit charges on your Claude subscription — 
 Credit expires on the date stated in the offer, or 90 days after issuance if no date is stated. Unless otherwise stated, Credit is forfeited if you cancel your subscription or seat, downgrade to a free plan, or if your account or user is suspended or terminated. Forfeited Credit will not be reinstated.
 
 Anthropic may modify, suspend, or terminate this Offer at any time without notice, and may revoke Credit or disqualify participants where it determines there has been fraud, abuse, or violation of these terms. Anthropic’s determination of eligibility, completion, and Credit amounts is final.
-
-Claude Promotional Credit Offer Terms \ Anthropic

@@ -31,6 +31,14 @@ Explore scientific research
 
 [Add Consensus in Claude (opens in new tab)](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6 "Add in Claude")
 
+![](https://appexchange.salesforce.com/image_host/82be812c-159e-49b7-aa89-828b29c95e0b.png)
+
+### [Blackthorn Forge MCP for Native Salesforce Event Management](https://claude.com/marketplace/connectors/blackthorn-beacon-event-management-for-salesforce)
+
+Blackthorn's MCP server for Salesforce events: create, query, and report on events, attendees, tickets, sessions, forms, and email campaigns, over 100 available tools, live against your org.
+
+[Add Blackthorn Forge MCP for Native Salesforce Event Management in Claude (opens in new tab)](https://claude.ai/directory/bb966230-ca18-4d33-8601-7d54184931c1 "Add in Claude")
+
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/clinical-trials.png)
 
 ### [Clinical Trials](https://claude.com/marketplace/connectors/clinical-trials)
@@ -54,11 +62,3 @@ Access bioRxiv and medRxiv preprint data
 Access the ChEMBL Database
 
 [Add ChEMBL in Claude (opens in new tab)](https://claude.ai/directory/711ccc94-754b-4659-903d-d61b29dd781e "Add in Claude")
-
-![](https://assets.claude.com/2739dd738a15a7888267ca8fed434d10ad7d95e5.jpg?w=128&fit=max&auto=format)
-
-### [Scite](https://claude.com/marketplace/connectors/scite)
-
-Evidence-based answers grounded in research
-
-[Add Scite in Claude (opens in new tab)](https://claude.ai/directory/f65118b4-06cb-468a-b2c7-f203ae7b54ea "Add in Claude")

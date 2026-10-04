@@ -83,5 +83,3 @@ Manage databases, authentication, and storage
 Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
-
-Spara connector | Claude by Anthropic

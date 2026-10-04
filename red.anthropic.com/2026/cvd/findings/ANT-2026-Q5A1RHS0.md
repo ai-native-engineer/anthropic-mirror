@@ -37,8 +37,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Calif.
 
-The change that resolved this finding.
-
 ```
 diff --git a/src/sftp.c b/src/sftp.c
 index ec3a8ae18a..842eb6ea51 100644

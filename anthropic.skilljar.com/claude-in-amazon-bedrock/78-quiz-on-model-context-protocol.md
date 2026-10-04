@@ -2,6 +2,4 @@
 
 # Quiz on Model Context Protocol
 
-8 questions
-
-Start
+_(본문 없는 레슨: 퀴즈·과제처럼 추출할 텍스트가 없음)_

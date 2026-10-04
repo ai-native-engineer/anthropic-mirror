@@ -81,7 +81,7 @@ The lead's terminal lists teammates in the agent panel below the prompt input. F
 * **Enter**: open the selected teammate's transcript and message it directly
 * **Escape**: clear the selection. While you're viewing a teammate's transcript, Escape interrupts that teammate's current turn
 
-As of v2.1.199, an idle teammate's row stays in the panel while any teammate or subagent is still working, so you can select it to review its transcript or send it more work. Once every agent in the panel is idle, idle rows hide after 30 seconds and reappear on the teammate's next turn; the teammate stays running and addressable while hidden. In v2.1.181 through v2.1.198, an idle row hid 30 seconds after its own turn ended, even while other teammates were still working; idle rows are not hidden on versions before v2.1.181.
+An idle teammate's row stays in the panel while any teammate or subagent is still working, so you can select it to review its transcript or send it more work. Once every agent in the panel is idle, idle rows hide after 30 seconds and reappear on the teammate's next turn; the teammate stays running and addressable while hidden.
 
 When more than three teammates are idle at once, the rows beyond the first three collapse into a single row that counts the collapsed teammates, such as `2 idle agents` when five are idle. Select it and press Enter to expand the collapsed rows, or press Esc to collapse them again. Working teammates, failed teammates, and the teammate you're viewing always keep their own rows.
 
@@ -156,7 +156,7 @@ Claude Code checks the model it selects for a teammate against your organization
 * **Family alias such as `opus`**: On the Anthropic API and Claude Platform on AWS, Claude Code runs the teammate on the newest version of that family the allowlist permits. On providers with provider-specific model IDs, where the [substitution doesn't operate](https://code.claude.com/docs/en/model-config#restrict-model-selection), a blocked alias falls back like any other blocked value per the next bullet
 * **Any other blocked value, including a family alias on providers where the substitution doesn't operate, or one whose family has no permitted version**: Claude Code runs the teammate on the lead's model instead. If you set `CLAUDE_CODE_SUBAGENT_MODEL`, Claude Code tries that model first, under these same rules
 
-Teammates inherit the lead's [effort level](https://code.claude.com/docs/en/model-config#adjust-effort-level). In split-pane mode this applies from v2.1.186; earlier versions did not pass the lead's session effort to split-pane teammates.
+By default, teammates inherit the lead's [effort level](https://code.claude.com/docs/en/model-config#adjust-effort-level). In split-pane mode this applies from v2.1.186; earlier versions did not pass the lead's session effort to split-pane teammates.
 
 ### Have teammates plan before implementing
 
@@ -180,7 +180,7 @@ While you're viewing an in-process teammate, plain text and [skills](https://cod
 * `/compact`, `/clear`, and `/rewind` act on the lead's conversation, so Claude Code asks you to confirm before running one of them from this view.
 * `/model` and `/fast` set the lead's model and fast mode, not the teammate's, so they don't run from this view. A notice tells you why.
 
-A teammate's model and fast mode are fixed when it spawns. `/effort` still applies to the viewed teammate's later turns, because teammates follow the lead's [effort level](https://code.claude.com/docs/en/model-config#adjust-effort-level).
+A teammate's model and fast mode are fixed when it spawns.
 
 ### Assign and claim tasks
 
@@ -259,7 +259,7 @@ There is no project-level equivalent of the team config. A file like `.claude/te
 
 ### Use subagent definitions for teammates
 
-When spawning a teammate in either display mode, you can reference a [subagent](https://code.claude.com/docs/en/sub-agents) type from the project, user, or managed [subagent scope](https://code.claude.com/docs/en/sub-agents#choose-the-subagent-scope). This lets you define a role once, such as a security-reviewer or test-runner, and reuse it both as a delegated subagent and as an agent team teammate.
+When spawning a teammate in either display mode, you can reference a [subagent](https://code.claude.com/docs/en/sub-agents) type from the project, user, managed, or plugin [subagent scope](https://code.claude.com/docs/en/sub-agents#choose-the-subagent-scope). This lets you define a role once, such as a security-reviewer or test-runner, and reuse it both as a delegated subagent and as an agent team teammate.
 
 To use a subagent definition, name it when you ask Claude to spawn the teammate:
 
@@ -271,6 +271,8 @@ Claude Code reads the subagent definition you named and applies these parts of i
 
 * **`tools`**: Claude Code limits the teammate to the tools in the definition's `tools` list. For an in-process teammate, Claude Code adds `SendMessage` to that list, and in a [session that has the Task tools](https://code.claude.com/docs/en/tools-reference#task-tool-availability) it adds `TaskCreate`, `TaskGet`, `TaskList`, and `TaskUpdate` too.
 * **`model`**: Claude Code uses the definition's `model` in either display mode when your spawn prompt doesn't name one. See [how Claude Code picks a teammate's model](#specify-teammates-and-models).
+* **`disallowedTools`**: for an in-process teammate, Claude Code removes the tools in the definition's `disallowedTools` from the teammate's set. `SendMessage` and the Task tools it adds stay available even when the list names them.
+* **`effort`**: for an in-process teammate, Claude Code applies the definition's [`effort`](https://code.claude.com/docs/en/sub-agents#supported-frontmatter-fields) under the [frontmatter effort rules](https://code.claude.com/docs/en/model-config#set-the-effort-level).
 * **Body**: for an in-process teammate, Claude Code appends the definition's body to its default system prompt as additional instructions. For a split-pane teammate, Claude Code uses the body in place of its default system prompt.
 * **`skills`**: Claude Code doesn't apply the definition's `skills` to a teammate in either display mode. The teammate loads skills from your project and user settings.
 * **`mcpServers`**: for a split-pane teammate, Claude Code applies the definition's `mcpServers` under the [rules for that field](https://code.claude.com/docs/en/sub-agents#scope-mcp-servers-to-a-subagent), which cover a session started with `--agent` as well. An in-process teammate ignores the field and loads MCP servers from your project and user settings.

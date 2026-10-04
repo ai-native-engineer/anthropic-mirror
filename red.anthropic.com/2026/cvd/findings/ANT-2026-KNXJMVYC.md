@@ -45,8 +45,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Calif.
 
-The change that resolved this finding.
-
 ```
 diff --git a/wolfcrypt/src/eccsi.c b/wolfcrypt/src/eccsi.c
 index b4cf859e500..d919dd8a341 100644
@@ -128,6 +126,7 @@ Revealed 2026-05-20 07:40 UTC
   "bug_class": "signature-bypass",
   "created_at": "2026-03-29T20:42:34+00:00",
   "description": null,
+  "location": null,
   "project": "wolfSSL",
   "technical_details": null,
   "title": "eccsi universal signature forgery via r 0 s 0 missing s",

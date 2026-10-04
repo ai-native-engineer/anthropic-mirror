@@ -214,5 +214,3 @@ By that point, we expect to have accomplished most of the goals listed above, in
 * Consistently implementing systematic alignment audits and other measures for upholding Claude’s Constitution.
 
 We hope and expect to meet these targets on time or ahead of schedule, set new ones, and continually raise the bar for our risk mitigations.
-
-Frontier Safety Roadmap \ Anthropic

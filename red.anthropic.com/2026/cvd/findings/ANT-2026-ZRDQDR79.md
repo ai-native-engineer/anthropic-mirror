@@ -60,8 +60,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Calif.
 
-The change that resolved this finding.
-
 ```
 diff --git a/libblkid/src/partitions/partitions.c b/libblkid/src/partitions/partitions.c
 index f95fe898f33..a428c6d6c16 100644

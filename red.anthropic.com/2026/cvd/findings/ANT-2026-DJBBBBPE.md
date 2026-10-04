@@ -49,6 +49,7 @@ Revealed 2026-05-20 07:40 UTC
   "created_at": "2026-03-29T20:43:54+00:00",
   "description": "Workflows can be manipulated or deleted across namespace boundaries within the same cluster.",
   "discovered_at": "2026-03-22T00:00:00+00:00",
+  "location": null,
   "project": "temporalio/temporal",
   "technical_details": "checkNamespaceID() at activities.go:283 only compares batchParams.NamespaceId to a.namespaceID; the redundant batchParams.Request.Namespace field is never checked and is then used verbatim in frontendClient.SignalWorkflowExecution / DeleteWorkflowExecution / etc. Because frontendClient dials internal-frontend, whose noopClaimMapper.GetClaims returns &Claims{System: RoleAdmin} unconditionally, the server-side component acts as a confused deputy executing privileged operations against an attacker-chosen namespace.",
   "title": "Cross-namespace manipulation (including deletion) of workflows on the same cluster",

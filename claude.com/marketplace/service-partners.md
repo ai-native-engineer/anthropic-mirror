@@ -108,15 +108,15 @@ We combine business strategy, AI-native execution, and intellectual property (IP
 
 ![](https://api.eulerapp.com/partner-directory/assets/41607d90b6ae0588eedab18bb2e6054c)
 
-EPAM Systems, Inc. (EPAM) is a global leader in AI transformation engineering and integrated consulting.Preferred](https://partnerhub.claude.com/directory/partner/1784259945260x356686794131264600)[Exadel AI (opens in new tab)
+EPAM Systems, Inc. (EPAM) is a global leader in AI transformation engineering and integrated consulting.Preferred](https://partnerhub.claude.com/directory/partner/1784259945260x356686794131264600)[Exadel (opens in new tab)
 
-![](https://api.eulerapp.com/partner-directory/assets/8688be609d1c7411434a006df9f8fb85)
+![](https://api.eulerapp.com/partner-directory/assets/a1d1fcf2a690e903fc6fdd8165b2a0bf)
 
 Exadel AI is a data and AI advisory and engineering company that helps enterprises design, build, and scale the systems at the heart of their business.Preferred](https://partnerhub.claude.com/directory/partner/exadel)
 
 ## Select partners
 
-Show all 151
+Show all 152
 
 [10Clouds Financial Institutions (opens in new tab)
 
@@ -132,7 +132,7 @@ Show all 151
 
 28Stone, founded in 2011, builds custom software for capital markets and financial services, from electronic and hybrid trading platforms to legacy system modernization and migration, for sell-side, buy-side, market venues, and brokers.Select](https://partnerhub.claude.com/directory/partner/28stone-consulting-partner)[3Pillar Global (opens in new tab)
 
-3Pillar Global
+![](https://api.eulerapp.com/partner-directory/assets/11df60fe8be66848a687d23d7dbd5b65)
 
 3Pillar Global provides technology consulting and full-lifecycle software development for high-growth companies, working at the intersection of product engineering and cognitive computing to deliver intelligent software, data and AI, and cloud solutions.Select](https://partnerhub.claude.com/directory/partner/3pillar-global-partner)[A.Team (opens in new tab)
 
@@ -162,7 +162,7 @@ Accelerize360 is a Salesforce and Snowflake consultancy that helps businesses ha
 
 28Stone, founded in 2011, builds custom software for capital markets and financial services, from electronic and hybrid trading platforms to legacy system modernization and migration, for sell-side, buy-side, market venues, and brokers.Select](https://partnerhub.claude.com/directory/partner/28stone-consulting-partner)[3Pillar Global (opens in new tab)
 
-3Pillar Global
+![](https://api.eulerapp.com/partner-directory/assets/11df60fe8be66848a687d23d7dbd5b65)
 
 3Pillar Global provides technology consulting and full-lifecycle software development for high-growth companies, working at the intersection of product engineering and cognitive computing to deliver intelligent software, data and AI, and cloud solutions.Select](https://partnerhub.claude.com/directory/partner/3pillar-global-partner)[A.Team (opens in new tab)
 

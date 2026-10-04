@@ -62,8 +62,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Trail of Bits.
 
-The change that resolved this finding.
-
 ```
 diff --git a/expat/lib/xmlparse.c b/expat/lib/xmlparse.c
 index 28d991b581..056c724305 100644

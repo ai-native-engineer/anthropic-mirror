@@ -46,6 +46,7 @@ Revealed 2026-08-17 17:47 UTC
   "bug_class": "Integer Overflow",
   "created_at": "2026-03-29T20:43:19+00:00",
   "description": "The product of arrayDimensions overflows during variant dimension validation, leading to a wild-address write.",
+  "location": null,
   "project": "open62541",
   "technical_details": null,
   "title": "Integer overflow in variant dimension validation allowing wild-address write via arrayDimensions product overflow",

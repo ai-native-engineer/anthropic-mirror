@@ -46,6 +46,7 @@ Revealed 2026-08-17 21:12 UTC
   "bug_class": "Heap Buffer Overflow",
   "created_at": "2026-03-29T20:43:12+00:00",
   "description": "An integer overflow during parsing of EMF+ brush blend points leads to a heap buffer overflow.",
+  "location": null,
   "project": "LibreOffice",
   "technical_details": null,
   "title": "Heap Buffer Overflow via Integer Overflow in EMF+ Brush Blend Point Parsing",

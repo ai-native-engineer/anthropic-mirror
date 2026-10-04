@@ -57,6 +57,7 @@ Revealed 2026-08-18 00:36 UTC
   "created_at": "2026-05-14T22:41:26+00:00",
   "description": "On Rocket.Chat instances with an OAuth provider configured, the REST API authenticates requests by looking up the `access_token` query parameter against stored OAuth tokens. The parameter is not validated as a string before being used in the MongoDB query, so an attacker can supply an object such as `access_token[$ne]=null` via querystring bracket notation. This causes the token lookup to match the first stored OAuth token, which is typically the admin user's. A single unauthenticated HTTP request therefore yields full admin API access, including user enumeration, server statistics, and room administration. Variants using `$exists`, `$gt`, and `$regex` all succeed identically.",
   "discovered_at": "2026-02-20T02:46:30+00:00",
+  "location": null,
   "project": "RocketChat/Rocket.Chat",
     "1. Identify a Rocket.Chat server with OAuth login enabled.",
     "2. Issue `curl --globoff 'https://target/api/v1/me?access_token[$ne]=null'`.",

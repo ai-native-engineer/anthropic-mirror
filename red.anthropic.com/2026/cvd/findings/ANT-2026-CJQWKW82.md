@@ -33,8 +33,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Calif.
 
-The change that resolved this finding.
-
 ```
 diff --git a/src/backend/tcop/backend_startup.c b/src/backend/tcop/backend_startup.c
 index 5abf276c89848..a810e41a9040e 100644

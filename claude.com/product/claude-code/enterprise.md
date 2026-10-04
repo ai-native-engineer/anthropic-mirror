@@ -367,5 +367,3 @@ Website](https://claude.com/product/claude-code)
 ## Transform how your organization operates with Claude
 
 [Get Enterprise plan](https://claude.ai/create/enterprise)[Contact sales](https://claude.com/contact-sales)
-
-Claude Code for Enterprise | Claude by Anthropic

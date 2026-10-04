@@ -122,8 +122,6 @@ Apply SqlUtils.quote() to the column name in getFilterQuery(), consistent with g
 
 -> Anthropic discussion:
 
-The change that resolved this finding.
-
 ```
 diff --git a/dhis-2/dhis-services/dhis-service-administration/src/main/java/org/hisp/dhis/sqlview/DefaultSqlViewService.java b/dhis-2/dhis-services/dhis-service-administration/src/main/java/org/hisp/dhis/sqlview/DefaultSqlViewService.java
 index 790b303435ed..aa0c63a80408 100644

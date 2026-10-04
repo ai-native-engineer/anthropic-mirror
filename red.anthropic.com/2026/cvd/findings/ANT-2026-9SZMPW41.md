@@ -122,6 +122,7 @@ Revealed 2026-05-20 07:40 UTC
   "claude_severity": "medium",
   "created_at": "2026-03-29T20:43:18+00:00",
   "description": "While parsing Threshold entries in an SLD Categorize expression, the code grows a heap array to hold parsed thresholds, but the bounds check guarding the realloc uses the wrong counter variable. As a result the buffer is not enlarged when it should be, and subsequent threshold entries are written past the end of the allocation. An attacker who can supply an SLD document with many Threshold elements can trigger an out-of-bounds heap write.",
+  "location": null,
   "project": "MapServer",
   "technical_details": "The reallocation guard compares against a different counter than the one actually used to index/increment into the thresholds array, so the realloc branch is never (or not correctly) taken as thresholds accumulate. Writes then proceed past the allocated heap block. No ASAN output was provided in the report.",
   "title": "Heap buffer overflow in SLD categorize threshold parsing due to wrong counter variable in reallocation guard",

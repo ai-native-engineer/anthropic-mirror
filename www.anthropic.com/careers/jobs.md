@@ -522,9 +522,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391108008)
 
 ## Communications
 
-3 Open Roles
+2 Open Roles
 
-3 Open Roles
+2 Open Roles
 
 [Executive Communications Writer
 
@@ -534,11 +534,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5415287008)[Internal Comm
 
 San Francisco, CA | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5383388008)[Program Manager, Communications
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5252781008)
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5383388008)
 
 ## Compute
 
@@ -1558,11 +1554,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5013366008)[Head of Polic
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5407418008)[Head of Vulnerability Disclosure & Security Community
-
-San Francisco, CA | New York City, NY | Washington, DC
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5397699008)[Policy Design Manager, Conventional Weapons
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5407418008)[Policy Design Manager, Conventional Weapons
 
 San Francisco, CA | New York City, NY | Washington, DC
 
@@ -1570,7 +1562,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5392184008)[Product Polic
 
 Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5400010008)[Program Manager, Safeguards Workforce Operations
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5400010008)[Program Manager, Safeguards Policy, Enforcement, and Threat Intelligence
+
+San Francisco, CA
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5440535008)[Program Manager, Safeguards Workforce Operations
 
 San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC
 
@@ -2626,9 +2622,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5370615008)
 
 ## Technical Program Management
 
-25 Open Roles
+24 Open Roles
 
-25 Open Roles
+24 Open Roles
 
 [Hardware Lab Manager
 
@@ -2666,11 +2662,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5138044008)[Technical Pro
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5013743008)[Technical Program Manager, Databases
-
-San Francisco, CA | Seattle, WA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5251612008)[Technical Program Manager, Enterprise Commerce
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5013743008)[Technical Program Manager, Enterprise Commerce
 
 San Francisco, CA | New York City, NY
 

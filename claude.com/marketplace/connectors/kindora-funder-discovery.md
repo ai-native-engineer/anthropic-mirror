@@ -29,14 +29,6 @@ Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-![](https://assets.claude.com/949ad8b2de4362c0b945dda5655db3a666ded338.jpg?w=128&fit=max&auto=format)
-
-### [Jotform](https://claude.com/marketplace/connectors/jotform)
-
-Create forms, surveys, quizzes & analyze submissions
-
-[Add Jotform in Claude (opens in new tab)](https://claude.ai/directory/aed7e2be-868e-4046-9e12-5c917b4e6b97 "Add in Claude")
-
 ![](https://appexchange.salesforce.com/image_host/82be812c-159e-49b7-aa89-828b29c95e0b.png)
 
 ### [Blackthorn Forge MCP for Native Salesforce Event Management](https://claude.com/marketplace/connectors/blackthorn-beacon-event-management-for-salesforce)
@@ -44,6 +36,14 @@ Create forms, surveys, quizzes & analyze submissions
 Blackthorn's MCP server for Salesforce events: create, query, and report on events, attendees, tickets, sessions, forms, and email campaigns, over 100 available tools, live against your org.
 
 [Add Blackthorn Forge MCP for Native Salesforce Event Management in Claude (opens in new tab)](https://claude.ai/directory/bb966230-ca18-4d33-8601-7d54184931c1 "Add in Claude")
+
+![](https://assets.claude.com/949ad8b2de4362c0b945dda5655db3a666ded338.jpg?w=128&fit=max&auto=format)
+
+### [Jotform](https://claude.com/marketplace/connectors/jotform)
+
+Create forms, surveys, quizzes & analyze submissions
+
+[Add Jotform in Claude (opens in new tab)](https://claude.ai/directory/aed7e2be-868e-4046-9e12-5c917b4e6b97 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=rsvpify.com&sz=96)
 

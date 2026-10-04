@@ -72,8 +72,6 @@ Anthropic is conducting research into the use of large language models for autom
 
 Thank you for your work on libyang!
 
-The change that resolved this finding.
-
 ```
 diff --git a/src/parser_common.c b/src/parser_common.c
 index 39fb4ab0a..f11fce560 100644
@@ -124,6 +122,7 @@ Revealed 2026-05-20 07:40 UTC
   "claude_severity": "medium",
   "created_at": "2026-03-29T20:43:15+00:00",
   "description": "A heap use-after-free write occurs in metadata list management during XML data parsing due to an incorrect update of the list head pointer.",
+  "location": null,
   "project": "libyang",
   "technical_details": "During XML data parsing, the code managing the metadata linked list updates the list head pointer incorrectly, leaving a reference to freed heap memory that is subsequently written to.",
   "title": "Heap use-after-free write in metadata list management during XML data parsing due to incorrect list head pointer update",

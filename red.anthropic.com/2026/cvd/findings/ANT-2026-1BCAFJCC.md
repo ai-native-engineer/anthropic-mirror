@@ -39,8 +39,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 **Reference:** ANT-2026-1BCAFJCC
 
-The change that resolved this finding.
-
 ```
 diff --git a/kernel/futex/syscalls.c b/kernel/futex/syscalls.c
 index 743c7a72823782..77ad9691f6a613 100644

@@ -19,8 +19,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
 
-Anthropic verifiedTrending
-
 Faites vos courses rapidement
 
 [Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")

@@ -38,8 +38,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Ada Logics.
 
-The change that resolved this finding.
-
 ```
 diff --git a/internal/pathrs/mkdirall.go b/internal/pathrs/mkdirall.go
 index 81c9a022c74..31cc08579e2 100644

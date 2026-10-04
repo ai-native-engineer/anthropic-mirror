@@ -57,5 +57,3 @@ We're looking forward to seeing how this new group of grantees will work togethe
 **Footnote**
 
 1. Other [sources place the number of rare diseases as high as 10,000](https://pmc.ncbi.nlm.nih.gov/articles/PMC7771654/). There is also no agreed-upon definition of what a rare disease even is, despite the oft-cited claim that as many as [1 in 10 people](https://www.fda.gov/patients/rare-diseases-fda) in the US have a rare disease. Various terminologies (Orphanet, OMIM, GARD, ICD, the NCI Thesaurus, and dozens more) each define “disease” differently; some exclude chromosomal disorders (such as conditions like Pallister-Killian syndrome); some ignore diseases with environmental causes (such as congenital Zika syndrome); and some require a single anatomical system to classify them, ignoring the many multi-system rare diseases (such as Fanconi anemia, with its mix of bone marrow failure, congenital malformations, and cancer risk).
-
-AI for Science rare disease research grants \ Anthropic

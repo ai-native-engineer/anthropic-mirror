@@ -70,10 +70,10 @@ Answer legal queries, search vaults, and research
 
 [Add Harvey in Claude (opens in new tab)](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=patlytics.ai&sz=96)
+![](https://assets.claude.com/0ac1d5098007447f019dafd5d1c218e697131c3e.svg?w=128&fit=max&auto=format)
 
-### [Patlytics](https://claude.com/marketplace/connectors/patlytics)
+### [Ironclad Contracts](https://claude.com/marketplace/connectors/ironclad)
 
-Prior art, claims, and portfolio search
+Plain language search for faster contract answers and manage your contractual obligations
 
-[Add Patlytics in Claude (opens in new tab)](https://claude.ai/directory/bbf58559-0ce4-4567-a5c9-947ce33e9f81 "Add in Claude")
+[Add Ironclad Contracts in Claude (opens in new tab)](https://claude.ai/directory/c5504c7c-d299-4637-a012-29ef1a2354a9 "Add in Claude")

@@ -58,8 +58,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Ada Logics.
 
-The change that resolved this finding.
-
 ```
 diff --git a/libass/ass_render.c b/libass/ass_render.c
 index b10d5e241..e7ea7314a 100644

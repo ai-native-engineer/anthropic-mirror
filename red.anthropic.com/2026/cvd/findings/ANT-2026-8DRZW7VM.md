@@ -51,6 +51,7 @@ Revealed 2026-07-21 05:20 UTC
   "bug_class": "Integer Overflow",
   "created_at": "2026-03-29T20:42:42+00:00",
   "description": "An integer overflow when computing the SubStreams count in the 7z archive parser results in an undersized allocation and subsequent heap buffer overflow.",
+  "location": null,
   "project": "ClamAV",
   "technical_details": null,
   "title": "Integer overflow in 7z SubStreams count leading to heap buffer overflow",

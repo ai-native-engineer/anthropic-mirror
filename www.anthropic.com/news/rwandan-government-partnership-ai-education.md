@@ -41,5 +41,3 @@ In [Iceland](https://www.anthropic.com/news/anthropic-and-iceland-announce-one-o
 These partnerships demonstrate a consistent approach to working closely with governments, educational institutions, and technology companies to ensure AI expands opportunity and serves the communities where it's deployed.
 
 We look forward to learning from these deployments, sharing what we've learned with the wider community, and continuing to support educators and learners as they shape AI's role in building our future.
-
-Anthropic brings AI education to Africa with Rwanda and ALX \ Anthropic

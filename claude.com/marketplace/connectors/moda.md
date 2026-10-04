@@ -65,8 +65,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
 
-Anthropic verifiedTrending
-
 Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
 
 [Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
@@ -110,5 +108,3 @@ Search, create, autofill, and export Canva designs
 Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
-
-Moda - Slides and Designs connector | Claude by Anthropic

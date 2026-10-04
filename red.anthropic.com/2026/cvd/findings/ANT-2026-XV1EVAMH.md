@@ -63,6 +63,7 @@ Revealed 2026-07-08 23:30 UTC
   "claude_severity": "critical",
   "created_at": "2026-03-24T18:45:47+00:00",
   "description": "LibreOffice Calc's formula compiler (ScCompiler::CompileString in sc/source/core/tool/compiler.cxx) allocates a FunctionStack array sized to the formula string length when that length exceeds a 512-element stack buffer. For each '(' token it increments nFunction and writes to pFunctionStack[nFunction] without bounds checking. A crafted FODS file containing a formula of 513 '(' characters causes nFunction to reach 513 while the heap buffer has only indices 0-512, producing a 2-byte out-of-bounds heap write. An attacker who can get a victim to open a malicious FODS/ODS document can corrupt heap memory, potentially leading to code execution.",
+  "location": null,
   "project": "libreoffice",
   "technical_details": "ASAN: heap-buffer-overflow WRITE of size 2 at 0x51d000009484 in ScCompiler::CompileString (compiler.cxx:4907:53). The root cause is an off-by-one: the FunctionStack heap buffer is sized to rFormula.getLength() (513), but nFunction starts at 0 and is pre-incremented once per '(' token, so 513 open-parens drive the index to 513 and pFunctionStack[513].eOp is written one element past the end of the allocation.",
   "title": "Heap-buffer-overflow in libreoffice",

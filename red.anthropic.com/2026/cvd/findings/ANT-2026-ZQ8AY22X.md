@@ -27,8 +27,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 **Reference:** ANT-2026-ZQ8AY22X
 
-The change that resolved this finding.
-
 ```
 diff --git a/CHANGELOG.md b/CHANGELOG.md
 index 9a940756613..ddca7497e41 100644
@@ -273,6 +271,7 @@ Revealed 2026-05-20 07:40 UTC
   "bug_class": "privilege-escalation",
   "created_at": "2026-03-29T20:43:35+00:00",
   "description": "Craft CMS's actionPreview() re-dispatches requests with $skipSpecialHandling=true and $checkToken=false, allowing an attacker-supplied action query parameter to redirect execution to UsersController::actionImpersonateWithToken(). That endpoint's only guard, requireToken(), merely checks the boolean _hadToken set when the preview token was resolved, without verifying the token was minted for impersonation. Because the action is also listed in $allowAnonymous, no prior authentication is enforced. An editor (or anyone holding a shared preview URL) can therefore append &action=users/impersonate-with-token&userId=1&prevUserId=1 to a preview URL and be logged in as user 1 (admin).",
+  "location": null,
   "project": "CraftCMS",
   "technical_details": "Root cause is a confused-deputy between the preview dispatcher and the impersonation endpoint: actionPreview() passes $skipSpecialHandling=true to handleRequest() and $checkToken=false to checkIfActionRequest(), so security guards are skipped and the action parameter is attacker-controlled. requireToken() on actionImpersonateWithToken() only inspects _hadToken (set for any valid token) rather than validating that the token was issued for this route, and the action is in $allowAnonymous, so no further authorization occurs.",
   "title": "Privilege Escalation/Bypass through UsersController->actionImpersonateWithToken()",

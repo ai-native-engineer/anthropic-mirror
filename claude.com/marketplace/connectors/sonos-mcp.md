@@ -88,5 +88,3 @@ Edit, polish, and publish your Tella videos by chatting with Claude.
 Music industry data inside Claude — artists, tracks, festivals, charts.
 
 [Add Viberate music data in Claude (opens in new tab)](https://claude.ai/directory/76ce4809-1d36-493c-92ef-baa130334896 "Add in Claude")
-
-Sonos connector | Claude by Anthropic

@@ -84,5 +84,3 @@ Through their continued partnership with Anthropic, CodeRabbit is poised to tran
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-CodeRabbit Claude Platform (API) case study | Claude by Anthropic

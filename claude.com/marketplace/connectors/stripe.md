@@ -44,13 +44,15 @@ Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
 
-![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
+![](https://www.coinversa.ai/web-app-manifest-512x512.png)
 
-### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
+### [Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)
 
-Build, analyze, and compare portfolios for advisors
+Anthropic verifiedTrending
 
-[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
+Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
+
+[Add Coinversa Pulse in Claude (opens in new tab)](https://claude.ai/directory/4f5d3539-79ae-4f8b-8011-356259b4dff6 "Add in Claude")
 
 ![](https://app.superbooks.io/icons/icon-512.png)
 
@@ -60,14 +62,6 @@ Financial OS for small businesses
 
 [Add SuperBooks in Claude (opens in new tab)](https://claude.ai/directory/f80d20ad-23dc-46d7-bca4-0057424eb163 "Add in Claude")
 
-![](https://www.coinversa.ai/web-app-manifest-512x512.png)
-
-### [Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)
-
-Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
-
-[Add Coinversa Pulse in Claude (opens in new tab)](https://claude.ai/directory/4f5d3539-79ae-4f8b-8011-356259b4dff6 "Add in Claude")
-
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
 ### [Intuit QuickBooks](https://claude.com/marketplace/connectors/quickbooks)
@@ -75,3 +69,11 @@ Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best 
 Business Finances made simple
 
 [Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
+
+![](https://assets.claude.com/4b4dffdb47d20c0879d8dee1d2922310cc21a5b8.jpg?w=128&fit=max&auto=format)
+
+### [Interactive Brokers (IBKR)](https://claude.com/marketplace/connectors/interactive-brokers)
+
+Trade, invest, analyze, and manage global markets
+
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")

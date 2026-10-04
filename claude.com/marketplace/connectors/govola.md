@@ -46,14 +46,6 @@ Connect Tineo to Claude to review trips, flights, hotels and activities, and add
 
 [Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
 
-![](https://www.rome2rio.com/favicon.ico)
-
-### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
-
-Discover how to get anywhere
-
-[Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=accuweather.com&sz=96)
 
 ### [AccuWeather®](https://claude.com/marketplace/connectors/accuweather)
@@ -69,3 +61,11 @@ Hyper-local forecasts & alerts
 Use trivago's powerful metasearch to find your ideal hotel and compare prices from multiple providers.
 
 [Add Trivago in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8718 "Add in Claude")
+
+![](https://www.rome2rio.com/favicon.ico)
+
+### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
+
+Discover how to get anywhere
+
+[Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")

@@ -62,6 +62,8 @@ Each binding block specifies a **context** where the bindings apply:
 | `EffortSlider` | Effort slider opened by `/effort` |
 | `Select` | Generic select/list components |
 | `Plugin` | Plugin dialog (browse, discover, manage) |
+| `Pane` | A pane drawn by a [mod](https://code.claude.com/docs/en/plugins/mods/interface#know-which-keys-your-mod-can-receive) has keyboard focus |
+| `PaneField` | An input field or select in a mod's pane has keyboard focus |
 | `Agents` | [Agent view](https://code.claude.com/docs/en/agent-view) (`claude agents`) |
 | `Scroll` | Conversation scrolling and text selection in fullscreen mode |
 
@@ -408,6 +410,10 @@ Actions available in the `Agents` context, which applies in [agent view](https:/
 | :- | :- | :- |
 | `agents:switchView` | Ctrl+S | Switch [session grouping](https://code.claude.com/docs/en/agent-view#organize-the-list) between state and directory |
 | `agents:togglePin` | Ctrl+T | [Pin or unpin](https://code.claude.com/docs/en/agent-view#organize-the-list) the selected session |
+| `agents:find` | Ctrl+F | Find sessions by name, with the [`n:` filter](https://code.claude.com/docs/en/agent-view#filter-sessions). Requires v2.1.288 or later |
+| `agents:rename` | Ctrl+R | [Rename](https://code.claude.com/docs/en/agent-view#organize-the-list) the selected session. Requires v2.1.288 or later |
+| `agents:previousGroup` | Ctrl+Up, Meta+Up | Jump to the previous [group header](https://code.claude.com/docs/en/agent-view#organize-the-list). Requires v2.1.288 or later |
+| `agents:nextGroup` | Ctrl+Down, Meta+Down | Jump to the next group header. Requires v2.1.288 or later |
 
 While agent view is open, Claude Code uses the `Agents` binding for any key the `Agents` context binds, and it ignores a `Chat` or `Global` binding on the same key. For example, pressing Ctrl+S in agent view switches the session grouping rather than triggering the default `chat:stash`.
 
@@ -524,7 +530,15 @@ Set an action to `null` to unbind a default shortcut:
 
 This also works for chord bindings. Unbinding every chord that shares a prefix frees that prefix for use as a single-key binding. A chord in any active context keeps its prefix reserved, so you must unbind each chord in the context that defines it.
 
-Claude Code binds these default chords on the `ctrl+x` prefix: `ctrl+x ctrl+k`, `ctrl+x ctrl+e`, `ctrl+x enter`, `ctrl+x ctrl+a`, `ctrl+x ctrl+s`, and `ctrl+x tab` in `Chat`, `ctrl+x ctrl+b` in `Task`, and `ctrl+x b` in `DiffPanel`. The `ctrl+x enter` chord requires v2.1.247 or later, `ctrl+x b`, `ctrl+x ctrl+a`, and `ctrl+x tab` require v2.1.260 or later, and `ctrl+x ctrl+s` requires v2.1.275 or later.
+Claude Code binds these default chords on the `ctrl+x` prefix, by context:
+
+* `Chat`: `ctrl+x ctrl+k`, `ctrl+x ctrl+e`, `ctrl+x enter`, `ctrl+x ctrl+a`, `ctrl+x ctrl+s`, and `ctrl+x tab`
+* `Task`: `ctrl+x ctrl+b`
+* `DiffPanel`: `ctrl+x b`
+* `Pane`: `ctrl+x left`, `ctrl+x right`, `ctrl+x up`, `ctrl+x down`, and `ctrl+x x`
+* `PaneField`: `ctrl+x x`
+
+The `ctrl+x enter` chord requires v2.1.247 or later, `ctrl+x b`, `ctrl+x ctrl+a`, and `ctrl+x tab` require v2.1.260 or later, and `ctrl+x ctrl+s` requires v2.1.275 or later.
 
 To reclaim `ctrl+x` itself as a single-key binding, unbind all of them:
 
@@ -541,6 +555,22 @@ To reclaim `ctrl+x` itself as a single-key binding, unbind all of them:
       "context": "DiffPanel",
       "bindings": {
         "ctrl+x b": null
+      }
+    },
+    {
+      "context": "Pane",
+      "bindings": {
+        "ctrl+x left": null,
+        "ctrl+x right": null,
+        "ctrl+x up": null,
+        "ctrl+x down": null,
+        "ctrl+x x": null
+      }
+    },
+    {
+      "context": "PaneField",
+      "bindings": {
+        "ctrl+x x": null
       }
     },
     {

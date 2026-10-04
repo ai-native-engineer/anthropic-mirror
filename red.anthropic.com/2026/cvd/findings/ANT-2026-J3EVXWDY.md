@@ -37,8 +37,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Anvil Security.
 
-The change that resolved this finding.
-
 ```
 diff --git a/src/Node/ModuleNode.php b/src/Node/ModuleNode.php
 index 71c57201982..a3f66827ff6 100644

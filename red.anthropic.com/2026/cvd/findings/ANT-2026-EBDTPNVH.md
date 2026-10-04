@@ -53,6 +53,7 @@ Revealed 2026-05-20 07:40 UTC
   "claude_severity": "medium",
   "created_at": "2026-03-29T20:43:01+00:00",
   "description": "An integer overflow during string concatenation leads to a 1 GB memcpy heap buffer overflow.",
+  "location": null,
   "project": "jq",
   "technical_details": "The root cause is an integer overflow in the string-concatenation size calculation; the resulting undersized buffer is then overflowed by a ~1 GB memcpy.",
   "title": "Integer overflow in string concatenation leading to 1 GB memcpy heap buffer overflow",

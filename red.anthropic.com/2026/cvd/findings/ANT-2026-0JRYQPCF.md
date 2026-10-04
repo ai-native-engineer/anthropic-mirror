@@ -47,8 +47,6 @@ This vulnerability was discovered by Claude, Anthropic's AI assistant, and triag
 
 Triage and disclosure were performed by Calif.
 
-The change that resolved this finding.
-
 ```
 diff --git a/src/tls.c b/src/tls.c
 index b854b8f8cd5..09e6c921740 100644
@@ -137,6 +135,7 @@ Revealed 2026-05-20 07:40 UTC
   "bug_class": "heap-buffer-overflow",
   "created_at": "2026-03-29T20:42:36+00:00",
   "description": null,
+  "location": null,
   "project": "wolfSSL",
   "technical_details": null,
   "title": "wolfssl ech heap buffer overflow via publicname sni pol",

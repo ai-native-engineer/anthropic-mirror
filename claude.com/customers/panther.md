@@ -98,5 +98,3 @@ This vision goes beyond automation—it represents a fundamental shift in how se
 ### Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera)[![Kai](https://assets.claude.com/aff2397c0fd3708b6d0b23554c2ce5f81a3f7c56.svg)
 
 ### Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai)
-
-Panther Claude Platform (API) case study | Claude by Anthropic

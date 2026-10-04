@@ -51,6 +51,7 @@ Revealed 2026-07-21 05:25 UTC
   "bug_class": "Integer Overflow",
   "created_at": "2026-03-29T20:42:41+00:00",
   "description": "An integer overflow occurs when summing section sizes during PE rebuild in the Aspack unpacker.",
+  "location": null,
   "project": "ClamAV",
   "technical_details": null,
   "title": "Integer overflow in PE rebuild section size summation in Aspack unpacker",

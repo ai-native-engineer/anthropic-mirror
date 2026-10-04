@@ -96,8 +96,8 @@ For complex coding and agentic tasks on Opus 4.7 or newer, try Extra high (xhigh
 
 Whichever settings you choose, be specific about your problem or question. Clear prompts help Claude use its effort and thinking time effectively.
 
-* [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+* [Why Claude switched models in your conversation with Opus 5 or Opus 5.5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5-or-opus-5-5)
 * [Preserved thinking: changing how the Messages API handles thinking blocks to protect against distillation](https://support.claude.com/en/articles/16761192-preserved-thinking-changing-how-the-messages-api-handles-thinking-blocks-to-protect-against-distillation)
 * [Why Claude switched models in your conversation with Sonnet 5.5](https://support.claude.com/en/articles/17161993-why-claude-switched-models-in-your-conversation-with-sonnet-5-5)

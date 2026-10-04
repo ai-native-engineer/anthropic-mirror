@@ -50,6 +50,7 @@ Revealed 2026-05-20 07:40 UTC
   "bug_class": "Path Traversal",
   "created_at": "2026-03-29T20:45:57+00:00",
   "description": "Arbitrary file write due to backslash path traversal.",
+  "location": null,
   "project": "junrar",
   "technical_details": "Path sanitization fails to account for backslash (`\\`) as a directory separator, allowing traversal sequences to bypass checks and write files to arbitrary locations.",
   "title": "Arbitrary file write due to backslash path traversal",

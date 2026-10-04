@@ -31,8 +31,6 @@ Triage and disclosure were performed by Trail of Bits.
 
 :   low
 
-The change that resolved this finding.
-
 ```
 diff --git a/ChangeLog b/ChangeLog
 index bc3e3ace80..5ea68a830d 100644
@@ -86,6 +84,7 @@ Revealed 2026-08-17 17:47 UTC
   "claude_severity": "low",
   "created_at": "2026-03-29T20:43:13+00:00",
   "description": "An out-of-bounds index into the IFD array during EXIF parsing produces a corrupted pointer that is then used as a write target.",
+  "location": null,
   "project": "libvips",
   "technical_details": null,
   "title": "Out-of-bounds IFD array access in EXIF metadata processing leading to write through corrupted pointer",

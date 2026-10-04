@@ -61,6 +61,7 @@ Revealed 2026-07-14 00:08 UTC
   "claude_severity": "critical",
   "created_at": "2026-03-24T18:31:41+00:00",
   "description": "The pptfuzzer harness was run against a single reproducer (/tmp/poc) and exited with a non-zero status (EXIT_CODE:1). No AddressSanitizer, UBSan, or other crash diagnostics were printed, so the crash type, faulting function, and access shape cannot be determined from this output alone. The target name suggests a PPT-format parsing entry point, but no source location or call chain is available.",
+  "location": null,
   "project": "libreoffice",
   "technical_details": null,
   "title": "Stack-buffer-overflow in libreoffice",

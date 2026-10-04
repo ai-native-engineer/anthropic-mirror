@@ -546,7 +546,7 @@ The following sections cover the order Claude Code evaluates an action in, how t
 
 If you set `dontAsk` mode, Claude Code auto-denies every tool call that would otherwise prompt you. Claude still runs actions that need no approval in Manual mode, such as file reads inside your working directories and [read-only Bash commands](https://code.claude.com/docs/en/permissions#read-only-commands), plus actions matching your `permissions.allow` rules and calls approved by a [PreToolUse hook](https://code.claude.com/docs/en/permissions#extend-permissions-with-hooks). Use this mode for CI pipelines or restricted environments where you pre-define what Claude may do; the session never waits for input. The status bar shows `⏵⏵ don't ask on` while this mode is active.
 
-Claude Code denies calls matching your explicit [`ask` rules](https://code.claude.com/docs/en/permissions#manage-permissions) rather than prompting. It also denies the built-in `AskUserQuestion` tool even if your allow rules match it, and does the same to connector tools [your organization set to `ask`](https://code.claude.com/docs/en/mcp#organization-controls-on-connector-tools) in sessions where that setting reaches Claude Code. It denies MCP tools marked [`_meta["anthropic/requiresUserInteraction"]`](https://code.claude.com/docs/en/mcp#require-approval-for-a-specific-tool) the same way, because their approval card needs an answer this mode never collects; this requires Claude Code v2.1.199 or later.
+Claude Code denies calls matching your explicit [`ask` rules](https://code.claude.com/docs/en/permissions#manage-permissions) rather than prompting. It also denies the built-in `AskUserQuestion` tool even if your allow rules match it, and does the same to connector tools [your organization set to `ask`](https://code.claude.com/docs/en/mcp#organization-controls-on-connector-tools) in sessions where that setting reaches Claude Code. It denies MCP tools marked [`_meta["anthropic/requiresUserInteraction"]`](https://code.claude.com/docs/en/mcp#require-approval-for-a-specific-tool) the same way, because their approval card needs an answer this mode never collects.
 
 `rm` and `rmdir` removals targeting a [critical path](#critical-paths), such as `rm -rf /` and `rm -rf ~`, are denied even when an allow rule matches them or a `PreToolUse` hook allows them.
 
@@ -695,9 +695,11 @@ To turn off the check on a target that is only command substitution output, set 
 Claude Code also looks inside these constructs:
 
 * **Nested commands**: a subshell with `(...)`, a brace group with `{ ...; }`, command substitution with `$(...)` or backticks, or process substitution with `<(...)`. Claude Code finds a critical-path removal whether it sits inside the nested form, as in `(rm -rf ~)` or `echo "$(rm -rf ~)"`, or elsewhere in the same command.
-* **Inline scripts**: Claude Code checks a script passed to a shell such as `sh -c` or `bash -c` for the shell variable and positional parameter [targets](#other-targets-that-count-as-critical-paths).
+* **Inline scripts**: a script passed to `sh`, `bash`, `zsh`, or a similar POSIX shell with `-c`, as in `bash -c 'rm -rf ~'`.
   * When the script is double-quoted, the invoking shell expands its variables before the inner shell receives the script. In `find . -name '*.tmp' -exec sh -c "rm -rf \"$1\"/*" _ {} \;`, the command expands to a removal from the filesystem root once per match, and Claude Code treats it as a critical-path removal.
   * A single-quoted script that binds `$1` to a real value, as `sh -c 'rm -rf "$1"/*' _ {}` does, isn't flagged.
+
+To turn off the check on a critical path typed directly in a `-c` script, such as `~`, set [`CLAUDE_CODE_DISABLE_INLINE_SHELL_RM_PROMPT=1`](https://code.claude.com/docs/en/env-vars#variables) in the environment that launches Claude Code.
 
 ### Rewrite a flagged command
 

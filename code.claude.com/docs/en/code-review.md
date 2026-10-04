@@ -271,9 +271,12 @@ When a review fails or exceeds its time limit, the check run completes with a ti
 
 To run the review again, comment `@claude review` on the PR. This starts a fresh review without subscribing the PR to future pushes. If the PR isn't [from a fork](#review-pull-requests-from-forks), you can instead click **Re-run** on the **Claude Code Review** check in GitHub's Checks tab. A re-run also starts a fresh review without subscribing the PR.
 
-### Review didn't run and the PR shows a spend-cap message
+### Review didn't run and the PR shows a budget message
 
-When your organization's monthly spend cap is reached, Code Review posts a single comment on the PR explaining that the review was skipped. Reviews resume automatically at the start of the next billing period, or immediately when an admin raises the cap at [claude.ai/admin-settings/usage](https://claude.ai/admin-settings/usage).
+When your organization's monthly spend cap for Code Review is reached or its usage-credits balance is used up, Code Review skips the review and posts a single comment on the PR. The comment and the check-run card both name the cause and link the admin page where an admin fixes it:
+
+* **Spend cap reached**: reviews resume at the start of the next billing period, or immediately after an admin raises the cap at [claude.ai/admin-settings/usage](https://claude.ai/admin-settings/usage)
+* **Usage credits used up**: reviews resume once an admin adds more [usage credits](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) at [claude.ai/admin-settings/usage](https://claude.ai/admin-settings/usage)
 
 ### Find issues that aren't showing as inline comments
 
@@ -285,7 +288,7 @@ If the check run title says issues were found but you don't see inline review co
 
 ## Review a diff locally
 
-The [`/code-review` command](https://code.claude.com/docs/en/commands) reviews a diff in your terminal without installing the GitHub App. It reports correctness bugs and reuse, simplification, and efficiency cleanups.
+The [`/code-review` command](https://code.claude.com/docs/en/commands) reviews a diff in your terminal without installing the GitHub App. It reports correctness bugs. Depending on your model and effort level, the review also covers reuse, simplification, and efficiency cleanups.
 
 `/review` is an alias of `/code-review`; before v2.1.223, it was a separate command that ran a single-pass, read-only review of a GitHub pull request.
 
@@ -304,6 +307,7 @@ The [`/code-review` command](https://code.claude.com/docs/en/commands) reviews a
     * `--fix`: applies the findings to your working tree after the review
     * `--comment`: posts the findings on a GitHub pull request as inline comments, or on a GitLab merge request as a single note
     * `--post`: on an `ultra` cloud review of a `github.com` pull request, preselects posting the finished findings to the PR in the launch dialog; see [Post findings to the pull request](https://code.claude.com/docs/en/ultrareview#post-findings-to-the-pull-request). Requires Claude Code v2.1.227 or later
+    * `--max-findings <n>`, `--max-findings all`, or `--max-findings default`: reports up to `n` findings, or every finding with `all`, in place of the review's usual limit. Later reviews reuse the value you typed until you pass `--max-findings default`. Requires Claude Code v2.1.288 or later
 
     When you pass `--comment` for a GitLab merge request, Claude Code posts the findings through GitLab's `glab` CLI. Requires Claude Code v2.1.257 or later. When `glab` isn't installed, Claude prints the findings in the terminal instead.
 

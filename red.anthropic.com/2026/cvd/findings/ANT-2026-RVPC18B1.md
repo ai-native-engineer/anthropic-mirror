@@ -50,6 +50,7 @@ Revealed 2026-08-17 17:47 UTC
   "claude_severity": "medium",
   "created_at": "2026-03-29T20:43:06+00:00",
   "description": "A size mismatch between PCRE's pre-compile and compile phases when applying atomic-group wrapping leads to a heap buffer overflow during regex compilation.",
+  "location": null,
   "project": "libgit2",
   "technical_details": null,
   "title": "Heap buffer overflow in bundled PCRE regex compilation via pre-compile/compile phase mismatch in atomic wrapping",
